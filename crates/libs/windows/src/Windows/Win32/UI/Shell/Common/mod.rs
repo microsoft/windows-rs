@@ -244,7 +244,7 @@ unsafe impl ::windows::core::Interface for IObjectCollection {
 pub struct IObjectCollection_Vtbl {
     pub base__: IObjectArray_Vtbl,
     pub AddObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub AddFromArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poasource: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub AddFromArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poasource: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub RemoveObjectAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uiindex: u32) -> ::windows::core::HRESULT,
     pub Clear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }

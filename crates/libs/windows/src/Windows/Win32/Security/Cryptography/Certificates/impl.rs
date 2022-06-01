@@ -23,7 +23,7 @@ impl IAlternativeName_Vtbl {
             let this = (*this).get_impl();
             this.InitializeFromRawData(::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&encoding), ::core::mem::transmute(&strrawdata)).into()
         }
-        unsafe extern "system" fn InitializeFromOtherName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAlternativeName_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pobjectid: ::windows::core::RawPtr, encoding: EncodingType, strrawdata: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, tobewrapped: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InitializeFromOtherName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAlternativeName_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pobjectid: *mut ::core::ffi::c_void, encoding: EncodingType, strrawdata: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, tobewrapped: i16) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.InitializeFromOtherName(::core::mem::transmute(&pobjectid), ::core::mem::transmute_copy(&encoding), ::core::mem::transmute(&strrawdata), ::core::mem::transmute_copy(&tobewrapped)).into()
@@ -50,7 +50,7 @@ impl IAlternativeName_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ObjectId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAlternativeName_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ObjectId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAlternativeName_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ObjectId() {
@@ -101,7 +101,7 @@ impl ::windows::core::RuntimeName for IAlternativeNames {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAlternativeNames_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAlternativeNames_Impl, const OFFSET: isize>() -> IAlternativeNames_Vtbl {
-        unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAlternativeNames_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAlternativeNames_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_ItemByIndex(::core::mem::transmute_copy(&index)) {
@@ -134,7 +134,7 @@ impl IAlternativeNames_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAlternativeNames_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAlternativeNames_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Add(::core::mem::transmute(&pval)).into()
@@ -2546,7 +2546,7 @@ impl ::windows::core::RuntimeName for ICertExit2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertExit2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICertExit2_Impl, const OFFSET: isize>() -> ICertExit2_Vtbl {
-        unsafe extern "system" fn GetManageModule<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICertExit2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppmanagemodule: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetManageModule<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICertExit2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppmanagemodule: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetManageModule() {
@@ -2697,7 +2697,7 @@ impl ::windows::core::RuntimeName for ICertPolicy2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertPolicy2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICertPolicy2_Impl, const OFFSET: isize>() -> ICertPolicy2_Vtbl {
-        unsafe extern "system" fn GetManageModule<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICertPolicy2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppmanagemodule: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetManageModule<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICertPolicy2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppmanagemodule: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetManageModule() {
@@ -2729,7 +2729,7 @@ impl ::windows::core::RuntimeName for ICertProperties {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertProperties_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICertProperties_Impl, const OFFSET: isize>() -> ICertProperties_Vtbl {
-        unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICertProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICertProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_ItemByIndex(::core::mem::transmute_copy(&index)) {
@@ -2762,7 +2762,7 @@ impl ICertProperties_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICertProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICertProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Add(::core::mem::transmute(&pval)).into()
@@ -3322,12 +3322,12 @@ impl ::windows::core::RuntimeName for ICertPropertyKeyProvInfo {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertPropertyKeyProvInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICertPropertyKeyProvInfo_Impl, const OFFSET: isize>() -> ICertPropertyKeyProvInfo_Vtbl {
-        unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICertPropertyKeyProvInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICertPropertyKeyProvInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Initialize(::core::mem::transmute(&pvalue)).into()
         }
-        unsafe extern "system" fn PrivateKey<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICertPropertyKeyProvInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PrivateKey<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICertPropertyKeyProvInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.PrivateKey() {
@@ -4139,7 +4139,7 @@ impl ICertView_Vtbl {
             let this = (*this).get_impl();
             this.OpenConnection(::core::mem::transmute(&strconfig)).into()
         }
-        unsafe extern "system" fn EnumCertViewColumn<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICertView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fresultcolumn: CVRC_COLUMN, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnumCertViewColumn<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICertView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fresultcolumn: CVRC_COLUMN, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.EnumCertViewColumn(::core::mem::transmute_copy(&fresultcolumn)) {
@@ -4175,7 +4175,7 @@ impl ICertView_Vtbl {
             let this = (*this).get_impl();
             this.SetRestriction(::core::mem::transmute_copy(&columnindex), ::core::mem::transmute_copy(&seekoperator), ::core::mem::transmute_copy(&sortorder), ::core::mem::transmute_copy(&pvarvalue)).into()
         }
-        unsafe extern "system" fn OpenView<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICertView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OpenView<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICertView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.OpenView() {
@@ -4315,7 +4315,7 @@ impl ::windows::core::RuntimeName for ICertificatePolicies {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertificatePolicies_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICertificatePolicies_Impl, const OFFSET: isize>() -> ICertificatePolicies_Vtbl {
-        unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICertificatePolicies_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICertificatePolicies_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_ItemByIndex(::core::mem::transmute_copy(&index)) {
@@ -4348,7 +4348,7 @@ impl ICertificatePolicies_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICertificatePolicies_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICertificatePolicies_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Add(::core::mem::transmute(&pval)).into()
@@ -4388,12 +4388,12 @@ impl ::windows::core::RuntimeName for ICertificatePolicy {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertificatePolicy_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICertificatePolicy_Impl, const OFFSET: isize>() -> ICertificatePolicy_Vtbl {
-        unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICertificatePolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICertificatePolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Initialize(::core::mem::transmute(&pvalue)).into()
         }
-        unsafe extern "system" fn ObjectId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICertificatePolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ObjectId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICertificatePolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ObjectId() {
@@ -4404,7 +4404,7 @@ impl ICertificatePolicy_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PolicyQualifiers<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICertificatePolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PolicyQualifiers<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICertificatePolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.PolicyQualifiers() {
@@ -4442,7 +4442,7 @@ impl ::windows::core::RuntimeName for ICertificationAuthorities {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertificationAuthorities_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICertificationAuthorities_Impl, const OFFSET: isize>() -> ICertificationAuthorities_Vtbl {
-        unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICertificationAuthorities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICertificationAuthorities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_ItemByIndex(::core::mem::transmute_copy(&index)) {
@@ -4475,7 +4475,7 @@ impl ICertificationAuthorities_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICertificationAuthorities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICertificationAuthorities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Add(::core::mem::transmute(&pval)).into()
@@ -4495,7 +4495,7 @@ impl ICertificationAuthorities_Vtbl {
             let this = (*this).get_impl();
             this.ComputeSiteCosts().into()
         }
-        unsafe extern "system" fn get_ItemByName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICertificationAuthorities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ItemByName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICertificationAuthorities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_ItemByName(::core::mem::transmute(&strname)) {
@@ -4560,17 +4560,17 @@ impl ::windows::core::RuntimeName for ICryptAttribute {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICryptAttribute_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICryptAttribute_Impl, const OFFSET: isize>() -> ICryptAttribute_Vtbl {
-        unsafe extern "system" fn InitializeFromObjectId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICryptAttribute_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pobjectid: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InitializeFromObjectId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICryptAttribute_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pobjectid: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.InitializeFromObjectId(::core::mem::transmute(&pobjectid)).into()
         }
-        unsafe extern "system" fn InitializeFromValues<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICryptAttribute_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pattributes: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InitializeFromValues<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICryptAttribute_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pattributes: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.InitializeFromValues(::core::mem::transmute(&pattributes)).into()
         }
-        unsafe extern "system" fn ObjectId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICryptAttribute_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ObjectId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICryptAttribute_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ObjectId() {
@@ -4581,7 +4581,7 @@ impl ICryptAttribute_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Values<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICryptAttribute_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Values<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICryptAttribute_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Values() {
@@ -4620,7 +4620,7 @@ impl ::windows::core::RuntimeName for ICryptAttributes {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICryptAttributes_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICryptAttributes_Impl, const OFFSET: isize>() -> ICryptAttributes_Vtbl {
-        unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICryptAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICryptAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_ItemByIndex(::core::mem::transmute_copy(&index)) {
@@ -4653,7 +4653,7 @@ impl ICryptAttributes_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICryptAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICryptAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Add(::core::mem::transmute(&pval)).into()
@@ -4668,7 +4668,7 @@ impl ICryptAttributes_Vtbl {
             let this = (*this).get_impl();
             this.Clear().into()
         }
-        unsafe extern "system" fn get_IndexByObjectId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICryptAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pobjectid: ::windows::core::RawPtr, pindex: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_IndexByObjectId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICryptAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pobjectid: *mut ::core::ffi::c_void, pindex: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_IndexByObjectId(::core::mem::transmute(&pobjectid)) {
@@ -4679,7 +4679,7 @@ impl ICryptAttributes_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AddRange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICryptAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddRange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICryptAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.AddRange(::core::mem::transmute(&pvalue)).into()
@@ -4718,7 +4718,7 @@ impl ::windows::core::RuntimeName for ICspAlgorithm {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICspAlgorithm_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICspAlgorithm_Impl, const OFFSET: isize>() -> ICspAlgorithm_Vtbl {
-        unsafe extern "system" fn GetAlgorithmOid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICspAlgorithm_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, length: i32, algflags: AlgorithmFlags, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAlgorithmOid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICspAlgorithm_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, length: i32, algflags: AlgorithmFlags, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetAlgorithmOid(::core::mem::transmute_copy(&length), ::core::mem::transmute_copy(&algflags)) {
@@ -4862,7 +4862,7 @@ impl ::windows::core::RuntimeName for ICspAlgorithms {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICspAlgorithms_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICspAlgorithms_Impl, const OFFSET: isize>() -> ICspAlgorithms_Vtbl {
-        unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICspAlgorithms_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICspAlgorithms_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_ItemByIndex(::core::mem::transmute_copy(&index)) {
@@ -4895,7 +4895,7 @@ impl ICspAlgorithms_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICspAlgorithms_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICspAlgorithms_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Add(::core::mem::transmute(&pval)).into()
@@ -4910,7 +4910,7 @@ impl ICspAlgorithms_Vtbl {
             let this = (*this).get_impl();
             this.Clear().into()
         }
-        unsafe extern "system" fn get_ItemByName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICspAlgorithms_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ItemByName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICspAlgorithms_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_ItemByName(::core::mem::transmute(&strname)) {
@@ -4921,7 +4921,7 @@ impl ICspAlgorithms_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_IndexByObjectId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICspAlgorithms_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pobjectid: ::windows::core::RawPtr, pindex: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_IndexByObjectId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICspAlgorithms_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pobjectid: *mut ::core::ffi::c_void, pindex: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_IndexByObjectId(::core::mem::transmute(&pobjectid)) {
@@ -4978,12 +4978,12 @@ impl ICspInformation_Vtbl {
             let this = (*this).get_impl();
             this.InitializeFromName(::core::mem::transmute(&strname)).into()
         }
-        unsafe extern "system" fn InitializeFromType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICspInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: X509ProviderType, palgorithm: ::windows::core::RawPtr, machinecontext: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InitializeFromType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICspInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: X509ProviderType, palgorithm: *mut ::core::ffi::c_void, machinecontext: i16) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.InitializeFromType(::core::mem::transmute_copy(&r#type), ::core::mem::transmute(&palgorithm), ::core::mem::transmute_copy(&machinecontext)).into()
         }
-        unsafe extern "system" fn CspAlgorithms<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICspInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CspAlgorithms<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICspInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CspAlgorithms() {
@@ -5137,7 +5137,7 @@ impl ICspInformation_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCspStatusFromOperations<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICspInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, palgorithm: ::windows::core::RawPtr, operations: AlgorithmOperationFlags, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCspStatusFromOperations<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICspInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, palgorithm: *mut ::core::ffi::c_void, operations: AlgorithmOperationFlags, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetCspStatusFromOperations(::core::mem::transmute(&palgorithm), ::core::mem::transmute_copy(&operations)) {
@@ -5193,7 +5193,7 @@ impl ::windows::core::RuntimeName for ICspInformations {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICspInformations_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICspInformations_Impl, const OFFSET: isize>() -> ICspInformations_Vtbl {
-        unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICspInformations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICspInformations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_ItemByIndex(::core::mem::transmute_copy(&index)) {
@@ -5226,7 +5226,7 @@ impl ICspInformations_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICspInformations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICspInformations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Add(::core::mem::transmute(&pval)).into()
@@ -5246,7 +5246,7 @@ impl ICspInformations_Vtbl {
             let this = (*this).get_impl();
             this.AddAvailableCsps().into()
         }
-        unsafe extern "system" fn get_ItemByName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICspInformations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, ppcspinformation: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ItemByName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICspInformations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, ppcspinformation: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_ItemByName(::core::mem::transmute(&strname)) {
@@ -5257,7 +5257,7 @@ impl ICspInformations_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCspStatusFromProviderName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICspInformations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strprovidername: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, legacykeyspec: X509KeySpec, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCspStatusFromProviderName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICspInformations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strprovidername: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, legacykeyspec: X509KeySpec, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetCspStatusFromProviderName(::core::mem::transmute(&strprovidername), ::core::mem::transmute_copy(&legacykeyspec)) {
@@ -5268,7 +5268,7 @@ impl ICspInformations_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCspStatusesFromOperations<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICspInformations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, operations: AlgorithmOperationFlags, pcspinformation: ::windows::core::RawPtr, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCspStatusesFromOperations<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICspInformations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, operations: AlgorithmOperationFlags, pcspinformation: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetCspStatusesFromOperations(::core::mem::transmute_copy(&operations), ::core::mem::transmute(&pcspinformation)) {
@@ -5279,7 +5279,7 @@ impl ICspInformations_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetEncryptionCspAlgorithms<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICspInformations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcspinformation: ::windows::core::RawPtr, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetEncryptionCspAlgorithms<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICspInformations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcspinformation: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetEncryptionCspAlgorithms(::core::mem::transmute(&pcspinformation)) {
@@ -5290,7 +5290,7 @@ impl ICspInformations_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetHashAlgorithms<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICspInformations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcspinformation: ::windows::core::RawPtr, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetHashAlgorithms<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICspInformations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcspinformation: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetHashAlgorithms(::core::mem::transmute(&pcspinformation)) {
@@ -5336,7 +5336,7 @@ impl ::windows::core::RuntimeName for ICspStatus {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICspStatus_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICspStatus_Impl, const OFFSET: isize>() -> ICspStatus_Vtbl {
-        unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICspStatus_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcsp: ::windows::core::RawPtr, palgorithm: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICspStatus_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcsp: *mut ::core::ffi::c_void, palgorithm: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Initialize(::core::mem::transmute(&pcsp), ::core::mem::transmute(&palgorithm)).into()
@@ -5357,7 +5357,7 @@ impl ICspStatus_Vtbl {
             let this = (*this).get_impl();
             this.SetOrdinal(::core::mem::transmute_copy(&value)).into()
         }
-        unsafe extern "system" fn CspAlgorithm<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICspStatus_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CspAlgorithm<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICspStatus_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CspAlgorithm() {
@@ -5368,7 +5368,7 @@ impl ICspStatus_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CspInformation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICspStatus_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CspInformation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICspStatus_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CspInformation() {
@@ -5379,7 +5379,7 @@ impl ICspStatus_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnrollmentStatus<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICspStatus_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnrollmentStatus<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICspStatus_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.EnrollmentStatus() {
@@ -5434,7 +5434,7 @@ impl ::windows::core::RuntimeName for ICspStatuses {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICspStatuses_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICspStatuses_Impl, const OFFSET: isize>() -> ICspStatuses_Vtbl {
-        unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICspStatuses_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICspStatuses_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_ItemByIndex(::core::mem::transmute_copy(&index)) {
@@ -5467,7 +5467,7 @@ impl ICspStatuses_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICspStatuses_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICspStatuses_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Add(::core::mem::transmute(&pval)).into()
@@ -5482,7 +5482,7 @@ impl ICspStatuses_Vtbl {
             let this = (*this).get_impl();
             this.Clear().into()
         }
-        unsafe extern "system" fn get_ItemByName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICspStatuses_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strcspname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, stralgorithmname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ItemByName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICspStatuses_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strcspname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, stralgorithmname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_ItemByName(::core::mem::transmute(&strcspname), ::core::mem::transmute(&stralgorithmname)) {
@@ -5493,7 +5493,7 @@ impl ICspStatuses_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_ItemByOrdinal<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICspStatuses_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ordinal: i32, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ItemByOrdinal<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICspStatuses_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ordinal: i32, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_ItemByOrdinal(::core::mem::transmute_copy(&ordinal)) {
@@ -5504,7 +5504,7 @@ impl ICspStatuses_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_ItemByOperations<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICspStatuses_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strcspname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, stralgorithmname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, operations: AlgorithmOperationFlags, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ItemByOperations<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICspStatuses_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strcspname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, stralgorithmname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, operations: AlgorithmOperationFlags, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_ItemByOperations(::core::mem::transmute(&strcspname), ::core::mem::transmute(&stralgorithmname), ::core::mem::transmute_copy(&operations)) {
@@ -5515,7 +5515,7 @@ impl ICspStatuses_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_ItemByProvider<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICspStatuses_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcspstatus: ::windows::core::RawPtr, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ItemByProvider<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICspStatuses_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcspstatus: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_ItemByProvider(::core::mem::transmute(&pcspstatus)) {
@@ -6471,7 +6471,7 @@ impl IEnumCERTVIEWATTRIBUTE_Vtbl {
             let this = (*this).get_impl();
             this.Reset().into()
         }
-        unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumCERTVIEWATTRIBUTE_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumCERTVIEWATTRIBUTE_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Clone() {
@@ -6559,7 +6559,7 @@ impl IEnumCERTVIEWCOLUMN_Vtbl {
             let this = (*this).get_impl();
             this.Reset().into()
         }
-        unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumCERTVIEWCOLUMN_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumCERTVIEWCOLUMN_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Clone() {
@@ -6633,7 +6633,7 @@ impl IEnumCERTVIEWEXTENSION_Vtbl {
             let this = (*this).get_impl();
             this.Reset().into()
         }
-        unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumCERTVIEWEXTENSION_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumCERTVIEWEXTENSION_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Clone() {
@@ -6680,7 +6680,7 @@ impl IEnumCERTVIEWROW_Vtbl {
             let this = (*this).get_impl();
             this.Next(::core::mem::transmute_copy(&pindex)).into()
         }
-        unsafe extern "system" fn EnumCertViewColumn<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumCERTVIEWROW_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnumCertViewColumn<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumCERTVIEWROW_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.EnumCertViewColumn() {
@@ -6691,7 +6691,7 @@ impl IEnumCERTVIEWROW_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnumCertViewAttribute<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumCERTVIEWROW_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: i32, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnumCertViewAttribute<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumCERTVIEWROW_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: i32, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.EnumCertViewAttribute(::core::mem::transmute_copy(&flags)) {
@@ -6702,7 +6702,7 @@ impl IEnumCERTVIEWROW_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnumCertViewExtension<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumCERTVIEWROW_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: i32, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnumCertViewExtension<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumCERTVIEWROW_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: i32, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.EnumCertViewExtension(::core::mem::transmute_copy(&flags)) {
@@ -6723,7 +6723,7 @@ impl IEnumCERTVIEWROW_Vtbl {
             let this = (*this).get_impl();
             this.Reset().into()
         }
-        unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumCERTVIEWROW_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumCERTVIEWROW_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Clone() {
@@ -6830,7 +6830,7 @@ impl ::windows::core::RuntimeName for IOCSPAdmin {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IOCSPAdmin_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOCSPAdmin_Impl, const OFFSET: isize>() -> IOCSPAdmin_Vtbl {
-        unsafe extern "system" fn OCSPServiceProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOCSPAdmin_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OCSPServiceProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOCSPAdmin_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.OCSPServiceProperties() {
@@ -6841,7 +6841,7 @@ impl IOCSPAdmin_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OCSPCAConfigurationCollection<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOCSPAdmin_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OCSPCAConfigurationCollection<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOCSPAdmin_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.OCSPCAConfigurationCollection() {
@@ -7266,7 +7266,7 @@ impl IOCSPCAConfigurationCollection_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateCAConfiguration<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOCSPCAConfigurationCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstridentifier: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, varcacert: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, ppval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateCAConfiguration<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOCSPCAConfigurationCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstridentifier: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, varcacert: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, ppval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateCAConfiguration(::core::mem::transmute(&bstridentifier), ::core::mem::transmute(&varcacert)) {
@@ -7418,7 +7418,7 @@ impl IOCSPPropertyCollection_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOCSPPropertyCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpropname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pvarpropvalue: *const super::super::super::System::Com::VARIANT, ppval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOCSPPropertyCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpropname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pvarpropvalue: *const super::super::super::System::Com::VARIANT, ppval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateProperty(::core::mem::transmute(&bstrpropname), ::core::mem::transmute_copy(&pvarpropvalue)) {
@@ -7577,7 +7577,7 @@ impl ::windows::core::RuntimeName for IObjectIds {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IObjectIds_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IObjectIds_Impl, const OFFSET: isize>() -> IObjectIds_Vtbl {
-        unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IObjectIds_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IObjectIds_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_ItemByIndex(::core::mem::transmute_copy(&index)) {
@@ -7610,7 +7610,7 @@ impl IObjectIds_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IObjectIds_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IObjectIds_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Add(::core::mem::transmute(&pval)).into()
@@ -7625,7 +7625,7 @@ impl IObjectIds_Vtbl {
             let this = (*this).get_impl();
             this.Clear().into()
         }
-        unsafe extern "system" fn AddRange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IObjectIds_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddRange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IObjectIds_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.AddRange(::core::mem::transmute(&pvalue)).into()
@@ -7663,7 +7663,7 @@ impl IPolicyQualifier_Vtbl {
             let this = (*this).get_impl();
             this.InitializeEncode(::core::mem::transmute(&strqualifier), ::core::mem::transmute_copy(&r#type)).into()
         }
-        unsafe extern "system" fn ObjectId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPolicyQualifier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ObjectId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPolicyQualifier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ObjectId() {
@@ -7734,7 +7734,7 @@ impl ::windows::core::RuntimeName for IPolicyQualifiers {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IPolicyQualifiers_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPolicyQualifiers_Impl, const OFFSET: isize>() -> IPolicyQualifiers_Vtbl {
-        unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPolicyQualifiers_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPolicyQualifiers_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_ItemByIndex(::core::mem::transmute_copy(&index)) {
@@ -7767,7 +7767,7 @@ impl IPolicyQualifiers_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPolicyQualifiers_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPolicyQualifiers_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Add(::core::mem::transmute(&pval)).into()
@@ -7831,7 +7831,7 @@ impl ISignerCertificate_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PrivateKey<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISignerCertificate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PrivateKey<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISignerCertificate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.PrivateKey() {
@@ -7895,7 +7895,7 @@ impl ISignerCertificate_Vtbl {
             let this = (*this).get_impl();
             this.SetPin(::core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn SignatureInformation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISignerCertificate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SignatureInformation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISignerCertificate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SignatureInformation() {
@@ -7940,7 +7940,7 @@ impl ::windows::core::RuntimeName for ISignerCertificates {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISignerCertificates_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISignerCertificates_Impl, const OFFSET: isize>() -> ISignerCertificates_Vtbl {
-        unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISignerCertificates_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISignerCertificates_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_ItemByIndex(::core::mem::transmute_copy(&index)) {
@@ -7973,7 +7973,7 @@ impl ISignerCertificates_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISignerCertificates_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISignerCertificates_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Add(::core::mem::transmute(&pval)).into()
@@ -7988,7 +7988,7 @@ impl ISignerCertificates_Vtbl {
             let this = (*this).get_impl();
             this.Clear().into()
         }
-        unsafe extern "system" fn Find<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISignerCertificates_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psignercert: ::windows::core::RawPtr, pisignercert: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Find<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISignerCertificates_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psignercert: *mut ::core::ffi::c_void, pisignercert: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Find(::core::mem::transmute(&psignercert)) {
@@ -8030,7 +8030,7 @@ impl ::windows::core::RuntimeName for ISmimeCapabilities {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISmimeCapabilities_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISmimeCapabilities_Impl, const OFFSET: isize>() -> ISmimeCapabilities_Vtbl {
-        unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISmimeCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISmimeCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_ItemByIndex(::core::mem::transmute_copy(&index)) {
@@ -8063,7 +8063,7 @@ impl ISmimeCapabilities_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISmimeCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISmimeCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Add(::core::mem::transmute(&pval)).into()
@@ -8078,7 +8078,7 @@ impl ISmimeCapabilities_Vtbl {
             let this = (*this).get_impl();
             this.Clear().into()
         }
-        unsafe extern "system" fn AddFromCsp<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISmimeCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddFromCsp<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISmimeCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.AddFromCsp(::core::mem::transmute(&pvalue)).into()
@@ -8115,12 +8115,12 @@ impl ::windows::core::RuntimeName for ISmimeCapability {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISmimeCapability_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISmimeCapability_Impl, const OFFSET: isize>() -> ISmimeCapability_Vtbl {
-        unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISmimeCapability_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pobjectid: ::windows::core::RawPtr, bitcount: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISmimeCapability_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pobjectid: *mut ::core::ffi::c_void, bitcount: i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Initialize(::core::mem::transmute(&pobjectid), ::core::mem::transmute_copy(&bitcount)).into()
         }
-        unsafe extern "system" fn ObjectId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISmimeCapability_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ObjectId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISmimeCapability_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ObjectId() {
@@ -8220,12 +8220,12 @@ impl ::windows::core::RuntimeName for IX509Attribute {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509Attribute_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509Attribute_Impl, const OFFSET: isize>() -> IX509Attribute_Vtbl {
-        unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509Attribute_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pobjectid: ::windows::core::RawPtr, encoding: EncodingType, strencodeddata: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509Attribute_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pobjectid: *mut ::core::ffi::c_void, encoding: EncodingType, strencodeddata: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Initialize(::core::mem::transmute(&pobjectid), ::core::mem::transmute_copy(&encoding), ::core::mem::transmute(&strencodeddata)).into()
         }
-        unsafe extern "system" fn ObjectId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509Attribute_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ObjectId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509Attribute_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ObjectId() {
@@ -8271,7 +8271,7 @@ impl ::windows::core::RuntimeName for IX509AttributeArchiveKey {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509AttributeArchiveKey_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509AttributeArchiveKey_Impl, const OFFSET: isize>() -> IX509AttributeArchiveKey_Vtbl {
-        unsafe extern "system" fn InitializeEncode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509AttributeArchiveKey_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pkey: ::windows::core::RawPtr, encoding: EncodingType, strcaxcert: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, palgorithm: ::windows::core::RawPtr, encryptionstrength: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InitializeEncode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509AttributeArchiveKey_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pkey: *mut ::core::ffi::c_void, encoding: EncodingType, strcaxcert: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, palgorithm: *mut ::core::ffi::c_void, encryptionstrength: i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.InitializeEncode(::core::mem::transmute(&pkey), ::core::mem::transmute_copy(&encoding), ::core::mem::transmute(&strcaxcert), ::core::mem::transmute(&palgorithm), ::core::mem::transmute_copy(&encryptionstrength)).into()
@@ -8292,7 +8292,7 @@ impl IX509AttributeArchiveKey_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EncryptionAlgorithm<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509AttributeArchiveKey_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EncryptionAlgorithm<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509AttributeArchiveKey_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.EncryptionAlgorithm() {
@@ -8532,7 +8532,7 @@ impl ::windows::core::RuntimeName for IX509AttributeExtensions {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509AttributeExtensions_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509AttributeExtensions_Impl, const OFFSET: isize>() -> IX509AttributeExtensions_Vtbl {
-        unsafe extern "system" fn InitializeEncode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509AttributeExtensions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pextensions: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InitializeEncode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509AttributeExtensions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pextensions: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.InitializeEncode(::core::mem::transmute(&pextensions)).into()
@@ -8542,7 +8542,7 @@ impl IX509AttributeExtensions_Vtbl {
             let this = (*this).get_impl();
             this.InitializeDecode(::core::mem::transmute_copy(&encoding), ::core::mem::transmute(&strencodeddata)).into()
         }
-        unsafe extern "system" fn X509Extensions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509AttributeExtensions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn X509Extensions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509AttributeExtensions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.X509Extensions() {
@@ -8664,7 +8664,7 @@ impl ::windows::core::RuntimeName for IX509Attributes {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509Attributes_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509Attributes_Impl, const OFFSET: isize>() -> IX509Attributes_Vtbl {
-        unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509Attributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509Attributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_ItemByIndex(::core::mem::transmute_copy(&index)) {
@@ -8697,7 +8697,7 @@ impl IX509Attributes_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509Attributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509Attributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Add(::core::mem::transmute(&pval)).into()
@@ -8774,7 +8774,7 @@ impl IX509CertificateRequest_Vtbl {
             let this = (*this).get_impl();
             this.ResetForEncode().into()
         }
-        unsafe extern "system" fn GetInnerRequest<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, level: InnerRequestLevel, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetInnerRequest<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, level: InnerRequestLevel, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetInnerRequest(::core::mem::transmute_copy(&level)) {
@@ -8903,7 +8903,7 @@ impl IX509CertificateRequest_Vtbl {
             let this = (*this).get_impl();
             this.SetClientId(::core::mem::transmute_copy(&value)).into()
         }
-        unsafe extern "system" fn CspInformations<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CspInformations<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CspInformations() {
@@ -8914,12 +8914,12 @@ impl IX509CertificateRequest_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCspInformations<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCspInformations<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetCspInformations(::core::mem::transmute(&pvalue)).into()
         }
-        unsafe extern "system" fn HashAlgorithm<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HashAlgorithm<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.HashAlgorithm() {
@@ -8930,7 +8930,7 @@ impl IX509CertificateRequest_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetHashAlgorithm<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHashAlgorithm<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetHashAlgorithm(::core::mem::transmute(&pvalue)).into()
@@ -9014,12 +9014,12 @@ impl ::windows::core::RuntimeName for IX509CertificateRequestCertificate {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509CertificateRequestCertificate_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestCertificate_Impl, const OFFSET: isize>() -> IX509CertificateRequestCertificate_Vtbl {
-        unsafe extern "system" fn CheckPublicKeySignature<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestCertificate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppublickey: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CheckPublicKeySignature<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestCertificate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppublickey: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.CheckPublicKeySignature(::core::mem::transmute(&ppublickey)).into()
         }
-        unsafe extern "system" fn Issuer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestCertificate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Issuer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestCertificate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Issuer() {
@@ -9030,7 +9030,7 @@ impl IX509CertificateRequestCertificate_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIssuer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestCertificate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIssuer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestCertificate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetIssuer(::core::mem::transmute(&pvalue)).into()
@@ -9083,7 +9083,7 @@ impl IX509CertificateRequestCertificate_Vtbl {
             let this = (*this).get_impl();
             this.put_SerialNumber(::core::mem::transmute_copy(&encoding), ::core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn SignerCertificate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestCertificate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SignerCertificate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestCertificate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SignerCertificate() {
@@ -9094,7 +9094,7 @@ impl IX509CertificateRequestCertificate_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSignerCertificate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestCertificate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSignerCertificate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestCertificate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetSignerCertificate(::core::mem::transmute(&pvalue)).into()
@@ -9130,17 +9130,17 @@ impl ::windows::core::RuntimeName for IX509CertificateRequestCertificate2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509CertificateRequestCertificate2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestCertificate2_Impl, const OFFSET: isize>() -> IX509CertificateRequestCertificate2_Vtbl {
-        unsafe extern "system" fn InitializeFromTemplate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestCertificate2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: X509CertificateEnrollmentContext, ppolicyserver: ::windows::core::RawPtr, ptemplate: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InitializeFromTemplate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestCertificate2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: X509CertificateEnrollmentContext, ppolicyserver: *mut ::core::ffi::c_void, ptemplate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.InitializeFromTemplate(::core::mem::transmute_copy(&context), ::core::mem::transmute(&ppolicyserver), ::core::mem::transmute(&ptemplate)).into()
         }
-        unsafe extern "system" fn InitializeFromPrivateKeyTemplate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestCertificate2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: X509CertificateEnrollmentContext, pprivatekey: ::windows::core::RawPtr, ppolicyserver: ::windows::core::RawPtr, ptemplate: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InitializeFromPrivateKeyTemplate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestCertificate2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: X509CertificateEnrollmentContext, pprivatekey: *mut ::core::ffi::c_void, ppolicyserver: *mut ::core::ffi::c_void, ptemplate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.InitializeFromPrivateKeyTemplate(::core::mem::transmute_copy(&context), ::core::mem::transmute(&pprivatekey), ::core::mem::transmute(&ppolicyserver), ::core::mem::transmute(&ptemplate)).into()
         }
-        unsafe extern "system" fn PolicyServer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestCertificate2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pppolicyserver: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PolicyServer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestCertificate2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pppolicyserver: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.PolicyServer() {
@@ -9151,7 +9151,7 @@ impl IX509CertificateRequestCertificate2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Template<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestCertificate2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pptemplate: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Template<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestCertificate2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pptemplate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Template() {
@@ -9205,12 +9205,12 @@ impl ::windows::core::RuntimeName for IX509CertificateRequestCmc {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509CertificateRequestCmc_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestCmc_Impl, const OFFSET: isize>() -> IX509CertificateRequestCmc_Vtbl {
-        unsafe extern "system" fn InitializeFromInnerRequestTemplateName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestCmc_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinnerrequest: ::windows::core::RawPtr, strtemplatename: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InitializeFromInnerRequestTemplateName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestCmc_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinnerrequest: *mut ::core::ffi::c_void, strtemplatename: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.InitializeFromInnerRequestTemplateName(::core::mem::transmute(&pinnerrequest), ::core::mem::transmute(&strtemplatename)).into()
         }
-        unsafe extern "system" fn TemplateObjectId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestCmc_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TemplateObjectId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestCmc_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.TemplateObjectId() {
@@ -9232,7 +9232,7 @@ impl IX509CertificateRequestCmc_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CryptAttributes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestCmc_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CryptAttributes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestCmc_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CryptAttributes() {
@@ -9243,7 +9243,7 @@ impl IX509CertificateRequestCmc_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NameValuePairs<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestCmc_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NameValuePairs<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestCmc_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.NameValuePairs() {
@@ -9254,7 +9254,7 @@ impl IX509CertificateRequestCmc_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn X509Extensions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestCmc_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn X509Extensions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestCmc_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.X509Extensions() {
@@ -9265,7 +9265,7 @@ impl IX509CertificateRequestCmc_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CriticalExtensions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestCmc_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CriticalExtensions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestCmc_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CriticalExtensions() {
@@ -9276,7 +9276,7 @@ impl IX509CertificateRequestCmc_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SuppressOids<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestCmc_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SuppressOids<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestCmc_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SuppressOids() {
@@ -9319,7 +9319,7 @@ impl IX509CertificateRequestCmc_Vtbl {
             let this = (*this).get_impl();
             this.put_SenderNonce(::core::mem::transmute_copy(&encoding), ::core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn SignatureInformation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestCmc_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SignatureInformation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestCmc_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SignatureInformation() {
@@ -9362,7 +9362,7 @@ impl IX509CertificateRequestCmc_Vtbl {
             let this = (*this).get_impl();
             this.put_KeyArchivalCertificate(::core::mem::transmute_copy(&encoding), ::core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn EncryptionAlgorithm<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestCmc_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EncryptionAlgorithm<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestCmc_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.EncryptionAlgorithm() {
@@ -9373,7 +9373,7 @@ impl IX509CertificateRequestCmc_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEncryptionAlgorithm<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestCmc_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEncryptionAlgorithm<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestCmc_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetEncryptionAlgorithm(::core::mem::transmute(&pvalue)).into()
@@ -9405,7 +9405,7 @@ impl IX509CertificateRequestCmc_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SignerCertificates<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestCmc_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SignerCertificates<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestCmc_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SignerCertificates() {
@@ -9461,17 +9461,17 @@ impl ::windows::core::RuntimeName for IX509CertificateRequestCmc2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509CertificateRequestCmc2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestCmc2_Impl, const OFFSET: isize>() -> IX509CertificateRequestCmc2_Vtbl {
-        unsafe extern "system" fn InitializeFromTemplate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestCmc2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: X509CertificateEnrollmentContext, ppolicyserver: ::windows::core::RawPtr, ptemplate: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InitializeFromTemplate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestCmc2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: X509CertificateEnrollmentContext, ppolicyserver: *mut ::core::ffi::c_void, ptemplate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.InitializeFromTemplate(::core::mem::transmute_copy(&context), ::core::mem::transmute(&ppolicyserver), ::core::mem::transmute(&ptemplate)).into()
         }
-        unsafe extern "system" fn InitializeFromInnerRequestTemplate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestCmc2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinnerrequest: ::windows::core::RawPtr, ppolicyserver: ::windows::core::RawPtr, ptemplate: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InitializeFromInnerRequestTemplate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestCmc2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinnerrequest: *mut ::core::ffi::c_void, ppolicyserver: *mut ::core::ffi::c_void, ptemplate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.InitializeFromInnerRequestTemplate(::core::mem::transmute(&pinnerrequest), ::core::mem::transmute(&ppolicyserver), ::core::mem::transmute(&ptemplate)).into()
         }
-        unsafe extern "system" fn PolicyServer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestCmc2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pppolicyserver: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PolicyServer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestCmc2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pppolicyserver: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.PolicyServer() {
@@ -9482,7 +9482,7 @@ impl IX509CertificateRequestCmc2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Template<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestCmc2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pptemplate: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Template<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestCmc2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pptemplate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Template() {
@@ -9498,7 +9498,7 @@ impl IX509CertificateRequestCmc2_Vtbl {
             let this = (*this).get_impl();
             this.CheckSignature(::core::mem::transmute_copy(&allowedsignaturetypes)).into()
         }
-        unsafe extern "system" fn CheckCertificateSignature<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestCmc2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psignercertificate: ::windows::core::RawPtr, validatecertificatechain: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CheckCertificateSignature<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestCmc2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psignercertificate: *mut ::core::ffi::c_void, validatecertificatechain: i16) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.CheckCertificateSignature(::core::mem::transmute(&psignercertificate), ::core::mem::transmute_copy(&validatecertificatechain)).into()
@@ -9558,12 +9558,12 @@ impl IX509CertificateRequestPkcs10_Vtbl {
             let this = (*this).get_impl();
             this.InitializeFromTemplateName(::core::mem::transmute_copy(&context), ::core::mem::transmute(&strtemplatename)).into()
         }
-        unsafe extern "system" fn InitializeFromPrivateKey<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestPkcs10_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: X509CertificateEnrollmentContext, pprivatekey: ::windows::core::RawPtr, strtemplatename: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InitializeFromPrivateKey<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestPkcs10_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: X509CertificateEnrollmentContext, pprivatekey: *mut ::core::ffi::c_void, strtemplatename: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.InitializeFromPrivateKey(::core::mem::transmute_copy(&context), ::core::mem::transmute(&pprivatekey), ::core::mem::transmute(&strtemplatename)).into()
         }
-        unsafe extern "system" fn InitializeFromPublicKey<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestPkcs10_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: X509CertificateEnrollmentContext, ppublickey: ::windows::core::RawPtr, strtemplatename: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InitializeFromPublicKey<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestPkcs10_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: X509CertificateEnrollmentContext, ppublickey: *mut ::core::ffi::c_void, strtemplatename: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.InitializeFromPublicKey(::core::mem::transmute_copy(&context), ::core::mem::transmute(&ppublickey), ::core::mem::transmute(&strtemplatename)).into()
@@ -9594,7 +9594,7 @@ impl IX509CertificateRequestPkcs10_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TemplateObjectId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestPkcs10_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TemplateObjectId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestPkcs10_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.TemplateObjectId() {
@@ -9605,7 +9605,7 @@ impl IX509CertificateRequestPkcs10_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PublicKey<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestPkcs10_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PublicKey<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestPkcs10_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.PublicKey() {
@@ -9616,7 +9616,7 @@ impl IX509CertificateRequestPkcs10_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PrivateKey<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestPkcs10_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PrivateKey<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestPkcs10_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.PrivateKey() {
@@ -9660,7 +9660,7 @@ impl IX509CertificateRequestPkcs10_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Subject<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestPkcs10_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Subject<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestPkcs10_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Subject() {
@@ -9671,12 +9671,12 @@ impl IX509CertificateRequestPkcs10_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSubject<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestPkcs10_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSubject<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestPkcs10_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetSubject(::core::mem::transmute(&pvalue)).into()
         }
-        unsafe extern "system" fn CspStatuses<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestPkcs10_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CspStatuses<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestPkcs10_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CspStatuses() {
@@ -9703,7 +9703,7 @@ impl IX509CertificateRequestPkcs10_Vtbl {
             let this = (*this).get_impl();
             this.SetSmimeCapabilities(::core::mem::transmute_copy(&value)).into()
         }
-        unsafe extern "system" fn SignatureInformation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestPkcs10_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SignatureInformation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestPkcs10_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SignatureInformation() {
@@ -9730,7 +9730,7 @@ impl IX509CertificateRequestPkcs10_Vtbl {
             let this = (*this).get_impl();
             this.SetKeyContainerNamePrefix(::core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn CryptAttributes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestPkcs10_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CryptAttributes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestPkcs10_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CryptAttributes() {
@@ -9741,7 +9741,7 @@ impl IX509CertificateRequestPkcs10_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn X509Extensions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestPkcs10_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn X509Extensions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestPkcs10_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.X509Extensions() {
@@ -9752,7 +9752,7 @@ impl IX509CertificateRequestPkcs10_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CriticalExtensions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestPkcs10_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CriticalExtensions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestPkcs10_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CriticalExtensions() {
@@ -9763,7 +9763,7 @@ impl IX509CertificateRequestPkcs10_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SuppressOids<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestPkcs10_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SuppressOids<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestPkcs10_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SuppressOids() {
@@ -9796,7 +9796,7 @@ impl IX509CertificateRequestPkcs10_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCspStatuses<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestPkcs10_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, keyspec: X509KeySpec, ppcspstatuses: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCspStatuses<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestPkcs10_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, keyspec: X509KeySpec, ppcspstatuses: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetCspStatuses(::core::mem::transmute_copy(&keyspec)) {
@@ -9856,22 +9856,22 @@ impl ::windows::core::RuntimeName for IX509CertificateRequestPkcs10V2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509CertificateRequestPkcs10V2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestPkcs10V2_Impl, const OFFSET: isize>() -> IX509CertificateRequestPkcs10V2_Vtbl {
-        unsafe extern "system" fn InitializeFromTemplate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestPkcs10V2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: X509CertificateEnrollmentContext, ppolicyserver: ::windows::core::RawPtr, ptemplate: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InitializeFromTemplate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestPkcs10V2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: X509CertificateEnrollmentContext, ppolicyserver: *mut ::core::ffi::c_void, ptemplate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.InitializeFromTemplate(::core::mem::transmute_copy(&context), ::core::mem::transmute(&ppolicyserver), ::core::mem::transmute(&ptemplate)).into()
         }
-        unsafe extern "system" fn InitializeFromPrivateKeyTemplate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestPkcs10V2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: X509CertificateEnrollmentContext, pprivatekey: ::windows::core::RawPtr, ppolicyserver: ::windows::core::RawPtr, ptemplate: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InitializeFromPrivateKeyTemplate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestPkcs10V2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: X509CertificateEnrollmentContext, pprivatekey: *mut ::core::ffi::c_void, ppolicyserver: *mut ::core::ffi::c_void, ptemplate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.InitializeFromPrivateKeyTemplate(::core::mem::transmute_copy(&context), ::core::mem::transmute(&pprivatekey), ::core::mem::transmute(&ppolicyserver), ::core::mem::transmute(&ptemplate)).into()
         }
-        unsafe extern "system" fn InitializeFromPublicKeyTemplate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestPkcs10V2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: X509CertificateEnrollmentContext, ppublickey: ::windows::core::RawPtr, ppolicyserver: ::windows::core::RawPtr, ptemplate: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InitializeFromPublicKeyTemplate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestPkcs10V2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: X509CertificateEnrollmentContext, ppublickey: *mut ::core::ffi::c_void, ppolicyserver: *mut ::core::ffi::c_void, ptemplate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.InitializeFromPublicKeyTemplate(::core::mem::transmute_copy(&context), ::core::mem::transmute(&ppublickey), ::core::mem::transmute(&ppolicyserver), ::core::mem::transmute(&ptemplate)).into()
         }
-        unsafe extern "system" fn PolicyServer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestPkcs10V2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pppolicyserver: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PolicyServer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestPkcs10V2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pppolicyserver: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.PolicyServer() {
@@ -9882,7 +9882,7 @@ impl IX509CertificateRequestPkcs10V2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Template<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestPkcs10V2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pptemplate: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Template<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestPkcs10V2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pptemplate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Template() {
@@ -9957,7 +9957,7 @@ impl IX509CertificateRequestPkcs10V3_Vtbl {
             let this = (*this).get_impl();
             this.put_AttestationEncryptionCertificate(::core::mem::transmute_copy(&encoding), ::core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn EncryptionAlgorithm<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestPkcs10V3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EncryptionAlgorithm<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestPkcs10V3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.EncryptionAlgorithm() {
@@ -9968,7 +9968,7 @@ impl IX509CertificateRequestPkcs10V3_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEncryptionAlgorithm<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestPkcs10V3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEncryptionAlgorithm<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestPkcs10V3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetEncryptionAlgorithm(::core::mem::transmute(&pvalue)).into()
@@ -10005,7 +10005,7 @@ impl IX509CertificateRequestPkcs10V3_Vtbl {
             let this = (*this).get_impl();
             this.SetChallengePassword(::core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn NameValuePairs<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestPkcs10V3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NameValuePairs<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestPkcs10V3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.NameValuePairs() {
@@ -10117,7 +10117,7 @@ impl IX509CertificateRequestPkcs7_Vtbl {
             let this = (*this).get_impl();
             this.InitializeFromCertificate(::core::mem::transmute_copy(&context), ::core::mem::transmute_copy(&renewalrequest), ::core::mem::transmute(&strcertificate), ::core::mem::transmute_copy(&encoding), ::core::mem::transmute_copy(&inheritoptions)).into()
         }
-        unsafe extern "system" fn InitializeFromInnerRequest<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestPkcs7_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinnerrequest: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InitializeFromInnerRequest<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestPkcs7_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinnerrequest: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.InitializeFromInnerRequest(::core::mem::transmute(&pinnerrequest)).into()
@@ -10143,7 +10143,7 @@ impl IX509CertificateRequestPkcs7_Vtbl {
             let this = (*this).get_impl();
             this.SetRequesterName(::core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn SignerCertificate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestPkcs7_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SignerCertificate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestPkcs7_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SignerCertificate() {
@@ -10154,7 +10154,7 @@ impl IX509CertificateRequestPkcs7_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSignerCertificate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestPkcs7_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSignerCertificate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestPkcs7_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetSignerCertificate(::core::mem::transmute(&pvalue)).into()
@@ -10187,12 +10187,12 @@ impl ::windows::core::RuntimeName for IX509CertificateRequestPkcs7V2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509CertificateRequestPkcs7V2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestPkcs7V2_Impl, const OFFSET: isize>() -> IX509CertificateRequestPkcs7V2_Vtbl {
-        unsafe extern "system" fn InitializeFromTemplate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestPkcs7V2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: X509CertificateEnrollmentContext, ppolicyserver: ::windows::core::RawPtr, ptemplate: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InitializeFromTemplate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestPkcs7V2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: X509CertificateEnrollmentContext, ppolicyserver: *mut ::core::ffi::c_void, ptemplate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.InitializeFromTemplate(::core::mem::transmute_copy(&context), ::core::mem::transmute(&ppolicyserver), ::core::mem::transmute(&ptemplate)).into()
         }
-        unsafe extern "system" fn PolicyServer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestPkcs7V2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pppolicyserver: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PolicyServer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestPkcs7V2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pppolicyserver: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.PolicyServer() {
@@ -10203,7 +10203,7 @@ impl IX509CertificateRequestPkcs7V2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Template<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestPkcs7V2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pptemplate: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Template<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRequestPkcs7V2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pptemplate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Template() {
@@ -10290,7 +10290,7 @@ impl IX509CertificateRevocationList_Vtbl {
             let this = (*this).get_impl();
             this.ResetForEncode().into()
         }
-        unsafe extern "system" fn CheckPublicKeySignature<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppublickey: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CheckPublicKeySignature<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppublickey: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.CheckPublicKeySignature(::core::mem::transmute(&ppublickey)).into()
@@ -10300,7 +10300,7 @@ impl IX509CertificateRevocationList_Vtbl {
             let this = (*this).get_impl();
             this.CheckSignature().into()
         }
-        unsafe extern "system" fn Issuer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Issuer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Issuer() {
@@ -10311,7 +10311,7 @@ impl IX509CertificateRevocationList_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIssuer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIssuer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetIssuer(::core::mem::transmute(&pvalue)).into()
@@ -10348,7 +10348,7 @@ impl IX509CertificateRevocationList_Vtbl {
             let this = (*this).get_impl();
             this.SetNextUpdate(::core::mem::transmute_copy(&value)).into()
         }
-        unsafe extern "system" fn X509CRLEntries<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn X509CRLEntries<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.X509CRLEntries() {
@@ -10359,7 +10359,7 @@ impl IX509CertificateRevocationList_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn X509Extensions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn X509Extensions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.X509Extensions() {
@@ -10370,7 +10370,7 @@ impl IX509CertificateRevocationList_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CriticalExtensions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CriticalExtensions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CriticalExtensions() {
@@ -10381,7 +10381,7 @@ impl IX509CertificateRevocationList_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SignerCertificate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SignerCertificate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SignerCertificate() {
@@ -10392,7 +10392,7 @@ impl IX509CertificateRevocationList_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSignerCertificate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSignerCertificate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetSignerCertificate(::core::mem::transmute(&pvalue)).into()
@@ -10451,7 +10451,7 @@ impl IX509CertificateRevocationList_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HashAlgorithm<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HashAlgorithm<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.HashAlgorithm() {
@@ -10462,7 +10462,7 @@ impl IX509CertificateRevocationList_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetHashAlgorithm<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHashAlgorithm<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetHashAlgorithm(::core::mem::transmute(&pvalue)).into()
@@ -10483,7 +10483,7 @@ impl IX509CertificateRevocationList_Vtbl {
             let this = (*this).get_impl();
             this.SetAlternateSignatureAlgorithm(::core::mem::transmute_copy(&value)).into()
         }
-        unsafe extern "system" fn SignatureInformation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SignatureInformation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SignatureInformation() {
@@ -10582,7 +10582,7 @@ impl ::windows::core::RuntimeName for IX509CertificateRevocationListEntries {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509CertificateRevocationListEntries_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRevocationListEntries_Impl, const OFFSET: isize>() -> IX509CertificateRevocationListEntries_Vtbl {
-        unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRevocationListEntries_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRevocationListEntries_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_ItemByIndex(::core::mem::transmute_copy(&index)) {
@@ -10615,7 +10615,7 @@ impl IX509CertificateRevocationListEntries_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRevocationListEntries_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRevocationListEntries_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Add(::core::mem::transmute(&pval)).into()
@@ -10641,7 +10641,7 @@ impl IX509CertificateRevocationListEntries_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AddRange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRevocationListEntries_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddRange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRevocationListEntries_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.AddRange(::core::mem::transmute(&pvalue)).into()
@@ -10720,7 +10720,7 @@ impl IX509CertificateRevocationListEntry_Vtbl {
             let this = (*this).get_impl();
             this.SetRevocationReason(::core::mem::transmute_copy(&value)).into()
         }
-        unsafe extern "system" fn X509Extensions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRevocationListEntry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn X509Extensions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRevocationListEntry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.X509Extensions() {
@@ -10731,7 +10731,7 @@ impl IX509CertificateRevocationListEntry_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CriticalExtensions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRevocationListEntry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CriticalExtensions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateRevocationListEntry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CriticalExtensions() {
@@ -10796,7 +10796,7 @@ impl ::windows::core::RuntimeName for IX509CertificateTemplateWritable {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509CertificateTemplateWritable_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateTemplateWritable_Impl, const OFFSET: isize>() -> IX509CertificateTemplateWritable_Vtbl {
-        unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateTemplateWritable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateTemplateWritable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Initialize(::core::mem::transmute(&pvalue)).into()
@@ -10822,7 +10822,7 @@ impl IX509CertificateTemplateWritable_Vtbl {
             let this = (*this).get_impl();
             this.put_Property(::core::mem::transmute_copy(&property), ::core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn Template<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateTemplateWritable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Template<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateTemplateWritable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Template() {
@@ -10862,7 +10862,7 @@ impl ::windows::core::RuntimeName for IX509CertificateTemplates {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509CertificateTemplates_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateTemplates_Impl, const OFFSET: isize>() -> IX509CertificateTemplates_Vtbl {
-        unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateTemplates_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateTemplates_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_ItemByIndex(::core::mem::transmute_copy(&index)) {
@@ -10895,7 +10895,7 @@ impl IX509CertificateTemplates_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateTemplates_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateTemplates_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Add(::core::mem::transmute(&pval)).into()
@@ -10910,7 +10910,7 @@ impl IX509CertificateTemplates_Vtbl {
             let this = (*this).get_impl();
             this.Clear().into()
         }
-        unsafe extern "system" fn get_ItemByName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateTemplates_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ItemByName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateTemplates_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_ItemByName(::core::mem::transmute(&bstrname)) {
@@ -10921,7 +10921,7 @@ impl IX509CertificateTemplates_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_ItemByOid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateTemplates_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poid: ::windows::core::RawPtr, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ItemByOid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509CertificateTemplates_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poid: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_ItemByOid(::core::mem::transmute(&poid)) {
@@ -11037,7 +11037,7 @@ impl IX509EndorsementKey_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExportPublicKey<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509EndorsementKey_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pppublickey: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExportPublicKey<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509EndorsementKey_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pppublickey: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ExportPublicKey() {
@@ -11118,7 +11118,7 @@ impl IX509Enrollment_Vtbl {
             let this = (*this).get_impl();
             this.InitializeFromTemplateName(::core::mem::transmute_copy(&context), ::core::mem::transmute(&strtemplatename)).into()
         }
-        unsafe extern "system" fn InitializeFromRequest<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509Enrollment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prequest: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InitializeFromRequest<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509Enrollment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prequest: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.InitializeFromRequest(::core::mem::transmute(&prequest)).into()
@@ -11155,7 +11155,7 @@ impl IX509Enrollment_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Request<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509Enrollment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Request<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509Enrollment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Request() {
@@ -11198,7 +11198,7 @@ impl IX509Enrollment_Vtbl {
             let this = (*this).get_impl();
             this.SetParentWindow(::core::mem::transmute_copy(&value)).into()
         }
-        unsafe extern "system" fn NameValuePairs<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509Enrollment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NameValuePairs<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509Enrollment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.NameValuePairs() {
@@ -11220,7 +11220,7 @@ impl IX509Enrollment_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Status<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509Enrollment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Status<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509Enrollment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Status() {
@@ -11351,7 +11351,7 @@ impl ::windows::core::RuntimeName for IX509Enrollment2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509Enrollment2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509Enrollment2_Impl, const OFFSET: isize>() -> IX509Enrollment2_Vtbl {
-        unsafe extern "system" fn InitializeFromTemplate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509Enrollment2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: X509CertificateEnrollmentContext, ppolicyserver: ::windows::core::RawPtr, ptemplate: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InitializeFromTemplate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509Enrollment2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: X509CertificateEnrollmentContext, ppolicyserver: *mut ::core::ffi::c_void, ptemplate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.InitializeFromTemplate(::core::mem::transmute_copy(&context), ::core::mem::transmute(&ppolicyserver), ::core::mem::transmute(&ptemplate)).into()
@@ -11361,7 +11361,7 @@ impl IX509Enrollment2_Vtbl {
             let this = (*this).get_impl();
             this.InstallResponse2(::core::mem::transmute_copy(&restrictions), ::core::mem::transmute(&strresponse), ::core::mem::transmute_copy(&encoding), ::core::mem::transmute(&strpassword), ::core::mem::transmute(&strenrollmentpolicyserverurl), ::core::mem::transmute(&strenrollmentpolicyserverid), ::core::mem::transmute_copy(&enrollmentpolicyserverflags), ::core::mem::transmute_copy(&authflags)).into()
         }
-        unsafe extern "system" fn PolicyServer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509Enrollment2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pppolicyserver: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PolicyServer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509Enrollment2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pppolicyserver: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.PolicyServer() {
@@ -11372,7 +11372,7 @@ impl IX509Enrollment2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Template<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509Enrollment2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pptemplate: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Template<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509Enrollment2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pptemplate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Template() {
@@ -11499,7 +11499,7 @@ impl IX509EnrollmentPolicyServer_Vtbl {
             let this = (*this).get_impl();
             this.LoadPolicy(::core::mem::transmute_copy(&option)).into()
         }
-        unsafe extern "system" fn GetTemplates<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509EnrollmentPolicyServer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptemplates: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetTemplates<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509EnrollmentPolicyServer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptemplates: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetTemplates() {
@@ -11510,7 +11510,7 @@ impl IX509EnrollmentPolicyServer_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCAsForTemplate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509EnrollmentPolicyServer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptemplate: ::windows::core::RawPtr, ppcas: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCAsForTemplate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509EnrollmentPolicyServer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptemplate: *mut ::core::ffi::c_void, ppcas: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetCAsForTemplate(::core::mem::transmute(&ptemplate)) {
@@ -11521,7 +11521,7 @@ impl IX509EnrollmentPolicyServer_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCAs<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509EnrollmentPolicyServer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcas: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCAs<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509EnrollmentPolicyServer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcas: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetCAs() {
@@ -11537,7 +11537,7 @@ impl IX509EnrollmentPolicyServer_Vtbl {
             let this = (*this).get_impl();
             this.Validate().into()
         }
-        unsafe extern "system" fn GetCustomOids<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509EnrollmentPolicyServer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppobjectids: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCustomOids<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509EnrollmentPolicyServer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppobjectids: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetCustomOids() {
@@ -11924,12 +11924,12 @@ impl ::windows::core::RuntimeName for IX509Extension {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509Extension_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509Extension_Impl, const OFFSET: isize>() -> IX509Extension_Vtbl {
-        unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509Extension_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pobjectid: ::windows::core::RawPtr, encoding: EncodingType, strencodeddata: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509Extension_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pobjectid: *mut ::core::ffi::c_void, encoding: EncodingType, strencodeddata: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Initialize(::core::mem::transmute(&pobjectid), ::core::mem::transmute_copy(&encoding), ::core::mem::transmute(&strencodeddata)).into()
         }
-        unsafe extern "system" fn ObjectId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509Extension_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ObjectId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509Extension_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ObjectId() {
@@ -11991,7 +11991,7 @@ impl ::windows::core::RuntimeName for IX509ExtensionAlternativeNames {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509ExtensionAlternativeNames_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509ExtensionAlternativeNames_Impl, const OFFSET: isize>() -> IX509ExtensionAlternativeNames_Vtbl {
-        unsafe extern "system" fn InitializeEncode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509ExtensionAlternativeNames_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InitializeEncode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509ExtensionAlternativeNames_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.InitializeEncode(::core::mem::transmute(&pvalue)).into()
@@ -12001,7 +12001,7 @@ impl IX509ExtensionAlternativeNames_Vtbl {
             let this = (*this).get_impl();
             this.InitializeDecode(::core::mem::transmute_copy(&encoding), ::core::mem::transmute(&strencodeddata)).into()
         }
-        unsafe extern "system" fn AlternativeNames<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509ExtensionAlternativeNames_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AlternativeNames<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509ExtensionAlternativeNames_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.AlternativeNames() {
@@ -12133,7 +12133,7 @@ impl ::windows::core::RuntimeName for IX509ExtensionCertificatePolicies {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509ExtensionCertificatePolicies_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509ExtensionCertificatePolicies_Impl, const OFFSET: isize>() -> IX509ExtensionCertificatePolicies_Vtbl {
-        unsafe extern "system" fn InitializeEncode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509ExtensionCertificatePolicies_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InitializeEncode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509ExtensionCertificatePolicies_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.InitializeEncode(::core::mem::transmute(&pvalue)).into()
@@ -12143,7 +12143,7 @@ impl IX509ExtensionCertificatePolicies_Vtbl {
             let this = (*this).get_impl();
             this.InitializeDecode(::core::mem::transmute_copy(&encoding), ::core::mem::transmute(&strencodeddata)).into()
         }
-        unsafe extern "system" fn Policies<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509ExtensionCertificatePolicies_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Policies<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509ExtensionCertificatePolicies_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Policies() {
@@ -12176,7 +12176,7 @@ impl ::windows::core::RuntimeName for IX509ExtensionEnhancedKeyUsage {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509ExtensionEnhancedKeyUsage_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509ExtensionEnhancedKeyUsage_Impl, const OFFSET: isize>() -> IX509ExtensionEnhancedKeyUsage_Vtbl {
-        unsafe extern "system" fn InitializeEncode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509ExtensionEnhancedKeyUsage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InitializeEncode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509ExtensionEnhancedKeyUsage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.InitializeEncode(::core::mem::transmute(&pvalue)).into()
@@ -12186,7 +12186,7 @@ impl IX509ExtensionEnhancedKeyUsage_Vtbl {
             let this = (*this).get_impl();
             this.InitializeDecode(::core::mem::transmute_copy(&encoding), ::core::mem::transmute(&strencodeddata)).into()
         }
-        unsafe extern "system" fn EnhancedKeyUsage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509ExtensionEnhancedKeyUsage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnhancedKeyUsage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509ExtensionEnhancedKeyUsage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.EnhancedKeyUsage() {
@@ -12262,7 +12262,7 @@ impl ::windows::core::RuntimeName for IX509ExtensionMSApplicationPolicies {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509ExtensionMSApplicationPolicies_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509ExtensionMSApplicationPolicies_Impl, const OFFSET: isize>() -> IX509ExtensionMSApplicationPolicies_Vtbl {
-        unsafe extern "system" fn InitializeEncode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509ExtensionMSApplicationPolicies_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InitializeEncode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509ExtensionMSApplicationPolicies_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.InitializeEncode(::core::mem::transmute(&pvalue)).into()
@@ -12272,7 +12272,7 @@ impl IX509ExtensionMSApplicationPolicies_Vtbl {
             let this = (*this).get_impl();
             this.InitializeDecode(::core::mem::transmute_copy(&encoding), ::core::mem::transmute(&strencodeddata)).into()
         }
-        unsafe extern "system" fn Policies<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509ExtensionMSApplicationPolicies_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Policies<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509ExtensionMSApplicationPolicies_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Policies() {
@@ -12305,7 +12305,7 @@ impl ::windows::core::RuntimeName for IX509ExtensionSmimeCapabilities {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509ExtensionSmimeCapabilities_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509ExtensionSmimeCapabilities_Impl, const OFFSET: isize>() -> IX509ExtensionSmimeCapabilities_Vtbl {
-        unsafe extern "system" fn InitializeEncode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509ExtensionSmimeCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InitializeEncode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509ExtensionSmimeCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.InitializeEncode(::core::mem::transmute(&pvalue)).into()
@@ -12315,7 +12315,7 @@ impl IX509ExtensionSmimeCapabilities_Vtbl {
             let this = (*this).get_impl();
             this.InitializeDecode(::core::mem::transmute_copy(&encoding), ::core::mem::transmute(&strencodeddata)).into()
         }
-        unsafe extern "system" fn SmimeCapabilities<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509ExtensionSmimeCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SmimeCapabilities<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509ExtensionSmimeCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SmimeCapabilities() {
@@ -12393,7 +12393,7 @@ impl ::windows::core::RuntimeName for IX509ExtensionTemplate {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509ExtensionTemplate_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509ExtensionTemplate_Impl, const OFFSET: isize>() -> IX509ExtensionTemplate_Vtbl {
-        unsafe extern "system" fn InitializeEncode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509ExtensionTemplate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptemplateoid: ::windows::core::RawPtr, majorversion: i32, minorversion: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InitializeEncode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509ExtensionTemplate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptemplateoid: *mut ::core::ffi::c_void, majorversion: i32, minorversion: i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.InitializeEncode(::core::mem::transmute(&ptemplateoid), ::core::mem::transmute_copy(&majorversion), ::core::mem::transmute_copy(&minorversion)).into()
@@ -12403,7 +12403,7 @@ impl IX509ExtensionTemplate_Vtbl {
             let this = (*this).get_impl();
             this.InitializeDecode(::core::mem::transmute_copy(&encoding), ::core::mem::transmute(&strencodeddata)).into()
         }
-        unsafe extern "system" fn TemplateOid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509ExtensionTemplate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TemplateOid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509ExtensionTemplate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.TemplateOid() {
@@ -12508,7 +12508,7 @@ impl ::windows::core::RuntimeName for IX509Extensions {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509Extensions_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509Extensions_Impl, const OFFSET: isize>() -> IX509Extensions_Vtbl {
-        unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509Extensions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509Extensions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_ItemByIndex(::core::mem::transmute_copy(&index)) {
@@ -12541,7 +12541,7 @@ impl IX509Extensions_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509Extensions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509Extensions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Add(::core::mem::transmute(&pval)).into()
@@ -12556,7 +12556,7 @@ impl IX509Extensions_Vtbl {
             let this = (*this).get_impl();
             this.Clear().into()
         }
-        unsafe extern "system" fn get_IndexByObjectId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509Extensions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pobjectid: ::windows::core::RawPtr, pindex: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_IndexByObjectId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509Extensions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pobjectid: *mut ::core::ffi::c_void, pindex: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_IndexByObjectId(::core::mem::transmute(&pobjectid)) {
@@ -12567,7 +12567,7 @@ impl IX509Extensions_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AddRange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509Extensions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddRange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509Extensions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.AddRange(::core::mem::transmute(&pvalue)).into()
@@ -12597,7 +12597,7 @@ impl ::windows::core::RuntimeName for IX509MachineEnrollmentFactory {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509MachineEnrollmentFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509MachineEnrollmentFactory_Impl, const OFFSET: isize>() -> IX509MachineEnrollmentFactory_Vtbl {
-        unsafe extern "system" fn CreateObject<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509MachineEnrollmentFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strprogid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, ppihelper: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateObject<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509MachineEnrollmentFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strprogid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, ppihelper: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateObject(::core::mem::transmute(&strprogid)) {
@@ -12677,7 +12677,7 @@ impl ::windows::core::RuntimeName for IX509NameValuePairs {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509NameValuePairs_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509NameValuePairs_Impl, const OFFSET: isize>() -> IX509NameValuePairs_Vtbl {
-        unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509NameValuePairs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509NameValuePairs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_ItemByIndex(::core::mem::transmute_copy(&index)) {
@@ -12710,7 +12710,7 @@ impl IX509NameValuePairs_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509NameValuePairs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509NameValuePairs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Add(::core::mem::transmute(&pval)).into()
@@ -12754,7 +12754,7 @@ impl ::windows::core::RuntimeName for IX509PolicyServerListManager {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509PolicyServerListManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509PolicyServerListManager_Impl, const OFFSET: isize>() -> IX509PolicyServerListManager_Vtbl {
-        unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509PolicyServerListManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509PolicyServerListManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_ItemByIndex(::core::mem::transmute_copy(&index)) {
@@ -12787,7 +12787,7 @@ impl IX509PolicyServerListManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509PolicyServerListManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509PolicyServerListManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Add(::core::mem::transmute(&pval)).into()
@@ -13086,7 +13086,7 @@ impl IX509PrivateKey_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExportPublicKey<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pppublickey: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExportPublicKey<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pppublickey: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ExportPublicKey() {
@@ -13145,7 +13145,7 @@ impl IX509PrivateKey_Vtbl {
             let this = (*this).get_impl();
             this.SetReaderName(::core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn CspInformations<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CspInformations<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CspInformations() {
@@ -13156,12 +13156,12 @@ impl IX509PrivateKey_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCspInformations<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCspInformations<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetCspInformations(::core::mem::transmute(&pvalue)).into()
         }
-        unsafe extern "system" fn CspStatus<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CspStatus<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CspStatus() {
@@ -13172,7 +13172,7 @@ impl IX509PrivateKey_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCspStatus<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCspStatus<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetCspStatus(::core::mem::transmute(&pvalue)).into()
@@ -13225,7 +13225,7 @@ impl IX509PrivateKey_Vtbl {
             let this = (*this).get_impl();
             this.SetLegacyCsp(::core::mem::transmute_copy(&value)).into()
         }
-        unsafe extern "system" fn Algorithm<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Algorithm<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Algorithm() {
@@ -13236,7 +13236,7 @@ impl IX509PrivateKey_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAlgorithm<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAlgorithm<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetAlgorithm(::core::mem::transmute(&pvalue)).into()
@@ -13700,7 +13700,7 @@ impl ::windows::core::RuntimeName for IX509PublicKey {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509PublicKey_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509PublicKey_Impl, const OFFSET: isize>() -> IX509PublicKey_Vtbl {
-        unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509PublicKey_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pobjectid: ::windows::core::RawPtr, strencodedkey: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, strencodedparameters: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, encoding: EncodingType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509PublicKey_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pobjectid: *mut ::core::ffi::c_void, strencodedkey: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, strencodedparameters: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, encoding: EncodingType) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Initialize(::core::mem::transmute(&pobjectid), ::core::mem::transmute(&strencodedkey), ::core::mem::transmute(&strencodedparameters), ::core::mem::transmute_copy(&encoding)).into()
@@ -13710,7 +13710,7 @@ impl IX509PublicKey_Vtbl {
             let this = (*this).get_impl();
             this.InitializeFromEncodedPublicKeyInfo(::core::mem::transmute(&strencodedpublickeyinfo), ::core::mem::transmute_copy(&encoding)).into()
         }
-        unsafe extern "system" fn Algorithm<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509PublicKey_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Algorithm<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509PublicKey_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Algorithm() {
@@ -13810,7 +13810,7 @@ impl ::windows::core::RuntimeName for IX509SCEPEnrollment {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509SCEPEnrollment_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509SCEPEnrollment_Impl, const OFFSET: isize>() -> IX509SCEPEnrollment_Vtbl {
-        unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509SCEPEnrollment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prequest: ::windows::core::RawPtr, strthumbprint: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, thumprintencoding: EncodingType, strservercertificates: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, encoding: EncodingType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509SCEPEnrollment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prequest: *mut ::core::ffi::c_void, strthumbprint: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, thumprintencoding: EncodingType, strservercertificates: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, encoding: EncodingType) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Initialize(::core::mem::transmute(&prequest), ::core::mem::transmute(&strthumbprint), ::core::mem::transmute_copy(&thumprintencoding), ::core::mem::transmute(&strservercertificates), ::core::mem::transmute_copy(&encoding)).into()
@@ -13880,7 +13880,7 @@ impl IX509SCEPEnrollment_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SignerCertificate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509SCEPEnrollment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SignerCertificate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509SCEPEnrollment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SignerCertificate() {
@@ -13891,12 +13891,12 @@ impl IX509SCEPEnrollment_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSignerCertificate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509SCEPEnrollment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSignerCertificate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509SCEPEnrollment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetSignerCertificate(::core::mem::transmute(&pvalue)).into()
         }
-        unsafe extern "system" fn OldCertificate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509SCEPEnrollment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OldCertificate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509SCEPEnrollment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.OldCertificate() {
@@ -13907,7 +13907,7 @@ impl IX509SCEPEnrollment_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOldCertificate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509SCEPEnrollment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOldCertificate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509SCEPEnrollment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetOldCertificate(::core::mem::transmute(&pvalue)).into()
@@ -13928,7 +13928,7 @@ impl IX509SCEPEnrollment_Vtbl {
             let this = (*this).get_impl();
             this.put_TransactionId(::core::mem::transmute_copy(&encoding), ::core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn Request<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509SCEPEnrollment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Request<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509SCEPEnrollment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Request() {
@@ -13955,7 +13955,7 @@ impl IX509SCEPEnrollment_Vtbl {
             let this = (*this).get_impl();
             this.SetCertificateFriendlyName(::core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn Status<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509SCEPEnrollment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Status<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509SCEPEnrollment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Status() {
@@ -14130,7 +14130,7 @@ impl ::windows::core::RuntimeName for IX509SCEPEnrollmentHelper {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509SCEPEnrollmentHelper_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509SCEPEnrollmentHelper_Impl, const OFFSET: isize>() -> IX509SCEPEnrollmentHelper_Vtbl {
-        unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509SCEPEnrollmentHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strserverurl: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, strrequestheaders: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, prequest: ::windows::core::RawPtr, strcacertificatethumbprint: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509SCEPEnrollmentHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strserverurl: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, strrequestheaders: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, prequest: *mut ::core::ffi::c_void, strcacertificatethumbprint: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Initialize(::core::mem::transmute(&strserverurl), ::core::mem::transmute(&strrequestheaders), ::core::mem::transmute(&prequest), ::core::mem::transmute(&strcacertificatethumbprint)).into()
@@ -14162,7 +14162,7 @@ impl IX509SCEPEnrollmentHelper_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn X509SCEPEnrollment<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509SCEPEnrollmentHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn X509SCEPEnrollment<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509SCEPEnrollmentHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.X509SCEPEnrollment() {
@@ -14219,7 +14219,7 @@ impl ::windows::core::RuntimeName for IX509SignatureInformation {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509SignatureInformation_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509SignatureInformation_Impl, const OFFSET: isize>() -> IX509SignatureInformation_Vtbl {
-        unsafe extern "system" fn HashAlgorithm<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509SignatureInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HashAlgorithm<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509SignatureInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.HashAlgorithm() {
@@ -14230,12 +14230,12 @@ impl IX509SignatureInformation_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetHashAlgorithm<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509SignatureInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHashAlgorithm<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509SignatureInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetHashAlgorithm(::core::mem::transmute(&pvalue)).into()
         }
-        unsafe extern "system" fn PublicKeyAlgorithm<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509SignatureInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PublicKeyAlgorithm<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509SignatureInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.PublicKeyAlgorithm() {
@@ -14246,7 +14246,7 @@ impl IX509SignatureInformation_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPublicKeyAlgorithm<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509SignatureInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPublicKeyAlgorithm<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509SignatureInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetPublicKeyAlgorithm(::core::mem::transmute(&pvalue)).into()
@@ -14310,7 +14310,7 @@ impl IX509SignatureInformation_Vtbl {
             let this = (*this).get_impl();
             this.SetNullSigned(::core::mem::transmute_copy(&value)).into()
         }
-        unsafe extern "system" fn GetSignatureAlgorithm<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509SignatureInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pkcs7signature: i16, signaturekey: i16, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSignatureAlgorithm<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IX509SignatureInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pkcs7signature: i16, signaturekey: i16, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetSignatureAlgorithm(::core::mem::transmute_copy(&pkcs7signature), ::core::mem::transmute_copy(&signaturekey)) {

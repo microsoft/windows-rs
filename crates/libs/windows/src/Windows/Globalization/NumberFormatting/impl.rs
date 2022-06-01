@@ -136,7 +136,7 @@ impl ::windows::core::RuntimeName for INumberFormatterOptions {
 #[cfg(feature = "Foundation_Collections")]
 impl INumberFormatterOptions_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INumberFormatterOptions_Impl, const OFFSET: isize>() -> INumberFormatterOptions_Vtbl {
-        unsafe extern "system" fn Languages<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INumberFormatterOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Languages<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INumberFormatterOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Languages() {
@@ -304,7 +304,7 @@ impl ::windows::core::RuntimeName for INumberParser {
 #[cfg(feature = "Foundation")]
 impl INumberParser_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INumberParser_Impl, const OFFSET: isize>() -> INumberParser_Vtbl {
-        unsafe extern "system" fn ParseInt<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INumberParser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ParseInt<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INumberParser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ParseInt(::core::mem::transmute(&text)) {
@@ -316,7 +316,7 @@ impl INumberParser_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ParseUInt<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INumberParser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ParseUInt<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INumberParser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ParseUInt(::core::mem::transmute(&text)) {
@@ -328,7 +328,7 @@ impl INumberParser_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ParseDouble<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INumberParser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ParseDouble<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INumberParser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ParseDouble(::core::mem::transmute(&text)) {
@@ -459,7 +459,7 @@ impl ::windows::core::RuntimeName for INumberRounderOption {
 }
 impl INumberRounderOption_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INumberRounderOption_Impl, const OFFSET: isize>() -> INumberRounderOption_Vtbl {
-        unsafe extern "system" fn NumberRounder<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INumberRounderOption_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NumberRounder<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INumberRounderOption_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.NumberRounder() {
@@ -471,7 +471,7 @@ impl INumberRounderOption_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetNumberRounder<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INumberRounderOption_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetNumberRounder<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INumberRounderOption_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetNumberRounder(::core::mem::transmute(&value)).into()

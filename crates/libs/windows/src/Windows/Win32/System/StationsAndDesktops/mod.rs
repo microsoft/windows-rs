@@ -369,7 +369,7 @@ pub unsafe fn EnumDesktopWindows<'a, Param0: ::windows::core::IntoParam<'a, HDES
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EnumDesktopWindows(hdesktop: HDESK, lpfn: ::windows::core::RawPtr, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+            fn EnumDesktopWindows(hdesktop: HDESK, lpfn: *mut ::core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(EnumDesktopWindows(hdesktop.into_param().abi(), ::core::mem::transmute(lpfn), lparam.into_param().abi()))
     }
@@ -384,7 +384,7 @@ pub unsafe fn EnumDesktopsA<'a, Param0: ::windows::core::IntoParam<'a, HWINSTA>,
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EnumDesktopsA(hwinsta: HWINSTA, lpenumfunc: ::windows::core::RawPtr, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+            fn EnumDesktopsA(hwinsta: HWINSTA, lpenumfunc: *mut ::core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(EnumDesktopsA(hwinsta.into_param().abi(), ::core::mem::transmute(lpenumfunc), lparam.into_param().abi()))
     }
@@ -399,7 +399,7 @@ pub unsafe fn EnumDesktopsW<'a, Param0: ::windows::core::IntoParam<'a, HWINSTA>,
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EnumDesktopsW(hwinsta: HWINSTA, lpenumfunc: ::windows::core::RawPtr, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+            fn EnumDesktopsW(hwinsta: HWINSTA, lpenumfunc: *mut ::core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(EnumDesktopsW(hwinsta.into_param().abi(), ::core::mem::transmute(lpenumfunc), lparam.into_param().abi()))
     }
@@ -414,7 +414,7 @@ pub unsafe fn EnumWindowStationsA<'a, Param1: ::windows::core::IntoParam<'a, sup
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EnumWindowStationsA(lpenumfunc: ::windows::core::RawPtr, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+            fn EnumWindowStationsA(lpenumfunc: *mut ::core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(EnumWindowStationsA(::core::mem::transmute(lpenumfunc), lparam.into_param().abi()))
     }
@@ -429,7 +429,7 @@ pub unsafe fn EnumWindowStationsW<'a, Param1: ::windows::core::IntoParam<'a, sup
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EnumWindowStationsW(lpenumfunc: ::windows::core::RawPtr, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+            fn EnumWindowStationsW(lpenumfunc: *mut ::core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(EnumWindowStationsW(::core::mem::transmute(lpenumfunc), lparam.into_param().abi()))
     }

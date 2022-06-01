@@ -314,7 +314,7 @@ pub struct IBackgroundEnergyManagerStatics_Vtbl {
     #[cfg(not(feature = "deprecated"))]
     RecentEnergyUsageLevel: usize,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub RecentEnergyUsageIncreased: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub RecentEnergyUsageIncreased: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
     RecentEnergyUsageIncreased: usize,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -322,7 +322,7 @@ pub struct IBackgroundEnergyManagerStatics_Vtbl {
     #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
     RemoveRecentEnergyUsageIncreased: usize,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub RecentEnergyUsageReturnedToLow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub RecentEnergyUsageReturnedToLow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
     RecentEnergyUsageReturnedToLow: usize,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -369,7 +369,7 @@ pub struct IForegroundEnergyManagerStatics_Vtbl {
     #[cfg(not(feature = "deprecated"))]
     RecentEnergyUsageLevel: usize,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub RecentEnergyUsageIncreased: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub RecentEnergyUsageIncreased: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
     RecentEnergyUsageIncreased: usize,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -377,7 +377,7 @@ pub struct IForegroundEnergyManagerStatics_Vtbl {
     #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
     RemoveRecentEnergyUsageIncreased: usize,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub RecentEnergyUsageReturnedToLow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub RecentEnergyUsageReturnedToLow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
     RecentEnergyUsageReturnedToLow: usize,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -398,7 +398,7 @@ pub struct IPowerManagerStatics_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     pub EnergySaverStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut EnergySaverStatus) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
-    pub EnergySaverStatusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub EnergySaverStatusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     EnergySaverStatusChanged: usize,
     #[cfg(feature = "Foundation")]
@@ -407,7 +407,7 @@ pub struct IPowerManagerStatics_Vtbl {
     RemoveEnergySaverStatusChanged: usize,
     pub BatteryStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut BatteryStatus) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
-    pub BatteryStatusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub BatteryStatusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     BatteryStatusChanged: usize,
     #[cfg(feature = "Foundation")]
@@ -416,7 +416,7 @@ pub struct IPowerManagerStatics_Vtbl {
     RemoveBatteryStatusChanged: usize,
     pub PowerSupplyStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PowerSupplyStatus) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
-    pub PowerSupplyStatusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub PowerSupplyStatusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     PowerSupplyStatusChanged: usize,
     #[cfg(feature = "Foundation")]
@@ -425,7 +425,7 @@ pub struct IPowerManagerStatics_Vtbl {
     RemovePowerSupplyStatusChanged: usize,
     pub RemainingChargePercent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
-    pub RemainingChargePercentChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub RemainingChargePercentChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     RemainingChargePercentChanged: usize,
     #[cfg(feature = "Foundation")]
@@ -437,7 +437,7 @@ pub struct IPowerManagerStatics_Vtbl {
     #[cfg(not(feature = "Foundation"))]
     RemainingDischargeTime: usize,
     #[cfg(feature = "Foundation")]
-    pub RemainingDischargeTimeChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub RemainingDischargeTimeChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     RemainingDischargeTimeChanged: usize,
     #[cfg(feature = "Foundation")]

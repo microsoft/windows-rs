@@ -6,7 +6,7 @@ pub unsafe fn BindIFilterFromStorage<'a, Param0: ::windows::core::IntoParam<'a, 
     {
         #[link(name = "windows")]
         extern "system" {
-            fn BindIFilterFromStorage(pstg: ::windows::core::RawPtr, punkouter: *mut ::core::ffi::c_void, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn BindIFilterFromStorage(pstg: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         BindIFilterFromStorage(pstg.into_param().abi(), punkouter.into_param().abi(), ::core::mem::transmute(ppiunk)).ok()
     }
@@ -21,7 +21,7 @@ pub unsafe fn BindIFilterFromStream<'a, Param0: ::windows::core::IntoParam<'a, s
     {
         #[link(name = "windows")]
         extern "system" {
-            fn BindIFilterFromStream(pstm: ::windows::core::RawPtr, punkouter: *mut ::core::ffi::c_void, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn BindIFilterFromStream(pstm: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         BindIFilterFromStream(pstm.into_param().abi(), punkouter.into_param().abi(), ::core::mem::transmute(ppiunk)).ok()
     }

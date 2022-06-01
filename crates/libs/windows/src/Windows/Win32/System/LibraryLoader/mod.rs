@@ -149,7 +149,7 @@ pub unsafe fn EnumResourceLanguagesA<'a, Param0: ::windows::core::IntoParam<'a, 
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EnumResourceLanguagesA(hmodule: super::super::Foundation::HINSTANCE, lptype: ::windows::core::PCSTR, lpname: ::windows::core::PCSTR, lpenumfunc: ::windows::core::RawPtr, lparam: isize) -> super::super::Foundation::BOOL;
+            fn EnumResourceLanguagesA(hmodule: super::super::Foundation::HINSTANCE, lptype: ::windows::core::PCSTR, lpname: ::windows::core::PCSTR, lpenumfunc: *mut ::core::ffi::c_void, lparam: isize) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(EnumResourceLanguagesA(hmodule.into_param().abi(), lptype.into_param().abi(), lpname.into_param().abi(), ::core::mem::transmute(lpenumfunc), ::core::mem::transmute(lparam)))
     }
@@ -164,7 +164,7 @@ pub unsafe fn EnumResourceLanguagesExA<'a, Param0: ::windows::core::IntoParam<'a
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EnumResourceLanguagesExA(hmodule: super::super::Foundation::HINSTANCE, lptype: ::windows::core::PCSTR, lpname: ::windows::core::PCSTR, lpenumfunc: ::windows::core::RawPtr, lparam: isize, dwflags: u32, langid: u16) -> super::super::Foundation::BOOL;
+            fn EnumResourceLanguagesExA(hmodule: super::super::Foundation::HINSTANCE, lptype: ::windows::core::PCSTR, lpname: ::windows::core::PCSTR, lpenumfunc: *mut ::core::ffi::c_void, lparam: isize, dwflags: u32, langid: u16) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(EnumResourceLanguagesExA(hmodule.into_param().abi(), lptype.into_param().abi(), lpname.into_param().abi(), ::core::mem::transmute(lpenumfunc), ::core::mem::transmute(lparam), ::core::mem::transmute(dwflags), ::core::mem::transmute(langid)))
     }
@@ -179,7 +179,7 @@ pub unsafe fn EnumResourceLanguagesExW<'a, Param0: ::windows::core::IntoParam<'a
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EnumResourceLanguagesExW(hmodule: super::super::Foundation::HINSTANCE, lptype: ::windows::core::PCWSTR, lpname: ::windows::core::PCWSTR, lpenumfunc: ::windows::core::RawPtr, lparam: isize, dwflags: u32, langid: u16) -> super::super::Foundation::BOOL;
+            fn EnumResourceLanguagesExW(hmodule: super::super::Foundation::HINSTANCE, lptype: ::windows::core::PCWSTR, lpname: ::windows::core::PCWSTR, lpenumfunc: *mut ::core::ffi::c_void, lparam: isize, dwflags: u32, langid: u16) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(EnumResourceLanguagesExW(hmodule.into_param().abi(), lptype.into_param().abi(), lpname.into_param().abi(), ::core::mem::transmute(lpenumfunc), ::core::mem::transmute(lparam), ::core::mem::transmute(dwflags), ::core::mem::transmute(langid)))
     }
@@ -194,7 +194,7 @@ pub unsafe fn EnumResourceLanguagesW<'a, Param0: ::windows::core::IntoParam<'a, 
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EnumResourceLanguagesW(hmodule: super::super::Foundation::HINSTANCE, lptype: ::windows::core::PCWSTR, lpname: ::windows::core::PCWSTR, lpenumfunc: ::windows::core::RawPtr, lparam: isize) -> super::super::Foundation::BOOL;
+            fn EnumResourceLanguagesW(hmodule: super::super::Foundation::HINSTANCE, lptype: ::windows::core::PCWSTR, lpname: ::windows::core::PCWSTR, lpenumfunc: *mut ::core::ffi::c_void, lparam: isize) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(EnumResourceLanguagesW(hmodule.into_param().abi(), lptype.into_param().abi(), lpname.into_param().abi(), ::core::mem::transmute(lpenumfunc), ::core::mem::transmute(lparam)))
     }
@@ -209,7 +209,7 @@ pub unsafe fn EnumResourceNamesA<'a, Param0: ::windows::core::IntoParam<'a, supe
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EnumResourceNamesA(hmodule: super::super::Foundation::HINSTANCE, lptype: ::windows::core::PCSTR, lpenumfunc: ::windows::core::RawPtr, lparam: isize) -> super::super::Foundation::BOOL;
+            fn EnumResourceNamesA(hmodule: super::super::Foundation::HINSTANCE, lptype: ::windows::core::PCSTR, lpenumfunc: *mut ::core::ffi::c_void, lparam: isize) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(EnumResourceNamesA(hmodule.into_param().abi(), lptype.into_param().abi(), ::core::mem::transmute(lpenumfunc), ::core::mem::transmute(lparam)))
     }
@@ -224,7 +224,7 @@ pub unsafe fn EnumResourceNamesExA<'a, Param0: ::windows::core::IntoParam<'a, su
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EnumResourceNamesExA(hmodule: super::super::Foundation::HINSTANCE, lptype: ::windows::core::PCSTR, lpenumfunc: ::windows::core::RawPtr, lparam: isize, dwflags: u32, langid: u16) -> super::super::Foundation::BOOL;
+            fn EnumResourceNamesExA(hmodule: super::super::Foundation::HINSTANCE, lptype: ::windows::core::PCSTR, lpenumfunc: *mut ::core::ffi::c_void, lparam: isize, dwflags: u32, langid: u16) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(EnumResourceNamesExA(hmodule.into_param().abi(), lptype.into_param().abi(), ::core::mem::transmute(lpenumfunc), ::core::mem::transmute(lparam), ::core::mem::transmute(dwflags), ::core::mem::transmute(langid)))
     }
@@ -239,7 +239,7 @@ pub unsafe fn EnumResourceNamesExW<'a, Param0: ::windows::core::IntoParam<'a, su
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EnumResourceNamesExW(hmodule: super::super::Foundation::HINSTANCE, lptype: ::windows::core::PCWSTR, lpenumfunc: ::windows::core::RawPtr, lparam: isize, dwflags: u32, langid: u16) -> super::super::Foundation::BOOL;
+            fn EnumResourceNamesExW(hmodule: super::super::Foundation::HINSTANCE, lptype: ::windows::core::PCWSTR, lpenumfunc: *mut ::core::ffi::c_void, lparam: isize, dwflags: u32, langid: u16) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(EnumResourceNamesExW(hmodule.into_param().abi(), lptype.into_param().abi(), ::core::mem::transmute(lpenumfunc), ::core::mem::transmute(lparam), ::core::mem::transmute(dwflags), ::core::mem::transmute(langid)))
     }
@@ -254,7 +254,7 @@ pub unsafe fn EnumResourceNamesW<'a, Param0: ::windows::core::IntoParam<'a, supe
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EnumResourceNamesW(hmodule: super::super::Foundation::HINSTANCE, lptype: ::windows::core::PCWSTR, lpenumfunc: ::windows::core::RawPtr, lparam: isize) -> super::super::Foundation::BOOL;
+            fn EnumResourceNamesW(hmodule: super::super::Foundation::HINSTANCE, lptype: ::windows::core::PCWSTR, lpenumfunc: *mut ::core::ffi::c_void, lparam: isize) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(EnumResourceNamesW(hmodule.into_param().abi(), lptype.into_param().abi(), ::core::mem::transmute(lpenumfunc), ::core::mem::transmute(lparam)))
     }
@@ -269,7 +269,7 @@ pub unsafe fn EnumResourceTypesA<'a, Param0: ::windows::core::IntoParam<'a, supe
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EnumResourceTypesA(hmodule: super::super::Foundation::HINSTANCE, lpenumfunc: ::windows::core::RawPtr, lparam: isize) -> super::super::Foundation::BOOL;
+            fn EnumResourceTypesA(hmodule: super::super::Foundation::HINSTANCE, lpenumfunc: *mut ::core::ffi::c_void, lparam: isize) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(EnumResourceTypesA(hmodule.into_param().abi(), ::core::mem::transmute(lpenumfunc), ::core::mem::transmute(lparam)))
     }
@@ -284,7 +284,7 @@ pub unsafe fn EnumResourceTypesExA<'a, Param0: ::windows::core::IntoParam<'a, su
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EnumResourceTypesExA(hmodule: super::super::Foundation::HINSTANCE, lpenumfunc: ::windows::core::RawPtr, lparam: isize, dwflags: u32, langid: u16) -> super::super::Foundation::BOOL;
+            fn EnumResourceTypesExA(hmodule: super::super::Foundation::HINSTANCE, lpenumfunc: *mut ::core::ffi::c_void, lparam: isize, dwflags: u32, langid: u16) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(EnumResourceTypesExA(hmodule.into_param().abi(), ::core::mem::transmute(lpenumfunc), ::core::mem::transmute(lparam), ::core::mem::transmute(dwflags), ::core::mem::transmute(langid)))
     }
@@ -299,7 +299,7 @@ pub unsafe fn EnumResourceTypesExW<'a, Param0: ::windows::core::IntoParam<'a, su
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EnumResourceTypesExW(hmodule: super::super::Foundation::HINSTANCE, lpenumfunc: ::windows::core::RawPtr, lparam: isize, dwflags: u32, langid: u16) -> super::super::Foundation::BOOL;
+            fn EnumResourceTypesExW(hmodule: super::super::Foundation::HINSTANCE, lpenumfunc: *mut ::core::ffi::c_void, lparam: isize, dwflags: u32, langid: u16) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(EnumResourceTypesExW(hmodule.into_param().abi(), ::core::mem::transmute(lpenumfunc), ::core::mem::transmute(lparam), ::core::mem::transmute(dwflags), ::core::mem::transmute(langid)))
     }
@@ -314,7 +314,7 @@ pub unsafe fn EnumResourceTypesW<'a, Param0: ::windows::core::IntoParam<'a, supe
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EnumResourceTypesW(hmodule: super::super::Foundation::HINSTANCE, lpenumfunc: ::windows::core::RawPtr, lparam: isize) -> super::super::Foundation::BOOL;
+            fn EnumResourceTypesW(hmodule: super::super::Foundation::HINSTANCE, lpenumfunc: *mut ::core::ffi::c_void, lparam: isize) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(EnumResourceTypesW(hmodule.into_param().abi(), ::core::mem::transmute(lpenumfunc), ::core::mem::transmute(lparam)))
     }

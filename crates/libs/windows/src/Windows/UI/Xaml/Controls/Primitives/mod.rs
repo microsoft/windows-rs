@@ -460,7 +460,7 @@ impl ButtonBase {
     pub fn Command(&self) -> ::windows::core::Result<super::super::Input::ICommand> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Command)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Input::ICommand>(result__)
         }
     }
@@ -501,35 +501,35 @@ impl ButtonBase {
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ClickModeProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IButtonBaseStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ClickModeProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn IsPointerOverProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IButtonBaseStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).IsPointerOverProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn IsPressedProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IButtonBaseStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).IsPressedProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CommandProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IButtonBaseStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CommandProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CommandParameterProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IButtonBaseStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CommandParameterProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
@@ -1370,7 +1370,7 @@ impl CarouselPanel {
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn new() -> ::windows::core::Result<CarouselPanel> {
         Self::ICarouselPanelFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, result__.as_mut_ptr()).from_abi::<CarouselPanel>(result__)
         })
     }
@@ -1378,7 +1378,7 @@ impl CarouselPanel {
     pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<CarouselPanel> {
         Self::ICarouselPanelFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, result__.as_mut_ptr()).from_abi::<CarouselPanel>(result__)
         })
     }
@@ -1433,7 +1433,7 @@ impl CarouselPanel {
     pub fn GetIrregularSnapPoints(&self, orientation: super::Orientation, alignment: SnapPointsAlignment) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<f32>> {
         let this = &::windows::core::Interface::cast::<IScrollSnapPointsInfo>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetIrregularSnapPoints)(::windows::core::Interface::as_raw(this), orientation, alignment, result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<f32>>(result__)
         }
     }
@@ -1717,7 +1717,7 @@ impl ColorPickerSlider {
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn new() -> ::windows::core::Result<ColorPickerSlider> {
         Self::IColorPickerSliderFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, result__.as_mut_ptr()).from_abi::<ColorPickerSlider>(result__)
         })
     }
@@ -1725,14 +1725,14 @@ impl ColorPickerSlider {
     pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<ColorPickerSlider> {
         Self::IColorPickerSliderFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, result__.as_mut_ptr()).from_abi::<ColorPickerSlider>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ColorChannelProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IColorPickerSliderStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ColorChannelProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
@@ -2145,7 +2145,7 @@ impl ColorSpectrum {
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn new() -> ::windows::core::Result<ColorSpectrum> {
         Self::IColorSpectrumFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, result__.as_mut_ptr()).from_abi::<ColorSpectrum>(result__)
         })
     }
@@ -2153,77 +2153,77 @@ impl ColorSpectrum {
     pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<ColorSpectrum> {
         Self::IColorSpectrumFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, result__.as_mut_ptr()).from_abi::<ColorSpectrum>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ColorProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IColorSpectrumStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ColorProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn HsvColorProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IColorSpectrumStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).HsvColorProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn MinHueProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IColorSpectrumStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).MinHueProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn MaxHueProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IColorSpectrumStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).MaxHueProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn MinSaturationProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IColorSpectrumStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).MinSaturationProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn MaxSaturationProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IColorSpectrumStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).MaxSaturationProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn MinValueProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IColorSpectrumStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).MinValueProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn MaxValueProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IColorSpectrumStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).MaxValueProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ShapeProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IColorSpectrumStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ShapeProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ComponentsProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IColorSpectrumStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ComponentsProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
@@ -2587,14 +2587,14 @@ impl CommandBarFlyoutCommandBar {
     pub fn FlyoutTemplateSettings(&self) -> ::windows::core::Result<CommandBarFlyoutCommandBarTemplateSettings> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FlyoutTemplateSettings)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CommandBarFlyoutCommandBarTemplateSettings>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn new() -> ::windows::core::Result<CommandBarFlyoutCommandBar> {
         Self::ICommandBarFlyoutCommandBarFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, result__.as_mut_ptr()).from_abi::<CommandBarFlyoutCommandBar>(result__)
         })
     }
@@ -2602,7 +2602,7 @@ impl CommandBarFlyoutCommandBar {
     pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<CommandBarFlyoutCommandBar> {
         Self::ICommandBarFlyoutCommandBarFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, result__.as_mut_ptr()).from_abi::<CommandBarFlyoutCommandBar>(result__)
         })
     }
@@ -3394,7 +3394,7 @@ impl DragCompletedEventArgs {
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CreateInstanceWithHorizontalChangeVerticalChangeAndCanceled(horizontalchange: f64, verticalchange: f64, canceled: bool) -> ::windows::core::Result<DragCompletedEventArgs> {
         Self::IDragCompletedEventArgsFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstanceWithHorizontalChangeVerticalChangeAndCanceled)(::windows::core::Interface::as_raw(this), horizontalchange, verticalchange, canceled, ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, result__.as_mut_ptr()).from_abi::<DragCompletedEventArgs>(result__)
         })
     }
@@ -3402,7 +3402,7 @@ impl DragCompletedEventArgs {
     pub fn CreateInstanceWithHorizontalChangeVerticalChangeAndCanceled_compose<T: ::windows::core::Compose>(horizontalchange: f64, verticalchange: f64, canceled: bool, compose: T) -> ::windows::core::Result<DragCompletedEventArgs> {
         Self::IDragCompletedEventArgsFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstanceWithHorizontalChangeVerticalChangeAndCanceled)(::windows::core::Interface::as_raw(this), horizontalchange, verticalchange, canceled, ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, result__.as_mut_ptr()).from_abi::<DragCompletedEventArgs>(result__)
         })
     }
@@ -3529,8 +3529,8 @@ impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::o
         base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
     };
-    unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
-        let this = this as *mut ::windows::core::RawPtr as *mut Self;
+    unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         *interface = if iid == &<DragCompletedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows::core::HRESULT(-2147467262)
@@ -3539,20 +3539,20 @@ impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::o
             ::windows::core::HRESULT(0)
         }
     }
-    unsafe extern "system" fn AddRef(this: ::windows::core::RawPtr) -> u32 {
-        let this = this as *mut ::windows::core::RawPtr as *mut Self;
+    unsafe extern "system" fn AddRef(this: *mut ::core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(this: ::windows::core::RawPtr) -> u32 {
-        let this = this as *mut ::windows::core::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(this: *mut ::core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
             ::windows::core::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }
-    unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-        let this = this as *mut ::windows::core::RawPtr as *mut Self;
+    unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         ((*this).invoke)(::core::mem::transmute(&sender), ::core::mem::transmute(&e)).into()
     }
 }
@@ -3587,7 +3587,7 @@ unsafe impl ::windows::core::RuntimeType for DragCompletedEventHandler {
 #[doc(hidden)]
 pub struct DragCompletedEventHandler_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
-    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
 #[repr(transparent)]
@@ -3612,7 +3612,7 @@ impl DragDeltaEventArgs {
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CreateInstanceWithHorizontalChangeAndVerticalChange(horizontalchange: f64, verticalchange: f64) -> ::windows::core::Result<DragDeltaEventArgs> {
         Self::IDragDeltaEventArgsFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstanceWithHorizontalChangeAndVerticalChange)(::windows::core::Interface::as_raw(this), horizontalchange, verticalchange, ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, result__.as_mut_ptr()).from_abi::<DragDeltaEventArgs>(result__)
         })
     }
@@ -3620,7 +3620,7 @@ impl DragDeltaEventArgs {
     pub fn CreateInstanceWithHorizontalChangeAndVerticalChange_compose<T: ::windows::core::Compose>(horizontalchange: f64, verticalchange: f64, compose: T) -> ::windows::core::Result<DragDeltaEventArgs> {
         Self::IDragDeltaEventArgsFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstanceWithHorizontalChangeAndVerticalChange)(::windows::core::Interface::as_raw(this), horizontalchange, verticalchange, ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, result__.as_mut_ptr()).from_abi::<DragDeltaEventArgs>(result__)
         })
     }
@@ -3747,8 +3747,8 @@ impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::o
         base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
     };
-    unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
-        let this = this as *mut ::windows::core::RawPtr as *mut Self;
+    unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         *interface = if iid == &<DragDeltaEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows::core::HRESULT(-2147467262)
@@ -3757,20 +3757,20 @@ impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::o
             ::windows::core::HRESULT(0)
         }
     }
-    unsafe extern "system" fn AddRef(this: ::windows::core::RawPtr) -> u32 {
-        let this = this as *mut ::windows::core::RawPtr as *mut Self;
+    unsafe extern "system" fn AddRef(this: *mut ::core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(this: ::windows::core::RawPtr) -> u32 {
-        let this = this as *mut ::windows::core::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(this: *mut ::core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
             ::windows::core::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }
-    unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-        let this = this as *mut ::windows::core::RawPtr as *mut Self;
+    unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         ((*this).invoke)(::core::mem::transmute(&sender), ::core::mem::transmute(&e)).into()
     }
 }
@@ -3805,7 +3805,7 @@ unsafe impl ::windows::core::RuntimeType for DragDeltaEventHandler {
 #[doc(hidden)]
 pub struct DragDeltaEventHandler_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
-    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
 #[repr(transparent)]
@@ -3830,7 +3830,7 @@ impl DragStartedEventArgs {
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CreateInstanceWithHorizontalOffsetAndVerticalOffset(horizontaloffset: f64, verticaloffset: f64) -> ::windows::core::Result<DragStartedEventArgs> {
         Self::IDragStartedEventArgsFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstanceWithHorizontalOffsetAndVerticalOffset)(::windows::core::Interface::as_raw(this), horizontaloffset, verticaloffset, ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, result__.as_mut_ptr()).from_abi::<DragStartedEventArgs>(result__)
         })
     }
@@ -3838,7 +3838,7 @@ impl DragStartedEventArgs {
     pub fn CreateInstanceWithHorizontalOffsetAndVerticalOffset_compose<T: ::windows::core::Compose>(horizontaloffset: f64, verticaloffset: f64, compose: T) -> ::windows::core::Result<DragStartedEventArgs> {
         Self::IDragStartedEventArgsFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstanceWithHorizontalOffsetAndVerticalOffset)(::windows::core::Interface::as_raw(this), horizontaloffset, verticaloffset, ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, result__.as_mut_ptr()).from_abi::<DragStartedEventArgs>(result__)
         })
     }
@@ -3965,8 +3965,8 @@ impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::o
         base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
     };
-    unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
-        let this = this as *mut ::windows::core::RawPtr as *mut Self;
+    unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         *interface = if iid == &<DragStartedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows::core::HRESULT(-2147467262)
@@ -3975,20 +3975,20 @@ impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::o
             ::windows::core::HRESULT(0)
         }
     }
-    unsafe extern "system" fn AddRef(this: ::windows::core::RawPtr) -> u32 {
-        let this = this as *mut ::windows::core::RawPtr as *mut Self;
+    unsafe extern "system" fn AddRef(this: *mut ::core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(this: ::windows::core::RawPtr) -> u32 {
-        let this = this as *mut ::windows::core::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(this: *mut ::core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
             ::windows::core::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }
-    unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-        let this = this as *mut ::windows::core::RawPtr as *mut Self;
+    unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         ((*this).invoke)(::core::mem::transmute(&sender), ::core::mem::transmute(&e)).into()
     }
 }
@@ -4023,7 +4023,7 @@ unsafe impl ::windows::core::RuntimeType for DragStartedEventHandler {
 #[doc(hidden)]
 pub struct DragStartedEventHandler_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
-    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
 #[repr(transparent)]
@@ -4137,7 +4137,7 @@ impl FlyoutBase {
     pub fn Target(&self) -> ::windows::core::Result<super::super::FrameworkElement> {
         let this = &::windows::core::Interface::cast::<IFlyoutBase2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Target)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::FrameworkElement>(result__)
         }
     }
@@ -4212,7 +4212,7 @@ impl FlyoutBase {
     pub fn OverlayInputPassThroughElement(&self) -> ::windows::core::Result<super::super::DependencyObject> {
         let this = &::windows::core::Interface::cast::<IFlyoutBase3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).OverlayInputPassThroughElement)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyObject>(result__)
         }
     }
@@ -4299,7 +4299,7 @@ impl FlyoutBase {
     pub fn XamlRoot(&self) -> ::windows::core::Result<super::super::XamlRoot> {
         let this = &::windows::core::Interface::cast::<IFlyoutBase6>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).XamlRoot)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::XamlRoot>(result__)
         }
     }
@@ -4311,21 +4311,21 @@ impl FlyoutBase {
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn PlacementProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IFlyoutBaseStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).PlacementProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn AttachedFlyoutProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IFlyoutBaseStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).AttachedFlyoutProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn GetAttachedFlyout<'a, Param0: ::windows::core::IntoParam<'a, super::super::FrameworkElement>>(element: Param0) -> ::windows::core::Result<FlyoutBase> {
         Self::IFlyoutBaseStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetAttachedFlyout)(::windows::core::Interface::as_raw(this), element.into_param().abi(), result__.as_mut_ptr()).from_abi::<FlyoutBase>(result__)
         })
     }
@@ -4340,77 +4340,77 @@ impl FlyoutBase {
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn AllowFocusOnInteractionProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IFlyoutBaseStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).AllowFocusOnInteractionProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn LightDismissOverlayModeProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IFlyoutBaseStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).LightDismissOverlayModeProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn AllowFocusWhenDisabledProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IFlyoutBaseStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).AllowFocusWhenDisabledProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ElementSoundModeProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IFlyoutBaseStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ElementSoundModeProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn OverlayInputPassThroughElementProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IFlyoutBaseStatics3(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).OverlayInputPassThroughElementProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn TargetProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IFlyoutBaseStatics5(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TargetProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ShowModeProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IFlyoutBaseStatics5(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ShowModeProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn InputDevicePrefersPrimaryCommandsProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IFlyoutBaseStatics5(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).InputDevicePrefersPrimaryCommandsProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn AreOpenCloseAnimationsEnabledProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IFlyoutBaseStatics5(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).AreOpenCloseAnimationsEnabledProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn IsOpenProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IFlyoutBaseStatics5(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).IsOpenProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ShouldConstrainToRootBoundsProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IFlyoutBaseStatics6(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ShouldConstrainToRootBoundsProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
@@ -4713,7 +4713,7 @@ impl FlyoutShowOptions {
     pub fn Position(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Point>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Position)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Point>>(result__)
         }
     }
@@ -4728,7 +4728,7 @@ impl FlyoutShowOptions {
     pub fn ExclusionRect(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Rect>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ExclusionRect)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Rect>>(result__)
         }
     }
@@ -4767,7 +4767,7 @@ impl FlyoutShowOptions {
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn new() -> ::windows::core::Result<FlyoutShowOptions> {
         Self::IFlyoutShowOptionsFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, result__.as_mut_ptr()).from_abi::<FlyoutShowOptions>(result__)
         })
     }
@@ -4775,7 +4775,7 @@ impl FlyoutShowOptions {
     pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<FlyoutShowOptions> {
         Self::IFlyoutShowOptionsFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, result__.as_mut_ptr()).from_abi::<FlyoutShowOptions>(result__)
         })
     }
@@ -5040,7 +5040,7 @@ impl GridViewItemPresenter {
     pub fn CheckHintBrush(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CheckHintBrush)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -5055,7 +5055,7 @@ impl GridViewItemPresenter {
     pub fn CheckSelectingBrush(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CheckSelectingBrush)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -5070,7 +5070,7 @@ impl GridViewItemPresenter {
     pub fn CheckBrush(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CheckBrush)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -5085,7 +5085,7 @@ impl GridViewItemPresenter {
     pub fn DragBackground(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DragBackground)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -5100,7 +5100,7 @@ impl GridViewItemPresenter {
     pub fn DragForeground(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DragForeground)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -5115,7 +5115,7 @@ impl GridViewItemPresenter {
     pub fn FocusBorderBrush(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FocusBorderBrush)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -5130,7 +5130,7 @@ impl GridViewItemPresenter {
     pub fn PlaceholderBackground(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).PlaceholderBackground)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -5145,7 +5145,7 @@ impl GridViewItemPresenter {
     pub fn PointerOverBackground(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).PointerOverBackground)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -5160,7 +5160,7 @@ impl GridViewItemPresenter {
     pub fn SelectedBackground(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).SelectedBackground)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -5175,7 +5175,7 @@ impl GridViewItemPresenter {
     pub fn SelectedForeground(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).SelectedForeground)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -5190,7 +5190,7 @@ impl GridViewItemPresenter {
     pub fn SelectedPointerOverBackground(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).SelectedPointerOverBackground)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -5205,7 +5205,7 @@ impl GridViewItemPresenter {
     pub fn SelectedPointerOverBorderBrush(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).SelectedPointerOverBorderBrush)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -5341,7 +5341,7 @@ impl GridViewItemPresenter {
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn new() -> ::windows::core::Result<GridViewItemPresenter> {
         Self::IGridViewItemPresenterFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, result__.as_mut_ptr()).from_abi::<GridViewItemPresenter>(result__)
         })
     }
@@ -5349,126 +5349,126 @@ impl GridViewItemPresenter {
     pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<GridViewItemPresenter> {
         Self::IGridViewItemPresenterFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, result__.as_mut_ptr()).from_abi::<GridViewItemPresenter>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectionCheckMarkVisualEnabledProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IGridViewItemPresenterStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).SelectionCheckMarkVisualEnabledProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CheckHintBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IGridViewItemPresenterStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CheckHintBrushProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CheckSelectingBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IGridViewItemPresenterStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CheckSelectingBrushProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CheckBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IGridViewItemPresenterStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CheckBrushProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn DragBackgroundProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IGridViewItemPresenterStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DragBackgroundProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn DragForegroundProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IGridViewItemPresenterStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DragForegroundProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn FocusBorderBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IGridViewItemPresenterStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FocusBorderBrushProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn PlaceholderBackgroundProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IGridViewItemPresenterStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).PlaceholderBackgroundProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn PointerOverBackgroundProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IGridViewItemPresenterStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).PointerOverBackgroundProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectedBackgroundProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IGridViewItemPresenterStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).SelectedBackgroundProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectedForegroundProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IGridViewItemPresenterStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).SelectedForegroundProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectedPointerOverBackgroundProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IGridViewItemPresenterStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).SelectedPointerOverBackgroundProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectedPointerOverBorderBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IGridViewItemPresenterStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).SelectedPointerOverBorderBrushProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectedBorderThicknessProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IGridViewItemPresenterStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).SelectedBorderThicknessProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn DisabledOpacityProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IGridViewItemPresenterStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DisabledOpacityProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn DragOpacityProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IGridViewItemPresenterStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DragOpacityProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ReorderHintOffsetProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IGridViewItemPresenterStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ReorderHintOffsetProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
@@ -5476,7 +5476,7 @@ impl GridViewItemPresenter {
     #[cfg(feature = "deprecated")]
     pub fn GridViewItemPresenterHorizontalContentAlignmentProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IGridViewItemPresenterStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GridViewItemPresenterHorizontalContentAlignmentProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
@@ -5484,7 +5484,7 @@ impl GridViewItemPresenter {
     #[cfg(feature = "deprecated")]
     pub fn GridViewItemPresenterVerticalContentAlignmentProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IGridViewItemPresenterStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GridViewItemPresenterVerticalContentAlignmentProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
@@ -5492,21 +5492,21 @@ impl GridViewItemPresenter {
     #[cfg(feature = "deprecated")]
     pub fn GridViewItemPresenterPaddingProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IGridViewItemPresenterStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GridViewItemPresenterPaddingProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn PointerOverBackgroundMarginProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IGridViewItemPresenterStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).PointerOverBackgroundMarginProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ContentMarginProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IGridViewItemPresenterStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ContentMarginProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
@@ -5943,17 +5943,17 @@ pub struct IButtonBase_Vtbl {
     pub IsPointerOver: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub IsPressed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "UI_Xaml_Input")]
-    pub Command: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub Command: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Input"))]
     Command: usize,
     #[cfg(feature = "UI_Xaml_Input")]
-    pub SetCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Input"))]
     SetCommand: usize,
     pub CommandParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetCommandParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
-    pub Click: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub Click: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     Click: usize,
     #[cfg(feature = "Foundation")]
@@ -5972,7 +5972,7 @@ unsafe impl ::windows::core::Interface for IButtonBaseFactory {
 #[doc(hidden)]
 pub struct IButtonBaseFactory_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -5985,11 +5985,11 @@ unsafe impl ::windows::core::Interface for IButtonBaseStatics {
 #[doc(hidden)]
 pub struct IButtonBaseStatics_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub ClickModeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub IsPointerOverProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub IsPressedProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CommandProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CommandParameterProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub ClickModeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub IsPointerOverProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub IsPressedProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CommandProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CommandParameterProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -6071,7 +6071,7 @@ pub struct ICarouselPanel_Vtbl {
     pub SetHorizontalOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: f64) -> ::windows::core::HRESULT,
     pub SetVerticalOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: f64) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
-    pub MakeVisible: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, visual: ::windows::core::RawPtr, rectangle: super::super::super::super::Foundation::Rect, result__: *mut super::super::super::super::Foundation::Rect) -> ::windows::core::HRESULT,
+    pub MakeVisible: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, visual: *mut ::core::ffi::c_void, rectangle: super::super::super::super::Foundation::Rect, result__: *mut super::super::super::super::Foundation::Rect) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     MakeVisible: usize,
 }
@@ -6086,7 +6086,7 @@ unsafe impl ::windows::core::Interface for ICarouselPanelFactory {
 #[doc(hidden)]
 pub struct ICarouselPanelFactory_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -6113,7 +6113,7 @@ unsafe impl ::windows::core::Interface for IColorPickerSliderFactory {
 #[doc(hidden)]
 pub struct IColorPickerSliderFactory_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -6126,7 +6126,7 @@ unsafe impl ::windows::core::Interface for IColorPickerSliderStatics {
 #[doc(hidden)]
 pub struct IColorPickerSliderStatics_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub ColorChannelProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub ColorChannelProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -6166,7 +6166,7 @@ pub struct IColorSpectrum_Vtbl {
     pub Components: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::ColorSpectrumComponents) -> ::windows::core::HRESULT,
     pub SetComponents: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::ColorSpectrumComponents) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
-    pub ColorChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub ColorChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     ColorChanged: usize,
     #[cfg(feature = "Foundation")]
@@ -6185,7 +6185,7 @@ unsafe impl ::windows::core::Interface for IColorSpectrumFactory {
 #[doc(hidden)]
 pub struct IColorSpectrumFactory_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -6198,16 +6198,16 @@ unsafe impl ::windows::core::Interface for IColorSpectrumStatics {
 #[doc(hidden)]
 pub struct IColorSpectrumStatics_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub ColorProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub HsvColorProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub MinHueProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub MaxHueProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub MinSaturationProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub MaxSaturationProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub MinValueProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub MaxValueProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub ShapeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub ComponentsProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub ColorProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub HsvColorProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub MinHueProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub MaxHueProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub MinSaturationProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub MaxSaturationProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub MinValueProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub MaxValueProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ShapeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ComponentsProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -6249,7 +6249,7 @@ unsafe impl ::windows::core::Interface for ICommandBarFlyoutCommandBar {
 #[doc(hidden)]
 pub struct ICommandBarFlyoutCommandBar_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub FlyoutTemplateSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub FlyoutTemplateSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -6262,7 +6262,7 @@ unsafe impl ::windows::core::Interface for ICommandBarFlyoutCommandBarFactory {
 #[doc(hidden)]
 pub struct ICommandBarFlyoutCommandBarFactory_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -6391,7 +6391,7 @@ unsafe impl ::windows::core::Interface for IDragCompletedEventArgsFactory {
 #[doc(hidden)]
 pub struct IDragCompletedEventArgsFactory_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub CreateInstanceWithHorizontalChangeVerticalChangeAndCanceled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, horizontalchange: f64, verticalchange: f64, canceled: bool, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateInstanceWithHorizontalChangeVerticalChangeAndCanceled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, horizontalchange: f64, verticalchange: f64, canceled: bool, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -6418,7 +6418,7 @@ unsafe impl ::windows::core::Interface for IDragDeltaEventArgsFactory {
 #[doc(hidden)]
 pub struct IDragDeltaEventArgsFactory_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub CreateInstanceWithHorizontalChangeAndVerticalChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, horizontalchange: f64, verticalchange: f64, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateInstanceWithHorizontalChangeAndVerticalChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, horizontalchange: f64, verticalchange: f64, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -6445,7 +6445,7 @@ unsafe impl ::windows::core::Interface for IDragStartedEventArgsFactory {
 #[doc(hidden)]
 pub struct IDragStartedEventArgsFactory_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub CreateInstanceWithHorizontalOffsetAndVerticalOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, horizontaloffset: f64, verticaloffset: f64, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateInstanceWithHorizontalOffsetAndVerticalOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, horizontaloffset: f64, verticaloffset: f64, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -6461,7 +6461,7 @@ pub struct IFlyoutBase_Vtbl {
     pub Placement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut FlyoutPlacementMode) -> ::windows::core::HRESULT,
     pub SetPlacement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: FlyoutPlacementMode) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
-    pub Opened: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub Opened: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     Opened: usize,
     #[cfg(feature = "Foundation")]
@@ -6469,7 +6469,7 @@ pub struct IFlyoutBase_Vtbl {
     #[cfg(not(feature = "Foundation"))]
     RemoveOpened: usize,
     #[cfg(feature = "Foundation")]
-    pub Closed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub Closed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     Closed: usize,
     #[cfg(feature = "Foundation")]
@@ -6477,14 +6477,14 @@ pub struct IFlyoutBase_Vtbl {
     #[cfg(not(feature = "Foundation"))]
     RemoveClosed: usize,
     #[cfg(feature = "Foundation")]
-    pub Opening: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub Opening: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     Opening: usize,
     #[cfg(feature = "Foundation")]
     pub RemoveOpening: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     RemoveOpening: usize,
-    pub ShowAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, placementtarget: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub ShowAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, placementtarget: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Hide: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -6498,7 +6498,7 @@ unsafe impl ::windows::core::Interface for IFlyoutBase2 {
 #[doc(hidden)]
 pub struct IFlyoutBase2_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub Target: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub Target: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub AllowFocusOnInteraction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetAllowFocusOnInteraction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     pub LightDismissOverlayMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::LightDismissOverlayMode) -> ::windows::core::HRESULT,
@@ -6508,7 +6508,7 @@ pub struct IFlyoutBase2_Vtbl {
     pub ElementSoundMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::ElementSoundMode) -> ::windows::core::HRESULT,
     pub SetElementSoundMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::ElementSoundMode) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
-    pub Closing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub Closing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     Closing: usize,
     #[cfg(feature = "Foundation")]
@@ -6527,8 +6527,8 @@ unsafe impl ::windows::core::Interface for IFlyoutBase3 {
 #[doc(hidden)]
 pub struct IFlyoutBase3_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub OverlayInputPassThroughElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetOverlayInputPassThroughElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub OverlayInputPassThroughElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetOverlayInputPassThroughElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -6542,7 +6542,7 @@ unsafe impl ::windows::core::Interface for IFlyoutBase4 {
 pub struct IFlyoutBase4_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Input")]
-    pub TryInvokeKeyboardAccelerator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, args: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub TryInvokeKeyboardAccelerator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, args: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Input"))]
     TryInvokeKeyboardAccelerator: usize,
 }
@@ -6563,7 +6563,7 @@ pub struct IFlyoutBase5_Vtbl {
     pub AreOpenCloseAnimationsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetAreOpenCloseAnimationsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     pub IsOpen: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub ShowAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, placementtarget: ::windows::core::RawPtr, showoptions: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub ShowAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, placementtarget: *mut ::core::ffi::c_void, showoptions: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -6579,8 +6579,8 @@ pub struct IFlyoutBase6_Vtbl {
     pub ShouldConstrainToRootBounds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetShouldConstrainToRootBounds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     pub IsConstrainedToRootBounds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub XamlRoot: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetXamlRoot: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub XamlRoot: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetXamlRoot: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -6607,7 +6607,7 @@ unsafe impl ::windows::core::Interface for IFlyoutBaseFactory {
 #[doc(hidden)]
 pub struct IFlyoutBaseFactory_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -6620,7 +6620,7 @@ unsafe impl ::windows::core::Interface for IFlyoutBaseOverrides {
 #[doc(hidden)]
 pub struct IFlyoutBaseOverrides_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub CreatePresenter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreatePresenter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -6634,7 +6634,7 @@ unsafe impl ::windows::core::Interface for IFlyoutBaseOverrides4 {
 pub struct IFlyoutBaseOverrides4_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Input")]
-    pub OnProcessKeyboardAccelerators: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, args: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub OnProcessKeyboardAccelerators: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, args: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Input"))]
     OnProcessKeyboardAccelerators: usize,
 }
@@ -6649,11 +6649,11 @@ unsafe impl ::windows::core::Interface for IFlyoutBaseStatics {
 #[doc(hidden)]
 pub struct IFlyoutBaseStatics_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub PlacementProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub AttachedFlyoutProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub GetAttachedFlyout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetAttachedFlyout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub ShowAttachedFlyout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flyoutowner: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub PlacementProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub AttachedFlyoutProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetAttachedFlyout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetAttachedFlyout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ShowAttachedFlyout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flyoutowner: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -6666,10 +6666,10 @@ unsafe impl ::windows::core::Interface for IFlyoutBaseStatics2 {
 #[doc(hidden)]
 pub struct IFlyoutBaseStatics2_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub AllowFocusOnInteractionProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub LightDismissOverlayModeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub AllowFocusWhenDisabledProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub ElementSoundModeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub AllowFocusOnInteractionProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub LightDismissOverlayModeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub AllowFocusWhenDisabledProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ElementSoundModeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -6682,7 +6682,7 @@ unsafe impl ::windows::core::Interface for IFlyoutBaseStatics3 {
 #[doc(hidden)]
 pub struct IFlyoutBaseStatics3_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub OverlayInputPassThroughElementProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub OverlayInputPassThroughElementProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -6695,11 +6695,11 @@ unsafe impl ::windows::core::Interface for IFlyoutBaseStatics5 {
 #[doc(hidden)]
 pub struct IFlyoutBaseStatics5_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub TargetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub ShowModeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub InputDevicePrefersPrimaryCommandsProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub AreOpenCloseAnimationsEnabledProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub IsOpenProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub TargetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ShowModeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub InputDevicePrefersPrimaryCommandsProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub AreOpenCloseAnimationsEnabledProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub IsOpenProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -6712,7 +6712,7 @@ unsafe impl ::windows::core::Interface for IFlyoutBaseStatics6 {
 #[doc(hidden)]
 pub struct IFlyoutBaseStatics6_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub ShouldConstrainToRootBoundsProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub ShouldConstrainToRootBoundsProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -6726,19 +6726,19 @@ unsafe impl ::windows::core::Interface for IFlyoutShowOptions {
 pub struct IFlyoutShowOptions_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
-    pub Position: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub Position: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     Position: usize,
     #[cfg(feature = "Foundation")]
-    pub SetPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     SetPosition: usize,
     #[cfg(feature = "Foundation")]
-    pub ExclusionRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub ExclusionRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     ExclusionRect: usize,
     #[cfg(feature = "Foundation")]
-    pub SetExclusionRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetExclusionRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     SetExclusionRect: usize,
     pub ShowMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut FlyoutShowMode) -> ::windows::core::HRESULT,
@@ -6757,7 +6757,7 @@ unsafe impl ::windows::core::Interface for IFlyoutShowOptionsFactory {
 #[doc(hidden)]
 pub struct IFlyoutShowOptionsFactory_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -6798,99 +6798,99 @@ pub struct IGridViewItemPresenter_Vtbl {
     pub SelectionCheckMarkVisualEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetSelectionCheckMarkVisualEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub CheckHintBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CheckHintBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     CheckHintBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SetCheckHintBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetCheckHintBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SetCheckHintBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub CheckSelectingBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CheckSelectingBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     CheckSelectingBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SetCheckSelectingBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetCheckSelectingBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SetCheckSelectingBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub CheckBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CheckBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     CheckBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SetCheckBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetCheckBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SetCheckBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub DragBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub DragBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     DragBackground: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SetDragBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetDragBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SetDragBackground: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub DragForeground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub DragForeground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     DragForeground: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SetDragForeground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetDragForeground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SetDragForeground: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub FocusBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub FocusBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     FocusBorderBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SetFocusBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetFocusBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SetFocusBorderBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub PlaceholderBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub PlaceholderBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     PlaceholderBackground: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SetPlaceholderBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetPlaceholderBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SetPlaceholderBackground: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub PointerOverBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub PointerOverBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     PointerOverBackground: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SetPointerOverBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetPointerOverBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SetPointerOverBackground: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SelectedBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SelectedBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SelectedBackground: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SetSelectedBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetSelectedBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SetSelectedBackground: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SelectedForeground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SelectedForeground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SelectedForeground: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SetSelectedForeground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetSelectedForeground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SetSelectedForeground: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SelectedPointerOverBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SelectedPointerOverBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SelectedPointerOverBackground: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SetSelectedPointerOverBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetSelectedPointerOverBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SetSelectedPointerOverBackground: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SelectedPointerOverBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SelectedPointerOverBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SelectedPointerOverBorderBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SetSelectedPointerOverBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetSelectedPointerOverBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SetSelectedPointerOverBorderBrush: usize,
     pub SelectedBorderThickness: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Thickness) -> ::windows::core::HRESULT,
@@ -6941,7 +6941,7 @@ unsafe impl ::windows::core::Interface for IGridViewItemPresenterFactory {
 #[doc(hidden)]
 pub struct IGridViewItemPresenterFactory_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -6954,37 +6954,37 @@ unsafe impl ::windows::core::Interface for IGridViewItemPresenterStatics {
 #[doc(hidden)]
 pub struct IGridViewItemPresenterStatics_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub SelectionCheckMarkVisualEnabledProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CheckHintBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CheckSelectingBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CheckBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub DragBackgroundProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub DragForegroundProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub FocusBorderBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub PlaceholderBackgroundProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub PointerOverBackgroundProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SelectedBackgroundProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SelectedForegroundProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SelectedPointerOverBackgroundProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SelectedPointerOverBorderBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SelectedBorderThicknessProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub DisabledOpacityProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub DragOpacityProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub ReorderHintOffsetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SelectionCheckMarkVisualEnabledProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CheckHintBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CheckSelectingBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CheckBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub DragBackgroundProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub DragForegroundProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub FocusBorderBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub PlaceholderBackgroundProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub PointerOverBackgroundProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SelectedBackgroundProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SelectedForegroundProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SelectedPointerOverBackgroundProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SelectedPointerOverBorderBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SelectedBorderThicknessProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub DisabledOpacityProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub DragOpacityProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ReorderHintOffsetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "deprecated")]
-    pub GridViewItemPresenterHorizontalContentAlignmentProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GridViewItemPresenterHorizontalContentAlignmentProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     GridViewItemPresenterHorizontalContentAlignmentProperty: usize,
     #[cfg(feature = "deprecated")]
-    pub GridViewItemPresenterVerticalContentAlignmentProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GridViewItemPresenterVerticalContentAlignmentProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     GridViewItemPresenterVerticalContentAlignmentProperty: usize,
     #[cfg(feature = "deprecated")]
-    pub GridViewItemPresenterPaddingProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GridViewItemPresenterPaddingProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     GridViewItemPresenterPaddingProperty: usize,
-    pub PointerOverBackgroundMarginProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub ContentMarginProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub PointerOverBackgroundMarginProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ContentMarginProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -7028,19 +7028,19 @@ unsafe impl ::windows::core::Interface for IJumpListItemBackgroundConverter {
 pub struct IJumpListItemBackgroundConverter_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub Enabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub Enabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     Enabled: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SetEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SetEnabled: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub Disabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub Disabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     Disabled: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SetDisabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetDisabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SetDisabled: usize,
 }
@@ -7055,8 +7055,8 @@ unsafe impl ::windows::core::Interface for IJumpListItemBackgroundConverterStati
 #[doc(hidden)]
 pub struct IJumpListItemBackgroundConverterStatics_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub EnabledProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub DisabledProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub EnabledProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub DisabledProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -7070,19 +7070,19 @@ unsafe impl ::windows::core::Interface for IJumpListItemForegroundConverter {
 pub struct IJumpListItemForegroundConverter_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub Enabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub Enabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     Enabled: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SetEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SetEnabled: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub Disabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub Disabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     Disabled: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SetDisabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetDisabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SetDisabled: usize,
 }
@@ -7097,8 +7097,8 @@ unsafe impl ::windows::core::Interface for IJumpListItemForegroundConverterStati
 #[doc(hidden)]
 pub struct IJumpListItemForegroundConverterStatics_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub EnabledProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub DisabledProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub EnabledProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub DisabledProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -7123,9 +7123,9 @@ unsafe impl ::windows::core::Interface for ILayoutInformationStatics {
 #[doc(hidden)]
 pub struct ILayoutInformationStatics_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub GetLayoutExceptionElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispatcher: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GetLayoutExceptionElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispatcher: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
-    pub GetLayoutSlot: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::Rect) -> ::windows::core::HRESULT,
+    pub GetLayoutSlot: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Rect) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     GetLayoutSlot: usize,
 }
@@ -7141,7 +7141,7 @@ unsafe impl ::windows::core::Interface for ILayoutInformationStatics2 {
 pub struct ILayoutInformationStatics2_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
-    pub GetAvailableSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::Size) -> ::windows::core::HRESULT,
+    pub GetAvailableSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Size) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     GetAvailableSize: usize,
 }
@@ -7159,99 +7159,99 @@ pub struct IListViewItemPresenter_Vtbl {
     pub SelectionCheckMarkVisualEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetSelectionCheckMarkVisualEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub CheckHintBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CheckHintBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     CheckHintBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SetCheckHintBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetCheckHintBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SetCheckHintBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub CheckSelectingBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CheckSelectingBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     CheckSelectingBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SetCheckSelectingBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetCheckSelectingBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SetCheckSelectingBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub CheckBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CheckBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     CheckBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SetCheckBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetCheckBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SetCheckBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub DragBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub DragBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     DragBackground: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SetDragBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetDragBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SetDragBackground: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub DragForeground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub DragForeground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     DragForeground: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SetDragForeground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetDragForeground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SetDragForeground: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub FocusBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub FocusBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     FocusBorderBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SetFocusBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetFocusBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SetFocusBorderBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub PlaceholderBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub PlaceholderBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     PlaceholderBackground: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SetPlaceholderBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetPlaceholderBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SetPlaceholderBackground: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub PointerOverBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub PointerOverBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     PointerOverBackground: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SetPointerOverBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetPointerOverBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SetPointerOverBackground: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SelectedBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SelectedBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SelectedBackground: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SetSelectedBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetSelectedBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SetSelectedBackground: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SelectedForeground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SelectedForeground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SelectedForeground: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SetSelectedForeground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetSelectedForeground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SetSelectedForeground: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SelectedPointerOverBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SelectedPointerOverBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SelectedPointerOverBackground: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SetSelectedPointerOverBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetSelectedPointerOverBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SetSelectedPointerOverBackground: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SelectedPointerOverBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SelectedPointerOverBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SelectedPointerOverBorderBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SetSelectedPointerOverBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetSelectedPointerOverBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SetSelectedPointerOverBorderBrush: usize,
     pub SelectedBorderThickness: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Thickness) -> ::windows::core::HRESULT,
@@ -7303,45 +7303,45 @@ unsafe impl ::windows::core::Interface for IListViewItemPresenter2 {
 pub struct IListViewItemPresenter2_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SelectedPressedBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SelectedPressedBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SelectedPressedBackground: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SetSelectedPressedBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetSelectedPressedBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SetSelectedPressedBackground: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub PressedBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub PressedBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     PressedBackground: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SetPressedBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetPressedBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SetPressedBackground: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub CheckBoxBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CheckBoxBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     CheckBoxBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SetCheckBoxBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetCheckBoxBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SetCheckBoxBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub FocusSecondaryBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub FocusSecondaryBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     FocusSecondaryBorderBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SetFocusSecondaryBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetFocusSecondaryBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SetFocusSecondaryBorderBrush: usize,
     pub CheckMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ListViewItemPresenterCheckMode) -> ::windows::core::HRESULT,
     pub SetCheckMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ListViewItemPresenterCheckMode) -> ::windows::core::HRESULT,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub PointerOverForeground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub PointerOverForeground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     PointerOverForeground: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SetPointerOverForeground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetPointerOverForeground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SetPointerOverForeground: usize,
 }
@@ -7357,19 +7357,19 @@ unsafe impl ::windows::core::Interface for IListViewItemPresenter3 {
 pub struct IListViewItemPresenter3_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub RevealBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub RevealBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     RevealBackground: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SetRevealBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetRevealBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SetRevealBackground: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub RevealBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub RevealBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     RevealBorderBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SetRevealBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetRevealBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SetRevealBorderBrush: usize,
     pub RevealBorderThickness: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Thickness) -> ::windows::core::HRESULT,
@@ -7389,115 +7389,115 @@ unsafe impl ::windows::core::Interface for IListViewItemPresenter4 {
 pub struct IListViewItemPresenter4_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SelectedDisabledBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SelectedDisabledBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SelectedDisabledBackground: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SetSelectedDisabledBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetSelectedDisabledBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SetSelectedDisabledBackground: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub CheckPressedBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CheckPressedBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     CheckPressedBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SetCheckPressedBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetCheckPressedBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SetCheckPressedBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub CheckDisabledBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CheckDisabledBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     CheckDisabledBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SetCheckDisabledBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetCheckDisabledBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SetCheckDisabledBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub CheckBoxPointerOverBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CheckBoxPointerOverBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     CheckBoxPointerOverBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SetCheckBoxPointerOverBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetCheckBoxPointerOverBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SetCheckBoxPointerOverBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub CheckBoxPressedBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CheckBoxPressedBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     CheckBoxPressedBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SetCheckBoxPressedBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetCheckBoxPressedBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SetCheckBoxPressedBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub CheckBoxDisabledBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CheckBoxDisabledBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     CheckBoxDisabledBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SetCheckBoxDisabledBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetCheckBoxDisabledBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SetCheckBoxDisabledBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub CheckBoxSelectedBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CheckBoxSelectedBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     CheckBoxSelectedBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SetCheckBoxSelectedBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetCheckBoxSelectedBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SetCheckBoxSelectedBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub CheckBoxSelectedPointerOverBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CheckBoxSelectedPointerOverBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     CheckBoxSelectedPointerOverBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SetCheckBoxSelectedPointerOverBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetCheckBoxSelectedPointerOverBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SetCheckBoxSelectedPointerOverBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub CheckBoxSelectedPressedBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CheckBoxSelectedPressedBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     CheckBoxSelectedPressedBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SetCheckBoxSelectedPressedBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetCheckBoxSelectedPressedBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SetCheckBoxSelectedPressedBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub CheckBoxSelectedDisabledBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CheckBoxSelectedDisabledBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     CheckBoxSelectedDisabledBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SetCheckBoxSelectedDisabledBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetCheckBoxSelectedDisabledBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SetCheckBoxSelectedDisabledBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub CheckBoxBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CheckBoxBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     CheckBoxBorderBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SetCheckBoxBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetCheckBoxBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SetCheckBoxBorderBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub CheckBoxPointerOverBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CheckBoxPointerOverBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     CheckBoxPointerOverBorderBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SetCheckBoxPointerOverBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetCheckBoxPointerOverBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SetCheckBoxPointerOverBorderBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub CheckBoxPressedBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CheckBoxPressedBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     CheckBoxPressedBorderBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SetCheckBoxPressedBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetCheckBoxPressedBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SetCheckBoxPressedBorderBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub CheckBoxDisabledBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CheckBoxDisabledBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     CheckBoxDisabledBorderBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SetCheckBoxDisabledBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetCheckBoxDisabledBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SetCheckBoxDisabledBorderBrush: usize,
     pub CheckBoxCornerRadius: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::CornerRadius) -> ::windows::core::HRESULT,
@@ -7509,75 +7509,75 @@ pub struct IListViewItemPresenter4_Vtbl {
     pub SelectionIndicatorMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ListViewItemPresenterSelectionIndicatorMode) -> ::windows::core::HRESULT,
     pub SetSelectionIndicatorMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ListViewItemPresenterSelectionIndicatorMode) -> ::windows::core::HRESULT,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SelectionIndicatorBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SelectionIndicatorBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SelectionIndicatorBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SetSelectionIndicatorBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetSelectionIndicatorBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SetSelectionIndicatorBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SelectionIndicatorPointerOverBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SelectionIndicatorPointerOverBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SelectionIndicatorPointerOverBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SetSelectionIndicatorPointerOverBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetSelectionIndicatorPointerOverBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SetSelectionIndicatorPointerOverBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SelectionIndicatorPressedBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SelectionIndicatorPressedBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SelectionIndicatorPressedBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SetSelectionIndicatorPressedBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetSelectionIndicatorPressedBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SetSelectionIndicatorPressedBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SelectionIndicatorDisabledBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SelectionIndicatorDisabledBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SelectionIndicatorDisabledBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SetSelectionIndicatorDisabledBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetSelectionIndicatorDisabledBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SetSelectionIndicatorDisabledBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SelectedBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SelectedBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SelectedBorderBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SetSelectedBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetSelectedBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SetSelectedBorderBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SelectedPressedBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SelectedPressedBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SelectedPressedBorderBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SetSelectedPressedBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetSelectedPressedBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SetSelectedPressedBorderBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SelectedDisabledBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SelectedDisabledBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SelectedDisabledBorderBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SetSelectedDisabledBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetSelectedDisabledBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SetSelectedDisabledBorderBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SelectedInnerBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SelectedInnerBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SelectedInnerBorderBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SetSelectedInnerBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetSelectedInnerBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SetSelectedInnerBorderBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub PointerOverBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub PointerOverBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     PointerOverBorderBrush: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SetPointerOverBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetPointerOverBorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SetPointerOverBorderBrush: usize,
 }
@@ -7592,7 +7592,7 @@ unsafe impl ::windows::core::Interface for IListViewItemPresenterFactory {
 #[doc(hidden)]
 pub struct IListViewItemPresenterFactory_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -7605,37 +7605,37 @@ unsafe impl ::windows::core::Interface for IListViewItemPresenterStatics {
 #[doc(hidden)]
 pub struct IListViewItemPresenterStatics_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub SelectionCheckMarkVisualEnabledProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CheckHintBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CheckSelectingBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CheckBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub DragBackgroundProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub DragForegroundProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub FocusBorderBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub PlaceholderBackgroundProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub PointerOverBackgroundProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SelectedBackgroundProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SelectedForegroundProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SelectedPointerOverBackgroundProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SelectedPointerOverBorderBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SelectedBorderThicknessProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub DisabledOpacityProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub DragOpacityProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub ReorderHintOffsetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SelectionCheckMarkVisualEnabledProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CheckHintBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CheckSelectingBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CheckBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub DragBackgroundProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub DragForegroundProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub FocusBorderBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub PlaceholderBackgroundProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub PointerOverBackgroundProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SelectedBackgroundProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SelectedForegroundProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SelectedPointerOverBackgroundProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SelectedPointerOverBorderBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SelectedBorderThicknessProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub DisabledOpacityProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub DragOpacityProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ReorderHintOffsetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "deprecated")]
-    pub ListViewItemPresenterHorizontalContentAlignmentProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub ListViewItemPresenterHorizontalContentAlignmentProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     ListViewItemPresenterHorizontalContentAlignmentProperty: usize,
     #[cfg(feature = "deprecated")]
-    pub ListViewItemPresenterVerticalContentAlignmentProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub ListViewItemPresenterVerticalContentAlignmentProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     ListViewItemPresenterVerticalContentAlignmentProperty: usize,
     #[cfg(feature = "deprecated")]
-    pub ListViewItemPresenterPaddingProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub ListViewItemPresenterPaddingProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     ListViewItemPresenterPaddingProperty: usize,
-    pub PointerOverBackgroundMarginProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub ContentMarginProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub PointerOverBackgroundMarginProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ContentMarginProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -7648,12 +7648,12 @@ unsafe impl ::windows::core::Interface for IListViewItemPresenterStatics2 {
 #[doc(hidden)]
 pub struct IListViewItemPresenterStatics2_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub SelectedPressedBackgroundProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub PressedBackgroundProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CheckBoxBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub FocusSecondaryBorderBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CheckModeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub PointerOverForegroundProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SelectedPressedBackgroundProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub PressedBackgroundProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CheckBoxBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub FocusSecondaryBorderBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CheckModeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub PointerOverForegroundProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -7666,10 +7666,10 @@ unsafe impl ::windows::core::Interface for IListViewItemPresenterStatics3 {
 #[doc(hidden)]
 pub struct IListViewItemPresenterStatics3_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub RevealBackgroundProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub RevealBorderBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub RevealBorderThicknessProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub RevealBackgroundShowsAboveContentProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub RevealBackgroundProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub RevealBorderBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub RevealBorderThicknessProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub RevealBackgroundShowsAboveContentProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -7682,33 +7682,33 @@ unsafe impl ::windows::core::Interface for IListViewItemPresenterStatics4 {
 #[doc(hidden)]
 pub struct IListViewItemPresenterStatics4_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub SelectedDisabledBackgroundProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CheckPressedBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CheckDisabledBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CheckBoxPointerOverBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CheckBoxPressedBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CheckBoxDisabledBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CheckBoxSelectedBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CheckBoxSelectedPointerOverBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CheckBoxSelectedPressedBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CheckBoxSelectedDisabledBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CheckBoxBorderBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CheckBoxPointerOverBorderBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CheckBoxPressedBorderBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CheckBoxDisabledBorderBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CheckBoxCornerRadiusProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SelectionIndicatorCornerRadiusProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SelectionIndicatorVisualEnabledProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SelectionIndicatorModeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SelectionIndicatorBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SelectionIndicatorPointerOverBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SelectionIndicatorPressedBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SelectionIndicatorDisabledBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SelectedBorderBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SelectedPressedBorderBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SelectedDisabledBorderBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SelectedInnerBorderBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub PointerOverBorderBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SelectedDisabledBackgroundProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CheckPressedBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CheckDisabledBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CheckBoxPointerOverBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CheckBoxPressedBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CheckBoxDisabledBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CheckBoxSelectedBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CheckBoxSelectedPointerOverBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CheckBoxSelectedPressedBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CheckBoxSelectedDisabledBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CheckBoxBorderBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CheckBoxPointerOverBorderBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CheckBoxPressedBorderBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CheckBoxDisabledBorderBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CheckBoxCornerRadiusProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SelectionIndicatorCornerRadiusProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SelectionIndicatorVisualEnabledProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SelectionIndicatorModeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SelectionIndicatorBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SelectionIndicatorPointerOverBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SelectionIndicatorPressedBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SelectionIndicatorDisabledBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SelectedBorderBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SelectedPressedBorderBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SelectedDisabledBorderBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SelectedInnerBorderBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub PointerOverBorderBrushProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -7737,11 +7737,11 @@ pub struct ILoopingSelector_Vtbl {
     pub ShouldLoop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetShouldLoop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub Items: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub Items: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     Items: usize,
     #[cfg(feature = "Foundation_Collections")]
-    pub SetItems: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetItems: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     SetItems: usize,
     pub SelectedIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
@@ -7752,10 +7752,10 @@ pub struct ILoopingSelector_Vtbl {
     pub SetItemWidth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT,
     pub ItemHeight: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub SetItemHeight: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT,
-    pub ItemTemplate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetItemTemplate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub ItemTemplate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetItemTemplate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
-    pub SelectionChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub SelectionChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     SelectionChanged: usize,
     #[cfg(feature = "Foundation")]
@@ -7798,13 +7798,13 @@ unsafe impl ::windows::core::Interface for ILoopingSelectorStatics {
 #[doc(hidden)]
 pub struct ILoopingSelectorStatics_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub ShouldLoopProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub ItemsProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SelectedIndexProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SelectedItemProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub ItemWidthProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub ItemHeightProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub ItemTemplateProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub ShouldLoopProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ItemsProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SelectedIndexProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SelectedItemProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ItemWidthProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ItemHeightProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ItemTemplateProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -7843,8 +7843,8 @@ unsafe impl ::windows::core::Interface for INavigationViewItemPresenter {
 #[doc(hidden)]
 pub struct INavigationViewItemPresenter_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub Icon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetIcon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub Icon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetIcon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -7857,7 +7857,7 @@ unsafe impl ::windows::core::Interface for INavigationViewItemPresenterFactory {
 #[doc(hidden)]
 pub struct INavigationViewItemPresenterFactory_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -7870,7 +7870,7 @@ unsafe impl ::windows::core::Interface for INavigationViewItemPresenterStatics {
 #[doc(hidden)]
 pub struct INavigationViewItemPresenterStatics_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub IconProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub IconProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -7910,7 +7910,7 @@ pub struct IOrientedVirtualizingPanel_Vtbl {
     pub SetHorizontalOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: f64) -> ::windows::core::HRESULT,
     pub SetVerticalOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: f64) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
-    pub MakeVisible: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, visual: ::windows::core::RawPtr, rectangle: super::super::super::super::Foundation::Rect, result__: *mut super::super::super::super::Foundation::Rect) -> ::windows::core::HRESULT,
+    pub MakeVisible: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, visual: *mut ::core::ffi::c_void, rectangle: super::super::super::super::Foundation::Rect, result__: *mut super::super::super::super::Foundation::Rect) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     MakeVisible: usize,
 }
@@ -7949,7 +7949,7 @@ unsafe impl ::windows::core::Interface for IPickerFlyoutBaseFactory {
 #[doc(hidden)]
 pub struct IPickerFlyoutBaseFactory_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -7976,9 +7976,9 @@ unsafe impl ::windows::core::Interface for IPickerFlyoutBaseStatics {
 #[doc(hidden)]
 pub struct IPickerFlyoutBaseStatics_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub TitleProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub GetTitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub SetTitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub TitleProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetTitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetTitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8003,7 +8003,7 @@ unsafe impl ::windows::core::Interface for IPivotHeaderItemFactory {
 #[doc(hidden)]
 pub struct IPivotHeaderItemFactory_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8040,8 +8040,8 @@ unsafe impl ::windows::core::Interface for IPopup {
 #[doc(hidden)]
 pub struct IPopup_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub Child: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetChild: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub Child: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetChild: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub IsOpen: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetIsOpen: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     pub HorizontalOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
@@ -8049,17 +8049,17 @@ pub struct IPopup_Vtbl {
     pub VerticalOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub SetVerticalOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media_Animation"))]
-    pub ChildTransitions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub ChildTransitions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media_Animation")))]
     ChildTransitions: usize,
     #[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media_Animation"))]
-    pub SetChildTransitions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetChildTransitions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media_Animation")))]
     SetChildTransitions: usize,
     pub IsLightDismissEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetIsLightDismissEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
-    pub Opened: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub Opened: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     Opened: usize,
     #[cfg(feature = "Foundation")]
@@ -8067,7 +8067,7 @@ pub struct IPopup_Vtbl {
     #[cfg(not(feature = "Foundation"))]
     RemoveOpened: usize,
     #[cfg(feature = "Foundation")]
-    pub Closed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub Closed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     Closed: usize,
     #[cfg(feature = "Foundation")]
@@ -8115,13 +8115,13 @@ unsafe impl ::windows::core::Interface for IPopup4 {
 #[doc(hidden)]
 pub struct IPopup4_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub PlacementTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetPlacementTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub PlacementTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetPlacementTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub DesiredPlacement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PopupPlacementMode) -> ::windows::core::HRESULT,
     pub SetDesiredPlacement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: PopupPlacementMode) -> ::windows::core::HRESULT,
     pub ActualPlacement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PopupPlacementMode) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
-    pub ActualPlacementChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub ActualPlacementChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     ActualPlacementChanged: usize,
     #[cfg(feature = "Foundation")]
@@ -8140,12 +8140,12 @@ unsafe impl ::windows::core::Interface for IPopupStatics {
 #[doc(hidden)]
 pub struct IPopupStatics_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub ChildProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub IsOpenProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub HorizontalOffsetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub VerticalOffsetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub ChildTransitionsProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub IsLightDismissEnabledProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub ChildProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub IsOpenProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub HorizontalOffsetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub VerticalOffsetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ChildTransitionsProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub IsLightDismissEnabledProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8158,7 +8158,7 @@ unsafe impl ::windows::core::Interface for IPopupStatics2 {
 #[doc(hidden)]
 pub struct IPopupStatics2_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub LightDismissOverlayModeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub LightDismissOverlayModeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8171,7 +8171,7 @@ unsafe impl ::windows::core::Interface for IPopupStatics3 {
 #[doc(hidden)]
 pub struct IPopupStatics3_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub ShouldConstrainToRootBoundsProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub ShouldConstrainToRootBoundsProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8184,8 +8184,8 @@ unsafe impl ::windows::core::Interface for IPopupStatics4 {
 #[doc(hidden)]
 pub struct IPopupStatics4_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub PlacementTargetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub DesiredPlacementProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub PlacementTargetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub DesiredPlacementProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8243,7 +8243,7 @@ pub struct IRangeBase_Vtbl {
     pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
-    pub ValueChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub ValueChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     ValueChanged: usize,
     #[cfg(feature = "Foundation")]
@@ -8262,7 +8262,7 @@ unsafe impl ::windows::core::Interface for IRangeBaseFactory {
 #[doc(hidden)]
 pub struct IRangeBaseFactory_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8290,11 +8290,11 @@ unsafe impl ::windows::core::Interface for IRangeBaseStatics {
 #[doc(hidden)]
 pub struct IRangeBaseStatics_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub MinimumProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub MaximumProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SmallChangeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub LargeChangeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub ValueProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub MinimumProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub MaximumProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SmallChangeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub LargeChangeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ValueProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8337,8 +8337,8 @@ unsafe impl ::windows::core::Interface for IRepeatButtonStatics {
 #[doc(hidden)]
 pub struct IRepeatButtonStatics_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub DelayProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub IntervalProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub DelayProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub IntervalProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8358,7 +8358,7 @@ pub struct IScrollBar_Vtbl {
     pub IndicatorMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ScrollingIndicatorMode) -> ::windows::core::HRESULT,
     pub SetIndicatorMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ScrollingIndicatorMode) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
-    pub Scroll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub Scroll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     Scroll: usize,
     #[cfg(feature = "Foundation")]
@@ -8377,9 +8377,9 @@ unsafe impl ::windows::core::Interface for IScrollBarStatics {
 #[doc(hidden)]
 pub struct IScrollBarStatics_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub OrientationProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub ViewportSizeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub IndicatorModeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub OrientationProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ViewportSizeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub IndicatorModeProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8450,7 +8450,7 @@ impl IScrollSnapPointsInfo {
     pub fn GetIrregularSnapPoints(&self, orientation: super::Orientation, alignment: SnapPointsAlignment) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<f32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetIrregularSnapPoints)(::windows::core::Interface::as_raw(this), orientation, alignment, result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<f32>>(result__)
         }
     }
@@ -8537,7 +8537,7 @@ pub struct IScrollSnapPointsInfo_Vtbl {
     pub AreHorizontalSnapPointsRegular: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub AreVerticalSnapPointsRegular: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
-    pub HorizontalSnapPointsChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub HorizontalSnapPointsChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     HorizontalSnapPointsChanged: usize,
     #[cfg(feature = "Foundation")]
@@ -8545,7 +8545,7 @@ pub struct IScrollSnapPointsInfo_Vtbl {
     #[cfg(not(feature = "Foundation"))]
     RemoveHorizontalSnapPointsChanged: usize,
     #[cfg(feature = "Foundation")]
-    pub VerticalSnapPointsChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub VerticalSnapPointsChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     VerticalSnapPointsChanged: usize,
     #[cfg(feature = "Foundation")]
@@ -8553,7 +8553,7 @@ pub struct IScrollSnapPointsInfo_Vtbl {
     #[cfg(not(feature = "Foundation"))]
     RemoveVerticalSnapPointsChanged: usize,
     #[cfg(feature = "Foundation_Collections")]
-    pub GetIrregularSnapPoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, orientation: super::Orientation, alignment: SnapPointsAlignment, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GetIrregularSnapPoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, orientation: super::Orientation, alignment: SnapPointsAlignment, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     GetIrregularSnapPoints: usize,
     pub GetRegularSnapPoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, orientation: super::Orientation, alignment: SnapPointsAlignment, offset: *mut f32, result__: *mut f32) -> ::windows::core::HRESULT,
@@ -8578,15 +8578,15 @@ pub struct ISelector_Vtbl {
     pub SelectedValuePath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetSelectedValuePath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
-    pub IsSynchronizedWithCurrentItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub IsSynchronizedWithCurrentItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     IsSynchronizedWithCurrentItem: usize,
     #[cfg(feature = "Foundation")]
-    pub SetIsSynchronizedWithCurrentItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetIsSynchronizedWithCurrentItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     SetIsSynchronizedWithCurrentItem: usize,
     #[cfg(feature = "Foundation")]
-    pub SelectionChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub SelectionChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     SelectionChanged: usize,
     #[cfg(feature = "Foundation")]
@@ -8631,7 +8631,7 @@ unsafe impl ::windows::core::Interface for ISelectorItemFactory {
 #[doc(hidden)]
 pub struct ISelectorItemFactory_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8644,7 +8644,7 @@ unsafe impl ::windows::core::Interface for ISelectorItemStatics {
 #[doc(hidden)]
 pub struct ISelectorItemStatics_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub IsSelectedProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub IsSelectedProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8657,12 +8657,12 @@ unsafe impl ::windows::core::Interface for ISelectorStatics {
 #[doc(hidden)]
 pub struct ISelectorStatics_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub SelectedIndexProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SelectedItemProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SelectedValueProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SelectedValuePathProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub IsSynchronizedWithCurrentItemProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub GetIsSelectionActive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub SelectedIndexProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SelectedItemProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SelectedValueProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SelectedValuePathProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub IsSynchronizedWithCurrentItemProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetIsSelectionActive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8676,24 +8676,24 @@ unsafe impl ::windows::core::Interface for ISettingsFlyoutTemplateSettings {
 pub struct ISettingsFlyoutTemplateSettings_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub HeaderBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub HeaderBackground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     HeaderBackground: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub HeaderForeground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub HeaderForeground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     HeaderForeground: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub BorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub BorderBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     BorderBrush: usize,
     pub BorderThickness: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Thickness) -> ::windows::core::HRESULT,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub IconSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub IconSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     IconSource: usize,
     #[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media_Animation"))]
-    pub ContentTransitions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub ContentTransitions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media_Animation")))]
     ContentTransitions: usize,
 }
@@ -8728,7 +8728,7 @@ pub struct IThumb_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     pub IsDragging: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
-    pub DragStarted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub DragStarted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     DragStarted: usize,
     #[cfg(feature = "Foundation")]
@@ -8736,7 +8736,7 @@ pub struct IThumb_Vtbl {
     #[cfg(not(feature = "Foundation"))]
     RemoveDragStarted: usize,
     #[cfg(feature = "Foundation")]
-    pub DragDelta: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub DragDelta: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     DragDelta: usize,
     #[cfg(feature = "Foundation")]
@@ -8744,7 +8744,7 @@ pub struct IThumb_Vtbl {
     #[cfg(not(feature = "Foundation"))]
     RemoveDragDelta: usize,
     #[cfg(feature = "Foundation")]
-    pub DragCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub DragCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     DragCompleted: usize,
     #[cfg(feature = "Foundation")]
@@ -8764,7 +8764,7 @@ unsafe impl ::windows::core::Interface for IThumbStatics {
 #[doc(hidden)]
 pub struct IThumbStatics_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub IsDraggingProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub IsDraggingProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8778,11 +8778,11 @@ unsafe impl ::windows::core::Interface for ITickBar {
 pub struct ITickBar_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub Fill: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub Fill: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     Fill: usize,
     #[cfg(feature = "UI_Xaml_Media")]
-    pub SetFill: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetFill: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))]
     SetFill: usize,
 }
@@ -8797,7 +8797,7 @@ unsafe impl ::windows::core::Interface for ITickBarStatics {
 #[doc(hidden)]
 pub struct ITickBarStatics_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub FillProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub FillProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8811,17 +8811,17 @@ unsafe impl ::windows::core::Interface for IToggleButton {
 pub struct IToggleButton_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
-    pub IsChecked: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub IsChecked: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     IsChecked: usize,
     #[cfg(feature = "Foundation")]
-    pub SetIsChecked: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetIsChecked: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     SetIsChecked: usize,
     pub IsThreeState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetIsThreeState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
-    pub Checked: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub Checked: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     Checked: usize,
     #[cfg(feature = "Foundation")]
@@ -8829,7 +8829,7 @@ pub struct IToggleButton_Vtbl {
     #[cfg(not(feature = "Foundation"))]
     RemoveChecked: usize,
     #[cfg(feature = "Foundation")]
-    pub Unchecked: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub Unchecked: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     Unchecked: usize,
     #[cfg(feature = "Foundation")]
@@ -8837,7 +8837,7 @@ pub struct IToggleButton_Vtbl {
     #[cfg(not(feature = "Foundation"))]
     RemoveUnchecked: usize,
     #[cfg(feature = "Foundation")]
-    pub Indeterminate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub Indeterminate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     Indeterminate: usize,
     #[cfg(feature = "Foundation")]
@@ -8856,7 +8856,7 @@ unsafe impl ::windows::core::Interface for IToggleButtonFactory {
 #[doc(hidden)]
 pub struct IToggleButtonFactory_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8882,8 +8882,8 @@ unsafe impl ::windows::core::Interface for IToggleButtonStatics {
 #[doc(hidden)]
 pub struct IToggleButtonStatics_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub IsCheckedProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub IsThreeStateProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub IsCheckedProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub IsThreeStateProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -9061,8 +9061,8 @@ impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::o
         base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
     };
-    unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
-        let this = this as *mut ::windows::core::RawPtr as *mut Self;
+    unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         *interface = if iid == &<ItemsChangedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows::core::HRESULT(-2147467262)
@@ -9071,20 +9071,20 @@ impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::o
             ::windows::core::HRESULT(0)
         }
     }
-    unsafe extern "system" fn AddRef(this: ::windows::core::RawPtr) -> u32 {
-        let this = this as *mut ::windows::core::RawPtr as *mut Self;
+    unsafe extern "system" fn AddRef(this: *mut ::core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(this: ::windows::core::RawPtr) -> u32 {
-        let this = this as *mut ::windows::core::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(this: *mut ::core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
             ::windows::core::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }
-    unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-        let this = this as *mut ::windows::core::RawPtr as *mut Self;
+    unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         ((*this).invoke)(::core::mem::transmute(&sender), ::core::mem::transmute(&e)).into()
     }
 }
@@ -9119,7 +9119,7 @@ unsafe impl ::windows::core::RuntimeType for ItemsChangedEventHandler {
 #[doc(hidden)]
 pub struct ItemsChangedEventHandler_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
-    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
 #[repr(transparent)]
@@ -9137,7 +9137,7 @@ impl JumpListItemBackgroundConverter {
     pub fn Enabled(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Enabled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -9152,7 +9152,7 @@ impl JumpListItemBackgroundConverter {
     pub fn Disabled(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Disabled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -9165,14 +9165,14 @@ impl JumpListItemBackgroundConverter {
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn EnabledProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IJumpListItemBackgroundConverterStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).EnabledProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn DisabledProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IJumpListItemBackgroundConverterStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DisabledProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
@@ -9334,7 +9334,7 @@ impl JumpListItemForegroundConverter {
     pub fn Enabled(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Enabled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -9349,7 +9349,7 @@ impl JumpListItemForegroundConverter {
     pub fn Disabled(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Disabled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -9362,14 +9362,14 @@ impl JumpListItemForegroundConverter {
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn EnabledProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IJumpListItemForegroundConverterStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).EnabledProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn DisabledProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IJumpListItemForegroundConverterStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DisabledProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
@@ -9522,7 +9522,7 @@ impl LayoutInformation {
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn GetLayoutExceptionElement<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(dispatcher: Param0) -> ::windows::core::Result<super::super::UIElement> {
         Self::ILayoutInformationStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetLayoutExceptionElement)(::windows::core::Interface::as_raw(this), dispatcher.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::UIElement>(result__)
         })
     }
@@ -9647,7 +9647,7 @@ impl ListViewItemPresenter {
     pub fn CheckHintBrush(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CheckHintBrush)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -9662,7 +9662,7 @@ impl ListViewItemPresenter {
     pub fn CheckSelectingBrush(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CheckSelectingBrush)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -9677,7 +9677,7 @@ impl ListViewItemPresenter {
     pub fn CheckBrush(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CheckBrush)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -9692,7 +9692,7 @@ impl ListViewItemPresenter {
     pub fn DragBackground(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DragBackground)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -9707,7 +9707,7 @@ impl ListViewItemPresenter {
     pub fn DragForeground(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DragForeground)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -9722,7 +9722,7 @@ impl ListViewItemPresenter {
     pub fn FocusBorderBrush(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FocusBorderBrush)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -9737,7 +9737,7 @@ impl ListViewItemPresenter {
     pub fn PlaceholderBackground(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).PlaceholderBackground)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -9752,7 +9752,7 @@ impl ListViewItemPresenter {
     pub fn PointerOverBackground(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).PointerOverBackground)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -9767,7 +9767,7 @@ impl ListViewItemPresenter {
     pub fn SelectedBackground(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).SelectedBackground)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -9782,7 +9782,7 @@ impl ListViewItemPresenter {
     pub fn SelectedForeground(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).SelectedForeground)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -9797,7 +9797,7 @@ impl ListViewItemPresenter {
     pub fn SelectedPointerOverBackground(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).SelectedPointerOverBackground)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -9812,7 +9812,7 @@ impl ListViewItemPresenter {
     pub fn SelectedPointerOverBorderBrush(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).SelectedPointerOverBorderBrush)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -9950,7 +9950,7 @@ impl ListViewItemPresenter {
     pub fn SelectedPressedBackground(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).SelectedPressedBackground)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -9965,7 +9965,7 @@ impl ListViewItemPresenter {
     pub fn PressedBackground(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).PressedBackground)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -9980,7 +9980,7 @@ impl ListViewItemPresenter {
     pub fn CheckBoxBrush(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CheckBoxBrush)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -9995,7 +9995,7 @@ impl ListViewItemPresenter {
     pub fn FocusSecondaryBorderBrush(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FocusSecondaryBorderBrush)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -10023,7 +10023,7 @@ impl ListViewItemPresenter {
     pub fn PointerOverForeground(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).PointerOverForeground)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -10038,7 +10038,7 @@ impl ListViewItemPresenter {
     pub fn RevealBackground(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).RevealBackground)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -10053,7 +10053,7 @@ impl ListViewItemPresenter {
     pub fn RevealBorderBrush(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).RevealBorderBrush)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -10094,7 +10094,7 @@ impl ListViewItemPresenter {
     pub fn SelectedDisabledBackground(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).SelectedDisabledBackground)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -10109,7 +10109,7 @@ impl ListViewItemPresenter {
     pub fn CheckPressedBrush(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CheckPressedBrush)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -10124,7 +10124,7 @@ impl ListViewItemPresenter {
     pub fn CheckDisabledBrush(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CheckDisabledBrush)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -10139,7 +10139,7 @@ impl ListViewItemPresenter {
     pub fn CheckBoxPointerOverBrush(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CheckBoxPointerOverBrush)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -10154,7 +10154,7 @@ impl ListViewItemPresenter {
     pub fn CheckBoxPressedBrush(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CheckBoxPressedBrush)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -10169,7 +10169,7 @@ impl ListViewItemPresenter {
     pub fn CheckBoxDisabledBrush(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CheckBoxDisabledBrush)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -10184,7 +10184,7 @@ impl ListViewItemPresenter {
     pub fn CheckBoxSelectedBrush(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CheckBoxSelectedBrush)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -10199,7 +10199,7 @@ impl ListViewItemPresenter {
     pub fn CheckBoxSelectedPointerOverBrush(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CheckBoxSelectedPointerOverBrush)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -10214,7 +10214,7 @@ impl ListViewItemPresenter {
     pub fn CheckBoxSelectedPressedBrush(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CheckBoxSelectedPressedBrush)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -10229,7 +10229,7 @@ impl ListViewItemPresenter {
     pub fn CheckBoxSelectedDisabledBrush(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CheckBoxSelectedDisabledBrush)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -10244,7 +10244,7 @@ impl ListViewItemPresenter {
     pub fn CheckBoxBorderBrush(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CheckBoxBorderBrush)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -10259,7 +10259,7 @@ impl ListViewItemPresenter {
     pub fn CheckBoxPointerOverBorderBrush(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CheckBoxPointerOverBorderBrush)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -10274,7 +10274,7 @@ impl ListViewItemPresenter {
     pub fn CheckBoxPressedBorderBrush(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CheckBoxPressedBorderBrush)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -10289,7 +10289,7 @@ impl ListViewItemPresenter {
     pub fn CheckBoxDisabledBorderBrush(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CheckBoxDisabledBorderBrush)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -10356,7 +10356,7 @@ impl ListViewItemPresenter {
     pub fn SelectionIndicatorBrush(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).SelectionIndicatorBrush)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -10371,7 +10371,7 @@ impl ListViewItemPresenter {
     pub fn SelectionIndicatorPointerOverBrush(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).SelectionIndicatorPointerOverBrush)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -10386,7 +10386,7 @@ impl ListViewItemPresenter {
     pub fn SelectionIndicatorPressedBrush(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).SelectionIndicatorPressedBrush)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -10401,7 +10401,7 @@ impl ListViewItemPresenter {
     pub fn SelectionIndicatorDisabledBrush(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).SelectionIndicatorDisabledBrush)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -10416,7 +10416,7 @@ impl ListViewItemPresenter {
     pub fn SelectedBorderBrush(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).SelectedBorderBrush)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -10431,7 +10431,7 @@ impl ListViewItemPresenter {
     pub fn SelectedPressedBorderBrush(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).SelectedPressedBorderBrush)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -10446,7 +10446,7 @@ impl ListViewItemPresenter {
     pub fn SelectedDisabledBorderBrush(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).SelectedDisabledBorderBrush)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -10461,7 +10461,7 @@ impl ListViewItemPresenter {
     pub fn SelectedInnerBorderBrush(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).SelectedInnerBorderBrush)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -10476,7 +10476,7 @@ impl ListViewItemPresenter {
     pub fn PointerOverBorderBrush(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).PointerOverBorderBrush)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -10489,7 +10489,7 @@ impl ListViewItemPresenter {
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn new() -> ::windows::core::Result<ListViewItemPresenter> {
         Self::IListViewItemPresenterFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, result__.as_mut_ptr()).from_abi::<ListViewItemPresenter>(result__)
         })
     }
@@ -10497,126 +10497,126 @@ impl ListViewItemPresenter {
     pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<ListViewItemPresenter> {
         Self::IListViewItemPresenterFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, result__.as_mut_ptr()).from_abi::<ListViewItemPresenter>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectionCheckMarkVisualEnabledProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).SelectionCheckMarkVisualEnabledProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CheckHintBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CheckHintBrushProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CheckSelectingBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CheckSelectingBrushProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CheckBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CheckBrushProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn DragBackgroundProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DragBackgroundProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn DragForegroundProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DragForegroundProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn FocusBorderBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FocusBorderBrushProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn PlaceholderBackgroundProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).PlaceholderBackgroundProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn PointerOverBackgroundProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).PointerOverBackgroundProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectedBackgroundProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).SelectedBackgroundProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectedForegroundProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).SelectedForegroundProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectedPointerOverBackgroundProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).SelectedPointerOverBackgroundProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectedPointerOverBorderBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).SelectedPointerOverBorderBrushProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectedBorderThicknessProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).SelectedBorderThicknessProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn DisabledOpacityProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DisabledOpacityProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn DragOpacityProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DragOpacityProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ReorderHintOffsetProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ReorderHintOffsetProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
@@ -10624,7 +10624,7 @@ impl ListViewItemPresenter {
     #[cfg(feature = "deprecated")]
     pub fn ListViewItemPresenterHorizontalContentAlignmentProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ListViewItemPresenterHorizontalContentAlignmentProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
@@ -10632,7 +10632,7 @@ impl ListViewItemPresenter {
     #[cfg(feature = "deprecated")]
     pub fn ListViewItemPresenterVerticalContentAlignmentProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ListViewItemPresenterVerticalContentAlignmentProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
@@ -10640,280 +10640,280 @@ impl ListViewItemPresenter {
     #[cfg(feature = "deprecated")]
     pub fn ListViewItemPresenterPaddingProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ListViewItemPresenterPaddingProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn PointerOverBackgroundMarginProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).PointerOverBackgroundMarginProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ContentMarginProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ContentMarginProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectedPressedBackgroundProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).SelectedPressedBackgroundProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn PressedBackgroundProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).PressedBackgroundProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CheckBoxBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CheckBoxBrushProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn FocusSecondaryBorderBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FocusSecondaryBorderBrushProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CheckModeProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CheckModeProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn PointerOverForegroundProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).PointerOverForegroundProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn RevealBackgroundProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics3(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).RevealBackgroundProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn RevealBorderBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics3(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).RevealBorderBrushProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn RevealBorderThicknessProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics3(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).RevealBorderThicknessProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn RevealBackgroundShowsAboveContentProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics3(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).RevealBackgroundShowsAboveContentProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectedDisabledBackgroundProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics4(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).SelectedDisabledBackgroundProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CheckPressedBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics4(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CheckPressedBrushProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CheckDisabledBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics4(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CheckDisabledBrushProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CheckBoxPointerOverBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics4(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CheckBoxPointerOverBrushProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CheckBoxPressedBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics4(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CheckBoxPressedBrushProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CheckBoxDisabledBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics4(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CheckBoxDisabledBrushProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CheckBoxSelectedBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics4(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CheckBoxSelectedBrushProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CheckBoxSelectedPointerOverBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics4(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CheckBoxSelectedPointerOverBrushProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CheckBoxSelectedPressedBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics4(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CheckBoxSelectedPressedBrushProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CheckBoxSelectedDisabledBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics4(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CheckBoxSelectedDisabledBrushProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CheckBoxBorderBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics4(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CheckBoxBorderBrushProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CheckBoxPointerOverBorderBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics4(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CheckBoxPointerOverBorderBrushProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CheckBoxPressedBorderBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics4(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CheckBoxPressedBorderBrushProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CheckBoxDisabledBorderBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics4(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CheckBoxDisabledBorderBrushProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CheckBoxCornerRadiusProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics4(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CheckBoxCornerRadiusProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectionIndicatorCornerRadiusProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics4(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).SelectionIndicatorCornerRadiusProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectionIndicatorVisualEnabledProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics4(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).SelectionIndicatorVisualEnabledProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectionIndicatorModeProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics4(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).SelectionIndicatorModeProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectionIndicatorBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics4(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).SelectionIndicatorBrushProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectionIndicatorPointerOverBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics4(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).SelectionIndicatorPointerOverBrushProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectionIndicatorPressedBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics4(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).SelectionIndicatorPressedBrushProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectionIndicatorDisabledBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics4(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).SelectionIndicatorDisabledBrushProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectedBorderBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics4(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).SelectedBorderBrushProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectedPressedBorderBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics4(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).SelectedPressedBorderBrushProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectedDisabledBorderBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics4(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).SelectedDisabledBorderBrushProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectedInnerBorderBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics4(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).SelectedInnerBorderBrushProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn PointerOverBorderBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics4(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).PointerOverBorderBrushProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
@@ -11342,7 +11342,7 @@ impl LoopingSelector {
     pub fn Items(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVector<::windows::core::IInspectable>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Items)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::Collections::IVector<::windows::core::IInspectable>>(result__)
         }
     }
@@ -11408,7 +11408,7 @@ impl LoopingSelector {
     pub fn ItemTemplate(&self) -> ::windows::core::Result<super::super::DataTemplate> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ItemTemplate)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DataTemplate>(result__)
         }
     }
@@ -11435,49 +11435,49 @@ impl LoopingSelector {
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ShouldLoopProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ILoopingSelectorStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ShouldLoopProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ItemsProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ILoopingSelectorStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ItemsProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectedIndexProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ILoopingSelectorStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).SelectedIndexProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectedItemProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ILoopingSelectorStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).SelectedItemProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ItemWidthProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ILoopingSelectorStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ItemWidthProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ItemHeightProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ILoopingSelectorStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ItemHeightProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ItemTemplateProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ILoopingSelectorStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ItemTemplateProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
@@ -11974,7 +11974,7 @@ impl LoopingSelectorPanel {
     pub fn GetIrregularSnapPoints(&self, orientation: super::Orientation, alignment: SnapPointsAlignment) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<f32>> {
         let this = &::windows::core::Interface::cast::<IScrollSnapPointsInfo>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetIrregularSnapPoints)(::windows::core::Interface::as_raw(this), orientation, alignment, result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<f32>>(result__)
         }
     }
@@ -12451,7 +12451,7 @@ impl NavigationViewItemPresenter {
     pub fn Icon(&self) -> ::windows::core::Result<super::IconElement> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Icon)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::IconElement>(result__)
         }
     }
@@ -12463,7 +12463,7 @@ impl NavigationViewItemPresenter {
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn new() -> ::windows::core::Result<NavigationViewItemPresenter> {
         Self::INavigationViewItemPresenterFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, result__.as_mut_ptr()).from_abi::<NavigationViewItemPresenter>(result__)
         })
     }
@@ -12471,14 +12471,14 @@ impl NavigationViewItemPresenter {
     pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<NavigationViewItemPresenter> {
         Self::INavigationViewItemPresenterFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, result__.as_mut_ptr()).from_abi::<NavigationViewItemPresenter>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn IconProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::INavigationViewItemPresenterStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).IconProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
@@ -12944,7 +12944,7 @@ impl OrientedVirtualizingPanel {
     pub fn GetIrregularSnapPoints(&self, orientation: super::Orientation, alignment: SnapPointsAlignment) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<f32>> {
         let this = &::windows::core::Interface::cast::<IScrollSnapPointsInfo>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetIrregularSnapPoints)(::windows::core::Interface::as_raw(this), orientation, alignment, result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<f32>>(result__)
         }
     }
@@ -13232,7 +13232,7 @@ impl PickerFlyoutBase {
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn TitleProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IPickerFlyoutBaseStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TitleProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
@@ -13372,7 +13372,7 @@ impl PivotHeaderItem {
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn new() -> ::windows::core::Result<PivotHeaderItem> {
         Self::IPivotHeaderItemFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, result__.as_mut_ptr()).from_abi::<PivotHeaderItem>(result__)
         })
     }
@@ -13380,7 +13380,7 @@ impl PivotHeaderItem {
     pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<PivotHeaderItem> {
         Self::IPivotHeaderItemFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, result__.as_mut_ptr()).from_abi::<PivotHeaderItem>(result__)
         })
     }
@@ -13912,7 +13912,7 @@ impl PivotPanel {
     pub fn GetIrregularSnapPoints(&self, orientation: super::Orientation, alignment: SnapPointsAlignment) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<f32>> {
         let this = &::windows::core::Interface::cast::<IScrollSnapPointsInfo>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetIrregularSnapPoints)(::windows::core::Interface::as_raw(this), orientation, alignment, result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<f32>>(result__)
         }
     }
@@ -14203,7 +14203,7 @@ impl Popup {
     pub fn Child(&self) -> ::windows::core::Result<super::super::UIElement> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Child)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::UIElement>(result__)
         }
     }
@@ -14256,7 +14256,7 @@ impl Popup {
     pub fn ChildTransitions(&self) -> ::windows::core::Result<super::super::Media::Animation::TransitionCollection> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ChildTransitions)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Animation::TransitionCollection>(result__)
         }
     }
@@ -14347,7 +14347,7 @@ impl Popup {
     pub fn PlacementTarget(&self) -> ::windows::core::Result<super::super::FrameworkElement> {
         let this = &::windows::core::Interface::cast::<IPopup4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).PlacementTarget)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::FrameworkElement>(result__)
         }
     }
@@ -14395,70 +14395,70 @@ impl Popup {
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ChildProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IPopupStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ChildProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn IsOpenProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IPopupStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).IsOpenProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn HorizontalOffsetProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IPopupStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).HorizontalOffsetProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn VerticalOffsetProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IPopupStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).VerticalOffsetProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ChildTransitionsProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IPopupStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ChildTransitionsProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn IsLightDismissEnabledProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IPopupStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).IsLightDismissEnabledProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn LightDismissOverlayModeProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IPopupStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).LightDismissOverlayModeProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ShouldConstrainToRootBoundsProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IPopupStatics3(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ShouldConstrainToRootBoundsProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn PlacementTargetProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IPopupStatics4(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).PlacementTargetProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn DesiredPlacementProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IPopupStatics4(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DesiredPlacementProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
@@ -15073,35 +15073,35 @@ impl RangeBase {
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn MinimumProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IRangeBaseStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).MinimumProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn MaximumProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IRangeBaseStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).MaximumProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SmallChangeProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IRangeBaseStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).SmallChangeProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn LargeChangeProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IRangeBaseStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).LargeChangeProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ValueProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IRangeBaseStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ValueProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
@@ -15453,8 +15453,8 @@ impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::o
         base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
     };
-    unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
-        let this = this as *mut ::windows::core::RawPtr as *mut Self;
+    unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         *interface = if iid == &<RangeBaseValueChangedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows::core::HRESULT(-2147467262)
@@ -15463,20 +15463,20 @@ impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::o
             ::windows::core::HRESULT(0)
         }
     }
-    unsafe extern "system" fn AddRef(this: ::windows::core::RawPtr) -> u32 {
-        let this = this as *mut ::windows::core::RawPtr as *mut Self;
+    unsafe extern "system" fn AddRef(this: *mut ::core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(this: ::windows::core::RawPtr) -> u32 {
-        let this = this as *mut ::windows::core::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(this: *mut ::core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
             ::windows::core::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }
-    unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-        let this = this as *mut ::windows::core::RawPtr as *mut Self;
+    unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         ((*this).invoke)(::core::mem::transmute(&sender), ::core::mem::transmute(&e)).into()
     }
 }
@@ -15511,7 +15511,7 @@ unsafe impl ::windows::core::RuntimeType for RangeBaseValueChangedEventHandler {
 #[doc(hidden)]
 pub struct RangeBaseValueChangedEventHandler_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
-    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
 #[repr(transparent)]
@@ -15553,14 +15553,14 @@ impl RepeatButton {
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn DelayProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IRepeatButtonStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DelayProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn IntervalProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IRepeatButtonStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).IntervalProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
@@ -15882,21 +15882,21 @@ impl ScrollBar {
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn OrientationProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IScrollBarStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).OrientationProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ViewportSizeProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IScrollBarStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ViewportSizeProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn IndicatorModeProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IScrollBarStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).IndicatorModeProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
@@ -16275,8 +16275,8 @@ impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::o
         base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
     };
-    unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
-        let this = this as *mut ::windows::core::RawPtr as *mut Self;
+    unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         *interface = if iid == &<ScrollEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows::core::HRESULT(-2147467262)
@@ -16285,20 +16285,20 @@ impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::o
             ::windows::core::HRESULT(0)
         }
     }
-    unsafe extern "system" fn AddRef(this: ::windows::core::RawPtr) -> u32 {
-        let this = this as *mut ::windows::core::RawPtr as *mut Self;
+    unsafe extern "system" fn AddRef(this: *mut ::core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         (*this).count.add_ref()
     }
-    unsafe extern "system" fn Release(this: ::windows::core::RawPtr) -> u32 {
-        let this = this as *mut ::windows::core::RawPtr as *mut Self;
+    unsafe extern "system" fn Release(this: *mut ::core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
             ::windows::core::alloc::boxed::Box::from_raw(this);
         }
         remaining
     }
-    unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-        let this = this as *mut ::windows::core::RawPtr as *mut Self;
+    unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         ((*this).invoke)(::core::mem::transmute(&sender), ::core::mem::transmute(&e)).into()
     }
 }
@@ -16333,7 +16333,7 @@ unsafe impl ::windows::core::RuntimeType for ScrollEventHandler {
 #[doc(hidden)]
 pub struct ScrollEventHandler_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
-    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
 #[repr(transparent)]
@@ -16472,7 +16472,7 @@ impl Selector {
     pub fn IsSynchronizedWithCurrentItem(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<bool>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).IsSynchronizedWithCurrentItem)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IReference<bool>>(result__)
         }
     }
@@ -16500,35 +16500,35 @@ impl Selector {
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectedIndexProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ISelectorStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).SelectedIndexProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectedItemProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ISelectorStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).SelectedItemProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectedValueProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ISelectorStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).SelectedValueProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectedValuePathProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ISelectorStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).SelectedValuePathProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn IsSynchronizedWithCurrentItemProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ISelectorStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).IsSynchronizedWithCurrentItemProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
@@ -16811,7 +16811,7 @@ impl SelectorItem {
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn IsSelectedProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ISelectorItemStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).IsSelectedProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
@@ -17054,7 +17054,7 @@ impl SettingsFlyoutTemplateSettings {
     pub fn HeaderBackground(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).HeaderBackground)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -17063,7 +17063,7 @@ impl SettingsFlyoutTemplateSettings {
     pub fn HeaderForeground(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).HeaderForeground)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -17072,7 +17072,7 @@ impl SettingsFlyoutTemplateSettings {
     pub fn BorderBrush(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).BorderBrush)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -17089,7 +17089,7 @@ impl SettingsFlyoutTemplateSettings {
     pub fn IconSource(&self) -> ::windows::core::Result<super::super::Media::ImageSource> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).IconSource)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::ImageSource>(result__)
         }
     }
@@ -17098,7 +17098,7 @@ impl SettingsFlyoutTemplateSettings {
     pub fn ContentTransitions(&self) -> ::windows::core::Result<super::super::Media::Animation::TransitionCollection> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ContentTransitions)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Animation::TransitionCollection>(result__)
         }
     }
@@ -17481,7 +17481,7 @@ impl Thumb {
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn IsDraggingProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IThumbStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).IsDraggingProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
@@ -17711,7 +17711,7 @@ impl TickBar {
     pub fn Fill(&self) -> ::windows::core::Result<super::super::Media::Brush> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Fill)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Media::Brush>(result__)
         }
     }
@@ -17724,7 +17724,7 @@ impl TickBar {
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn FillProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ITickBarStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FillProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
@@ -17964,7 +17964,7 @@ impl ToggleButton {
     pub fn IsChecked(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IReference<bool>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).IsChecked)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IReference<bool>>(result__)
         }
     }
@@ -18035,7 +18035,7 @@ impl ToggleButton {
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn new() -> ::windows::core::Result<ToggleButton> {
         Self::IToggleButtonFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, result__.as_mut_ptr()).from_abi::<ToggleButton>(result__)
         })
     }
@@ -18043,21 +18043,21 @@ impl ToggleButton {
     pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<ToggleButton> {
         Self::IToggleButtonFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, result__.as_mut_ptr()).from_abi::<ToggleButton>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn IsCheckedProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IToggleButtonStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).IsCheckedProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn IsThreeStateProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IToggleButtonStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).IsThreeStateProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::DependencyProperty>(result__)
         })
     }

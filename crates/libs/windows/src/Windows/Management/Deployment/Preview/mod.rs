@@ -4,7 +4,7 @@ impl ClassicAppManager {
     #[doc = "*Required features: `\"Management_Deployment_Preview\"`*"]
     pub fn FindInstalledApp<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(appuninstallkey: Param0) -> ::windows::core::Result<InstalledClassicAppInfo> {
         Self::IClassicAppManagerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FindInstalledApp)(::windows::core::Interface::as_raw(this), appuninstallkey.into_param().abi(), result__.as_mut_ptr()).from_abi::<InstalledClassicAppInfo>(result__)
         })
     }
@@ -28,7 +28,7 @@ unsafe impl ::windows::core::Interface for IClassicAppManagerStatics {
 #[doc(hidden)]
 pub struct IClassicAppManagerStatics_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub FindInstalledApp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appuninstallkey: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub FindInstalledApp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appuninstallkey: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]

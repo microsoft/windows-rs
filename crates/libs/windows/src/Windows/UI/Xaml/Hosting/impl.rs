@@ -64,7 +64,7 @@ impl ::windows::core::RuntimeName for IXamlUIPresenterHost3 {
 }
 impl IXamlUIPresenterHost3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXamlUIPresenterHost3_Impl, const OFFSET: isize>() -> IXamlUIPresenterHost3_Vtbl {
-        unsafe extern "system" fn ResolveDictionaryResource<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXamlUIPresenterHost3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dictionary: ::windows::core::RawPtr, dictionarykey: *mut ::core::ffi::c_void, suggestedvalue: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ResolveDictionaryResource<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXamlUIPresenterHost3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dictionary: *mut ::core::ffi::c_void, dictionarykey: *mut ::core::ffi::c_void, suggestedvalue: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ResolveDictionaryResource(::core::mem::transmute(&dictionary), ::core::mem::transmute(&dictionarykey), ::core::mem::transmute(&suggestedvalue)) {

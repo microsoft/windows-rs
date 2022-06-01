@@ -11,7 +11,7 @@ impl ::windows::core::RuntimeName for IBrushOverrides2 {
 #[cfg(feature = "UI_Composition")]
 impl IBrushOverrides2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBrushOverrides2_Impl, const OFFSET: isize>() -> IBrushOverrides2_Vtbl {
-        unsafe extern "system" fn PopulatePropertyInfoOverride<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBrushOverrides2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, animationpropertyinfo: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PopulatePropertyInfoOverride<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBrushOverrides2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, animationpropertyinfo: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.PopulatePropertyInfoOverride(::core::mem::transmute(&propertyname), ::core::mem::transmute(&animationpropertyinfo)).into()
@@ -38,7 +38,7 @@ impl ::windows::core::RuntimeName for IGeneralTransformOverrides {
 #[cfg(feature = "Foundation")]
 impl IGeneralTransformOverrides_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IGeneralTransformOverrides_Impl, const OFFSET: isize>() -> IGeneralTransformOverrides_Vtbl {
-        unsafe extern "system" fn InverseCore<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IGeneralTransformOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InverseCore<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IGeneralTransformOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.InverseCore() {
@@ -144,12 +144,12 @@ impl IXamlLightOverrides_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OnConnected<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXamlLightOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newelement: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnConnected<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXamlLightOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newelement: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OnConnected(::core::mem::transmute(&newelement)).into()
         }
-        unsafe extern "system" fn OnDisconnected<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXamlLightOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, oldelement: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnDisconnected<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXamlLightOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, oldelement: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OnDisconnected(::core::mem::transmute(&oldelement)).into()

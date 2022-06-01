@@ -4339,7 +4339,7 @@ pub unsafe fn ldap_set_dbg_routine(debugprintroutine: DBGPRINT) {
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ldap_set_dbg_routine(debugprintroutine: ::windows::core::RawPtr);
+            fn ldap_set_dbg_routine(debugprintroutine: *mut ::core::ffi::c_void);
         }
         ldap_set_dbg_routine(::core::mem::transmute(debugprintroutine))
     }

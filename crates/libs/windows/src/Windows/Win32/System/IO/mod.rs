@@ -6,7 +6,7 @@ pub unsafe fn BindIoCompletionCallback<'a, Param0: ::windows::core::IntoParam<'a
     {
         #[link(name = "windows")]
         extern "system" {
-            fn BindIoCompletionCallback(filehandle: super::super::Foundation::HANDLE, function: ::windows::core::RawPtr, flags: u32) -> super::super::Foundation::BOOL;
+            fn BindIoCompletionCallback(filehandle: super::super::Foundation::HANDLE, function: *mut ::core::ffi::c_void, flags: u32) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(BindIoCompletionCallback(filehandle.into_param().abi(), ::core::mem::transmute(function), ::core::mem::transmute(flags)))
     }

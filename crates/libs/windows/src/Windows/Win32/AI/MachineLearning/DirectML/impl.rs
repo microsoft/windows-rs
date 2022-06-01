@@ -58,7 +58,7 @@ impl ::windows::core::RuntimeName for IDMLCommandRecorder {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl IDMLCommandRecorder_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDMLCommandRecorder_Impl, const OFFSET: isize>() -> IDMLCommandRecorder_Vtbl {
-        unsafe extern "system" fn RecordDispatch<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDMLCommandRecorder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, commandlist: ::windows::core::RawPtr, dispatchable: ::windows::core::RawPtr, bindings: ::windows::core::RawPtr) {
+        unsafe extern "system" fn RecordDispatch<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDMLCommandRecorder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, commandlist: *mut ::core::ffi::c_void, dispatchable: *mut ::core::ffi::c_void, bindings: *mut ::core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.RecordDispatch(::core::mem::transmute(&commandlist), ::core::mem::transmute(&dispatchable), ::core::mem::transmute(&bindings))
@@ -127,12 +127,12 @@ impl IDMLDevice_Vtbl {
             let this = (*this).get_impl();
             this.CreateOperator(::core::mem::transmute_copy(&desc), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
-        unsafe extern "system" fn CompileOperator<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDMLDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, op: ::windows::core::RawPtr, flags: DML_EXECUTION_FLAGS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CompileOperator<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDMLDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, op: *mut ::core::ffi::c_void, flags: DML_EXECUTION_FLAGS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.CompileOperator(::core::mem::transmute(&op), ::core::mem::transmute_copy(&flags), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
-        unsafe extern "system" fn CreateOperatorInitializer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDMLDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, operatorcount: u32, operators: *const ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateOperatorInitializer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDMLDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, operatorcount: u32, operators: *const *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.CreateOperatorInitializer(::core::mem::transmute_copy(&operatorcount), ::core::mem::transmute_copy(&operators), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
@@ -147,12 +147,12 @@ impl IDMLDevice_Vtbl {
             let this = (*this).get_impl();
             this.CreateBindingTable(::core::mem::transmute_copy(&desc), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
-        unsafe extern "system" fn Evict<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDMLDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: u32, ppobjects: *const ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Evict<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDMLDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: u32, ppobjects: *const *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Evict(::core::mem::transmute_copy(&count), ::core::mem::transmute_copy(&ppobjects)).into()
         }
-        unsafe extern "system" fn MakeResident<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDMLDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: u32, ppobjects: *const ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MakeResident<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDMLDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: u32, ppobjects: *const *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.MakeResident(::core::mem::transmute_copy(&count), ::core::mem::transmute_copy(&ppobjects)).into()
@@ -296,7 +296,7 @@ pub trait IDMLOperatorInitializer_Impl: Sized + IDMLObject_Impl + IDMLDeviceChil
 impl ::windows::core::RuntimeName for IDMLOperatorInitializer {}
 impl IDMLOperatorInitializer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDMLOperatorInitializer_Impl, const OFFSET: isize>() -> IDMLOperatorInitializer_Vtbl {
-        unsafe extern "system" fn Reset<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDMLOperatorInitializer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, operatorcount: u32, operators: *const ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Reset<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDMLOperatorInitializer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, operatorcount: u32, operators: *const *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Reset(::core::mem::transmute_copy(&operatorcount), ::core::mem::transmute_copy(&operators)).into()

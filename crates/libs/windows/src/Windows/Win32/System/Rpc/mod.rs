@@ -1325,7 +1325,7 @@ pub unsafe fn I_RpcServerRegisterForwardFunction(pforwardfunction: *mut RPC_FORW
     {
         #[link(name = "windows")]
         extern "system" {
-            fn I_RpcServerRegisterForwardFunction(pforwardfunction: *mut ::windows::core::RawPtr) -> RPC_STATUS;
+            fn I_RpcServerRegisterForwardFunction(pforwardfunction: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
         }
         ::core::mem::transmute(I_RpcServerRegisterForwardFunction(::core::mem::transmute(pforwardfunction)))
     }
@@ -1339,7 +1339,7 @@ pub unsafe fn I_RpcServerSetAddressChangeFn(paddresschangefn: *mut RPC_ADDRESS_C
     {
         #[link(name = "windows")]
         extern "system" {
-            fn I_RpcServerSetAddressChangeFn(paddresschangefn: *mut ::windows::core::RawPtr) -> RPC_STATUS;
+            fn I_RpcServerSetAddressChangeFn(paddresschangefn: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
         }
         ::core::mem::transmute(I_RpcServerSetAddressChangeFn(::core::mem::transmute(paddresschangefn)))
     }
@@ -2403,7 +2403,7 @@ pub unsafe fn MesDecodeIncrementalHandleCreate(userstate: *mut ::core::ffi::c_vo
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MesDecodeIncrementalHandleCreate(userstate: *mut ::core::ffi::c_void, readfn: ::windows::core::RawPtr, phandle: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+            fn MesDecodeIncrementalHandleCreate(userstate: *mut ::core::ffi::c_void, readfn: *mut ::core::ffi::c_void, phandle: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
         }
         ::core::mem::transmute(MesDecodeIncrementalHandleCreate(::core::mem::transmute(userstate), ::core::mem::transmute(readfn), ::core::mem::transmute(phandle)))
     }
@@ -2445,7 +2445,7 @@ pub unsafe fn MesEncodeIncrementalHandleCreate(userstate: *mut ::core::ffi::c_vo
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MesEncodeIncrementalHandleCreate(userstate: *mut ::core::ffi::c_void, allocfn: ::windows::core::RawPtr, writefn: ::windows::core::RawPtr, phandle: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+            fn MesEncodeIncrementalHandleCreate(userstate: *mut ::core::ffi::c_void, allocfn: *mut ::core::ffi::c_void, writefn: *mut ::core::ffi::c_void, phandle: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
         }
         ::core::mem::transmute(MesEncodeIncrementalHandleCreate(::core::mem::transmute(userstate), ::core::mem::transmute(allocfn), ::core::mem::transmute(writefn), ::core::mem::transmute(phandle)))
     }
@@ -2473,7 +2473,7 @@ pub unsafe fn MesIncrementalHandleReset(handle: *mut ::core::ffi::c_void, userst
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MesIncrementalHandleReset(handle: *mut ::core::ffi::c_void, userstate: *mut ::core::ffi::c_void, allocfn: ::windows::core::RawPtr, writefn: ::windows::core::RawPtr, readfn: ::windows::core::RawPtr, operation: MIDL_ES_CODE) -> RPC_STATUS;
+            fn MesIncrementalHandleReset(handle: *mut ::core::ffi::c_void, userstate: *mut ::core::ffi::c_void, allocfn: *mut ::core::ffi::c_void, writefn: *mut ::core::ffi::c_void, readfn: *mut ::core::ffi::c_void, operation: MIDL_ES_CODE) -> RPC_STATUS;
         }
         ::core::mem::transmute(MesIncrementalHandleReset(::core::mem::transmute(handle), ::core::mem::transmute(userstate), ::core::mem::transmute(allocfn), ::core::mem::transmute(writefn), ::core::mem::transmute(readfn), ::core::mem::transmute(operation)))
     }
@@ -4667,7 +4667,7 @@ pub unsafe fn NDRSContextMarshall(ccontext: *const NDR_SCONTEXT_1, pbuff: *mut :
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NDRSContextMarshall(ccontext: *const NDR_SCONTEXT_1, pbuff: *mut ::core::ffi::c_void, userrundownin: ::windows::core::RawPtr);
+            fn NDRSContextMarshall(ccontext: *const NDR_SCONTEXT_1, pbuff: *mut ::core::ffi::c_void, userrundownin: *mut ::core::ffi::c_void);
         }
         NDRSContextMarshall(::core::mem::transmute(ccontext), ::core::mem::transmute(pbuff), ::core::mem::transmute(userrundownin))
     }
@@ -4681,7 +4681,7 @@ pub unsafe fn NDRSContextMarshall2(bindinghandle: *const ::core::ffi::c_void, cc
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NDRSContextMarshall2(bindinghandle: *const ::core::ffi::c_void, ccontext: *const NDR_SCONTEXT_1, pbuff: *mut ::core::ffi::c_void, userrundownin: ::windows::core::RawPtr, ctxguard: *const ::core::ffi::c_void, flags: u32);
+            fn NDRSContextMarshall2(bindinghandle: *const ::core::ffi::c_void, ccontext: *const NDR_SCONTEXT_1, pbuff: *mut ::core::ffi::c_void, userrundownin: *mut ::core::ffi::c_void, ctxguard: *const ::core::ffi::c_void, flags: u32);
         }
         NDRSContextMarshall2(::core::mem::transmute(bindinghandle), ::core::mem::transmute(ccontext), ::core::mem::transmute(pbuff), ::core::mem::transmute(userrundownin), ::core::mem::transmute(ctxguard), ::core::mem::transmute(flags))
     }
@@ -4695,7 +4695,7 @@ pub unsafe fn NDRSContextMarshallEx(bindinghandle: *const ::core::ffi::c_void, c
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NDRSContextMarshallEx(bindinghandle: *const ::core::ffi::c_void, ccontext: *const NDR_SCONTEXT_1, pbuff: *mut ::core::ffi::c_void, userrundownin: ::windows::core::RawPtr);
+            fn NDRSContextMarshallEx(bindinghandle: *const ::core::ffi::c_void, ccontext: *const NDR_SCONTEXT_1, pbuff: *mut ::core::ffi::c_void, userrundownin: *mut ::core::ffi::c_void);
         }
         NDRSContextMarshallEx(::core::mem::transmute(bindinghandle), ::core::mem::transmute(ccontext), ::core::mem::transmute(pbuff), ::core::mem::transmute(userrundownin))
     }
@@ -5061,7 +5061,7 @@ pub unsafe fn Ndr64DcomAsyncStubCall<'a, Param0: ::windows::core::IntoParam<'a, 
     {
         #[link(name = "windows")]
         extern "system" {
-            fn Ndr64DcomAsyncStubCall(pthis: ::windows::core::RawPtr, pchannel: ::windows::core::RawPtr, prpcmsg: *mut RPC_MESSAGE, pdwstubphase: *mut u32) -> i32;
+            fn Ndr64DcomAsyncStubCall(pthis: *mut ::core::ffi::c_void, pchannel: *mut ::core::ffi::c_void, prpcmsg: *mut RPC_MESSAGE, pdwstubphase: *mut u32) -> i32;
         }
         ::core::mem::transmute(Ndr64DcomAsyncStubCall(pthis.into_param().abi(), pchannel.into_param().abi(), ::core::mem::transmute(prpcmsg), ::core::mem::transmute(pdwstubphase)))
     }
@@ -5900,7 +5900,7 @@ pub unsafe fn NdrCreateServerInterfaceFromStub<'a, Param0: ::windows::core::Into
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrCreateServerInterfaceFromStub(pstub: ::windows::core::RawPtr, pserverif: *mut RPC_SERVER_INTERFACE) -> RPC_STATUS;
+            fn NdrCreateServerInterfaceFromStub(pstub: *mut ::core::ffi::c_void, pserverif: *mut RPC_SERVER_INTERFACE) -> RPC_STATUS;
         }
         ::core::mem::transmute(NdrCreateServerInterfaceFromStub(pstub.into_param().abi(), ::core::mem::transmute(pserverif)))
     }
@@ -5930,7 +5930,7 @@ pub unsafe fn NdrDcomAsyncStubCall<'a, Param0: ::windows::core::IntoParam<'a, su
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrDcomAsyncStubCall(pthis: ::windows::core::RawPtr, pchannel: ::windows::core::RawPtr, prpcmsg: *mut RPC_MESSAGE, pdwstubphase: *mut u32) -> i32;
+            fn NdrDcomAsyncStubCall(pthis: *mut ::core::ffi::c_void, pchannel: *mut ::core::ffi::c_void, prpcmsg: *mut RPC_MESSAGE, pdwstubphase: *mut u32) -> i32;
         }
         ::core::mem::transmute(NdrDcomAsyncStubCall(pthis.into_param().abi(), pchannel.into_param().abi(), ::core::mem::transmute(prpcmsg), ::core::mem::transmute(pdwstubphase)))
     }
@@ -7072,7 +7072,7 @@ pub unsafe fn NdrServerContextMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, context
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrServerContextMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, contexthandle: *mut NDR_SCONTEXT_1, rundownroutine: ::windows::core::RawPtr);
+            fn NdrServerContextMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, contexthandle: *mut NDR_SCONTEXT_1, rundownroutine: *mut ::core::ffi::c_void);
         }
         NdrServerContextMarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(contexthandle), ::core::mem::transmute(rundownroutine))
     }
@@ -7087,7 +7087,7 @@ pub unsafe fn NdrServerContextNewMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, cont
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrServerContextNewMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, contexthandle: *mut NDR_SCONTEXT_1, rundownroutine: ::windows::core::RawPtr, pformat: *mut u8);
+            fn NdrServerContextNewMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, contexthandle: *mut NDR_SCONTEXT_1, rundownroutine: *mut ::core::ffi::c_void, pformat: *mut u8);
         }
         NdrServerContextNewMarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(contexthandle), ::core::mem::transmute(rundownroutine), ::core::mem::transmute(pformat))
     }
@@ -12597,7 +12597,7 @@ pub unsafe fn RpcMgmtSetAuthorizationFn(authorizationfn: RPC_MGMT_AUTHORIZATION_
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcMgmtSetAuthorizationFn(authorizationfn: ::windows::core::RawPtr) -> RPC_STATUS;
+            fn RpcMgmtSetAuthorizationFn(authorizationfn: *mut ::core::ffi::c_void) -> RPC_STATUS;
         }
         ::core::mem::transmute(RpcMgmtSetAuthorizationFn(::core::mem::transmute(authorizationfn)))
     }
@@ -13577,7 +13577,7 @@ pub unsafe fn RpcObjectSetInqFn(inquiryfn: RPC_OBJECT_INQ_FN) -> RPC_STATUS {
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcObjectSetInqFn(inquiryfn: ::windows::core::RawPtr) -> RPC_STATUS;
+            fn RpcObjectSetInqFn(inquiryfn: *mut ::core::ffi::c_void) -> RPC_STATUS;
         }
         ::core::mem::transmute(RpcObjectSetInqFn(::core::mem::transmute(inquiryfn)))
     }
@@ -13890,7 +13890,7 @@ pub unsafe fn RpcServerInterfaceGroupCreateA(interfaces: &[RPC_INTERFACE_TEMPLAT
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcServerInterfaceGroupCreateA(interfaces: *const RPC_INTERFACE_TEMPLATEA, numifs: u32, endpoints: *const RPC_ENDPOINT_TEMPLATEA, numendpoints: u32, idleperiod: u32, idlecallbackfn: ::windows::core::RawPtr, idlecallbackcontext: *const ::core::ffi::c_void, ifgroup: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+            fn RpcServerInterfaceGroupCreateA(interfaces: *const RPC_INTERFACE_TEMPLATEA, numifs: u32, endpoints: *const RPC_ENDPOINT_TEMPLATEA, numendpoints: u32, idleperiod: u32, idlecallbackfn: *mut ::core::ffi::c_void, idlecallbackcontext: *const ::core::ffi::c_void, ifgroup: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
         }
         ::core::mem::transmute(RpcServerInterfaceGroupCreateA(::core::mem::transmute(::windows::core::as_ptr_or_null(interfaces)), interfaces.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(endpoints)), endpoints.len() as _, ::core::mem::transmute(idleperiod), ::core::mem::transmute(idlecallbackfn), ::core::mem::transmute(idlecallbackcontext), ::core::mem::transmute(ifgroup)))
     }
@@ -13904,7 +13904,7 @@ pub unsafe fn RpcServerInterfaceGroupCreateW(interfaces: &[RPC_INTERFACE_TEMPLAT
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcServerInterfaceGroupCreateW(interfaces: *const RPC_INTERFACE_TEMPLATEW, numifs: u32, endpoints: *const RPC_ENDPOINT_TEMPLATEW, numendpoints: u32, idleperiod: u32, idlecallbackfn: ::windows::core::RawPtr, idlecallbackcontext: *const ::core::ffi::c_void, ifgroup: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+            fn RpcServerInterfaceGroupCreateW(interfaces: *const RPC_INTERFACE_TEMPLATEW, numifs: u32, endpoints: *const RPC_ENDPOINT_TEMPLATEW, numendpoints: u32, idleperiod: u32, idlecallbackfn: *mut ::core::ffi::c_void, idlecallbackcontext: *const ::core::ffi::c_void, ifgroup: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
         }
         ::core::mem::transmute(RpcServerInterfaceGroupCreateW(::core::mem::transmute(::windows::core::as_ptr_or_null(interfaces)), interfaces.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(endpoints)), endpoints.len() as _, ::core::mem::transmute(idleperiod), ::core::mem::transmute(idlecallbackfn), ::core::mem::transmute(idlecallbackcontext), ::core::mem::transmute(ifgroup)))
     }
@@ -13960,7 +13960,7 @@ pub unsafe fn RpcServerRegisterAuthInfoA(serverprincname: *const u8, authnsvc: u
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcServerRegisterAuthInfoA(serverprincname: *const u8, authnsvc: u32, getkeyfn: ::windows::core::RawPtr, arg: *const ::core::ffi::c_void) -> RPC_STATUS;
+            fn RpcServerRegisterAuthInfoA(serverprincname: *const u8, authnsvc: u32, getkeyfn: *mut ::core::ffi::c_void, arg: *const ::core::ffi::c_void) -> RPC_STATUS;
         }
         ::core::mem::transmute(RpcServerRegisterAuthInfoA(::core::mem::transmute(serverprincname), ::core::mem::transmute(authnsvc), ::core::mem::transmute(getkeyfn), ::core::mem::transmute(arg)))
     }
@@ -13974,7 +13974,7 @@ pub unsafe fn RpcServerRegisterAuthInfoW(serverprincname: *const u16, authnsvc: 
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcServerRegisterAuthInfoW(serverprincname: *const u16, authnsvc: u32, getkeyfn: ::windows::core::RawPtr, arg: *const ::core::ffi::c_void) -> RPC_STATUS;
+            fn RpcServerRegisterAuthInfoW(serverprincname: *const u16, authnsvc: u32, getkeyfn: *mut ::core::ffi::c_void, arg: *const ::core::ffi::c_void) -> RPC_STATUS;
         }
         ::core::mem::transmute(RpcServerRegisterAuthInfoW(::core::mem::transmute(serverprincname), ::core::mem::transmute(authnsvc), ::core::mem::transmute(getkeyfn), ::core::mem::transmute(arg)))
     }
@@ -14002,7 +14002,7 @@ pub unsafe fn RpcServerRegisterIf2(ifspec: *const ::core::ffi::c_void, mgrtypeuu
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcServerRegisterIf2(ifspec: *const ::core::ffi::c_void, mgrtypeuuid: *const ::windows::core::GUID, mgrepv: *const ::core::ffi::c_void, flags: u32, maxcalls: u32, maxrpcsize: u32, ifcallbackfn: ::windows::core::RawPtr) -> RPC_STATUS;
+            fn RpcServerRegisterIf2(ifspec: *const ::core::ffi::c_void, mgrtypeuuid: *const ::windows::core::GUID, mgrepv: *const ::core::ffi::c_void, flags: u32, maxcalls: u32, maxrpcsize: u32, ifcallbackfn: *mut ::core::ffi::c_void) -> RPC_STATUS;
         }
         ::core::mem::transmute(RpcServerRegisterIf2(::core::mem::transmute(ifspec), ::core::mem::transmute(mgrtypeuuid), ::core::mem::transmute(mgrepv), ::core::mem::transmute(flags), ::core::mem::transmute(maxcalls), ::core::mem::transmute(maxrpcsize), ::core::mem::transmute(ifcallbackfn)))
     }
@@ -14016,7 +14016,7 @@ pub unsafe fn RpcServerRegisterIf3(ifspec: *const ::core::ffi::c_void, mgrtypeuu
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcServerRegisterIf3(ifspec: *const ::core::ffi::c_void, mgrtypeuuid: *const ::windows::core::GUID, mgrepv: *const ::core::ffi::c_void, flags: u32, maxcalls: u32, maxrpcsize: u32, ifcallback: ::windows::core::RawPtr, securitydescriptor: *const ::core::ffi::c_void) -> RPC_STATUS;
+            fn RpcServerRegisterIf3(ifspec: *const ::core::ffi::c_void, mgrtypeuuid: *const ::windows::core::GUID, mgrepv: *const ::core::ffi::c_void, flags: u32, maxcalls: u32, maxrpcsize: u32, ifcallback: *mut ::core::ffi::c_void, securitydescriptor: *const ::core::ffi::c_void) -> RPC_STATUS;
         }
         ::core::mem::transmute(RpcServerRegisterIf3(::core::mem::transmute(ifspec), ::core::mem::transmute(mgrtypeuuid), ::core::mem::transmute(mgrepv), ::core::mem::transmute(flags), ::core::mem::transmute(maxcalls), ::core::mem::transmute(maxrpcsize), ::core::mem::transmute(ifcallback), ::core::mem::transmute(securitydescriptor)))
     }
@@ -14030,7 +14030,7 @@ pub unsafe fn RpcServerRegisterIfEx(ifspec: *const ::core::ffi::c_void, mgrtypeu
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcServerRegisterIfEx(ifspec: *const ::core::ffi::c_void, mgrtypeuuid: *const ::windows::core::GUID, mgrepv: *const ::core::ffi::c_void, flags: u32, maxcalls: u32, ifcallback: ::windows::core::RawPtr) -> RPC_STATUS;
+            fn RpcServerRegisterIfEx(ifspec: *const ::core::ffi::c_void, mgrtypeuuid: *const ::windows::core::GUID, mgrepv: *const ::core::ffi::c_void, flags: u32, maxcalls: u32, ifcallback: *mut ::core::ffi::c_void) -> RPC_STATUS;
         }
         ::core::mem::transmute(RpcServerRegisterIfEx(::core::mem::transmute(ifspec), ::core::mem::transmute(mgrtypeuuid), ::core::mem::transmute(mgrepv), ::core::mem::transmute(flags), ::core::mem::transmute(maxcalls), ::core::mem::transmute(ifcallback)))
     }
@@ -14451,7 +14451,7 @@ pub unsafe fn RpcSmSetClientAllocFree(clientalloc: RPC_CLIENT_ALLOC, clientfree:
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcSmSetClientAllocFree(clientalloc: ::windows::core::RawPtr, clientfree: ::windows::core::RawPtr) -> RPC_STATUS;
+            fn RpcSmSetClientAllocFree(clientalloc: *mut ::core::ffi::c_void, clientfree: *mut ::core::ffi::c_void) -> RPC_STATUS;
         }
         ::core::mem::transmute(RpcSmSetClientAllocFree(::core::mem::transmute(clientalloc), ::core::mem::transmute(clientfree)))
     }
@@ -14479,7 +14479,7 @@ pub unsafe fn RpcSmSwapClientAllocFree(clientalloc: RPC_CLIENT_ALLOC, clientfree
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcSmSwapClientAllocFree(clientalloc: ::windows::core::RawPtr, clientfree: ::windows::core::RawPtr, oldclientalloc: *mut ::windows::core::RawPtr, oldclientfree: *mut ::windows::core::RawPtr) -> RPC_STATUS;
+            fn RpcSmSwapClientAllocFree(clientalloc: *mut ::core::ffi::c_void, clientfree: *mut ::core::ffi::c_void, oldclientalloc: *mut *mut ::core::ffi::c_void, oldclientfree: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
         }
         ::core::mem::transmute(RpcSmSwapClientAllocFree(::core::mem::transmute(clientalloc), ::core::mem::transmute(clientfree), ::core::mem::transmute(oldclientalloc), ::core::mem::transmute(oldclientfree)))
     }
@@ -14633,7 +14633,7 @@ pub unsafe fn RpcSsSetClientAllocFree(clientalloc: RPC_CLIENT_ALLOC, clientfree:
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcSsSetClientAllocFree(clientalloc: ::windows::core::RawPtr, clientfree: ::windows::core::RawPtr);
+            fn RpcSsSetClientAllocFree(clientalloc: *mut ::core::ffi::c_void, clientfree: *mut ::core::ffi::c_void);
         }
         RpcSsSetClientAllocFree(::core::mem::transmute(clientalloc), ::core::mem::transmute(clientfree))
     }
@@ -14661,7 +14661,7 @@ pub unsafe fn RpcSsSwapClientAllocFree(clientalloc: RPC_CLIENT_ALLOC, clientfree
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcSsSwapClientAllocFree(clientalloc: ::windows::core::RawPtr, clientfree: ::windows::core::RawPtr, oldclientalloc: *mut ::windows::core::RawPtr, oldclientfree: *mut ::windows::core::RawPtr);
+            fn RpcSsSwapClientAllocFree(clientalloc: *mut ::core::ffi::c_void, clientfree: *mut ::core::ffi::c_void, oldclientalloc: *mut *mut ::core::ffi::c_void, oldclientfree: *mut *mut ::core::ffi::c_void);
         }
         RpcSsSwapClientAllocFree(::core::mem::transmute(clientalloc), ::core::mem::transmute(clientfree), ::core::mem::transmute(oldclientalloc), ::core::mem::transmute(oldclientfree))
     }

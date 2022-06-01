@@ -2032,7 +2032,7 @@ pub unsafe fn DPA_DestroyCallback<'a, Param0: ::windows::core::IntoParam<'a, HDP
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DPA_DestroyCallback(hdpa: HDPA, pfncb: ::windows::core::RawPtr, pdata: *const ::core::ffi::c_void);
+            fn DPA_DestroyCallback(hdpa: HDPA, pfncb: *mut ::core::ffi::c_void, pdata: *const ::core::ffi::c_void);
         }
         DPA_DestroyCallback(hdpa.into_param().abi(), ::core::mem::transmute(pfncb), ::core::mem::transmute(pdata))
     }
@@ -2048,7 +2048,7 @@ pub unsafe fn DPA_EnumCallback<'a, Param0: ::windows::core::IntoParam<'a, HDPA>>
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DPA_EnumCallback(hdpa: HDPA, pfncb: ::windows::core::RawPtr, pdata: *const ::core::ffi::c_void);
+            fn DPA_EnumCallback(hdpa: HDPA, pfncb: *mut ::core::ffi::c_void, pdata: *const ::core::ffi::c_void);
         }
         DPA_EnumCallback(hdpa.into_param().abi(), ::core::mem::transmute(pfncb), ::core::mem::transmute(pdata))
     }
@@ -2134,7 +2134,7 @@ pub unsafe fn DPA_LoadStream<'a, Param2: ::windows::core::IntoParam<'a, super::s
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DPA_LoadStream(phdpa: *mut HDPA, pfn: ::windows::core::RawPtr, pstream: ::windows::core::RawPtr, pvinstdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn DPA_LoadStream(phdpa: *mut HDPA, pfn: *mut ::core::ffi::c_void, pstream: *mut ::core::ffi::c_void, pvinstdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         DPA_LoadStream(::core::mem::transmute(phdpa), ::core::mem::transmute(pfn), pstream.into_param().abi(), ::core::mem::transmute(pvinstdata)).ok()
     }
@@ -2149,7 +2149,7 @@ pub unsafe fn DPA_Merge<'a, Param0: ::windows::core::IntoParam<'a, HDPA>, Param1
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DPA_Merge(hdpadest: HDPA, hdpasrc: HDPA, dwflags: u32, pfncompare: ::windows::core::RawPtr, pfnmerge: ::windows::core::RawPtr, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+            fn DPA_Merge(hdpadest: HDPA, hdpasrc: HDPA, dwflags: u32, pfncompare: *mut ::core::ffi::c_void, pfnmerge: *mut ::core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(DPA_Merge(hdpadest.into_param().abi(), hdpasrc.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(pfncompare), ::core::mem::transmute(pfnmerge), lparam.into_param().abi()))
     }
@@ -2164,7 +2164,7 @@ pub unsafe fn DPA_SaveStream<'a, Param0: ::windows::core::IntoParam<'a, HDPA>, P
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DPA_SaveStream(hdpa: HDPA, pfn: ::windows::core::RawPtr, pstream: ::windows::core::RawPtr, pvinstdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn DPA_SaveStream(hdpa: HDPA, pfn: *mut ::core::ffi::c_void, pstream: *mut ::core::ffi::c_void, pvinstdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         DPA_SaveStream(hdpa.into_param().abi(), ::core::mem::transmute(pfn), pstream.into_param().abi(), ::core::mem::transmute(pvinstdata)).ok()
     }
@@ -2179,7 +2179,7 @@ pub unsafe fn DPA_Search<'a, Param0: ::windows::core::IntoParam<'a, HDPA>, Param
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DPA_Search(hdpa: HDPA, pfind: *const ::core::ffi::c_void, istart: i32, pfncompare: ::windows::core::RawPtr, lparam: super::super::Foundation::LPARAM, options: u32) -> i32;
+            fn DPA_Search(hdpa: HDPA, pfind: *const ::core::ffi::c_void, istart: i32, pfncompare: *mut ::core::ffi::c_void, lparam: super::super::Foundation::LPARAM, options: u32) -> i32;
         }
         ::core::mem::transmute(DPA_Search(hdpa.into_param().abi(), ::core::mem::transmute(pfind), ::core::mem::transmute(istart), ::core::mem::transmute(pfncompare), lparam.into_param().abi(), ::core::mem::transmute(options)))
     }
@@ -2209,7 +2209,7 @@ pub unsafe fn DPA_Sort<'a, Param0: ::windows::core::IntoParam<'a, HDPA>, Param2:
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DPA_Sort(hdpa: HDPA, pfncompare: ::windows::core::RawPtr, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+            fn DPA_Sort(hdpa: HDPA, pfncompare: *mut ::core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(DPA_Sort(hdpa.into_param().abi(), ::core::mem::transmute(pfncompare), lparam.into_param().abi()))
     }
@@ -2511,7 +2511,7 @@ pub unsafe fn DSA_DestroyCallback<'a, Param0: ::windows::core::IntoParam<'a, HDS
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DSA_DestroyCallback(hdsa: HDSA, pfncb: ::windows::core::RawPtr, pdata: *const ::core::ffi::c_void);
+            fn DSA_DestroyCallback(hdsa: HDSA, pfncb: *mut ::core::ffi::c_void, pdata: *const ::core::ffi::c_void);
         }
         DSA_DestroyCallback(hdsa.into_param().abi(), ::core::mem::transmute(pfncb), ::core::mem::transmute(pdata))
     }
@@ -2527,7 +2527,7 @@ pub unsafe fn DSA_EnumCallback<'a, Param0: ::windows::core::IntoParam<'a, HDSA>>
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DSA_EnumCallback(hdsa: HDSA, pfncb: ::windows::core::RawPtr, pdata: *const ::core::ffi::c_void);
+            fn DSA_EnumCallback(hdsa: HDSA, pfncb: *mut ::core::ffi::c_void, pdata: *const ::core::ffi::c_void);
         }
         DSA_EnumCallback(hdsa.into_param().abi(), ::core::mem::transmute(pfncb), ::core::mem::transmute(pdata))
     }
@@ -2614,7 +2614,7 @@ pub unsafe fn DSA_Sort<'a, Param0: ::windows::core::IntoParam<'a, HDSA>, Param2:
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DSA_Sort(pdsa: HDSA, pfncompare: ::windows::core::RawPtr, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+            fn DSA_Sort(pdsa: HDSA, pfncompare: *mut ::core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(DSA_Sort(pdsa.into_param().abi(), ::core::mem::transmute(pfncompare), lparam.into_param().abi()))
     }
@@ -6114,7 +6114,7 @@ pub struct IImageList2_Vtbl {
     pub Replace2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, i: i32, hbmimage: super::super::Graphics::Gdi::HBITMAP, hbmmask: super::super::Graphics::Gdi::HBITMAP, punk: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     Replace2: usize,
-    pub ReplaceFromImageList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, i: i32, pil: ::windows::core::RawPtr, isrc: i32, punk: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT,
+    pub ReplaceFromImageList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, i: i32, pil: *mut ::core::ffi::c_void, isrc: i32, punk: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const ILDI_PURGE: u32 = 1u32;
@@ -7134,7 +7134,7 @@ pub unsafe fn ImageList_Read<'a, Param0: ::windows::core::IntoParam<'a, super::s
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ImageList_Read(pstm: ::windows::core::RawPtr) -> HIMAGELIST;
+            fn ImageList_Read(pstm: *mut ::core::ffi::c_void) -> HIMAGELIST;
         }
         ::core::mem::transmute(ImageList_Read(pstm.into_param().abi()))
     }
@@ -7149,7 +7149,7 @@ pub unsafe fn ImageList_ReadEx<'a, Param1: ::windows::core::IntoParam<'a, super:
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ImageList_ReadEx(dwflags: u32, pstm: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn ImageList_ReadEx(dwflags: u32, pstm: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         ImageList_ReadEx(::core::mem::transmute(dwflags), pstm.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
     }
@@ -7283,7 +7283,7 @@ pub unsafe fn ImageList_Write<'a, Param0: ::windows::core::IntoParam<'a, HIMAGEL
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ImageList_Write(himl: HIMAGELIST, pstm: ::windows::core::RawPtr) -> super::super::Foundation::BOOL;
+            fn ImageList_Write(himl: HIMAGELIST, pstm: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(ImageList_Write(himl.into_param().abi(), pstm.into_param().abi()))
     }
@@ -7298,7 +7298,7 @@ pub unsafe fn ImageList_WriteEx<'a, Param0: ::windows::core::IntoParam<'a, HIMAG
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ImageList_WriteEx(himl: HIMAGELIST, dwflags: u32, pstm: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
+            fn ImageList_WriteEx(himl: HIMAGELIST, dwflags: u32, pstm: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         ImageList_WriteEx(himl.into_param().abi(), ::core::mem::transmute(dwflags), pstm.into_param().abi()).ok()
     }

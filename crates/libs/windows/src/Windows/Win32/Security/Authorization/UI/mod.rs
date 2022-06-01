@@ -8,7 +8,7 @@ pub unsafe fn CreateSecurityPage<'a, Param0: ::windows::core::IntoParam<'a, ISec
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreateSecurityPage(psi: ::windows::core::RawPtr) -> super::super::super::UI::Controls::HPROPSHEETPAGE;
+            fn CreateSecurityPage(psi: *mut ::core::ffi::c_void) -> super::super::super::UI::Controls::HPROPSHEETPAGE;
         }
         let result__ = CreateSecurityPage(psi.into_param().abi());
         (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
@@ -75,7 +75,7 @@ pub unsafe fn EditSecurity<'a, Param0: ::windows::core::IntoParam<'a, super::sup
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EditSecurity(hwndowner: super::super::super::Foundation::HWND, psi: ::windows::core::RawPtr) -> super::super::super::Foundation::BOOL;
+            fn EditSecurity(hwndowner: super::super::super::Foundation::HWND, psi: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(EditSecurity(hwndowner.into_param().abi(), psi.into_param().abi()))
     }
@@ -90,7 +90,7 @@ pub unsafe fn EditSecurityAdvanced<'a, Param0: ::windows::core::IntoParam<'a, su
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EditSecurityAdvanced(hwndowner: super::super::super::Foundation::HWND, psi: ::windows::core::RawPtr, usipage: SI_PAGE_TYPE) -> ::windows::core::HRESULT;
+            fn EditSecurityAdvanced(hwndowner: super::super::super::Foundation::HWND, psi: *mut ::core::ffi::c_void, usipage: SI_PAGE_TYPE) -> ::windows::core::HRESULT;
         }
         EditSecurityAdvanced(hwndowner.into_param().abi(), psi.into_param().abi(), ::core::mem::transmute(usipage)).ok()
     }
@@ -425,7 +425,7 @@ pub struct ISecurityInformation2_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     IsDaclCanonical: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub LookupSids: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, csids: u32, rgpsids: *mut super::super::super::Foundation::PSID, ppdo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub LookupSids: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, csids: u32, rgpsids: *mut super::super::super::Foundation::PSID, ppdo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     LookupSids: usize,
 }

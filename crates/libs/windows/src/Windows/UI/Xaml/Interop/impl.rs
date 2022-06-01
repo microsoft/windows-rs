@@ -6,7 +6,7 @@ impl ::windows::core::RuntimeName for IBindableIterable {
 }
 impl IBindableIterable_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBindableIterable_Impl, const OFFSET: isize>() -> IBindableIterable_Vtbl {
-        unsafe extern "system" fn First<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBindableIterable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn First<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBindableIterable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.First() {
@@ -93,7 +93,7 @@ impl ::windows::core::RuntimeName for IBindableObservableVector {
 #[cfg(feature = "Foundation")]
 impl IBindableObservableVector_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBindableObservableVector_Impl, const OFFSET: isize>() -> IBindableObservableVector_Vtbl {
-        unsafe extern "system" fn VectorChanged<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBindableObservableVector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VectorChanged<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBindableObservableVector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.VectorChanged(::core::mem::transmute(&handler)) {
@@ -161,7 +161,7 @@ impl IBindableVector_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetView<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBindableVector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetView<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBindableVector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetView() {
@@ -302,7 +302,7 @@ impl ::windows::core::RuntimeName for INotifyCollectionChanged {
 #[cfg(feature = "Foundation")]
 impl INotifyCollectionChanged_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INotifyCollectionChanged_Impl, const OFFSET: isize>() -> INotifyCollectionChanged_Vtbl {
-        unsafe extern "system" fn CollectionChanged<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INotifyCollectionChanged_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CollectionChanged<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INotifyCollectionChanged_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CollectionChanged(::core::mem::transmute(&handler)) {

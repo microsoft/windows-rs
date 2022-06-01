@@ -80,10 +80,6 @@ pub type Result<T> = core::result::Result<T, Error>;
 #[doc(hidden)]
 pub use bindings::IAgileObject;
 
-// TODO: rather than hiding, consider just removing
-#[doc(hidden)]
-pub type RawPtr = *mut core::ffi::c_void;
-
 #[doc(hidden)]
 #[cfg(feature = "implement")]
 pub use windows_implement::implement;

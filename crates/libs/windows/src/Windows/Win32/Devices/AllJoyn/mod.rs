@@ -3552,7 +3552,7 @@ pub unsafe fn alljoyn_busattachment_joinsessionasync<'a, Param0: ::windows::core
     {
         #[link(name = "windows")]
         extern "system" {
-            fn alljoyn_busattachment_joinsessionasync(bus: alljoyn_busattachment, sessionhost: ::windows::core::PCSTR, sessionport: u16, listener: alljoyn_sessionlistener, opts: alljoyn_sessionopts, callback: ::windows::core::RawPtr, context: *mut ::core::ffi::c_void) -> QStatus;
+            fn alljoyn_busattachment_joinsessionasync(bus: alljoyn_busattachment, sessionhost: ::windows::core::PCSTR, sessionport: u16, listener: alljoyn_sessionlistener, opts: alljoyn_sessionopts, callback: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void) -> QStatus;
         }
         ::core::mem::transmute(alljoyn_busattachment_joinsessionasync(bus.into_param().abi(), sessionhost.into_param().abi(), ::core::mem::transmute(sessionport), listener.into_param().abi(), opts.into_param().abi(), ::core::mem::transmute(callback), ::core::mem::transmute(context)))
     }
@@ -3694,7 +3694,7 @@ pub unsafe fn alljoyn_busattachment_registersignalhandler<'a, Param0: ::windows:
     {
         #[link(name = "windows")]
         extern "system" {
-            fn alljoyn_busattachment_registersignalhandler(bus: alljoyn_busattachment, signal_handler: ::windows::core::RawPtr, member: alljoyn_interfacedescription_member, srcpath: ::windows::core::PCSTR) -> QStatus;
+            fn alljoyn_busattachment_registersignalhandler(bus: alljoyn_busattachment, signal_handler: *mut ::core::ffi::c_void, member: alljoyn_interfacedescription_member, srcpath: ::windows::core::PCSTR) -> QStatus;
         }
         ::core::mem::transmute(alljoyn_busattachment_registersignalhandler(bus.into_param().abi(), ::core::mem::transmute(signal_handler), member.into_param().abi(), srcpath.into_param().abi()))
     }
@@ -3708,7 +3708,7 @@ pub unsafe fn alljoyn_busattachment_registersignalhandlerwithrule<'a, Param0: ::
     {
         #[link(name = "windows")]
         extern "system" {
-            fn alljoyn_busattachment_registersignalhandlerwithrule(bus: alljoyn_busattachment, signal_handler: ::windows::core::RawPtr, member: alljoyn_interfacedescription_member, matchrule: ::windows::core::PCSTR) -> QStatus;
+            fn alljoyn_busattachment_registersignalhandlerwithrule(bus: alljoyn_busattachment, signal_handler: *mut ::core::ffi::c_void, member: alljoyn_interfacedescription_member, matchrule: ::windows::core::PCSTR) -> QStatus;
         }
         ::core::mem::transmute(alljoyn_busattachment_registersignalhandlerwithrule(bus.into_param().abi(), ::core::mem::transmute(signal_handler), member.into_param().abi(), matchrule.into_param().abi()))
     }
@@ -3862,7 +3862,7 @@ pub unsafe fn alljoyn_busattachment_setlinktimeoutasync<'a, Param0: ::windows::c
     {
         #[link(name = "windows")]
         extern "system" {
-            fn alljoyn_busattachment_setlinktimeoutasync(bus: alljoyn_busattachment, sessionid: u32, linktimeout: u32, callback: ::windows::core::RawPtr, context: *mut ::core::ffi::c_void) -> QStatus;
+            fn alljoyn_busattachment_setlinktimeoutasync(bus: alljoyn_busattachment, sessionid: u32, linktimeout: u32, callback: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void) -> QStatus;
         }
         ::core::mem::transmute(alljoyn_busattachment_setlinktimeoutasync(bus.into_param().abi(), ::core::mem::transmute(sessionid), ::core::mem::transmute(linktimeout), ::core::mem::transmute(callback), ::core::mem::transmute(context)))
     }
@@ -4018,7 +4018,7 @@ pub unsafe fn alljoyn_busattachment_unregistersignalhandler<'a, Param0: ::window
     {
         #[link(name = "windows")]
         extern "system" {
-            fn alljoyn_busattachment_unregistersignalhandler(bus: alljoyn_busattachment, signal_handler: ::windows::core::RawPtr, member: alljoyn_interfacedescription_member, srcpath: ::windows::core::PCSTR) -> QStatus;
+            fn alljoyn_busattachment_unregistersignalhandler(bus: alljoyn_busattachment, signal_handler: *mut ::core::ffi::c_void, member: alljoyn_interfacedescription_member, srcpath: ::windows::core::PCSTR) -> QStatus;
         }
         ::core::mem::transmute(alljoyn_busattachment_unregistersignalhandler(bus.into_param().abi(), ::core::mem::transmute(signal_handler), member.into_param().abi(), srcpath.into_param().abi()))
     }
@@ -4032,7 +4032,7 @@ pub unsafe fn alljoyn_busattachment_unregistersignalhandlerwithrule<'a, Param0: 
     {
         #[link(name = "windows")]
         extern "system" {
-            fn alljoyn_busattachment_unregistersignalhandlerwithrule(bus: alljoyn_busattachment, signal_handler: ::windows::core::RawPtr, member: alljoyn_interfacedescription_member, matchrule: ::windows::core::PCSTR) -> QStatus;
+            fn alljoyn_busattachment_unregistersignalhandlerwithrule(bus: alljoyn_busattachment, signal_handler: *mut ::core::ffi::c_void, member: alljoyn_interfacedescription_member, matchrule: ::windows::core::PCSTR) -> QStatus;
         }
         ::core::mem::transmute(alljoyn_busattachment_unregistersignalhandlerwithrule(bus.into_param().abi(), ::core::mem::transmute(signal_handler), member.into_param().abi(), matchrule.into_param().abi()))
     }
@@ -4236,7 +4236,7 @@ pub unsafe fn alljoyn_busobject_addmethodhandler<'a, Param0: ::windows::core::In
     {
         #[link(name = "windows")]
         extern "system" {
-            fn alljoyn_busobject_addmethodhandler(bus: alljoyn_busobject, member: alljoyn_interfacedescription_member, handler: ::windows::core::RawPtr, context: *mut ::core::ffi::c_void) -> QStatus;
+            fn alljoyn_busobject_addmethodhandler(bus: alljoyn_busobject, member: alljoyn_interfacedescription_member, handler: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void) -> QStatus;
         }
         ::core::mem::transmute(alljoyn_busobject_addmethodhandler(bus.into_param().abi(), member.into_param().abi(), ::core::mem::transmute(handler), ::core::mem::transmute(context)))
     }
@@ -5843,7 +5843,7 @@ pub unsafe fn alljoyn_interfacedescription_setdescriptiontranslationcallback<'a,
     {
         #[link(name = "windows")]
         extern "system" {
-            fn alljoyn_interfacedescription_setdescriptiontranslationcallback(iface: alljoyn_interfacedescription, translationcallback: ::windows::core::RawPtr);
+            fn alljoyn_interfacedescription_setdescriptiontranslationcallback(iface: alljoyn_interfacedescription, translationcallback: *mut ::core::ffi::c_void);
         }
         alljoyn_interfacedescription_setdescriptiontranslationcallback(iface.into_param().abi(), ::core::mem::transmute(translationcallback))
     }
@@ -8792,7 +8792,7 @@ pub unsafe fn alljoyn_proxybusobject_getallpropertiesasync<'a, Param0: ::windows
     {
         #[link(name = "windows")]
         extern "system" {
-            fn alljoyn_proxybusobject_getallpropertiesasync(proxyobj: alljoyn_proxybusobject, iface: ::windows::core::PCSTR, callback: ::windows::core::RawPtr, timeout: u32, context: *mut ::core::ffi::c_void) -> QStatus;
+            fn alljoyn_proxybusobject_getallpropertiesasync(proxyobj: alljoyn_proxybusobject, iface: ::windows::core::PCSTR, callback: *mut ::core::ffi::c_void, timeout: u32, context: *mut ::core::ffi::c_void) -> QStatus;
         }
         ::core::mem::transmute(alljoyn_proxybusobject_getallpropertiesasync(proxyobj.into_param().abi(), iface.into_param().abi(), ::core::mem::transmute(callback), ::core::mem::transmute(timeout), ::core::mem::transmute(context)))
     }
@@ -8890,7 +8890,7 @@ pub unsafe fn alljoyn_proxybusobject_getpropertyasync<'a, Param0: ::windows::cor
     {
         #[link(name = "windows")]
         extern "system" {
-            fn alljoyn_proxybusobject_getpropertyasync(proxyobj: alljoyn_proxybusobject, iface: ::windows::core::PCSTR, property: ::windows::core::PCSTR, callback: ::windows::core::RawPtr, timeout: u32, context: *mut ::core::ffi::c_void) -> QStatus;
+            fn alljoyn_proxybusobject_getpropertyasync(proxyobj: alljoyn_proxybusobject, iface: ::windows::core::PCSTR, property: ::windows::core::PCSTR, callback: *mut ::core::ffi::c_void, timeout: u32, context: *mut ::core::ffi::c_void) -> QStatus;
         }
         ::core::mem::transmute(alljoyn_proxybusobject_getpropertyasync(proxyobj.into_param().abi(), iface.into_param().abi(), property.into_param().abi(), ::core::mem::transmute(callback), ::core::mem::transmute(timeout), ::core::mem::transmute(context)))
     }
@@ -8974,7 +8974,7 @@ pub unsafe fn alljoyn_proxybusobject_introspectremoteobjectasync<'a, Param0: ::w
     {
         #[link(name = "windows")]
         extern "system" {
-            fn alljoyn_proxybusobject_introspectremoteobjectasync(proxyobj: alljoyn_proxybusobject, callback: ::windows::core::RawPtr, context: *mut ::core::ffi::c_void) -> QStatus;
+            fn alljoyn_proxybusobject_introspectremoteobjectasync(proxyobj: alljoyn_proxybusobject, callback: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void) -> QStatus;
         }
         ::core::mem::transmute(alljoyn_proxybusobject_introspectremoteobjectasync(proxyobj.into_param().abi(), ::core::mem::transmute(callback), ::core::mem::transmute(context)))
     }
@@ -9082,7 +9082,7 @@ pub unsafe fn alljoyn_proxybusobject_methodcallasync<'a, Param0: ::windows::core
     {
         #[link(name = "windows")]
         extern "system" {
-            fn alljoyn_proxybusobject_methodcallasync(proxyobj: alljoyn_proxybusobject, ifacename: ::windows::core::PCSTR, methodname: ::windows::core::PCSTR, replyfunc: ::windows::core::RawPtr, args: alljoyn_msgarg, numargs: usize, context: *mut ::core::ffi::c_void, timeout: u32, flags: u8) -> QStatus;
+            fn alljoyn_proxybusobject_methodcallasync(proxyobj: alljoyn_proxybusobject, ifacename: ::windows::core::PCSTR, methodname: ::windows::core::PCSTR, replyfunc: *mut ::core::ffi::c_void, args: alljoyn_msgarg, numargs: usize, context: *mut ::core::ffi::c_void, timeout: u32, flags: u8) -> QStatus;
         }
         ::core::mem::transmute(alljoyn_proxybusobject_methodcallasync(proxyobj.into_param().abi(), ifacename.into_param().abi(), methodname.into_param().abi(), ::core::mem::transmute(replyfunc), args.into_param().abi(), ::core::mem::transmute(numargs), ::core::mem::transmute(context), ::core::mem::transmute(timeout), ::core::mem::transmute(flags)))
     }
@@ -9096,7 +9096,7 @@ pub unsafe fn alljoyn_proxybusobject_methodcallasync_member<'a, Param0: ::window
     {
         #[link(name = "windows")]
         extern "system" {
-            fn alljoyn_proxybusobject_methodcallasync_member(proxyobj: alljoyn_proxybusobject, method: alljoyn_interfacedescription_member, replyfunc: ::windows::core::RawPtr, args: alljoyn_msgarg, numargs: usize, context: *mut ::core::ffi::c_void, timeout: u32, flags: u8) -> QStatus;
+            fn alljoyn_proxybusobject_methodcallasync_member(proxyobj: alljoyn_proxybusobject, method: alljoyn_interfacedescription_member, replyfunc: *mut ::core::ffi::c_void, args: alljoyn_msgarg, numargs: usize, context: *mut ::core::ffi::c_void, timeout: u32, flags: u8) -> QStatus;
         }
         ::core::mem::transmute(alljoyn_proxybusobject_methodcallasync_member(proxyobj.into_param().abi(), method.into_param().abi(), ::core::mem::transmute(replyfunc), args.into_param().abi(), ::core::mem::transmute(numargs), ::core::mem::transmute(context), ::core::mem::transmute(timeout), ::core::mem::transmute(flags)))
     }
@@ -9202,7 +9202,7 @@ pub unsafe fn alljoyn_proxybusobject_registerpropertieschangedlistener<'a, Param
     {
         #[link(name = "windows")]
         extern "system" {
-            fn alljoyn_proxybusobject_registerpropertieschangedlistener(proxyobj: alljoyn_proxybusobject, iface: ::windows::core::PCSTR, properties: *const *const i8, numproperties: usize, callback: ::windows::core::RawPtr, context: *mut ::core::ffi::c_void) -> QStatus;
+            fn alljoyn_proxybusobject_registerpropertieschangedlistener(proxyobj: alljoyn_proxybusobject, iface: ::windows::core::PCSTR, properties: *const *const i8, numproperties: usize, callback: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void) -> QStatus;
         }
         ::core::mem::transmute(alljoyn_proxybusobject_registerpropertieschangedlistener(proxyobj.into_param().abi(), iface.into_param().abi(), ::core::mem::transmute(properties), ::core::mem::transmute(numproperties), ::core::mem::transmute(callback), ::core::mem::transmute(context)))
     }
@@ -9272,7 +9272,7 @@ pub unsafe fn alljoyn_proxybusobject_setpropertyasync<'a, Param0: ::windows::cor
     {
         #[link(name = "windows")]
         extern "system" {
-            fn alljoyn_proxybusobject_setpropertyasync(proxyobj: alljoyn_proxybusobject, iface: ::windows::core::PCSTR, property: ::windows::core::PCSTR, value: alljoyn_msgarg, callback: ::windows::core::RawPtr, timeout: u32, context: *mut ::core::ffi::c_void) -> QStatus;
+            fn alljoyn_proxybusobject_setpropertyasync(proxyobj: alljoyn_proxybusobject, iface: ::windows::core::PCSTR, property: ::windows::core::PCSTR, value: alljoyn_msgarg, callback: *mut ::core::ffi::c_void, timeout: u32, context: *mut ::core::ffi::c_void) -> QStatus;
         }
         ::core::mem::transmute(alljoyn_proxybusobject_setpropertyasync(proxyobj.into_param().abi(), iface.into_param().abi(), property.into_param().abi(), value.into_param().abi(), ::core::mem::transmute(callback), ::core::mem::transmute(timeout), ::core::mem::transmute(context)))
     }
@@ -9286,7 +9286,7 @@ pub unsafe fn alljoyn_proxybusobject_unregisterpropertieschangedlistener<'a, Par
     {
         #[link(name = "windows")]
         extern "system" {
-            fn alljoyn_proxybusobject_unregisterpropertieschangedlistener(proxyobj: alljoyn_proxybusobject, iface: ::windows::core::PCSTR, callback: ::windows::core::RawPtr) -> QStatus;
+            fn alljoyn_proxybusobject_unregisterpropertieschangedlistener(proxyobj: alljoyn_proxybusobject, iface: ::windows::core::PCSTR, callback: *mut ::core::ffi::c_void) -> QStatus;
         }
         ::core::mem::transmute(alljoyn_proxybusobject_unregisterpropertieschangedlistener(proxyobj.into_param().abi(), iface.into_param().abi(), ::core::mem::transmute(callback)))
     }

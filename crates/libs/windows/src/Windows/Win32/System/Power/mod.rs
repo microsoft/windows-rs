@@ -1217,7 +1217,7 @@ pub unsafe fn EnumPwrSchemes<'a, Param1: ::windows::core::IntoParam<'a, super::s
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EnumPwrSchemes(lpfn: ::windows::core::RawPtr, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOLEAN;
+            fn EnumPwrSchemes(lpfn: *mut ::core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOLEAN;
         }
         ::core::mem::transmute(EnumPwrSchemes(::core::mem::transmute(lpfn), lparam.into_param().abi()))
     }
@@ -3017,7 +3017,7 @@ pub unsafe fn PowerRegisterForEffectivePowerModeNotifications(version: u32, call
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PowerRegisterForEffectivePowerModeNotifications(version: u32, callback: ::windows::core::RawPtr, context: *const ::core::ffi::c_void, registrationhandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn PowerRegisterForEffectivePowerModeNotifications(version: u32, callback: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, registrationhandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         PowerRegisterForEffectivePowerModeNotifications(::core::mem::transmute(version), ::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(registrationhandle)).ok()
     }

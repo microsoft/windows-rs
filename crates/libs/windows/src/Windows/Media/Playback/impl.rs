@@ -10,7 +10,7 @@ impl ::windows::core::RuntimeName for IMediaEnginePlaybackSource {
 #[cfg(feature = "deprecated")]
 impl IMediaEnginePlaybackSource_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMediaEnginePlaybackSource_Impl, const OFFSET: isize>() -> IMediaEnginePlaybackSource_Vtbl {
-        unsafe extern "system" fn CurrentItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMediaEnginePlaybackSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMediaEnginePlaybackSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CurrentItem() {
@@ -22,7 +22,7 @@ impl IMediaEnginePlaybackSource_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPlaybackSource<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMediaEnginePlaybackSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, source: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPlaybackSource<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMediaEnginePlaybackSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, source: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetPlaybackSource(::core::mem::transmute(&source)).into()

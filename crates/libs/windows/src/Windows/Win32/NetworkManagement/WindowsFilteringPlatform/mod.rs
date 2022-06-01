@@ -6118,7 +6118,7 @@ pub unsafe fn FwpmCalloutSubscribeChanges0<'a, Param0: ::windows::core::IntoPara
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FwpmCalloutSubscribeChanges0(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_CALLOUT_SUBSCRIPTION0, callback: ::windows::core::RawPtr, context: *const ::core::ffi::c_void, changehandle: *mut super::super::Foundation::HANDLE) -> u32;
+            fn FwpmCalloutSubscribeChanges0(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_CALLOUT_SUBSCRIPTION0, callback: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, changehandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
         ::core::mem::transmute(FwpmCalloutSubscribeChanges0(enginehandle.into_param().abi(), ::core::mem::transmute(subscription), ::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(changehandle)))
     }
@@ -6253,7 +6253,7 @@ pub unsafe fn FwpmConnectionSubscribe0<'a, Param0: ::windows::core::IntoParam<'a
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FwpmConnectionSubscribe0(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_CONNECTION_SUBSCRIPTION0, callback: ::windows::core::RawPtr, context: *const ::core::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32;
+            fn FwpmConnectionSubscribe0(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_CONNECTION_SUBSCRIPTION0, callback: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
         ::core::mem::transmute(FwpmConnectionSubscribe0(enginehandle.into_param().abi(), ::core::mem::transmute(subscription), ::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(eventshandle)))
     }
@@ -6283,7 +6283,7 @@ pub unsafe fn FwpmDynamicKeywordSubscribe0(flags: u32, callback: FWPM_DYNAMIC_KE
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FwpmDynamicKeywordSubscribe0(flags: u32, callback: ::windows::core::RawPtr, context: *const ::core::ffi::c_void, subscriptionhandle: *mut super::super::Foundation::HANDLE) -> u32;
+            fn FwpmDynamicKeywordSubscribe0(flags: u32, callback: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, subscriptionhandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
         ::core::mem::transmute(FwpmDynamicKeywordSubscribe0(::core::mem::transmute(flags), ::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(subscriptionhandle)))
     }
@@ -6553,7 +6553,7 @@ pub unsafe fn FwpmFilterSubscribeChanges0<'a, Param0: ::windows::core::IntoParam
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FwpmFilterSubscribeChanges0(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_FILTER_SUBSCRIPTION0, callback: ::windows::core::RawPtr, context: *const ::core::ffi::c_void, changehandle: *mut super::super::Foundation::HANDLE) -> u32;
+            fn FwpmFilterSubscribeChanges0(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_FILTER_SUBSCRIPTION0, callback: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, changehandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
         ::core::mem::transmute(FwpmFilterSubscribeChanges0(enginehandle.into_param().abi(), ::core::mem::transmute(subscription), ::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(changehandle)))
     }
@@ -6926,7 +6926,7 @@ pub unsafe fn FwpmNetEventSubscribe0<'a, Param0: ::windows::core::IntoParam<'a, 
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FwpmNetEventSubscribe0(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: ::windows::core::RawPtr, context: *const ::core::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32;
+            fn FwpmNetEventSubscribe0(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
         ::core::mem::transmute(FwpmNetEventSubscribe0(enginehandle.into_param().abi(), ::core::mem::transmute(subscription), ::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(eventshandle)))
     }
@@ -6941,7 +6941,7 @@ pub unsafe fn FwpmNetEventSubscribe1<'a, Param0: ::windows::core::IntoParam<'a, 
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FwpmNetEventSubscribe1(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: ::windows::core::RawPtr, context: *const ::core::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32;
+            fn FwpmNetEventSubscribe1(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
         ::core::mem::transmute(FwpmNetEventSubscribe1(enginehandle.into_param().abi(), ::core::mem::transmute(subscription), ::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(eventshandle)))
     }
@@ -6956,7 +6956,7 @@ pub unsafe fn FwpmNetEventSubscribe2<'a, Param0: ::windows::core::IntoParam<'a, 
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FwpmNetEventSubscribe2(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: ::windows::core::RawPtr, context: *const ::core::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32;
+            fn FwpmNetEventSubscribe2(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
         ::core::mem::transmute(FwpmNetEventSubscribe2(enginehandle.into_param().abi(), ::core::mem::transmute(subscription), ::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(eventshandle)))
     }
@@ -6971,7 +6971,7 @@ pub unsafe fn FwpmNetEventSubscribe3<'a, Param0: ::windows::core::IntoParam<'a, 
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FwpmNetEventSubscribe3(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: ::windows::core::RawPtr, context: *const ::core::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32;
+            fn FwpmNetEventSubscribe3(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
         ::core::mem::transmute(FwpmNetEventSubscribe3(enginehandle.into_param().abi(), ::core::mem::transmute(subscription), ::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(eventshandle)))
     }
@@ -6986,7 +6986,7 @@ pub unsafe fn FwpmNetEventSubscribe4<'a, Param0: ::windows::core::IntoParam<'a, 
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FwpmNetEventSubscribe4(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: ::windows::core::RawPtr, context: *const ::core::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32;
+            fn FwpmNetEventSubscribe4(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
         ::core::mem::transmute(FwpmNetEventSubscribe4(enginehandle.into_param().abi(), ::core::mem::transmute(subscription), ::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(eventshandle)))
     }
@@ -7406,7 +7406,7 @@ pub unsafe fn FwpmProviderContextSubscribeChanges0<'a, Param0: ::windows::core::
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FwpmProviderContextSubscribeChanges0(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0, callback: ::windows::core::RawPtr, context: *const ::core::ffi::c_void, changehandle: *mut super::super::Foundation::HANDLE) -> u32;
+            fn FwpmProviderContextSubscribeChanges0(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0, callback: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, changehandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
         ::core::mem::transmute(FwpmProviderContextSubscribeChanges0(enginehandle.into_param().abi(), ::core::mem::transmute(subscription), ::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(changehandle)))
     }
@@ -7556,7 +7556,7 @@ pub unsafe fn FwpmProviderSubscribeChanges0<'a, Param0: ::windows::core::IntoPar
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FwpmProviderSubscribeChanges0(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_PROVIDER_SUBSCRIPTION0, callback: ::windows::core::RawPtr, context: *const ::core::ffi::c_void, changehandle: *mut super::super::Foundation::HANDLE) -> u32;
+            fn FwpmProviderSubscribeChanges0(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_PROVIDER_SUBSCRIPTION0, callback: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, changehandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
         ::core::mem::transmute(FwpmProviderSubscribeChanges0(enginehandle.into_param().abi(), ::core::mem::transmute(subscription), ::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(changehandle)))
     }
@@ -7766,7 +7766,7 @@ pub unsafe fn FwpmSubLayerSubscribeChanges0<'a, Param0: ::windows::core::IntoPar
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FwpmSubLayerSubscribeChanges0(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_SUBLAYER_SUBSCRIPTION0, callback: ::windows::core::RawPtr, context: *const ::core::ffi::c_void, changehandle: *mut super::super::Foundation::HANDLE) -> u32;
+            fn FwpmSubLayerSubscribeChanges0(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_SUBLAYER_SUBSCRIPTION0, callback: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, changehandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
         ::core::mem::transmute(FwpmSubLayerSubscribeChanges0(enginehandle.into_param().abi(), ::core::mem::transmute(subscription), ::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(changehandle)))
     }
@@ -7826,7 +7826,7 @@ pub unsafe fn FwpmSystemPortsSubscribe0<'a, Param0: ::windows::core::IntoParam<'
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FwpmSystemPortsSubscribe0(enginehandle: super::super::Foundation::HANDLE, reserved: *mut ::core::ffi::c_void, callback: ::windows::core::RawPtr, context: *const ::core::ffi::c_void, sysportshandle: *mut super::super::Foundation::HANDLE) -> u32;
+            fn FwpmSystemPortsSubscribe0(enginehandle: super::super::Foundation::HANDLE, reserved: *mut ::core::ffi::c_void, callback: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, sysportshandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
         ::core::mem::transmute(FwpmSystemPortsSubscribe0(enginehandle.into_param().abi(), ::core::mem::transmute(reserved), ::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(sysportshandle)))
     }
@@ -7901,7 +7901,7 @@ pub unsafe fn FwpmvSwitchEventSubscribe0<'a, Param0: ::windows::core::IntoParam<
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FwpmvSwitchEventSubscribe0(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_VSWITCH_EVENT_SUBSCRIPTION0, callback: ::windows::core::RawPtr, context: *const ::core::ffi::c_void, subscriptionhandle: *mut super::super::Foundation::HANDLE) -> u32;
+            fn FwpmvSwitchEventSubscribe0(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_VSWITCH_EVENT_SUBSCRIPTION0, callback: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, subscriptionhandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
         ::core::mem::transmute(FwpmvSwitchEventSubscribe0(enginehandle.into_param().abi(), ::core::mem::transmute(subscription), ::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(subscriptionhandle)))
     }
@@ -15252,7 +15252,7 @@ pub unsafe fn IPsecSaContextSubscribe0<'a, Param0: ::windows::core::IntoParam<'a
     {
         #[link(name = "windows")]
         extern "system" {
-            fn IPsecSaContextSubscribe0(enginehandle: super::super::Foundation::HANDLE, subscription: *const IPSEC_SA_CONTEXT_SUBSCRIPTION0, callback: ::windows::core::RawPtr, context: *const ::core::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32;
+            fn IPsecSaContextSubscribe0(enginehandle: super::super::Foundation::HANDLE, subscription: *const IPSEC_SA_CONTEXT_SUBSCRIPTION0, callback: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
         ::core::mem::transmute(IPsecSaContextSubscribe0(enginehandle.into_param().abi(), ::core::mem::transmute(subscription), ::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(eventshandle)))
     }

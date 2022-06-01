@@ -26,7 +26,7 @@ unsafe impl ::windows::core::Interface for IVibrationDeviceStatics {
 #[doc(hidden)]
 pub struct IVibrationDeviceStatics_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Phone_Devices_Notification\"`*"]
 #[repr(transparent)]
@@ -46,7 +46,7 @@ impl VibrationDevice {
     #[doc = "*Required features: `\"Phone_Devices_Notification\"`*"]
     pub fn GetDefault() -> ::windows::core::Result<VibrationDevice> {
         Self::IVibrationDeviceStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<VibrationDevice>(result__)
         })
     }

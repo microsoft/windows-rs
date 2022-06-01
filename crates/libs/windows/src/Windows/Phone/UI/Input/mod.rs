@@ -271,7 +271,7 @@ unsafe impl ::windows::core::Interface for IHardwareButtonsStatics {
 pub struct IHardwareButtonsStatics_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
-    pub BackPressed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub BackPressed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     BackPressed: usize,
     #[cfg(feature = "Foundation")]
@@ -291,7 +291,7 @@ unsafe impl ::windows::core::Interface for IHardwareButtonsStatics2 {
 pub struct IHardwareButtonsStatics2_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
-    pub CameraHalfPressed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub CameraHalfPressed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     CameraHalfPressed: usize,
     #[cfg(feature = "Foundation")]
@@ -299,7 +299,7 @@ pub struct IHardwareButtonsStatics2_Vtbl {
     #[cfg(not(feature = "Foundation"))]
     RemoveCameraHalfPressed: usize,
     #[cfg(feature = "Foundation")]
-    pub CameraPressed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub CameraPressed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     CameraPressed: usize,
     #[cfg(feature = "Foundation")]
@@ -307,7 +307,7 @@ pub struct IHardwareButtonsStatics2_Vtbl {
     #[cfg(not(feature = "Foundation"))]
     RemoveCameraPressed: usize,
     #[cfg(feature = "Foundation")]
-    pub CameraReleased: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub CameraReleased: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     CameraReleased: usize,
     #[cfg(feature = "Foundation")]

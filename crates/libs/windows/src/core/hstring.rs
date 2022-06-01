@@ -125,7 +125,7 @@ impl Drop for HSTRING {
             debug_assert!((*header).flags & REFERENCE_FLAG == 0);
 
             if (*header).count.release() == 0 {
-                heap_free(header as RawPtr);
+                heap_free(header as *mut core::ffi::c_void);
             }
         }
     }

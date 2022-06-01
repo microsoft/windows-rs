@@ -1128,7 +1128,7 @@ pub unsafe fn DdeInitializeA(pidinst: *mut u32, pfncallback: PFNCALLBACK, afcmd:
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DdeInitializeA(pidinst: *mut u32, pfncallback: ::windows::core::RawPtr, afcmd: DDE_INITIALIZE_COMMAND, ulres: u32) -> u32;
+            fn DdeInitializeA(pidinst: *mut u32, pfncallback: *mut ::core::ffi::c_void, afcmd: DDE_INITIALIZE_COMMAND, ulres: u32) -> u32;
         }
         ::core::mem::transmute(DdeInitializeA(::core::mem::transmute(pidinst), ::core::mem::transmute(pfncallback), ::core::mem::transmute(afcmd), ::core::mem::transmute(ulres)))
     }
@@ -1142,7 +1142,7 @@ pub unsafe fn DdeInitializeW(pidinst: *mut u32, pfncallback: PFNCALLBACK, afcmd:
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DdeInitializeW(pidinst: *mut u32, pfncallback: ::windows::core::RawPtr, afcmd: DDE_INITIALIZE_COMMAND, ulres: u32) -> u32;
+            fn DdeInitializeW(pidinst: *mut u32, pfncallback: *mut ::core::ffi::c_void, afcmd: DDE_INITIALIZE_COMMAND, ulres: u32) -> u32;
         }
         ::core::mem::transmute(DdeInitializeW(::core::mem::transmute(pidinst), ::core::mem::transmute(pfncallback), ::core::mem::transmute(afcmd), ::core::mem::transmute(ulres)))
     }

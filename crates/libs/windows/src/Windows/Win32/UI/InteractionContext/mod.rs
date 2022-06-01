@@ -1146,7 +1146,7 @@ pub unsafe fn RegisterOutputCallbackInteractionContext<'a, Param0: ::windows::co
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RegisterOutputCallbackInteractionContext(interactioncontext: HINTERACTIONCONTEXT, outputcallback: ::windows::core::RawPtr, clientdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn RegisterOutputCallbackInteractionContext(interactioncontext: HINTERACTIONCONTEXT, outputcallback: *mut ::core::ffi::c_void, clientdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         RegisterOutputCallbackInteractionContext(interactioncontext.into_param().abi(), ::core::mem::transmute(outputcallback), ::core::mem::transmute(clientdata)).ok()
     }
@@ -1161,7 +1161,7 @@ pub unsafe fn RegisterOutputCallbackInteractionContext2<'a, Param0: ::windows::c
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RegisterOutputCallbackInteractionContext2(interactioncontext: HINTERACTIONCONTEXT, outputcallback: ::windows::core::RawPtr, clientdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn RegisterOutputCallbackInteractionContext2(interactioncontext: HINTERACTIONCONTEXT, outputcallback: *mut ::core::ffi::c_void, clientdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         RegisterOutputCallbackInteractionContext2(interactioncontext.into_param().abi(), ::core::mem::transmute(outputcallback), ::core::mem::transmute(clientdata)).ok()
     }

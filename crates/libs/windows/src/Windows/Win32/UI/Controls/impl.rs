@@ -358,7 +358,7 @@ impl IImageList2_Vtbl {
             let this = (*this).get_impl();
             this.Replace2(::core::mem::transmute_copy(&i), ::core::mem::transmute_copy(&hbmimage), ::core::mem::transmute_copy(&hbmmask), ::core::mem::transmute(&punk), ::core::mem::transmute_copy(&dwflags)).into()
         }
-        unsafe extern "system" fn ReplaceFromImageList<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IImageList2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, i: i32, pil: ::windows::core::RawPtr, isrc: i32, punk: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReplaceFromImageList<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IImageList2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, i: i32, pil: *mut ::core::ffi::c_void, isrc: i32, punk: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ReplaceFromImageList(::core::mem::transmute_copy(&i), ::core::mem::transmute(&pil), ::core::mem::transmute_copy(&isrc), ::core::mem::transmute(&punk), ::core::mem::transmute_copy(&dwflags)).into()

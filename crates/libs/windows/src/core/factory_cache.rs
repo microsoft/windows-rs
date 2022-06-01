@@ -123,9 +123,9 @@ unsafe fn get_activation_factory(library: &[u8], name: &HSTRING) -> Result<IGene
     function(core::mem::transmute_copy(name), abi.as_mut_ptr()).from_abi(abi)
 }
 
-type CoIncrementMTAUsage = extern "system" fn(cookie: *mut RawPtr) -> HRESULT;
-type RoGetActivationFactory = extern "system" fn(hstring: core::mem::ManuallyDrop<HSTRING>, interface: &GUID, result: *mut RawPtr) -> HRESULT;
-type DllGetActivationFactory = extern "system" fn(name: core::mem::ManuallyDrop<HSTRING>, factory: *mut RawPtr) -> HRESULT;
+type CoIncrementMTAUsage = extern "system" fn(cookie: *mut *mut core::ffi::c_void) -> HRESULT;
+type RoGetActivationFactory = extern "system" fn(hstring: core::mem::ManuallyDrop<HSTRING>, interface: &GUID, result: *mut *mut core::ffi::c_void) -> HRESULT;
+type DllGetActivationFactory = extern "system" fn(name: core::mem::ManuallyDrop<HSTRING>, factory: *mut *mut core::ffi::c_void) -> HRESULT;
 
 #[cfg(test)]
 mod tests {

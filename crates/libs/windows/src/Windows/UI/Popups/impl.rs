@@ -28,7 +28,7 @@ impl IUICommand_Vtbl {
             let this = (*this).get_impl();
             this.SetLabel(::core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn Invoked<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUICommand_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Invoked<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUICommand_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Invoked() {
@@ -40,7 +40,7 @@ impl IUICommand_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetInvoked<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUICommand_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetInvoked<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUICommand_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetInvoked(::core::mem::transmute(&value)).into()

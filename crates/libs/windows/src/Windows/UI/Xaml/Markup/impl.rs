@@ -25,7 +25,7 @@ impl ::windows::core::RuntimeName for IComponentConnector2 {
 }
 impl IComponentConnector2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IComponentConnector2_Impl, const OFFSET: isize>() -> IComponentConnector2_Vtbl {
-        unsafe extern "system" fn GetBindingConnector<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IComponentConnector2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connectionid: i32, target: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetBindingConnector<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IComponentConnector2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connectionid: i32, target: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetBindingConnector(connectionid, ::core::mem::transmute(&target)) {
@@ -186,7 +186,7 @@ impl IXamlMember_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TargetType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXamlMember_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TargetType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXamlMember_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.TargetType() {
@@ -198,7 +198,7 @@ impl IXamlMember_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Type<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXamlMember_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Type<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXamlMember_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Type() {
@@ -256,7 +256,7 @@ impl ::windows::core::RuntimeName for IXamlMetadataProvider {
 #[cfg(feature = "UI_Xaml_Interop")]
 impl IXamlMetadataProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXamlMetadataProvider_Impl, const OFFSET: isize>() -> IXamlMetadataProvider_Vtbl {
-        unsafe extern "system" fn GetXamlType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXamlMetadataProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: ::core::mem::ManuallyDrop<super::Interop::TypeName>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetXamlType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXamlMetadataProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: ::core::mem::ManuallyDrop<super::Interop::TypeName>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetXamlType(::core::mem::transmute(&r#type)) {
@@ -268,7 +268,7 @@ impl IXamlMetadataProvider_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetXamlTypeByFullName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXamlMetadataProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fullname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetXamlTypeByFullName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXamlMetadataProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fullname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetXamlTypeByFullName(::core::mem::transmute(&fullname)) {
@@ -332,7 +332,7 @@ impl ::windows::core::RuntimeName for IXamlType {
 #[cfg(feature = "UI_Xaml_Interop")]
 impl IXamlType_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXamlType_Impl, const OFFSET: isize>() -> IXamlType_Vtbl {
-        unsafe extern "system" fn BaseType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXamlType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BaseType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXamlType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.BaseType() {
@@ -344,7 +344,7 @@ impl IXamlType_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ContentProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXamlType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ContentProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXamlType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ContentProperty() {
@@ -440,7 +440,7 @@ impl IXamlType_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ItemType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXamlType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ItemType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXamlType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ItemType() {
@@ -452,7 +452,7 @@ impl IXamlType_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn KeyType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXamlType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn KeyType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXamlType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.KeyType() {
@@ -500,7 +500,7 @@ impl IXamlType_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetMember<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXamlType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetMember<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXamlType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetMember(::core::mem::transmute(&name)) {
@@ -564,7 +564,7 @@ impl ::windows::core::RuntimeName for IXamlType2 {
 #[cfg(feature = "UI_Xaml_Interop")]
 impl IXamlType2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXamlType2_Impl, const OFFSET: isize>() -> IXamlType2_Vtbl {
-        unsafe extern "system" fn BoxedType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXamlType2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BoxedType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXamlType2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.BoxedType() {

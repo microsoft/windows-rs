@@ -14425,7 +14425,7 @@ pub unsafe fn WsAsyncExecute(asyncstate: *const WS_ASYNC_STATE, operation: WS_AS
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WsAsyncExecute(asyncstate: *const WS_ASYNC_STATE, operation: ::windows::core::RawPtr, callbackmodel: WS_CALLBACK_MODEL, callbackstate: *const ::core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::HRESULT;
+            fn WsAsyncExecute(asyncstate: *const WS_ASYNC_STATE, operation: *mut ::core::ffi::c_void, callbackmodel: WS_CALLBACK_MODEL, callbackstate: *const ::core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::HRESULT;
         }
         WsAsyncExecute(::core::mem::transmute(asyncstate), ::core::mem::transmute(operation), ::core::mem::transmute(callbackmodel), ::core::mem::transmute(callbackstate), ::core::mem::transmute(asynccontext), ::core::mem::transmute(error)).ok()
     }
@@ -14710,7 +14710,7 @@ pub unsafe fn WsCreateServiceEndpointFromTemplate(channeltype: WS_CHANNEL_TYPE, 
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WsCreateServiceEndpointFromTemplate(channeltype: WS_CHANNEL_TYPE, properties: *const WS_SERVICE_ENDPOINT_PROPERTY, propertycount: u32, addressurl: *const WS_STRING, contract: *const WS_SERVICE_CONTRACT, authorizationcallback: ::windows::core::RawPtr, heap: *const WS_HEAP, templatetype: WS_BINDING_TEMPLATE_TYPE, templatevalue: *const ::core::ffi::c_void, templatesize: u32, templatedescription: *const ::core::ffi::c_void, templatedescriptionsize: u32, serviceendpoint: *mut *mut WS_SERVICE_ENDPOINT, error: *const WS_ERROR) -> ::windows::core::HRESULT;
+            fn WsCreateServiceEndpointFromTemplate(channeltype: WS_CHANNEL_TYPE, properties: *const WS_SERVICE_ENDPOINT_PROPERTY, propertycount: u32, addressurl: *const WS_STRING, contract: *const WS_SERVICE_CONTRACT, authorizationcallback: *mut ::core::ffi::c_void, heap: *const WS_HEAP, templatetype: WS_BINDING_TEMPLATE_TYPE, templatevalue: *const ::core::ffi::c_void, templatesize: u32, templatedescription: *const ::core::ffi::c_void, templatedescriptionsize: u32, serviceendpoint: *mut *mut WS_SERVICE_ENDPOINT, error: *const WS_ERROR) -> ::windows::core::HRESULT;
         }
         WsCreateServiceEndpointFromTemplate(
             ::core::mem::transmute(channeltype),
@@ -15708,7 +15708,7 @@ pub unsafe fn WsPullBytes(writer: *const WS_XML_WRITER, callback: WS_PULL_BYTES_
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WsPullBytes(writer: *const WS_XML_WRITER, callback: ::windows::core::RawPtr, callbackstate: *const ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows::core::HRESULT;
+            fn WsPullBytes(writer: *const WS_XML_WRITER, callback: *mut ::core::ffi::c_void, callbackstate: *const ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows::core::HRESULT;
         }
         WsPullBytes(::core::mem::transmute(writer), ::core::mem::transmute(callback), ::core::mem::transmute(callbackstate), ::core::mem::transmute(error)).ok()
     }
@@ -15722,7 +15722,7 @@ pub unsafe fn WsPushBytes(writer: *const WS_XML_WRITER, callback: WS_PUSH_BYTES_
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WsPushBytes(writer: *const WS_XML_WRITER, callback: ::windows::core::RawPtr, callbackstate: *const ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows::core::HRESULT;
+            fn WsPushBytes(writer: *const WS_XML_WRITER, callback: *mut ::core::ffi::c_void, callbackstate: *const ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows::core::HRESULT;
         }
         WsPushBytes(::core::mem::transmute(writer), ::core::mem::transmute(callback), ::core::mem::transmute(callbackstate), ::core::mem::transmute(error)).ok()
     }
@@ -15894,7 +15894,7 @@ pub unsafe fn WsReadEnvelopeStart(message: *const WS_MESSAGE, reader: *const WS_
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WsReadEnvelopeStart(message: *const WS_MESSAGE, reader: *const WS_XML_READER, donecallback: ::windows::core::RawPtr, donecallbackstate: *const ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows::core::HRESULT;
+            fn WsReadEnvelopeStart(message: *const WS_MESSAGE, reader: *const WS_XML_READER, donecallback: *mut ::core::ffi::c_void, donecallbackstate: *const ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows::core::HRESULT;
         }
         WsReadEnvelopeStart(::core::mem::transmute(message), ::core::mem::transmute(reader), ::core::mem::transmute(donecallback), ::core::mem::transmute(donecallbackstate), ::core::mem::transmute(error)).ok()
     }
@@ -16093,7 +16093,7 @@ pub unsafe fn WsRegisterOperationForCancel(context: *const WS_OPERATION_CONTEXT,
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WsRegisterOperationForCancel(context: *const WS_OPERATION_CONTEXT, cancelcallback: ::windows::core::RawPtr, freestatecallback: ::windows::core::RawPtr, userstate: *const ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows::core::HRESULT;
+            fn WsRegisterOperationForCancel(context: *const WS_OPERATION_CONTEXT, cancelcallback: *mut ::core::ffi::c_void, freestatecallback: *mut ::core::ffi::c_void, userstate: *const ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows::core::HRESULT;
         }
         WsRegisterOperationForCancel(::core::mem::transmute(context), ::core::mem::transmute(cancelcallback), ::core::mem::transmute(freestatecallback), ::core::mem::transmute(userstate), ::core::mem::transmute(error)).ok()
     }
@@ -16591,7 +16591,7 @@ pub unsafe fn WsStartReaderCanonicalization(reader: *const WS_XML_READER, writec
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WsStartReaderCanonicalization(reader: *const WS_XML_READER, writecallback: ::windows::core::RawPtr, writecallbackstate: *const ::core::ffi::c_void, properties: *const WS_XML_CANONICALIZATION_PROPERTY, propertycount: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
+            fn WsStartReaderCanonicalization(reader: *const WS_XML_READER, writecallback: *mut ::core::ffi::c_void, writecallbackstate: *const ::core::ffi::c_void, properties: *const WS_XML_CANONICALIZATION_PROPERTY, propertycount: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
         }
         WsStartReaderCanonicalization(::core::mem::transmute(reader), ::core::mem::transmute(writecallback), ::core::mem::transmute(writecallbackstate), ::core::mem::transmute(::windows::core::as_ptr_or_null(properties)), properties.len() as _, ::core::mem::transmute(error)).ok()
     }
@@ -16605,7 +16605,7 @@ pub unsafe fn WsStartWriterCanonicalization(writer: *const WS_XML_WRITER, writec
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WsStartWriterCanonicalization(writer: *const WS_XML_WRITER, writecallback: ::windows::core::RawPtr, writecallbackstate: *const ::core::ffi::c_void, properties: *const WS_XML_CANONICALIZATION_PROPERTY, propertycount: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
+            fn WsStartWriterCanonicalization(writer: *const WS_XML_WRITER, writecallback: *mut ::core::ffi::c_void, writecallbackstate: *const ::core::ffi::c_void, properties: *const WS_XML_CANONICALIZATION_PROPERTY, propertycount: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
         }
         WsStartWriterCanonicalization(::core::mem::transmute(writer), ::core::mem::transmute(writecallback), ::core::mem::transmute(writecallbackstate), ::core::mem::transmute(::windows::core::as_ptr_or_null(properties)), properties.len() as _, ::core::mem::transmute(error)).ok()
     }
@@ -16819,7 +16819,7 @@ pub unsafe fn WsWriteEnvelopeStart(message: *const WS_MESSAGE, writer: *const WS
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WsWriteEnvelopeStart(message: *const WS_MESSAGE, writer: *const WS_XML_WRITER, donecallback: ::windows::core::RawPtr, donecallbackstate: *const ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows::core::HRESULT;
+            fn WsWriteEnvelopeStart(message: *const WS_MESSAGE, writer: *const WS_XML_WRITER, donecallback: *mut ::core::ffi::c_void, donecallbackstate: *const ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows::core::HRESULT;
         }
         WsWriteEnvelopeStart(::core::mem::transmute(message), ::core::mem::transmute(writer), ::core::mem::transmute(donecallback), ::core::mem::transmute(donecallbackstate), ::core::mem::transmute(error)).ok()
     }

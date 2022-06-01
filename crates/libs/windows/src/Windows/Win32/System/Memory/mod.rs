@@ -8,7 +8,7 @@ pub unsafe fn AddSecureMemoryCacheCallback(pfncallback: PSECURE_MEMORY_CACHE_CAL
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AddSecureMemoryCacheCallback(pfncallback: ::windows::core::RawPtr) -> super::super::Foundation::BOOL;
+            fn AddSecureMemoryCacheCallback(pfncallback: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(AddSecureMemoryCacheCallback(::core::mem::transmute(pfncallback)))
     }
@@ -989,7 +989,7 @@ pub unsafe fn IsBadCodePtr(lpfn: super::super::Foundation::FARPROC) -> super::su
     {
         #[link(name = "windows")]
         extern "system" {
-            fn IsBadCodePtr(lpfn: ::windows::core::RawPtr) -> super::super::Foundation::BOOL;
+            fn IsBadCodePtr(lpfn: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(IsBadCodePtr(::core::mem::transmute(lpfn)))
     }
@@ -2269,7 +2269,7 @@ pub unsafe fn RegisterBadMemoryNotification(callback: PBAD_MEMORY_CALLBACK_ROUTI
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RegisterBadMemoryNotification(callback: ::windows::core::RawPtr) -> *mut ::core::ffi::c_void;
+            fn RegisterBadMemoryNotification(callback: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
         }
         ::core::mem::transmute(RegisterBadMemoryNotification(::core::mem::transmute(callback)))
     }
@@ -2284,7 +2284,7 @@ pub unsafe fn RemoveSecureMemoryCacheCallback(pfncallback: PSECURE_MEMORY_CACHE_
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RemoveSecureMemoryCacheCallback(pfncallback: ::windows::core::RawPtr) -> super::super::Foundation::BOOL;
+            fn RemoveSecureMemoryCacheCallback(pfncallback: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(RemoveSecureMemoryCacheCallback(::core::mem::transmute(pfncallback)))
     }

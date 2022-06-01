@@ -167,7 +167,7 @@ pub unsafe fn JsCreateContext<'a, Param1: ::windows::core::IntoParam<'a, super::
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JsCreateContext(runtime: *const ::core::ffi::c_void, debugapplication: ::windows::core::RawPtr, newcontext: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
+            fn JsCreateContext(runtime: *const ::core::ffi::c_void, debugapplication: *mut ::core::ffi::c_void, newcontext: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
         }
         ::core::mem::transmute(JsCreateContext(::core::mem::transmute(runtime), debugapplication.into_param().abi(), ::core::mem::transmute(newcontext)))
     }
@@ -183,7 +183,7 @@ pub unsafe fn JsCreateContext<'a, Param1: ::windows::core::IntoParam<'a, super::
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JsCreateContext(runtime: *const ::core::ffi::c_void, debugapplication: ::windows::core::RawPtr, newcontext: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
+            fn JsCreateContext(runtime: *const ::core::ffi::c_void, debugapplication: *mut ::core::ffi::c_void, newcontext: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
         }
         ::core::mem::transmute(JsCreateContext(::core::mem::transmute(runtime), debugapplication.into_param().abi(), ::core::mem::transmute(newcontext)))
     }
@@ -211,7 +211,7 @@ pub unsafe fn JsCreateExternalObject(data: *const ::core::ffi::c_void, finalizec
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JsCreateExternalObject(data: *const ::core::ffi::c_void, finalizecallback: ::windows::core::RawPtr, object: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
+            fn JsCreateExternalObject(data: *const ::core::ffi::c_void, finalizecallback: *mut ::core::ffi::c_void, object: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
         }
         ::core::mem::transmute(JsCreateExternalObject(::core::mem::transmute(data), ::core::mem::transmute(finalizecallback), ::core::mem::transmute(object)))
     }
@@ -225,7 +225,7 @@ pub unsafe fn JsCreateFunction(nativefunction: JsNativeFunction, callbackstate: 
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JsCreateFunction(nativefunction: ::windows::core::RawPtr, callbackstate: *const ::core::ffi::c_void, function: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
+            fn JsCreateFunction(nativefunction: *mut ::core::ffi::c_void, callbackstate: *const ::core::ffi::c_void, function: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
         }
         ::core::mem::transmute(JsCreateFunction(::core::mem::transmute(nativefunction), ::core::mem::transmute(callbackstate), ::core::mem::transmute(function)))
     }
@@ -281,7 +281,7 @@ pub unsafe fn JsCreateRuntime(attributes: JsRuntimeAttributes, runtimeversion: J
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JsCreateRuntime(attributes: JsRuntimeAttributes, runtimeversion: JsRuntimeVersion, threadservice: ::windows::core::RawPtr, runtime: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
+            fn JsCreateRuntime(attributes: JsRuntimeAttributes, runtimeversion: JsRuntimeVersion, threadservice: *mut ::core::ffi::c_void, runtime: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
         }
         ::core::mem::transmute(JsCreateRuntime(::core::mem::transmute(attributes), ::core::mem::transmute(runtimeversion), ::core::mem::transmute(threadservice), ::core::mem::transmute(runtime)))
     }
@@ -436,7 +436,7 @@ pub unsafe fn JsEnumerateHeap(enumerator: *mut ::core::option::Option<super::Dia
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JsEnumerateHeap(enumerator: *mut ::windows::core::RawPtr) -> JsErrorCode;
+            fn JsEnumerateHeap(enumerator: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
         }
         ::core::mem::transmute(JsEnumerateHeap(::core::mem::transmute(enumerator)))
     }
@@ -1260,7 +1260,7 @@ pub unsafe fn JsSetRuntimeBeforeCollectCallback(runtime: *const ::core::ffi::c_v
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JsSetRuntimeBeforeCollectCallback(runtime: *const ::core::ffi::c_void, callbackstate: *const ::core::ffi::c_void, beforecollectcallback: ::windows::core::RawPtr) -> JsErrorCode;
+            fn JsSetRuntimeBeforeCollectCallback(runtime: *const ::core::ffi::c_void, callbackstate: *const ::core::ffi::c_void, beforecollectcallback: *mut ::core::ffi::c_void) -> JsErrorCode;
         }
         ::core::mem::transmute(JsSetRuntimeBeforeCollectCallback(::core::mem::transmute(runtime), ::core::mem::transmute(callbackstate), ::core::mem::transmute(beforecollectcallback)))
     }
@@ -1274,7 +1274,7 @@ pub unsafe fn JsSetRuntimeMemoryAllocationCallback(runtime: *const ::core::ffi::
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JsSetRuntimeMemoryAllocationCallback(runtime: *const ::core::ffi::c_void, callbackstate: *const ::core::ffi::c_void, allocationcallback: ::windows::core::RawPtr) -> JsErrorCode;
+            fn JsSetRuntimeMemoryAllocationCallback(runtime: *const ::core::ffi::c_void, callbackstate: *const ::core::ffi::c_void, allocationcallback: *mut ::core::ffi::c_void) -> JsErrorCode;
         }
         ::core::mem::transmute(JsSetRuntimeMemoryAllocationCallback(::core::mem::transmute(runtime), ::core::mem::transmute(callbackstate), ::core::mem::transmute(allocationcallback)))
     }
@@ -1304,7 +1304,7 @@ pub unsafe fn JsStartDebugging<'a, Param0: ::windows::core::IntoParam<'a, super:
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JsStartDebugging(debugapplication: ::windows::core::RawPtr) -> JsErrorCode;
+            fn JsStartDebugging(debugapplication: *mut ::core::ffi::c_void) -> JsErrorCode;
         }
         ::core::mem::transmute(JsStartDebugging(debugapplication.into_param().abi()))
     }
@@ -1320,7 +1320,7 @@ pub unsafe fn JsStartDebugging<'a, Param0: ::windows::core::IntoParam<'a, super:
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JsStartDebugging(debugapplication: ::windows::core::RawPtr) -> JsErrorCode;
+            fn JsStartDebugging(debugapplication: *mut ::core::ffi::c_void) -> JsErrorCode;
         }
         ::core::mem::transmute(JsStartDebugging(debugapplication.into_param().abi()))
     }
@@ -1335,7 +1335,7 @@ pub unsafe fn JsStartProfiling<'a, Param0: ::windows::core::IntoParam<'a, super:
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JsStartProfiling(callback: ::windows::core::RawPtr, eventmask: super::Diagnostics::Debug::PROFILER_EVENT_MASK, context: u32) -> JsErrorCode;
+            fn JsStartProfiling(callback: *mut ::core::ffi::c_void, eventmask: super::Diagnostics::Debug::PROFILER_EVENT_MASK, context: u32) -> JsErrorCode;
         }
         ::core::mem::transmute(JsStartProfiling(callback.into_param().abi(), ::core::mem::transmute(eventmask), ::core::mem::transmute(context)))
     }

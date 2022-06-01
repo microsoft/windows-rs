@@ -286,7 +286,7 @@ pub unsafe fn DavRegisterAuthCallback(callback: PFNDAVAUTHCALLBACK, version: u32
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DavRegisterAuthCallback(callback: ::windows::core::RawPtr, version: u32) -> u32;
+            fn DavRegisterAuthCallback(callback: *mut ::core::ffi::c_void, version: u32) -> u32;
         }
         ::core::mem::transmute(DavRegisterAuthCallback(::core::mem::transmute(callback), ::core::mem::transmute(version)))
     }

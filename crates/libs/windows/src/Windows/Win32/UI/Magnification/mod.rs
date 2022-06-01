@@ -294,7 +294,7 @@ pub unsafe fn MagSetImageScalingCallback<'a, Param0: ::windows::core::IntoParam<
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MagSetImageScalingCallback(hwnd: super::super::Foundation::HWND, callback: ::windows::core::RawPtr) -> super::super::Foundation::BOOL;
+            fn MagSetImageScalingCallback(hwnd: super::super::Foundation::HWND, callback: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(MagSetImageScalingCallback(hwnd.into_param().abi(), ::core::mem::transmute(callback)))
     }

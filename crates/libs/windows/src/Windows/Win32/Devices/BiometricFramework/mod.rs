@@ -5167,7 +5167,7 @@ pub unsafe fn WinBioAsyncOpenFramework<'a, Param1: ::windows::core::IntoParam<'a
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinBioAsyncOpenFramework(notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow: super::super::Foundation::HWND, messagecode: u32, callbackroutine: ::windows::core::RawPtr, userdata: *const ::core::ffi::c_void, asynchronousopen: super::super::Foundation::BOOL, frameworkhandle: *mut u32) -> ::windows::core::HRESULT;
+            fn WinBioAsyncOpenFramework(notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow: super::super::Foundation::HWND, messagecode: u32, callbackroutine: *mut ::core::ffi::c_void, userdata: *const ::core::ffi::c_void, asynchronousopen: super::super::Foundation::BOOL, frameworkhandle: *mut u32) -> ::windows::core::HRESULT;
         }
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
         WinBioAsyncOpenFramework(::core::mem::transmute(notificationmethod), targetwindow.into_param().abi(), ::core::mem::transmute(messagecode), ::core::mem::transmute(callbackroutine), ::core::mem::transmute(userdata), asynchronousopen.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
@@ -5183,7 +5183,7 @@ pub unsafe fn WinBioAsyncOpenSession<'a, Param7: ::windows::core::IntoParam<'a, 
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinBioAsyncOpenSession(factor: u32, pooltype: WINBIO_POOL, flags: u32, unitarray: *const u32, unitcount: usize, databaseid: *const ::windows::core::GUID, notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow: super::super::Foundation::HWND, messagecode: u32, callbackroutine: ::windows::core::RawPtr, userdata: *const ::core::ffi::c_void, asynchronousopen: super::super::Foundation::BOOL, sessionhandle: *mut u32) -> ::windows::core::HRESULT;
+            fn WinBioAsyncOpenSession(factor: u32, pooltype: WINBIO_POOL, flags: u32, unitarray: *const u32, unitcount: usize, databaseid: *const ::windows::core::GUID, notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow: super::super::Foundation::HWND, messagecode: u32, callbackroutine: *mut ::core::ffi::c_void, userdata: *const ::core::ffi::c_void, asynchronousopen: super::super::Foundation::BOOL, sessionhandle: *mut u32) -> ::windows::core::HRESULT;
         }
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
         WinBioAsyncOpenSession(
@@ -5241,7 +5241,7 @@ pub unsafe fn WinBioCaptureSampleWithCallback(sessionhandle: u32, purpose: u8, f
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinBioCaptureSampleWithCallback(sessionhandle: u32, purpose: u8, flags: u8, capturecallback: ::windows::core::RawPtr, capturecallbackcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn WinBioCaptureSampleWithCallback(sessionhandle: u32, purpose: u8, flags: u8, capturecallback: *mut ::core::ffi::c_void, capturecallbackcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         WinBioCaptureSampleWithCallback(::core::mem::transmute(sessionhandle), ::core::mem::transmute(purpose), ::core::mem::transmute(flags), ::core::mem::transmute(capturecallback), ::core::mem::transmute(capturecallbackcontext)).ok()
     }
@@ -5354,7 +5354,7 @@ pub unsafe fn WinBioEnrollCaptureWithCallback(sessionhandle: u32, enrollcallback
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinBioEnrollCaptureWithCallback(sessionhandle: u32, enrollcallback: ::windows::core::RawPtr, enrollcallbackcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn WinBioEnrollCaptureWithCallback(sessionhandle: u32, enrollcallback: *mut ::core::ffi::c_void, enrollcallbackcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         WinBioEnrollCaptureWithCallback(::core::mem::transmute(sessionhandle), ::core::mem::transmute(enrollcallback), ::core::mem::transmute(enrollcallbackcontext)).ok()
     }
@@ -5580,7 +5580,7 @@ pub unsafe fn WinBioIdentifyWithCallback(sessionhandle: u32, identifycallback: P
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinBioIdentifyWithCallback(sessionhandle: u32, identifycallback: ::windows::core::RawPtr, identifycallbackcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn WinBioIdentifyWithCallback(sessionhandle: u32, identifycallback: *mut ::core::ffi::c_void, identifycallbackcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         WinBioIdentifyWithCallback(::core::mem::transmute(sessionhandle), ::core::mem::transmute(identifycallback), ::core::mem::transmute(identifycallbackcontext)).ok()
     }
@@ -5637,7 +5637,7 @@ pub unsafe fn WinBioLocateSensorWithCallback(sessionhandle: u32, locatecallback:
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinBioLocateSensorWithCallback(sessionhandle: u32, locatecallback: ::windows::core::RawPtr, locatecallbackcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn WinBioLocateSensorWithCallback(sessionhandle: u32, locatecallback: *mut ::core::ffi::c_void, locatecallbackcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         WinBioLocateSensorWithCallback(::core::mem::transmute(sessionhandle), ::core::mem::transmute(locatecallback), ::core::mem::transmute(locatecallbackcontext)).ok()
     }
@@ -5708,7 +5708,7 @@ pub unsafe fn WinBioRegisterEventMonitor(sessionhandle: u32, eventmask: u32, eve
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinBioRegisterEventMonitor(sessionhandle: u32, eventmask: u32, eventcallback: ::windows::core::RawPtr, eventcallbackcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn WinBioRegisterEventMonitor(sessionhandle: u32, eventmask: u32, eventcallback: *mut ::core::ffi::c_void, eventcallbackcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         WinBioRegisterEventMonitor(::core::mem::transmute(sessionhandle), ::core::mem::transmute(eventmask), ::core::mem::transmute(eventcallback), ::core::mem::transmute(eventcallbackcontext)).ok()
     }
@@ -5849,7 +5849,7 @@ pub unsafe fn WinBioVerifyWithCallback(sessionhandle: u32, identity: *const WINB
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinBioVerifyWithCallback(sessionhandle: u32, identity: *const WINBIO_IDENTITY, subfactor: u8, verifycallback: ::windows::core::RawPtr, verifycallbackcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn WinBioVerifyWithCallback(sessionhandle: u32, identity: *const WINBIO_IDENTITY, subfactor: u8, verifycallback: *mut ::core::ffi::c_void, verifycallbackcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         WinBioVerifyWithCallback(::core::mem::transmute(sessionhandle), ::core::mem::transmute(identity), ::core::mem::transmute(subfactor), ::core::mem::transmute(verifycallback), ::core::mem::transmute(verifycallbackcontext)).ok()
     }

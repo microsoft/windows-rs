@@ -1452,7 +1452,7 @@ unsafe impl ::windows::core::Interface for IUIContentRoot {
 #[doc(hidden)]
 pub struct IUIContentRoot_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub UIContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub UIContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1474,7 +1474,7 @@ impl UIContentRoot {
     pub fn UIContext(&self) -> ::windows::core::Result<UIContext> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).UIContext)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<UIContext>(result__)
         }
     }

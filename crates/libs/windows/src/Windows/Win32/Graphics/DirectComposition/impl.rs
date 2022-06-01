@@ -28,7 +28,7 @@ impl IDCompositionAffineTransform2DEffect_Vtbl {
             let this = (*this).get_impl();
             this.SetTransformMatrix(::core::mem::transmute_copy(&transformmatrix)).into()
         }
-        unsafe extern "system" fn SetTransformMatrixElement<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionAffineTransform2DEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, row: i32, column: i32, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTransformMatrixElement<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionAffineTransform2DEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, row: i32, column: i32, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetTransformMatrixElement(::core::mem::transmute_copy(&row), ::core::mem::transmute_copy(&column), ::core::mem::transmute(&animation)).into()
@@ -38,7 +38,7 @@ impl IDCompositionAffineTransform2DEffect_Vtbl {
             let this = (*this).get_impl();
             this.SetTransformMatrixElement2(::core::mem::transmute_copy(&row), ::core::mem::transmute_copy(&column), ::core::mem::transmute_copy(&value)).into()
         }
-        unsafe extern "system" fn SetSharpness<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionAffineTransform2DEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSharpness<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionAffineTransform2DEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetSharpness(::core::mem::transmute(&animation)).into()
@@ -146,7 +146,7 @@ impl IDCompositionArithmeticCompositeEffect_Vtbl {
             let this = (*this).get_impl();
             this.SetClampOutput(::core::mem::transmute_copy(&clampoutput)).into()
         }
-        unsafe extern "system" fn SetCoefficient1<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionArithmeticCompositeEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCoefficient1<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionArithmeticCompositeEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetCoefficient1(::core::mem::transmute(&animation)).into()
@@ -156,7 +156,7 @@ impl IDCompositionArithmeticCompositeEffect_Vtbl {
             let this = (*this).get_impl();
             this.SetCoefficient12(::core::mem::transmute_copy(&coeffcient1)).into()
         }
-        unsafe extern "system" fn SetCoefficient2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionArithmeticCompositeEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCoefficient2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionArithmeticCompositeEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetCoefficient2(::core::mem::transmute(&animation)).into()
@@ -166,7 +166,7 @@ impl IDCompositionArithmeticCompositeEffect_Vtbl {
             let this = (*this).get_impl();
             this.SetCoefficient22(::core::mem::transmute_copy(&coefficient2)).into()
         }
-        unsafe extern "system" fn SetCoefficient3<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionArithmeticCompositeEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCoefficient3<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionArithmeticCompositeEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetCoefficient3(::core::mem::transmute(&animation)).into()
@@ -176,7 +176,7 @@ impl IDCompositionArithmeticCompositeEffect_Vtbl {
             let this = (*this).get_impl();
             this.SetCoefficient32(::core::mem::transmute_copy(&coefficient3)).into()
         }
-        unsafe extern "system" fn SetCoefficient4<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionArithmeticCompositeEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCoefficient4<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionArithmeticCompositeEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetCoefficient4(::core::mem::transmute(&animation)).into()
@@ -252,7 +252,7 @@ impl IDCompositionBrightnessEffect_Vtbl {
             let this = (*this).get_impl();
             this.SetBlackPoint(::core::mem::transmute_copy(&blackpoint)).into()
         }
-        unsafe extern "system" fn SetWhitePointX<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionBrightnessEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetWhitePointX<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionBrightnessEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetWhitePointX(::core::mem::transmute(&animation)).into()
@@ -262,7 +262,7 @@ impl IDCompositionBrightnessEffect_Vtbl {
             let this = (*this).get_impl();
             this.SetWhitePointX2(::core::mem::transmute_copy(&whitepointx)).into()
         }
-        unsafe extern "system" fn SetWhitePointY<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionBrightnessEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetWhitePointY<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionBrightnessEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetWhitePointY(::core::mem::transmute(&animation)).into()
@@ -272,7 +272,7 @@ impl IDCompositionBrightnessEffect_Vtbl {
             let this = (*this).get_impl();
             this.SetWhitePointY2(::core::mem::transmute_copy(&whitepointy)).into()
         }
-        unsafe extern "system" fn SetBlackPointX<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionBrightnessEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBlackPointX<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionBrightnessEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetBlackPointX(::core::mem::transmute(&animation)).into()
@@ -282,7 +282,7 @@ impl IDCompositionBrightnessEffect_Vtbl {
             let this = (*this).get_impl();
             this.SetBlackPointX2(::core::mem::transmute_copy(&blackpointx)).into()
         }
-        unsafe extern "system" fn SetBlackPointY<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionBrightnessEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBlackPointY<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionBrightnessEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetBlackPointY(::core::mem::transmute(&animation)).into()
@@ -338,7 +338,7 @@ impl IDCompositionColorMatrixEffect_Vtbl {
             let this = (*this).get_impl();
             this.SetMatrix(::core::mem::transmute_copy(&matrix)).into()
         }
-        unsafe extern "system" fn SetMatrixElement<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionColorMatrixEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, row: i32, column: i32, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMatrixElement<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionColorMatrixEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, row: i32, column: i32, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetMatrixElement(::core::mem::transmute_copy(&row), ::core::mem::transmute_copy(&column), ::core::mem::transmute(&animation)).into()
@@ -458,7 +458,7 @@ impl ::windows::core::RuntimeName for IDCompositionDesktopDevice {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl IDCompositionDesktopDevice_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDesktopDevice_Impl, const OFFSET: isize>() -> IDCompositionDesktopDevice_Vtbl {
-        unsafe extern "system" fn CreateTargetForHwnd<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDesktopDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, topmost: super::super::Foundation::BOOL, target: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateTargetForHwnd<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDesktopDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, topmost: super::super::Foundation::BOOL, target: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateTargetForHwnd(::core::mem::transmute_copy(&hwnd), ::core::mem::transmute_copy(&topmost)) {
@@ -555,7 +555,7 @@ impl IDCompositionDevice_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateTargetForHwnd<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, topmost: super::super::Foundation::BOOL, target: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateTargetForHwnd<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, topmost: super::super::Foundation::BOOL, target: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateTargetForHwnd(::core::mem::transmute_copy(&hwnd), ::core::mem::transmute_copy(&topmost)) {
@@ -566,7 +566,7 @@ impl IDCompositionDevice_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateVisual<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, visual: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateVisual<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, visual: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateVisual() {
@@ -577,7 +577,7 @@ impl IDCompositionDevice_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateSurface<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, width: u32, height: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE, surface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateSurface<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, width: u32, height: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE, surface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateSurface(::core::mem::transmute_copy(&width), ::core::mem::transmute_copy(&height), ::core::mem::transmute_copy(&pixelformat), ::core::mem::transmute_copy(&alphamode)) {
@@ -588,7 +588,7 @@ impl IDCompositionDevice_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateVirtualSurface<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, initialwidth: u32, initialheight: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE, virtualsurface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateVirtualSurface<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, initialwidth: u32, initialheight: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE, virtualsurface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateVirtualSurface(::core::mem::transmute_copy(&initialwidth), ::core::mem::transmute_copy(&initialheight), ::core::mem::transmute_copy(&pixelformat), ::core::mem::transmute_copy(&alphamode)) {
@@ -621,7 +621,7 @@ impl IDCompositionDevice_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateTranslateTransform<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, translatetransform: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateTranslateTransform<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, translatetransform: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateTranslateTransform() {
@@ -632,7 +632,7 @@ impl IDCompositionDevice_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateScaleTransform<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scaletransform: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateScaleTransform<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scaletransform: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateScaleTransform() {
@@ -643,7 +643,7 @@ impl IDCompositionDevice_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateRotateTransform<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rotatetransform: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateRotateTransform<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rotatetransform: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateRotateTransform() {
@@ -654,7 +654,7 @@ impl IDCompositionDevice_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateSkewTransform<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, skewtransform: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateSkewTransform<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, skewtransform: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateSkewTransform() {
@@ -665,7 +665,7 @@ impl IDCompositionDevice_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateMatrixTransform<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, matrixtransform: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateMatrixTransform<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, matrixtransform: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateMatrixTransform() {
@@ -676,7 +676,7 @@ impl IDCompositionDevice_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateTransformGroup<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, transforms: *const ::windows::core::RawPtr, elements: u32, transformgroup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateTransformGroup<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, transforms: *const *mut ::core::ffi::c_void, elements: u32, transformgroup: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateTransformGroup(::core::mem::transmute_copy(&transforms), ::core::mem::transmute_copy(&elements)) {
@@ -687,7 +687,7 @@ impl IDCompositionDevice_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateTranslateTransform3D<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, translatetransform3d: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateTranslateTransform3D<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, translatetransform3d: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateTranslateTransform3D() {
@@ -698,7 +698,7 @@ impl IDCompositionDevice_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateScaleTransform3D<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scaletransform3d: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateScaleTransform3D<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scaletransform3d: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateScaleTransform3D() {
@@ -709,7 +709,7 @@ impl IDCompositionDevice_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateRotateTransform3D<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rotatetransform3d: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateRotateTransform3D<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rotatetransform3d: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateRotateTransform3D() {
@@ -720,7 +720,7 @@ impl IDCompositionDevice_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateMatrixTransform3D<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, matrixtransform3d: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateMatrixTransform3D<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, matrixtransform3d: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateMatrixTransform3D() {
@@ -731,7 +731,7 @@ impl IDCompositionDevice_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateTransform3DGroup<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, transforms3d: *const ::windows::core::RawPtr, elements: u32, transform3dgroup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateTransform3DGroup<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, transforms3d: *const *mut ::core::ffi::c_void, elements: u32, transform3dgroup: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateTransform3DGroup(::core::mem::transmute_copy(&transforms3d), ::core::mem::transmute_copy(&elements)) {
@@ -742,7 +742,7 @@ impl IDCompositionDevice_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateEffectGroup<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, effectgroup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateEffectGroup<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, effectgroup: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateEffectGroup() {
@@ -753,7 +753,7 @@ impl IDCompositionDevice_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateRectangleClip<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clip: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateRectangleClip<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clip: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateRectangleClip() {
@@ -764,7 +764,7 @@ impl IDCompositionDevice_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateAnimation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateAnimation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateAnimation() {
@@ -868,7 +868,7 @@ impl IDCompositionDevice2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateVisual<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, visual: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateVisual<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, visual: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateVisual() {
@@ -879,7 +879,7 @@ impl IDCompositionDevice2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateSurfaceFactory<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, renderingdevice: *mut ::core::ffi::c_void, surfacefactory: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateSurfaceFactory<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, renderingdevice: *mut ::core::ffi::c_void, surfacefactory: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateSurfaceFactory(::core::mem::transmute(&renderingdevice)) {
@@ -890,7 +890,7 @@ impl IDCompositionDevice2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateSurface<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, width: u32, height: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE, surface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateSurface<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, width: u32, height: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE, surface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateSurface(::core::mem::transmute_copy(&width), ::core::mem::transmute_copy(&height), ::core::mem::transmute_copy(&pixelformat), ::core::mem::transmute_copy(&alphamode)) {
@@ -901,7 +901,7 @@ impl IDCompositionDevice2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateVirtualSurface<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, initialwidth: u32, initialheight: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE, virtualsurface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateVirtualSurface<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, initialwidth: u32, initialheight: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE, virtualsurface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateVirtualSurface(::core::mem::transmute_copy(&initialwidth), ::core::mem::transmute_copy(&initialheight), ::core::mem::transmute_copy(&pixelformat), ::core::mem::transmute_copy(&alphamode)) {
@@ -912,7 +912,7 @@ impl IDCompositionDevice2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateTranslateTransform<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, translatetransform: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateTranslateTransform<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, translatetransform: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateTranslateTransform() {
@@ -923,7 +923,7 @@ impl IDCompositionDevice2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateScaleTransform<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scaletransform: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateScaleTransform<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scaletransform: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateScaleTransform() {
@@ -934,7 +934,7 @@ impl IDCompositionDevice2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateRotateTransform<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rotatetransform: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateRotateTransform<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rotatetransform: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateRotateTransform() {
@@ -945,7 +945,7 @@ impl IDCompositionDevice2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateSkewTransform<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, skewtransform: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateSkewTransform<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, skewtransform: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateSkewTransform() {
@@ -956,7 +956,7 @@ impl IDCompositionDevice2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateMatrixTransform<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, matrixtransform: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateMatrixTransform<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, matrixtransform: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateMatrixTransform() {
@@ -967,7 +967,7 @@ impl IDCompositionDevice2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateTransformGroup<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, transforms: *const ::windows::core::RawPtr, elements: u32, transformgroup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateTransformGroup<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, transforms: *const *mut ::core::ffi::c_void, elements: u32, transformgroup: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateTransformGroup(::core::mem::transmute_copy(&transforms), ::core::mem::transmute_copy(&elements)) {
@@ -978,7 +978,7 @@ impl IDCompositionDevice2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateTranslateTransform3D<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, translatetransform3d: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateTranslateTransform3D<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, translatetransform3d: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateTranslateTransform3D() {
@@ -989,7 +989,7 @@ impl IDCompositionDevice2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateScaleTransform3D<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scaletransform3d: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateScaleTransform3D<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scaletransform3d: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateScaleTransform3D() {
@@ -1000,7 +1000,7 @@ impl IDCompositionDevice2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateRotateTransform3D<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rotatetransform3d: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateRotateTransform3D<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rotatetransform3d: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateRotateTransform3D() {
@@ -1011,7 +1011,7 @@ impl IDCompositionDevice2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateMatrixTransform3D<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, matrixtransform3d: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateMatrixTransform3D<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, matrixtransform3d: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateMatrixTransform3D() {
@@ -1022,7 +1022,7 @@ impl IDCompositionDevice2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateTransform3DGroup<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, transforms3d: *const ::windows::core::RawPtr, elements: u32, transform3dgroup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateTransform3DGroup<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, transforms3d: *const *mut ::core::ffi::c_void, elements: u32, transform3dgroup: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateTransform3DGroup(::core::mem::transmute_copy(&transforms3d), ::core::mem::transmute_copy(&elements)) {
@@ -1033,7 +1033,7 @@ impl IDCompositionDevice2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateEffectGroup<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, effectgroup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateEffectGroup<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, effectgroup: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateEffectGroup() {
@@ -1044,7 +1044,7 @@ impl IDCompositionDevice2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateRectangleClip<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clip: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateRectangleClip<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clip: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateRectangleClip() {
@@ -1055,7 +1055,7 @@ impl IDCompositionDevice2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateAnimation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateAnimation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateAnimation() {
@@ -1116,7 +1116,7 @@ impl ::windows::core::RuntimeName for IDCompositionDevice3 {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl IDCompositionDevice3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice3_Impl, const OFFSET: isize>() -> IDCompositionDevice3_Vtbl {
-        unsafe extern "system" fn CreateGaussianBlurEffect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gaussianblureffect: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateGaussianBlurEffect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gaussianblureffect: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateGaussianBlurEffect() {
@@ -1127,7 +1127,7 @@ impl IDCompositionDevice3_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateBrightnessEffect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, brightnesseffect: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateBrightnessEffect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, brightnesseffect: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateBrightnessEffect() {
@@ -1138,7 +1138,7 @@ impl IDCompositionDevice3_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateColorMatrixEffect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, colormatrixeffect: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateColorMatrixEffect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, colormatrixeffect: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateColorMatrixEffect() {
@@ -1149,7 +1149,7 @@ impl IDCompositionDevice3_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateShadowEffect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, shadoweffect: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateShadowEffect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, shadoweffect: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateShadowEffect() {
@@ -1160,7 +1160,7 @@ impl IDCompositionDevice3_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateHueRotationEffect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, huerotationeffect: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateHueRotationEffect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, huerotationeffect: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateHueRotationEffect() {
@@ -1171,7 +1171,7 @@ impl IDCompositionDevice3_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateSaturationEffect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, saturationeffect: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateSaturationEffect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, saturationeffect: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateSaturationEffect() {
@@ -1182,7 +1182,7 @@ impl IDCompositionDevice3_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateTurbulenceEffect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, turbulenceeffect: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateTurbulenceEffect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, turbulenceeffect: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateTurbulenceEffect() {
@@ -1193,7 +1193,7 @@ impl IDCompositionDevice3_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateLinearTransferEffect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lineartransfereffect: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateLinearTransferEffect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lineartransfereffect: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateLinearTransferEffect() {
@@ -1204,7 +1204,7 @@ impl IDCompositionDevice3_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateTableTransferEffect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tabletransfereffect: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateTableTransferEffect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tabletransfereffect: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateTableTransferEffect() {
@@ -1215,7 +1215,7 @@ impl IDCompositionDevice3_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateCompositeEffect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, compositeeffect: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateCompositeEffect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, compositeeffect: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateCompositeEffect() {
@@ -1226,7 +1226,7 @@ impl IDCompositionDevice3_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateBlendEffect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, blendeffect: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateBlendEffect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, blendeffect: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateBlendEffect() {
@@ -1237,7 +1237,7 @@ impl IDCompositionDevice3_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateArithmeticCompositeEffect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, arithmeticcompositeeffect: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateArithmeticCompositeEffect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, arithmeticcompositeeffect: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateArithmeticCompositeEffect() {
@@ -1248,7 +1248,7 @@ impl IDCompositionDevice3_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateAffineTransform2DEffect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, affinetransform2deffect: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateAffineTransform2DEffect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, affinetransform2deffect: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateAffineTransform2DEffect() {
@@ -1325,7 +1325,7 @@ pub trait IDCompositionEffectGroup_Impl: Sized + IDCompositionEffect_Impl {
 impl ::windows::core::RuntimeName for IDCompositionEffectGroup {}
 impl IDCompositionEffectGroup_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionEffectGroup_Impl, const OFFSET: isize>() -> IDCompositionEffectGroup_Vtbl {
-        unsafe extern "system" fn SetOpacity<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionEffectGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOpacity<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionEffectGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetOpacity(::core::mem::transmute(&animation)).into()
@@ -1335,7 +1335,7 @@ impl IDCompositionEffectGroup_Vtbl {
             let this = (*this).get_impl();
             this.SetOpacity2(::core::mem::transmute_copy(&opacity)).into()
         }
-        unsafe extern "system" fn SetTransform3D<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionEffectGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, transform3d: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTransform3D<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionEffectGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, transform3d: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetTransform3D(::core::mem::transmute(&transform3d)).into()
@@ -1379,7 +1379,7 @@ impl ::windows::core::RuntimeName for IDCompositionGaussianBlurEffect {}
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl IDCompositionGaussianBlurEffect_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionGaussianBlurEffect_Impl, const OFFSET: isize>() -> IDCompositionGaussianBlurEffect_Vtbl {
-        unsafe extern "system" fn SetStandardDeviation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionGaussianBlurEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStandardDeviation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionGaussianBlurEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetStandardDeviation(::core::mem::transmute(&animation)).into()
@@ -1412,7 +1412,7 @@ pub trait IDCompositionHueRotationEffect_Impl: Sized + IDCompositionEffect_Impl 
 impl ::windows::core::RuntimeName for IDCompositionHueRotationEffect {}
 impl IDCompositionHueRotationEffect_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionHueRotationEffect_Impl, const OFFSET: isize>() -> IDCompositionHueRotationEffect_Vtbl {
-        unsafe extern "system" fn SetAngle<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionHueRotationEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAngle<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionHueRotationEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetAngle(::core::mem::transmute(&animation)).into()
@@ -1439,7 +1439,7 @@ pub trait IDCompositionInkTrailDevice_Impl: Sized {
 impl ::windows::core::RuntimeName for IDCompositionInkTrailDevice {}
 impl IDCompositionInkTrailDevice_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionInkTrailDevice_Impl, const OFFSET: isize>() -> IDCompositionInkTrailDevice_Vtbl {
-        unsafe extern "system" fn CreateDelegatedInkTrail<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionInkTrailDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inktrail: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateDelegatedInkTrail<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionInkTrailDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inktrail: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateDelegatedInkTrail() {
@@ -1450,7 +1450,7 @@ impl IDCompositionInkTrailDevice_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateDelegatedInkTrailForSwapChain<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionInkTrailDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, swapchain: *mut ::core::ffi::c_void, inktrail: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateDelegatedInkTrailForSwapChain<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionInkTrailDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, swapchain: *mut ::core::ffi::c_void, inktrail: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateDelegatedInkTrailForSwapChain(::core::mem::transmute(&swapchain)) {
@@ -1500,7 +1500,7 @@ impl ::windows::core::RuntimeName for IDCompositionLinearTransferEffect {}
 #[cfg(feature = "Win32_Foundation")]
 impl IDCompositionLinearTransferEffect_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionLinearTransferEffect_Impl, const OFFSET: isize>() -> IDCompositionLinearTransferEffect_Vtbl {
-        unsafe extern "system" fn SetRedYIntercept<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionLinearTransferEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRedYIntercept<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionLinearTransferEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetRedYIntercept(::core::mem::transmute(&animation)).into()
@@ -1510,7 +1510,7 @@ impl IDCompositionLinearTransferEffect_Vtbl {
             let this = (*this).get_impl();
             this.SetRedYIntercept2(::core::mem::transmute_copy(&redyintercept)).into()
         }
-        unsafe extern "system" fn SetRedSlope<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionLinearTransferEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRedSlope<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionLinearTransferEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetRedSlope(::core::mem::transmute(&animation)).into()
@@ -1525,7 +1525,7 @@ impl IDCompositionLinearTransferEffect_Vtbl {
             let this = (*this).get_impl();
             this.SetRedDisable(::core::mem::transmute_copy(&reddisable)).into()
         }
-        unsafe extern "system" fn SetGreenYIntercept<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionLinearTransferEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetGreenYIntercept<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionLinearTransferEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetGreenYIntercept(::core::mem::transmute(&animation)).into()
@@ -1535,7 +1535,7 @@ impl IDCompositionLinearTransferEffect_Vtbl {
             let this = (*this).get_impl();
             this.SetGreenYIntercept2(::core::mem::transmute_copy(&greenyintercept)).into()
         }
-        unsafe extern "system" fn SetGreenSlope<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionLinearTransferEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetGreenSlope<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionLinearTransferEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetGreenSlope(::core::mem::transmute(&animation)).into()
@@ -1550,7 +1550,7 @@ impl IDCompositionLinearTransferEffect_Vtbl {
             let this = (*this).get_impl();
             this.SetGreenDisable(::core::mem::transmute_copy(&greendisable)).into()
         }
-        unsafe extern "system" fn SetBlueYIntercept<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionLinearTransferEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBlueYIntercept<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionLinearTransferEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetBlueYIntercept(::core::mem::transmute(&animation)).into()
@@ -1560,7 +1560,7 @@ impl IDCompositionLinearTransferEffect_Vtbl {
             let this = (*this).get_impl();
             this.SetBlueYIntercept2(::core::mem::transmute_copy(&blueyintercept)).into()
         }
-        unsafe extern "system" fn SetBlueSlope<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionLinearTransferEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBlueSlope<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionLinearTransferEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetBlueSlope(::core::mem::transmute(&animation)).into()
@@ -1575,7 +1575,7 @@ impl IDCompositionLinearTransferEffect_Vtbl {
             let this = (*this).get_impl();
             this.SetBlueDisable(::core::mem::transmute_copy(&bluedisable)).into()
         }
-        unsafe extern "system" fn SetAlphaYIntercept<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionLinearTransferEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAlphaYIntercept<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionLinearTransferEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetAlphaYIntercept(::core::mem::transmute(&animation)).into()
@@ -1585,7 +1585,7 @@ impl IDCompositionLinearTransferEffect_Vtbl {
             let this = (*this).get_impl();
             this.SetAlphaYIntercept2(::core::mem::transmute_copy(&alphayintercept)).into()
         }
-        unsafe extern "system" fn SetAlphaSlope<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionLinearTransferEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAlphaSlope<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionLinearTransferEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetAlphaSlope(::core::mem::transmute(&animation)).into()
@@ -1650,7 +1650,7 @@ impl IDCompositionMatrixTransform_Vtbl {
             let this = (*this).get_impl();
             this.SetMatrix(::core::mem::transmute_copy(&matrix)).into()
         }
-        unsafe extern "system" fn SetMatrixElement<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionMatrixTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, row: i32, column: i32, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMatrixElement<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionMatrixTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, row: i32, column: i32, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetMatrixElement(::core::mem::transmute_copy(&row), ::core::mem::transmute_copy(&column), ::core::mem::transmute(&animation)).into()
@@ -1687,7 +1687,7 @@ impl IDCompositionMatrixTransform3D_Vtbl {
             let this = (*this).get_impl();
             this.SetMatrix(::core::mem::transmute_copy(&matrix)).into()
         }
-        unsafe extern "system" fn SetMatrixElement<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionMatrixTransform3D_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, row: i32, column: i32, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMatrixElement<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionMatrixTransform3D_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, row: i32, column: i32, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetMatrixElement(::core::mem::transmute_copy(&row), ::core::mem::transmute_copy(&column), ::core::mem::transmute(&animation)).into()
@@ -1737,7 +1737,7 @@ pub trait IDCompositionRectangleClip_Impl: Sized + IDCompositionClip_Impl {
 impl ::windows::core::RuntimeName for IDCompositionRectangleClip {}
 impl IDCompositionRectangleClip_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionRectangleClip_Impl, const OFFSET: isize>() -> IDCompositionRectangleClip_Vtbl {
-        unsafe extern "system" fn SetLeft<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetLeft<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetLeft(::core::mem::transmute(&animation)).into()
@@ -1747,7 +1747,7 @@ impl IDCompositionRectangleClip_Vtbl {
             let this = (*this).get_impl();
             this.SetLeft2(::core::mem::transmute_copy(&left)).into()
         }
-        unsafe extern "system" fn SetTop<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTop<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetTop(::core::mem::transmute(&animation)).into()
@@ -1757,7 +1757,7 @@ impl IDCompositionRectangleClip_Vtbl {
             let this = (*this).get_impl();
             this.SetTop2(::core::mem::transmute_copy(&top)).into()
         }
-        unsafe extern "system" fn SetRight<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRight<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetRight(::core::mem::transmute(&animation)).into()
@@ -1767,7 +1767,7 @@ impl IDCompositionRectangleClip_Vtbl {
             let this = (*this).get_impl();
             this.SetRight2(::core::mem::transmute_copy(&right)).into()
         }
-        unsafe extern "system" fn SetBottom<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBottom<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetBottom(::core::mem::transmute(&animation)).into()
@@ -1777,7 +1777,7 @@ impl IDCompositionRectangleClip_Vtbl {
             let this = (*this).get_impl();
             this.SetBottom2(::core::mem::transmute_copy(&bottom)).into()
         }
-        unsafe extern "system" fn SetTopLeftRadiusX<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTopLeftRadiusX<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetTopLeftRadiusX(::core::mem::transmute(&animation)).into()
@@ -1787,7 +1787,7 @@ impl IDCompositionRectangleClip_Vtbl {
             let this = (*this).get_impl();
             this.SetTopLeftRadiusX2(::core::mem::transmute_copy(&radius)).into()
         }
-        unsafe extern "system" fn SetTopLeftRadiusY<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTopLeftRadiusY<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetTopLeftRadiusY(::core::mem::transmute(&animation)).into()
@@ -1797,7 +1797,7 @@ impl IDCompositionRectangleClip_Vtbl {
             let this = (*this).get_impl();
             this.SetTopLeftRadiusY2(::core::mem::transmute_copy(&radius)).into()
         }
-        unsafe extern "system" fn SetTopRightRadiusX<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTopRightRadiusX<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetTopRightRadiusX(::core::mem::transmute(&animation)).into()
@@ -1807,7 +1807,7 @@ impl IDCompositionRectangleClip_Vtbl {
             let this = (*this).get_impl();
             this.SetTopRightRadiusX2(::core::mem::transmute_copy(&radius)).into()
         }
-        unsafe extern "system" fn SetTopRightRadiusY<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTopRightRadiusY<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetTopRightRadiusY(::core::mem::transmute(&animation)).into()
@@ -1817,7 +1817,7 @@ impl IDCompositionRectangleClip_Vtbl {
             let this = (*this).get_impl();
             this.SetTopRightRadiusY2(::core::mem::transmute_copy(&radius)).into()
         }
-        unsafe extern "system" fn SetBottomLeftRadiusX<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBottomLeftRadiusX<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetBottomLeftRadiusX(::core::mem::transmute(&animation)).into()
@@ -1827,7 +1827,7 @@ impl IDCompositionRectangleClip_Vtbl {
             let this = (*this).get_impl();
             this.SetBottomLeftRadiusX2(::core::mem::transmute_copy(&radius)).into()
         }
-        unsafe extern "system" fn SetBottomLeftRadiusY<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBottomLeftRadiusY<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetBottomLeftRadiusY(::core::mem::transmute(&animation)).into()
@@ -1837,7 +1837,7 @@ impl IDCompositionRectangleClip_Vtbl {
             let this = (*this).get_impl();
             this.SetBottomLeftRadiusY2(::core::mem::transmute_copy(&radius)).into()
         }
-        unsafe extern "system" fn SetBottomRightRadiusX<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBottomRightRadiusX<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetBottomRightRadiusX(::core::mem::transmute(&animation)).into()
@@ -1847,7 +1847,7 @@ impl IDCompositionRectangleClip_Vtbl {
             let this = (*this).get_impl();
             this.SetBottomRightRadiusX2(::core::mem::transmute_copy(&radius)).into()
         }
-        unsafe extern "system" fn SetBottomRightRadiusY<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBottomRightRadiusY<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetBottomRightRadiusY(::core::mem::transmute(&animation)).into()
@@ -1900,7 +1900,7 @@ pub trait IDCompositionRotateTransform_Impl: Sized + IDCompositionEffect_Impl + 
 impl ::windows::core::RuntimeName for IDCompositionRotateTransform {}
 impl IDCompositionRotateTransform_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionRotateTransform_Impl, const OFFSET: isize>() -> IDCompositionRotateTransform_Vtbl {
-        unsafe extern "system" fn SetAngle<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionRotateTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAngle<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionRotateTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetAngle(::core::mem::transmute(&animation)).into()
@@ -1910,7 +1910,7 @@ impl IDCompositionRotateTransform_Vtbl {
             let this = (*this).get_impl();
             this.SetAngle2(::core::mem::transmute_copy(&angle)).into()
         }
-        unsafe extern "system" fn SetCenterX<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionRotateTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCenterX<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionRotateTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetCenterX(::core::mem::transmute(&animation)).into()
@@ -1920,7 +1920,7 @@ impl IDCompositionRotateTransform_Vtbl {
             let this = (*this).get_impl();
             this.SetCenterX2(::core::mem::transmute_copy(&centerx)).into()
         }
-        unsafe extern "system" fn SetCenterY<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionRotateTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCenterY<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionRotateTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetCenterY(::core::mem::transmute(&animation)).into()
@@ -1963,7 +1963,7 @@ pub trait IDCompositionRotateTransform3D_Impl: Sized + IDCompositionEffect_Impl 
 impl ::windows::core::RuntimeName for IDCompositionRotateTransform3D {}
 impl IDCompositionRotateTransform3D_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionRotateTransform3D_Impl, const OFFSET: isize>() -> IDCompositionRotateTransform3D_Vtbl {
-        unsafe extern "system" fn SetAngle<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionRotateTransform3D_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAngle<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionRotateTransform3D_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetAngle(::core::mem::transmute(&animation)).into()
@@ -1973,7 +1973,7 @@ impl IDCompositionRotateTransform3D_Vtbl {
             let this = (*this).get_impl();
             this.SetAngle2(::core::mem::transmute_copy(&angle)).into()
         }
-        unsafe extern "system" fn SetAxisX<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionRotateTransform3D_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAxisX<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionRotateTransform3D_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetAxisX(::core::mem::transmute(&animation)).into()
@@ -1983,7 +1983,7 @@ impl IDCompositionRotateTransform3D_Vtbl {
             let this = (*this).get_impl();
             this.SetAxisX2(::core::mem::transmute_copy(&axisx)).into()
         }
-        unsafe extern "system" fn SetAxisY<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionRotateTransform3D_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAxisY<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionRotateTransform3D_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetAxisY(::core::mem::transmute(&animation)).into()
@@ -1993,7 +1993,7 @@ impl IDCompositionRotateTransform3D_Vtbl {
             let this = (*this).get_impl();
             this.SetAxisY2(::core::mem::transmute_copy(&axisy)).into()
         }
-        unsafe extern "system" fn SetAxisZ<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionRotateTransform3D_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAxisZ<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionRotateTransform3D_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetAxisZ(::core::mem::transmute(&animation)).into()
@@ -2003,7 +2003,7 @@ impl IDCompositionRotateTransform3D_Vtbl {
             let this = (*this).get_impl();
             this.SetAxisZ2(::core::mem::transmute_copy(&axisz)).into()
         }
-        unsafe extern "system" fn SetCenterX<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionRotateTransform3D_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCenterX<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionRotateTransform3D_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetCenterX(::core::mem::transmute(&animation)).into()
@@ -2013,7 +2013,7 @@ impl IDCompositionRotateTransform3D_Vtbl {
             let this = (*this).get_impl();
             this.SetCenterX2(::core::mem::transmute_copy(&centerx)).into()
         }
-        unsafe extern "system" fn SetCenterY<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionRotateTransform3D_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCenterY<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionRotateTransform3D_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetCenterY(::core::mem::transmute(&animation)).into()
@@ -2023,7 +2023,7 @@ impl IDCompositionRotateTransform3D_Vtbl {
             let this = (*this).get_impl();
             this.SetCenterY2(::core::mem::transmute_copy(&centery)).into()
         }
-        unsafe extern "system" fn SetCenterZ<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionRotateTransform3D_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCenterZ<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionRotateTransform3D_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetCenterZ(::core::mem::transmute(&animation)).into()
@@ -2062,7 +2062,7 @@ pub trait IDCompositionSaturationEffect_Impl: Sized + IDCompositionEffect_Impl +
 impl ::windows::core::RuntimeName for IDCompositionSaturationEffect {}
 impl IDCompositionSaturationEffect_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionSaturationEffect_Impl, const OFFSET: isize>() -> IDCompositionSaturationEffect_Vtbl {
-        unsafe extern "system" fn SetSaturation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionSaturationEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSaturation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionSaturationEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetSaturation(::core::mem::transmute(&animation)).into()
@@ -2095,7 +2095,7 @@ pub trait IDCompositionScaleTransform_Impl: Sized + IDCompositionEffect_Impl + I
 impl ::windows::core::RuntimeName for IDCompositionScaleTransform {}
 impl IDCompositionScaleTransform_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionScaleTransform_Impl, const OFFSET: isize>() -> IDCompositionScaleTransform_Vtbl {
-        unsafe extern "system" fn SetScaleX<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionScaleTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetScaleX<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionScaleTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetScaleX(::core::mem::transmute(&animation)).into()
@@ -2105,7 +2105,7 @@ impl IDCompositionScaleTransform_Vtbl {
             let this = (*this).get_impl();
             this.SetScaleX2(::core::mem::transmute_copy(&scalex)).into()
         }
-        unsafe extern "system" fn SetScaleY<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionScaleTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetScaleY<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionScaleTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetScaleY(::core::mem::transmute(&animation)).into()
@@ -2115,7 +2115,7 @@ impl IDCompositionScaleTransform_Vtbl {
             let this = (*this).get_impl();
             this.SetScaleY2(::core::mem::transmute_copy(&scaley)).into()
         }
-        unsafe extern "system" fn SetCenterX<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionScaleTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCenterX<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionScaleTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetCenterX(::core::mem::transmute(&animation)).into()
@@ -2125,7 +2125,7 @@ impl IDCompositionScaleTransform_Vtbl {
             let this = (*this).get_impl();
             this.SetCenterX2(::core::mem::transmute_copy(&centerx)).into()
         }
-        unsafe extern "system" fn SetCenterY<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionScaleTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCenterY<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionScaleTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetCenterY(::core::mem::transmute(&animation)).into()
@@ -2168,7 +2168,7 @@ pub trait IDCompositionScaleTransform3D_Impl: Sized + IDCompositionEffect_Impl +
 impl ::windows::core::RuntimeName for IDCompositionScaleTransform3D {}
 impl IDCompositionScaleTransform3D_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionScaleTransform3D_Impl, const OFFSET: isize>() -> IDCompositionScaleTransform3D_Vtbl {
-        unsafe extern "system" fn SetScaleX<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionScaleTransform3D_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetScaleX<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionScaleTransform3D_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetScaleX(::core::mem::transmute(&animation)).into()
@@ -2178,7 +2178,7 @@ impl IDCompositionScaleTransform3D_Vtbl {
             let this = (*this).get_impl();
             this.SetScaleX2(::core::mem::transmute_copy(&scalex)).into()
         }
-        unsafe extern "system" fn SetScaleY<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionScaleTransform3D_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetScaleY<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionScaleTransform3D_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetScaleY(::core::mem::transmute(&animation)).into()
@@ -2188,7 +2188,7 @@ impl IDCompositionScaleTransform3D_Vtbl {
             let this = (*this).get_impl();
             this.SetScaleY2(::core::mem::transmute_copy(&scaley)).into()
         }
-        unsafe extern "system" fn SetScaleZ<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionScaleTransform3D_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetScaleZ<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionScaleTransform3D_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetScaleZ(::core::mem::transmute(&animation)).into()
@@ -2198,7 +2198,7 @@ impl IDCompositionScaleTransform3D_Vtbl {
             let this = (*this).get_impl();
             this.SetScaleZ2(::core::mem::transmute_copy(&scalez)).into()
         }
-        unsafe extern "system" fn SetCenterX<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionScaleTransform3D_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCenterX<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionScaleTransform3D_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetCenterX(::core::mem::transmute(&animation)).into()
@@ -2208,7 +2208,7 @@ impl IDCompositionScaleTransform3D_Vtbl {
             let this = (*this).get_impl();
             this.SetCenterX2(::core::mem::transmute_copy(&centerx)).into()
         }
-        unsafe extern "system" fn SetCenterY<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionScaleTransform3D_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCenterY<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionScaleTransform3D_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetCenterY(::core::mem::transmute(&animation)).into()
@@ -2218,7 +2218,7 @@ impl IDCompositionScaleTransform3D_Vtbl {
             let this = (*this).get_impl();
             this.SetCenterY2(::core::mem::transmute_copy(&centery)).into()
         }
-        unsafe extern "system" fn SetCenterZ<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionScaleTransform3D_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCenterZ<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionScaleTransform3D_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetCenterZ(::core::mem::transmute(&animation)).into()
@@ -2267,7 +2267,7 @@ impl ::windows::core::RuntimeName for IDCompositionShadowEffect {}
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl IDCompositionShadowEffect_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionShadowEffect_Impl, const OFFSET: isize>() -> IDCompositionShadowEffect_Vtbl {
-        unsafe extern "system" fn SetStandardDeviation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionShadowEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStandardDeviation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionShadowEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetStandardDeviation(::core::mem::transmute(&animation)).into()
@@ -2282,7 +2282,7 @@ impl IDCompositionShadowEffect_Vtbl {
             let this = (*this).get_impl();
             this.SetColor(::core::mem::transmute_copy(&color)).into()
         }
-        unsafe extern "system" fn SetRed<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionShadowEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRed<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionShadowEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetRed(::core::mem::transmute(&animation)).into()
@@ -2292,7 +2292,7 @@ impl IDCompositionShadowEffect_Vtbl {
             let this = (*this).get_impl();
             this.SetRed2(::core::mem::transmute_copy(&amount)).into()
         }
-        unsafe extern "system" fn SetGreen<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionShadowEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetGreen<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionShadowEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetGreen(::core::mem::transmute(&animation)).into()
@@ -2302,7 +2302,7 @@ impl IDCompositionShadowEffect_Vtbl {
             let this = (*this).get_impl();
             this.SetGreen2(::core::mem::transmute_copy(&amount)).into()
         }
-        unsafe extern "system" fn SetBlue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionShadowEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBlue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionShadowEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetBlue(::core::mem::transmute(&animation)).into()
@@ -2312,7 +2312,7 @@ impl IDCompositionShadowEffect_Vtbl {
             let this = (*this).get_impl();
             this.SetBlue2(::core::mem::transmute_copy(&amount)).into()
         }
-        unsafe extern "system" fn SetAlpha<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionShadowEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAlpha<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionShadowEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetAlpha(::core::mem::transmute(&animation)).into()
@@ -2354,7 +2354,7 @@ pub trait IDCompositionSkewTransform_Impl: Sized + IDCompositionEffect_Impl + ID
 impl ::windows::core::RuntimeName for IDCompositionSkewTransform {}
 impl IDCompositionSkewTransform_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionSkewTransform_Impl, const OFFSET: isize>() -> IDCompositionSkewTransform_Vtbl {
-        unsafe extern "system" fn SetAngleX<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionSkewTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAngleX<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionSkewTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetAngleX(::core::mem::transmute(&animation)).into()
@@ -2364,7 +2364,7 @@ impl IDCompositionSkewTransform_Vtbl {
             let this = (*this).get_impl();
             this.SetAngleX2(::core::mem::transmute_copy(&anglex)).into()
         }
-        unsafe extern "system" fn SetAngleY<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionSkewTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAngleY<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionSkewTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetAngleY(::core::mem::transmute(&animation)).into()
@@ -2374,7 +2374,7 @@ impl IDCompositionSkewTransform_Vtbl {
             let this = (*this).get_impl();
             this.SetAngleY2(::core::mem::transmute_copy(&angley)).into()
         }
-        unsafe extern "system" fn SetCenterX<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionSkewTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCenterX<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionSkewTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetCenterX(::core::mem::transmute(&animation)).into()
@@ -2384,7 +2384,7 @@ impl IDCompositionSkewTransform_Vtbl {
             let this = (*this).get_impl();
             this.SetCenterX2(::core::mem::transmute_copy(&centerx)).into()
         }
-        unsafe extern "system" fn SetCenterY<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionSkewTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCenterY<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionSkewTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetCenterY(::core::mem::transmute(&animation)).into()
@@ -2471,7 +2471,7 @@ impl ::windows::core::RuntimeName for IDCompositionSurfaceFactory {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl IDCompositionSurfaceFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionSurfaceFactory_Impl, const OFFSET: isize>() -> IDCompositionSurfaceFactory_Vtbl {
-        unsafe extern "system" fn CreateSurface<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionSurfaceFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, width: u32, height: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE, surface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateSurface<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionSurfaceFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, width: u32, height: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE, surface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateSurface(::core::mem::transmute_copy(&width), ::core::mem::transmute_copy(&height), ::core::mem::transmute_copy(&pixelformat), ::core::mem::transmute_copy(&alphamode)) {
@@ -2482,7 +2482,7 @@ impl IDCompositionSurfaceFactory_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateVirtualSurface<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionSurfaceFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, initialwidth: u32, initialheight: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE, virtualsurface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateVirtualSurface<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionSurfaceFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, initialwidth: u32, initialheight: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE, virtualsurface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateVirtualSurface(::core::mem::transmute_copy(&initialwidth), ::core::mem::transmute_copy(&initialheight), ::core::mem::transmute_copy(&pixelformat), ::core::mem::transmute_copy(&alphamode)) {
@@ -2573,7 +2573,7 @@ impl IDCompositionTableTransferEffect_Vtbl {
             let this = (*this).get_impl();
             this.SetClampOutput(::core::mem::transmute_copy(&clampoutput)).into()
         }
-        unsafe extern "system" fn SetRedTableValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionTableTransferEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRedTableValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionTableTransferEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetRedTableValue(::core::mem::transmute_copy(&index), ::core::mem::transmute(&animation)).into()
@@ -2583,7 +2583,7 @@ impl IDCompositionTableTransferEffect_Vtbl {
             let this = (*this).get_impl();
             this.SetRedTableValue2(::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&value)).into()
         }
-        unsafe extern "system" fn SetGreenTableValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionTableTransferEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetGreenTableValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionTableTransferEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetGreenTableValue(::core::mem::transmute_copy(&index), ::core::mem::transmute(&animation)).into()
@@ -2593,7 +2593,7 @@ impl IDCompositionTableTransferEffect_Vtbl {
             let this = (*this).get_impl();
             this.SetGreenTableValue2(::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&value)).into()
         }
-        unsafe extern "system" fn SetBlueTableValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionTableTransferEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBlueTableValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionTableTransferEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetBlueTableValue(::core::mem::transmute_copy(&index), ::core::mem::transmute(&animation)).into()
@@ -2603,7 +2603,7 @@ impl IDCompositionTableTransferEffect_Vtbl {
             let this = (*this).get_impl();
             this.SetBlueTableValue2(::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&value)).into()
         }
-        unsafe extern "system" fn SetAlphaTableValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionTableTransferEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAlphaTableValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionTableTransferEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetAlphaTableValue(::core::mem::transmute_copy(&index), ::core::mem::transmute(&animation)).into()
@@ -2644,7 +2644,7 @@ pub trait IDCompositionTarget_Impl: Sized {
 impl ::windows::core::RuntimeName for IDCompositionTarget {}
 impl IDCompositionTarget_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionTarget_Impl, const OFFSET: isize>() -> IDCompositionTarget_Vtbl {
-        unsafe extern "system" fn SetRoot<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, visual: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRoot<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, visual: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetRoot(::core::mem::transmute(&visual)).into()
@@ -2684,7 +2684,7 @@ pub trait IDCompositionTranslateTransform_Impl: Sized + IDCompositionEffect_Impl
 impl ::windows::core::RuntimeName for IDCompositionTranslateTransform {}
 impl IDCompositionTranslateTransform_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionTranslateTransform_Impl, const OFFSET: isize>() -> IDCompositionTranslateTransform_Vtbl {
-        unsafe extern "system" fn SetOffsetX<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionTranslateTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOffsetX<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionTranslateTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetOffsetX(::core::mem::transmute(&animation)).into()
@@ -2694,7 +2694,7 @@ impl IDCompositionTranslateTransform_Vtbl {
             let this = (*this).get_impl();
             this.SetOffsetX2(::core::mem::transmute_copy(&offsetx)).into()
         }
-        unsafe extern "system" fn SetOffsetY<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionTranslateTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOffsetY<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionTranslateTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetOffsetY(::core::mem::transmute(&animation)).into()
@@ -2727,7 +2727,7 @@ pub trait IDCompositionTranslateTransform3D_Impl: Sized + IDCompositionEffect_Im
 impl ::windows::core::RuntimeName for IDCompositionTranslateTransform3D {}
 impl IDCompositionTranslateTransform3D_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionTranslateTransform3D_Impl, const OFFSET: isize>() -> IDCompositionTranslateTransform3D_Vtbl {
-        unsafe extern "system" fn SetOffsetX<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionTranslateTransform3D_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOffsetX<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionTranslateTransform3D_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetOffsetX(::core::mem::transmute(&animation)).into()
@@ -2737,7 +2737,7 @@ impl IDCompositionTranslateTransform3D_Vtbl {
             let this = (*this).get_impl();
             this.SetOffsetX2(::core::mem::transmute_copy(&offsetx)).into()
         }
-        unsafe extern "system" fn SetOffsetY<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionTranslateTransform3D_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOffsetY<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionTranslateTransform3D_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetOffsetY(::core::mem::transmute(&animation)).into()
@@ -2747,7 +2747,7 @@ impl IDCompositionTranslateTransform3D_Vtbl {
             let this = (*this).get_impl();
             this.SetOffsetY2(::core::mem::transmute_copy(&offsety)).into()
         }
-        unsafe extern "system" fn SetOffsetZ<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionTranslateTransform3D_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOffsetZ<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionTranslateTransform3D_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetOffsetZ(::core::mem::transmute(&animation)).into()
@@ -2891,7 +2891,7 @@ impl ::windows::core::RuntimeName for IDCompositionVisual {}
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
 impl IDCompositionVisual_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionVisual_Impl, const OFFSET: isize>() -> IDCompositionVisual_Vtbl {
-        unsafe extern "system" fn SetOffsetX<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOffsetX<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetOffsetX(::core::mem::transmute(&animation)).into()
@@ -2901,7 +2901,7 @@ impl IDCompositionVisual_Vtbl {
             let this = (*this).get_impl();
             this.SetOffsetX2(::core::mem::transmute_copy(&offsetx)).into()
         }
-        unsafe extern "system" fn SetOffsetY<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOffsetY<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetOffsetY(::core::mem::transmute(&animation)).into()
@@ -2911,7 +2911,7 @@ impl IDCompositionVisual_Vtbl {
             let this = (*this).get_impl();
             this.SetOffsetY2(::core::mem::transmute_copy(&offsety)).into()
         }
-        unsafe extern "system" fn SetTransform<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, transform: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTransform<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, transform: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetTransform(::core::mem::transmute(&transform)).into()
@@ -2921,12 +2921,12 @@ impl IDCompositionVisual_Vtbl {
             let this = (*this).get_impl();
             this.SetTransform2(::core::mem::transmute_copy(&matrix)).into()
         }
-        unsafe extern "system" fn SetTransformParent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, visual: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTransformParent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, visual: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetTransformParent(::core::mem::transmute(&visual)).into()
         }
-        unsafe extern "system" fn SetEffect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, effect: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEffect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, effect: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetEffect(::core::mem::transmute(&effect)).into()
@@ -2941,7 +2941,7 @@ impl IDCompositionVisual_Vtbl {
             let this = (*this).get_impl();
             this.SetBorderMode(::core::mem::transmute_copy(&bordermode)).into()
         }
-        unsafe extern "system" fn SetClip<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clip: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetClip<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clip: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetClip(::core::mem::transmute(&clip)).into()
@@ -2956,12 +2956,12 @@ impl IDCompositionVisual_Vtbl {
             let this = (*this).get_impl();
             this.SetContent(::core::mem::transmute(&content)).into()
         }
-        unsafe extern "system" fn AddVisual<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, visual: ::windows::core::RawPtr, insertabove: super::super::Foundation::BOOL, referencevisual: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddVisual<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, visual: *mut ::core::ffi::c_void, insertabove: super::super::Foundation::BOOL, referencevisual: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.AddVisual(::core::mem::transmute(&visual), ::core::mem::transmute_copy(&insertabove), ::core::mem::transmute(&referencevisual)).into()
         }
-        unsafe extern "system" fn RemoveVisual<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, visual: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveVisual<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionVisual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, visual: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.RemoveVisual(::core::mem::transmute(&visual)).into()
@@ -3052,7 +3052,7 @@ impl IDCompositionVisual3_Vtbl {
             let this = (*this).get_impl();
             this.SetDepthMode(::core::mem::transmute_copy(&mode)).into()
         }
-        unsafe extern "system" fn SetOffsetZ<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionVisual3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOffsetZ<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionVisual3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetOffsetZ(::core::mem::transmute(&animation)).into()
@@ -3062,7 +3062,7 @@ impl IDCompositionVisual3_Vtbl {
             let this = (*this).get_impl();
             this.SetOffsetZ2(::core::mem::transmute_copy(&offsetz)).into()
         }
-        unsafe extern "system" fn SetOpacity<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionVisual3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOpacity<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionVisual3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetOpacity(::core::mem::transmute(&animation)).into()
@@ -3072,7 +3072,7 @@ impl IDCompositionVisual3_Vtbl {
             let this = (*this).get_impl();
             this.SetOpacity2(::core::mem::transmute_copy(&opacity)).into()
         }
-        unsafe extern "system" fn SetTransform3<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionVisual3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, transform: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTransform3<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionVisual3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, transform: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetTransform3(::core::mem::transmute(&transform)).into()

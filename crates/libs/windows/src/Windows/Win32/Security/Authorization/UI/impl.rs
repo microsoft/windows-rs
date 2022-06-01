@@ -169,7 +169,7 @@ impl ISecurityInformation2_Vtbl {
             let this = (*this).get_impl();
             this.IsDaclCanonical(::core::mem::transmute_copy(&pdacl))
         }
-        unsafe extern "system" fn LookupSids<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISecurityInformation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, csids: u32, rgpsids: *mut super::super::super::Foundation::PSID, ppdo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LookupSids<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISecurityInformation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, csids: u32, rgpsids: *mut super::super::super::Foundation::PSID, ppdo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.LookupSids(::core::mem::transmute_copy(&csids), ::core::mem::transmute_copy(&rgpsids), ::core::mem::transmute_copy(&ppdo)).into()

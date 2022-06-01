@@ -11,7 +11,7 @@ impl ::windows::core::RuntimeName for IPointerPointTransform {
 #[cfg(feature = "Foundation")]
 impl IPointerPointTransform_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPointerPointTransform_Impl, const OFFSET: isize>() -> IPointerPointTransform_Vtbl {
-        unsafe extern "system" fn Inverse<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPointerPointTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Inverse<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPointerPointTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Inverse() {

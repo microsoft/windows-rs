@@ -37,7 +37,7 @@ impl ::core::fmt::Debug for Class {
     }
 }
 unsafe impl ::windows::core::RuntimeType for Class {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(test_component.Class;{9c2c130e-93de-591a-a879-912616487c8b})");
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(test_component.Class;{a3307453-713a-5c8d-80e4-d73a7bd5e500})");
     type DefaultType = ::core::option::Option<Self>;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
@@ -97,7 +97,7 @@ unsafe impl ::core::marker::Sync for Class {}
 pub struct IClass(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IClass {
     type Vtable = IClass_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c2c130e_93de_591a_a879_912616487c8b);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3307453_713a_5c8d_80e4_d73a7bd5e500);
 }
 #[repr(C)]
 #[doc(hidden)]

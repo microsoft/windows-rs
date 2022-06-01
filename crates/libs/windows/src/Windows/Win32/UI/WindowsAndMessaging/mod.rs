@@ -1352,7 +1352,7 @@ pub unsafe fn CallWindowProcA<'a, Param1: ::windows::core::IntoParam<'a, super::
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CallWindowProcA(lpprevwndfunc: ::windows::core::RawPtr, hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
+            fn CallWindowProcA(lpprevwndfunc: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
         }
         ::core::mem::transmute(CallWindowProcA(::core::mem::transmute(lpprevwndfunc), hwnd.into_param().abi(), ::core::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi()))
     }
@@ -1367,7 +1367,7 @@ pub unsafe fn CallWindowProcW<'a, Param1: ::windows::core::IntoParam<'a, super::
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CallWindowProcW(lpprevwndfunc: ::windows::core::RawPtr, hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
+            fn CallWindowProcW(lpprevwndfunc: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
         }
         ::core::mem::transmute(CallWindowProcW(::core::mem::transmute(lpprevwndfunc), hwnd.into_param().abi(), ::core::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi()))
     }
@@ -1937,7 +1937,7 @@ pub unsafe fn CreateDialogIndirectParamA<'a, Param0: ::windows::core::IntoParam<
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreateDialogIndirectParamA(hinstance: super::super::Foundation::HINSTANCE, lptemplate: *const DLGTEMPLATE, hwndparent: super::super::Foundation::HWND, lpdialogfunc: ::windows::core::RawPtr, dwinitparam: super::super::Foundation::LPARAM) -> super::super::Foundation::HWND;
+            fn CreateDialogIndirectParamA(hinstance: super::super::Foundation::HINSTANCE, lptemplate: *const DLGTEMPLATE, hwndparent: super::super::Foundation::HWND, lpdialogfunc: *mut ::core::ffi::c_void, dwinitparam: super::super::Foundation::LPARAM) -> super::super::Foundation::HWND;
         }
         ::core::mem::transmute(CreateDialogIndirectParamA(hinstance.into_param().abi(), ::core::mem::transmute(lptemplate), hwndparent.into_param().abi(), ::core::mem::transmute(lpdialogfunc), dwinitparam.into_param().abi()))
     }
@@ -1952,7 +1952,7 @@ pub unsafe fn CreateDialogIndirectParamW<'a, Param0: ::windows::core::IntoParam<
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreateDialogIndirectParamW(hinstance: super::super::Foundation::HINSTANCE, lptemplate: *const DLGTEMPLATE, hwndparent: super::super::Foundation::HWND, lpdialogfunc: ::windows::core::RawPtr, dwinitparam: super::super::Foundation::LPARAM) -> super::super::Foundation::HWND;
+            fn CreateDialogIndirectParamW(hinstance: super::super::Foundation::HINSTANCE, lptemplate: *const DLGTEMPLATE, hwndparent: super::super::Foundation::HWND, lpdialogfunc: *mut ::core::ffi::c_void, dwinitparam: super::super::Foundation::LPARAM) -> super::super::Foundation::HWND;
         }
         ::core::mem::transmute(CreateDialogIndirectParamW(hinstance.into_param().abi(), ::core::mem::transmute(lptemplate), hwndparent.into_param().abi(), ::core::mem::transmute(lpdialogfunc), dwinitparam.into_param().abi()))
     }
@@ -1967,7 +1967,7 @@ pub unsafe fn CreateDialogParamA<'a, Param0: ::windows::core::IntoParam<'a, supe
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreateDialogParamA(hinstance: super::super::Foundation::HINSTANCE, lptemplatename: ::windows::core::PCSTR, hwndparent: super::super::Foundation::HWND, lpdialogfunc: ::windows::core::RawPtr, dwinitparam: super::super::Foundation::LPARAM) -> super::super::Foundation::HWND;
+            fn CreateDialogParamA(hinstance: super::super::Foundation::HINSTANCE, lptemplatename: ::windows::core::PCSTR, hwndparent: super::super::Foundation::HWND, lpdialogfunc: *mut ::core::ffi::c_void, dwinitparam: super::super::Foundation::LPARAM) -> super::super::Foundation::HWND;
         }
         ::core::mem::transmute(CreateDialogParamA(hinstance.into_param().abi(), lptemplatename.into_param().abi(), hwndparent.into_param().abi(), ::core::mem::transmute(lpdialogfunc), dwinitparam.into_param().abi()))
     }
@@ -1982,7 +1982,7 @@ pub unsafe fn CreateDialogParamW<'a, Param0: ::windows::core::IntoParam<'a, supe
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreateDialogParamW(hinstance: super::super::Foundation::HINSTANCE, lptemplatename: ::windows::core::PCWSTR, hwndparent: super::super::Foundation::HWND, lpdialogfunc: ::windows::core::RawPtr, dwinitparam: super::super::Foundation::LPARAM) -> super::super::Foundation::HWND;
+            fn CreateDialogParamW(hinstance: super::super::Foundation::HINSTANCE, lptemplatename: ::windows::core::PCWSTR, hwndparent: super::super::Foundation::HWND, lpdialogfunc: *mut ::core::ffi::c_void, dwinitparam: super::super::Foundation::LPARAM) -> super::super::Foundation::HWND;
         }
         ::core::mem::transmute(CreateDialogParamW(hinstance.into_param().abi(), lptemplatename.into_param().abi(), hwndparent.into_param().abi(), ::core::mem::transmute(lpdialogfunc), dwinitparam.into_param().abi()))
     }
@@ -2775,7 +2775,7 @@ pub unsafe fn DialogBoxIndirectParamA<'a, Param0: ::windows::core::IntoParam<'a,
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DialogBoxIndirectParamA(hinstance: super::super::Foundation::HINSTANCE, hdialogtemplate: *const DLGTEMPLATE, hwndparent: super::super::Foundation::HWND, lpdialogfunc: ::windows::core::RawPtr, dwinitparam: super::super::Foundation::LPARAM) -> isize;
+            fn DialogBoxIndirectParamA(hinstance: super::super::Foundation::HINSTANCE, hdialogtemplate: *const DLGTEMPLATE, hwndparent: super::super::Foundation::HWND, lpdialogfunc: *mut ::core::ffi::c_void, dwinitparam: super::super::Foundation::LPARAM) -> isize;
         }
         ::core::mem::transmute(DialogBoxIndirectParamA(hinstance.into_param().abi(), ::core::mem::transmute(hdialogtemplate), hwndparent.into_param().abi(), ::core::mem::transmute(lpdialogfunc), dwinitparam.into_param().abi()))
     }
@@ -2790,7 +2790,7 @@ pub unsafe fn DialogBoxIndirectParamW<'a, Param0: ::windows::core::IntoParam<'a,
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DialogBoxIndirectParamW(hinstance: super::super::Foundation::HINSTANCE, hdialogtemplate: *const DLGTEMPLATE, hwndparent: super::super::Foundation::HWND, lpdialogfunc: ::windows::core::RawPtr, dwinitparam: super::super::Foundation::LPARAM) -> isize;
+            fn DialogBoxIndirectParamW(hinstance: super::super::Foundation::HINSTANCE, hdialogtemplate: *const DLGTEMPLATE, hwndparent: super::super::Foundation::HWND, lpdialogfunc: *mut ::core::ffi::c_void, dwinitparam: super::super::Foundation::LPARAM) -> isize;
         }
         ::core::mem::transmute(DialogBoxIndirectParamW(hinstance.into_param().abi(), ::core::mem::transmute(hdialogtemplate), hwndparent.into_param().abi(), ::core::mem::transmute(lpdialogfunc), dwinitparam.into_param().abi()))
     }
@@ -2805,7 +2805,7 @@ pub unsafe fn DialogBoxParamA<'a, Param0: ::windows::core::IntoParam<'a, super::
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DialogBoxParamA(hinstance: super::super::Foundation::HINSTANCE, lptemplatename: ::windows::core::PCSTR, hwndparent: super::super::Foundation::HWND, lpdialogfunc: ::windows::core::RawPtr, dwinitparam: super::super::Foundation::LPARAM) -> isize;
+            fn DialogBoxParamA(hinstance: super::super::Foundation::HINSTANCE, lptemplatename: ::windows::core::PCSTR, hwndparent: super::super::Foundation::HWND, lpdialogfunc: *mut ::core::ffi::c_void, dwinitparam: super::super::Foundation::LPARAM) -> isize;
         }
         ::core::mem::transmute(DialogBoxParamA(hinstance.into_param().abi(), lptemplatename.into_param().abi(), hwndparent.into_param().abi(), ::core::mem::transmute(lpdialogfunc), dwinitparam.into_param().abi()))
     }
@@ -2820,7 +2820,7 @@ pub unsafe fn DialogBoxParamW<'a, Param0: ::windows::core::IntoParam<'a, super::
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DialogBoxParamW(hinstance: super::super::Foundation::HINSTANCE, lptemplatename: ::windows::core::PCWSTR, hwndparent: super::super::Foundation::HWND, lpdialogfunc: ::windows::core::RawPtr, dwinitparam: super::super::Foundation::LPARAM) -> isize;
+            fn DialogBoxParamW(hinstance: super::super::Foundation::HINSTANCE, lptemplatename: ::windows::core::PCWSTR, hwndparent: super::super::Foundation::HWND, lpdialogfunc: *mut ::core::ffi::c_void, dwinitparam: super::super::Foundation::LPARAM) -> isize;
         }
         ::core::mem::transmute(DialogBoxParamW(hinstance.into_param().abi(), lptemplatename.into_param().abi(), hwndparent.into_param().abi(), ::core::mem::transmute(lpdialogfunc), dwinitparam.into_param().abi()))
     }
@@ -3332,7 +3332,7 @@ pub unsafe fn EnumChildWindows<'a, Param0: ::windows::core::IntoParam<'a, super:
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EnumChildWindows(hwndparent: super::super::Foundation::HWND, lpenumfunc: ::windows::core::RawPtr, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+            fn EnumChildWindows(hwndparent: super::super::Foundation::HWND, lpenumfunc: *mut ::core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(EnumChildWindows(hwndparent.into_param().abi(), ::core::mem::transmute(lpenumfunc), lparam.into_param().abi()))
     }
@@ -3347,7 +3347,7 @@ pub unsafe fn EnumPropsA<'a, Param0: ::windows::core::IntoParam<'a, super::super
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EnumPropsA(hwnd: super::super::Foundation::HWND, lpenumfunc: ::windows::core::RawPtr) -> i32;
+            fn EnumPropsA(hwnd: super::super::Foundation::HWND, lpenumfunc: *mut ::core::ffi::c_void) -> i32;
         }
         ::core::mem::transmute(EnumPropsA(hwnd.into_param().abi(), ::core::mem::transmute(lpenumfunc)))
     }
@@ -3362,7 +3362,7 @@ pub unsafe fn EnumPropsExA<'a, Param0: ::windows::core::IntoParam<'a, super::sup
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EnumPropsExA(hwnd: super::super::Foundation::HWND, lpenumfunc: ::windows::core::RawPtr, lparam: super::super::Foundation::LPARAM) -> i32;
+            fn EnumPropsExA(hwnd: super::super::Foundation::HWND, lpenumfunc: *mut ::core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> i32;
         }
         ::core::mem::transmute(EnumPropsExA(hwnd.into_param().abi(), ::core::mem::transmute(lpenumfunc), lparam.into_param().abi()))
     }
@@ -3377,7 +3377,7 @@ pub unsafe fn EnumPropsExW<'a, Param0: ::windows::core::IntoParam<'a, super::sup
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EnumPropsExW(hwnd: super::super::Foundation::HWND, lpenumfunc: ::windows::core::RawPtr, lparam: super::super::Foundation::LPARAM) -> i32;
+            fn EnumPropsExW(hwnd: super::super::Foundation::HWND, lpenumfunc: *mut ::core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> i32;
         }
         ::core::mem::transmute(EnumPropsExW(hwnd.into_param().abi(), ::core::mem::transmute(lpenumfunc), lparam.into_param().abi()))
     }
@@ -3392,7 +3392,7 @@ pub unsafe fn EnumPropsW<'a, Param0: ::windows::core::IntoParam<'a, super::super
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EnumPropsW(hwnd: super::super::Foundation::HWND, lpenumfunc: ::windows::core::RawPtr) -> i32;
+            fn EnumPropsW(hwnd: super::super::Foundation::HWND, lpenumfunc: *mut ::core::ffi::c_void) -> i32;
         }
         ::core::mem::transmute(EnumPropsW(hwnd.into_param().abi(), ::core::mem::transmute(lpenumfunc)))
     }
@@ -3407,7 +3407,7 @@ pub unsafe fn EnumThreadWindows<'a, Param2: ::windows::core::IntoParam<'a, super
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EnumThreadWindows(dwthreadid: u32, lpfn: ::windows::core::RawPtr, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+            fn EnumThreadWindows(dwthreadid: u32, lpfn: *mut ::core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(EnumThreadWindows(::core::mem::transmute(dwthreadid), ::core::mem::transmute(lpfn), lparam.into_param().abi()))
     }
@@ -3422,7 +3422,7 @@ pub unsafe fn EnumWindows<'a, Param1: ::windows::core::IntoParam<'a, super::supe
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EnumWindows(lpenumfunc: ::windows::core::RawPtr, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+            fn EnumWindows(lpenumfunc: *mut ::core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(EnumWindows(::core::mem::transmute(lpenumfunc), lparam.into_param().abi()))
     }
@@ -13073,7 +13073,7 @@ pub unsafe fn SendMessageCallbackA<'a, Param0: ::windows::core::IntoParam<'a, su
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SendMessageCallbackA(hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, lpresultcallback: ::windows::core::RawPtr, dwdata: usize) -> super::super::Foundation::BOOL;
+            fn SendMessageCallbackA(hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, lpresultcallback: *mut ::core::ffi::c_void, dwdata: usize) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(SendMessageCallbackA(hwnd.into_param().abi(), ::core::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi(), ::core::mem::transmute(lpresultcallback), ::core::mem::transmute(dwdata)))
     }
@@ -13088,7 +13088,7 @@ pub unsafe fn SendMessageCallbackW<'a, Param0: ::windows::core::IntoParam<'a, su
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SendMessageCallbackW(hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, lpresultcallback: ::windows::core::RawPtr, dwdata: usize) -> super::super::Foundation::BOOL;
+            fn SendMessageCallbackW(hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, lpresultcallback: *mut ::core::ffi::c_void, dwdata: usize) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(SendMessageCallbackW(hwnd.into_param().abi(), ::core::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi(), ::core::mem::transmute(lpresultcallback), ::core::mem::transmute(dwdata)))
     }
@@ -13285,7 +13285,7 @@ pub unsafe fn SetCoalescableTimer<'a, Param0: ::windows::core::IntoParam<'a, sup
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetCoalescableTimer(hwnd: super::super::Foundation::HWND, nidevent: usize, uelapse: u32, lptimerfunc: ::windows::core::RawPtr, utolerancedelay: u32) -> usize;
+            fn SetCoalescableTimer(hwnd: super::super::Foundation::HWND, nidevent: usize, uelapse: u32, lptimerfunc: *mut ::core::ffi::c_void, utolerancedelay: u32) -> usize;
         }
         ::core::mem::transmute(SetCoalescableTimer(hwnd.into_param().abi(), ::core::mem::transmute(nidevent), ::core::mem::transmute(uelapse), ::core::mem::transmute(lptimerfunc), ::core::mem::transmute(utolerancedelay)))
     }
@@ -13658,7 +13658,7 @@ pub unsafe fn SetTimer<'a, Param0: ::windows::core::IntoParam<'a, super::super::
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetTimer(hwnd: super::super::Foundation::HWND, nidevent: usize, uelapse: u32, lptimerfunc: ::windows::core::RawPtr) -> usize;
+            fn SetTimer(hwnd: super::super::Foundation::HWND, nidevent: usize, uelapse: u32, lptimerfunc: *mut ::core::ffi::c_void) -> usize;
         }
         ::core::mem::transmute(SetTimer(hwnd.into_param().abi(), ::core::mem::transmute(nidevent), ::core::mem::transmute(uelapse), ::core::mem::transmute(lptimerfunc)))
     }
@@ -13825,7 +13825,7 @@ pub unsafe fn SetWindowsHookA(nfiltertype: i32, pfnfilterproc: HOOKPROC) -> HHOO
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetWindowsHookA(nfiltertype: i32, pfnfilterproc: ::windows::core::RawPtr) -> HHOOK;
+            fn SetWindowsHookA(nfiltertype: i32, pfnfilterproc: *mut ::core::ffi::c_void) -> HHOOK;
         }
         ::core::mem::transmute(SetWindowsHookA(::core::mem::transmute(nfiltertype), ::core::mem::transmute(pfnfilterproc)))
     }
@@ -13840,7 +13840,7 @@ pub unsafe fn SetWindowsHookExA<'a, Param2: ::windows::core::IntoParam<'a, super
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetWindowsHookExA(idhook: WINDOWS_HOOK_ID, lpfn: ::windows::core::RawPtr, hmod: super::super::Foundation::HINSTANCE, dwthreadid: u32) -> HHOOK;
+            fn SetWindowsHookExA(idhook: WINDOWS_HOOK_ID, lpfn: *mut ::core::ffi::c_void, hmod: super::super::Foundation::HINSTANCE, dwthreadid: u32) -> HHOOK;
         }
         let result__ = SetWindowsHookExA(::core::mem::transmute(idhook), ::core::mem::transmute(lpfn), hmod.into_param().abi(), ::core::mem::transmute(dwthreadid));
         (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
@@ -13856,7 +13856,7 @@ pub unsafe fn SetWindowsHookExW<'a, Param2: ::windows::core::IntoParam<'a, super
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetWindowsHookExW(idhook: WINDOWS_HOOK_ID, lpfn: ::windows::core::RawPtr, hmod: super::super::Foundation::HINSTANCE, dwthreadid: u32) -> HHOOK;
+            fn SetWindowsHookExW(idhook: WINDOWS_HOOK_ID, lpfn: *mut ::core::ffi::c_void, hmod: super::super::Foundation::HINSTANCE, dwthreadid: u32) -> HHOOK;
         }
         let result__ = SetWindowsHookExW(::core::mem::transmute(idhook), ::core::mem::transmute(lpfn), hmod.into_param().abi(), ::core::mem::transmute(dwthreadid));
         (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
@@ -13872,7 +13872,7 @@ pub unsafe fn SetWindowsHookW(nfiltertype: i32, pfnfilterproc: HOOKPROC) -> HHOO
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetWindowsHookW(nfiltertype: i32, pfnfilterproc: ::windows::core::RawPtr) -> HHOOK;
+            fn SetWindowsHookW(nfiltertype: i32, pfnfilterproc: *mut ::core::ffi::c_void) -> HHOOK;
         }
         ::core::mem::transmute(SetWindowsHookW(::core::mem::transmute(nfiltertype), ::core::mem::transmute(pfnfilterproc)))
     }
@@ -14557,7 +14557,7 @@ pub unsafe fn UnhookWindowsHook(ncode: i32, pfnfilterproc: HOOKPROC) -> super::s
     {
         #[link(name = "windows")]
         extern "system" {
-            fn UnhookWindowsHook(ncode: i32, pfnfilterproc: ::windows::core::RawPtr) -> super::super::Foundation::BOOL;
+            fn UnhookWindowsHook(ncode: i32, pfnfilterproc: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(UnhookWindowsHook(::core::mem::transmute(ncode), ::core::mem::transmute(pfnfilterproc)))
     }

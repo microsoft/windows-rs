@@ -24,17 +24,17 @@ pub trait IDirectManipulationCompositor_Impl: Sized {
 impl ::windows::core::RuntimeName for IDirectManipulationCompositor {}
 impl IDirectManipulationCompositor_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectManipulationCompositor_Impl, const OFFSET: isize>() -> IDirectManipulationCompositor_Vtbl {
-        unsafe extern "system" fn AddContent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectManipulationCompositor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, content: ::windows::core::RawPtr, device: *mut ::core::ffi::c_void, parentvisual: *mut ::core::ffi::c_void, childvisual: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddContent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectManipulationCompositor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, content: *mut ::core::ffi::c_void, device: *mut ::core::ffi::c_void, parentvisual: *mut ::core::ffi::c_void, childvisual: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.AddContent(::core::mem::transmute(&content), ::core::mem::transmute(&device), ::core::mem::transmute(&parentvisual), ::core::mem::transmute(&childvisual)).into()
         }
-        unsafe extern "system" fn RemoveContent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectManipulationCompositor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, content: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveContent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectManipulationCompositor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, content: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.RemoveContent(::core::mem::transmute(&content)).into()
         }
-        unsafe extern "system" fn SetUpdateManager<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectManipulationCompositor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, updatemanager: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetUpdateManager<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectManipulationCompositor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, updatemanager: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetUpdateManager(::core::mem::transmute(&updatemanager)).into()
@@ -62,7 +62,7 @@ pub trait IDirectManipulationCompositor2_Impl: Sized + IDirectManipulationCompos
 impl ::windows::core::RuntimeName for IDirectManipulationCompositor2 {}
 impl IDirectManipulationCompositor2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectManipulationCompositor2_Impl, const OFFSET: isize>() -> IDirectManipulationCompositor2_Vtbl {
-        unsafe extern "system" fn AddContentWithCrossProcessChaining<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectManipulationCompositor2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, content: ::windows::core::RawPtr, device: *mut ::core::ffi::c_void, parentvisual: *mut ::core::ffi::c_void, childvisual: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddContentWithCrossProcessChaining<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectManipulationCompositor2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, content: *mut ::core::ffi::c_void, device: *mut ::core::ffi::c_void, parentvisual: *mut ::core::ffi::c_void, childvisual: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.AddContentWithCrossProcessChaining(::core::mem::transmute(&content), ::core::mem::transmute(&device), ::core::mem::transmute(&parentvisual), ::core::mem::transmute(&childvisual)).into()
@@ -227,7 +227,7 @@ pub trait IDirectManipulationDragDropEventHandler_Impl: Sized {
 impl ::windows::core::RuntimeName for IDirectManipulationDragDropEventHandler {}
 impl IDirectManipulationDragDropEventHandler_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectManipulationDragDropEventHandler_Impl, const OFFSET: isize>() -> IDirectManipulationDragDropEventHandler_Vtbl {
-        unsafe extern "system" fn OnDragDropStatusChange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectManipulationDragDropEventHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, viewport: ::windows::core::RawPtr, current: DIRECTMANIPULATION_DRAG_DROP_STATUS, previous: DIRECTMANIPULATION_DRAG_DROP_STATUS) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnDragDropStatusChange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectManipulationDragDropEventHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, viewport: *mut ::core::ffi::c_void, current: DIRECTMANIPULATION_DRAG_DROP_STATUS, previous: DIRECTMANIPULATION_DRAG_DROP_STATUS) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OnDragDropStatusChange(::core::mem::transmute(&viewport), ::core::mem::transmute_copy(&current), ::core::mem::transmute_copy(&previous)).into()
@@ -261,7 +261,7 @@ pub trait IDirectManipulationInteractionEventHandler_Impl: Sized {
 impl ::windows::core::RuntimeName for IDirectManipulationInteractionEventHandler {}
 impl IDirectManipulationInteractionEventHandler_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectManipulationInteractionEventHandler_Impl, const OFFSET: isize>() -> IDirectManipulationInteractionEventHandler_Vtbl {
-        unsafe extern "system" fn OnInteraction<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectManipulationInteractionEventHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, viewport: ::windows::core::RawPtr, interaction: DIRECTMANIPULATION_INTERACTION_TYPE) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnInteraction<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectManipulationInteractionEventHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, viewport: *mut ::core::ffi::c_void, interaction: DIRECTMANIPULATION_INTERACTION_TYPE) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OnInteraction(::core::mem::transmute(&viewport), ::core::mem::transmute_copy(&interaction)).into()
@@ -318,12 +318,12 @@ impl IDirectManipulationManager_Vtbl {
             let this = (*this).get_impl();
             this.GetUpdateManager(::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&object)).into()
         }
-        unsafe extern "system" fn CreateViewport<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectManipulationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, frameinfo: ::windows::core::RawPtr, window: super::super::Foundation::HWND, riid: *const ::windows::core::GUID, object: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateViewport<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectManipulationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, frameinfo: *mut ::core::ffi::c_void, window: super::super::Foundation::HWND, riid: *const ::windows::core::GUID, object: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.CreateViewport(::core::mem::transmute(&frameinfo), ::core::mem::transmute_copy(&window), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&object)).into()
         }
-        unsafe extern "system" fn CreateContent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectManipulationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, frameinfo: ::windows::core::RawPtr, clsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, object: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateContent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectManipulationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, frameinfo: *mut ::core::ffi::c_void, clsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, object: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.CreateContent(::core::mem::transmute(&frameinfo), ::core::mem::transmute_copy(&clsid), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&object)).into()
@@ -487,7 +487,7 @@ impl ::windows::core::RuntimeName for IDirectManipulationUpdateManager {}
 #[cfg(feature = "Win32_Foundation")]
 impl IDirectManipulationUpdateManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectManipulationUpdateManager_Impl, const OFFSET: isize>() -> IDirectManipulationUpdateManager_Vtbl {
-        unsafe extern "system" fn RegisterWaitHandleCallback<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectManipulationUpdateManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handle: super::super::Foundation::HANDLE, eventhandler: ::windows::core::RawPtr, cookie: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RegisterWaitHandleCallback<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectManipulationUpdateManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handle: super::super::Foundation::HANDLE, eventhandler: *mut ::core::ffi::c_void, cookie: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.RegisterWaitHandleCallback(::core::mem::transmute_copy(&handle), ::core::mem::transmute(&eventhandler)) {
@@ -503,7 +503,7 @@ impl IDirectManipulationUpdateManager_Vtbl {
             let this = (*this).get_impl();
             this.UnregisterWaitHandleCallback(::core::mem::transmute_copy(&cookie)).into()
         }
-        unsafe extern "system" fn Update<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectManipulationUpdateManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, frameinfo: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Update<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectManipulationUpdateManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, frameinfo: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Update(::core::mem::transmute(&frameinfo)).into()
@@ -637,12 +637,12 @@ impl IDirectManipulationViewport_Vtbl {
             let this = (*this).get_impl();
             this.GetPrimaryContent(::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&object)).into()
         }
-        unsafe extern "system" fn AddContent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectManipulationViewport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, content: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddContent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectManipulationViewport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, content: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.AddContent(::core::mem::transmute(&content)).into()
         }
-        unsafe extern "system" fn RemoveContent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectManipulationViewport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, content: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveContent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectManipulationViewport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, content: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.RemoveContent(::core::mem::transmute(&content)).into()
@@ -677,7 +677,7 @@ impl IDirectManipulationViewport_Vtbl {
             let this = (*this).get_impl();
             this.SetChaining(::core::mem::transmute_copy(&enabledtypes)).into()
         }
-        unsafe extern "system" fn AddEventHandler<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectManipulationViewport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, window: super::super::Foundation::HWND, eventhandler: ::windows::core::RawPtr, cookie: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddEventHandler<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectManipulationViewport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, window: super::super::Foundation::HWND, eventhandler: *mut ::core::ffi::c_void, cookie: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.AddEventHandler(::core::mem::transmute_copy(&window), ::core::mem::transmute(&eventhandler)) {
@@ -800,17 +800,17 @@ pub trait IDirectManipulationViewportEventHandler_Impl: Sized {
 impl ::windows::core::RuntimeName for IDirectManipulationViewportEventHandler {}
 impl IDirectManipulationViewportEventHandler_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectManipulationViewportEventHandler_Impl, const OFFSET: isize>() -> IDirectManipulationViewportEventHandler_Vtbl {
-        unsafe extern "system" fn OnViewportStatusChanged<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectManipulationViewportEventHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, viewport: ::windows::core::RawPtr, current: DIRECTMANIPULATION_STATUS, previous: DIRECTMANIPULATION_STATUS) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnViewportStatusChanged<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectManipulationViewportEventHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, viewport: *mut ::core::ffi::c_void, current: DIRECTMANIPULATION_STATUS, previous: DIRECTMANIPULATION_STATUS) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OnViewportStatusChanged(::core::mem::transmute(&viewport), ::core::mem::transmute_copy(&current), ::core::mem::transmute_copy(&previous)).into()
         }
-        unsafe extern "system" fn OnViewportUpdated<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectManipulationViewportEventHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, viewport: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnViewportUpdated<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectManipulationViewportEventHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, viewport: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OnViewportUpdated(::core::mem::transmute(&viewport)).into()
         }
-        unsafe extern "system" fn OnContentUpdated<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectManipulationViewportEventHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, viewport: ::windows::core::RawPtr, content: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnContentUpdated<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectManipulationViewportEventHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, viewport: *mut ::core::ffi::c_void, content: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OnContentUpdated(::core::mem::transmute(&viewport), ::core::mem::transmute(&content)).into()

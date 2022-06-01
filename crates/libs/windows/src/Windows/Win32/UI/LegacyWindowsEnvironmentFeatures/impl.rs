@@ -25,7 +25,7 @@ impl IADesktopP2_Vtbl {
             let this = (*this).get_impl();
             this.UpdateAllDesktopSubscriptions().into()
         }
-        unsafe extern "system" fn MakeDynamicChanges<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADesktopP2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poleobj: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MakeDynamicChanges<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADesktopP2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poleobj: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.MakeDynamicChanges(::core::mem::transmute(&poleobj)).into()
@@ -92,7 +92,7 @@ impl ::windows::core::RuntimeName for IBriefcaseInitiator {}
 #[cfg(feature = "Win32_System_Com")]
 impl IBriefcaseInitiator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBriefcaseInitiator_Impl, const OFFSET: isize>() -> IBriefcaseInitiator_Vtbl {
-        unsafe extern "system" fn IsMonikerInBriefcase<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBriefcaseInitiator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmk: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsMonikerInBriefcase<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBriefcaseInitiator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.IsMonikerInBriefcase(::core::mem::transmute(&pmk)).into()
@@ -121,12 +121,12 @@ impl IEmptyVolumeCache_Vtbl {
             let this = (*this).get_impl();
             this.Initialize(::core::mem::transmute_copy(&hkregkey), ::core::mem::transmute(&pcwszvolume), ::core::mem::transmute_copy(&ppwszdisplayname), ::core::mem::transmute_copy(&ppwszdescription), ::core::mem::transmute_copy(&pdwflags)).into()
         }
-        unsafe extern "system" fn GetSpaceUsed<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEmptyVolumeCache_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwlspaceused: *mut u64, picb: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSpaceUsed<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEmptyVolumeCache_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwlspaceused: *mut u64, picb: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetSpaceUsed(::core::mem::transmute_copy(&pdwlspaceused), ::core::mem::transmute(&picb)).into()
         }
-        unsafe extern "system" fn Purge<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEmptyVolumeCache_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwlspacetofree: u64, picb: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Purge<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEmptyVolumeCache_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwlspacetofree: u64, picb: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Purge(::core::mem::transmute_copy(&dwlspacetofree), ::core::mem::transmute(&picb)).into()
@@ -217,7 +217,7 @@ impl ::windows::core::RuntimeName for IReconcilableObject {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IReconcilableObject_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReconcilableObject_Impl, const OFFSET: isize>() -> IReconcilableObject_Vtbl {
-        unsafe extern "system" fn Reconcile<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReconcilableObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinitiator: ::windows::core::RawPtr, dwflags: u32, hwndowner: super::super::Foundation::HWND, hwndprogressfeedback: super::super::Foundation::HWND, ulcinput: u32, rgpmkotherinput: *mut ::windows::core::RawPtr, ploutindex: *mut i32, pstgnewresidues: ::windows::core::RawPtr, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Reconcile<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReconcilableObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinitiator: *mut ::core::ffi::c_void, dwflags: u32, hwndowner: super::super::Foundation::HWND, hwndprogressfeedback: super::super::Foundation::HWND, ulcinput: u32, rgpmkotherinput: *mut *mut ::core::ffi::c_void, ploutindex: *mut i32, pstgnewresidues: *mut ::core::ffi::c_void, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Reconcile(::core::mem::transmute(&pinitiator), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&hwndowner), ::core::mem::transmute_copy(&hwndprogressfeedback), ::core::mem::transmute_copy(&ulcinput), ::core::mem::transmute_copy(&rgpmkotherinput), ::core::mem::transmute_copy(&ploutindex), ::core::mem::transmute(&pstgnewresidues), ::core::mem::transmute_copy(&pvreserved)).into()
