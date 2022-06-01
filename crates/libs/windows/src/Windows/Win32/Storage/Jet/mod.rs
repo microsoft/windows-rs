@@ -6648,7 +6648,7 @@ pub unsafe fn JetBackupA(szbackuppath: *const i8, grbit: u32, pfnstatus: JET_PFN
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetBackupA(szbackuppath: *const i8, grbit: u32, pfnstatus: ::windows::core::RawPtr) -> i32;
+            fn JetBackupA(szbackuppath: *const i8, grbit: u32, pfnstatus: *mut ::core::ffi::c_void) -> i32;
         }
         ::core::mem::transmute(JetBackupA(::core::mem::transmute(szbackuppath), ::core::mem::transmute(grbit), ::core::mem::transmute(pfnstatus)))
     }
@@ -6663,7 +6663,7 @@ pub unsafe fn JetBackupInstanceA<'a, Param0: ::windows::core::IntoParam<'a, supe
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetBackupInstanceA(instance: super::StructuredStorage::JET_INSTANCE, szbackuppath: *const i8, grbit: u32, pfnstatus: ::windows::core::RawPtr) -> i32;
+            fn JetBackupInstanceA(instance: super::StructuredStorage::JET_INSTANCE, szbackuppath: *const i8, grbit: u32, pfnstatus: *mut ::core::ffi::c_void) -> i32;
         }
         ::core::mem::transmute(JetBackupInstanceA(instance.into_param().abi(), ::core::mem::transmute(szbackuppath), ::core::mem::transmute(grbit), ::core::mem::transmute(pfnstatus)))
     }
@@ -6678,7 +6678,7 @@ pub unsafe fn JetBackupInstanceW<'a, Param0: ::windows::core::IntoParam<'a, supe
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetBackupInstanceW(instance: super::StructuredStorage::JET_INSTANCE, szbackuppath: *const u16, grbit: u32, pfnstatus: ::windows::core::RawPtr) -> i32;
+            fn JetBackupInstanceW(instance: super::StructuredStorage::JET_INSTANCE, szbackuppath: *const u16, grbit: u32, pfnstatus: *mut ::core::ffi::c_void) -> i32;
         }
         ::core::mem::transmute(JetBackupInstanceW(instance.into_param().abi(), ::core::mem::transmute(szbackuppath), ::core::mem::transmute(grbit), ::core::mem::transmute(pfnstatus)))
     }
@@ -6693,7 +6693,7 @@ pub unsafe fn JetBackupW(szbackuppath: *const u16, grbit: u32, pfnstatus: JET_PF
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetBackupW(szbackuppath: *const u16, grbit: u32, pfnstatus: ::windows::core::RawPtr) -> i32;
+            fn JetBackupW(szbackuppath: *const u16, grbit: u32, pfnstatus: *mut ::core::ffi::c_void) -> i32;
         }
         ::core::mem::transmute(JetBackupW(::core::mem::transmute(szbackuppath), ::core::mem::transmute(grbit), ::core::mem::transmute(pfnstatus)))
     }
@@ -6902,7 +6902,7 @@ pub unsafe fn JetCompactA<'a, Param0: ::windows::core::IntoParam<'a, super::Stru
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetCompactA(sesid: super::StructuredStorage::JET_SESID, szdatabasesrc: *const i8, szdatabasedest: *const i8, pfnstatus: ::windows::core::RawPtr, pconvert: *const CONVERT_A, grbit: u32) -> i32;
+            fn JetCompactA(sesid: super::StructuredStorage::JET_SESID, szdatabasesrc: *const i8, szdatabasedest: *const i8, pfnstatus: *mut ::core::ffi::c_void, pconvert: *const CONVERT_A, grbit: u32) -> i32;
         }
         ::core::mem::transmute(JetCompactA(sesid.into_param().abi(), ::core::mem::transmute(szdatabasesrc), ::core::mem::transmute(szdatabasedest), ::core::mem::transmute(pfnstatus), ::core::mem::transmute(pconvert), ::core::mem::transmute(grbit)))
     }
@@ -6917,7 +6917,7 @@ pub unsafe fn JetCompactW<'a, Param0: ::windows::core::IntoParam<'a, super::Stru
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetCompactW(sesid: super::StructuredStorage::JET_SESID, szdatabasesrc: *const u16, szdatabasedest: *const u16, pfnstatus: ::windows::core::RawPtr, pconvert: *const CONVERT_W, grbit: u32) -> i32;
+            fn JetCompactW(sesid: super::StructuredStorage::JET_SESID, szdatabasesrc: *const u16, szdatabasedest: *const u16, pfnstatus: *mut ::core::ffi::c_void, pconvert: *const CONVERT_W, grbit: u32) -> i32;
         }
         ::core::mem::transmute(JetCompactW(sesid.into_param().abi(), ::core::mem::transmute(szdatabasesrc), ::core::mem::transmute(szdatabasedest), ::core::mem::transmute(pfnstatus), ::core::mem::transmute(pconvert), ::core::mem::transmute(grbit)))
     }
@@ -7351,7 +7351,7 @@ pub unsafe fn JetDefragment2A<'a, Param0: ::windows::core::IntoParam<'a, super::
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetDefragment2A(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const i8, pcpasses: *mut u32, pcseconds: *mut u32, callback: ::windows::core::RawPtr, grbit: u32) -> i32;
+            fn JetDefragment2A(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const i8, pcpasses: *mut u32, pcseconds: *mut u32, callback: *mut ::core::ffi::c_void, grbit: u32) -> i32;
         }
         ::core::mem::transmute(JetDefragment2A(sesid.into_param().abi(), ::core::mem::transmute(dbid), ::core::mem::transmute(sztablename), ::core::mem::transmute(pcpasses), ::core::mem::transmute(pcseconds), ::core::mem::transmute(callback), ::core::mem::transmute(grbit)))
     }
@@ -7366,7 +7366,7 @@ pub unsafe fn JetDefragment2W<'a, Param0: ::windows::core::IntoParam<'a, super::
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetDefragment2W(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const u16, pcpasses: *mut u32, pcseconds: *mut u32, callback: ::windows::core::RawPtr, grbit: u32) -> i32;
+            fn JetDefragment2W(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const u16, pcpasses: *mut u32, pcseconds: *mut u32, callback: *mut ::core::ffi::c_void, grbit: u32) -> i32;
         }
         ::core::mem::transmute(JetDefragment2W(sesid.into_param().abi(), ::core::mem::transmute(dbid), ::core::mem::transmute(sztablename), ::core::mem::transmute(pcpasses), ::core::mem::transmute(pcseconds), ::core::mem::transmute(callback), ::core::mem::transmute(grbit)))
     }
@@ -7381,7 +7381,7 @@ pub unsafe fn JetDefragment3A<'a, Param0: ::windows::core::IntoParam<'a, super::
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetDefragment3A(sesid: super::StructuredStorage::JET_SESID, szdatabasename: *const i8, sztablename: *const i8, pcpasses: *mut u32, pcseconds: *mut u32, callback: ::windows::core::RawPtr, pvcontext: *const ::core::ffi::c_void, grbit: u32) -> i32;
+            fn JetDefragment3A(sesid: super::StructuredStorage::JET_SESID, szdatabasename: *const i8, sztablename: *const i8, pcpasses: *mut u32, pcseconds: *mut u32, callback: *mut ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void, grbit: u32) -> i32;
         }
         ::core::mem::transmute(JetDefragment3A(sesid.into_param().abi(), ::core::mem::transmute(szdatabasename), ::core::mem::transmute(sztablename), ::core::mem::transmute(pcpasses), ::core::mem::transmute(pcseconds), ::core::mem::transmute(callback), ::core::mem::transmute(pvcontext), ::core::mem::transmute(grbit)))
     }
@@ -7396,7 +7396,7 @@ pub unsafe fn JetDefragment3W<'a, Param0: ::windows::core::IntoParam<'a, super::
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetDefragment3W(sesid: super::StructuredStorage::JET_SESID, szdatabasename: *const u16, sztablename: *const u16, pcpasses: *mut u32, pcseconds: *mut u32, callback: ::windows::core::RawPtr, pvcontext: *const ::core::ffi::c_void, grbit: u32) -> i32;
+            fn JetDefragment3W(sesid: super::StructuredStorage::JET_SESID, szdatabasename: *const u16, sztablename: *const u16, pcpasses: *mut u32, pcseconds: *mut u32, callback: *mut ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void, grbit: u32) -> i32;
         }
         ::core::mem::transmute(JetDefragment3W(sesid.into_param().abi(), ::core::mem::transmute(szdatabasename), ::core::mem::transmute(sztablename), ::core::mem::transmute(pcpasses), ::core::mem::transmute(pcseconds), ::core::mem::transmute(callback), ::core::mem::transmute(pvcontext), ::core::mem::transmute(grbit)))
     }
@@ -7755,7 +7755,7 @@ pub unsafe fn JetEnumerateColumns<'a, Param0: ::windows::core::IntoParam<'a, sup
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetEnumerateColumns(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, cenumcolumnid: u32, rgenumcolumnid: *const JET_ENUMCOLUMNID, pcenumcolumn: *mut u32, prgenumcolumn: *mut *mut JET_ENUMCOLUMN, pfnrealloc: ::windows::core::RawPtr, pvrealloccontext: *const ::core::ffi::c_void, cbdatamost: u32, grbit: u32) -> i32;
+            fn JetEnumerateColumns(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, cenumcolumnid: u32, rgenumcolumnid: *const JET_ENUMCOLUMNID, pcenumcolumn: *mut u32, prgenumcolumn: *mut *mut JET_ENUMCOLUMN, pfnrealloc: *mut ::core::ffi::c_void, pvrealloccontext: *const ::core::ffi::c_void, cbdatamost: u32, grbit: u32) -> i32;
         }
         ::core::mem::transmute(JetEnumerateColumns(sesid.into_param().abi(), tableid.into_param().abi(), rgenumcolumnid.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgenumcolumnid)), ::core::mem::transmute(pcenumcolumn), ::core::mem::transmute(prgenumcolumn), ::core::mem::transmute(pfnrealloc), ::core::mem::transmute(pvrealloccontext), ::core::mem::transmute(cbdatamost), ::core::mem::transmute(grbit)))
     }
@@ -7785,7 +7785,7 @@ pub unsafe fn JetExternalRestore2A(szcheckpointfilepath: *const i8, szlogpath: *
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetExternalRestore2A(szcheckpointfilepath: *const i8, szlogpath: *const i8, rgrstmap: *const JET_RSTMAP_A, crstfilemap: i32, szbackuplogpath: *const i8, ploginfo: *mut JET_LOGINFO_A, sztargetinstancename: *const i8, sztargetinstancelogpath: *const i8, sztargetinstancecheckpointpath: *const i8, pfn: ::windows::core::RawPtr) -> i32;
+            fn JetExternalRestore2A(szcheckpointfilepath: *const i8, szlogpath: *const i8, rgrstmap: *const JET_RSTMAP_A, crstfilemap: i32, szbackuplogpath: *const i8, ploginfo: *mut JET_LOGINFO_A, sztargetinstancename: *const i8, sztargetinstancelogpath: *const i8, sztargetinstancecheckpointpath: *const i8, pfn: *mut ::core::ffi::c_void) -> i32;
         }
         ::core::mem::transmute(JetExternalRestore2A(::core::mem::transmute(szcheckpointfilepath), ::core::mem::transmute(szlogpath), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgrstmap)), rgrstmap.len() as _, ::core::mem::transmute(szbackuplogpath), ::core::mem::transmute(ploginfo), ::core::mem::transmute(sztargetinstancename), ::core::mem::transmute(sztargetinstancelogpath), ::core::mem::transmute(sztargetinstancecheckpointpath), ::core::mem::transmute(pfn)))
     }
@@ -7800,7 +7800,7 @@ pub unsafe fn JetExternalRestore2W(szcheckpointfilepath: *const u16, szlogpath: 
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetExternalRestore2W(szcheckpointfilepath: *const u16, szlogpath: *const u16, rgrstmap: *const JET_RSTMAP_W, crstfilemap: i32, szbackuplogpath: *const u16, ploginfo: *mut JET_LOGINFO_W, sztargetinstancename: *const u16, sztargetinstancelogpath: *const u16, sztargetinstancecheckpointpath: *const u16, pfn: ::windows::core::RawPtr) -> i32;
+            fn JetExternalRestore2W(szcheckpointfilepath: *const u16, szlogpath: *const u16, rgrstmap: *const JET_RSTMAP_W, crstfilemap: i32, szbackuplogpath: *const u16, ploginfo: *mut JET_LOGINFO_W, sztargetinstancename: *const u16, sztargetinstancelogpath: *const u16, sztargetinstancecheckpointpath: *const u16, pfn: *mut ::core::ffi::c_void) -> i32;
         }
         ::core::mem::transmute(JetExternalRestore2W(::core::mem::transmute(szcheckpointfilepath), ::core::mem::transmute(szlogpath), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgrstmap)), rgrstmap.len() as _, ::core::mem::transmute(szbackuplogpath), ::core::mem::transmute(ploginfo), ::core::mem::transmute(sztargetinstancename), ::core::mem::transmute(sztargetinstancelogpath), ::core::mem::transmute(sztargetinstancecheckpointpath), ::core::mem::transmute(pfn)))
     }
@@ -7815,7 +7815,7 @@ pub unsafe fn JetExternalRestoreA(szcheckpointfilepath: *const i8, szlogpath: *c
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetExternalRestoreA(szcheckpointfilepath: *const i8, szlogpath: *const i8, rgrstmap: *const JET_RSTMAP_A, crstfilemap: i32, szbackuplogpath: *const i8, genlow: i32, genhigh: i32, pfn: ::windows::core::RawPtr) -> i32;
+            fn JetExternalRestoreA(szcheckpointfilepath: *const i8, szlogpath: *const i8, rgrstmap: *const JET_RSTMAP_A, crstfilemap: i32, szbackuplogpath: *const i8, genlow: i32, genhigh: i32, pfn: *mut ::core::ffi::c_void) -> i32;
         }
         ::core::mem::transmute(JetExternalRestoreA(::core::mem::transmute(szcheckpointfilepath), ::core::mem::transmute(szlogpath), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgrstmap)), rgrstmap.len() as _, ::core::mem::transmute(szbackuplogpath), ::core::mem::transmute(genlow), ::core::mem::transmute(genhigh), ::core::mem::transmute(pfn)))
     }
@@ -7830,7 +7830,7 @@ pub unsafe fn JetExternalRestoreW(szcheckpointfilepath: *const u16, szlogpath: *
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetExternalRestoreW(szcheckpointfilepath: *const u16, szlogpath: *const u16, rgrstmap: *const JET_RSTMAP_W, crstfilemap: i32, szbackuplogpath: *const u16, genlow: i32, genhigh: i32, pfn: ::windows::core::RawPtr) -> i32;
+            fn JetExternalRestoreW(szcheckpointfilepath: *const u16, szlogpath: *const u16, rgrstmap: *const JET_RSTMAP_W, crstfilemap: i32, szbackuplogpath: *const u16, genlow: i32, genhigh: i32, pfn: *mut ::core::ffi::c_void) -> i32;
         }
         ::core::mem::transmute(JetExternalRestoreW(::core::mem::transmute(szcheckpointfilepath), ::core::mem::transmute(szlogpath), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgrstmap)), rgrstmap.len() as _, ::core::mem::transmute(szbackuplogpath), ::core::mem::transmute(genlow), ::core::mem::transmute(genhigh), ::core::mem::transmute(pfn)))
     }
@@ -9181,7 +9181,7 @@ pub unsafe fn JetRegisterCallback<'a, Param0: ::windows::core::IntoParam<'a, sup
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetRegisterCallback(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, cbtyp: u32, pcallback: ::windows::core::RawPtr, pvcontext: *const ::core::ffi::c_void, phcallbackid: *const super::StructuredStorage::JET_HANDLE) -> i32;
+            fn JetRegisterCallback(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, cbtyp: u32, pcallback: *mut ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void, phcallbackid: *const super::StructuredStorage::JET_HANDLE) -> i32;
         }
         ::core::mem::transmute(JetRegisterCallback(sesid.into_param().abi(), tableid.into_param().abi(), ::core::mem::transmute(cbtyp), ::core::mem::transmute(pcallback), ::core::mem::transmute(pvcontext), ::core::mem::transmute(phcallbackid)))
     }
@@ -9301,7 +9301,7 @@ pub unsafe fn JetRestore2A(sz: *const i8, szdest: *const i8, pfn: JET_PFNSTATUS)
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetRestore2A(sz: *const i8, szdest: *const i8, pfn: ::windows::core::RawPtr) -> i32;
+            fn JetRestore2A(sz: *const i8, szdest: *const i8, pfn: *mut ::core::ffi::c_void) -> i32;
         }
         ::core::mem::transmute(JetRestore2A(::core::mem::transmute(sz), ::core::mem::transmute(szdest), ::core::mem::transmute(pfn)))
     }
@@ -9316,7 +9316,7 @@ pub unsafe fn JetRestore2W(sz: *const u16, szdest: *const u16, pfn: JET_PFNSTATU
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetRestore2W(sz: *const u16, szdest: *const u16, pfn: ::windows::core::RawPtr) -> i32;
+            fn JetRestore2W(sz: *const u16, szdest: *const u16, pfn: *mut ::core::ffi::c_void) -> i32;
         }
         ::core::mem::transmute(JetRestore2W(::core::mem::transmute(sz), ::core::mem::transmute(szdest), ::core::mem::transmute(pfn)))
     }
@@ -9331,7 +9331,7 @@ pub unsafe fn JetRestoreA(szsource: *const i8, pfn: JET_PFNSTATUS) -> i32 {
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetRestoreA(szsource: *const i8, pfn: ::windows::core::RawPtr) -> i32;
+            fn JetRestoreA(szsource: *const i8, pfn: *mut ::core::ffi::c_void) -> i32;
         }
         ::core::mem::transmute(JetRestoreA(::core::mem::transmute(szsource), ::core::mem::transmute(pfn)))
     }
@@ -9346,7 +9346,7 @@ pub unsafe fn JetRestoreInstanceA<'a, Param0: ::windows::core::IntoParam<'a, sup
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetRestoreInstanceA(instance: super::StructuredStorage::JET_INSTANCE, sz: *const i8, szdest: *const i8, pfn: ::windows::core::RawPtr) -> i32;
+            fn JetRestoreInstanceA(instance: super::StructuredStorage::JET_INSTANCE, sz: *const i8, szdest: *const i8, pfn: *mut ::core::ffi::c_void) -> i32;
         }
         ::core::mem::transmute(JetRestoreInstanceA(instance.into_param().abi(), ::core::mem::transmute(sz), ::core::mem::transmute(szdest), ::core::mem::transmute(pfn)))
     }
@@ -9361,7 +9361,7 @@ pub unsafe fn JetRestoreInstanceW<'a, Param0: ::windows::core::IntoParam<'a, sup
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetRestoreInstanceW(instance: super::StructuredStorage::JET_INSTANCE, sz: *const u16, szdest: *const u16, pfn: ::windows::core::RawPtr) -> i32;
+            fn JetRestoreInstanceW(instance: super::StructuredStorage::JET_INSTANCE, sz: *const u16, szdest: *const u16, pfn: *mut ::core::ffi::c_void) -> i32;
         }
         ::core::mem::transmute(JetRestoreInstanceW(instance.into_param().abi(), ::core::mem::transmute(sz), ::core::mem::transmute(szdest), ::core::mem::transmute(pfn)))
     }
@@ -9376,7 +9376,7 @@ pub unsafe fn JetRestoreW(szsource: *const u16, pfn: JET_PFNSTATUS) -> i32 {
     {
         #[link(name = "windows")]
         extern "system" {
-            fn JetRestoreW(szsource: *const u16, pfn: ::windows::core::RawPtr) -> i32;
+            fn JetRestoreW(szsource: *const u16, pfn: *mut ::core::ffi::c_void) -> i32;
         }
         ::core::mem::transmute(JetRestoreW(::core::mem::transmute(szsource), ::core::mem::transmute(pfn)))
     }

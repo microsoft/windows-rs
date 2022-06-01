@@ -4434,7 +4434,7 @@ pub unsafe fn DnsGetProxyInformation<'a, Param0: ::windows::core::IntoParam<'a, 
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DnsGetProxyInformation(hostname: ::windows::core::PCWSTR, proxyinformation: *mut DNS_PROXY_INFORMATION, defaultproxyinformation: *mut DNS_PROXY_INFORMATION, completionroutine: ::windows::core::RawPtr, completioncontext: *const ::core::ffi::c_void) -> u32;
+            fn DnsGetProxyInformation(hostname: ::windows::core::PCWSTR, proxyinformation: *mut DNS_PROXY_INFORMATION, defaultproxyinformation: *mut DNS_PROXY_INFORMATION, completionroutine: *mut ::core::ffi::c_void, completioncontext: *const ::core::ffi::c_void) -> u32;
         }
         ::core::mem::transmute(DnsGetProxyInformation(hostname.into_param().abi(), ::core::mem::transmute(proxyinformation), ::core::mem::transmute(defaultproxyinformation), ::core::mem::transmute(completionroutine), ::core::mem::transmute(completioncontext)))
     }

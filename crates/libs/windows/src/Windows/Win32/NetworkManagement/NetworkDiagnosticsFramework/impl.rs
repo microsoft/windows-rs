@@ -194,7 +194,7 @@ impl INetDiagHelperEx_Vtbl {
             let this = (*this).get_impl();
             this.ReconfirmLowHealth(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&presults), ::core::mem::transmute_copy(&ppwszupdateddescription), ::core::mem::transmute_copy(&pupdatedstatus)).into()
         }
-        unsafe extern "system" fn SetUtilities<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetDiagHelperEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, putilities: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetUtilities<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetDiagHelperEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, putilities: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetUtilities(::core::mem::transmute(&putilities)).into()

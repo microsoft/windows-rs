@@ -20,12 +20,12 @@ impl IDirectMusic_Vtbl {
             let this = (*this).get_impl();
             this.EnumPort(::core::mem::transmute_copy(&dwindex), ::core::mem::transmute_copy(&pportcaps)).into()
         }
-        unsafe extern "system" fn CreateMusicBuffer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectMusic_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbufferdesc: *mut DMUS_BUFFERDESC, ppbuffer: *mut ::windows::core::RawPtr, punkouter: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateMusicBuffer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectMusic_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbufferdesc: *mut DMUS_BUFFERDESC, ppbuffer: *mut *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.CreateMusicBuffer(::core::mem::transmute_copy(&pbufferdesc), ::core::mem::transmute_copy(&ppbuffer), ::core::mem::transmute(&punkouter)).into()
         }
-        unsafe extern "system" fn CreatePort<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectMusic_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rclsidport: *const ::windows::core::GUID, pportparams: *mut DMUS_PORTPARAMS8, ppport: *mut ::windows::core::RawPtr, punkouter: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreatePort<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectMusic_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rclsidport: *const ::windows::core::GUID, pportparams: *mut DMUS_PORTPARAMS8, ppport: *mut *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.CreatePort(::core::mem::transmute_copy(&rclsidport), ::core::mem::transmute_copy(&pportparams), ::core::mem::transmute_copy(&ppport), ::core::mem::transmute(&punkouter)).into()
@@ -35,7 +35,7 @@ impl IDirectMusic_Vtbl {
             let this = (*this).get_impl();
             this.EnumMasterClock(::core::mem::transmute_copy(&dwindex), ::core::mem::transmute_copy(&lpclockinfo)).into()
         }
-        unsafe extern "system" fn GetMasterClock<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectMusic_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidclock: *mut ::windows::core::GUID, ppreferenceclock: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetMasterClock<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectMusic_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidclock: *mut ::windows::core::GUID, ppreferenceclock: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetMasterClock(::core::mem::transmute_copy(&pguidclock), ::core::mem::transmute_copy(&ppreferenceclock)).into()
@@ -55,7 +55,7 @@ impl IDirectMusic_Vtbl {
             let this = (*this).get_impl();
             this.GetDefaultPort(::core::mem::transmute_copy(&pguidport)).into()
         }
-        unsafe extern "system" fn SetDirectSound<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectMusic_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdirectsound: ::windows::core::RawPtr, hwnd: super::super::super::Foundation::HWND) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDirectSound<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectMusic_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdirectsound: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetDirectSound(::core::mem::transmute(&pdirectsound), ::core::mem::transmute_copy(&hwnd)).into()
@@ -86,7 +86,7 @@ impl ::windows::core::RuntimeName for IDirectMusic8 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_DirectSound"))]
 impl IDirectMusic8_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectMusic8_Impl, const OFFSET: isize>() -> IDirectMusic8_Vtbl {
-        unsafe extern "system" fn SetExternalMasterClock<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectMusic8_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pclock: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetExternalMasterClock<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectMusic8_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pclock: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetExternalMasterClock(::core::mem::transmute(&pclock)).into()
@@ -208,7 +208,7 @@ pub trait IDirectMusicCollection_Impl: Sized {
 impl ::windows::core::RuntimeName for IDirectMusicCollection {}
 impl IDirectMusicCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectMusicCollection_Impl, const OFFSET: isize>() -> IDirectMusicCollection_Vtbl {
-        unsafe extern "system" fn GetInstrument<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectMusicCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwpatch: u32, ppinstrument: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetInstrument<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectMusicCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwpatch: u32, ppinstrument: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetInstrument(::core::mem::transmute_copy(&dwpatch)) {
@@ -313,7 +313,7 @@ impl ::windows::core::RuntimeName for IDirectMusicPort {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_DirectSound", feature = "Win32_System_IO"))]
 impl IDirectMusicPort_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectMusicPort_Impl, const OFFSET: isize>() -> IDirectMusicPort_Vtbl {
-        unsafe extern "system" fn PlayBuffer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectMusicPort_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbuffer: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PlayBuffer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectMusicPort_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbuffer: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.PlayBuffer(::core::mem::transmute(&pbuffer)).into()
@@ -323,22 +323,22 @@ impl IDirectMusicPort_Vtbl {
             let this = (*this).get_impl();
             this.SetReadNotificationHandle(::core::mem::transmute_copy(&hevent)).into()
         }
-        unsafe extern "system" fn Read<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectMusicPort_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbuffer: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Read<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectMusicPort_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbuffer: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Read(::core::mem::transmute(&pbuffer)).into()
         }
-        unsafe extern "system" fn DownloadInstrument<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectMusicPort_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinstrument: ::windows::core::RawPtr, ppdownloadedinstrument: *mut ::windows::core::RawPtr, pnoteranges: *mut DMUS_NOTERANGE, dwnumnoteranges: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DownloadInstrument<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectMusicPort_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinstrument: *mut ::core::ffi::c_void, ppdownloadedinstrument: *mut *mut ::core::ffi::c_void, pnoteranges: *mut DMUS_NOTERANGE, dwnumnoteranges: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.DownloadInstrument(::core::mem::transmute(&pinstrument), ::core::mem::transmute_copy(&ppdownloadedinstrument), ::core::mem::transmute_copy(&pnoteranges), ::core::mem::transmute_copy(&dwnumnoteranges)).into()
         }
-        unsafe extern "system" fn UnloadInstrument<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectMusicPort_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdownloadedinstrument: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UnloadInstrument<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectMusicPort_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdownloadedinstrument: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.UnloadInstrument(::core::mem::transmute(&pdownloadedinstrument)).into()
         }
-        unsafe extern "system" fn GetLatencyClock<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectMusicPort_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppclock: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetLatencyClock<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectMusicPort_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppclock: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetLatencyClock() {
@@ -394,7 +394,7 @@ impl IDirectMusicPort_Vtbl {
             let this = (*this).get_impl();
             this.GetChannelPriority(::core::mem::transmute_copy(&dwchannelgroup), ::core::mem::transmute_copy(&dwchannel), ::core::mem::transmute_copy(&pdwpriority)).into()
         }
-        unsafe extern "system" fn SetDirectSound<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectMusicPort_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdirectsound: ::windows::core::RawPtr, pdirectsoundbuffer: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDirectSound<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectMusicPort_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdirectsound: *mut ::core::ffi::c_void, pdirectsoundbuffer: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetDirectSound(::core::mem::transmute(&pdirectsound), ::core::mem::transmute(&pdirectsoundbuffer)).into()
@@ -440,7 +440,7 @@ pub trait IDirectMusicPortDownload_Impl: Sized {
 impl ::windows::core::RuntimeName for IDirectMusicPortDownload {}
 impl IDirectMusicPortDownload_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectMusicPortDownload_Impl, const OFFSET: isize>() -> IDirectMusicPortDownload_Vtbl {
-        unsafe extern "system" fn GetBuffer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectMusicPortDownload_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwdlid: u32, ppidmdownload: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetBuffer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectMusicPortDownload_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwdlid: u32, ppidmdownload: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetBuffer(::core::mem::transmute_copy(&dwdlid)) {
@@ -451,7 +451,7 @@ impl IDirectMusicPortDownload_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AllocateBuffer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectMusicPortDownload_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwsize: u32, ppidmdownload: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AllocateBuffer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectMusicPortDownload_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwsize: u32, ppidmdownload: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.AllocateBuffer(::core::mem::transmute_copy(&dwsize)) {
@@ -472,12 +472,12 @@ impl IDirectMusicPortDownload_Vtbl {
             let this = (*this).get_impl();
             this.GetAppend(::core::mem::transmute_copy(&pdwappend)).into()
         }
-        unsafe extern "system" fn Download<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectMusicPortDownload_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pidmdownload: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Download<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectMusicPortDownload_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pidmdownload: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Download(::core::mem::transmute(&pidmdownload)).into()
         }
-        unsafe extern "system" fn Unload<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectMusicPortDownload_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pidmdownload: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Unload<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectMusicPortDownload_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pidmdownload: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Unload(::core::mem::transmute(&pidmdownload)).into()
@@ -561,12 +561,12 @@ impl IDirectMusicSynth_Vtbl {
             let this = (*this).get_impl();
             this.GetPortCaps(::core::mem::transmute_copy(&pcaps)).into()
         }
-        unsafe extern "system" fn SetMasterClock<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectMusicSynth_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pclock: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMasterClock<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectMusicSynth_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pclock: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetMasterClock(::core::mem::transmute(&pclock)).into()
         }
-        unsafe extern "system" fn GetLatencyClock<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectMusicSynth_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppclock: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetLatencyClock<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectMusicSynth_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppclock: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetLatencyClock() {
@@ -582,7 +582,7 @@ impl IDirectMusicSynth_Vtbl {
             let this = (*this).get_impl();
             this.Activate(::core::mem::transmute_copy(&fenable)).into()
         }
-        unsafe extern "system" fn SetSynthSink<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectMusicSynth_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psynthsink: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSynthSink<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectMusicSynth_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psynthsink: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetSynthSink(::core::mem::transmute(&psynthsink)).into()
@@ -704,17 +704,17 @@ impl ::windows::core::RuntimeName for IDirectMusicSynthSink {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_DirectSound"))]
 impl IDirectMusicSynthSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectMusicSynthSink_Impl, const OFFSET: isize>() -> IDirectMusicSynthSink_Vtbl {
-        unsafe extern "system" fn Init<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectMusicSynthSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psynth: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Init<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectMusicSynthSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psynth: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Init(::core::mem::transmute(&psynth)).into()
         }
-        unsafe extern "system" fn SetMasterClock<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectMusicSynthSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pclock: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMasterClock<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectMusicSynthSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pclock: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetMasterClock(::core::mem::transmute(&pclock)).into()
         }
-        unsafe extern "system" fn GetLatencyClock<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectMusicSynthSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppclock: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetLatencyClock<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectMusicSynthSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppclock: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetLatencyClock() {
@@ -740,7 +740,7 @@ impl IDirectMusicSynthSink_Vtbl {
             let this = (*this).get_impl();
             this.RefTimeToSample(::core::mem::transmute_copy(&rftime), ::core::mem::transmute_copy(&pllsampletime)).into()
         }
-        unsafe extern "system" fn SetDirectSound<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectMusicSynthSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdirectsound: ::windows::core::RawPtr, pdirectsoundbuffer: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDirectSound<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectMusicSynthSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdirectsound: *mut ::core::ffi::c_void, pdirectsoundbuffer: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetDirectSound(::core::mem::transmute(&pdirectsound), ::core::mem::transmute(&pdirectsoundbuffer)).into()
@@ -772,7 +772,7 @@ pub trait IDirectMusicThru_Impl: Sized {
 impl ::windows::core::RuntimeName for IDirectMusicThru {}
 impl IDirectMusicThru_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectMusicThru_Impl, const OFFSET: isize>() -> IDirectMusicThru_Vtbl {
-        unsafe extern "system" fn ThruChannel<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectMusicThru_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwsourcechannelgroup: u32, dwsourcechannel: u32, dwdestinationchannelgroup: u32, dwdestinationchannel: u32, pdestinationport: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ThruChannel<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectMusicThru_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwsourcechannelgroup: u32, dwsourcechannel: u32, dwdestinationchannelgroup: u32, dwdestinationchannel: u32, pdestinationport: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ThruChannel(::core::mem::transmute_copy(&dwsourcechannelgroup), ::core::mem::transmute_copy(&dwsourcechannel), ::core::mem::transmute_copy(&dwdestinationchannelgroup), ::core::mem::transmute_copy(&dwdestinationchannel), ::core::mem::transmute(&pdestinationport)).into()

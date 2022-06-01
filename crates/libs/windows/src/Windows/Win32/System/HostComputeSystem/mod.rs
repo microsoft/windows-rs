@@ -624,7 +624,7 @@ pub unsafe fn HcsCreateOperation(context: *const ::core::ffi::c_void, callback: 
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HcsCreateOperation(context: *const ::core::ffi::c_void, callback: ::windows::core::RawPtr) -> HCS_OPERATION;
+            fn HcsCreateOperation(context: *const ::core::ffi::c_void, callback: *mut ::core::ffi::c_void) -> HCS_OPERATION;
         }
         ::core::mem::transmute(HcsCreateOperation(::core::mem::transmute(context), ::core::mem::transmute(callback)))
     }
@@ -1170,7 +1170,7 @@ pub unsafe fn HcsSetComputeSystemCallback<'a, Param0: ::windows::core::IntoParam
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HcsSetComputeSystemCallback(computesystem: HCS_SYSTEM, callbackoptions: HCS_EVENT_OPTIONS, context: *const ::core::ffi::c_void, callback: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
+            fn HcsSetComputeSystemCallback(computesystem: HCS_SYSTEM, callbackoptions: HCS_EVENT_OPTIONS, context: *const ::core::ffi::c_void, callback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         HcsSetComputeSystemCallback(computesystem.into_param().abi(), ::core::mem::transmute(callbackoptions), ::core::mem::transmute(context), ::core::mem::transmute(callback)).ok()
     }
@@ -1184,7 +1184,7 @@ pub unsafe fn HcsSetOperationCallback<'a, Param0: ::windows::core::IntoParam<'a,
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HcsSetOperationCallback(operation: HCS_OPERATION, context: *const ::core::ffi::c_void, callback: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
+            fn HcsSetOperationCallback(operation: HCS_OPERATION, context: *const ::core::ffi::c_void, callback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         HcsSetOperationCallback(operation.into_param().abi(), ::core::mem::transmute(context), ::core::mem::transmute(callback)).ok()
     }
@@ -1212,7 +1212,7 @@ pub unsafe fn HcsSetProcessCallback<'a, Param0: ::windows::core::IntoParam<'a, H
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HcsSetProcessCallback(process: HCS_PROCESS, callbackoptions: HCS_EVENT_OPTIONS, context: *const ::core::ffi::c_void, callback: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
+            fn HcsSetProcessCallback(process: HCS_PROCESS, callbackoptions: HCS_EVENT_OPTIONS, context: *const ::core::ffi::c_void, callback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         HcsSetProcessCallback(process.into_param().abi(), ::core::mem::transmute(callbackoptions), ::core::mem::transmute(context), ::core::mem::transmute(callback)).ok()
     }

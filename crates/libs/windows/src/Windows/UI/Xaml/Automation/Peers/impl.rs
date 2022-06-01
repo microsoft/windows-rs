@@ -109,7 +109,7 @@ impl IAutomationPeerOverrides_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetChildrenCore<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAutomationPeerOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetChildrenCore<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAutomationPeerOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetChildrenCore() {
@@ -181,7 +181,7 @@ impl IAutomationPeerOverrides_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetLabeledByCore<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAutomationPeerOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetLabeledByCore<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAutomationPeerOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetLabeledByCore() {
@@ -330,7 +330,7 @@ impl IAutomationPeerOverrides_Vtbl {
             let this = (*this).get_impl();
             this.SetFocusCore().into()
         }
-        unsafe extern "system" fn GetPeerFromPointCore<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAutomationPeerOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, point: super::super::super::super::Foundation::Point, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPeerFromPointCore<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAutomationPeerOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, point: super::super::super::super::Foundation::Point, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetPeerFromPointCore(::core::mem::transmute(&point)) {
@@ -408,7 +408,7 @@ impl IAutomationPeerOverrides2_Vtbl {
             let this = (*this).get_impl();
             this.ShowContextMenuCore().into()
         }
-        unsafe extern "system" fn GetControlledPeersCore<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAutomationPeerOverrides2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetControlledPeersCore<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAutomationPeerOverrides2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetControlledPeersCore() {
@@ -483,7 +483,7 @@ impl IAutomationPeerOverrides3_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAnnotationsCore<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAutomationPeerOverrides3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAnnotationsCore<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAutomationPeerOverrides3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetAnnotationsCore() {
@@ -641,7 +641,7 @@ impl IAutomationPeerOverrides5_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDescribedByCore<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAutomationPeerOverrides5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDescribedByCore<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAutomationPeerOverrides5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetDescribedByCore() {
@@ -653,7 +653,7 @@ impl IAutomationPeerOverrides5_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFlowsToCore<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAutomationPeerOverrides5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFlowsToCore<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAutomationPeerOverrides5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetFlowsToCore() {
@@ -665,7 +665,7 @@ impl IAutomationPeerOverrides5_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFlowsFromCore<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAutomationPeerOverrides5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFlowsFromCore<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAutomationPeerOverrides5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetFlowsFromCore() {
@@ -786,7 +786,7 @@ impl ::windows::core::RuntimeName for IItemsControlAutomationPeerOverrides2 {
 }
 impl IItemsControlAutomationPeerOverrides2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IItemsControlAutomationPeerOverrides2_Impl, const OFFSET: isize>() -> IItemsControlAutomationPeerOverrides2_Vtbl {
-        unsafe extern "system" fn OnCreateItemAutomationPeer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IItemsControlAutomationPeerOverrides2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, item: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnCreateItemAutomationPeer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IItemsControlAutomationPeerOverrides2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, item: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.OnCreateItemAutomationPeer(::core::mem::transmute(&item)) {

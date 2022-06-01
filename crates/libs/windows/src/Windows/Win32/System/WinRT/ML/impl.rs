@@ -7,7 +7,7 @@ impl ::windows::core::RuntimeName for ILearningModelDeviceFactoryNative {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ILearningModelDeviceFactoryNative_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILearningModelDeviceFactoryNative_Impl, const OFFSET: isize>() -> ILearningModelDeviceFactoryNative_Vtbl {
-        unsafe extern "system" fn CreateFromD3D12CommandQueue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILearningModelDeviceFactoryNative_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateFromD3D12CommandQueue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILearningModelDeviceFactoryNative_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, result: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateFromD3D12CommandQueue(::core::mem::transmute(&value)) {
@@ -36,7 +36,7 @@ impl ::windows::core::RuntimeName for ILearningModelOperatorProviderNative {}
 #[cfg(feature = "Win32_AI_MachineLearning_WinML")]
 impl ILearningModelOperatorProviderNative_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILearningModelOperatorProviderNative_Impl, const OFFSET: isize>() -> ILearningModelOperatorProviderNative_Vtbl {
-        unsafe extern "system" fn GetRegistry<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILearningModelOperatorProviderNative_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppoperatorregistry: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetRegistry<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILearningModelOperatorProviderNative_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppoperatorregistry: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetRegistry() {
@@ -88,7 +88,7 @@ impl ITensorNative_Vtbl {
             let this = (*this).get_impl();
             this.GetBuffer(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&capacity)).into()
         }
-        unsafe extern "system" fn GetD3D12Resource<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITensorNative_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetD3D12Resource<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITensorNative_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetD3D12Resource() {
@@ -118,7 +118,7 @@ impl ::windows::core::RuntimeName for ITensorStaticsNative {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ITensorStaticsNative_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITensorStaticsNative_Impl, const OFFSET: isize>() -> ITensorStaticsNative_Vtbl {
-        unsafe extern "system" fn CreateFromD3D12Resource<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITensorStaticsNative_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, shape: *mut i64, shapecount: i32, result: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateFromD3D12Resource<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITensorStaticsNative_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, shape: *mut i64, shapecount: i32, result: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.CreateFromD3D12Resource(::core::mem::transmute(&value), ::core::mem::transmute_copy(&shape), ::core::mem::transmute_copy(&shapecount), ::core::mem::transmute_copy(&result)).into()

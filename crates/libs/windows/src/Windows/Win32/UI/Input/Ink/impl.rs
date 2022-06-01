@@ -60,7 +60,7 @@ pub trait IInkDesktopHost_Impl: Sized {
 impl ::windows::core::RuntimeName for IInkDesktopHost {}
 impl IInkDesktopHost_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IInkDesktopHost_Impl, const OFFSET: isize>() -> IInkDesktopHost_Vtbl {
-        unsafe extern "system" fn QueueWorkItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IInkDesktopHost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, workitem: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn QueueWorkItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IInkDesktopHost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, workitem: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.QueueWorkItem(::core::mem::transmute(&workitem)).into()
@@ -118,7 +118,7 @@ impl IInkPresenterDesktop_Vtbl {
             let this = (*this).get_impl();
             this.SetRootVisual(::core::mem::transmute(&rootvisual), ::core::mem::transmute(&device)).into()
         }
-        unsafe extern "system" fn SetCommitRequestHandler<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IInkPresenterDesktop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCommitRequestHandler<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IInkPresenterDesktop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetCommitRequestHandler(::core::mem::transmute(&handler)).into()

@@ -55,7 +55,7 @@ impl AmbientLight {
     pub fn Targets(&self) -> ::windows::core::Result<VisualUnorderedCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionLight>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Targets)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<VisualUnorderedCollection>(result__)
         }
     }
@@ -63,7 +63,7 @@ impl AmbientLight {
     pub fn ExclusionsFromTargets(&self) -> ::windows::core::Result<VisualUnorderedCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionLight2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ExclusionsFromTargets)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<VisualUnorderedCollection>(result__)
         }
     }
@@ -84,7 +84,7 @@ impl AmbientLight {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -93,7 +93,7 @@ impl AmbientLight {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -101,7 +101,7 @@ impl AmbientLight {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -132,7 +132,7 @@ impl AmbientLight {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -156,7 +156,7 @@ impl AmbientLight {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -164,7 +164,7 @@ impl AmbientLight {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -411,7 +411,7 @@ impl AnimationController {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -420,7 +420,7 @@ impl AnimationController {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -428,7 +428,7 @@ impl AnimationController {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -459,7 +459,7 @@ impl AnimationController {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -483,7 +483,7 @@ impl AnimationController {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -491,7 +491,7 @@ impl AnimationController {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -841,7 +841,7 @@ impl AnimationPropertyInfo {
     pub fn GetResolvedCompositionObject(&self) -> ::windows::core::Result<CompositionObject> {
         let this = &::windows::core::Interface::cast::<IAnimationPropertyInfo2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetResolvedCompositionObject)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionObject>(result__)
         }
     }
@@ -863,7 +863,7 @@ impl AnimationPropertyInfo {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -872,7 +872,7 @@ impl AnimationPropertyInfo {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -880,7 +880,7 @@ impl AnimationPropertyInfo {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -911,7 +911,7 @@ impl AnimationPropertyInfo {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -935,7 +935,7 @@ impl AnimationPropertyInfo {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -943,7 +943,7 @@ impl AnimationPropertyInfo {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -1158,7 +1158,7 @@ impl BackEasingFunction {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -1167,7 +1167,7 @@ impl BackEasingFunction {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -1175,7 +1175,7 @@ impl BackEasingFunction {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -1206,7 +1206,7 @@ impl BackEasingFunction {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -1230,7 +1230,7 @@ impl BackEasingFunction {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -1238,7 +1238,7 @@ impl BackEasingFunction {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -1507,7 +1507,7 @@ impl BooleanKeyFrameAnimation {
     pub fn InitialValueExpressions(&self) -> ::windows::core::Result<InitialValueExpressionCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).InitialValueExpressions)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<InitialValueExpressionCollection>(result__)
         }
     }
@@ -1520,7 +1520,7 @@ impl BooleanKeyFrameAnimation {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -1529,7 +1529,7 @@ impl BooleanKeyFrameAnimation {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -1537,7 +1537,7 @@ impl BooleanKeyFrameAnimation {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -1568,7 +1568,7 @@ impl BooleanKeyFrameAnimation {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -1592,7 +1592,7 @@ impl BooleanKeyFrameAnimation {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -1600,7 +1600,7 @@ impl BooleanKeyFrameAnimation {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -1963,7 +1963,7 @@ impl BounceEasingFunction {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -1972,7 +1972,7 @@ impl BounceEasingFunction {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -1980,7 +1980,7 @@ impl BounceEasingFunction {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -2011,7 +2011,7 @@ impl BounceEasingFunction {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -2035,7 +2035,7 @@ impl BounceEasingFunction {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -2043,7 +2043,7 @@ impl BounceEasingFunction {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -2333,7 +2333,7 @@ impl BounceScalarNaturalMotionAnimation {
     pub fn InitialValueExpressions(&self) -> ::windows::core::Result<InitialValueExpressionCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).InitialValueExpressions)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<InitialValueExpressionCollection>(result__)
         }
     }
@@ -2346,7 +2346,7 @@ impl BounceScalarNaturalMotionAnimation {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -2355,7 +2355,7 @@ impl BounceScalarNaturalMotionAnimation {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -2363,7 +2363,7 @@ impl BounceScalarNaturalMotionAnimation {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -2394,7 +2394,7 @@ impl BounceScalarNaturalMotionAnimation {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -2418,7 +2418,7 @@ impl BounceScalarNaturalMotionAnimation {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -2426,7 +2426,7 @@ impl BounceScalarNaturalMotionAnimation {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -2476,7 +2476,7 @@ impl BounceScalarNaturalMotionAnimation {
     pub fn FinalValue(&self) -> ::windows::core::Result<super::super::Foundation::IReference<f32>> {
         let this = &::windows::core::Interface::cast::<IScalarNaturalMotionAnimation>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FinalValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f32>>(result__)
         }
     }
@@ -2491,7 +2491,7 @@ impl BounceScalarNaturalMotionAnimation {
     pub fn InitialValue(&self) -> ::windows::core::Result<super::super::Foundation::IReference<f32>> {
         let this = &::windows::core::Interface::cast::<IScalarNaturalMotionAnimation>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).InitialValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f32>>(result__)
         }
     }
@@ -2862,7 +2862,7 @@ impl BounceVector2NaturalMotionAnimation {
     pub fn InitialValueExpressions(&self) -> ::windows::core::Result<InitialValueExpressionCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).InitialValueExpressions)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<InitialValueExpressionCollection>(result__)
         }
     }
@@ -2875,7 +2875,7 @@ impl BounceVector2NaturalMotionAnimation {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -2884,7 +2884,7 @@ impl BounceVector2NaturalMotionAnimation {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -2892,7 +2892,7 @@ impl BounceVector2NaturalMotionAnimation {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -2923,7 +2923,7 @@ impl BounceVector2NaturalMotionAnimation {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -2947,7 +2947,7 @@ impl BounceVector2NaturalMotionAnimation {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -2955,7 +2955,7 @@ impl BounceVector2NaturalMotionAnimation {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -3005,7 +3005,7 @@ impl BounceVector2NaturalMotionAnimation {
     pub fn FinalValue(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>> {
         let this = &::windows::core::Interface::cast::<IVector2NaturalMotionAnimation>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FinalValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>>(result__)
         }
     }
@@ -3020,7 +3020,7 @@ impl BounceVector2NaturalMotionAnimation {
     pub fn InitialValue(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>> {
         let this = &::windows::core::Interface::cast::<IVector2NaturalMotionAnimation>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).InitialValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>>(result__)
         }
     }
@@ -3393,7 +3393,7 @@ impl BounceVector3NaturalMotionAnimation {
     pub fn InitialValueExpressions(&self) -> ::windows::core::Result<InitialValueExpressionCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).InitialValueExpressions)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<InitialValueExpressionCollection>(result__)
         }
     }
@@ -3406,7 +3406,7 @@ impl BounceVector3NaturalMotionAnimation {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -3415,7 +3415,7 @@ impl BounceVector3NaturalMotionAnimation {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -3423,7 +3423,7 @@ impl BounceVector3NaturalMotionAnimation {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -3454,7 +3454,7 @@ impl BounceVector3NaturalMotionAnimation {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -3478,7 +3478,7 @@ impl BounceVector3NaturalMotionAnimation {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -3486,7 +3486,7 @@ impl BounceVector3NaturalMotionAnimation {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -3536,7 +3536,7 @@ impl BounceVector3NaturalMotionAnimation {
     pub fn FinalValue(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>> {
         let this = &::windows::core::Interface::cast::<IVector3NaturalMotionAnimation>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FinalValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>>(result__)
         }
     }
@@ -3551,7 +3551,7 @@ impl BounceVector3NaturalMotionAnimation {
     pub fn InitialValue(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>> {
         let this = &::windows::core::Interface::cast::<IVector3NaturalMotionAnimation>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).InitialValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>>(result__)
         }
     }
@@ -3826,7 +3826,7 @@ impl CircleEasingFunction {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -3835,7 +3835,7 @@ impl CircleEasingFunction {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -3843,7 +3843,7 @@ impl CircleEasingFunction {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -3874,7 +3874,7 @@ impl CircleEasingFunction {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -3898,7 +3898,7 @@ impl CircleEasingFunction {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -3906,7 +3906,7 @@ impl CircleEasingFunction {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -4193,7 +4193,7 @@ impl ColorKeyFrameAnimation {
     pub fn InitialValueExpressions(&self) -> ::windows::core::Result<InitialValueExpressionCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).InitialValueExpressions)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<InitialValueExpressionCollection>(result__)
         }
     }
@@ -4206,7 +4206,7 @@ impl ColorKeyFrameAnimation {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -4215,7 +4215,7 @@ impl ColorKeyFrameAnimation {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -4223,7 +4223,7 @@ impl ColorKeyFrameAnimation {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -4254,7 +4254,7 @@ impl ColorKeyFrameAnimation {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -4278,7 +4278,7 @@ impl ColorKeyFrameAnimation {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -4286,7 +4286,7 @@ impl ColorKeyFrameAnimation {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -4705,7 +4705,7 @@ impl CompositionAnimation {
     pub fn InitialValueExpressions(&self) -> ::windows::core::Result<InitialValueExpressionCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).InitialValueExpressions)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<InitialValueExpressionCollection>(result__)
         }
     }
@@ -4718,7 +4718,7 @@ impl CompositionAnimation {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -4727,7 +4727,7 @@ impl CompositionAnimation {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -4735,7 +4735,7 @@ impl CompositionAnimation {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -4766,7 +4766,7 @@ impl CompositionAnimation {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -4790,7 +4790,7 @@ impl CompositionAnimation {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -4798,7 +4798,7 @@ impl CompositionAnimation {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -5007,7 +5007,7 @@ impl CompositionAnimationGroup {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -5016,7 +5016,7 @@ impl CompositionAnimationGroup {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -5024,7 +5024,7 @@ impl CompositionAnimationGroup {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -5055,7 +5055,7 @@ impl CompositionAnimationGroup {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -5079,7 +5079,7 @@ impl CompositionAnimationGroup {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -5087,7 +5087,7 @@ impl CompositionAnimationGroup {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -5096,7 +5096,7 @@ impl CompositionAnimationGroup {
     pub fn First(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IIterator<CompositionAnimation>> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IIterable<CompositionAnimation>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IIterator<CompositionAnimation>>(result__)
         }
     }
@@ -5324,7 +5324,7 @@ impl CompositionBackdropBrush {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -5333,7 +5333,7 @@ impl CompositionBackdropBrush {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -5341,7 +5341,7 @@ impl CompositionBackdropBrush {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -5372,7 +5372,7 @@ impl CompositionBackdropBrush {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -5396,7 +5396,7 @@ impl CompositionBackdropBrush {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -5404,7 +5404,7 @@ impl CompositionBackdropBrush {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -5623,7 +5623,7 @@ impl CompositionBatchCompletedEventArgs {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -5632,7 +5632,7 @@ impl CompositionBatchCompletedEventArgs {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -5640,7 +5640,7 @@ impl CompositionBatchCompletedEventArgs {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -5671,7 +5671,7 @@ impl CompositionBatchCompletedEventArgs {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -5695,7 +5695,7 @@ impl CompositionBatchCompletedEventArgs {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -5703,7 +5703,7 @@ impl CompositionBatchCompletedEventArgs {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -6009,7 +6009,7 @@ impl CompositionBrush {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -6018,7 +6018,7 @@ impl CompositionBrush {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -6026,7 +6026,7 @@ impl CompositionBrush {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -6057,7 +6057,7 @@ impl CompositionBrush {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -6081,7 +6081,7 @@ impl CompositionBrush {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -6089,7 +6089,7 @@ impl CompositionBrush {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -6272,7 +6272,7 @@ impl CompositionCapabilities {
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn GetForCurrentView() -> ::windows::core::Result<CompositionCapabilities> {
         Self::ICompositionCapabilitiesStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetForCurrentView)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionCapabilities>(result__)
         })
     }
@@ -6474,7 +6474,7 @@ impl CompositionClip {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -6483,7 +6483,7 @@ impl CompositionClip {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -6491,7 +6491,7 @@ impl CompositionClip {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -6522,7 +6522,7 @@ impl CompositionClip {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -6546,7 +6546,7 @@ impl CompositionClip {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -6554,7 +6554,7 @@ impl CompositionClip {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -6731,7 +6731,7 @@ impl CompositionColorBrush {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -6740,7 +6740,7 @@ impl CompositionColorBrush {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -6748,7 +6748,7 @@ impl CompositionColorBrush {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -6779,7 +6779,7 @@ impl CompositionColorBrush {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -6803,7 +6803,7 @@ impl CompositionColorBrush {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -6811,7 +6811,7 @@ impl CompositionColorBrush {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -7021,7 +7021,7 @@ impl CompositionColorGradientStop {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -7030,7 +7030,7 @@ impl CompositionColorGradientStop {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -7038,7 +7038,7 @@ impl CompositionColorGradientStop {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -7069,7 +7069,7 @@ impl CompositionColorGradientStop {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -7093,7 +7093,7 @@ impl CompositionColorGradientStop {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -7101,7 +7101,7 @@ impl CompositionColorGradientStop {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -7255,7 +7255,7 @@ impl CompositionColorGradientStopCollection {
     pub fn First(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IIterator<CompositionColorGradientStop>> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IIterable<CompositionColorGradientStop>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IIterator<CompositionColorGradientStop>>(result__)
         }
     }
@@ -7264,7 +7264,7 @@ impl CompositionColorGradientStopCollection {
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<CompositionColorGradientStop> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IVector<CompositionColorGradientStop>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetAt)(::windows::core::Interface::as_raw(this), index, result__.as_mut_ptr()).from_abi::<CompositionColorGradientStop>(result__)
         }
     }
@@ -7282,7 +7282,7 @@ impl CompositionColorGradientStopCollection {
     pub fn GetView(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<CompositionColorGradientStop>> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IVector<CompositionColorGradientStop>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetView)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<CompositionColorGradientStop>>(result__)
         }
     }
@@ -7574,7 +7574,7 @@ impl CompositionCommitBatch {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -7583,7 +7583,7 @@ impl CompositionCommitBatch {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -7591,7 +7591,7 @@ impl CompositionCommitBatch {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -7622,7 +7622,7 @@ impl CompositionCommitBatch {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -7646,7 +7646,7 @@ impl CompositionCommitBatch {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -7654,7 +7654,7 @@ impl CompositionCommitBatch {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -7855,7 +7855,7 @@ impl CompositionContainerShape {
     pub fn Shapes(&self) -> ::windows::core::Result<CompositionShapeCollection> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Shapes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionShapeCollection>(result__)
         }
     }
@@ -7863,7 +7863,7 @@ impl CompositionContainerShape {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -7872,7 +7872,7 @@ impl CompositionContainerShape {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -7880,7 +7880,7 @@ impl CompositionContainerShape {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -7911,7 +7911,7 @@ impl CompositionContainerShape {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -7935,7 +7935,7 @@ impl CompositionContainerShape {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -7943,7 +7943,7 @@ impl CompositionContainerShape {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -8279,7 +8279,7 @@ impl CompositionDrawingSurface {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -8288,7 +8288,7 @@ impl CompositionDrawingSurface {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -8296,7 +8296,7 @@ impl CompositionDrawingSurface {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -8327,7 +8327,7 @@ impl CompositionDrawingSurface {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -8351,7 +8351,7 @@ impl CompositionDrawingSurface {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -8359,7 +8359,7 @@ impl CompositionDrawingSurface {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -8579,77 +8579,77 @@ impl CompositionEasingFunction {
     #[cfg(feature = "Foundation_Numerics")]
     pub fn CreateCubicBezierEasingFunction<'a, Param0: ::windows::core::IntoParam<'a, Compositor>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Numerics::Vector2>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::Numerics::Vector2>>(owner: Param0, controlpoint1: Param1, controlpoint2: Param2) -> ::windows::core::Result<CubicBezierEasingFunction> {
         Self::ICompositionEasingFunctionStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateCubicBezierEasingFunction)(::windows::core::Interface::as_raw(this), owner.into_param().abi(), controlpoint1.into_param().abi(), controlpoint2.into_param().abi(), result__.as_mut_ptr()).from_abi::<CubicBezierEasingFunction>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn CreateLinearEasingFunction<'a, Param0: ::windows::core::IntoParam<'a, Compositor>>(owner: Param0) -> ::windows::core::Result<LinearEasingFunction> {
         Self::ICompositionEasingFunctionStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateLinearEasingFunction)(::windows::core::Interface::as_raw(this), owner.into_param().abi(), result__.as_mut_ptr()).from_abi::<LinearEasingFunction>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn CreateStepEasingFunction<'a, Param0: ::windows::core::IntoParam<'a, Compositor>>(owner: Param0) -> ::windows::core::Result<StepEasingFunction> {
         Self::ICompositionEasingFunctionStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateStepEasingFunction)(::windows::core::Interface::as_raw(this), owner.into_param().abi(), result__.as_mut_ptr()).from_abi::<StepEasingFunction>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn CreateStepEasingFunctionWithStepCount<'a, Param0: ::windows::core::IntoParam<'a, Compositor>>(owner: Param0, stepcount: i32) -> ::windows::core::Result<StepEasingFunction> {
         Self::ICompositionEasingFunctionStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateStepEasingFunctionWithStepCount)(::windows::core::Interface::as_raw(this), owner.into_param().abi(), stepcount, result__.as_mut_ptr()).from_abi::<StepEasingFunction>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn CreateBackEasingFunction<'a, Param0: ::windows::core::IntoParam<'a, Compositor>>(owner: Param0, mode: CompositionEasingFunctionMode, amplitude: f32) -> ::windows::core::Result<BackEasingFunction> {
         Self::ICompositionEasingFunctionStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateBackEasingFunction)(::windows::core::Interface::as_raw(this), owner.into_param().abi(), mode, amplitude, result__.as_mut_ptr()).from_abi::<BackEasingFunction>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn CreateBounceEasingFunction<'a, Param0: ::windows::core::IntoParam<'a, Compositor>>(owner: Param0, mode: CompositionEasingFunctionMode, bounces: i32, bounciness: f32) -> ::windows::core::Result<BounceEasingFunction> {
         Self::ICompositionEasingFunctionStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateBounceEasingFunction)(::windows::core::Interface::as_raw(this), owner.into_param().abi(), mode, bounces, bounciness, result__.as_mut_ptr()).from_abi::<BounceEasingFunction>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn CreateCircleEasingFunction<'a, Param0: ::windows::core::IntoParam<'a, Compositor>>(owner: Param0, mode: CompositionEasingFunctionMode) -> ::windows::core::Result<CircleEasingFunction> {
         Self::ICompositionEasingFunctionStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateCircleEasingFunction)(::windows::core::Interface::as_raw(this), owner.into_param().abi(), mode, result__.as_mut_ptr()).from_abi::<CircleEasingFunction>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn CreateElasticEasingFunction<'a, Param0: ::windows::core::IntoParam<'a, Compositor>>(owner: Param0, mode: CompositionEasingFunctionMode, oscillations: i32, springiness: f32) -> ::windows::core::Result<ElasticEasingFunction> {
         Self::ICompositionEasingFunctionStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateElasticEasingFunction)(::windows::core::Interface::as_raw(this), owner.into_param().abi(), mode, oscillations, springiness, result__.as_mut_ptr()).from_abi::<ElasticEasingFunction>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn CreateExponentialEasingFunction<'a, Param0: ::windows::core::IntoParam<'a, Compositor>>(owner: Param0, mode: CompositionEasingFunctionMode, exponent: f32) -> ::windows::core::Result<ExponentialEasingFunction> {
         Self::ICompositionEasingFunctionStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateExponentialEasingFunction)(::windows::core::Interface::as_raw(this), owner.into_param().abi(), mode, exponent, result__.as_mut_ptr()).from_abi::<ExponentialEasingFunction>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn CreatePowerEasingFunction<'a, Param0: ::windows::core::IntoParam<'a, Compositor>>(owner: Param0, mode: CompositionEasingFunctionMode, power: f32) -> ::windows::core::Result<PowerEasingFunction> {
         Self::ICompositionEasingFunctionStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreatePowerEasingFunction)(::windows::core::Interface::as_raw(this), owner.into_param().abi(), mode, power, result__.as_mut_ptr()).from_abi::<PowerEasingFunction>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn CreateSineEasingFunction<'a, Param0: ::windows::core::IntoParam<'a, Compositor>>(owner: Param0, mode: CompositionEasingFunctionMode) -> ::windows::core::Result<SineEasingFunction> {
         Self::ICompositionEasingFunctionStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateSineEasingFunction)(::windows::core::Interface::as_raw(this), owner.into_param().abi(), mode, result__.as_mut_ptr()).from_abi::<SineEasingFunction>(result__)
         })
     }
@@ -8657,7 +8657,7 @@ impl CompositionEasingFunction {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -8666,7 +8666,7 @@ impl CompositionEasingFunction {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -8674,7 +8674,7 @@ impl CompositionEasingFunction {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -8705,7 +8705,7 @@ impl CompositionEasingFunction {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -8729,7 +8729,7 @@ impl CompositionEasingFunction {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -8737,7 +8737,7 @@ impl CompositionEasingFunction {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -8941,7 +8941,7 @@ impl CompositionEffectBrush {
     pub fn GetSourceParameter<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0) -> ::windows::core::Result<CompositionBrush> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetSourceParameter)(::windows::core::Interface::as_raw(this), name.into_param().abi(), result__.as_mut_ptr()).from_abi::<CompositionBrush>(result__)
         }
     }
@@ -8954,7 +8954,7 @@ impl CompositionEffectBrush {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -8963,7 +8963,7 @@ impl CompositionEffectBrush {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -8971,7 +8971,7 @@ impl CompositionEffectBrush {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -9002,7 +9002,7 @@ impl CompositionEffectBrush {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -9026,7 +9026,7 @@ impl CompositionEffectBrush {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -9034,7 +9034,7 @@ impl CompositionEffectBrush {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -9218,7 +9218,7 @@ impl CompositionEffectFactory {
     pub fn CreateBrush(&self) -> ::windows::core::Result<CompositionEffectBrush> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateBrush)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionEffectBrush>(result__)
         }
     }
@@ -9242,7 +9242,7 @@ impl CompositionEffectFactory {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -9251,7 +9251,7 @@ impl CompositionEffectFactory {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -9259,7 +9259,7 @@ impl CompositionEffectFactory {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -9290,7 +9290,7 @@ impl CompositionEffectFactory {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -9314,7 +9314,7 @@ impl CompositionEffectFactory {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -9322,7 +9322,7 @@ impl CompositionEffectFactory {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -9518,7 +9518,7 @@ impl CompositionEffectSourceParameter {
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(name: Param0) -> ::windows::core::Result<CompositionEffectSourceParameter> {
         Self::ICompositionEffectSourceParameterFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), name.into_param().abi(), result__.as_mut_ptr()).from_abi::<CompositionEffectSourceParameter>(result__)
         })
     }
@@ -9714,7 +9714,7 @@ impl CompositionEllipseGeometry {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -9723,7 +9723,7 @@ impl CompositionEllipseGeometry {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -9731,7 +9731,7 @@ impl CompositionEllipseGeometry {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -9762,7 +9762,7 @@ impl CompositionEllipseGeometry {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -9786,7 +9786,7 @@ impl CompositionEllipseGeometry {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -9794,7 +9794,7 @@ impl CompositionEllipseGeometry {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -10079,7 +10079,7 @@ impl CompositionGeometricClip {
     pub fn Geometry(&self) -> ::windows::core::Result<CompositionGeometry> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Geometry)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionGeometry>(result__)
         }
     }
@@ -10092,7 +10092,7 @@ impl CompositionGeometricClip {
     pub fn ViewBox(&self) -> ::windows::core::Result<CompositionViewBox> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ViewBox)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionViewBox>(result__)
         }
     }
@@ -10105,7 +10105,7 @@ impl CompositionGeometricClip {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -10114,7 +10114,7 @@ impl CompositionGeometricClip {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -10122,7 +10122,7 @@ impl CompositionGeometricClip {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -10153,7 +10153,7 @@ impl CompositionGeometricClip {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -10177,7 +10177,7 @@ impl CompositionGeometricClip {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -10185,7 +10185,7 @@ impl CompositionGeometricClip {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -10408,7 +10408,7 @@ impl CompositionGeometry {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -10417,7 +10417,7 @@ impl CompositionGeometry {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -10425,7 +10425,7 @@ impl CompositionGeometry {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -10456,7 +10456,7 @@ impl CompositionGeometry {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -10480,7 +10480,7 @@ impl CompositionGeometry {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -10488,7 +10488,7 @@ impl CompositionGeometry {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -10717,7 +10717,7 @@ impl CompositionGradientBrush {
     pub fn ColorStops(&self) -> ::windows::core::Result<CompositionColorGradientStopCollection> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ColorStops)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionColorGradientStopCollection>(result__)
         }
     }
@@ -10835,7 +10835,7 @@ impl CompositionGradientBrush {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -10844,7 +10844,7 @@ impl CompositionGradientBrush {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -10852,7 +10852,7 @@ impl CompositionGradientBrush {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -10883,7 +10883,7 @@ impl CompositionGradientBrush {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -10907,7 +10907,7 @@ impl CompositionGradientBrush {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -10915,7 +10915,7 @@ impl CompositionGradientBrush {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -11135,7 +11135,7 @@ impl CompositionGraphicsDevice {
     pub fn CreateDrawingSurface<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Size>>(&self, sizepixels: Param0, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode) -> ::windows::core::Result<CompositionDrawingSurface> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateDrawingSurface)(::windows::core::Interface::as_raw(this), sizepixels.into_param().abi(), pixelformat, alphamode, result__.as_mut_ptr()).from_abi::<CompositionDrawingSurface>(result__)
         }
     }
@@ -11159,7 +11159,7 @@ impl CompositionGraphicsDevice {
     pub fn CreateDrawingSurface2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::SizeInt32>>(&self, sizepixels: Param0, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode) -> ::windows::core::Result<CompositionDrawingSurface> {
         let this = &::windows::core::Interface::cast::<ICompositionGraphicsDevice2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateDrawingSurface2)(::windows::core::Interface::as_raw(this), sizepixels.into_param().abi(), pixelformat, alphamode, result__.as_mut_ptr()).from_abi::<CompositionDrawingSurface>(result__)
         }
     }
@@ -11168,7 +11168,7 @@ impl CompositionGraphicsDevice {
     pub fn CreateVirtualDrawingSurface<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::SizeInt32>>(&self, sizepixels: Param0, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode) -> ::windows::core::Result<CompositionVirtualDrawingSurface> {
         let this = &::windows::core::Interface::cast::<ICompositionGraphicsDevice2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateVirtualDrawingSurface)(::windows::core::Interface::as_raw(this), sizepixels.into_param().abi(), pixelformat, alphamode, result__.as_mut_ptr()).from_abi::<CompositionVirtualDrawingSurface>(result__)
         }
     }
@@ -11177,7 +11177,7 @@ impl CompositionGraphicsDevice {
     pub fn CreateMipmapSurface<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::SizeInt32>>(&self, sizepixels: Param0, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode) -> ::windows::core::Result<CompositionMipmapSurface> {
         let this = &::windows::core::Interface::cast::<ICompositionGraphicsDevice3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateMipmapSurface)(::windows::core::Interface::as_raw(this), sizepixels.into_param().abi(), pixelformat, alphamode, result__.as_mut_ptr()).from_abi::<CompositionMipmapSurface>(result__)
         }
     }
@@ -11191,7 +11191,7 @@ impl CompositionGraphicsDevice {
     pub fn CaptureAsync<'a, Param0: ::windows::core::IntoParam<'a, Visual>, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::SizeInt32>>(&self, capturevisual: Param0, size: Param1, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode, sdrboost: f32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ICompositionSurface>> {
         let this = &::windows::core::Interface::cast::<ICompositionGraphicsDevice4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CaptureAsync)(::windows::core::Interface::as_raw(this), capturevisual.into_param().abi(), size.into_param().abi(), pixelformat, alphamode, sdrboost, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ICompositionSurface>>(result__)
         }
     }
@@ -11199,7 +11199,7 @@ impl CompositionGraphicsDevice {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -11208,7 +11208,7 @@ impl CompositionGraphicsDevice {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -11216,7 +11216,7 @@ impl CompositionGraphicsDevice {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -11247,7 +11247,7 @@ impl CompositionGraphicsDevice {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -11271,7 +11271,7 @@ impl CompositionGraphicsDevice {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -11279,7 +11279,7 @@ impl CompositionGraphicsDevice {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -11443,7 +11443,7 @@ impl CompositionLight {
     pub fn Targets(&self) -> ::windows::core::Result<VisualUnorderedCollection> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Targets)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<VisualUnorderedCollection>(result__)
         }
     }
@@ -11451,7 +11451,7 @@ impl CompositionLight {
     pub fn ExclusionsFromTargets(&self) -> ::windows::core::Result<VisualUnorderedCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionLight2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ExclusionsFromTargets)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<VisualUnorderedCollection>(result__)
         }
     }
@@ -11472,7 +11472,7 @@ impl CompositionLight {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -11481,7 +11481,7 @@ impl CompositionLight {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -11489,7 +11489,7 @@ impl CompositionLight {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -11520,7 +11520,7 @@ impl CompositionLight {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -11544,7 +11544,7 @@ impl CompositionLight {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -11552,7 +11552,7 @@ impl CompositionLight {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -11785,7 +11785,7 @@ impl CompositionLineGeometry {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -11794,7 +11794,7 @@ impl CompositionLineGeometry {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -11802,7 +11802,7 @@ impl CompositionLineGeometry {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -11833,7 +11833,7 @@ impl CompositionLineGeometry {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -11857,7 +11857,7 @@ impl CompositionLineGeometry {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -11865,7 +11865,7 @@ impl CompositionLineGeometry {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -12079,7 +12079,7 @@ impl CompositionLinearGradientBrush {
     pub fn ColorStops(&self) -> ::windows::core::Result<CompositionColorGradientStopCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionGradientBrush>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ColorStops)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionColorGradientStopCollection>(result__)
         }
     }
@@ -12227,7 +12227,7 @@ impl CompositionLinearGradientBrush {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -12236,7 +12236,7 @@ impl CompositionLinearGradientBrush {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -12244,7 +12244,7 @@ impl CompositionLinearGradientBrush {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -12275,7 +12275,7 @@ impl CompositionLinearGradientBrush {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -12299,7 +12299,7 @@ impl CompositionLinearGradientBrush {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -12307,7 +12307,7 @@ impl CompositionLinearGradientBrush {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -12545,7 +12545,7 @@ impl CompositionMaskBrush {
     pub fn Mask(&self) -> ::windows::core::Result<CompositionBrush> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Mask)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionBrush>(result__)
         }
     }
@@ -12558,7 +12558,7 @@ impl CompositionMaskBrush {
     pub fn Source(&self) -> ::windows::core::Result<CompositionBrush> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Source)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionBrush>(result__)
         }
     }
@@ -12571,7 +12571,7 @@ impl CompositionMaskBrush {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -12580,7 +12580,7 @@ impl CompositionMaskBrush {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -12588,7 +12588,7 @@ impl CompositionMaskBrush {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -12619,7 +12619,7 @@ impl CompositionMaskBrush {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -12643,7 +12643,7 @@ impl CompositionMaskBrush {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -12651,7 +12651,7 @@ impl CompositionMaskBrush {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -12870,7 +12870,7 @@ impl CompositionMipmapSurface {
     pub fn GetDrawingSurfaceForLevel(&self, level: u32) -> ::windows::core::Result<CompositionDrawingSurface> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetDrawingSurfaceForLevel)(::windows::core::Interface::as_raw(this), level, result__.as_mut_ptr()).from_abi::<CompositionDrawingSurface>(result__)
         }
     }
@@ -12878,7 +12878,7 @@ impl CompositionMipmapSurface {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -12887,7 +12887,7 @@ impl CompositionMipmapSurface {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -12895,7 +12895,7 @@ impl CompositionMipmapSurface {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -12926,7 +12926,7 @@ impl CompositionMipmapSurface {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -12950,7 +12950,7 @@ impl CompositionMipmapSurface {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -12958,7 +12958,7 @@ impl CompositionMipmapSurface {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -13235,7 +13235,7 @@ impl CompositionNineGridBrush {
     pub fn Source(&self) -> ::windows::core::Result<CompositionBrush> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Source)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionBrush>(result__)
         }
     }
@@ -13294,7 +13294,7 @@ impl CompositionNineGridBrush {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -13303,7 +13303,7 @@ impl CompositionNineGridBrush {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -13311,7 +13311,7 @@ impl CompositionNineGridBrush {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -13342,7 +13342,7 @@ impl CompositionNineGridBrush {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -13366,7 +13366,7 @@ impl CompositionNineGridBrush {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -13374,7 +13374,7 @@ impl CompositionNineGridBrush {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -13558,7 +13558,7 @@ impl CompositionObject {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -13567,7 +13567,7 @@ impl CompositionObject {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -13575,7 +13575,7 @@ impl CompositionObject {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -13606,7 +13606,7 @@ impl CompositionObject {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -13630,7 +13630,7 @@ impl CompositionObject {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -13638,7 +13638,7 @@ impl CompositionObject {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -13784,7 +13784,7 @@ impl CompositionPath {
     #[cfg(feature = "Graphics")]
     pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::IGeometrySource2D>>(source: Param0) -> ::windows::core::Result<CompositionPath> {
         Self::ICompositionPathFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), source.into_param().abi(), result__.as_mut_ptr()).from_abi::<CompositionPath>(result__)
         })
     }
@@ -13950,7 +13950,7 @@ impl CompositionPathGeometry {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -13959,7 +13959,7 @@ impl CompositionPathGeometry {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -13967,7 +13967,7 @@ impl CompositionPathGeometry {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -13998,7 +13998,7 @@ impl CompositionPathGeometry {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -14022,7 +14022,7 @@ impl CompositionPathGeometry {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -14030,7 +14030,7 @@ impl CompositionPathGeometry {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -14038,7 +14038,7 @@ impl CompositionPathGeometry {
     pub fn Path(&self) -> ::windows::core::Result<CompositionPath> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Path)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPath>(result__)
         }
     }
@@ -14227,7 +14227,7 @@ impl CompositionProjectedShadow {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -14236,7 +14236,7 @@ impl CompositionProjectedShadow {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -14244,7 +14244,7 @@ impl CompositionProjectedShadow {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -14275,7 +14275,7 @@ impl CompositionProjectedShadow {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -14299,7 +14299,7 @@ impl CompositionProjectedShadow {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -14307,7 +14307,7 @@ impl CompositionProjectedShadow {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -14328,7 +14328,7 @@ impl CompositionProjectedShadow {
     pub fn Casters(&self) -> ::windows::core::Result<CompositionProjectedShadowCasterCollection> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Casters)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionProjectedShadowCasterCollection>(result__)
         }
     }
@@ -14336,7 +14336,7 @@ impl CompositionProjectedShadow {
     pub fn LightSource(&self) -> ::windows::core::Result<CompositionLight> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).LightSource)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionLight>(result__)
         }
     }
@@ -14375,7 +14375,7 @@ impl CompositionProjectedShadow {
     pub fn Receivers(&self) -> ::windows::core::Result<CompositionProjectedShadowReceiverUnorderedCollection> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Receivers)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionProjectedShadowReceiverUnorderedCollection>(result__)
         }
     }
@@ -14539,7 +14539,7 @@ impl CompositionProjectedShadowCaster {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -14548,7 +14548,7 @@ impl CompositionProjectedShadowCaster {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -14556,7 +14556,7 @@ impl CompositionProjectedShadowCaster {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -14587,7 +14587,7 @@ impl CompositionProjectedShadowCaster {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -14611,7 +14611,7 @@ impl CompositionProjectedShadowCaster {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -14619,7 +14619,7 @@ impl CompositionProjectedShadowCaster {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -14627,7 +14627,7 @@ impl CompositionProjectedShadowCaster {
     pub fn Brush(&self) -> ::windows::core::Result<CompositionBrush> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Brush)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionBrush>(result__)
         }
     }
@@ -14640,7 +14640,7 @@ impl CompositionProjectedShadowCaster {
     pub fn CastingVisual(&self) -> ::windows::core::Result<Visual> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CastingVisual)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Visual>(result__)
         }
     }
@@ -14809,7 +14809,7 @@ impl CompositionProjectedShadowCasterCollection {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -14818,7 +14818,7 @@ impl CompositionProjectedShadowCasterCollection {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -14826,7 +14826,7 @@ impl CompositionProjectedShadowCasterCollection {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -14857,7 +14857,7 @@ impl CompositionProjectedShadowCasterCollection {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -14881,7 +14881,7 @@ impl CompositionProjectedShadowCasterCollection {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -14889,7 +14889,7 @@ impl CompositionProjectedShadowCasterCollection {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -14943,7 +14943,7 @@ impl CompositionProjectedShadowCasterCollection {
     pub fn First(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IIterator<CompositionProjectedShadowCaster>> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IIterable<CompositionProjectedShadowCaster>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IIterator<CompositionProjectedShadowCaster>>(result__)
         }
     }
@@ -15154,7 +15154,7 @@ impl CompositionProjectedShadowReceiver {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -15163,7 +15163,7 @@ impl CompositionProjectedShadowReceiver {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -15171,7 +15171,7 @@ impl CompositionProjectedShadowReceiver {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -15202,7 +15202,7 @@ impl CompositionProjectedShadowReceiver {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -15226,7 +15226,7 @@ impl CompositionProjectedShadowReceiver {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -15234,7 +15234,7 @@ impl CompositionProjectedShadowReceiver {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -15242,7 +15242,7 @@ impl CompositionProjectedShadowReceiver {
     pub fn ReceivingVisual(&self) -> ::windows::core::Result<Visual> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ReceivingVisual)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Visual>(result__)
         }
     }
@@ -15411,7 +15411,7 @@ impl CompositionProjectedShadowReceiverUnorderedCollection {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -15420,7 +15420,7 @@ impl CompositionProjectedShadowReceiverUnorderedCollection {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -15428,7 +15428,7 @@ impl CompositionProjectedShadowReceiverUnorderedCollection {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -15459,7 +15459,7 @@ impl CompositionProjectedShadowReceiverUnorderedCollection {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -15483,7 +15483,7 @@ impl CompositionProjectedShadowReceiverUnorderedCollection {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -15491,7 +15491,7 @@ impl CompositionProjectedShadowReceiverUnorderedCollection {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -15523,7 +15523,7 @@ impl CompositionProjectedShadowReceiverUnorderedCollection {
     pub fn First(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IIterator<CompositionProjectedShadowReceiver>> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IIterable<CompositionProjectedShadowReceiver>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IIterator<CompositionProjectedShadowReceiver>>(result__)
         }
     }
@@ -15729,7 +15729,7 @@ impl CompositionPropertySet {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -15738,7 +15738,7 @@ impl CompositionPropertySet {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -15746,7 +15746,7 @@ impl CompositionPropertySet {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -15777,7 +15777,7 @@ impl CompositionPropertySet {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -15801,7 +15801,7 @@ impl CompositionPropertySet {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -15809,7 +15809,7 @@ impl CompositionPropertySet {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -16132,7 +16132,7 @@ impl CompositionRadialGradientBrush {
     pub fn ColorStops(&self) -> ::windows::core::Result<CompositionColorGradientStopCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionGradientBrush>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ColorStops)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionColorGradientStopCollection>(result__)
         }
     }
@@ -16250,7 +16250,7 @@ impl CompositionRadialGradientBrush {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -16259,7 +16259,7 @@ impl CompositionRadialGradientBrush {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -16267,7 +16267,7 @@ impl CompositionRadialGradientBrush {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -16298,7 +16298,7 @@ impl CompositionRadialGradientBrush {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -16322,7 +16322,7 @@ impl CompositionRadialGradientBrush {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -16330,7 +16330,7 @@ impl CompositionRadialGradientBrush {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -16618,7 +16618,7 @@ impl CompositionRectangleGeometry {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -16627,7 +16627,7 @@ impl CompositionRectangleGeometry {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -16635,7 +16635,7 @@ impl CompositionRectangleGeometry {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -16666,7 +16666,7 @@ impl CompositionRectangleGeometry {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -16690,7 +16690,7 @@ impl CompositionRectangleGeometry {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -16698,7 +16698,7 @@ impl CompositionRectangleGeometry {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -16951,7 +16951,7 @@ impl CompositionRoundedRectangleGeometry {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -16960,7 +16960,7 @@ impl CompositionRoundedRectangleGeometry {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -16968,7 +16968,7 @@ impl CompositionRoundedRectangleGeometry {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -16999,7 +16999,7 @@ impl CompositionRoundedRectangleGeometry {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -17023,7 +17023,7 @@ impl CompositionRoundedRectangleGeometry {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -17031,7 +17031,7 @@ impl CompositionRoundedRectangleGeometry {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -17260,7 +17260,7 @@ impl CompositionScopedBatch {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -17269,7 +17269,7 @@ impl CompositionScopedBatch {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -17277,7 +17277,7 @@ impl CompositionScopedBatch {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -17308,7 +17308,7 @@ impl CompositionScopedBatch {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -17332,7 +17332,7 @@ impl CompositionScopedBatch {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -17340,7 +17340,7 @@ impl CompositionScopedBatch {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -17550,7 +17550,7 @@ impl CompositionShadow {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -17559,7 +17559,7 @@ impl CompositionShadow {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -17567,7 +17567,7 @@ impl CompositionShadow {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -17598,7 +17598,7 @@ impl CompositionShadow {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -17622,7 +17622,7 @@ impl CompositionShadow {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -17630,7 +17630,7 @@ impl CompositionShadow {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -17794,7 +17794,7 @@ impl CompositionShape {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -17803,7 +17803,7 @@ impl CompositionShape {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -17811,7 +17811,7 @@ impl CompositionShape {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -17842,7 +17842,7 @@ impl CompositionShape {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -17866,7 +17866,7 @@ impl CompositionShape {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -17874,7 +17874,7 @@ impl CompositionShape {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -18126,7 +18126,7 @@ impl CompositionShapeCollection {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -18135,7 +18135,7 @@ impl CompositionShapeCollection {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -18143,7 +18143,7 @@ impl CompositionShapeCollection {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -18174,7 +18174,7 @@ impl CompositionShapeCollection {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -18198,7 +18198,7 @@ impl CompositionShapeCollection {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -18206,7 +18206,7 @@ impl CompositionShapeCollection {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -18215,7 +18215,7 @@ impl CompositionShapeCollection {
     pub fn First(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IIterator<CompositionShape>> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IIterable<CompositionShape>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IIterator<CompositionShape>>(result__)
         }
     }
@@ -18224,7 +18224,7 @@ impl CompositionShapeCollection {
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<CompositionShape> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetAt)(::windows::core::Interface::as_raw(this), index, result__.as_mut_ptr()).from_abi::<CompositionShape>(result__)
         }
     }
@@ -18242,7 +18242,7 @@ impl CompositionShapeCollection {
     pub fn GetView(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<CompositionShape>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetView)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<CompositionShape>>(result__)
         }
     }
@@ -18559,7 +18559,7 @@ impl CompositionSpriteShape {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -18568,7 +18568,7 @@ impl CompositionSpriteShape {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -18576,7 +18576,7 @@ impl CompositionSpriteShape {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -18607,7 +18607,7 @@ impl CompositionSpriteShape {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -18631,7 +18631,7 @@ impl CompositionSpriteShape {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -18639,7 +18639,7 @@ impl CompositionSpriteShape {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -18733,7 +18733,7 @@ impl CompositionSpriteShape {
     pub fn FillBrush(&self) -> ::windows::core::Result<CompositionBrush> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FillBrush)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionBrush>(result__)
         }
     }
@@ -18746,7 +18746,7 @@ impl CompositionSpriteShape {
     pub fn Geometry(&self) -> ::windows::core::Result<CompositionGeometry> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Geometry)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionGeometry>(result__)
         }
     }
@@ -18772,7 +18772,7 @@ impl CompositionSpriteShape {
     pub fn StrokeBrush(&self) -> ::windows::core::Result<CompositionBrush> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).StrokeBrush)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionBrush>(result__)
         }
     }
@@ -18786,7 +18786,7 @@ impl CompositionSpriteShape {
     pub fn StrokeDashArray(&self) -> ::windows::core::Result<CompositionStrokeDashArray> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).StrokeDashArray)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionStrokeDashArray>(result__)
         }
     }
@@ -19135,7 +19135,7 @@ impl CompositionStrokeDashArray {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -19144,7 +19144,7 @@ impl CompositionStrokeDashArray {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -19152,7 +19152,7 @@ impl CompositionStrokeDashArray {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -19183,7 +19183,7 @@ impl CompositionStrokeDashArray {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -19207,7 +19207,7 @@ impl CompositionStrokeDashArray {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -19215,7 +19215,7 @@ impl CompositionStrokeDashArray {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -19224,7 +19224,7 @@ impl CompositionStrokeDashArray {
     pub fn First(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IIterator<f32>> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IIterable<f32>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IIterator<f32>>(result__)
         }
     }
@@ -19251,7 +19251,7 @@ impl CompositionStrokeDashArray {
     pub fn GetView(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<f32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetView)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<f32>>(result__)
         }
     }
@@ -19604,7 +19604,7 @@ impl CompositionSurfaceBrush {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -19613,7 +19613,7 @@ impl CompositionSurfaceBrush {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -19621,7 +19621,7 @@ impl CompositionSurfaceBrush {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -19652,7 +19652,7 @@ impl CompositionSurfaceBrush {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -19676,7 +19676,7 @@ impl CompositionSurfaceBrush {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -19684,7 +19684,7 @@ impl CompositionSurfaceBrush {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -19731,7 +19731,7 @@ impl CompositionSurfaceBrush {
     pub fn Surface(&self) -> ::windows::core::Result<ICompositionSurface> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Surface)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ICompositionSurface>(result__)
         }
     }
@@ -20047,7 +20047,7 @@ impl CompositionTarget {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -20056,7 +20056,7 @@ impl CompositionTarget {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -20064,7 +20064,7 @@ impl CompositionTarget {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -20095,7 +20095,7 @@ impl CompositionTarget {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -20119,7 +20119,7 @@ impl CompositionTarget {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -20127,7 +20127,7 @@ impl CompositionTarget {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -20135,7 +20135,7 @@ impl CompositionTarget {
     pub fn Root(&self) -> ::windows::core::Result<Visual> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Root)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Visual>(result__)
         }
     }
@@ -20304,7 +20304,7 @@ impl CompositionTransform {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -20313,7 +20313,7 @@ impl CompositionTransform {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -20321,7 +20321,7 @@ impl CompositionTransform {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -20352,7 +20352,7 @@ impl CompositionTransform {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -20376,7 +20376,7 @@ impl CompositionTransform {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -20384,7 +20384,7 @@ impl CompositionTransform {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -20548,7 +20548,7 @@ impl CompositionViewBox {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -20557,7 +20557,7 @@ impl CompositionViewBox {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -20565,7 +20565,7 @@ impl CompositionViewBox {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -20596,7 +20596,7 @@ impl CompositionViewBox {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -20620,7 +20620,7 @@ impl CompositionViewBox {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -20628,7 +20628,7 @@ impl CompositionViewBox {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -20927,7 +20927,7 @@ impl CompositionVirtualDrawingSurface {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -20936,7 +20936,7 @@ impl CompositionVirtualDrawingSurface {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -20944,7 +20944,7 @@ impl CompositionVirtualDrawingSurface {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -20975,7 +20975,7 @@ impl CompositionVirtualDrawingSurface {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -20999,7 +20999,7 @@ impl CompositionVirtualDrawingSurface {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -21007,7 +21007,7 @@ impl CompositionVirtualDrawingSurface {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -21219,7 +21219,7 @@ impl CompositionVisualSurface {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -21228,7 +21228,7 @@ impl CompositionVisualSurface {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -21236,7 +21236,7 @@ impl CompositionVisualSurface {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -21267,7 +21267,7 @@ impl CompositionVisualSurface {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -21291,7 +21291,7 @@ impl CompositionVisualSurface {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -21299,7 +21299,7 @@ impl CompositionVisualSurface {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -21307,7 +21307,7 @@ impl CompositionVisualSurface {
     pub fn SourceVisual(&self) -> ::windows::core::Result<Visual> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).SourceVisual)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Visual>(result__)
         }
     }
@@ -21530,7 +21530,7 @@ impl Compositor {
     pub fn CreateColorKeyFrameAnimation(&self) -> ::windows::core::Result<ColorKeyFrameAnimation> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateColorKeyFrameAnimation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ColorKeyFrameAnimation>(result__)
         }
     }
@@ -21538,7 +21538,7 @@ impl Compositor {
     pub fn CreateColorBrush(&self) -> ::windows::core::Result<CompositionColorBrush> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateColorBrush)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionColorBrush>(result__)
         }
     }
@@ -21546,7 +21546,7 @@ impl Compositor {
     pub fn CreateColorBrushWithColor<'a, Param0: ::windows::core::IntoParam<'a, super::Color>>(&self, color: Param0) -> ::windows::core::Result<CompositionColorBrush> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateColorBrushWithColor)(::windows::core::Interface::as_raw(this), color.into_param().abi(), result__.as_mut_ptr()).from_abi::<CompositionColorBrush>(result__)
         }
     }
@@ -21554,7 +21554,7 @@ impl Compositor {
     pub fn CreateContainerVisual(&self) -> ::windows::core::Result<ContainerVisual> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateContainerVisual)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ContainerVisual>(result__)
         }
     }
@@ -21563,7 +21563,7 @@ impl Compositor {
     pub fn CreateCubicBezierEasingFunction<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Numerics::Vector2>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Numerics::Vector2>>(&self, controlpoint1: Param0, controlpoint2: Param1) -> ::windows::core::Result<CubicBezierEasingFunction> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateCubicBezierEasingFunction)(::windows::core::Interface::as_raw(this), controlpoint1.into_param().abi(), controlpoint2.into_param().abi(), result__.as_mut_ptr()).from_abi::<CubicBezierEasingFunction>(result__)
         }
     }
@@ -21572,7 +21572,7 @@ impl Compositor {
     pub fn CreateEffectFactory<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Effects::IGraphicsEffect>>(&self, graphicseffect: Param0) -> ::windows::core::Result<CompositionEffectFactory> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateEffectFactory)(::windows::core::Interface::as_raw(this), graphicseffect.into_param().abi(), result__.as_mut_ptr()).from_abi::<CompositionEffectFactory>(result__)
         }
     }
@@ -21581,7 +21581,7 @@ impl Compositor {
     pub fn CreateEffectFactoryWithProperties<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Effects::IGraphicsEffect>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, graphicseffect: Param0, animatableproperties: Param1) -> ::windows::core::Result<CompositionEffectFactory> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateEffectFactoryWithProperties)(::windows::core::Interface::as_raw(this), graphicseffect.into_param().abi(), animatableproperties.into_param().abi(), result__.as_mut_ptr()).from_abi::<CompositionEffectFactory>(result__)
         }
     }
@@ -21589,7 +21589,7 @@ impl Compositor {
     pub fn CreateExpressionAnimation(&self) -> ::windows::core::Result<ExpressionAnimation> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateExpressionAnimation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ExpressionAnimation>(result__)
         }
     }
@@ -21597,7 +21597,7 @@ impl Compositor {
     pub fn CreateExpressionAnimationWithExpression<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, expression: Param0) -> ::windows::core::Result<ExpressionAnimation> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateExpressionAnimationWithExpression)(::windows::core::Interface::as_raw(this), expression.into_param().abi(), result__.as_mut_ptr()).from_abi::<ExpressionAnimation>(result__)
         }
     }
@@ -21605,7 +21605,7 @@ impl Compositor {
     pub fn CreateInsetClip(&self) -> ::windows::core::Result<InsetClip> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInsetClip)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<InsetClip>(result__)
         }
     }
@@ -21613,7 +21613,7 @@ impl Compositor {
     pub fn CreateInsetClipWithInsets(&self, leftinset: f32, topinset: f32, rightinset: f32, bottominset: f32) -> ::windows::core::Result<InsetClip> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInsetClipWithInsets)(::windows::core::Interface::as_raw(this), leftinset, topinset, rightinset, bottominset, result__.as_mut_ptr()).from_abi::<InsetClip>(result__)
         }
     }
@@ -21621,7 +21621,7 @@ impl Compositor {
     pub fn CreateLinearEasingFunction(&self) -> ::windows::core::Result<LinearEasingFunction> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateLinearEasingFunction)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<LinearEasingFunction>(result__)
         }
     }
@@ -21629,7 +21629,7 @@ impl Compositor {
     pub fn CreatePropertySet(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreatePropertySet)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -21637,7 +21637,7 @@ impl Compositor {
     pub fn CreateQuaternionKeyFrameAnimation(&self) -> ::windows::core::Result<QuaternionKeyFrameAnimation> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateQuaternionKeyFrameAnimation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<QuaternionKeyFrameAnimation>(result__)
         }
     }
@@ -21645,7 +21645,7 @@ impl Compositor {
     pub fn CreateScalarKeyFrameAnimation(&self) -> ::windows::core::Result<ScalarKeyFrameAnimation> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateScalarKeyFrameAnimation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ScalarKeyFrameAnimation>(result__)
         }
     }
@@ -21653,7 +21653,7 @@ impl Compositor {
     pub fn CreateScopedBatch(&self, batchtype: CompositionBatchTypes) -> ::windows::core::Result<CompositionScopedBatch> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateScopedBatch)(::windows::core::Interface::as_raw(this), batchtype, result__.as_mut_ptr()).from_abi::<CompositionScopedBatch>(result__)
         }
     }
@@ -21661,7 +21661,7 @@ impl Compositor {
     pub fn CreateSpriteVisual(&self) -> ::windows::core::Result<SpriteVisual> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateSpriteVisual)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SpriteVisual>(result__)
         }
     }
@@ -21669,7 +21669,7 @@ impl Compositor {
     pub fn CreateSurfaceBrush(&self) -> ::windows::core::Result<CompositionSurfaceBrush> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateSurfaceBrush)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionSurfaceBrush>(result__)
         }
     }
@@ -21677,7 +21677,7 @@ impl Compositor {
     pub fn CreateSurfaceBrushWithSurface<'a, Param0: ::windows::core::IntoParam<'a, ICompositionSurface>>(&self, surface: Param0) -> ::windows::core::Result<CompositionSurfaceBrush> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateSurfaceBrushWithSurface)(::windows::core::Interface::as_raw(this), surface.into_param().abi(), result__.as_mut_ptr()).from_abi::<CompositionSurfaceBrush>(result__)
         }
     }
@@ -21685,7 +21685,7 @@ impl Compositor {
     pub fn CreateTargetForCurrentView(&self) -> ::windows::core::Result<CompositionTarget> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateTargetForCurrentView)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionTarget>(result__)
         }
     }
@@ -21693,7 +21693,7 @@ impl Compositor {
     pub fn CreateVector2KeyFrameAnimation(&self) -> ::windows::core::Result<Vector2KeyFrameAnimation> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateVector2KeyFrameAnimation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Vector2KeyFrameAnimation>(result__)
         }
     }
@@ -21701,7 +21701,7 @@ impl Compositor {
     pub fn CreateVector3KeyFrameAnimation(&self) -> ::windows::core::Result<Vector3KeyFrameAnimation> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateVector3KeyFrameAnimation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Vector3KeyFrameAnimation>(result__)
         }
     }
@@ -21709,7 +21709,7 @@ impl Compositor {
     pub fn CreateVector4KeyFrameAnimation(&self) -> ::windows::core::Result<Vector4KeyFrameAnimation> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateVector4KeyFrameAnimation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Vector4KeyFrameAnimation>(result__)
         }
     }
@@ -21717,7 +21717,7 @@ impl Compositor {
     pub fn GetCommitBatch(&self, batchtype: CompositionBatchTypes) -> ::windows::core::Result<CompositionCommitBatch> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetCommitBatch)(::windows::core::Interface::as_raw(this), batchtype, result__.as_mut_ptr()).from_abi::<CompositionCommitBatch>(result__)
         }
     }
@@ -21725,7 +21725,7 @@ impl Compositor {
     pub fn CreateAmbientLight(&self) -> ::windows::core::Result<AmbientLight> {
         let this = &::windows::core::Interface::cast::<ICompositor2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateAmbientLight)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AmbientLight>(result__)
         }
     }
@@ -21733,7 +21733,7 @@ impl Compositor {
     pub fn CreateAnimationGroup(&self) -> ::windows::core::Result<CompositionAnimationGroup> {
         let this = &::windows::core::Interface::cast::<ICompositor2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateAnimationGroup)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionAnimationGroup>(result__)
         }
     }
@@ -21741,7 +21741,7 @@ impl Compositor {
     pub fn CreateBackdropBrush(&self) -> ::windows::core::Result<CompositionBackdropBrush> {
         let this = &::windows::core::Interface::cast::<ICompositor2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateBackdropBrush)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionBackdropBrush>(result__)
         }
     }
@@ -21749,7 +21749,7 @@ impl Compositor {
     pub fn CreateDistantLight(&self) -> ::windows::core::Result<DistantLight> {
         let this = &::windows::core::Interface::cast::<ICompositor2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateDistantLight)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<DistantLight>(result__)
         }
     }
@@ -21757,7 +21757,7 @@ impl Compositor {
     pub fn CreateDropShadow(&self) -> ::windows::core::Result<DropShadow> {
         let this = &::windows::core::Interface::cast::<ICompositor2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateDropShadow)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<DropShadow>(result__)
         }
     }
@@ -21765,7 +21765,7 @@ impl Compositor {
     pub fn CreateImplicitAnimationCollection(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositor2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateImplicitAnimationCollection)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -21773,7 +21773,7 @@ impl Compositor {
     pub fn CreateLayerVisual(&self) -> ::windows::core::Result<LayerVisual> {
         let this = &::windows::core::Interface::cast::<ICompositor2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateLayerVisual)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<LayerVisual>(result__)
         }
     }
@@ -21781,7 +21781,7 @@ impl Compositor {
     pub fn CreateMaskBrush(&self) -> ::windows::core::Result<CompositionMaskBrush> {
         let this = &::windows::core::Interface::cast::<ICompositor2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateMaskBrush)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionMaskBrush>(result__)
         }
     }
@@ -21789,7 +21789,7 @@ impl Compositor {
     pub fn CreateNineGridBrush(&self) -> ::windows::core::Result<CompositionNineGridBrush> {
         let this = &::windows::core::Interface::cast::<ICompositor2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateNineGridBrush)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionNineGridBrush>(result__)
         }
     }
@@ -21797,7 +21797,7 @@ impl Compositor {
     pub fn CreatePointLight(&self) -> ::windows::core::Result<PointLight> {
         let this = &::windows::core::Interface::cast::<ICompositor2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreatePointLight)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PointLight>(result__)
         }
     }
@@ -21805,7 +21805,7 @@ impl Compositor {
     pub fn CreateSpotLight(&self) -> ::windows::core::Result<SpotLight> {
         let this = &::windows::core::Interface::cast::<ICompositor2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateSpotLight)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SpotLight>(result__)
         }
     }
@@ -21813,7 +21813,7 @@ impl Compositor {
     pub fn CreateStepEasingFunction(&self) -> ::windows::core::Result<StepEasingFunction> {
         let this = &::windows::core::Interface::cast::<ICompositor2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateStepEasingFunction)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<StepEasingFunction>(result__)
         }
     }
@@ -21821,7 +21821,7 @@ impl Compositor {
     pub fn CreateStepEasingFunctionWithStepCount(&self, stepcount: i32) -> ::windows::core::Result<StepEasingFunction> {
         let this = &::windows::core::Interface::cast::<ICompositor2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateStepEasingFunctionWithStepCount)(::windows::core::Interface::as_raw(this), stepcount, result__.as_mut_ptr()).from_abi::<StepEasingFunction>(result__)
         }
     }
@@ -21829,7 +21829,7 @@ impl Compositor {
     pub fn CreateHostBackdropBrush(&self) -> ::windows::core::Result<CompositionBackdropBrush> {
         let this = &::windows::core::Interface::cast::<ICompositor3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateHostBackdropBrush)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionBackdropBrush>(result__)
         }
     }
@@ -21837,7 +21837,7 @@ impl Compositor {
     pub fn CreateColorGradientStop(&self) -> ::windows::core::Result<CompositionColorGradientStop> {
         let this = &::windows::core::Interface::cast::<ICompositor4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateColorGradientStop)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionColorGradientStop>(result__)
         }
     }
@@ -21845,7 +21845,7 @@ impl Compositor {
     pub fn CreateColorGradientStopWithOffsetAndColor<'a, Param1: ::windows::core::IntoParam<'a, super::Color>>(&self, offset: f32, color: Param1) -> ::windows::core::Result<CompositionColorGradientStop> {
         let this = &::windows::core::Interface::cast::<ICompositor4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateColorGradientStopWithOffsetAndColor)(::windows::core::Interface::as_raw(this), offset, color.into_param().abi(), result__.as_mut_ptr()).from_abi::<CompositionColorGradientStop>(result__)
         }
     }
@@ -21853,7 +21853,7 @@ impl Compositor {
     pub fn CreateLinearGradientBrush(&self) -> ::windows::core::Result<CompositionLinearGradientBrush> {
         let this = &::windows::core::Interface::cast::<ICompositor4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateLinearGradientBrush)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionLinearGradientBrush>(result__)
         }
     }
@@ -21861,7 +21861,7 @@ impl Compositor {
     pub fn CreateSpringScalarAnimation(&self) -> ::windows::core::Result<SpringScalarNaturalMotionAnimation> {
         let this = &::windows::core::Interface::cast::<ICompositor4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateSpringScalarAnimation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SpringScalarNaturalMotionAnimation>(result__)
         }
     }
@@ -21869,7 +21869,7 @@ impl Compositor {
     pub fn CreateSpringVector2Animation(&self) -> ::windows::core::Result<SpringVector2NaturalMotionAnimation> {
         let this = &::windows::core::Interface::cast::<ICompositor4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateSpringVector2Animation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SpringVector2NaturalMotionAnimation>(result__)
         }
     }
@@ -21877,7 +21877,7 @@ impl Compositor {
     pub fn CreateSpringVector3Animation(&self) -> ::windows::core::Result<SpringVector3NaturalMotionAnimation> {
         let this = &::windows::core::Interface::cast::<ICompositor4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateSpringVector3Animation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SpringVector3NaturalMotionAnimation>(result__)
         }
     }
@@ -21911,7 +21911,7 @@ impl Compositor {
     pub fn CreateBounceScalarAnimation(&self) -> ::windows::core::Result<BounceScalarNaturalMotionAnimation> {
         let this = &::windows::core::Interface::cast::<ICompositor5>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateBounceScalarAnimation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BounceScalarNaturalMotionAnimation>(result__)
         }
     }
@@ -21919,7 +21919,7 @@ impl Compositor {
     pub fn CreateBounceVector2Animation(&self) -> ::windows::core::Result<BounceVector2NaturalMotionAnimation> {
         let this = &::windows::core::Interface::cast::<ICompositor5>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateBounceVector2Animation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BounceVector2NaturalMotionAnimation>(result__)
         }
     }
@@ -21927,7 +21927,7 @@ impl Compositor {
     pub fn CreateBounceVector3Animation(&self) -> ::windows::core::Result<BounceVector3NaturalMotionAnimation> {
         let this = &::windows::core::Interface::cast::<ICompositor5>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateBounceVector3Animation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BounceVector3NaturalMotionAnimation>(result__)
         }
     }
@@ -21935,7 +21935,7 @@ impl Compositor {
     pub fn CreateContainerShape(&self) -> ::windows::core::Result<CompositionContainerShape> {
         let this = &::windows::core::Interface::cast::<ICompositor5>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateContainerShape)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionContainerShape>(result__)
         }
     }
@@ -21943,7 +21943,7 @@ impl Compositor {
     pub fn CreateEllipseGeometry(&self) -> ::windows::core::Result<CompositionEllipseGeometry> {
         let this = &::windows::core::Interface::cast::<ICompositor5>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateEllipseGeometry)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionEllipseGeometry>(result__)
         }
     }
@@ -21951,7 +21951,7 @@ impl Compositor {
     pub fn CreateLineGeometry(&self) -> ::windows::core::Result<CompositionLineGeometry> {
         let this = &::windows::core::Interface::cast::<ICompositor5>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateLineGeometry)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionLineGeometry>(result__)
         }
     }
@@ -21959,7 +21959,7 @@ impl Compositor {
     pub fn CreatePathGeometry(&self) -> ::windows::core::Result<CompositionPathGeometry> {
         let this = &::windows::core::Interface::cast::<ICompositor5>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreatePathGeometry)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPathGeometry>(result__)
         }
     }
@@ -21967,7 +21967,7 @@ impl Compositor {
     pub fn CreatePathGeometryWithPath<'a, Param0: ::windows::core::IntoParam<'a, CompositionPath>>(&self, path: Param0) -> ::windows::core::Result<CompositionPathGeometry> {
         let this = &::windows::core::Interface::cast::<ICompositor5>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreatePathGeometryWithPath)(::windows::core::Interface::as_raw(this), path.into_param().abi(), result__.as_mut_ptr()).from_abi::<CompositionPathGeometry>(result__)
         }
     }
@@ -21975,7 +21975,7 @@ impl Compositor {
     pub fn CreatePathKeyFrameAnimation(&self) -> ::windows::core::Result<PathKeyFrameAnimation> {
         let this = &::windows::core::Interface::cast::<ICompositor5>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreatePathKeyFrameAnimation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PathKeyFrameAnimation>(result__)
         }
     }
@@ -21983,7 +21983,7 @@ impl Compositor {
     pub fn CreateRectangleGeometry(&self) -> ::windows::core::Result<CompositionRectangleGeometry> {
         let this = &::windows::core::Interface::cast::<ICompositor5>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateRectangleGeometry)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionRectangleGeometry>(result__)
         }
     }
@@ -21991,7 +21991,7 @@ impl Compositor {
     pub fn CreateRoundedRectangleGeometry(&self) -> ::windows::core::Result<CompositionRoundedRectangleGeometry> {
         let this = &::windows::core::Interface::cast::<ICompositor5>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateRoundedRectangleGeometry)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionRoundedRectangleGeometry>(result__)
         }
     }
@@ -21999,7 +21999,7 @@ impl Compositor {
     pub fn CreateShapeVisual(&self) -> ::windows::core::Result<ShapeVisual> {
         let this = &::windows::core::Interface::cast::<ICompositor5>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateShapeVisual)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ShapeVisual>(result__)
         }
     }
@@ -22007,7 +22007,7 @@ impl Compositor {
     pub fn CreateSpriteShape(&self) -> ::windows::core::Result<CompositionSpriteShape> {
         let this = &::windows::core::Interface::cast::<ICompositor5>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateSpriteShape)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionSpriteShape>(result__)
         }
     }
@@ -22015,7 +22015,7 @@ impl Compositor {
     pub fn CreateSpriteShapeWithGeometry<'a, Param0: ::windows::core::IntoParam<'a, CompositionGeometry>>(&self, geometry: Param0) -> ::windows::core::Result<CompositionSpriteShape> {
         let this = &::windows::core::Interface::cast::<ICompositor5>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateSpriteShapeWithGeometry)(::windows::core::Interface::as_raw(this), geometry.into_param().abi(), result__.as_mut_ptr()).from_abi::<CompositionSpriteShape>(result__)
         }
     }
@@ -22023,7 +22023,7 @@ impl Compositor {
     pub fn CreateViewBox(&self) -> ::windows::core::Result<CompositionViewBox> {
         let this = &::windows::core::Interface::cast::<ICompositor5>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateViewBox)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionViewBox>(result__)
         }
     }
@@ -22032,7 +22032,7 @@ impl Compositor {
     pub fn RequestCommitAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<ICompositor5>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).RequestCommitAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
@@ -22040,7 +22040,7 @@ impl Compositor {
     pub fn CreateGeometricClip(&self) -> ::windows::core::Result<CompositionGeometricClip> {
         let this = &::windows::core::Interface::cast::<ICompositor6>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateGeometricClip)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionGeometricClip>(result__)
         }
     }
@@ -22048,7 +22048,7 @@ impl Compositor {
     pub fn CreateGeometricClipWithGeometry<'a, Param0: ::windows::core::IntoParam<'a, CompositionGeometry>>(&self, geometry: Param0) -> ::windows::core::Result<CompositionGeometricClip> {
         let this = &::windows::core::Interface::cast::<ICompositor6>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateGeometricClipWithGeometry)(::windows::core::Interface::as_raw(this), geometry.into_param().abi(), result__.as_mut_ptr()).from_abi::<CompositionGeometricClip>(result__)
         }
     }
@@ -22056,7 +22056,7 @@ impl Compositor {
     pub fn CreateRedirectVisual(&self) -> ::windows::core::Result<RedirectVisual> {
         let this = &::windows::core::Interface::cast::<ICompositor6>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateRedirectVisual)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<RedirectVisual>(result__)
         }
     }
@@ -22064,7 +22064,7 @@ impl Compositor {
     pub fn CreateRedirectVisualWithSourceVisual<'a, Param0: ::windows::core::IntoParam<'a, Visual>>(&self, source: Param0) -> ::windows::core::Result<RedirectVisual> {
         let this = &::windows::core::Interface::cast::<ICompositor6>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateRedirectVisualWithSourceVisual)(::windows::core::Interface::as_raw(this), source.into_param().abi(), result__.as_mut_ptr()).from_abi::<RedirectVisual>(result__)
         }
     }
@@ -22072,7 +22072,7 @@ impl Compositor {
     pub fn CreateBooleanKeyFrameAnimation(&self) -> ::windows::core::Result<BooleanKeyFrameAnimation> {
         let this = &::windows::core::Interface::cast::<ICompositor6>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateBooleanKeyFrameAnimation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BooleanKeyFrameAnimation>(result__)
         }
     }
@@ -22081,7 +22081,7 @@ impl Compositor {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositor7>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -22089,7 +22089,7 @@ impl Compositor {
     pub fn CreateAnimationPropertyInfo(&self) -> ::windows::core::Result<AnimationPropertyInfo> {
         let this = &::windows::core::Interface::cast::<ICompositor7>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateAnimationPropertyInfo)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AnimationPropertyInfo>(result__)
         }
     }
@@ -22097,7 +22097,7 @@ impl Compositor {
     pub fn CreateRectangleClip(&self) -> ::windows::core::Result<RectangleClip> {
         let this = &::windows::core::Interface::cast::<ICompositor7>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateRectangleClip)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<RectangleClip>(result__)
         }
     }
@@ -22105,7 +22105,7 @@ impl Compositor {
     pub fn CreateRectangleClipWithSides(&self, left: f32, top: f32, right: f32, bottom: f32) -> ::windows::core::Result<RectangleClip> {
         let this = &::windows::core::Interface::cast::<ICompositor7>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateRectangleClipWithSides)(::windows::core::Interface::as_raw(this), left, top, right, bottom, result__.as_mut_ptr()).from_abi::<RectangleClip>(result__)
         }
     }
@@ -22114,7 +22114,7 @@ impl Compositor {
     pub fn CreateRectangleClipWithSidesAndRadius<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::Numerics::Vector2>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::Numerics::Vector2>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::Numerics::Vector2>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::Numerics::Vector2>>(&self, left: f32, top: f32, right: f32, bottom: f32, topleftradius: Param4, toprightradius: Param5, bottomrightradius: Param6, bottomleftradius: Param7) -> ::windows::core::Result<RectangleClip> {
         let this = &::windows::core::Interface::cast::<ICompositor7>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateRectangleClipWithSidesAndRadius)(::windows::core::Interface::as_raw(this), left, top, right, bottom, topleftradius.into_param().abi(), toprightradius.into_param().abi(), bottomrightradius.into_param().abi(), bottomleftradius.into_param().abi(), result__.as_mut_ptr()).from_abi::<RectangleClip>(result__)
         }
     }
@@ -22136,7 +22136,7 @@ impl Compositor {
     pub fn TryCreateBlurredWallpaperBackdropBrush(&self) -> ::windows::core::Result<CompositionBackdropBrush> {
         let this = &::windows::core::Interface::cast::<ICompositorWithBlurredWallpaperBackdropBrush>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryCreateBlurredWallpaperBackdropBrush)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionBackdropBrush>(result__)
         }
     }
@@ -22144,7 +22144,7 @@ impl Compositor {
     pub fn CreateProjectedShadowCaster(&self) -> ::windows::core::Result<CompositionProjectedShadowCaster> {
         let this = &::windows::core::Interface::cast::<ICompositorWithProjectedShadow>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateProjectedShadowCaster)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionProjectedShadowCaster>(result__)
         }
     }
@@ -22152,7 +22152,7 @@ impl Compositor {
     pub fn CreateProjectedShadow(&self) -> ::windows::core::Result<CompositionProjectedShadow> {
         let this = &::windows::core::Interface::cast::<ICompositorWithProjectedShadow>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateProjectedShadow)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionProjectedShadow>(result__)
         }
     }
@@ -22160,7 +22160,7 @@ impl Compositor {
     pub fn CreateProjectedShadowReceiver(&self) -> ::windows::core::Result<CompositionProjectedShadowReceiver> {
         let this = &::windows::core::Interface::cast::<ICompositorWithProjectedShadow>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateProjectedShadowReceiver)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionProjectedShadowReceiver>(result__)
         }
     }
@@ -22168,7 +22168,7 @@ impl Compositor {
     pub fn CreateRadialGradientBrush(&self) -> ::windows::core::Result<CompositionRadialGradientBrush> {
         let this = &::windows::core::Interface::cast::<ICompositorWithRadialGradient>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateRadialGradientBrush)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionRadialGradientBrush>(result__)
         }
     }
@@ -22176,7 +22176,7 @@ impl Compositor {
     pub fn CreateVisualSurface(&self) -> ::windows::core::Result<CompositionVisualSurface> {
         let this = &::windows::core::Interface::cast::<ICompositorWithVisualSurface>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateVisualSurface)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionVisualSurface>(result__)
         }
     }
@@ -22303,7 +22303,7 @@ impl ContainerVisual {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -22312,7 +22312,7 @@ impl ContainerVisual {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -22320,7 +22320,7 @@ impl ContainerVisual {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -22351,7 +22351,7 @@ impl ContainerVisual {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -22375,7 +22375,7 @@ impl ContainerVisual {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -22383,7 +22383,7 @@ impl ContainerVisual {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -22391,7 +22391,7 @@ impl ContainerVisual {
     pub fn Children(&self) -> ::windows::core::Result<VisualCollection> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Children)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<VisualCollection>(result__)
         }
     }
@@ -22455,7 +22455,7 @@ impl ContainerVisual {
     pub fn Clip(&self) -> ::windows::core::Result<CompositionClip> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Clip)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionClip>(result__)
         }
     }
@@ -22537,7 +22537,7 @@ impl ContainerVisual {
     pub fn Parent(&self) -> ::windows::core::Result<ContainerVisual> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Parent)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ContainerVisual>(result__)
         }
     }
@@ -22631,7 +22631,7 @@ impl ContainerVisual {
     pub fn ParentForTransform(&self) -> ::windows::core::Result<Visual> {
         let this = &::windows::core::Interface::cast::<IVisual2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ParentForTransform)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Visual>(result__)
         }
     }
@@ -22876,7 +22876,7 @@ impl CubicBezierEasingFunction {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -22885,7 +22885,7 @@ impl CubicBezierEasingFunction {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -22893,7 +22893,7 @@ impl CubicBezierEasingFunction {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -22924,7 +22924,7 @@ impl CubicBezierEasingFunction {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -22948,7 +22948,7 @@ impl CubicBezierEasingFunction {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -22956,7 +22956,7 @@ impl CubicBezierEasingFunction {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -23158,7 +23158,7 @@ impl DelegatedInkTrailVisual {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -23167,7 +23167,7 @@ impl DelegatedInkTrailVisual {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -23175,7 +23175,7 @@ impl DelegatedInkTrailVisual {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -23206,7 +23206,7 @@ impl DelegatedInkTrailVisual {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -23230,7 +23230,7 @@ impl DelegatedInkTrailVisual {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -23238,7 +23238,7 @@ impl DelegatedInkTrailVisual {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -23273,14 +23273,14 @@ impl DelegatedInkTrailVisual {
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, Compositor>>(compositor: Param0) -> ::windows::core::Result<DelegatedInkTrailVisual> {
         Self::IDelegatedInkTrailVisualStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), compositor.into_param().abi(), result__.as_mut_ptr()).from_abi::<DelegatedInkTrailVisual>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
     pub fn CreateForSwapChain<'a, Param0: ::windows::core::IntoParam<'a, Compositor>, Param1: ::windows::core::IntoParam<'a, ICompositionSurface>>(compositor: Param0, swapchain: Param1) -> ::windows::core::Result<DelegatedInkTrailVisual> {
         Self::IDelegatedInkTrailVisualStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateForSwapChain)(::windows::core::Interface::as_raw(this), compositor.into_param().abi(), swapchain.into_param().abi(), result__.as_mut_ptr()).from_abi::<DelegatedInkTrailVisual>(result__)
         })
     }
@@ -23344,7 +23344,7 @@ impl DelegatedInkTrailVisual {
     pub fn Clip(&self) -> ::windows::core::Result<CompositionClip> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Clip)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionClip>(result__)
         }
     }
@@ -23426,7 +23426,7 @@ impl DelegatedInkTrailVisual {
     pub fn Parent(&self) -> ::windows::core::Result<ContainerVisual> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Parent)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ContainerVisual>(result__)
         }
     }
@@ -23520,7 +23520,7 @@ impl DelegatedInkTrailVisual {
     pub fn ParentForTransform(&self) -> ::windows::core::Result<Visual> {
         let this = &::windows::core::Interface::cast::<IVisual2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ParentForTransform)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Visual>(result__)
         }
     }
@@ -23770,7 +23770,7 @@ impl DistantLight {
     pub fn Targets(&self) -> ::windows::core::Result<VisualUnorderedCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionLight>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Targets)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<VisualUnorderedCollection>(result__)
         }
     }
@@ -23778,7 +23778,7 @@ impl DistantLight {
     pub fn ExclusionsFromTargets(&self) -> ::windows::core::Result<VisualUnorderedCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionLight2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ExclusionsFromTargets)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<VisualUnorderedCollection>(result__)
         }
     }
@@ -23799,7 +23799,7 @@ impl DistantLight {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -23808,7 +23808,7 @@ impl DistantLight {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -23816,7 +23816,7 @@ impl DistantLight {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -23847,7 +23847,7 @@ impl DistantLight {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -23871,7 +23871,7 @@ impl DistantLight {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -23879,7 +23879,7 @@ impl DistantLight {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -23900,7 +23900,7 @@ impl DistantLight {
     pub fn CoordinateSpace(&self) -> ::windows::core::Result<Visual> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CoordinateSpace)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Visual>(result__)
         }
     }
@@ -24117,7 +24117,7 @@ impl DropShadow {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -24126,7 +24126,7 @@ impl DropShadow {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -24134,7 +24134,7 @@ impl DropShadow {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -24165,7 +24165,7 @@ impl DropShadow {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -24189,7 +24189,7 @@ impl DropShadow {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -24197,7 +24197,7 @@ impl DropShadow {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -24231,7 +24231,7 @@ impl DropShadow {
     pub fn Mask(&self) -> ::windows::core::Result<CompositionBrush> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Mask)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionBrush>(result__)
         }
     }
@@ -24461,7 +24461,7 @@ impl ElasticEasingFunction {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -24470,7 +24470,7 @@ impl ElasticEasingFunction {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -24478,7 +24478,7 @@ impl ElasticEasingFunction {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -24509,7 +24509,7 @@ impl ElasticEasingFunction {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -24533,7 +24533,7 @@ impl ElasticEasingFunction {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -24541,7 +24541,7 @@ impl ElasticEasingFunction {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -24749,7 +24749,7 @@ impl ExponentialEasingFunction {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -24758,7 +24758,7 @@ impl ExponentialEasingFunction {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -24766,7 +24766,7 @@ impl ExponentialEasingFunction {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -24797,7 +24797,7 @@ impl ExponentialEasingFunction {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -24821,7 +24821,7 @@ impl ExponentialEasingFunction {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -24829,7 +24829,7 @@ impl ExponentialEasingFunction {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -25109,7 +25109,7 @@ impl ExpressionAnimation {
     pub fn InitialValueExpressions(&self) -> ::windows::core::Result<InitialValueExpressionCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).InitialValueExpressions)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<InitialValueExpressionCollection>(result__)
         }
     }
@@ -25122,7 +25122,7 @@ impl ExpressionAnimation {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -25131,7 +25131,7 @@ impl ExpressionAnimation {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -25139,7 +25139,7 @@ impl ExpressionAnimation {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -25170,7 +25170,7 @@ impl ExpressionAnimation {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -25194,7 +25194,7 @@ impl ExpressionAnimation {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -25202,7 +25202,7 @@ impl ExpressionAnimation {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -25545,7 +25545,7 @@ unsafe impl ::windows::core::Interface for IAnimationObject {
 #[doc(hidden)]
 pub struct IAnimationObject_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub PopulatePropertyInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, propertyinfo: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub PopulatePropertyInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, propertyinfo: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -25572,7 +25572,7 @@ unsafe impl ::windows::core::Interface for IAnimationPropertyInfo2 {
 #[doc(hidden)]
 pub struct IAnimationPropertyInfo2_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub GetResolvedCompositionObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GetResolvedCompositionObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetResolvedCompositionObjectProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -25692,7 +25692,7 @@ pub struct IColorKeyFrameAnimation_Vtbl {
     pub InterpolationColorSpace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CompositionColorSpace) -> ::windows::core::HRESULT,
     pub SetInterpolationColorSpace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: CompositionColorSpace) -> ::windows::core::HRESULT,
     pub InsertKeyFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, value: super::Color) -> ::windows::core::HRESULT,
-    pub InsertKeyFrameWithEasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, value: super::Color, easingfunction: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub InsertKeyFrameWithEasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, value: super::Color, easingfunction: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -25720,7 +25720,7 @@ pub struct ICompositionAnimation_Vtbl {
     pub SetQuaternionParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     SetQuaternionParameter: usize,
-    pub SetReferenceParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, compositionobject: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetReferenceParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, compositionobject: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetScalarParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: f32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Numerics")]
     pub SetVector2Parameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT,
@@ -25762,7 +25762,7 @@ unsafe impl ::windows::core::Interface for ICompositionAnimation3 {
 pub struct ICompositionAnimation3_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
-    pub InitialValueExpressions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub InitialValueExpressions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     InitialValueExpressions: usize,
 }
@@ -25777,7 +25777,7 @@ unsafe impl ::windows::core::Interface for ICompositionAnimation4 {
 #[doc(hidden)]
 pub struct ICompositionAnimation4_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub SetExpressionReferenceParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parametername: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, source: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetExpressionReferenceParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parametername: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, source: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
@@ -25879,8 +25879,8 @@ unsafe impl ::windows::core::Interface for ICompositionAnimationGroup {
 pub struct ICompositionAnimationGroup_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
-    pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub RemoveAll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -25945,7 +25945,7 @@ pub struct ICompositionCapabilities_Vtbl {
     pub AreEffectsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub AreEffectsFast: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
-    pub Changed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub Changed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     Changed: usize,
     #[cfg(feature = "Foundation")]
@@ -25964,7 +25964,7 @@ unsafe impl ::windows::core::Interface for ICompositionCapabilitiesStatics {
 #[doc(hidden)]
 pub struct ICompositionCapabilitiesStatics_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -26102,7 +26102,7 @@ pub struct ICompositionCommitBatch_Vtbl {
     pub IsActive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub IsEnded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
-    pub Completed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub Completed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     Completed: usize,
     #[cfg(feature = "Foundation")]
@@ -26122,7 +26122,7 @@ unsafe impl ::windows::core::Interface for ICompositionContainerShape {
 pub struct ICompositionContainerShape_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
-    pub Shapes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub Shapes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     Shapes: usize,
 }
@@ -26234,19 +26234,19 @@ unsafe impl ::windows::core::Interface for ICompositionEasingFunctionStatics {
 pub struct ICompositionEasingFunctionStatics_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Numerics")]
-    pub CreateCubicBezierEasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, controlpoint1: super::super::Foundation::Numerics::Vector2, controlpoint2: super::super::Foundation::Numerics::Vector2, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateCubicBezierEasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: *mut ::core::ffi::c_void, controlpoint1: super::super::Foundation::Numerics::Vector2, controlpoint2: super::super::Foundation::Numerics::Vector2, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     CreateCubicBezierEasingFunction: usize,
-    pub CreateLinearEasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateStepEasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateStepEasingFunctionWithStepCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, stepcount: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateBackEasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, mode: CompositionEasingFunctionMode, amplitude: f32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateBounceEasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, mode: CompositionEasingFunctionMode, bounces: i32, bounciness: f32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateCircleEasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, mode: CompositionEasingFunctionMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateElasticEasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, mode: CompositionEasingFunctionMode, oscillations: i32, springiness: f32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateExponentialEasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, mode: CompositionEasingFunctionMode, exponent: f32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreatePowerEasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, mode: CompositionEasingFunctionMode, power: f32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateSineEasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: ::windows::core::RawPtr, mode: CompositionEasingFunctionMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateLinearEasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateStepEasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateStepEasingFunctionWithStepCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: *mut ::core::ffi::c_void, stepcount: i32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateBackEasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: *mut ::core::ffi::c_void, mode: CompositionEasingFunctionMode, amplitude: f32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateBounceEasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: *mut ::core::ffi::c_void, mode: CompositionEasingFunctionMode, bounces: i32, bounciness: f32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateCircleEasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: *mut ::core::ffi::c_void, mode: CompositionEasingFunctionMode, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateElasticEasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: *mut ::core::ffi::c_void, mode: CompositionEasingFunctionMode, oscillations: i32, springiness: f32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateExponentialEasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: *mut ::core::ffi::c_void, mode: CompositionEasingFunctionMode, exponent: f32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreatePowerEasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: *mut ::core::ffi::c_void, mode: CompositionEasingFunctionMode, power: f32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateSineEasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: *mut ::core::ffi::c_void, mode: CompositionEasingFunctionMode, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -26259,8 +26259,8 @@ unsafe impl ::windows::core::Interface for ICompositionEffectBrush {
 #[doc(hidden)]
 pub struct ICompositionEffectBrush_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub GetSourceParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetSourceParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, source: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GetSourceParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetSourceParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, source: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -26273,7 +26273,7 @@ unsafe impl ::windows::core::Interface for ICompositionEffectFactory {
 #[doc(hidden)]
 pub struct ICompositionEffectFactory_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub CreateBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     pub LoadStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CompositionEffectFactoryLoadStatus) -> ::windows::core::HRESULT,
 }
@@ -26301,7 +26301,7 @@ unsafe impl ::windows::core::Interface for ICompositionEffectSourceParameterFact
 #[doc(hidden)]
 pub struct ICompositionEffectSourceParameterFactory_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -26342,10 +26342,10 @@ unsafe impl ::windows::core::Interface for ICompositionGeometricClip {
 #[doc(hidden)]
 pub struct ICompositionGeometricClip_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub Geometry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetGeometry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub ViewBox: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetViewBox: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub Geometry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetGeometry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ViewBox: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetViewBox: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -26404,7 +26404,7 @@ pub struct ICompositionGradientBrush_Vtbl {
     pub SetCenterPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     SetCenterPoint: usize,
-    pub ColorStops: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub ColorStops: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub ExtendMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CompositionGradientExtendMode) -> ::windows::core::HRESULT,
     pub SetExtendMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: CompositionGradientExtendMode) -> ::windows::core::HRESULT,
     pub InterpolationSpace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CompositionColorSpace) -> ::windows::core::HRESULT,
@@ -26476,11 +26476,11 @@ unsafe impl ::windows::core::Interface for ICompositionGraphicsDevice {
 pub struct ICompositionGraphicsDevice_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX"))]
-    pub CreateDrawingSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sizepixels: super::super::Foundation::Size, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateDrawingSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sizepixels: super::super::Foundation::Size, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Graphics_DirectX")))]
     CreateDrawingSurface: usize,
     #[cfg(feature = "Foundation")]
-    pub RenderingDeviceReplaced: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub RenderingDeviceReplaced: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     RenderingDeviceReplaced: usize,
     #[cfg(feature = "Foundation")]
@@ -26500,11 +26500,11 @@ unsafe impl ::windows::core::Interface for ICompositionGraphicsDevice2 {
 pub struct ICompositionGraphicsDevice2_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Graphics_DirectX")]
-    pub CreateDrawingSurface2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sizepixels: super::super::Graphics::SizeInt32, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateDrawingSurface2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sizepixels: super::super::Graphics::SizeInt32, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Graphics_DirectX"))]
     CreateDrawingSurface2: usize,
     #[cfg(feature = "Graphics_DirectX")]
-    pub CreateVirtualDrawingSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sizepixels: super::super::Graphics::SizeInt32, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateVirtualDrawingSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sizepixels: super::super::Graphics::SizeInt32, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Graphics_DirectX"))]
     CreateVirtualDrawingSurface: usize,
 }
@@ -26520,7 +26520,7 @@ unsafe impl ::windows::core::Interface for ICompositionGraphicsDevice3 {
 pub struct ICompositionGraphicsDevice3_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Graphics_DirectX")]
-    pub CreateMipmapSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sizepixels: super::super::Graphics::SizeInt32, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateMipmapSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sizepixels: super::super::Graphics::SizeInt32, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Graphics_DirectX"))]
     CreateMipmapSurface: usize,
     pub Trim: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -26537,7 +26537,7 @@ unsafe impl ::windows::core::Interface for ICompositionGraphicsDevice4 {
 pub struct ICompositionGraphicsDevice4_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX"))]
-    pub CaptureAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, capturevisual: ::windows::core::RawPtr, size: super::super::Graphics::SizeInt32, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode, sdrboost: f32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CaptureAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, capturevisual: *mut ::core::ffi::c_void, size: super::super::Graphics::SizeInt32, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode, sdrboost: f32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Graphics_DirectX")))]
     CaptureAsync: usize,
 }
@@ -26552,7 +26552,7 @@ unsafe impl ::windows::core::Interface for ICompositionLight {
 #[doc(hidden)]
 pub struct ICompositionLight_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub Targets: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub Targets: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -26565,7 +26565,7 @@ unsafe impl ::windows::core::Interface for ICompositionLight2 {
 #[doc(hidden)]
 pub struct ICompositionLight2_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub ExclusionsFromTargets: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub ExclusionsFromTargets: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -26660,10 +26660,10 @@ unsafe impl ::windows::core::Interface for ICompositionMaskBrush {
 #[doc(hidden)]
 pub struct ICompositionMaskBrush_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub Mask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetMask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub Source: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub Mask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetMask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Source: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -26689,7 +26689,7 @@ pub struct ICompositionMipmapSurface_Vtbl {
     pub SizeInt32: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::SizeInt32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Graphics"))]
     SizeInt32: usize,
-    pub GetDrawingSurfaceForLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, level: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GetDrawingSurfaceForLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, level: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -26716,8 +26716,8 @@ pub struct ICompositionNineGridBrush_Vtbl {
     pub SetRightInset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT,
     pub RightInsetScale: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
     pub SetRightInsetScale: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT,
-    pub Source: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub Source: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub TopInset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
     pub SetTopInset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT,
     pub TopInsetScale: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
@@ -26738,13 +26738,13 @@ unsafe impl ::windows::core::Interface for ICompositionObject {
 #[doc(hidden)]
 pub struct ICompositionObject_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub Compositor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub Compositor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "UI_Core")]
-    pub Dispatcher: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub Dispatcher: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Core"))]
     Dispatcher: usize,
-    pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub StartAnimation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub StartAnimation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub StopAnimation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -26760,10 +26760,10 @@ pub struct ICompositionObject2_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     pub Comment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetComment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub ImplicitAnimations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetImplicitAnimations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub StartAnimationGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub StopAnimationGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub ImplicitAnimations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetImplicitAnimations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub StartAnimationGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub StopAnimationGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -26777,7 +26777,7 @@ unsafe impl ::windows::core::Interface for ICompositionObject3 {
 pub struct ICompositionObject3_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "System")]
-    pub DispatcherQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub DispatcherQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "System"))]
     DispatcherQueue: usize,
 }
@@ -26792,7 +26792,7 @@ unsafe impl ::windows::core::Interface for ICompositionObject4 {
 #[doc(hidden)]
 pub struct ICompositionObject4_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub TryGetAnimationController: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub TryGetAnimationController: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -26817,8 +26817,8 @@ unsafe impl ::windows::core::Interface for ICompositionObjectStatics {
 #[doc(hidden)]
 pub struct ICompositionObjectStatics_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub StartAnimationWithIAnimationObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, target: ::windows::core::RawPtr, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub StartAnimationGroupWithIAnimationObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, target: ::windows::core::RawPtr, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub StartAnimationWithIAnimationObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, target: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub StartAnimationGroupWithIAnimationObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, target: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -26844,7 +26844,7 @@ unsafe impl ::windows::core::Interface for ICompositionPathFactory {
 pub struct ICompositionPathFactory_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Graphics")]
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, source: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, source: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Graphics"))]
     Create: usize,
 }
@@ -26859,8 +26859,8 @@ unsafe impl ::windows::core::Interface for ICompositionPathGeometry {
 #[doc(hidden)]
 pub struct ICompositionPathGeometry_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub Path: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub Path: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -26875,14 +26875,14 @@ pub struct ICompositionProjectedShadow_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     pub BlurRadiusMultiplier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
     pub SetBlurRadiusMultiplier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT,
-    pub Casters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub LightSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetLightSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub Casters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub LightSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetLightSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub MaxBlurRadius: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
     pub SetMaxBlurRadius: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT,
     pub MinBlurRadius: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
     pub SetMinBlurRadius: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT,
-    pub Receivers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub Receivers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -26895,10 +26895,10 @@ unsafe impl ::windows::core::Interface for ICompositionProjectedShadowCaster {
 #[doc(hidden)]
 pub struct ICompositionProjectedShadowCaster_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub Brush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CastingVisual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetCastingVisual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub Brush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CastingVisual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetCastingVisual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -26912,11 +26912,11 @@ unsafe impl ::windows::core::Interface for ICompositionProjectedShadowCasterColl
 pub struct ICompositionProjectedShadowCasterCollection_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
-    pub InsertAbove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newcaster: ::windows::core::RawPtr, reference: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub InsertAtBottom: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newcaster: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub InsertAtTop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newcaster: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub InsertBelow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newcaster: ::windows::core::RawPtr, reference: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, caster: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub InsertAbove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newcaster: *mut ::core::ffi::c_void, reference: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub InsertAtBottom: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newcaster: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub InsertAtTop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newcaster: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub InsertBelow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newcaster: *mut ::core::ffi::c_void, reference: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, caster: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub RemoveAll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -26943,8 +26943,8 @@ unsafe impl ::windows::core::Interface for ICompositionProjectedShadowReceiver {
 #[doc(hidden)]
 pub struct ICompositionProjectedShadowReceiver_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub ReceivingVisual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetReceivingVisual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub ReceivingVisual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetReceivingVisual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -26957,9 +26957,9 @@ unsafe impl ::windows::core::Interface for ICompositionProjectedShadowReceiverUn
 #[doc(hidden)]
 pub struct ICompositionProjectedShadowReceiverUnorderedCollection_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
-    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub RemoveAll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -27157,7 +27157,7 @@ pub struct ICompositionScopedBatch_Vtbl {
     pub Resume: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Suspend: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
-    pub Completed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub Completed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     Completed: usize,
     #[cfg(feature = "Foundation")]
@@ -27260,16 +27260,16 @@ unsafe impl ::windows::core::Interface for ICompositionSpriteShape {
 #[doc(hidden)]
 pub struct ICompositionSpriteShape_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub FillBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetFillBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub Geometry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetGeometry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub FillBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetFillBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Geometry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetGeometry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub IsStrokeNonScaling: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetIsStrokeNonScaling: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
-    pub StrokeBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetStrokeBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub StrokeBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetStrokeBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub StrokeDashArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub StrokeDashArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     StrokeDashArray: usize,
     pub StrokeDashCap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CompositionStrokeCap) -> ::windows::core::HRESULT,
@@ -27295,7 +27295,7 @@ impl ICompositionSupportsSystemBackdrop {
     pub fn SystemBackdrop(&self) -> ::windows::core::Result<CompositionBrush> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).SystemBackdrop)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionBrush>(result__)
         }
     }
@@ -27376,8 +27376,8 @@ unsafe impl ::windows::core::Interface for ICompositionSupportsSystemBackdrop {
 #[doc(hidden)]
 pub struct ICompositionSupportsSystemBackdrop_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub SystemBackdrop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetSystemBackdrop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SystemBackdrop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetSystemBackdrop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
@@ -27472,8 +27472,8 @@ pub struct ICompositionSurfaceBrush_Vtbl {
     pub SetHorizontalAlignmentRatio: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT,
     pub Stretch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CompositionStretch) -> ::windows::core::HRESULT,
     pub SetStretch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: CompositionStretch) -> ::windows::core::HRESULT,
-    pub Surface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub Surface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub VerticalAlignmentRatio: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
     pub SetVerticalAlignmentRatio: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT,
 }
@@ -27555,7 +27555,7 @@ impl ICompositionSurfaceFacade {
     pub fn GetRealSurface(&self) -> ::windows::core::Result<ICompositionSurface> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetRealSurface)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ICompositionSurface>(result__)
         }
     }
@@ -27631,7 +27631,7 @@ unsafe impl ::windows::core::Interface for ICompositionSurfaceFacade {
 #[doc(hidden)]
 pub struct ICompositionSurfaceFacade_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub GetRealSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GetRealSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -27644,8 +27644,8 @@ unsafe impl ::windows::core::Interface for ICompositionTarget {
 #[doc(hidden)]
 pub struct ICompositionTarget_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub Root: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetRoot: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub Root: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetRoot: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -27756,8 +27756,8 @@ unsafe impl ::windows::core::Interface for ICompositionVisualSurface {
 #[doc(hidden)]
 pub struct ICompositionVisualSurface_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub SourceVisual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetSourceVisual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SourceVisual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetSourceVisual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Numerics")]
     pub SourceOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
@@ -27786,39 +27786,39 @@ unsafe impl ::windows::core::Interface for ICompositor {
 #[doc(hidden)]
 pub struct ICompositor_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub CreateColorKeyFrameAnimation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateColorBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateColorBrushWithColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, color: super::Color, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateContainerVisual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateColorKeyFrameAnimation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateColorBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateColorBrushWithColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, color: super::Color, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateContainerVisual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Numerics")]
-    pub CreateCubicBezierEasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, controlpoint1: super::super::Foundation::Numerics::Vector2, controlpoint2: super::super::Foundation::Numerics::Vector2, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateCubicBezierEasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, controlpoint1: super::super::Foundation::Numerics::Vector2, controlpoint2: super::super::Foundation::Numerics::Vector2, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     CreateCubicBezierEasingFunction: usize,
     #[cfg(feature = "Graphics_Effects")]
-    pub CreateEffectFactory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, graphicseffect: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateEffectFactory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, graphicseffect: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Graphics_Effects"))]
     CreateEffectFactory: usize,
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_Effects"))]
-    pub CreateEffectFactoryWithProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, graphicseffect: ::windows::core::RawPtr, animatableproperties: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateEffectFactoryWithProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, graphicseffect: *mut ::core::ffi::c_void, animatableproperties: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Graphics_Effects")))]
     CreateEffectFactoryWithProperties: usize,
-    pub CreateExpressionAnimation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateExpressionAnimationWithExpression: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, expression: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateInsetClip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateInsetClipWithInsets: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, leftinset: f32, topinset: f32, rightinset: f32, bottominset: f32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateLinearEasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreatePropertySet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateQuaternionKeyFrameAnimation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateScalarKeyFrameAnimation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateScopedBatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, batchtype: CompositionBatchTypes, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateSpriteVisual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateSurfaceBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateSurfaceBrushWithSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, surface: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateTargetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateVector2KeyFrameAnimation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateVector3KeyFrameAnimation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateVector4KeyFrameAnimation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub GetCommitBatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, batchtype: CompositionBatchTypes, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateExpressionAnimation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateExpressionAnimationWithExpression: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, expression: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateInsetClip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateInsetClipWithInsets: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, leftinset: f32, topinset: f32, rightinset: f32, bottominset: f32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateLinearEasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreatePropertySet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateQuaternionKeyFrameAnimation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateScalarKeyFrameAnimation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateScopedBatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, batchtype: CompositionBatchTypes, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateSpriteVisual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateSurfaceBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateSurfaceBrushWithSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, surface: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateTargetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateVector2KeyFrameAnimation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateVector3KeyFrameAnimation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateVector4KeyFrameAnimation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetCommitBatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, batchtype: CompositionBatchTypes, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -27831,19 +27831,19 @@ unsafe impl ::windows::core::Interface for ICompositor2 {
 #[doc(hidden)]
 pub struct ICompositor2_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub CreateAmbientLight: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateAnimationGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateBackdropBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateDistantLight: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateDropShadow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateImplicitAnimationCollection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateLayerVisual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateMaskBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateNineGridBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreatePointLight: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateSpotLight: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateStepEasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateStepEasingFunctionWithStepCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stepcount: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateAmbientLight: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateAnimationGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateBackdropBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateDistantLight: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateDropShadow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateImplicitAnimationCollection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateLayerVisual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateMaskBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateNineGridBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreatePointLight: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateSpotLight: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateStepEasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateStepEasingFunctionWithStepCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stepcount: i32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -27856,7 +27856,7 @@ unsafe impl ::windows::core::Interface for ICompositor3 {
 #[doc(hidden)]
 pub struct ICompositor3_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub CreateHostBackdropBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateHostBackdropBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -27869,12 +27869,12 @@ unsafe impl ::windows::core::Interface for ICompositor4 {
 #[doc(hidden)]
 pub struct ICompositor4_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub CreateColorGradientStop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateColorGradientStopWithOffsetAndColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: f32, color: super::Color, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateLinearGradientBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateSpringScalarAnimation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateSpringVector2Animation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateSpringVector3Animation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateColorGradientStop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateColorGradientStopWithOffsetAndColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: f32, color: super::Color, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateLinearGradientBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateSpringScalarAnimation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateSpringVector2Animation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateSpringVector3Animation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -27891,23 +27891,23 @@ pub struct ICompositor5_Vtbl {
     pub SetComment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub GlobalPlaybackRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
     pub SetGlobalPlaybackRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT,
-    pub CreateBounceScalarAnimation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateBounceVector2Animation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateBounceVector3Animation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateContainerShape: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateEllipseGeometry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateLineGeometry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreatePathGeometry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreatePathGeometryWithPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, path: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreatePathKeyFrameAnimation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateRectangleGeometry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateRoundedRectangleGeometry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateShapeVisual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateSpriteShape: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateSpriteShapeWithGeometry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, geometry: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateViewBox: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateBounceScalarAnimation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateBounceVector2Animation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateBounceVector3Animation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateContainerShape: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateEllipseGeometry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateLineGeometry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreatePathGeometry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreatePathGeometryWithPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, path: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreatePathKeyFrameAnimation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateRectangleGeometry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateRoundedRectangleGeometry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateShapeVisual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateSpriteShape: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateSpriteShapeWithGeometry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, geometry: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateViewBox: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
-    pub RequestCommitAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub RequestCommitAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     RequestCommitAsync: usize,
 }
@@ -27922,11 +27922,11 @@ unsafe impl ::windows::core::Interface for ICompositor6 {
 #[doc(hidden)]
 pub struct ICompositor6_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub CreateGeometricClip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateGeometricClipWithGeometry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, geometry: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateRedirectVisual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateRedirectVisualWithSourceVisual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, source: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateBooleanKeyFrameAnimation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateGeometricClip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateGeometricClipWithGeometry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, geometry: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateRedirectVisual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateRedirectVisualWithSourceVisual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, source: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateBooleanKeyFrameAnimation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -27940,14 +27940,14 @@ unsafe impl ::windows::core::Interface for ICompositor7 {
 pub struct ICompositor7_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "System")]
-    pub DispatcherQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub DispatcherQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "System"))]
     DispatcherQueue: usize,
-    pub CreateAnimationPropertyInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateRectangleClip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateRectangleClipWithSides: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, left: f32, top: f32, right: f32, bottom: f32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateAnimationPropertyInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateRectangleClip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateRectangleClipWithSides: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, left: f32, top: f32, right: f32, bottom: f32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Numerics")]
-    pub CreateRectangleClipWithSidesAndRadius: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, left: f32, top: f32, right: f32, bottom: f32, topleftradius: super::super::Foundation::Numerics::Vector2, toprightradius: super::super::Foundation::Numerics::Vector2, bottomrightradius: super::super::Foundation::Numerics::Vector2, bottomleftradius: super::super::Foundation::Numerics::Vector2, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateRectangleClipWithSidesAndRadius: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, left: f32, top: f32, right: f32, bottom: f32, topleftradius: super::super::Foundation::Numerics::Vector2, toprightradius: super::super::Foundation::Numerics::Vector2, bottomrightradius: super::super::Foundation::Numerics::Vector2, bottomleftradius: super::super::Foundation::Numerics::Vector2, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     CreateRectangleClipWithSidesAndRadius: usize,
 }
@@ -27976,7 +27976,7 @@ unsafe impl ::windows::core::Interface for ICompositorWithBlurredWallpaperBackdr
 #[doc(hidden)]
 pub struct ICompositorWithBlurredWallpaperBackdropBrush_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub TryCreateBlurredWallpaperBackdropBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub TryCreateBlurredWallpaperBackdropBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -27989,9 +27989,9 @@ unsafe impl ::windows::core::Interface for ICompositorWithProjectedShadow {
 #[doc(hidden)]
 pub struct ICompositorWithProjectedShadow_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub CreateProjectedShadowCaster: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateProjectedShadow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateProjectedShadowReceiver: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateProjectedShadowCaster: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateProjectedShadow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateProjectedShadowReceiver: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -28004,7 +28004,7 @@ unsafe impl ::windows::core::Interface for ICompositorWithRadialGradient {
 #[doc(hidden)]
 pub struct ICompositorWithRadialGradient_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub CreateRadialGradientBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateRadialGradientBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -28017,7 +28017,7 @@ unsafe impl ::windows::core::Interface for ICompositorWithVisualSurface {
 #[doc(hidden)]
 pub struct ICompositorWithVisualSurface_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub CreateVisualSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateVisualSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -28030,7 +28030,7 @@ unsafe impl ::windows::core::Interface for IContainerVisual {
 #[doc(hidden)]
 pub struct IContainerVisual_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub Children: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub Children: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -28097,8 +28097,8 @@ unsafe impl ::windows::core::Interface for IDelegatedInkTrailVisualStatics {
 #[doc(hidden)]
 pub struct IDelegatedInkTrailVisualStatics_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, compositor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreateForSwapChain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, compositor: ::windows::core::RawPtr, swapchain: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, compositor: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateForSwapChain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, compositor: *mut ::core::ffi::c_void, swapchain: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -28113,8 +28113,8 @@ pub struct IDistantLight_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     pub Color: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::Color) -> ::windows::core::HRESULT,
     pub SetColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::Color) -> ::windows::core::HRESULT,
-    pub CoordinateSpace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetCoordinateSpace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CoordinateSpace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetCoordinateSpace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Numerics")]
     pub Direction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
@@ -28153,8 +28153,8 @@ pub struct IDropShadow_Vtbl {
     pub SetBlurRadius: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT,
     pub Color: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::Color) -> ::windows::core::HRESULT,
     pub SetColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::Color) -> ::windows::core::HRESULT,
-    pub Mask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetMask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub Mask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetMask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Numerics")]
     pub Offset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
@@ -28290,7 +28290,7 @@ pub struct IKeyFrameAnimation_Vtbl {
     pub StopBehavior: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AnimationStopBehavior) -> ::windows::core::HRESULT,
     pub SetStopBehavior: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: AnimationStopBehavior) -> ::windows::core::HRESULT,
     pub InsertExpressionKeyFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub InsertExpressionKeyFrameWithEasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, easingfunction: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub InsertExpressionKeyFrameWithEasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, easingfunction: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -28343,8 +28343,8 @@ unsafe impl ::windows::core::Interface for ILayerVisual {
 #[doc(hidden)]
 pub struct ILayerVisual_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub Effect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub Effect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -28357,8 +28357,8 @@ unsafe impl ::windows::core::Interface for ILayerVisual2 {
 #[doc(hidden)]
 pub struct ILayerVisual2_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub Shadow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetShadow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub Shadow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetShadow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -28419,8 +28419,8 @@ unsafe impl ::windows::core::Interface for IPathKeyFrameAnimation {
 #[doc(hidden)]
 pub struct IPathKeyFrameAnimation_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub InsertKeyFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, path: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub InsertKeyFrameWithEasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, path: ::windows::core::RawPtr, easingfunction: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub InsertKeyFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, path: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub InsertKeyFrameWithEasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, path: *mut ::core::ffi::c_void, easingfunction: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -28437,8 +28437,8 @@ pub struct IPointLight_Vtbl {
     pub SetColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::Color) -> ::windows::core::HRESULT,
     pub ConstantAttenuation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
     pub SetConstantAttenuation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT,
-    pub CoordinateSpace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetCoordinateSpace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CoordinateSpace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetCoordinateSpace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub LinearAttenuation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
     pub SetLinearAttenuation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Numerics")]
@@ -28512,7 +28512,7 @@ pub struct IQuaternionKeyFrameAnimation_Vtbl {
     #[cfg(not(feature = "Foundation_Numerics"))]
     InsertKeyFrame: usize,
     #[cfg(feature = "Foundation_Numerics")]
-    pub InsertKeyFrameWithEasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, value: super::super::Foundation::Numerics::Quaternion, easingfunction: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub InsertKeyFrameWithEasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, value: super::super::Foundation::Numerics::Quaternion, easingfunction: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     InsertKeyFrameWithEasingFunction: usize,
 }
@@ -28579,8 +28579,8 @@ unsafe impl ::windows::core::Interface for IRedirectVisual {
 #[doc(hidden)]
 pub struct IRedirectVisual_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub Source: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub Source: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -28593,7 +28593,7 @@ unsafe impl ::windows::core::Interface for IRenderingDeviceReplacedEventArgs {
 #[doc(hidden)]
 pub struct IRenderingDeviceReplacedEventArgs_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub GraphicsDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GraphicsDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -28607,7 +28607,7 @@ unsafe impl ::windows::core::Interface for IScalarKeyFrameAnimation {
 pub struct IScalarKeyFrameAnimation_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     pub InsertKeyFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, value: f32) -> ::windows::core::HRESULT,
-    pub InsertKeyFrameWithEasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, value: f32, easingfunction: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub InsertKeyFrameWithEasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, value: f32, easingfunction: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -28621,19 +28621,19 @@ unsafe impl ::windows::core::Interface for IScalarNaturalMotionAnimation {
 pub struct IScalarNaturalMotionAnimation_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation")]
-    pub FinalValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub FinalValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     FinalValue: usize,
     #[cfg(feature = "Foundation")]
-    pub SetFinalValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetFinalValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     SetFinalValue: usize,
     #[cfg(feature = "Foundation")]
-    pub InitialValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub InitialValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     InitialValue: usize,
     #[cfg(feature = "Foundation")]
-    pub SetInitialValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetInitialValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     SetInitialValue: usize,
     pub InitialVelocity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
@@ -28663,11 +28663,11 @@ unsafe impl ::windows::core::Interface for IShapeVisual {
 pub struct IShapeVisual_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Collections")]
-    pub Shapes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub Shapes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     Shapes: usize,
-    pub ViewBox: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetViewBox: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub ViewBox: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetViewBox: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -28695,8 +28695,8 @@ pub struct ISpotLight_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     pub ConstantAttenuation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
     pub SetConstantAttenuation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT,
-    pub CoordinateSpace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetCoordinateSpace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CoordinateSpace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetCoordinateSpace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Numerics")]
     pub Direction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
@@ -28839,8 +28839,8 @@ unsafe impl ::windows::core::Interface for ISpriteVisual {
 #[doc(hidden)]
 pub struct ISpriteVisual_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub Brush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub Brush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -28853,8 +28853,8 @@ unsafe impl ::windows::core::Interface for ISpriteVisual2 {
 #[doc(hidden)]
 pub struct ISpriteVisual2_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub Shadow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetShadow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub Shadow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetShadow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -28894,7 +28894,7 @@ pub struct IVector2KeyFrameAnimation_Vtbl {
     #[cfg(not(feature = "Foundation_Numerics"))]
     InsertKeyFrame: usize,
     #[cfg(feature = "Foundation_Numerics")]
-    pub InsertKeyFrameWithEasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, value: super::super::Foundation::Numerics::Vector2, easingfunction: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub InsertKeyFrameWithEasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, value: super::super::Foundation::Numerics::Vector2, easingfunction: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     InsertKeyFrameWithEasingFunction: usize,
 }
@@ -28910,19 +28910,19 @@ unsafe impl ::windows::core::Interface for IVector2NaturalMotionAnimation {
 pub struct IVector2NaturalMotionAnimation_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Numerics")]
-    pub FinalValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub FinalValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     FinalValue: usize,
     #[cfg(feature = "Foundation_Numerics")]
-    pub SetFinalValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetFinalValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     SetFinalValue: usize,
     #[cfg(feature = "Foundation_Numerics")]
-    pub InitialValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub InitialValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     InitialValue: usize,
     #[cfg(feature = "Foundation_Numerics")]
-    pub SetInitialValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetInitialValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     SetInitialValue: usize,
     #[cfg(feature = "Foundation_Numerics")]
@@ -28962,7 +28962,7 @@ pub struct IVector3KeyFrameAnimation_Vtbl {
     #[cfg(not(feature = "Foundation_Numerics"))]
     InsertKeyFrame: usize,
     #[cfg(feature = "Foundation_Numerics")]
-    pub InsertKeyFrameWithEasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, value: super::super::Foundation::Numerics::Vector3, easingfunction: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub InsertKeyFrameWithEasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, value: super::super::Foundation::Numerics::Vector3, easingfunction: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     InsertKeyFrameWithEasingFunction: usize,
 }
@@ -28978,19 +28978,19 @@ unsafe impl ::windows::core::Interface for IVector3NaturalMotionAnimation {
 pub struct IVector3NaturalMotionAnimation_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "Foundation_Numerics")]
-    pub FinalValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub FinalValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     FinalValue: usize,
     #[cfg(feature = "Foundation_Numerics")]
-    pub SetFinalValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetFinalValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     SetFinalValue: usize,
     #[cfg(feature = "Foundation_Numerics")]
-    pub InitialValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub InitialValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     InitialValue: usize,
     #[cfg(feature = "Foundation_Numerics")]
-    pub SetInitialValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetInitialValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     SetInitialValue: usize,
     #[cfg(feature = "Foundation_Numerics")]
@@ -29030,7 +29030,7 @@ pub struct IVector4KeyFrameAnimation_Vtbl {
     #[cfg(not(feature = "Foundation_Numerics"))]
     InsertKeyFrame: usize,
     #[cfg(feature = "Foundation_Numerics")]
-    pub InsertKeyFrameWithEasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, value: super::super::Foundation::Numerics::Vector4, easingfunction: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub InsertKeyFrameWithEasingFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, normalizedprogresskey: f32, value: super::super::Foundation::Numerics::Vector4, easingfunction: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     InsertKeyFrameWithEasingFunction: usize,
 }
@@ -29065,8 +29065,8 @@ pub struct IVisual_Vtbl {
     pub SetCenterPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     SetCenterPoint: usize,
-    pub Clip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetClip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub Clip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetClip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CompositeMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CompositionCompositeMode) -> ::windows::core::HRESULT,
     pub SetCompositeMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: CompositionCompositeMode) -> ::windows::core::HRESULT,
     pub IsVisible: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -29089,7 +29089,7 @@ pub struct IVisual_Vtbl {
     pub SetOrientation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     SetOrientation: usize,
-    pub Parent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub Parent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub RotationAngle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
     pub SetRotationAngle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT,
     pub RotationAngleInDegrees: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
@@ -29138,8 +29138,8 @@ unsafe impl ::windows::core::Interface for IVisual2 {
 #[doc(hidden)]
 pub struct IVisual2_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub ParentForTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetParentForTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub ParentForTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetParentForTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Numerics")]
     pub RelativeOffsetAdjustment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
@@ -29197,11 +29197,11 @@ unsafe impl ::windows::core::Interface for IVisualCollection {
 pub struct IVisualCollection_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
-    pub InsertAbove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newchild: ::windows::core::RawPtr, sibling: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub InsertAtBottom: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newchild: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub InsertAtTop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newchild: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub InsertBelow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newchild: ::windows::core::RawPtr, sibling: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, child: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub InsertAbove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newchild: *mut ::core::ffi::c_void, sibling: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub InsertAtBottom: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newchild: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub InsertAtTop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newchild: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub InsertBelow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newchild: *mut ::core::ffi::c_void, sibling: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, child: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub RemoveAll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"UI_Composition\"`*"]
@@ -29288,7 +29288,7 @@ impl IVisualElement2 {
     pub fn GetVisualInternal(&self) -> ::windows::core::Result<Visual> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetVisualInternal)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Visual>(result__)
         }
     }
@@ -29364,7 +29364,7 @@ unsafe impl ::windows::core::Interface for IVisualElement2 {
 #[doc(hidden)]
 pub struct IVisualElement2_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub GetVisualInternal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GetVisualInternal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -29390,8 +29390,8 @@ unsafe impl ::windows::core::Interface for IVisualUnorderedCollection {
 pub struct IVisualUnorderedCollection_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
-    pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newvisual: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, visual: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newvisual: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, visual: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub RemoveAll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"UI_Composition\"`*"]
@@ -29413,7 +29413,7 @@ impl ImplicitAnimationCollection {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -29422,7 +29422,7 @@ impl ImplicitAnimationCollection {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -29430,7 +29430,7 @@ impl ImplicitAnimationCollection {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -29461,7 +29461,7 @@ impl ImplicitAnimationCollection {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -29485,7 +29485,7 @@ impl ImplicitAnimationCollection {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -29493,7 +29493,7 @@ impl ImplicitAnimationCollection {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -29502,7 +29502,7 @@ impl ImplicitAnimationCollection {
     pub fn First(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IIterator<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ICompositionAnimationBase>>> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ICompositionAnimationBase>>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IIterator<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ICompositionAnimationBase>>>(result__)
         }
     }
@@ -29511,7 +29511,7 @@ impl ImplicitAnimationCollection {
     pub fn Lookup<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, key: Param0) -> ::windows::core::Result<ICompositionAnimationBase> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ICompositionAnimationBase>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Lookup)(::windows::core::Interface::as_raw(this), key.into_param().abi(), result__.as_mut_ptr()).from_abi::<ICompositionAnimationBase>(result__)
         }
     }
@@ -29538,7 +29538,7 @@ impl ImplicitAnimationCollection {
     pub fn GetView(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ICompositionAnimationBase>> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ICompositionAnimationBase>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetView)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ICompositionAnimationBase>>(result__)
         }
     }
@@ -29793,7 +29793,7 @@ impl InitialValueExpressionCollection {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -29802,7 +29802,7 @@ impl InitialValueExpressionCollection {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -29810,7 +29810,7 @@ impl InitialValueExpressionCollection {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -29841,7 +29841,7 @@ impl InitialValueExpressionCollection {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -29865,7 +29865,7 @@ impl InitialValueExpressionCollection {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -29873,7 +29873,7 @@ impl InitialValueExpressionCollection {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -29882,7 +29882,7 @@ impl InitialValueExpressionCollection {
     pub fn First(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IIterator<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IIterator<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>(result__)
         }
     }
@@ -29918,7 +29918,7 @@ impl InitialValueExpressionCollection {
     pub fn GetView(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetView)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>(result__)
         }
     }
@@ -30344,7 +30344,7 @@ impl InsetClip {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -30353,7 +30353,7 @@ impl InsetClip {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -30361,7 +30361,7 @@ impl InsetClip {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -30392,7 +30392,7 @@ impl InsetClip {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -30416,7 +30416,7 @@ impl InsetClip {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -30424,7 +30424,7 @@ impl InsetClip {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -30740,7 +30740,7 @@ impl KeyFrameAnimation {
     pub fn InitialValueExpressions(&self) -> ::windows::core::Result<InitialValueExpressionCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).InitialValueExpressions)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<InitialValueExpressionCollection>(result__)
         }
     }
@@ -30753,7 +30753,7 @@ impl KeyFrameAnimation {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -30762,7 +30762,7 @@ impl KeyFrameAnimation {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -30770,7 +30770,7 @@ impl KeyFrameAnimation {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -30801,7 +30801,7 @@ impl KeyFrameAnimation {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -30825,7 +30825,7 @@ impl KeyFrameAnimation {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -30833,7 +30833,7 @@ impl KeyFrameAnimation {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -31152,7 +31152,7 @@ impl LayerVisual {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -31161,7 +31161,7 @@ impl LayerVisual {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -31169,7 +31169,7 @@ impl LayerVisual {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -31200,7 +31200,7 @@ impl LayerVisual {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -31224,7 +31224,7 @@ impl LayerVisual {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -31232,7 +31232,7 @@ impl LayerVisual {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -31240,7 +31240,7 @@ impl LayerVisual {
     pub fn Children(&self) -> ::windows::core::Result<VisualCollection> {
         let this = &::windows::core::Interface::cast::<IContainerVisual>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Children)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<VisualCollection>(result__)
         }
     }
@@ -31248,7 +31248,7 @@ impl LayerVisual {
     pub fn Effect(&self) -> ::windows::core::Result<CompositionEffectBrush> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Effect)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionEffectBrush>(result__)
         }
     }
@@ -31261,7 +31261,7 @@ impl LayerVisual {
     pub fn Shadow(&self) -> ::windows::core::Result<CompositionShadow> {
         let this = &::windows::core::Interface::cast::<ILayerVisual2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Shadow)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionShadow>(result__)
         }
     }
@@ -31330,7 +31330,7 @@ impl LayerVisual {
     pub fn Clip(&self) -> ::windows::core::Result<CompositionClip> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Clip)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionClip>(result__)
         }
     }
@@ -31412,7 +31412,7 @@ impl LayerVisual {
     pub fn Parent(&self) -> ::windows::core::Result<ContainerVisual> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Parent)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ContainerVisual>(result__)
         }
     }
@@ -31506,7 +31506,7 @@ impl LayerVisual {
     pub fn ParentForTransform(&self) -> ::windows::core::Result<Visual> {
         let this = &::windows::core::Interface::cast::<IVisual2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ParentForTransform)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Visual>(result__)
         }
     }
@@ -31771,7 +31771,7 @@ impl LinearEasingFunction {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -31780,7 +31780,7 @@ impl LinearEasingFunction {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -31788,7 +31788,7 @@ impl LinearEasingFunction {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -31819,7 +31819,7 @@ impl LinearEasingFunction {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -31843,7 +31843,7 @@ impl LinearEasingFunction {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -31851,7 +31851,7 @@ impl LinearEasingFunction {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -32115,7 +32115,7 @@ impl NaturalMotionAnimation {
     pub fn InitialValueExpressions(&self) -> ::windows::core::Result<InitialValueExpressionCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).InitialValueExpressions)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<InitialValueExpressionCollection>(result__)
         }
     }
@@ -32128,7 +32128,7 @@ impl NaturalMotionAnimation {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -32137,7 +32137,7 @@ impl NaturalMotionAnimation {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -32145,7 +32145,7 @@ impl NaturalMotionAnimation {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -32176,7 +32176,7 @@ impl NaturalMotionAnimation {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -32200,7 +32200,7 @@ impl NaturalMotionAnimation {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -32208,7 +32208,7 @@ impl NaturalMotionAnimation {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -32535,7 +32535,7 @@ impl PathKeyFrameAnimation {
     pub fn InitialValueExpressions(&self) -> ::windows::core::Result<InitialValueExpressionCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).InitialValueExpressions)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<InitialValueExpressionCollection>(result__)
         }
     }
@@ -32548,7 +32548,7 @@ impl PathKeyFrameAnimation {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -32557,7 +32557,7 @@ impl PathKeyFrameAnimation {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -32565,7 +32565,7 @@ impl PathKeyFrameAnimation {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -32596,7 +32596,7 @@ impl PathKeyFrameAnimation {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -32620,7 +32620,7 @@ impl PathKeyFrameAnimation {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -32628,7 +32628,7 @@ impl PathKeyFrameAnimation {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -32977,7 +32977,7 @@ impl PointLight {
     pub fn Targets(&self) -> ::windows::core::Result<VisualUnorderedCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionLight>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Targets)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<VisualUnorderedCollection>(result__)
         }
     }
@@ -32985,7 +32985,7 @@ impl PointLight {
     pub fn ExclusionsFromTargets(&self) -> ::windows::core::Result<VisualUnorderedCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionLight2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ExclusionsFromTargets)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<VisualUnorderedCollection>(result__)
         }
     }
@@ -33006,7 +33006,7 @@ impl PointLight {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -33015,7 +33015,7 @@ impl PointLight {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -33023,7 +33023,7 @@ impl PointLight {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -33054,7 +33054,7 @@ impl PointLight {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -33078,7 +33078,7 @@ impl PointLight {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -33086,7 +33086,7 @@ impl PointLight {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -33120,7 +33120,7 @@ impl PointLight {
     pub fn CoordinateSpace(&self) -> ::windows::core::Result<Visual> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CoordinateSpace)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Visual>(result__)
         }
     }
@@ -33389,7 +33389,7 @@ impl PowerEasingFunction {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -33398,7 +33398,7 @@ impl PowerEasingFunction {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -33406,7 +33406,7 @@ impl PowerEasingFunction {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -33437,7 +33437,7 @@ impl PowerEasingFunction {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -33461,7 +33461,7 @@ impl PowerEasingFunction {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -33469,7 +33469,7 @@ impl PowerEasingFunction {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -33749,7 +33749,7 @@ impl QuaternionKeyFrameAnimation {
     pub fn InitialValueExpressions(&self) -> ::windows::core::Result<InitialValueExpressionCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).InitialValueExpressions)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<InitialValueExpressionCollection>(result__)
         }
     }
@@ -33762,7 +33762,7 @@ impl QuaternionKeyFrameAnimation {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -33771,7 +33771,7 @@ impl QuaternionKeyFrameAnimation {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -33779,7 +33779,7 @@ impl QuaternionKeyFrameAnimation {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -33810,7 +33810,7 @@ impl QuaternionKeyFrameAnimation {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -33834,7 +33834,7 @@ impl QuaternionKeyFrameAnimation {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -33842,7 +33842,7 @@ impl QuaternionKeyFrameAnimation {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -34294,7 +34294,7 @@ impl RectangleClip {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -34303,7 +34303,7 @@ impl RectangleClip {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -34311,7 +34311,7 @@ impl RectangleClip {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -34342,7 +34342,7 @@ impl RectangleClip {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -34366,7 +34366,7 @@ impl RectangleClip {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -34374,7 +34374,7 @@ impl RectangleClip {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -34670,7 +34670,7 @@ impl RedirectVisual {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -34679,7 +34679,7 @@ impl RedirectVisual {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -34687,7 +34687,7 @@ impl RedirectVisual {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -34718,7 +34718,7 @@ impl RedirectVisual {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -34742,7 +34742,7 @@ impl RedirectVisual {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -34750,7 +34750,7 @@ impl RedirectVisual {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -34758,7 +34758,7 @@ impl RedirectVisual {
     pub fn Children(&self) -> ::windows::core::Result<VisualCollection> {
         let this = &::windows::core::Interface::cast::<IContainerVisual>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Children)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<VisualCollection>(result__)
         }
     }
@@ -34766,7 +34766,7 @@ impl RedirectVisual {
     pub fn Source(&self) -> ::windows::core::Result<Visual> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Source)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Visual>(result__)
         }
     }
@@ -34835,7 +34835,7 @@ impl RedirectVisual {
     pub fn Clip(&self) -> ::windows::core::Result<CompositionClip> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Clip)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionClip>(result__)
         }
     }
@@ -34917,7 +34917,7 @@ impl RedirectVisual {
     pub fn Parent(&self) -> ::windows::core::Result<ContainerVisual> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Parent)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ContainerVisual>(result__)
         }
     }
@@ -35011,7 +35011,7 @@ impl RedirectVisual {
     pub fn ParentForTransform(&self) -> ::windows::core::Result<Visual> {
         let this = &::windows::core::Interface::cast::<IVisual2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ParentForTransform)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Visual>(result__)
         }
     }
@@ -35276,7 +35276,7 @@ impl RenderingDeviceReplacedEventArgs {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -35285,7 +35285,7 @@ impl RenderingDeviceReplacedEventArgs {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -35293,7 +35293,7 @@ impl RenderingDeviceReplacedEventArgs {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -35324,7 +35324,7 @@ impl RenderingDeviceReplacedEventArgs {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -35348,7 +35348,7 @@ impl RenderingDeviceReplacedEventArgs {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -35356,7 +35356,7 @@ impl RenderingDeviceReplacedEventArgs {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -35364,7 +35364,7 @@ impl RenderingDeviceReplacedEventArgs {
     pub fn GraphicsDevice(&self) -> ::windows::core::Result<CompositionGraphicsDevice> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GraphicsDevice)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionGraphicsDevice>(result__)
         }
     }
@@ -35608,7 +35608,7 @@ impl ScalarKeyFrameAnimation {
     pub fn InitialValueExpressions(&self) -> ::windows::core::Result<InitialValueExpressionCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).InitialValueExpressions)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<InitialValueExpressionCollection>(result__)
         }
     }
@@ -35621,7 +35621,7 @@ impl ScalarKeyFrameAnimation {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -35630,7 +35630,7 @@ impl ScalarKeyFrameAnimation {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -35638,7 +35638,7 @@ impl ScalarKeyFrameAnimation {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -35669,7 +35669,7 @@ impl ScalarKeyFrameAnimation {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -35693,7 +35693,7 @@ impl ScalarKeyFrameAnimation {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -35701,7 +35701,7 @@ impl ScalarKeyFrameAnimation {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -36130,7 +36130,7 @@ impl ScalarNaturalMotionAnimation {
     pub fn InitialValueExpressions(&self) -> ::windows::core::Result<InitialValueExpressionCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).InitialValueExpressions)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<InitialValueExpressionCollection>(result__)
         }
     }
@@ -36143,7 +36143,7 @@ impl ScalarNaturalMotionAnimation {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -36152,7 +36152,7 @@ impl ScalarNaturalMotionAnimation {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -36160,7 +36160,7 @@ impl ScalarNaturalMotionAnimation {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -36191,7 +36191,7 @@ impl ScalarNaturalMotionAnimation {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -36215,7 +36215,7 @@ impl ScalarNaturalMotionAnimation {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -36223,7 +36223,7 @@ impl ScalarNaturalMotionAnimation {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -36273,7 +36273,7 @@ impl ScalarNaturalMotionAnimation {
     pub fn FinalValue(&self) -> ::windows::core::Result<super::super::Foundation::IReference<f32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FinalValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f32>>(result__)
         }
     }
@@ -36288,7 +36288,7 @@ impl ScalarNaturalMotionAnimation {
     pub fn InitialValue(&self) -> ::windows::core::Result<super::super::Foundation::IReference<f32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).InitialValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f32>>(result__)
         }
     }
@@ -36533,7 +36533,7 @@ impl ShapeVisual {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -36542,7 +36542,7 @@ impl ShapeVisual {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -36550,7 +36550,7 @@ impl ShapeVisual {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -36581,7 +36581,7 @@ impl ShapeVisual {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -36605,7 +36605,7 @@ impl ShapeVisual {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -36613,7 +36613,7 @@ impl ShapeVisual {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -36621,7 +36621,7 @@ impl ShapeVisual {
     pub fn Children(&self) -> ::windows::core::Result<VisualCollection> {
         let this = &::windows::core::Interface::cast::<IContainerVisual>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Children)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<VisualCollection>(result__)
         }
     }
@@ -36630,7 +36630,7 @@ impl ShapeVisual {
     pub fn Shapes(&self) -> ::windows::core::Result<CompositionShapeCollection> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Shapes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionShapeCollection>(result__)
         }
     }
@@ -36638,7 +36638,7 @@ impl ShapeVisual {
     pub fn ViewBox(&self) -> ::windows::core::Result<CompositionViewBox> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ViewBox)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionViewBox>(result__)
         }
     }
@@ -36707,7 +36707,7 @@ impl ShapeVisual {
     pub fn Clip(&self) -> ::windows::core::Result<CompositionClip> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Clip)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionClip>(result__)
         }
     }
@@ -36789,7 +36789,7 @@ impl ShapeVisual {
     pub fn Parent(&self) -> ::windows::core::Result<ContainerVisual> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Parent)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ContainerVisual>(result__)
         }
     }
@@ -36883,7 +36883,7 @@ impl ShapeVisual {
     pub fn ParentForTransform(&self) -> ::windows::core::Result<Visual> {
         let this = &::windows::core::Interface::cast::<IVisual2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ParentForTransform)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Visual>(result__)
         }
     }
@@ -37148,7 +37148,7 @@ impl SineEasingFunction {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -37157,7 +37157,7 @@ impl SineEasingFunction {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -37165,7 +37165,7 @@ impl SineEasingFunction {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -37196,7 +37196,7 @@ impl SineEasingFunction {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -37220,7 +37220,7 @@ impl SineEasingFunction {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -37228,7 +37228,7 @@ impl SineEasingFunction {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -37420,7 +37420,7 @@ impl SpotLight {
     pub fn Targets(&self) -> ::windows::core::Result<VisualUnorderedCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionLight>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Targets)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<VisualUnorderedCollection>(result__)
         }
     }
@@ -37428,7 +37428,7 @@ impl SpotLight {
     pub fn ExclusionsFromTargets(&self) -> ::windows::core::Result<VisualUnorderedCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionLight2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ExclusionsFromTargets)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<VisualUnorderedCollection>(result__)
         }
     }
@@ -37449,7 +37449,7 @@ impl SpotLight {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -37458,7 +37458,7 @@ impl SpotLight {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -37466,7 +37466,7 @@ impl SpotLight {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -37497,7 +37497,7 @@ impl SpotLight {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -37521,7 +37521,7 @@ impl SpotLight {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -37529,7 +37529,7 @@ impl SpotLight {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -37550,7 +37550,7 @@ impl SpotLight {
     pub fn CoordinateSpace(&self) -> ::windows::core::Result<Visual> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CoordinateSpace)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Visual>(result__)
         }
     }
@@ -38005,7 +38005,7 @@ impl SpringScalarNaturalMotionAnimation {
     pub fn InitialValueExpressions(&self) -> ::windows::core::Result<InitialValueExpressionCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).InitialValueExpressions)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<InitialValueExpressionCollection>(result__)
         }
     }
@@ -38018,7 +38018,7 @@ impl SpringScalarNaturalMotionAnimation {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -38027,7 +38027,7 @@ impl SpringScalarNaturalMotionAnimation {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -38035,7 +38035,7 @@ impl SpringScalarNaturalMotionAnimation {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -38066,7 +38066,7 @@ impl SpringScalarNaturalMotionAnimation {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -38090,7 +38090,7 @@ impl SpringScalarNaturalMotionAnimation {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -38098,7 +38098,7 @@ impl SpringScalarNaturalMotionAnimation {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -38148,7 +38148,7 @@ impl SpringScalarNaturalMotionAnimation {
     pub fn FinalValue(&self) -> ::windows::core::Result<super::super::Foundation::IReference<f32>> {
         let this = &::windows::core::Interface::cast::<IScalarNaturalMotionAnimation>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FinalValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f32>>(result__)
         }
     }
@@ -38163,7 +38163,7 @@ impl SpringScalarNaturalMotionAnimation {
     pub fn InitialValue(&self) -> ::windows::core::Result<super::super::Foundation::IReference<f32>> {
         let this = &::windows::core::Interface::cast::<IScalarNaturalMotionAnimation>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).InitialValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f32>>(result__)
         }
     }
@@ -38536,7 +38536,7 @@ impl SpringVector2NaturalMotionAnimation {
     pub fn InitialValueExpressions(&self) -> ::windows::core::Result<InitialValueExpressionCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).InitialValueExpressions)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<InitialValueExpressionCollection>(result__)
         }
     }
@@ -38549,7 +38549,7 @@ impl SpringVector2NaturalMotionAnimation {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -38558,7 +38558,7 @@ impl SpringVector2NaturalMotionAnimation {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -38566,7 +38566,7 @@ impl SpringVector2NaturalMotionAnimation {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -38597,7 +38597,7 @@ impl SpringVector2NaturalMotionAnimation {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -38621,7 +38621,7 @@ impl SpringVector2NaturalMotionAnimation {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -38629,7 +38629,7 @@ impl SpringVector2NaturalMotionAnimation {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -38707,7 +38707,7 @@ impl SpringVector2NaturalMotionAnimation {
     pub fn FinalValue(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>> {
         let this = &::windows::core::Interface::cast::<IVector2NaturalMotionAnimation>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FinalValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>>(result__)
         }
     }
@@ -38722,7 +38722,7 @@ impl SpringVector2NaturalMotionAnimation {
     pub fn InitialValue(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>> {
         let this = &::windows::core::Interface::cast::<IVector2NaturalMotionAnimation>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).InitialValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>>(result__)
         }
     }
@@ -39069,7 +39069,7 @@ impl SpringVector3NaturalMotionAnimation {
     pub fn InitialValueExpressions(&self) -> ::windows::core::Result<InitialValueExpressionCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).InitialValueExpressions)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<InitialValueExpressionCollection>(result__)
         }
     }
@@ -39082,7 +39082,7 @@ impl SpringVector3NaturalMotionAnimation {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -39091,7 +39091,7 @@ impl SpringVector3NaturalMotionAnimation {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -39099,7 +39099,7 @@ impl SpringVector3NaturalMotionAnimation {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -39130,7 +39130,7 @@ impl SpringVector3NaturalMotionAnimation {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -39154,7 +39154,7 @@ impl SpringVector3NaturalMotionAnimation {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -39162,7 +39162,7 @@ impl SpringVector3NaturalMotionAnimation {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -39240,7 +39240,7 @@ impl SpringVector3NaturalMotionAnimation {
     pub fn FinalValue(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>> {
         let this = &::windows::core::Interface::cast::<IVector3NaturalMotionAnimation>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FinalValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>>(result__)
         }
     }
@@ -39255,7 +39255,7 @@ impl SpringVector3NaturalMotionAnimation {
     pub fn InitialValue(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>> {
         let this = &::windows::core::Interface::cast::<IVector3NaturalMotionAnimation>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).InitialValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>>(result__)
         }
     }
@@ -39522,7 +39522,7 @@ impl SpriteVisual {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -39531,7 +39531,7 @@ impl SpriteVisual {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -39539,7 +39539,7 @@ impl SpriteVisual {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -39570,7 +39570,7 @@ impl SpriteVisual {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -39594,7 +39594,7 @@ impl SpriteVisual {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -39602,7 +39602,7 @@ impl SpriteVisual {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -39610,7 +39610,7 @@ impl SpriteVisual {
     pub fn Children(&self) -> ::windows::core::Result<VisualCollection> {
         let this = &::windows::core::Interface::cast::<IContainerVisual>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Children)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<VisualCollection>(result__)
         }
     }
@@ -39618,7 +39618,7 @@ impl SpriteVisual {
     pub fn Brush(&self) -> ::windows::core::Result<CompositionBrush> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Brush)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionBrush>(result__)
         }
     }
@@ -39631,7 +39631,7 @@ impl SpriteVisual {
     pub fn Shadow(&self) -> ::windows::core::Result<CompositionShadow> {
         let this = &::windows::core::Interface::cast::<ISpriteVisual2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Shadow)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionShadow>(result__)
         }
     }
@@ -39700,7 +39700,7 @@ impl SpriteVisual {
     pub fn Clip(&self) -> ::windows::core::Result<CompositionClip> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Clip)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionClip>(result__)
         }
     }
@@ -39782,7 +39782,7 @@ impl SpriteVisual {
     pub fn Parent(&self) -> ::windows::core::Result<ContainerVisual> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Parent)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ContainerVisual>(result__)
         }
     }
@@ -39876,7 +39876,7 @@ impl SpriteVisual {
     pub fn ParentForTransform(&self) -> ::windows::core::Result<Visual> {
         let this = &::windows::core::Interface::cast::<IVisual2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ParentForTransform)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Visual>(result__)
         }
     }
@@ -40141,7 +40141,7 @@ impl StepEasingFunction {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -40150,7 +40150,7 @@ impl StepEasingFunction {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -40158,7 +40158,7 @@ impl StepEasingFunction {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -40189,7 +40189,7 @@ impl StepEasingFunction {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -40213,7 +40213,7 @@ impl StepEasingFunction {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -40221,7 +40221,7 @@ impl StepEasingFunction {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -40550,7 +40550,7 @@ impl Vector2KeyFrameAnimation {
     pub fn InitialValueExpressions(&self) -> ::windows::core::Result<InitialValueExpressionCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).InitialValueExpressions)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<InitialValueExpressionCollection>(result__)
         }
     }
@@ -40563,7 +40563,7 @@ impl Vector2KeyFrameAnimation {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -40572,7 +40572,7 @@ impl Vector2KeyFrameAnimation {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -40580,7 +40580,7 @@ impl Vector2KeyFrameAnimation {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -40611,7 +40611,7 @@ impl Vector2KeyFrameAnimation {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -40635,7 +40635,7 @@ impl Vector2KeyFrameAnimation {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -40643,7 +40643,7 @@ impl Vector2KeyFrameAnimation {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -41074,7 +41074,7 @@ impl Vector2NaturalMotionAnimation {
     pub fn InitialValueExpressions(&self) -> ::windows::core::Result<InitialValueExpressionCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).InitialValueExpressions)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<InitialValueExpressionCollection>(result__)
         }
     }
@@ -41087,7 +41087,7 @@ impl Vector2NaturalMotionAnimation {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -41096,7 +41096,7 @@ impl Vector2NaturalMotionAnimation {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -41104,7 +41104,7 @@ impl Vector2NaturalMotionAnimation {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -41135,7 +41135,7 @@ impl Vector2NaturalMotionAnimation {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -41159,7 +41159,7 @@ impl Vector2NaturalMotionAnimation {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -41167,7 +41167,7 @@ impl Vector2NaturalMotionAnimation {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -41217,7 +41217,7 @@ impl Vector2NaturalMotionAnimation {
     pub fn FinalValue(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FinalValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>>(result__)
         }
     }
@@ -41232,7 +41232,7 @@ impl Vector2NaturalMotionAnimation {
     pub fn InitialValue(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).InitialValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>>(result__)
         }
     }
@@ -41559,7 +41559,7 @@ impl Vector3KeyFrameAnimation {
     pub fn InitialValueExpressions(&self) -> ::windows::core::Result<InitialValueExpressionCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).InitialValueExpressions)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<InitialValueExpressionCollection>(result__)
         }
     }
@@ -41572,7 +41572,7 @@ impl Vector3KeyFrameAnimation {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -41581,7 +41581,7 @@ impl Vector3KeyFrameAnimation {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -41589,7 +41589,7 @@ impl Vector3KeyFrameAnimation {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -41620,7 +41620,7 @@ impl Vector3KeyFrameAnimation {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -41644,7 +41644,7 @@ impl Vector3KeyFrameAnimation {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -41652,7 +41652,7 @@ impl Vector3KeyFrameAnimation {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -42083,7 +42083,7 @@ impl Vector3NaturalMotionAnimation {
     pub fn InitialValueExpressions(&self) -> ::windows::core::Result<InitialValueExpressionCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).InitialValueExpressions)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<InitialValueExpressionCollection>(result__)
         }
     }
@@ -42096,7 +42096,7 @@ impl Vector3NaturalMotionAnimation {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -42105,7 +42105,7 @@ impl Vector3NaturalMotionAnimation {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -42113,7 +42113,7 @@ impl Vector3NaturalMotionAnimation {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -42144,7 +42144,7 @@ impl Vector3NaturalMotionAnimation {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -42168,7 +42168,7 @@ impl Vector3NaturalMotionAnimation {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -42176,7 +42176,7 @@ impl Vector3NaturalMotionAnimation {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -42226,7 +42226,7 @@ impl Vector3NaturalMotionAnimation {
     pub fn FinalValue(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).FinalValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>>(result__)
         }
     }
@@ -42241,7 +42241,7 @@ impl Vector3NaturalMotionAnimation {
     pub fn InitialValue(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).InitialValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>>(result__)
         }
     }
@@ -42568,7 +42568,7 @@ impl Vector4KeyFrameAnimation {
     pub fn InitialValueExpressions(&self) -> ::windows::core::Result<InitialValueExpressionCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).InitialValueExpressions)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<InitialValueExpressionCollection>(result__)
         }
     }
@@ -42581,7 +42581,7 @@ impl Vector4KeyFrameAnimation {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -42590,7 +42590,7 @@ impl Vector4KeyFrameAnimation {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -42598,7 +42598,7 @@ impl Vector4KeyFrameAnimation {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -42629,7 +42629,7 @@ impl Vector4KeyFrameAnimation {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -42653,7 +42653,7 @@ impl Vector4KeyFrameAnimation {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -42661,7 +42661,7 @@ impl Vector4KeyFrameAnimation {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -43012,7 +43012,7 @@ impl Visual {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -43021,7 +43021,7 @@ impl Visual {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -43029,7 +43029,7 @@ impl Visual {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -43060,7 +43060,7 @@ impl Visual {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -43084,7 +43084,7 @@ impl Visual {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -43092,7 +43092,7 @@ impl Visual {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -43156,7 +43156,7 @@ impl Visual {
     pub fn Clip(&self) -> ::windows::core::Result<CompositionClip> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Clip)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionClip>(result__)
         }
     }
@@ -43238,7 +43238,7 @@ impl Visual {
     pub fn Parent(&self) -> ::windows::core::Result<ContainerVisual> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Parent)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ContainerVisual>(result__)
         }
     }
@@ -43332,7 +43332,7 @@ impl Visual {
     pub fn ParentForTransform(&self) -> ::windows::core::Result<Visual> {
         let this = &::windows::core::Interface::cast::<IVisual2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ParentForTransform)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Visual>(result__)
         }
     }
@@ -43557,7 +43557,7 @@ impl VisualCollection {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -43566,7 +43566,7 @@ impl VisualCollection {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -43574,7 +43574,7 @@ impl VisualCollection {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -43605,7 +43605,7 @@ impl VisualCollection {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -43629,7 +43629,7 @@ impl VisualCollection {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -43637,7 +43637,7 @@ impl VisualCollection {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -43646,7 +43646,7 @@ impl VisualCollection {
     pub fn First(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IIterator<Visual>> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IIterable<Visual>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IIterator<Visual>>(result__)
         }
     }
@@ -43890,7 +43890,7 @@ impl VisualUnorderedCollection {
     pub fn Compositor(&self) -> ::windows::core::Result<Compositor> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
@@ -43899,7 +43899,7 @@ impl VisualUnorderedCollection {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Core::CoreDispatcher>(result__)
         }
     }
@@ -43907,7 +43907,7 @@ impl VisualUnorderedCollection {
     pub fn Properties(&self) -> ::windows::core::Result<CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionPropertySet>(result__)
         }
     }
@@ -43938,7 +43938,7 @@ impl VisualUnorderedCollection {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ImplicitAnimationCollection>(result__)
         }
     }
@@ -43962,7 +43962,7 @@ impl VisualUnorderedCollection {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
@@ -43970,7 +43970,7 @@ impl VisualUnorderedCollection {
     pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<AnimationController> {
         let this = &::windows::core::Interface::cast::<ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
@@ -43979,7 +43979,7 @@ impl VisualUnorderedCollection {
     pub fn First(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IIterator<Visual>> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IIterable<Visual>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IIterator<Visual>>(result__)
         }
     }

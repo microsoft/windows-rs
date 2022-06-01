@@ -467,7 +467,7 @@ pub unsafe fn AVIFileAddRef<'a, Param0: ::windows::core::IntoParam<'a, IAVIFile>
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIFileAddRef(pfile: ::windows::core::RawPtr) -> u32;
+            fn AVIFileAddRef(pfile: *mut ::core::ffi::c_void) -> u32;
         }
         ::core::mem::transmute(AVIFileAddRef(pfile.into_param().abi()))
     }
@@ -482,7 +482,7 @@ pub unsafe fn AVIFileCreateStreamA<'a, Param0: ::windows::core::IntoParam<'a, IA
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIFileCreateStreamA(pfile: ::windows::core::RawPtr, ppavi: *mut ::windows::core::RawPtr, psi: *const AVISTREAMINFOA) -> ::windows::core::HRESULT;
+            fn AVIFileCreateStreamA(pfile: *mut ::core::ffi::c_void, ppavi: *mut *mut ::core::ffi::c_void, psi: *const AVISTREAMINFOA) -> ::windows::core::HRESULT;
         }
         AVIFileCreateStreamA(pfile.into_param().abi(), ::core::mem::transmute(ppavi), ::core::mem::transmute(psi)).ok()
     }
@@ -497,7 +497,7 @@ pub unsafe fn AVIFileCreateStreamW<'a, Param0: ::windows::core::IntoParam<'a, IA
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIFileCreateStreamW(pfile: ::windows::core::RawPtr, ppavi: *mut ::windows::core::RawPtr, psi: *const AVISTREAMINFOW) -> ::windows::core::HRESULT;
+            fn AVIFileCreateStreamW(pfile: *mut ::core::ffi::c_void, ppavi: *mut *mut ::core::ffi::c_void, psi: *const AVISTREAMINFOW) -> ::windows::core::HRESULT;
         }
         AVIFileCreateStreamW(pfile.into_param().abi(), ::core::mem::transmute(ppavi), ::core::mem::transmute(psi)).ok()
     }
@@ -511,7 +511,7 @@ pub unsafe fn AVIFileEndRecord<'a, Param0: ::windows::core::IntoParam<'a, IAVIFi
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIFileEndRecord(pfile: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
+            fn AVIFileEndRecord(pfile: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         AVIFileEndRecord(pfile.into_param().abi()).ok()
     }
@@ -539,7 +539,7 @@ pub unsafe fn AVIFileGetStream<'a, Param0: ::windows::core::IntoParam<'a, IAVIFi
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIFileGetStream(pfile: ::windows::core::RawPtr, ppavi: *mut ::windows::core::RawPtr, fcctype: u32, lparam: i32) -> ::windows::core::HRESULT;
+            fn AVIFileGetStream(pfile: *mut ::core::ffi::c_void, ppavi: *mut *mut ::core::ffi::c_void, fcctype: u32, lparam: i32) -> ::windows::core::HRESULT;
         }
         AVIFileGetStream(pfile.into_param().abi(), ::core::mem::transmute(ppavi), ::core::mem::transmute(fcctype), ::core::mem::transmute(lparam)).ok()
     }
@@ -554,7 +554,7 @@ pub unsafe fn AVIFileInfoA<'a, Param0: ::windows::core::IntoParam<'a, IAVIFile>>
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIFileInfoA(pfile: ::windows::core::RawPtr, pfi: *mut AVIFILEINFOA, lsize: i32) -> ::windows::core::HRESULT;
+            fn AVIFileInfoA(pfile: *mut ::core::ffi::c_void, pfi: *mut AVIFILEINFOA, lsize: i32) -> ::windows::core::HRESULT;
         }
         AVIFileInfoA(pfile.into_param().abi(), ::core::mem::transmute(pfi), ::core::mem::transmute(lsize)).ok()
     }
@@ -568,7 +568,7 @@ pub unsafe fn AVIFileInfoW<'a, Param0: ::windows::core::IntoParam<'a, IAVIFile>>
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIFileInfoW(pfile: ::windows::core::RawPtr, pfi: *mut AVIFILEINFOW, lsize: i32) -> ::windows::core::HRESULT;
+            fn AVIFileInfoW(pfile: *mut ::core::ffi::c_void, pfi: *mut AVIFILEINFOW, lsize: i32) -> ::windows::core::HRESULT;
         }
         AVIFileInfoW(pfile.into_param().abi(), ::core::mem::transmute(pfi), ::core::mem::transmute(lsize)).ok()
     }
@@ -596,7 +596,7 @@ pub unsafe fn AVIFileOpenA<'a, Param1: ::windows::core::IntoParam<'a, ::windows:
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIFileOpenA(ppfile: *mut ::windows::core::RawPtr, szfile: ::windows::core::PCSTR, umode: u32, lphandler: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
+            fn AVIFileOpenA(ppfile: *mut *mut ::core::ffi::c_void, szfile: ::windows::core::PCSTR, umode: u32, lphandler: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
         AVIFileOpenA(::core::mem::transmute(ppfile), szfile.into_param().abi(), ::core::mem::transmute(umode), ::core::mem::transmute(lphandler)).ok()
     }
@@ -610,7 +610,7 @@ pub unsafe fn AVIFileOpenW<'a, Param1: ::windows::core::IntoParam<'a, ::windows:
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIFileOpenW(ppfile: *mut ::windows::core::RawPtr, szfile: ::windows::core::PCWSTR, umode: u32, lphandler: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
+            fn AVIFileOpenW(ppfile: *mut *mut ::core::ffi::c_void, szfile: ::windows::core::PCWSTR, umode: u32, lphandler: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
         AVIFileOpenW(::core::mem::transmute(ppfile), szfile.into_param().abi(), ::core::mem::transmute(umode), ::core::mem::transmute(lphandler)).ok()
     }
@@ -624,7 +624,7 @@ pub unsafe fn AVIFileReadData<'a, Param0: ::windows::core::IntoParam<'a, IAVIFil
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIFileReadData(pfile: ::windows::core::RawPtr, ckid: u32, lpdata: *mut ::core::ffi::c_void, lpcbdata: *mut i32) -> ::windows::core::HRESULT;
+            fn AVIFileReadData(pfile: *mut ::core::ffi::c_void, ckid: u32, lpdata: *mut ::core::ffi::c_void, lpcbdata: *mut i32) -> ::windows::core::HRESULT;
         }
         AVIFileReadData(pfile.into_param().abi(), ::core::mem::transmute(ckid), ::core::mem::transmute(lpdata), ::core::mem::transmute(lpcbdata)).ok()
     }
@@ -638,7 +638,7 @@ pub unsafe fn AVIFileRelease<'a, Param0: ::windows::core::IntoParam<'a, IAVIFile
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIFileRelease(pfile: ::windows::core::RawPtr) -> u32;
+            fn AVIFileRelease(pfile: *mut ::core::ffi::c_void) -> u32;
         }
         ::core::mem::transmute(AVIFileRelease(pfile.into_param().abi()))
     }
@@ -652,7 +652,7 @@ pub unsafe fn AVIFileWriteData<'a, Param0: ::windows::core::IntoParam<'a, IAVIFi
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIFileWriteData(pfile: ::windows::core::RawPtr, ckid: u32, lpdata: *const ::core::ffi::c_void, cbdata: i32) -> ::windows::core::HRESULT;
+            fn AVIFileWriteData(pfile: *mut ::core::ffi::c_void, ckid: u32, lpdata: *const ::core::ffi::c_void, cbdata: i32) -> ::windows::core::HRESULT;
         }
         AVIFileWriteData(pfile.into_param().abi(), ::core::mem::transmute(ckid), ::core::mem::transmute(lpdata), ::core::mem::transmute(cbdata)).ok()
     }
@@ -668,9 +668,9 @@ pub unsafe fn AVIGetFromClipboard() -> ::windows::core::Result<IAVIFile> {
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIGetFromClipboard(lppf: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
+            fn AVIGetFromClipboard(lppf: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         AVIGetFromClipboard(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAVIFile>(result__)
     }
     #[cfg(not(windows))]
@@ -687,7 +687,7 @@ pub unsafe fn AVIMakeCompressedStream<'a, Param1: ::windows::core::IntoParam<'a,
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIMakeCompressedStream(ppscompressed: *mut ::windows::core::RawPtr, ppssource: ::windows::core::RawPtr, lpoptions: *const AVICOMPRESSOPTIONS, pclsidhandler: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
+            fn AVIMakeCompressedStream(ppscompressed: *mut *mut ::core::ffi::c_void, ppssource: *mut ::core::ffi::c_void, lpoptions: *const AVICOMPRESSOPTIONS, pclsidhandler: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
         AVIMakeCompressedStream(::core::mem::transmute(ppscompressed), ppssource.into_param().abi(), ::core::mem::transmute(lpoptions), ::core::mem::transmute(pclsidhandler)).ok()
     }
@@ -701,7 +701,7 @@ pub unsafe fn AVIMakeFileFromStreams(ppfile: *mut ::core::option::Option<IAVIFil
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIMakeFileFromStreams(ppfile: *mut ::windows::core::RawPtr, nstreams: i32, papstreams: *const ::windows::core::RawPtr) -> ::windows::core::HRESULT;
+            fn AVIMakeFileFromStreams(ppfile: *mut *mut ::core::ffi::c_void, nstreams: i32, papstreams: *const *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         AVIMakeFileFromStreams(::core::mem::transmute(ppfile), papstreams.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(papstreams))).ok()
     }
@@ -716,9 +716,9 @@ pub unsafe fn AVIMakeStreamFromClipboard<'a, Param1: ::windows::core::IntoParam<
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIMakeStreamFromClipboard(cfformat: u32, hglobal: super::super::Foundation::HANDLE, ppstream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
+            fn AVIMakeStreamFromClipboard(cfformat: u32, hglobal: super::super::Foundation::HANDLE, ppstream: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         AVIMakeStreamFromClipboard(::core::mem::transmute(cfformat), hglobal.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAVIStream>(result__)
     }
     #[cfg(not(windows))]
@@ -731,7 +731,7 @@ pub unsafe fn AVIPutFileOnClipboard<'a, Param0: ::windows::core::IntoParam<'a, I
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIPutFileOnClipboard(pf: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
+            fn AVIPutFileOnClipboard(pf: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         AVIPutFileOnClipboard(pf.into_param().abi()).ok()
     }
@@ -903,7 +903,7 @@ pub unsafe fn AVISaveA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::cor
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVISaveA(szfile: ::windows::core::PCSTR, pclsidhandler: *const ::windows::core::GUID, lpfncallback: ::windows::core::RawPtr, nstreams: i32, pfile: ::windows::core::RawPtr, lpoptions: *const AVICOMPRESSOPTIONS) -> ::windows::core::HRESULT;
+            fn AVISaveA(szfile: ::windows::core::PCSTR, pclsidhandler: *const ::windows::core::GUID, lpfncallback: *mut ::core::ffi::c_void, nstreams: i32, pfile: *mut ::core::ffi::c_void, lpoptions: *const AVICOMPRESSOPTIONS) -> ::windows::core::HRESULT;
         }
         AVISaveA(szfile.into_param().abi(), ::core::mem::transmute(pclsidhandler), ::core::mem::transmute(lpfncallback), ::core::mem::transmute(nstreams), pfile.into_param().abi(), ::core::mem::transmute(lpoptions)).ok()
     }
@@ -918,7 +918,7 @@ pub unsafe fn AVISaveOptions<'a, Param0: ::windows::core::IntoParam<'a, super::s
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVISaveOptions(hwnd: super::super::Foundation::HWND, uiflags: u32, nstreams: i32, ppavi: *const ::windows::core::RawPtr, plpoptions: *mut *mut AVICOMPRESSOPTIONS) -> isize;
+            fn AVISaveOptions(hwnd: super::super::Foundation::HWND, uiflags: u32, nstreams: i32, ppavi: *const *mut ::core::ffi::c_void, plpoptions: *mut *mut AVICOMPRESSOPTIONS) -> isize;
         }
         ::core::mem::transmute(AVISaveOptions(hwnd.into_param().abi(), ::core::mem::transmute(uiflags), ::core::mem::transmute(nstreams), ::core::mem::transmute(ppavi), ::core::mem::transmute(plpoptions)))
     }
@@ -947,7 +947,7 @@ pub unsafe fn AVISaveVA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::co
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVISaveVA(szfile: ::windows::core::PCSTR, pclsidhandler: *const ::windows::core::GUID, lpfncallback: ::windows::core::RawPtr, nstreams: i32, ppavi: *const ::windows::core::RawPtr, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows::core::HRESULT;
+            fn AVISaveVA(szfile: ::windows::core::PCSTR, pclsidhandler: *const ::windows::core::GUID, lpfncallback: *mut ::core::ffi::c_void, nstreams: i32, ppavi: *const *mut ::core::ffi::c_void, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows::core::HRESULT;
         }
         AVISaveVA(szfile.into_param().abi(), ::core::mem::transmute(pclsidhandler), ::core::mem::transmute(lpfncallback), ::core::mem::transmute(nstreams), ::core::mem::transmute(ppavi), ::core::mem::transmute(plpoptions)).ok()
     }
@@ -962,7 +962,7 @@ pub unsafe fn AVISaveVW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::co
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVISaveVW(szfile: ::windows::core::PCWSTR, pclsidhandler: *const ::windows::core::GUID, lpfncallback: ::windows::core::RawPtr, nstreams: i32, ppavi: *const ::windows::core::RawPtr, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows::core::HRESULT;
+            fn AVISaveVW(szfile: ::windows::core::PCWSTR, pclsidhandler: *const ::windows::core::GUID, lpfncallback: *mut ::core::ffi::c_void, nstreams: i32, ppavi: *const *mut ::core::ffi::c_void, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows::core::HRESULT;
         }
         AVISaveVW(szfile.into_param().abi(), ::core::mem::transmute(pclsidhandler), ::core::mem::transmute(lpfncallback), ::core::mem::transmute(nstreams), ::core::mem::transmute(ppavi), ::core::mem::transmute(plpoptions)).ok()
     }
@@ -977,7 +977,7 @@ pub unsafe fn AVISaveW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::cor
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVISaveW(szfile: ::windows::core::PCWSTR, pclsidhandler: *const ::windows::core::GUID, lpfncallback: ::windows::core::RawPtr, nstreams: i32, pfile: ::windows::core::RawPtr, lpoptions: *const AVICOMPRESSOPTIONS) -> ::windows::core::HRESULT;
+            fn AVISaveW(szfile: ::windows::core::PCWSTR, pclsidhandler: *const ::windows::core::GUID, lpfncallback: *mut ::core::ffi::c_void, nstreams: i32, pfile: *mut ::core::ffi::c_void, lpoptions: *const AVICOMPRESSOPTIONS) -> ::windows::core::HRESULT;
         }
         AVISaveW(szfile.into_param().abi(), ::core::mem::transmute(pclsidhandler), ::core::mem::transmute(lpfncallback), ::core::mem::transmute(nstreams), pfile.into_param().abi(), ::core::mem::transmute(lpoptions)).ok()
     }
@@ -991,7 +991,7 @@ pub unsafe fn AVIStreamAddRef<'a, Param0: ::windows::core::IntoParam<'a, IAVIStr
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIStreamAddRef(pavi: ::windows::core::RawPtr) -> u32;
+            fn AVIStreamAddRef(pavi: *mut ::core::ffi::c_void) -> u32;
         }
         ::core::mem::transmute(AVIStreamAddRef(pavi.into_param().abi()))
     }
@@ -1005,7 +1005,7 @@ pub unsafe fn AVIStreamBeginStreaming<'a, Param0: ::windows::core::IntoParam<'a,
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIStreamBeginStreaming(pavi: ::windows::core::RawPtr, lstart: i32, lend: i32, lrate: i32) -> ::windows::core::HRESULT;
+            fn AVIStreamBeginStreaming(pavi: *mut ::core::ffi::c_void, lstart: i32, lend: i32, lrate: i32) -> ::windows::core::HRESULT;
         }
         AVIStreamBeginStreaming(pavi.into_param().abi(), ::core::mem::transmute(lstart), ::core::mem::transmute(lend), ::core::mem::transmute(lrate)).ok()
     }
@@ -1019,7 +1019,7 @@ pub unsafe fn AVIStreamCreate(ppavi: *mut ::core::option::Option<IAVIStream>, lp
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIStreamCreate(ppavi: *mut ::windows::core::RawPtr, lparam1: i32, lparam2: i32, pclsidhandler: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
+            fn AVIStreamCreate(ppavi: *mut *mut ::core::ffi::c_void, lparam1: i32, lparam2: i32, pclsidhandler: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
         AVIStreamCreate(::core::mem::transmute(ppavi), ::core::mem::transmute(lparam1), ::core::mem::transmute(lparam2), ::core::mem::transmute(pclsidhandler)).ok()
     }
@@ -1033,7 +1033,7 @@ pub unsafe fn AVIStreamEndStreaming<'a, Param0: ::windows::core::IntoParam<'a, I
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIStreamEndStreaming(pavi: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
+            fn AVIStreamEndStreaming(pavi: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         AVIStreamEndStreaming(pavi.into_param().abi()).ok()
     }
@@ -1047,7 +1047,7 @@ pub unsafe fn AVIStreamFindSample<'a, Param0: ::windows::core::IntoParam<'a, IAV
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIStreamFindSample(pavi: ::windows::core::RawPtr, lpos: i32, lflags: i32) -> i32;
+            fn AVIStreamFindSample(pavi: *mut ::core::ffi::c_void, lpos: i32, lflags: i32) -> i32;
         }
         ::core::mem::transmute(AVIStreamFindSample(pavi.into_param().abi(), ::core::mem::transmute(lpos), ::core::mem::transmute(lflags)))
     }
@@ -1061,7 +1061,7 @@ pub unsafe fn AVIStreamGetFrame<'a, Param0: ::windows::core::IntoParam<'a, IGetF
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIStreamGetFrame(pg: ::windows::core::RawPtr, lpos: i32) -> *mut ::core::ffi::c_void;
+            fn AVIStreamGetFrame(pg: *mut ::core::ffi::c_void, lpos: i32) -> *mut ::core::ffi::c_void;
         }
         ::core::mem::transmute(AVIStreamGetFrame(pg.into_param().abi(), ::core::mem::transmute(lpos)))
     }
@@ -1075,7 +1075,7 @@ pub unsafe fn AVIStreamGetFrameClose<'a, Param0: ::windows::core::IntoParam<'a, 
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIStreamGetFrameClose(pg: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
+            fn AVIStreamGetFrameClose(pg: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         AVIStreamGetFrameClose(pg.into_param().abi()).ok()
     }
@@ -1090,7 +1090,7 @@ pub unsafe fn AVIStreamGetFrameOpen<'a, Param0: ::windows::core::IntoParam<'a, I
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIStreamGetFrameOpen(pavi: ::windows::core::RawPtr, lpbiwanted: *const super::super::Graphics::Gdi::BITMAPINFOHEADER) -> ::core::option::Option<IGetFrame>;
+            fn AVIStreamGetFrameOpen(pavi: *mut ::core::ffi::c_void, lpbiwanted: *const super::super::Graphics::Gdi::BITMAPINFOHEADER) -> ::core::option::Option<IGetFrame>;
         }
         ::core::mem::transmute(AVIStreamGetFrameOpen(pavi.into_param().abi(), ::core::mem::transmute(lpbiwanted)))
     }
@@ -1105,7 +1105,7 @@ pub unsafe fn AVIStreamInfoA<'a, Param0: ::windows::core::IntoParam<'a, IAVIStre
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIStreamInfoA(pavi: ::windows::core::RawPtr, psi: *mut AVISTREAMINFOA, lsize: i32) -> ::windows::core::HRESULT;
+            fn AVIStreamInfoA(pavi: *mut ::core::ffi::c_void, psi: *mut AVISTREAMINFOA, lsize: i32) -> ::windows::core::HRESULT;
         }
         AVIStreamInfoA(pavi.into_param().abi(), ::core::mem::transmute(psi), ::core::mem::transmute(lsize)).ok()
     }
@@ -1120,7 +1120,7 @@ pub unsafe fn AVIStreamInfoW<'a, Param0: ::windows::core::IntoParam<'a, IAVIStre
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIStreamInfoW(pavi: ::windows::core::RawPtr, psi: *mut AVISTREAMINFOW, lsize: i32) -> ::windows::core::HRESULT;
+            fn AVIStreamInfoW(pavi: *mut ::core::ffi::c_void, psi: *mut AVISTREAMINFOW, lsize: i32) -> ::windows::core::HRESULT;
         }
         AVIStreamInfoW(pavi.into_param().abi(), ::core::mem::transmute(psi), ::core::mem::transmute(lsize)).ok()
     }
@@ -1134,7 +1134,7 @@ pub unsafe fn AVIStreamLength<'a, Param0: ::windows::core::IntoParam<'a, IAVIStr
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIStreamLength(pavi: ::windows::core::RawPtr) -> i32;
+            fn AVIStreamLength(pavi: *mut ::core::ffi::c_void) -> i32;
         }
         ::core::mem::transmute(AVIStreamLength(pavi.into_param().abi()))
     }
@@ -1148,7 +1148,7 @@ pub unsafe fn AVIStreamOpenFromFileA<'a, Param1: ::windows::core::IntoParam<'a, 
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIStreamOpenFromFileA(ppavi: *mut ::windows::core::RawPtr, szfile: ::windows::core::PCSTR, fcctype: u32, lparam: i32, mode: u32, pclsidhandler: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
+            fn AVIStreamOpenFromFileA(ppavi: *mut *mut ::core::ffi::c_void, szfile: ::windows::core::PCSTR, fcctype: u32, lparam: i32, mode: u32, pclsidhandler: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
         AVIStreamOpenFromFileA(::core::mem::transmute(ppavi), szfile.into_param().abi(), ::core::mem::transmute(fcctype), ::core::mem::transmute(lparam), ::core::mem::transmute(mode), ::core::mem::transmute(pclsidhandler)).ok()
     }
@@ -1162,7 +1162,7 @@ pub unsafe fn AVIStreamOpenFromFileW<'a, Param1: ::windows::core::IntoParam<'a, 
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIStreamOpenFromFileW(ppavi: *mut ::windows::core::RawPtr, szfile: ::windows::core::PCWSTR, fcctype: u32, lparam: i32, mode: u32, pclsidhandler: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
+            fn AVIStreamOpenFromFileW(ppavi: *mut *mut ::core::ffi::c_void, szfile: ::windows::core::PCWSTR, fcctype: u32, lparam: i32, mode: u32, pclsidhandler: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
         AVIStreamOpenFromFileW(::core::mem::transmute(ppavi), szfile.into_param().abi(), ::core::mem::transmute(fcctype), ::core::mem::transmute(lparam), ::core::mem::transmute(mode), ::core::mem::transmute(pclsidhandler)).ok()
     }
@@ -1176,7 +1176,7 @@ pub unsafe fn AVIStreamRead<'a, Param0: ::windows::core::IntoParam<'a, IAVIStrea
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIStreamRead(pavi: ::windows::core::RawPtr, lstart: i32, lsamples: i32, lpbuffer: *mut ::core::ffi::c_void, cbbuffer: i32, plbytes: *mut i32, plsamples: *mut i32) -> ::windows::core::HRESULT;
+            fn AVIStreamRead(pavi: *mut ::core::ffi::c_void, lstart: i32, lsamples: i32, lpbuffer: *mut ::core::ffi::c_void, cbbuffer: i32, plbytes: *mut i32, plsamples: *mut i32) -> ::windows::core::HRESULT;
         }
         AVIStreamRead(pavi.into_param().abi(), ::core::mem::transmute(lstart), ::core::mem::transmute(lsamples), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(cbbuffer), ::core::mem::transmute(plbytes), ::core::mem::transmute(plsamples)).ok()
     }
@@ -1190,7 +1190,7 @@ pub unsafe fn AVIStreamReadData<'a, Param0: ::windows::core::IntoParam<'a, IAVIS
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIStreamReadData(pavi: ::windows::core::RawPtr, fcc: u32, lp: *mut ::core::ffi::c_void, lpcb: *mut i32) -> ::windows::core::HRESULT;
+            fn AVIStreamReadData(pavi: *mut ::core::ffi::c_void, fcc: u32, lp: *mut ::core::ffi::c_void, lpcb: *mut i32) -> ::windows::core::HRESULT;
         }
         AVIStreamReadData(pavi.into_param().abi(), ::core::mem::transmute(fcc), ::core::mem::transmute(lp), ::core::mem::transmute(lpcb)).ok()
     }
@@ -1204,7 +1204,7 @@ pub unsafe fn AVIStreamReadFormat<'a, Param0: ::windows::core::IntoParam<'a, IAV
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIStreamReadFormat(pavi: ::windows::core::RawPtr, lpos: i32, lpformat: *mut ::core::ffi::c_void, lpcbformat: *mut i32) -> ::windows::core::HRESULT;
+            fn AVIStreamReadFormat(pavi: *mut ::core::ffi::c_void, lpos: i32, lpformat: *mut ::core::ffi::c_void, lpcbformat: *mut i32) -> ::windows::core::HRESULT;
         }
         AVIStreamReadFormat(pavi.into_param().abi(), ::core::mem::transmute(lpos), ::core::mem::transmute(lpformat), ::core::mem::transmute(lpcbformat)).ok()
     }
@@ -1218,7 +1218,7 @@ pub unsafe fn AVIStreamRelease<'a, Param0: ::windows::core::IntoParam<'a, IAVISt
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIStreamRelease(pavi: ::windows::core::RawPtr) -> u32;
+            fn AVIStreamRelease(pavi: *mut ::core::ffi::c_void) -> u32;
         }
         ::core::mem::transmute(AVIStreamRelease(pavi.into_param().abi()))
     }
@@ -1232,7 +1232,7 @@ pub unsafe fn AVIStreamSampleToTime<'a, Param0: ::windows::core::IntoParam<'a, I
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIStreamSampleToTime(pavi: ::windows::core::RawPtr, lsample: i32) -> i32;
+            fn AVIStreamSampleToTime(pavi: *mut ::core::ffi::c_void, lsample: i32) -> i32;
         }
         ::core::mem::transmute(AVIStreamSampleToTime(pavi.into_param().abi(), ::core::mem::transmute(lsample)))
     }
@@ -1246,7 +1246,7 @@ pub unsafe fn AVIStreamSetFormat<'a, Param0: ::windows::core::IntoParam<'a, IAVI
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIStreamSetFormat(pavi: ::windows::core::RawPtr, lpos: i32, lpformat: *const ::core::ffi::c_void, cbformat: i32) -> ::windows::core::HRESULT;
+            fn AVIStreamSetFormat(pavi: *mut ::core::ffi::c_void, lpos: i32, lpformat: *const ::core::ffi::c_void, cbformat: i32) -> ::windows::core::HRESULT;
         }
         AVIStreamSetFormat(pavi.into_param().abi(), ::core::mem::transmute(lpos), ::core::mem::transmute(lpformat), ::core::mem::transmute(cbformat)).ok()
     }
@@ -1260,7 +1260,7 @@ pub unsafe fn AVIStreamStart<'a, Param0: ::windows::core::IntoParam<'a, IAVIStre
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIStreamStart(pavi: ::windows::core::RawPtr) -> i32;
+            fn AVIStreamStart(pavi: *mut ::core::ffi::c_void) -> i32;
         }
         ::core::mem::transmute(AVIStreamStart(pavi.into_param().abi()))
     }
@@ -1274,7 +1274,7 @@ pub unsafe fn AVIStreamTimeToSample<'a, Param0: ::windows::core::IntoParam<'a, I
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIStreamTimeToSample(pavi: ::windows::core::RawPtr, ltime: i32) -> i32;
+            fn AVIStreamTimeToSample(pavi: *mut ::core::ffi::c_void, ltime: i32) -> i32;
         }
         ::core::mem::transmute(AVIStreamTimeToSample(pavi.into_param().abi(), ::core::mem::transmute(ltime)))
     }
@@ -1288,7 +1288,7 @@ pub unsafe fn AVIStreamWrite<'a, Param0: ::windows::core::IntoParam<'a, IAVIStre
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIStreamWrite(pavi: ::windows::core::RawPtr, lstart: i32, lsamples: i32, lpbuffer: *const ::core::ffi::c_void, cbbuffer: i32, dwflags: u32, plsampwritten: *mut i32, plbyteswritten: *mut i32) -> ::windows::core::HRESULT;
+            fn AVIStreamWrite(pavi: *mut ::core::ffi::c_void, lstart: i32, lsamples: i32, lpbuffer: *const ::core::ffi::c_void, cbbuffer: i32, dwflags: u32, plsampwritten: *mut i32, plbyteswritten: *mut i32) -> ::windows::core::HRESULT;
         }
         AVIStreamWrite(pavi.into_param().abi(), ::core::mem::transmute(lstart), ::core::mem::transmute(lsamples), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(cbbuffer), ::core::mem::transmute(dwflags), ::core::mem::transmute(plsampwritten), ::core::mem::transmute(plbyteswritten)).ok()
     }
@@ -1302,7 +1302,7 @@ pub unsafe fn AVIStreamWriteData<'a, Param0: ::windows::core::IntoParam<'a, IAVI
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIStreamWriteData(pavi: ::windows::core::RawPtr, fcc: u32, lp: *const ::core::ffi::c_void, cb: i32) -> ::windows::core::HRESULT;
+            fn AVIStreamWriteData(pavi: *mut ::core::ffi::c_void, fcc: u32, lp: *const ::core::ffi::c_void, cb: i32) -> ::windows::core::HRESULT;
         }
         AVIStreamWriteData(pavi.into_param().abi(), ::core::mem::transmute(fcc), ::core::mem::transmute(lp), ::core::mem::transmute(cb)).ok()
     }
@@ -1926,7 +1926,7 @@ pub unsafe fn CreateEditableStream<'a, Param1: ::windows::core::IntoParam<'a, IA
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreateEditableStream(ppseditable: *mut ::windows::core::RawPtr, pssource: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
+            fn CreateEditableStream(ppseditable: *mut *mut ::core::ffi::c_void, pssource: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         CreateEditableStream(::core::mem::transmute(ppseditable), pssource.into_param().abi()).ok()
     }
@@ -2884,9 +2884,9 @@ pub unsafe fn EditStreamClone<'a, Param0: ::windows::core::IntoParam<'a, IAVIStr
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EditStreamClone(pavi: ::windows::core::RawPtr, ppresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
+            fn EditStreamClone(pavi: *mut ::core::ffi::c_void, ppresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         EditStreamClone(pavi.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAVIStream>(result__)
     }
     #[cfg(not(windows))]
@@ -2899,7 +2899,7 @@ pub unsafe fn EditStreamCopy<'a, Param0: ::windows::core::IntoParam<'a, IAVIStre
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EditStreamCopy(pavi: ::windows::core::RawPtr, plstart: *mut i32, pllength: *mut i32, ppresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
+            fn EditStreamCopy(pavi: *mut ::core::ffi::c_void, plstart: *mut i32, pllength: *mut i32, ppresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         EditStreamCopy(pavi.into_param().abi(), ::core::mem::transmute(plstart), ::core::mem::transmute(pllength), ::core::mem::transmute(ppresult)).ok()
     }
@@ -2913,7 +2913,7 @@ pub unsafe fn EditStreamCut<'a, Param0: ::windows::core::IntoParam<'a, IAVIStrea
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EditStreamCut(pavi: ::windows::core::RawPtr, plstart: *mut i32, pllength: *mut i32, ppresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
+            fn EditStreamCut(pavi: *mut ::core::ffi::c_void, plstart: *mut i32, pllength: *mut i32, ppresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         EditStreamCut(pavi.into_param().abi(), ::core::mem::transmute(plstart), ::core::mem::transmute(pllength), ::core::mem::transmute(ppresult)).ok()
     }
@@ -2927,7 +2927,7 @@ pub unsafe fn EditStreamPaste<'a, Param0: ::windows::core::IntoParam<'a, IAVIStr
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EditStreamPaste(pavi: ::windows::core::RawPtr, plpos: *mut i32, pllength: *mut i32, pstream: ::windows::core::RawPtr, lstart: i32, lend: i32) -> ::windows::core::HRESULT;
+            fn EditStreamPaste(pavi: *mut ::core::ffi::c_void, plpos: *mut i32, pllength: *mut i32, pstream: *mut ::core::ffi::c_void, lstart: i32, lend: i32) -> ::windows::core::HRESULT;
         }
         EditStreamPaste(pavi.into_param().abi(), ::core::mem::transmute(plpos), ::core::mem::transmute(pllength), pstream.into_param().abi(), ::core::mem::transmute(lstart), ::core::mem::transmute(lend)).ok()
     }
@@ -2942,7 +2942,7 @@ pub unsafe fn EditStreamSetInfoA<'a, Param0: ::windows::core::IntoParam<'a, IAVI
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EditStreamSetInfoA(pavi: ::windows::core::RawPtr, lpinfo: *const AVISTREAMINFOA, cbinfo: i32) -> ::windows::core::HRESULT;
+            fn EditStreamSetInfoA(pavi: *mut ::core::ffi::c_void, lpinfo: *const AVISTREAMINFOA, cbinfo: i32) -> ::windows::core::HRESULT;
         }
         EditStreamSetInfoA(pavi.into_param().abi(), ::core::mem::transmute(lpinfo), ::core::mem::transmute(cbinfo)).ok()
     }
@@ -2957,7 +2957,7 @@ pub unsafe fn EditStreamSetInfoW<'a, Param0: ::windows::core::IntoParam<'a, IAVI
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EditStreamSetInfoW(pavi: ::windows::core::RawPtr, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> ::windows::core::HRESULT;
+            fn EditStreamSetInfoW(pavi: *mut ::core::ffi::c_void, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> ::windows::core::HRESULT;
         }
         EditStreamSetInfoW(pavi.into_param().abi(), ::core::mem::transmute(lpinfo), ::core::mem::transmute(cbinfo)).ok()
     }
@@ -2971,7 +2971,7 @@ pub unsafe fn EditStreamSetNameA<'a, Param0: ::windows::core::IntoParam<'a, IAVI
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EditStreamSetNameA(pavi: ::windows::core::RawPtr, lpszname: ::windows::core::PCSTR) -> ::windows::core::HRESULT;
+            fn EditStreamSetNameA(pavi: *mut ::core::ffi::c_void, lpszname: ::windows::core::PCSTR) -> ::windows::core::HRESULT;
         }
         EditStreamSetNameA(pavi.into_param().abi(), lpszname.into_param().abi()).ok()
     }
@@ -2985,7 +2985,7 @@ pub unsafe fn EditStreamSetNameW<'a, Param0: ::windows::core::IntoParam<'a, IAVI
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EditStreamSetNameW(pavi: ::windows::core::RawPtr, lpszname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
+            fn EditStreamSetNameW(pavi: *mut ::core::ffi::c_void, lpszname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
         }
         EditStreamSetNameW(pavi.into_param().abi(), lpszname.into_param().abi()).ok()
     }
@@ -3358,7 +3358,7 @@ impl IAVIEditStream {
     }
     #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IAVIStream> {
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAVIStream>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
@@ -3411,10 +3411,10 @@ unsafe impl ::windows::core::Interface for IAVIEditStream {
 #[doc(hidden)]
 pub struct IAVIEditStream_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
-    pub Cut: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plstart: *mut i32, pllength: *mut i32, ppresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub Copy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plstart: *mut i32, pllength: *mut i32, ppresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub Paste: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plpos: *mut i32, pllength: *mut i32, pstream: ::windows::core::RawPtr, lstart: i32, lend: i32) -> ::windows::core::HRESULT,
-    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub Cut: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plstart: *mut i32, pllength: *mut i32, ppresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Copy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plstart: *mut i32, pllength: *mut i32, ppresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Paste: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plpos: *mut i32, pllength: *mut i32, pstream: *mut ::core::ffi::c_void, lstart: i32, lend: i32) -> ::windows::core::HRESULT,
+    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub SetInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -3499,9 +3499,9 @@ unsafe impl ::windows::core::Interface for IAVIFile {
 pub struct IAVIFile_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub Info: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfi: *mut AVIFILEINFOW, lsize: i32) -> ::windows::core::HRESULT,
-    pub GetStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppstream: *mut ::windows::core::RawPtr, fcctype: u32, lparam: i32) -> ::windows::core::HRESULT,
+    pub GetStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppstream: *mut *mut ::core::ffi::c_void, fcctype: u32, lparam: i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub CreateStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppstream: *mut ::windows::core::RawPtr, psi: *const AVISTREAMINFOW) -> ::windows::core::HRESULT,
+    pub CreateStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppstream: *mut *mut ::core::ffi::c_void, psi: *const AVISTREAMINFOW) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     CreateStream: usize,
     pub WriteData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ckid: u32, lpdata: *const ::core::ffi::c_void, cbdata: i32) -> ::windows::core::HRESULT,
@@ -4745,7 +4745,7 @@ pub unsafe fn ICOpenFunction(fcctype: u32, fcchandler: u32, wmode: u32, lpfnhand
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ICOpenFunction(fcctype: u32, fcchandler: u32, wmode: u32, lpfnhandler: ::windows::core::RawPtr) -> HIC;
+            fn ICOpenFunction(fcctype: u32, fcchandler: u32, wmode: u32, lpfnhandler: *mut ::core::ffi::c_void) -> HIC;
         }
         ::core::mem::transmute(ICOpenFunction(::core::mem::transmute(fcctype), ::core::mem::transmute(fcchandler), ::core::mem::transmute(wmode), ::core::mem::transmute(lpfnhandler)))
     }
@@ -17790,7 +17790,7 @@ pub unsafe fn mciSetYieldProc(mciid: u32, fpyieldproc: YIELDPROC, dwyielddata: u
     {
         #[link(name = "windows")]
         extern "system" {
-            fn mciSetYieldProc(mciid: u32, fpyieldproc: ::windows::core::RawPtr, dwyielddata: u32) -> super::super::Foundation::BOOL;
+            fn mciSetYieldProc(mciid: u32, fpyieldproc: *mut ::core::ffi::c_void, dwyielddata: u32) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(mciSetYieldProc(::core::mem::transmute(mciid), ::core::mem::transmute(fpyieldproc), ::core::mem::transmute(dwyielddata)))
     }
@@ -17804,7 +17804,7 @@ pub unsafe fn mmDrvInstall<'a, Param0: ::windows::core::IntoParam<'a, HDRVR>, Pa
     {
         #[link(name = "windows")]
         extern "system" {
-            fn mmDrvInstall(hdriver: HDRVR, wszdrventry: ::windows::core::PCWSTR, drvmessage: ::windows::core::RawPtr, wflags: u32) -> u32;
+            fn mmDrvInstall(hdriver: HDRVR, wszdrventry: ::windows::core::PCWSTR, drvmessage: *mut ::core::ffi::c_void, wflags: u32) -> u32;
         }
         ::core::mem::transmute(mmDrvInstall(hdriver.into_param().abi(), wszdrventry.into_param().abi(), ::core::mem::transmute(drvmessage), ::core::mem::transmute(wflags)))
     }
@@ -17847,7 +17847,7 @@ pub unsafe fn mmTaskCreate(lpfn: LPTASKCALLBACK, lph: *mut super::super::Foundat
     {
         #[link(name = "windows")]
         extern "system" {
-            fn mmTaskCreate(lpfn: ::windows::core::RawPtr, lph: *mut super::super::Foundation::HANDLE, dwinst: usize) -> u32;
+            fn mmTaskCreate(lpfn: *mut ::core::ffi::c_void, lph: *mut super::super::Foundation::HANDLE, dwinst: usize) -> u32;
         }
         ::core::mem::transmute(mmTaskCreate(::core::mem::transmute(lpfn), ::core::mem::transmute(lph), ::core::mem::transmute(dwinst)))
     }
@@ -17991,7 +17991,7 @@ pub unsafe fn mmioInstallIOProcA(fccioproc: u32, pioproc: LPMMIOPROC, dwflags: u
     {
         #[link(name = "windows")]
         extern "system" {
-            fn mmioInstallIOProcA(fccioproc: u32, pioproc: ::windows::core::RawPtr, dwflags: u32) -> LPMMIOPROC;
+            fn mmioInstallIOProcA(fccioproc: u32, pioproc: *mut ::core::ffi::c_void, dwflags: u32) -> LPMMIOPROC;
         }
         ::core::mem::transmute(mmioInstallIOProcA(::core::mem::transmute(fccioproc), ::core::mem::transmute(pioproc), ::core::mem::transmute(dwflags)))
     }
@@ -18006,7 +18006,7 @@ pub unsafe fn mmioInstallIOProcW(fccioproc: u32, pioproc: LPMMIOPROC, dwflags: u
     {
         #[link(name = "windows")]
         extern "system" {
-            fn mmioInstallIOProcW(fccioproc: u32, pioproc: ::windows::core::RawPtr, dwflags: u32) -> LPMMIOPROC;
+            fn mmioInstallIOProcW(fccioproc: u32, pioproc: *mut ::core::ffi::c_void, dwflags: u32) -> LPMMIOPROC;
         }
         ::core::mem::transmute(mmioInstallIOProcW(::core::mem::transmute(fccioproc), ::core::mem::transmute(pioproc), ::core::mem::transmute(dwflags)))
     }

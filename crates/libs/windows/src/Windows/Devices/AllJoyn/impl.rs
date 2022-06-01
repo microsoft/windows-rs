@@ -31,7 +31,7 @@ impl ::windows::core::RuntimeName for IAllJoynProducer {
 #[cfg(feature = "deprecated")]
 impl IAllJoynProducer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAllJoynProducer_Impl, const OFFSET: isize>() -> IAllJoynProducer_Vtbl {
-        unsafe extern "system" fn SetBusObject<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAllJoynProducer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, busobject: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBusObject<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAllJoynProducer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, busobject: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetBusObject(::core::mem::transmute(&busobject)).into()

@@ -873,7 +873,7 @@ pub unsafe fn timeSetEvent(udelay: u32, uresolution: u32, fptc: LPTIMECALLBACK, 
     {
         #[link(name = "windows")]
         extern "system" {
-            fn timeSetEvent(udelay: u32, uresolution: u32, fptc: ::windows::core::RawPtr, dwuser: usize, fuevent: u32) -> u32;
+            fn timeSetEvent(udelay: u32, uresolution: u32, fptc: *mut ::core::ffi::c_void, dwuser: usize, fuevent: u32) -> u32;
         }
         ::core::mem::transmute(timeSetEvent(::core::mem::transmute(udelay), ::core::mem::transmute(uresolution), ::core::mem::transmute(fptc), ::core::mem::transmute(dwuser), ::core::mem::transmute(fuevent)))
     }

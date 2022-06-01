@@ -6,7 +6,7 @@ impl ::windows::core::RuntimeName for ICashDrawerEventSourceEventArgs {
 }
 impl ICashDrawerEventSourceEventArgs_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICashDrawerEventSourceEventArgs_Impl, const OFFSET: isize>() -> ICashDrawerEventSourceEventArgs_Vtbl {
-        unsafe extern "system" fn CashDrawer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICashDrawerEventSourceEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CashDrawer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICashDrawerEventSourceEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CashDrawer() {
@@ -440,7 +440,7 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SupportedCharactersPerLine<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICommonPosPrintStationCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SupportedCharactersPerLine<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICommonPosPrintStationCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SupportedCharactersPerLine() {
@@ -576,7 +576,7 @@ impl ICommonReceiptSlipCapabilities_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SupportedBarcodeRotations<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICommonReceiptSlipCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SupportedBarcodeRotations<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICommonReceiptSlipCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SupportedBarcodeRotations() {
@@ -588,7 +588,7 @@ impl ICommonReceiptSlipCapabilities_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SupportedBitmapRotations<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICommonReceiptSlipCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SupportedBitmapRotations<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICommonReceiptSlipCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SupportedBitmapRotations() {
@@ -646,7 +646,7 @@ impl IPosPrinterJob_Vtbl {
             let this = (*this).get_impl();
             this.PrintNewline().into()
         }
-        unsafe extern "system" fn ExecuteAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPosPrinterJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExecuteAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPosPrinterJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ExecuteAsync() {
@@ -710,22 +710,22 @@ impl IReceiptOrSlipJob_Vtbl {
             let this = (*this).get_impl();
             this.SetPrintArea(::core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn SetBitmap<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmapnumber: u32, bitmap: ::windows::core::RawPtr, alignment: PosPrinterAlignment) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBitmap<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmapnumber: u32, bitmap: *mut ::core::ffi::c_void, alignment: PosPrinterAlignment) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetBitmap(bitmapnumber, ::core::mem::transmute(&bitmap), alignment).into()
         }
-        unsafe extern "system" fn SetBitmapCustomWidthStandardAlign<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmapnumber: u32, bitmap: ::windows::core::RawPtr, alignment: PosPrinterAlignment, width: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBitmapCustomWidthStandardAlign<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmapnumber: u32, bitmap: *mut ::core::ffi::c_void, alignment: PosPrinterAlignment, width: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetBitmapCustomWidthStandardAlign(bitmapnumber, ::core::mem::transmute(&bitmap), alignment, width).into()
         }
-        unsafe extern "system" fn SetCustomAlignedBitmap<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmapnumber: u32, bitmap: ::windows::core::RawPtr, alignmentdistance: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCustomAlignedBitmap<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmapnumber: u32, bitmap: *mut ::core::ffi::c_void, alignmentdistance: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetCustomAlignedBitmap(bitmapnumber, ::core::mem::transmute(&bitmap), alignmentdistance).into()
         }
-        unsafe extern "system" fn SetBitmapCustomWidthCustomAlign<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmapnumber: u32, bitmap: ::windows::core::RawPtr, alignmentdistance: u32, width: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBitmapCustomWidthCustomAlign<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmapnumber: u32, bitmap: *mut ::core::ffi::c_void, alignmentdistance: u32, width: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetBitmapCustomWidthCustomAlign(bitmapnumber, ::core::mem::transmute(&bitmap), alignmentdistance, width).into()
@@ -750,22 +750,22 @@ impl IReceiptOrSlipJob_Vtbl {
             let this = (*this).get_impl();
             this.PrintBarcodeCustomAlign(::core::mem::transmute(&data), symbology, height, width, textposition, alignmentdistance).into()
         }
-        unsafe extern "system" fn PrintBitmap<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmap: ::windows::core::RawPtr, alignment: PosPrinterAlignment) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PrintBitmap<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmap: *mut ::core::ffi::c_void, alignment: PosPrinterAlignment) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.PrintBitmap(::core::mem::transmute(&bitmap), alignment).into()
         }
-        unsafe extern "system" fn PrintBitmapCustomWidthStandardAlign<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmap: ::windows::core::RawPtr, alignment: PosPrinterAlignment, width: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PrintBitmapCustomWidthStandardAlign<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmap: *mut ::core::ffi::c_void, alignment: PosPrinterAlignment, width: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.PrintBitmapCustomWidthStandardAlign(::core::mem::transmute(&bitmap), alignment, width).into()
         }
-        unsafe extern "system" fn PrintCustomAlignedBitmap<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmap: ::windows::core::RawPtr, alignmentdistance: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PrintCustomAlignedBitmap<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmap: *mut ::core::ffi::c_void, alignmentdistance: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.PrintCustomAlignedBitmap(::core::mem::transmute(&bitmap), alignmentdistance).into()
         }
-        unsafe extern "system" fn PrintBitmapCustomWidthCustomAlign<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmap: ::windows::core::RawPtr, alignmentdistance: u32, width: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PrintBitmapCustomWidthCustomAlign<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmap: *mut ::core::ffi::c_void, alignmentdistance: u32, width: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.PrintBitmapCustomWidthCustomAlign(::core::mem::transmute(&bitmap), alignmentdistance, width).into()

@@ -559,7 +559,7 @@ pub struct IEnhancedStorageACT_Vtbl {
     pub GetAuthorizationState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstate: *mut ACT_AUTHORIZATION_STATE) -> ::windows::core::HRESULT,
     pub GetMatchingVolume: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwszvolume: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     pub GetUniqueIdentity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwszidentity: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
-    pub GetSilos: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppienhancedstoragesilos: *mut *mut ::windows::core::RawPtr, pcenhancedstoragesilos: *mut u32) -> ::windows::core::HRESULT,
+    pub GetSilos: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppienhancedstoragesilos: *mut *mut *mut ::core::ffi::c_void, pcenhancedstoragesilos: *mut u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
 #[repr(transparent)]
@@ -847,7 +847,7 @@ impl IEnhancedStorageSilo {
     #[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`, `\"Win32_Devices_PortableDevices\"`*"]
     #[cfg(feature = "Win32_Devices_PortableDevices")]
     pub unsafe fn GetPortableDevice(&self) -> ::windows::core::Result<super::super::Devices::PortableDevices::IPortableDevice> {
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).GetPortableDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Devices::PortableDevices::IPortableDevice>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
@@ -901,10 +901,10 @@ unsafe impl ::windows::core::Interface for IEnhancedStorageSilo {
 pub struct IEnhancedStorageSilo_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub GetInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psiloinfo: *mut SILO_INFO) -> ::windows::core::HRESULT,
-    pub GetActions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppienhancedstoragesiloactions: *mut *mut ::windows::core::RawPtr, pcenhancedstoragesiloactions: *mut u32) -> ::windows::core::HRESULT,
+    pub GetActions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppienhancedstoragesiloactions: *mut *mut *mut ::core::ffi::c_void, pcenhancedstoragesiloactions: *mut u32) -> ::windows::core::HRESULT,
     pub SendCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, command: u8, pbcommandbuffer: *const u8, cbcommandbuffer: u32, pbresponsebuffer: *mut u8, pcbresponsebuffer: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Devices_PortableDevices")]
-    pub GetPortableDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppiportabledevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GetPortableDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppiportabledevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Devices_PortableDevices"))]
     GetPortableDevice: usize,
     pub GetDevicePath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwszsilodevicepath: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
@@ -986,7 +986,7 @@ impl IEnumEnhancedStorageACT {
     }
     #[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
     pub unsafe fn GetMatchingACT<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, szvolume: Param0) -> ::windows::core::Result<IEnhancedStorageACT> {
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).GetMatchingACT)(::windows::core::Interface::as_raw(self), szvolume.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnhancedStorageACT>(result__)
     }
 }
@@ -1034,8 +1034,8 @@ unsafe impl ::windows::core::Interface for IEnumEnhancedStorageACT {
 #[doc(hidden)]
 pub struct IEnumEnhancedStorageACT_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
-    pub GetACTs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppienhancedstorageacts: *mut *mut ::windows::core::RawPtr, pcenhancedstorageacts: *mut u32) -> ::windows::core::HRESULT,
-    pub GetMatchingACT: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szvolume: ::windows::core::PCWSTR, ppienhancedstorageact: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GetACTs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppienhancedstorageacts: *mut *mut *mut ::core::ffi::c_void, pcenhancedstorageacts: *mut u32) -> ::windows::core::HRESULT,
+    pub GetMatchingACT: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szvolume: ::windows::core::PCWSTR, ppienhancedstorageact: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
 pub const IMPORTANCE_HIGH_MAX: i32 = 5i32;

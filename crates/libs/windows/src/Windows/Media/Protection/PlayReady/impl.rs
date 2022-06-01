@@ -126,7 +126,7 @@ impl ::windows::core::RuntimeName for INDDownloadEngine {
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl INDDownloadEngine_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDDownloadEngine_Impl, const OFFSET: isize>() -> INDDownloadEngine_Vtbl {
-        unsafe extern "system" fn Open<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDDownloadEngine_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, sessionIDBytes_array_size: u32, sessionidbytes: *const u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Open<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDDownloadEngine_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, sessionIDBytes_array_size: u32, sessionidbytes: *const u8) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Open(::core::mem::transmute(&uri), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&sessionidbytes), sessionIDBytes_array_size as _)).into()
@@ -187,7 +187,7 @@ impl INDDownloadEngine_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Notifier<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDDownloadEngine_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Notifier<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDDownloadEngine_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Notifier() {
@@ -242,7 +242,7 @@ impl INDDownloadEngineNotifier_Vtbl {
             let this = (*this).get_impl();
             this.OnPlayReadyObjectReceived(::core::slice::from_raw_parts(::core::mem::transmute_copy(&databytes), dataBytes_array_size as _)).into()
         }
-        unsafe extern "system" fn OnContentIDReceived<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDDownloadEngineNotifier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, licensefetchdescriptor: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnContentIDReceived<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDDownloadEngineNotifier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, licensefetchdescriptor: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OnContentIDReceived(::core::mem::transmute(&licensefetchdescriptor)).into()
@@ -287,7 +287,7 @@ impl ::windows::core::RuntimeName for INDLicenseFetchCompletedEventArgs {
 #[cfg(feature = "deprecated")]
 impl INDLicenseFetchCompletedEventArgs_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDLicenseFetchCompletedEventArgs_Impl, const OFFSET: isize>() -> INDLicenseFetchCompletedEventArgs_Vtbl {
-        unsafe extern "system" fn ResponseCustomData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDLicenseFetchCompletedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ResponseCustomData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDLicenseFetchCompletedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ResponseCustomData() {
@@ -347,7 +347,7 @@ impl INDLicenseFetchDescriptor_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LicenseFetchChallengeCustomData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDLicenseFetchDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LicenseFetchChallengeCustomData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDLicenseFetchDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.LicenseFetchChallengeCustomData() {
@@ -359,7 +359,7 @@ impl INDLicenseFetchDescriptor_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLicenseFetchChallengeCustomData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDLicenseFetchDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, licensefetchchallengecustomdata: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetLicenseFetchChallengeCustomData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDLicenseFetchDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, licensefetchchallengecustomdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetLicenseFetchChallengeCustomData(::core::mem::transmute(&licensefetchchallengecustomdata)).into()
@@ -387,7 +387,7 @@ impl ::windows::core::RuntimeName for INDLicenseFetchResult {
 #[cfg(feature = "deprecated")]
 impl INDLicenseFetchResult_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDLicenseFetchResult_Impl, const OFFSET: isize>() -> INDLicenseFetchResult_Vtbl {
-        unsafe extern "system" fn ResponseCustomData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDLicenseFetchResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ResponseCustomData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDLicenseFetchResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ResponseCustomData() {
@@ -422,7 +422,7 @@ impl ::windows::core::RuntimeName for INDMessenger {
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl INDMessenger_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDMessenger_Impl, const OFFSET: isize>() -> INDMessenger_Vtbl {
-        unsafe extern "system" fn SendRegistrationRequestAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDMessenger_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sessionIDBytes_array_size: u32, sessionidbytes: *const u8, challengeDataBytes_array_size: u32, challengedatabytes: *const u8, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SendRegistrationRequestAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDMessenger_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sessionIDBytes_array_size: u32, sessionidbytes: *const u8, challengeDataBytes_array_size: u32, challengedatabytes: *const u8, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SendRegistrationRequestAsync(::core::slice::from_raw_parts(::core::mem::transmute_copy(&sessionidbytes), sessionIDBytes_array_size as _), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&challengedatabytes), challengeDataBytes_array_size as _)) {
@@ -434,7 +434,7 @@ impl INDMessenger_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SendProximityDetectionStartAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDMessenger_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdtype: NDProximityDetectionType, transmitterChannelBytes_array_size: u32, transmitterchannelbytes: *const u8, sessionIDBytes_array_size: u32, sessionidbytes: *const u8, challengeDataBytes_array_size: u32, challengedatabytes: *const u8, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SendProximityDetectionStartAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDMessenger_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdtype: NDProximityDetectionType, transmitterChannelBytes_array_size: u32, transmitterchannelbytes: *const u8, sessionIDBytes_array_size: u32, sessionidbytes: *const u8, challengeDataBytes_array_size: u32, challengedatabytes: *const u8, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SendProximityDetectionStartAsync(pdtype, ::core::slice::from_raw_parts(::core::mem::transmute_copy(&transmitterchannelbytes), transmitterChannelBytes_array_size as _), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&sessionidbytes), sessionIDBytes_array_size as _), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&challengedatabytes), challengeDataBytes_array_size as _)) {
@@ -446,7 +446,7 @@ impl INDMessenger_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SendProximityDetectionResponseAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDMessenger_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdtype: NDProximityDetectionType, transmitterChannelBytes_array_size: u32, transmitterchannelbytes: *const u8, sessionIDBytes_array_size: u32, sessionidbytes: *const u8, responseDataBytes_array_size: u32, responsedatabytes: *const u8, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SendProximityDetectionResponseAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDMessenger_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdtype: NDProximityDetectionType, transmitterChannelBytes_array_size: u32, transmitterchannelbytes: *const u8, sessionIDBytes_array_size: u32, sessionidbytes: *const u8, responseDataBytes_array_size: u32, responsedatabytes: *const u8, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SendProximityDetectionResponseAsync(pdtype, ::core::slice::from_raw_parts(::core::mem::transmute_copy(&transmitterchannelbytes), transmitterChannelBytes_array_size as _), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&sessionidbytes), sessionIDBytes_array_size as _), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&responsedatabytes), responseDataBytes_array_size as _)) {
@@ -458,7 +458,7 @@ impl INDMessenger_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SendLicenseFetchRequestAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDMessenger_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sessionIDBytes_array_size: u32, sessionidbytes: *const u8, challengeDataBytes_array_size: u32, challengedatabytes: *const u8, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SendLicenseFetchRequestAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDMessenger_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sessionIDBytes_array_size: u32, sessionidbytes: *const u8, challengeDataBytes_array_size: u32, challengedatabytes: *const u8, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SendLicenseFetchRequestAsync(::core::slice::from_raw_parts(::core::mem::transmute_copy(&sessionidbytes), sessionIDBytes_array_size as _), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&challengedatabytes), challengeDataBytes_array_size as _)) {
@@ -528,7 +528,7 @@ impl ::windows::core::RuntimeName for INDRegistrationCompletedEventArgs {
 #[cfg(feature = "deprecated")]
 impl INDRegistrationCompletedEventArgs_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDRegistrationCompletedEventArgs_Impl, const OFFSET: isize>() -> INDRegistrationCompletedEventArgs_Vtbl {
-        unsafe extern "system" fn ResponseCustomData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDRegistrationCompletedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ResponseCustomData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDRegistrationCompletedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ResponseCustomData() {
@@ -540,7 +540,7 @@ impl INDRegistrationCompletedEventArgs_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TransmitterProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDRegistrationCompletedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TransmitterProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDRegistrationCompletedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.TransmitterProperties() {
@@ -622,7 +622,7 @@ impl ::windows::core::RuntimeName for INDStartResult {
 #[cfg(all(feature = "Media_Core", feature = "deprecated"))]
 impl INDStartResult_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDStartResult_Impl, const OFFSET: isize>() -> INDStartResult_Vtbl {
-        unsafe extern "system" fn MediaStreamSource<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDStartResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MediaStreamSource<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDStartResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.MediaStreamSource() {
@@ -654,7 +654,7 @@ impl ::windows::core::RuntimeName for INDStorageFileHelper {
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "deprecated"))]
 impl INDStorageFileHelper_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDStorageFileHelper_Impl, const OFFSET: isize>() -> INDStorageFileHelper_Vtbl {
-        unsafe extern "system" fn GetFileURLs<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDStorageFileHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFileURLs<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDStorageFileHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, file: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetFileURLs(::core::mem::transmute(&file)) {
@@ -692,7 +692,7 @@ impl INDStreamParser_Vtbl {
             let this = (*this).get_impl();
             this.ParseData(::core::slice::from_raw_parts(::core::mem::transmute_copy(&databytes), dataBytes_array_size as _)).into()
         }
-        unsafe extern "system" fn GetStreamInformation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDStreamParser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, descriptor: ::windows::core::RawPtr, streamtype: *mut NDMediaStreamType, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetStreamInformation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDStreamParser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, descriptor: *mut ::core::ffi::c_void, streamtype: *mut NDMediaStreamType, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetStreamInformation(::core::mem::transmute(&descriptor), ::core::mem::transmute_copy(&streamtype)) {
@@ -714,7 +714,7 @@ impl INDStreamParser_Vtbl {
             let this = (*this).get_impl();
             this.EndOfStream().into()
         }
-        unsafe extern "system" fn Notifier<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDStreamParser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Notifier<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDStreamParser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Notifier() {
@@ -753,22 +753,22 @@ impl ::windows::core::RuntimeName for INDStreamParserNotifier {
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core", feature = "deprecated"))]
 impl INDStreamParserNotifier_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDStreamParserNotifier_Impl, const OFFSET: isize>() -> INDStreamParserNotifier_Vtbl {
-        unsafe extern "system" fn OnContentIDReceived<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDStreamParserNotifier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, licensefetchdescriptor: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnContentIDReceived<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDStreamParserNotifier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, licensefetchdescriptor: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OnContentIDReceived(::core::mem::transmute(&licensefetchdescriptor)).into()
         }
-        unsafe extern "system" fn OnMediaStreamDescriptorCreated<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDStreamParserNotifier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, audiostreamdescriptors: ::windows::core::RawPtr, videostreamdescriptors: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnMediaStreamDescriptorCreated<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDStreamParserNotifier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, audiostreamdescriptors: *mut ::core::ffi::c_void, videostreamdescriptors: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OnMediaStreamDescriptorCreated(::core::mem::transmute(&audiostreamdescriptors), ::core::mem::transmute(&videostreamdescriptors)).into()
         }
-        unsafe extern "system" fn OnSampleParsed<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDStreamParserNotifier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, streamid: u32, streamtype: NDMediaStreamType, streamsample: ::windows::core::RawPtr, pts: i64, ccformat: NDClosedCaptionFormat, ccDataBytes_array_size: u32, ccdatabytes: *const u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnSampleParsed<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDStreamParserNotifier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, streamid: u32, streamtype: NDMediaStreamType, streamsample: *mut ::core::ffi::c_void, pts: i64, ccformat: NDClosedCaptionFormat, ccDataBytes_array_size: u32, ccdatabytes: *const u8) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OnSampleParsed(streamid, streamtype, ::core::mem::transmute(&streamsample), pts, ccformat, ::core::slice::from_raw_parts(::core::mem::transmute_copy(&ccdatabytes), ccDataBytes_array_size as _)).into()
         }
-        unsafe extern "system" fn OnBeginSetupDecryptor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDStreamParserNotifier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, descriptor: ::windows::core::RawPtr, keyid: ::windows::core::GUID, proBytes_array_size: u32, probytes: *const u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnBeginSetupDecryptor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDStreamParserNotifier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, descriptor: *mut ::core::ffi::c_void, keyid: ::windows::core::GUID, proBytes_array_size: u32, probytes: *const u8) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OnBeginSetupDecryptor(::core::mem::transmute(&descriptor), ::core::mem::transmute(&keyid), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&probytes), proBytes_array_size as _)).into()
@@ -1023,7 +1023,7 @@ impl IPlayReadyDomain_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DomainJoinUrl<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyDomain_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DomainJoinUrl<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyDomain_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.DomainJoinUrl() {
@@ -1089,7 +1089,7 @@ impl IPlayReadyLicense_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExpirationDate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyLicense_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExpirationDate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyLicense_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ExpirationDate() {
@@ -1178,7 +1178,7 @@ impl ::windows::core::RuntimeName for IPlayReadyLicenseAcquisitionServiceRequest
 #[cfg(feature = "Foundation")]
 impl IPlayReadyLicenseAcquisitionServiceRequest_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyLicenseAcquisitionServiceRequest_Impl, const OFFSET: isize>() -> IPlayReadyLicenseAcquisitionServiceRequest_Vtbl {
-        unsafe extern "system" fn ContentHeader<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyLicenseAcquisitionServiceRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ContentHeader<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyLicenseAcquisitionServiceRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ContentHeader() {
@@ -1190,7 +1190,7 @@ impl IPlayReadyLicenseAcquisitionServiceRequest_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetContentHeader<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyLicenseAcquisitionServiceRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetContentHeader<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyLicenseAcquisitionServiceRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetContentHeader(::core::mem::transmute(&value)).into()
@@ -1233,7 +1233,7 @@ impl ::windows::core::RuntimeName for IPlayReadyLicenseSession {
 }
 impl IPlayReadyLicenseSession_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyLicenseSession_Impl, const OFFSET: isize>() -> IPlayReadyLicenseSession_Vtbl {
-        unsafe extern "system" fn CreateLAServiceRequest<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyLicenseSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateLAServiceRequest<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyLicenseSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateLAServiceRequest() {
@@ -1245,7 +1245,7 @@ impl IPlayReadyLicenseSession_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ConfigureMediaProtectionManager<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyLicenseSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mpm: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConfigureMediaProtectionManager<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyLicenseSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mpm: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ConfigureMediaProtectionManager(::core::mem::transmute(&mpm)).into()
@@ -1271,7 +1271,7 @@ impl ::windows::core::RuntimeName for IPlayReadyLicenseSession2 {
 #[cfg(feature = "Foundation_Collections")]
 impl IPlayReadyLicenseSession2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyLicenseSession2_Impl, const OFFSET: isize>() -> IPlayReadyLicenseSession2_Vtbl {
-        unsafe extern "system" fn CreateLicenseIterable<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyLicenseSession2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contentheader: ::windows::core::RawPtr, fullyevaluated: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateLicenseIterable<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyLicenseSession2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contentheader: *mut ::core::ffi::c_void, fullyevaluated: bool, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateLicenseIterable(::core::mem::transmute(&contentheader), fullyevaluated) {
@@ -1400,7 +1400,7 @@ impl ::windows::core::RuntimeName for IPlayReadyServiceRequest {
 #[cfg(feature = "Foundation")]
 impl IPlayReadyServiceRequest_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyServiceRequest_Impl, const OFFSET: isize>() -> IPlayReadyServiceRequest_Vtbl {
-        unsafe extern "system" fn Uri<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyServiceRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Uri<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyServiceRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Uri() {
@@ -1412,7 +1412,7 @@ impl IPlayReadyServiceRequest_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetUri<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyServiceRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetUri<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyServiceRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetUri(::core::mem::transmute(&value)).into()
@@ -1446,7 +1446,7 @@ impl IPlayReadyServiceRequest_Vtbl {
             let this = (*this).get_impl();
             this.SetChallengeCustomData(::core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn BeginServiceRequest<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyServiceRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BeginServiceRequest<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyServiceRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.BeginServiceRequest() {
@@ -1458,7 +1458,7 @@ impl IPlayReadyServiceRequest_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NextServiceRequest<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyServiceRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NextServiceRequest<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyServiceRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.NextServiceRequest() {
@@ -1470,7 +1470,7 @@ impl IPlayReadyServiceRequest_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GenerateManualEnablingChallenge<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyServiceRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GenerateManualEnablingChallenge<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyServiceRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GenerateManualEnablingChallenge() {

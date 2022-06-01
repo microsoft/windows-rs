@@ -73,7 +73,7 @@ impl ICollectionView_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CollectionGroups<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICollectionView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CollectionGroups<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICollectionView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CollectionGroups() {
@@ -97,7 +97,7 @@ impl ICollectionView_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CurrentChanged<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICollectionView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentChanged<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICollectionView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CurrentChanged(::core::mem::transmute(&handler)) {
@@ -114,7 +114,7 @@ impl ICollectionView_Vtbl {
             let this = (*this).get_impl();
             this.RemoveCurrentChanged(::core::mem::transmute(&token)).into()
         }
-        unsafe extern "system" fn CurrentChanging<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICollectionView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CurrentChanging<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICollectionView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CurrentChanging(::core::mem::transmute(&handler)) {
@@ -203,7 +203,7 @@ impl ICollectionView_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LoadMoreItemsAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICollectionView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LoadMoreItemsAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICollectionView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.LoadMoreItemsAsync(count) {
@@ -248,7 +248,7 @@ impl ::windows::core::RuntimeName for ICollectionViewFactory {
 }
 impl ICollectionViewFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICollectionViewFactory_Impl, const OFFSET: isize>() -> ICollectionViewFactory_Vtbl {
-        unsafe extern "system" fn CreateView<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICollectionViewFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateView<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICollectionViewFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateView() {
@@ -290,7 +290,7 @@ impl ICollectionViewGroup_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GroupItems<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICollectionViewGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GroupItems<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICollectionViewGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GroupItems() {
@@ -442,7 +442,7 @@ impl ::windows::core::RuntimeName for ICustomPropertyProvider {
 #[cfg(feature = "UI_Xaml_Interop")]
 impl ICustomPropertyProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICustomPropertyProvider_Impl, const OFFSET: isize>() -> ICustomPropertyProvider_Vtbl {
-        unsafe extern "system" fn GetCustomProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICustomPropertyProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCustomProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICustomPropertyProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetCustomProperty(::core::mem::transmute(&name)) {
@@ -454,7 +454,7 @@ impl ICustomPropertyProvider_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetIndexedProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICustomPropertyProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, r#type: ::core::mem::ManuallyDrop<super::Interop::TypeName>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetIndexedProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICustomPropertyProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, r#type: ::core::mem::ManuallyDrop<super::Interop::TypeName>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetIndexedProperty(::core::mem::transmute(&name), ::core::mem::transmute(&r#type)) {
@@ -513,7 +513,7 @@ impl ::windows::core::RuntimeName for IItemsRangeInfo {
 #[cfg(feature = "Foundation_Collections")]
 impl IItemsRangeInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IItemsRangeInfo_Impl, const OFFSET: isize>() -> IItemsRangeInfo_Vtbl {
-        unsafe extern "system" fn RangesChanged<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IItemsRangeInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, visiblerange: ::windows::core::RawPtr, trackeditems: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RangesChanged<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IItemsRangeInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, visiblerange: *mut ::core::ffi::c_void, trackeditems: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.RangesChanged(::core::mem::transmute(&visiblerange), ::core::mem::transmute(&trackeditems)).into()
@@ -536,7 +536,7 @@ impl ::windows::core::RuntimeName for INotifyPropertyChanged {
 #[cfg(feature = "Foundation")]
 impl INotifyPropertyChanged_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INotifyPropertyChanged_Impl, const OFFSET: isize>() -> INotifyPropertyChanged_Vtbl {
-        unsafe extern "system" fn PropertyChanged<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INotifyPropertyChanged_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PropertyChanged<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INotifyPropertyChanged_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.PropertyChanged(::core::mem::transmute(&handler)) {
@@ -577,12 +577,12 @@ impl ::windows::core::RuntimeName for ISelectionInfo {
 #[cfg(feature = "Foundation_Collections")]
 impl ISelectionInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISelectionInfo_Impl, const OFFSET: isize>() -> ISelectionInfo_Vtbl {
-        unsafe extern "system" fn SelectRange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISelectionInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, itemindexrange: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SelectRange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISelectionInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, itemindexrange: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SelectRange(::core::mem::transmute(&itemindexrange)).into()
         }
-        unsafe extern "system" fn DeselectRange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISelectionInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, itemindexrange: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeselectRange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISelectionInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, itemindexrange: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.DeselectRange(::core::mem::transmute(&itemindexrange)).into()
@@ -599,7 +599,7 @@ impl ISelectionInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSelectedRanges<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISelectionInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSelectedRanges<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISelectionInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetSelectedRanges() {
@@ -635,7 +635,7 @@ impl ::windows::core::RuntimeName for ISupportIncrementalLoading {
 #[cfg(feature = "Foundation")]
 impl ISupportIncrementalLoading_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISupportIncrementalLoading_Impl, const OFFSET: isize>() -> ISupportIncrementalLoading_Vtbl {
-        unsafe extern "system" fn LoadMoreItemsAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISupportIncrementalLoading_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LoadMoreItemsAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISupportIncrementalLoading_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.LoadMoreItemsAsync(count) {

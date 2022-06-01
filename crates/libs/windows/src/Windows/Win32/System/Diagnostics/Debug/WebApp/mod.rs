@@ -166,7 +166,7 @@ impl IWebApplicationHost {
     #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_WebApp\"`, `\"Win32_System_Com\"`, `\"Win32_Web_MsHtml\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
     pub unsafe fn Document(&self) -> ::windows::core::Result<super::super::super::super::Web::MsHtml::IHTMLDocument2> {
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).Document)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::super::Web::MsHtml::IHTMLDocument2>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_WebApp\"`*"]
@@ -231,7 +231,7 @@ pub struct IWebApplicationHost_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     HWND: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
-    pub Document: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, htmldocument: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub Document: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, htmldocument: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_Web_MsHtml")))]
     Document: usize,
     pub Refresh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -316,19 +316,19 @@ unsafe impl ::windows::core::Interface for IWebApplicationNavigationEvents {
 pub struct IWebApplicationNavigationEvents_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
-    pub BeforeNavigate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, htmlwindow: ::windows::core::RawPtr, url: ::windows::core::PCWSTR, navigationflags: u32, targetframename: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
+    pub BeforeNavigate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, htmlwindow: *mut ::core::ffi::c_void, url: ::windows::core::PCWSTR, navigationflags: u32, targetframename: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_Web_MsHtml")))]
     BeforeNavigate: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
-    pub NavigateComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, htmlwindow: ::windows::core::RawPtr, url: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
+    pub NavigateComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, htmlwindow: *mut ::core::ffi::c_void, url: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_Web_MsHtml")))]
     NavigateComplete: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
-    pub NavigateError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, htmlwindow: ::windows::core::RawPtr, url: ::windows::core::PCWSTR, targetframename: ::windows::core::PCWSTR, statuscode: u32) -> ::windows::core::HRESULT,
+    pub NavigateError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, htmlwindow: *mut ::core::ffi::c_void, url: ::windows::core::PCWSTR, targetframename: ::windows::core::PCWSTR, statuscode: u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_Web_MsHtml")))]
     NavigateError: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
-    pub DocumentComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, htmlwindow: ::windows::core::RawPtr, url: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
+    pub DocumentComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, htmlwindow: *mut ::core::ffi::c_void, url: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_Web_MsHtml")))]
     DocumentComplete: usize,
     pub DownloadBegin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -394,11 +394,11 @@ unsafe impl ::windows::core::Interface for IWebApplicationScriptEvents {
 pub struct IWebApplicationScriptEvents_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
-    pub BeforeScriptExecute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, htmlwindow: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub BeforeScriptExecute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, htmlwindow: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_Web_MsHtml")))]
     BeforeScriptExecute: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
-    pub ScriptError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, htmlwindow: ::windows::core::RawPtr, scripterror: ::windows::core::RawPtr, url: ::windows::core::PCWSTR, errorhandled: super::super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    pub ScriptError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, htmlwindow: *mut ::core::ffi::c_void, scripterror: *mut ::core::ffi::c_void, url: ::windows::core::PCWSTR, errorhandled: super::super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_Web_MsHtml")))]
     ScriptError: usize,
 }

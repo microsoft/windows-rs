@@ -118,7 +118,7 @@ pub unsafe fn FCIAddFile<'a, Param1: ::windows::core::IntoParam<'a, ::windows::c
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FCIAddFile(hfci: *const ::core::ffi::c_void, pszsourcefile: ::windows::core::PCSTR, pszfilename: ::windows::core::PCSTR, fexecute: super::super::Foundation::BOOL, pfnfcignc: ::windows::core::RawPtr, pfnfcis: ::windows::core::RawPtr, pfnfcigoi: ::windows::core::RawPtr, typecompress: u16) -> super::super::Foundation::BOOL;
+            fn FCIAddFile(hfci: *const ::core::ffi::c_void, pszsourcefile: ::windows::core::PCSTR, pszfilename: ::windows::core::PCSTR, fexecute: super::super::Foundation::BOOL, pfnfcignc: *mut ::core::ffi::c_void, pfnfcis: *mut ::core::ffi::c_void, pfnfcigoi: *mut ::core::ffi::c_void, typecompress: u16) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(FCIAddFile(::core::mem::transmute(hfci), pszsourcefile.into_param().abi(), pszfilename.into_param().abi(), fexecute.into_param().abi(), ::core::mem::transmute(pfnfcignc), ::core::mem::transmute(pfnfcis), ::core::mem::transmute(pfnfcigoi), ::core::mem::transmute(typecompress)))
     }
@@ -133,7 +133,7 @@ pub unsafe fn FCICreate(perf: *const ERF, pfnfcifp: PFNFCIFILEPLACED, pfna: PFNF
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FCICreate(perf: *const ERF, pfnfcifp: ::windows::core::RawPtr, pfna: ::windows::core::RawPtr, pfnf: ::windows::core::RawPtr, pfnopen: ::windows::core::RawPtr, pfnread: ::windows::core::RawPtr, pfnwrite: ::windows::core::RawPtr, pfnclose: ::windows::core::RawPtr, pfnseek: ::windows::core::RawPtr, pfndelete: ::windows::core::RawPtr, pfnfcigtf: ::windows::core::RawPtr, pccab: *const CCAB, pv: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
+            fn FCICreate(perf: *const ERF, pfnfcifp: *mut ::core::ffi::c_void, pfna: *mut ::core::ffi::c_void, pfnf: *mut ::core::ffi::c_void, pfnopen: *mut ::core::ffi::c_void, pfnread: *mut ::core::ffi::c_void, pfnwrite: *mut ::core::ffi::c_void, pfnclose: *mut ::core::ffi::c_void, pfnseek: *mut ::core::ffi::c_void, pfndelete: *mut ::core::ffi::c_void, pfnfcigtf: *mut ::core::ffi::c_void, pccab: *const CCAB, pv: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
         }
         ::core::mem::transmute(FCICreate(::core::mem::transmute(perf), ::core::mem::transmute(pfnfcifp), ::core::mem::transmute(pfna), ::core::mem::transmute(pfnf), ::core::mem::transmute(pfnopen), ::core::mem::transmute(pfnread), ::core::mem::transmute(pfnwrite), ::core::mem::transmute(pfnclose), ::core::mem::transmute(pfnseek), ::core::mem::transmute(pfndelete), ::core::mem::transmute(pfnfcigtf), ::core::mem::transmute(pccab), ::core::mem::transmute(pv)))
     }
@@ -206,7 +206,7 @@ pub unsafe fn FCIFlushCabinet<'a, Param1: ::windows::core::IntoParam<'a, super::
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FCIFlushCabinet(hfci: *const ::core::ffi::c_void, fgetnextcab: super::super::Foundation::BOOL, pfnfcignc: ::windows::core::RawPtr, pfnfcis: ::windows::core::RawPtr) -> super::super::Foundation::BOOL;
+            fn FCIFlushCabinet(hfci: *const ::core::ffi::c_void, fgetnextcab: super::super::Foundation::BOOL, pfnfcignc: *mut ::core::ffi::c_void, pfnfcis: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(FCIFlushCabinet(::core::mem::transmute(hfci), fgetnextcab.into_param().abi(), ::core::mem::transmute(pfnfcignc), ::core::mem::transmute(pfnfcis)))
     }
@@ -221,7 +221,7 @@ pub unsafe fn FCIFlushFolder(hfci: *const ::core::ffi::c_void, pfnfcignc: PFNFCI
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FCIFlushFolder(hfci: *const ::core::ffi::c_void, pfnfcignc: ::windows::core::RawPtr, pfnfcis: ::windows::core::RawPtr) -> super::super::Foundation::BOOL;
+            fn FCIFlushFolder(hfci: *const ::core::ffi::c_void, pfnfcignc: *mut ::core::ffi::c_void, pfnfcis: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(FCIFlushFolder(::core::mem::transmute(hfci), ::core::mem::transmute(pfnfcignc), ::core::mem::transmute(pfnfcis)))
     }
@@ -310,7 +310,7 @@ pub unsafe fn FDICopy<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FDICopy(hfdi: *const ::core::ffi::c_void, pszcabinet: ::windows::core::PCSTR, pszcabpath: ::windows::core::PCSTR, flags: i32, pfnfdin: ::windows::core::RawPtr, pfnfdid: ::windows::core::RawPtr, pvuser: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+            fn FDICopy(hfdi: *const ::core::ffi::c_void, pszcabinet: ::windows::core::PCSTR, pszcabpath: ::windows::core::PCSTR, flags: i32, pfnfdin: *mut ::core::ffi::c_void, pfnfdid: *mut ::core::ffi::c_void, pvuser: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(FDICopy(::core::mem::transmute(hfdi), pszcabinet.into_param().abi(), pszcabpath.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(pfnfdin), ::core::mem::transmute(pfnfdid), ::core::mem::transmute(pvuser)))
     }
@@ -325,7 +325,7 @@ pub unsafe fn FDICreate(pfnalloc: PFNALLOC, pfnfree: PFNFREE, pfnopen: PFNOPEN, 
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FDICreate(pfnalloc: ::windows::core::RawPtr, pfnfree: ::windows::core::RawPtr, pfnopen: ::windows::core::RawPtr, pfnread: ::windows::core::RawPtr, pfnwrite: ::windows::core::RawPtr, pfnclose: ::windows::core::RawPtr, pfnseek: ::windows::core::RawPtr, cputype: FDICREATE_CPU_TYPE, perf: *mut ERF) -> *mut ::core::ffi::c_void;
+            fn FDICreate(pfnalloc: *mut ::core::ffi::c_void, pfnfree: *mut ::core::ffi::c_void, pfnopen: *mut ::core::ffi::c_void, pfnread: *mut ::core::ffi::c_void, pfnwrite: *mut ::core::ffi::c_void, pfnclose: *mut ::core::ffi::c_void, pfnseek: *mut ::core::ffi::c_void, cputype: FDICREATE_CPU_TYPE, perf: *mut ERF) -> *mut ::core::ffi::c_void;
         }
         ::core::mem::transmute(FDICreate(::core::mem::transmute(pfnalloc), ::core::mem::transmute(pfnfree), ::core::mem::transmute(pfnopen), ::core::mem::transmute(pfnread), ::core::mem::transmute(pfnwrite), ::core::mem::transmute(pfnclose), ::core::mem::transmute(pfnseek), ::core::mem::transmute(cputype), ::core::mem::transmute(perf)))
     }

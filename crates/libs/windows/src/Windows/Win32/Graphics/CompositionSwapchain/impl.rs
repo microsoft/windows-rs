@@ -217,7 +217,7 @@ impl IPresentationFactory_Vtbl {
             let this = (*this).get_impl();
             this.IsPresentationSupportedWithIndependentFlip()
         }
-        unsafe extern "system" fn CreatePresentationManager<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPresentationFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pppresentationmanager: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreatePresentationManager<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPresentationFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pppresentationmanager: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreatePresentationManager() {
@@ -260,7 +260,7 @@ impl ::windows::core::RuntimeName for IPresentationManager {}
 #[cfg(feature = "Win32_Foundation")]
 impl IPresentationManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPresentationManager_Impl, const OFFSET: isize>() -> IPresentationManager_Vtbl {
-        unsafe extern "system" fn AddBufferFromResource<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPresentationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resource: *mut ::core::ffi::c_void, presentationbuffer: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddBufferFromResource<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPresentationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resource: *mut ::core::ffi::c_void, presentationbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.AddBufferFromResource(::core::mem::transmute(&resource)) {
@@ -271,7 +271,7 @@ impl IPresentationManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreatePresentationSurface<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPresentationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, compositionsurfacehandle: super::super::Foundation::HANDLE, presentationsurface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreatePresentationSurface<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPresentationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, compositionsurfacehandle: super::super::Foundation::HANDLE, presentationsurface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreatePresentationSurface(::core::mem::transmute_copy(&compositionsurfacehandle)) {
@@ -350,7 +350,7 @@ impl IPresentationManager_Vtbl {
             let this = (*this).get_impl();
             this.EnablePresentStatisticsKind(::core::mem::transmute_copy(&presentstatisticskind), ::core::mem::transmute_copy(&enabled)).into()
         }
-        unsafe extern "system" fn GetNextPresentStatistics<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPresentationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nextpresentstatistics: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetNextPresentStatistics<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPresentationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nextpresentstatistics: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetNextPresentStatistics() {
@@ -398,7 +398,7 @@ impl ::windows::core::RuntimeName for IPresentationSurface {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl IPresentationSurface_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPresentationSurface_Impl, const OFFSET: isize>() -> IPresentationSurface_Vtbl {
-        unsafe extern "system" fn SetBuffer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPresentationSurface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presentationbuffer: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBuffer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPresentationSurface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presentationbuffer: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetBuffer(::core::mem::transmute(&presentationbuffer)).into()

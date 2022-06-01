@@ -80,12 +80,12 @@ impl ::windows::core::RuntimeName for IVisualTreeService {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IVisualTreeService_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVisualTreeService_Impl, const OFFSET: isize>() -> IVisualTreeService_Vtbl {
-        unsafe extern "system" fn AdviseVisualTreeChange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVisualTreeService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcallback: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AdviseVisualTreeChange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVisualTreeService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.AdviseVisualTreeChange(::core::mem::transmute(&pcallback)).into()
         }
-        unsafe extern "system" fn UnadviseVisualTreeChange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVisualTreeService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcallback: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UnadviseVisualTreeChange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVisualTreeService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.UnadviseVisualTreeChange(::core::mem::transmute(&pcallback)).into()
@@ -211,7 +211,7 @@ impl IVisualTreeService2_Vtbl {
             let this = (*this).get_impl();
             this.ReplaceResource(::core::mem::transmute_copy(&resourcedictionary), ::core::mem::transmute_copy(&key), ::core::mem::transmute_copy(&newvalue)).into()
         }
-        unsafe extern "system" fn RenderTargetBitmap<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVisualTreeService2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handle: u64, options: RenderTargetBitmapOptions, maxpixelwidth: u32, maxpixelheight: u32, ppbitmapdata: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RenderTargetBitmap<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVisualTreeService2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handle: u64, options: RenderTargetBitmapOptions, maxpixelwidth: u32, maxpixelheight: u32, ppbitmapdata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.RenderTargetBitmap(::core::mem::transmute_copy(&handle), ::core::mem::transmute_copy(&options), ::core::mem::transmute_copy(&maxpixelwidth), ::core::mem::transmute_copy(&maxpixelheight)) {

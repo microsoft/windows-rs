@@ -62,7 +62,7 @@ impl IWebApplicationHost_Vtbl {
             let this = (*this).get_impl();
             this.HWND(::core::mem::transmute_copy(&hwnd)).into()
         }
-        unsafe extern "system" fn Document<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebApplicationHost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, htmldocument: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Document<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebApplicationHost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, htmldocument: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Document() {
@@ -115,22 +115,22 @@ impl ::windows::core::RuntimeName for IWebApplicationNavigationEvents {}
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
 impl IWebApplicationNavigationEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebApplicationNavigationEvents_Impl, const OFFSET: isize>() -> IWebApplicationNavigationEvents_Vtbl {
-        unsafe extern "system" fn BeforeNavigate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebApplicationNavigationEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, htmlwindow: ::windows::core::RawPtr, url: ::windows::core::PCWSTR, navigationflags: u32, targetframename: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BeforeNavigate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebApplicationNavigationEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, htmlwindow: *mut ::core::ffi::c_void, url: ::windows::core::PCWSTR, navigationflags: u32, targetframename: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.BeforeNavigate(::core::mem::transmute(&htmlwindow), ::core::mem::transmute(&url), ::core::mem::transmute_copy(&navigationflags), ::core::mem::transmute(&targetframename)).into()
         }
-        unsafe extern "system" fn NavigateComplete<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebApplicationNavigationEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, htmlwindow: ::windows::core::RawPtr, url: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NavigateComplete<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebApplicationNavigationEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, htmlwindow: *mut ::core::ffi::c_void, url: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.NavigateComplete(::core::mem::transmute(&htmlwindow), ::core::mem::transmute(&url)).into()
         }
-        unsafe extern "system" fn NavigateError<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebApplicationNavigationEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, htmlwindow: ::windows::core::RawPtr, url: ::windows::core::PCWSTR, targetframename: ::windows::core::PCWSTR, statuscode: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NavigateError<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebApplicationNavigationEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, htmlwindow: *mut ::core::ffi::c_void, url: ::windows::core::PCWSTR, targetframename: ::windows::core::PCWSTR, statuscode: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.NavigateError(::core::mem::transmute(&htmlwindow), ::core::mem::transmute(&url), ::core::mem::transmute(&targetframename), ::core::mem::transmute_copy(&statuscode)).into()
         }
-        unsafe extern "system" fn DocumentComplete<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebApplicationNavigationEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, htmlwindow: ::windows::core::RawPtr, url: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DocumentComplete<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebApplicationNavigationEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, htmlwindow: *mut ::core::ffi::c_void, url: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.DocumentComplete(::core::mem::transmute(&htmlwindow), ::core::mem::transmute(&url)).into()
@@ -169,12 +169,12 @@ impl ::windows::core::RuntimeName for IWebApplicationScriptEvents {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
 impl IWebApplicationScriptEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebApplicationScriptEvents_Impl, const OFFSET: isize>() -> IWebApplicationScriptEvents_Vtbl {
-        unsafe extern "system" fn BeforeScriptExecute<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebApplicationScriptEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, htmlwindow: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BeforeScriptExecute<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebApplicationScriptEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, htmlwindow: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.BeforeScriptExecute(::core::mem::transmute(&htmlwindow)).into()
         }
-        unsafe extern "system" fn ScriptError<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebApplicationScriptEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, htmlwindow: ::windows::core::RawPtr, scripterror: ::windows::core::RawPtr, url: ::windows::core::PCWSTR, errorhandled: super::super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ScriptError<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebApplicationScriptEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, htmlwindow: *mut ::core::ffi::c_void, scripterror: *mut ::core::ffi::c_void, url: ::windows::core::PCWSTR, errorhandled: super::super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ScriptError(::core::mem::transmute(&htmlwindow), ::core::mem::transmute(&scripterror), ::core::mem::transmute(&url), ::core::mem::transmute_copy(&errorhandled)).into()

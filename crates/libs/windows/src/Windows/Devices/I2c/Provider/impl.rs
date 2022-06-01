@@ -6,7 +6,7 @@ impl ::windows::core::RuntimeName for II2cControllerProvider {
 }
 impl II2cControllerProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: II2cControllerProvider_Impl, const OFFSET: isize>() -> II2cControllerProvider_Vtbl {
-        unsafe extern "system" fn GetDeviceProvider<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: II2cControllerProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, settings: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeviceProvider<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: II2cControllerProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, settings: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetDeviceProvider(::core::mem::transmute(&settings)) {
@@ -133,7 +133,7 @@ impl ::windows::core::RuntimeName for II2cProvider {
 #[cfg(feature = "Foundation_Collections")]
 impl II2cProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: II2cProvider_Impl, const OFFSET: isize>() -> II2cProvider_Vtbl {
-        unsafe extern "system" fn GetControllersAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: II2cProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetControllersAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: II2cProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetControllersAsync() {

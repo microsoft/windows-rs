@@ -485,7 +485,7 @@ pub unsafe fn RmRestart(dwsessionhandle: u32, dwrestartflags: u32, fnstatus: RM_
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RmRestart(dwsessionhandle: u32, dwrestartflags: u32, fnstatus: ::windows::core::RawPtr) -> u32;
+            fn RmRestart(dwsessionhandle: u32, dwrestartflags: u32, fnstatus: *mut ::core::ffi::c_void) -> u32;
         }
         ::core::mem::transmute(RmRestart(::core::mem::transmute(dwsessionhandle), ::core::mem::transmute(dwrestartflags), ::core::mem::transmute(fnstatus)))
     }
@@ -499,7 +499,7 @@ pub unsafe fn RmShutdown(dwsessionhandle: u32, lactionflags: u32, fnstatus: RM_W
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RmShutdown(dwsessionhandle: u32, lactionflags: u32, fnstatus: ::windows::core::RawPtr) -> u32;
+            fn RmShutdown(dwsessionhandle: u32, lactionflags: u32, fnstatus: *mut ::core::ffi::c_void) -> u32;
         }
         ::core::mem::transmute(RmShutdown(::core::mem::transmute(dwsessionhandle), ::core::mem::transmute(lactionflags), ::core::mem::transmute(fnstatus)))
     }

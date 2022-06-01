@@ -3259,7 +3259,7 @@ pub unsafe fn WinHttpSetStatusCallback(hinternet: *mut ::core::ffi::c_void, lpfn
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinHttpSetStatusCallback(hinternet: *mut ::core::ffi::c_void, lpfninternetcallback: ::windows::core::RawPtr, dwnotificationflags: u32, dwreserved: usize) -> WINHTTP_STATUS_CALLBACK;
+            fn WinHttpSetStatusCallback(hinternet: *mut ::core::ffi::c_void, lpfninternetcallback: *mut ::core::ffi::c_void, dwnotificationflags: u32, dwreserved: usize) -> WINHTTP_STATUS_CALLBACK;
         }
         ::core::mem::transmute(WinHttpSetStatusCallback(::core::mem::transmute(hinternet), ::core::mem::transmute(lpfninternetcallback), ::core::mem::transmute(dwnotificationflags), ::core::mem::transmute(dwreserved)))
     }

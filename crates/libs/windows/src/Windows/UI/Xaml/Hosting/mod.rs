@@ -121,7 +121,7 @@ impl DesignerAppManager {
     pub fn CreateNewViewAsync<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Size>>(&self, initialviewstate: DesignerAppViewState, initialviewsize: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<DesignerAppView>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateNewViewAsync)(::windows::core::Interface::as_raw(this), initialviewstate, initialviewsize.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<DesignerAppView>>(result__)
         }
     }
@@ -130,14 +130,14 @@ impl DesignerAppManager {
     pub fn LoadObjectIntoAppAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, dllname: Param0, classid: Param1, initializationdata: Param2) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).LoadObjectIntoAppAsync)(::windows::core::Interface::as_raw(this), dllname.into_param().abi(), classid.into_param().abi(), initializationdata.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Hosting\"`*"]
     pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(appusermodelid: Param0) -> ::windows::core::Result<DesignerAppManager> {
         Self::IDesignerAppManagerFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), appusermodelid.into_param().abi(), result__.as_mut_ptr()).from_abi::<DesignerAppManager>(result__)
         })
     }
@@ -293,7 +293,7 @@ impl DesignerAppView {
     pub fn UpdateViewAsync<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Size>>(&self, viewstate: DesignerAppViewState, viewsize: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).UpdateViewAsync)(::windows::core::Interface::as_raw(this), viewstate, viewsize.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
@@ -444,7 +444,7 @@ impl DesktopWindowXamlSource {
     pub fn Content(&self) -> ::windows::core::Result<super::UIElement> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Content)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::UIElement>(result__)
         }
     }
@@ -495,14 +495,14 @@ impl DesktopWindowXamlSource {
     pub fn NavigateFocus<'a, Param0: ::windows::core::IntoParam<'a, XamlSourceFocusNavigationRequest>>(&self, request: Param0) -> ::windows::core::Result<XamlSourceFocusNavigationResult> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).NavigateFocus)(::windows::core::Interface::as_raw(this), request.into_param().abi(), result__.as_mut_ptr()).from_abi::<XamlSourceFocusNavigationResult>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Hosting\"`*"]
     pub fn new() -> ::windows::core::Result<DesktopWindowXamlSource> {
         Self::IDesktopWindowXamlSourceFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, result__.as_mut_ptr()).from_abi::<DesktopWindowXamlSource>(result__)
         })
     }
@@ -510,7 +510,7 @@ impl DesktopWindowXamlSource {
     pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<DesktopWindowXamlSource> {
         Self::IDesktopWindowXamlSourceFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, result__.as_mut_ptr()).from_abi::<DesktopWindowXamlSource>(result__)
         })
     }
@@ -626,7 +626,7 @@ impl DesktopWindowXamlSourceGotFocusEventArgs {
     pub fn Request(&self) -> ::windows::core::Result<XamlSourceFocusNavigationRequest> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Request)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<XamlSourceFocusNavigationRequest>(result__)
         }
     }
@@ -711,7 +711,7 @@ impl DesktopWindowXamlSourceTakeFocusRequestedEventArgs {
     pub fn Request(&self) -> ::windows::core::Result<XamlSourceFocusNavigationRequest> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).Request)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<XamlSourceFocusNavigationRequest>(result__)
         }
     }
@@ -796,7 +796,7 @@ impl ElementCompositionPreview {
     #[cfg(feature = "UI_Composition")]
     pub fn GetElementVisual<'a, Param0: ::windows::core::IntoParam<'a, super::UIElement>>(element: Param0) -> ::windows::core::Result<super::super::Composition::Visual> {
         Self::IElementCompositionPreviewStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetElementVisual)(::windows::core::Interface::as_raw(this), element.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Composition::Visual>(result__)
         })
     }
@@ -804,7 +804,7 @@ impl ElementCompositionPreview {
     #[cfg(feature = "UI_Composition")]
     pub fn GetElementChildVisual<'a, Param0: ::windows::core::IntoParam<'a, super::UIElement>>(element: Param0) -> ::windows::core::Result<super::super::Composition::Visual> {
         Self::IElementCompositionPreviewStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetElementChildVisual)(::windows::core::Interface::as_raw(this), element.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Composition::Visual>(result__)
         })
     }
@@ -817,7 +817,7 @@ impl ElementCompositionPreview {
     #[cfg(all(feature = "UI_Composition", feature = "UI_Xaml_Controls"))]
     pub fn GetScrollViewerManipulationPropertySet<'a, Param0: ::windows::core::IntoParam<'a, super::Controls::ScrollViewer>>(scrollviewer: Param0) -> ::windows::core::Result<super::super::Composition::CompositionPropertySet> {
         Self::IElementCompositionPreviewStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetScrollViewerManipulationPropertySet)(::windows::core::Interface::as_raw(this), scrollviewer.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Composition::CompositionPropertySet>(result__)
         })
     }
@@ -839,7 +839,7 @@ impl ElementCompositionPreview {
     #[cfg(feature = "UI_Composition")]
     pub fn GetPointerPositionPropertySet<'a, Param0: ::windows::core::IntoParam<'a, super::UIElement>>(targetelement: Param0) -> ::windows::core::Result<super::super::Composition::CompositionPropertySet> {
         Self::IElementCompositionPreviewStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetPointerPositionPropertySet)(::windows::core::Interface::as_raw(this), targetelement.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Composition::CompositionPropertySet>(result__)
         })
     }
@@ -852,7 +852,7 @@ impl ElementCompositionPreview {
     #[cfg(feature = "UI_WindowManagement")]
     pub fn GetAppWindowContent<'a, Param0: ::windows::core::IntoParam<'a, super::super::WindowManagement::AppWindow>>(appwindow: Param0) -> ::windows::core::Result<super::UIElement> {
         Self::IElementCompositionPreviewStatics3(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).GetAppWindowContent)(::windows::core::Interface::as_raw(this), appwindow.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::UIElement>(result__)
         })
     }
@@ -970,7 +970,7 @@ pub struct IDesignerAppManager_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     pub AppUserModelId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
-    pub DesignerAppExited: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub DesignerAppExited: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     DesignerAppExited: usize,
     #[cfg(feature = "Foundation")]
@@ -978,11 +978,11 @@ pub struct IDesignerAppManager_Vtbl {
     #[cfg(not(feature = "Foundation"))]
     RemoveDesignerAppExited: usize,
     #[cfg(feature = "Foundation")]
-    pub CreateNewViewAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, initialviewstate: DesignerAppViewState, initialviewsize: super::super::super::Foundation::Size, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateNewViewAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, initialviewstate: DesignerAppViewState, initialviewsize: super::super::super::Foundation::Size, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     CreateNewViewAsync: usize,
     #[cfg(feature = "Foundation")]
-    pub LoadObjectIntoAppAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dllname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, classid: ::windows::core::GUID, initializationdata: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub LoadObjectIntoAppAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dllname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, classid: ::windows::core::GUID, initializationdata: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     LoadObjectIntoAppAsync: usize,
 }
@@ -997,7 +997,7 @@ unsafe impl ::windows::core::Interface for IDesignerAppManagerFactory {
 #[doc(hidden)]
 pub struct IDesignerAppManagerFactory_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appusermodelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appusermodelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1018,7 +1018,7 @@ pub struct IDesignerAppView_Vtbl {
     #[cfg(not(feature = "Foundation"))]
     ViewSize: usize,
     #[cfg(feature = "Foundation")]
-    pub UpdateViewAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, viewstate: DesignerAppViewState, viewsize: super::super::super::Foundation::Size, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub UpdateViewAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, viewstate: DesignerAppViewState, viewsize: super::super::super::Foundation::Size, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     UpdateViewAsync: usize,
 }
@@ -1033,11 +1033,11 @@ unsafe impl ::windows::core::Interface for IDesktopWindowXamlSource {
 #[doc(hidden)]
 pub struct IDesktopWindowXamlSource_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub Content: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetContent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub Content: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetContent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub HasFocus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
-    pub TakeFocusRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub TakeFocusRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     TakeFocusRequested: usize,
     #[cfg(feature = "Foundation")]
@@ -1045,14 +1045,14 @@ pub struct IDesktopWindowXamlSource_Vtbl {
     #[cfg(not(feature = "Foundation"))]
     RemoveTakeFocusRequested: usize,
     #[cfg(feature = "Foundation")]
-    pub GotFocus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    pub GotFocus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     GotFocus: usize,
     #[cfg(feature = "Foundation")]
     pub RemoveGotFocus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     RemoveGotFocus: usize,
-    pub NavigateFocus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, request: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub NavigateFocus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, request: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1065,7 +1065,7 @@ unsafe impl ::windows::core::Interface for IDesktopWindowXamlSourceFactory {
 #[doc(hidden)]
 pub struct IDesktopWindowXamlSourceFactory_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1078,7 +1078,7 @@ unsafe impl ::windows::core::Interface for IDesktopWindowXamlSourceGotFocusEvent
 #[doc(hidden)]
 pub struct IDesktopWindowXamlSourceGotFocusEventArgs_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1091,7 +1091,7 @@ unsafe impl ::windows::core::Interface for IDesktopWindowXamlSourceTakeFocusRequ
 #[doc(hidden)]
 pub struct IDesktopWindowXamlSourceTakeFocusRequestedEventArgs_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1117,19 +1117,19 @@ unsafe impl ::windows::core::Interface for IElementCompositionPreviewStatics {
 pub struct IElementCompositionPreviewStatics_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Composition")]
-    pub GetElementVisual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GetElementVisual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Composition"))]
     GetElementVisual: usize,
     #[cfg(feature = "UI_Composition")]
-    pub GetElementChildVisual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GetElementChildVisual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Composition"))]
     GetElementChildVisual: usize,
     #[cfg(feature = "UI_Composition")]
-    pub SetElementChildVisual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, visual: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetElementChildVisual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: *mut ::core::ffi::c_void, visual: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Composition"))]
     SetElementChildVisual: usize,
     #[cfg(all(feature = "UI_Composition", feature = "UI_Xaml_Controls"))]
-    pub GetScrollViewerManipulationPropertySet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scrollviewer: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GetScrollViewerManipulationPropertySet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scrollviewer: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "UI_Composition", feature = "UI_Xaml_Controls")))]
     GetScrollViewerManipulationPropertySet: usize,
 }
@@ -1145,16 +1145,16 @@ unsafe impl ::windows::core::Interface for IElementCompositionPreviewStatics2 {
 pub struct IElementCompositionPreviewStatics2_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Composition")]
-    pub SetImplicitShowAnimation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetImplicitShowAnimation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Composition"))]
     SetImplicitShowAnimation: usize,
     #[cfg(feature = "UI_Composition")]
-    pub SetImplicitHideAnimation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetImplicitHideAnimation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Composition"))]
     SetImplicitHideAnimation: usize,
-    pub SetIsTranslationEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, value: bool) -> ::windows::core::HRESULT,
+    pub SetIsTranslationEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "UI_Composition")]
-    pub GetPointerPositionPropertySet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targetelement: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GetPointerPositionPropertySet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targetelement: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Composition"))]
     GetPointerPositionPropertySet: usize,
 }
@@ -1170,11 +1170,11 @@ unsafe impl ::windows::core::Interface for IElementCompositionPreviewStatics3 {
 pub struct IElementCompositionPreviewStatics3_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_WindowManagement")]
-    pub SetAppWindowContent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appwindow: ::windows::core::RawPtr, xamlcontent: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetAppWindowContent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appwindow: *mut ::core::ffi::c_void, xamlcontent: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_WindowManagement"))]
     SetAppWindowContent: usize,
     #[cfg(feature = "UI_WindowManagement")]
-    pub GetAppWindowContent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appwindow: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GetAppWindowContent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appwindow: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_WindowManagement"))]
     GetAppWindowContent: usize,
 }
@@ -1201,7 +1201,7 @@ unsafe impl ::windows::core::Interface for IWindowsXamlManagerStatics {
 #[doc(hidden)]
 pub struct IWindowsXamlManagerStatics_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub InitializeForCurrentThread: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub InitializeForCurrentThread: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1232,13 +1232,13 @@ unsafe impl ::windows::core::Interface for IXamlSourceFocusNavigationRequestFact
 #[doc(hidden)]
 pub struct IXamlSourceFocusNavigationRequestFactory_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reason: XamlSourceFocusNavigationReason, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reason: XamlSourceFocusNavigationReason, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
-    pub CreateInstanceWithHintRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reason: XamlSourceFocusNavigationReason, hintrect: super::super::super::Foundation::Rect, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateInstanceWithHintRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reason: XamlSourceFocusNavigationReason, hintrect: super::super::super::Foundation::Rect, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     CreateInstanceWithHintRect: usize,
     #[cfg(feature = "Foundation")]
-    pub CreateInstanceWithHintRectAndCorrelationId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reason: XamlSourceFocusNavigationReason, hintrect: super::super::super::Foundation::Rect, correlationid: ::windows::core::GUID, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateInstanceWithHintRectAndCorrelationId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reason: XamlSourceFocusNavigationReason, hintrect: super::super::super::Foundation::Rect, correlationid: ::windows::core::GUID, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     CreateInstanceWithHintRectAndCorrelationId: usize,
 }
@@ -1266,7 +1266,7 @@ unsafe impl ::windows::core::Interface for IXamlSourceFocusNavigationResultFacto
 #[doc(hidden)]
 pub struct IXamlSourceFocusNavigationResultFactory_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, focusmoved: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, focusmoved: bool, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1279,8 +1279,8 @@ unsafe impl ::windows::core::Interface for IXamlUIPresenter {
 #[doc(hidden)]
 pub struct IXamlUIPresenter_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub RootElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetRootElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub RootElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetRootElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub ThemeKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetThemeKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub ThemeResourcesXaml: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
@@ -1545,7 +1545,7 @@ unsafe impl ::windows::core::Interface for IXamlUIPresenterHost3 {
 #[doc(hidden)]
 pub struct IXamlUIPresenterHost3_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub ResolveDictionaryResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dictionary: ::windows::core::RawPtr, dictionarykey: *mut ::core::ffi::c_void, suggestedvalue: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ResolveDictionaryResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dictionary: *mut ::core::ffi::c_void, dictionarykey: *mut ::core::ffi::c_void, suggestedvalue: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1560,7 +1560,7 @@ pub struct IXamlUIPresenterStatics_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     pub CompleteTimelinesAutomatically: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetCompleteTimelinesAutomatically: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
-    pub SetHost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, host: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub SetHost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, host: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub NotifyWindowSizeChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -1575,7 +1575,7 @@ unsafe impl ::windows::core::Interface for IXamlUIPresenterStatics2 {
 pub struct IXamlUIPresenterStatics2_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Controls_Primitives"))]
-    pub GetFlyoutPlacementTargetInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, placementtarget: ::windows::core::RawPtr, preferredplacement: super::Controls::Primitives::FlyoutPlacementMode, targetpreferredplacement: *mut super::Controls::Primitives::FlyoutPlacementMode, allowfallbacks: *mut bool, result__: *mut super::super::super::Foundation::Rect) -> ::windows::core::HRESULT,
+    pub GetFlyoutPlacementTargetInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, placementtarget: *mut ::core::ffi::c_void, preferredplacement: super::Controls::Primitives::FlyoutPlacementMode, targetpreferredplacement: *mut super::Controls::Primitives::FlyoutPlacementMode, allowfallbacks: *mut bool, result__: *mut super::super::super::Foundation::Rect) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "UI_Xaml_Controls_Primitives")))]
     GetFlyoutPlacementTargetInfo: usize,
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Controls_Primitives"))]
@@ -1596,7 +1596,7 @@ impl WindowsXamlManager {
     #[doc = "*Required features: `\"UI_Xaml_Hosting\"`*"]
     pub fn InitializeForCurrentThread() -> ::windows::core::Result<WindowsXamlManager> {
         Self::IWindowsXamlManagerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).InitializeForCurrentThread)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<WindowsXamlManager>(result__)
         })
     }
@@ -1776,7 +1776,7 @@ impl XamlSourceFocusNavigationRequest {
     #[doc = "*Required features: `\"UI_Xaml_Hosting\"`*"]
     pub fn CreateInstance(reason: XamlSourceFocusNavigationReason) -> ::windows::core::Result<XamlSourceFocusNavigationRequest> {
         Self::IXamlSourceFocusNavigationRequestFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), reason, result__.as_mut_ptr()).from_abi::<XamlSourceFocusNavigationRequest>(result__)
         })
     }
@@ -1784,7 +1784,7 @@ impl XamlSourceFocusNavigationRequest {
     #[cfg(feature = "Foundation")]
     pub fn CreateInstanceWithHintRect<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Rect>>(reason: XamlSourceFocusNavigationReason, hintrect: Param1) -> ::windows::core::Result<XamlSourceFocusNavigationRequest> {
         Self::IXamlSourceFocusNavigationRequestFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstanceWithHintRect)(::windows::core::Interface::as_raw(this), reason, hintrect.into_param().abi(), result__.as_mut_ptr()).from_abi::<XamlSourceFocusNavigationRequest>(result__)
         })
     }
@@ -1792,7 +1792,7 @@ impl XamlSourceFocusNavigationRequest {
     #[cfg(feature = "Foundation")]
     pub fn CreateInstanceWithHintRectAndCorrelationId<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Rect>, Param2: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(reason: XamlSourceFocusNavigationReason, hintrect: Param1, correlationid: Param2) -> ::windows::core::Result<XamlSourceFocusNavigationRequest> {
         Self::IXamlSourceFocusNavigationRequestFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstanceWithHintRectAndCorrelationId)(::windows::core::Interface::as_raw(this), reason, hintrect.into_param().abi(), correlationid.into_param().abi(), result__.as_mut_ptr()).from_abi::<XamlSourceFocusNavigationRequest>(result__)
         })
     }
@@ -1889,7 +1889,7 @@ impl XamlSourceFocusNavigationResult {
     #[doc = "*Required features: `\"UI_Xaml_Hosting\"`*"]
     pub fn CreateInstance(focusmoved: bool) -> ::windows::core::Result<XamlSourceFocusNavigationResult> {
         Self::IXamlSourceFocusNavigationResultFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), focusmoved, result__.as_mut_ptr()).from_abi::<XamlSourceFocusNavigationResult>(result__)
         })
     }
@@ -1979,7 +1979,7 @@ impl XamlUIPresenter {
     pub fn RootElement(&self) -> ::windows::core::Result<super::UIElement> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).RootElement)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::UIElement>(result__)
         }
     }

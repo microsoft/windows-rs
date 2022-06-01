@@ -290,7 +290,7 @@ impl ::windows::core::RuntimeName for ISingleSelectMediaTrackList {
 #[cfg(feature = "Foundation")]
 impl ISingleSelectMediaTrackList_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISingleSelectMediaTrackList_Impl, const OFFSET: isize>() -> ISingleSelectMediaTrackList_Vtbl {
-        unsafe extern "system" fn SelectedIndexChanged<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISingleSelectMediaTrackList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SelectedIndexChanged<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISingleSelectMediaTrackList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SelectedIndexChanged(::core::mem::transmute(&handler)) {
@@ -347,7 +347,7 @@ impl ::windows::core::RuntimeName for ITimedMetadataTrackProvider {
 #[cfg(feature = "Foundation_Collections")]
 impl ITimedMetadataTrackProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITimedMetadataTrackProvider_Impl, const OFFSET: isize>() -> ITimedMetadataTrackProvider_Vtbl {
-        unsafe extern "system" fn TimedMetadataTracks<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITimedMetadataTrackProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TimedMetadataTracks<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITimedMetadataTrackProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.TimedMetadataTracks() {
