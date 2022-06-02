@@ -16,7 +16,7 @@ pub fn gen(gen: &Gen, def: TypeDef, generics: &[Type], kind: InterfaceKind, meth
     let interface_name = gen.type_def_name(def, generics);
     let vname = virtual_names.add(gen, method);
     let constraints = gen.param_constraints(params);
-    let mut cfg = gen.reader.method_def_cfg(method);
+    let mut cfg = gen.reader.signature_cfg(&signature);
     cfg.add_feature(gen.reader.type_def_namespace(def));
     let doc = gen.cfg_doc(&cfg);
     let features = gen.cfg_features(&cfg);

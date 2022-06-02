@@ -11,7 +11,7 @@ pub fn gen(gen: &Gen, def: MethodDef) -> TokenStream {
 fn gen_sys_function(gen: &Gen, def: MethodDef) -> TokenStream {
     let name = to_ident(gen.reader.method_def_name(def));
     let signature = gen.reader.method_def_signature(def, &[]);
-    let cfg = gen.reader.method_def_cfg(def);
+    let cfg = gen.reader.signature_cfg(&signature);
     let doc = gen.cfg_doc(&cfg);
     let features = gen.cfg_features(&cfg);
     let mut return_type = gen.return_sig(&signature);
@@ -60,7 +60,7 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
         }
     };
 
-    let cfg = gen.reader.method_def_cfg(def);
+    let cfg = gen.reader.signature_cfg(&signature);
     let doc = gen.cfg_doc(&cfg);
     let features = gen.cfg_features(&cfg);
 

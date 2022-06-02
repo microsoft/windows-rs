@@ -737,8 +737,8 @@ impl<'a> Gen<'a> {
             }
             let name = method_names.add(self, method);
             let signature = self.reader.method_def_signature(method, generics);
+            let mut cfg = self.reader.signature_cfg(&signature);
             let signature = self.vtbl_signature(def, generics, &signature);
-            let mut cfg = self.reader.method_def_cfg(method);
             cfg.add_feature(self.reader.type_def_namespace(def));
             let cfg_all = self.cfg_features(&cfg);
             let cfg_not = self.cfg_not_features(&cfg);
