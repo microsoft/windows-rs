@@ -108,7 +108,8 @@ impl ICustomPersistMemory_Impl for Persist {
 fn test_custom_interface() -> windows::core::Result<()> {
     unsafe {
         // Use the OS implementation of Uri through the custom `ICustomUri` interface
-        let a: IUri = CreateUri("http://kennykerr.ca", Default::default(), 0)?;
+        let url: HSTRING = "http://kennykerr.ca".into();
+        let a: IUri = CreateUri(PCWSTR(url.as_wide().as_ptr()), Default::default(), 0)?;
         let b: ICustomUri = a.cast()?;
         let mut domain = BSTR::new();
         b.GetDomain(&mut domain).ok()?;
@@ -129,7 +130,7 @@ fn test_custom_interface() -> windows::core::Result<()> {
         assert_eq!(p.GetSizeMax()?, 10);
         p.Load(&[0xAAu8, 0xBB, 0xCC])?;
         let mut memory = [0x00u8, 0x00, 0x00, 0x00];
-        p.Save(&mut memory, true)?;
+        p.Save(&mut memory, true.into())?;
         assert_eq!(memory, [0xAAu8, 0xBB, 0xCC, 0x00]);
 
         // Use the custom implementation of `Persist` through the custom interface of `ICustomPersist`

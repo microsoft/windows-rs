@@ -8,9 +8,7 @@ pub struct WaiterSignaler(HANDLE);
 impl Waiter {
     pub fn new() -> Result<(Waiter, WaiterSignaler)> {
         unsafe {
-            let t: BOOL = true.into();
-            let f: BOOL = false.into();
-            let handle = CreateEventA(core::ptr::null_mut(), &t, &f, None)?;
+            let handle = CreateEventA(core::ptr::null_mut(), true.into(), false.into(), PCSTR::default())?;
             Ok((Waiter(handle), WaiterSignaler(handle)))
         }
     }
@@ -24,15 +22,15 @@ impl WaiterSignaler {
     /// of the delegate is bounded by the calling function.
     pub unsafe fn signal(&self) {
         // https://github.com/microsoft/windows-rs/pull/374#discussion_r535313344
-        SetEvent(&self.0);
+        SetEvent(self.0);
     }
 }
 
 impl Drop for Waiter {
     fn drop(&mut self) {
         unsafe {
-            WaitForSingleObject(&self.0, 0xFFFFFFFF);
-            CloseHandle(&self.0);
+            WaitForSingleObject(self.0, 0xFFFFFFFF);
+            CloseHandle(self.0);
         }
     }
 }

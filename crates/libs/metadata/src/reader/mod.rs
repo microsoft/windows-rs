@@ -792,9 +792,8 @@ impl<'a> Reader<'a> {
     }
     pub fn type_def_is_convertible(&self, row: TypeDef) -> bool {
         match self.type_def_kind(row) {
-            TypeKind::Interface | TypeKind::Class | TypeKind::Struct => true,
             TypeKind::Delegate => self.type_def_flags(row).winrt(),
-            _ => false,
+            _ => !self.type_def_is_primitive(row),
         }
     }
     pub fn type_def_is_primitive(&self, row: TypeDef) -> bool {
@@ -1501,7 +1500,7 @@ impl<'a> Reader<'a> {
     pub fn type_is_convertible(&self, ty: &Type) -> bool {
         match ty {
             Type::TypeDef((row, _)) => self.type_def_is_convertible(*row),
-            Type::String | Type::IInspectable | Type::GUID | Type::IUnknown | Type::GenericParam(_) | Type::PCSTR | Type::PCWSTR => true,
+            Type::String | Type::IInspectable | Type::GUID | Type::IUnknown | Type::GenericParam(_) => true,
             Type::WinrtConstRef(ty) => self.type_is_convertible(ty),
             _ => false,
         }
