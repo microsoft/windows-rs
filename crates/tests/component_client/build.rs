@@ -12,7 +12,7 @@ fn main() -> std::io::Result<()> {
     // TODO: this needs to be simpler
     let files = vec![metadata::reader::File::new("../../libs/metadata/default/Windows.winmd").unwrap(), metadata::reader::File::new(".windows/winmd/component.winmd").unwrap()];
     let reader = &metadata::reader::Reader::new(&files);
-    let tree = reader.tree("test_component").expect("`test_component` namespace not found");
+    let tree = reader.tree("test_component", &[]).expect("`test_component` namespace not found");
     let mut gen = bindgen::Gen::new(reader);
     gen.namespace = tree.namespace;
     gen.component = true;

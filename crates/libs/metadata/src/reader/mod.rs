@@ -189,8 +189,6 @@ impl Cfg {
     }
 }
 
-const EXCLUDE_NAMESPACES: [&str; 2] = ["", "Windows.Win32.Interop"];
-
 pub struct Reader<'a> {
     files: &'a [File],
     types: HashMap<&'a str, BTreeMap<&'a str, Vec<TypeDef>>>,
@@ -218,14 +216,14 @@ impl<'a> Reader<'a> {
         }
         Self { files, types, nested }
     }
-    pub fn tree(&self, root: &str) -> Option<Tree> {
+    pub fn tree(&'a self, root: &'a str, exclude: &[&str]) -> Option<Tree> {
         let mut tree = Tree::from_namespace("");
         for ns in self.types.keys() {
-            if !EXCLUDE_NAMESPACES.iter().any(|x| x == ns) {
+            if !exclude.iter().any(|x| x == ns) {
                 tree.insert_namespace(ns, 0);
             }
         }
-        tree.nested.remove(root)
+        tree.seek(root)
     }
 
     //
@@ -245,9 +243,6 @@ impl<'a> Reader<'a> {
             }
         }
         None.into_iter().flatten()
-    }
-    pub fn get_nested(&self, outer: TypeDef, name: &str) -> TypeDef {
-        self.nested[&outer][name]
     }
 
     //
@@ -1424,7 +1419,7 @@ impl<'a> Reader<'a> {
 
         if let Some(outer) = enclosing {
             if full_name.namespace.is_empty() {
-                return Type::TypeDef((self.get_nested(outer, full_name.name), Vec::new()));
+                return Type::TypeDef((self.nested[&outer][full_name.name], Vec::new()));
             }
         }
 
