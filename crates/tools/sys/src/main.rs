@@ -5,7 +5,7 @@ const EXCLUDE_NAMESPACES: [&str; 2] = ["Windows.Win32.Interop", "Windows.UI.Xaml
 
 fn main() {
     let mut output = std::path::PathBuf::from("crates/libs/sys/src/Windows");
-    //let _ = std::fs::remove_dir_all(&output);
+    let _ = std::fs::remove_dir_all(&output);
     output.pop();
 
     let files = vec![metadata::reader::File::new("crates/libs/metadata/default/Windows.winmd").unwrap(), metadata::reader::File::new("crates/libs/metadata/default/Windows.Win32.winmd").unwrap(), metadata::reader::File::new("crates/libs/metadata/default/Windows.Win32.Interop.winmd").unwrap()];
