@@ -24,7 +24,7 @@ impl<'a> Tree<'a> {
     }
     pub fn seek(mut self, namespace: &'a str) -> Option<Self> {
         if let Some(next) = namespace.find('.') {
-            self.nested.remove(&namespace[..next]).and_then(|tree|tree.seek(&namespace[next + 1..]))
+            self.nested.remove(&namespace[..next]).and_then(|tree| tree.seek(&namespace[next + 1..]))
         } else {
             self.nested.remove(namespace)
         }
