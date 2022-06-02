@@ -277,22 +277,23 @@ impl<'a> Gen<'a> {
     }
     pub fn param_constraints(&self, params: &[SignatureParam]) -> TokenStream {
         let mut tokens = TokenStream::new();
+        let mut skipped = false;
         for (position, param) in params.iter().enumerate() {
             if self.reader.signature_param_is_convertible(param) {
                 let name: TokenStream = format!("Param{}", position).into();
                 let into = self.type_name(&param.ty);
-                if let Type::TypeDef((def, _)) = &param.ty {
-                    let def_attrs = self.reader.type_def_flags(def.clone());
-                    if !def_attrs.union() && !def_attrs.winrt() && !def_attrs.interface() {
-                        tokens.combine(&quote! { #name: ::std::convert::Into<#into>, });
-                        continue;
-                    }
-                }
-                tokens.combine(&quote! { #name: ::std::convert::Into<::windows::core::Borrowed<'a, #into>>, });
+                if self.reader.param_flags(param.def).optional() || matches!(&param.ty, Type::IUnknown) {
+                    skipped = true;
+                    continue;
+                };
+                let into = quote!(::windows::core::Borrowed<'a, #into>);
+                tokens.combine(&quote! { #name: ::std::convert::Into<#into>, });
             }
         }
         if !tokens.is_empty() {
             quote! { 'a, #tokens }
+        } else if skipped {
+            quote! { 'a }
         } else {
             tokens
         }
@@ -945,7 +946,12 @@ impl<'a> Gen<'a> {
             }
 
             if self.reader.signature_param_is_convertible(param) {
-                let kind: TokenStream = format!("Param{}", position).into();
+                let kind: TokenStream = if self.reader.param_flags(param.def).optional() || matches!(&param.ty, Type::IUnknown) {
+                    let into = self.type_name(&param.ty);
+                    quote! { Option<::windows::core::Borrowed<'a, #into>> }
+                } else {
+                    format!("Param{}", position).into()
+                };
                 tokens.combine(&quote! { #name: #kind, });
                 continue;
             }

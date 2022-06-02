@@ -34,7 +34,7 @@ pub fn heap_alloc(bytes: usize) -> Result<*mut core::ffi::c_void> {
 /// `ptr` must be a valid pointer to memory allocated by `HeapAlloc` or `HeapReAlloc`
 pub unsafe fn heap_free(ptr: *mut core::ffi::c_void) {
     if let Ok(heap) = GetProcessHeap() {
-        HeapFree(heap, HEAP_NONE, ptr);
+        HeapFree(&heap, HEAP_NONE, ptr);
     }
 }
 

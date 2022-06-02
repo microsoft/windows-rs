@@ -65,10 +65,10 @@ impl Error {
 impl core::convert::From<Error> for HRESULT {
     fn from(error: Error) -> Self {
         let code = error.code;
-        let info = error.info.and_then(|info| info.cast().ok());
+        let info = error.info.and_then(|info| info.cast::<IErrorInfo>().ok());
 
         unsafe {
-            let _ = SetErrorInfo(0, info);
+            let _ = SetErrorInfo(0, info.as_ref().map(|i| i.into()));
         }
 
         code

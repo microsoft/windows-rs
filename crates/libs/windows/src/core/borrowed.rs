@@ -44,7 +44,7 @@ impl <'a, T> Borrowed<'a, T> {
 
 impl<'a, T: super::Abi> Borrowed<'a, T> {
     pub fn abi(&self) -> T::Abi {
-        // TODO: safety
+        // SAFETY:  TODO
         unsafe { std::mem::transmute_copy(self) }
     }
 }

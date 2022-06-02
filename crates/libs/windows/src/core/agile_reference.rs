@@ -11,7 +11,7 @@ impl<T: Interface> AgileReference<T> {
     /// Creates an agile reference to the object.
     pub fn new(object: &T) -> Result<Self> {
         let unknown: &IUnknown = unsafe { std::mem::transmute(object) };
-        unsafe { RoGetAgileReference(AGILEREFERENCE_DEFAULT, &T::IID, unknown).map(|reference| Self(reference, Default::default())) }
+        unsafe { RoGetAgileReference(AGILEREFERENCE_DEFAULT, &T::IID, Some(unknown.into())).map(|reference| Self(reference, Default::default())) }
     }
 
     /// Retrieves a proxy to the target of the `AgileReference` object that may safely be used within any thread context in which get is called.

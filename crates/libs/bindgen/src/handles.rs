@@ -82,19 +82,13 @@ pub fn gen_win_handle(gen: &Gen, def: TypeDef) -> TokenStream {
         }
     };
 
-    // if let Some(dependency) = gen.reader.type_def_usable_for(def) {
-    //     let type_name = gen.reader.type_def_type_name(dependency);
-    //     let mut dependency = gen.namespace(type_name.namespace);
-    //     dependency.push_str(type_name.name);
-
-    //     tokens.combine(&quote! {
-    //         impl<'a> ::windows::core::IntoParam<'a, #dependency> for #ident {
-    //             fn into_param(self) -> ::windows::core::Param<'a, #dependency> {
-    //                 ::windows::core::Param::Owned(#dependency(self.0))
-    //             }
-    //         }
-    //     });
-    // }
+    tokens.combine(&quote! {
+        impl <'a, T> From<T> for ::windows::core::Borrowed<'a, #ident> where T: Into<&'a #ident> {
+            fn from(item: T) -> Self {
+                unsafe { ::windows::core::Borrowed::new(item.into()) }
+            }
+        }
+    });
 
     tokens
 }

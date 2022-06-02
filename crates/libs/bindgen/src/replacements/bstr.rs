@@ -17,7 +17,7 @@ pub fn gen() -> TokenStream {
                 if self.0.is_null() {
                     0
                 } else {
-                    unsafe { SysStringLen(*self) as usize }
+                    unsafe { SysStringLen(Some(self.into())) as usize }
                 }
             }
 
@@ -129,7 +129,7 @@ pub fn gen() -> TokenStream {
         impl ::core::ops::Drop for BSTR {
             fn drop(&mut self) {
                 if !self.0.is_null() {
-                    unsafe { SysFreeString(self as &Self) }
+                    unsafe { SysFreeString(Some((self as &Self).into())) }
                 }
             }
         }
@@ -137,9 +137,14 @@ pub fn gen() -> TokenStream {
             type Abi = ::core::mem::ManuallyDrop<Self>;
         }
 
-        impl <'a, T> From<T> for ::windows::core::Borrowed<'a, BSTR> where T: Into<&'a BSTR> {
+        impl <'a, T> ::core::convert::From<T> for ::windows::core::Borrowed<'a, BSTR> where T: ::core::convert::Into<&'a BSTR> {
             fn from(item: T) -> Self {
                 unsafe { ::windows::core::Borrowed::new(item.into()) }
+            }
+        }
+        impl <'a> ::core::convert::Into<Option<::windows::core::Borrowed<'a, BSTR>>> for &'a BSTR {
+            fn into(self) -> ::core::option::Option<::windows::core::Borrowed<'a, BSTR>> {
+                Some(unsafe { ::windows::core::Borrowed::new(self) })
             }
         }
     }
