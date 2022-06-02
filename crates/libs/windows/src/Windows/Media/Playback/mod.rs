@@ -3184,8 +3184,8 @@ unsafe impl ::core::marker::Sync for MediaItemDisplayProperties {}
 pub struct MediaPlaybackAudioTrackList(::windows::core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 impl MediaPlaybackAudioTrackList {
-    #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation_Collections\"`, `\"Media_Core\"`*"]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
     pub fn First(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IIterator<super::Core::AudioTrack>> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IIterable<super::Core::AudioTrack>>(self)?;
         unsafe {
@@ -3223,8 +3223,8 @@ impl MediaPlaybackAudioTrackList {
             (::windows::core::Interface::vtable(this).SelectedIndex)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation_Collections\"`, `\"Media_Core\"`*"]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<super::Core::AudioTrack> {
         let this = self;
         unsafe {
@@ -3241,8 +3241,8 @@ impl MediaPlaybackAudioTrackList {
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation_Collections\"`, `\"Media_Core\"`*"]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
     pub fn IndexOf<'a, Param0: ::windows::core::IntoParam<'a, super::Core::AudioTrack>>(&self, value: Param0, index: &mut u32) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -3250,8 +3250,8 @@ impl MediaPlaybackAudioTrackList {
             (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.into_param().abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation_Collections\"`, `\"Media_Core\"`*"]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
     pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<super::Core::AudioTrack>]) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -6760,8 +6760,8 @@ unsafe impl ::windows::core::RuntimeType for MediaPlaybackState {
 pub struct MediaPlaybackTimedMetadataTrackList(::windows::core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 impl MediaPlaybackTimedMetadataTrackList {
-    #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation_Collections\"`, `\"Media_Core\"`*"]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
     pub fn First(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IIterator<super::Core::TimedMetadataTrack>> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IIterable<super::Core::TimedMetadataTrack>>(self)?;
         unsafe {
@@ -6797,8 +6797,8 @@ impl MediaPlaybackTimedMetadataTrackList {
         let this = &::windows::core::Interface::cast::<IMediaPlaybackTimedMetadataTrackList>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetPresentationMode)(::windows::core::Interface::as_raw(this), index, value).ok() }
     }
-    #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation_Collections\"`, `\"Media_Core\"`*"]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<super::Core::TimedMetadataTrack> {
         let this = self;
         unsafe {
@@ -6815,8 +6815,8 @@ impl MediaPlaybackTimedMetadataTrackList {
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation_Collections\"`, `\"Media_Core\"`*"]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
     pub fn IndexOf<'a, Param0: ::windows::core::IntoParam<'a, super::Core::TimedMetadataTrack>>(&self, value: Param0, index: &mut u32) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -6824,8 +6824,8 @@ impl MediaPlaybackTimedMetadataTrackList {
             (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.into_param().abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation_Collections\"`, `\"Media_Core\"`*"]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
     pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<super::Core::TimedMetadataTrack>]) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -6997,8 +6997,8 @@ unsafe impl ::core::marker::Sync for MediaPlaybackTimedMetadataTrackList {}
 pub struct MediaPlaybackVideoTrackList(::windows::core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 impl MediaPlaybackVideoTrackList {
-    #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation_Collections\"`, `\"Media_Core\"`*"]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
     pub fn First(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IIterator<super::Core::VideoTrack>> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IIterable<super::Core::VideoTrack>>(self)?;
         unsafe {
@@ -7036,8 +7036,8 @@ impl MediaPlaybackVideoTrackList {
             (::windows::core::Interface::vtable(this).SelectedIndex)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation_Collections\"`, `\"Media_Core\"`*"]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<super::Core::VideoTrack> {
         let this = self;
         unsafe {
@@ -7054,8 +7054,8 @@ impl MediaPlaybackVideoTrackList {
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation_Collections\"`, `\"Media_Core\"`*"]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
     pub fn IndexOf<'a, Param0: ::windows::core::IntoParam<'a, super::Core::VideoTrack>>(&self, value: Param0, index: &mut u32) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -7063,8 +7063,8 @@ impl MediaPlaybackVideoTrackList {
             (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.into_param().abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation_Collections\"`, `\"Media_Core\"`*"]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
     pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<super::Core::VideoTrack>]) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {

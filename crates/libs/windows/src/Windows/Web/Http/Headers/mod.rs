@@ -4229,8 +4229,8 @@ impl HttpLanguageHeaderValueCollection {
             (::windows::core::Interface::vtable(this).TryParseAdd)(::windows::core::Interface::as_raw(this), input.into_param().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`, `\"Globalization\"`*"]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Globalization"))]
     pub fn First(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterator<super::super::super::Globalization::Language>> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<super::super::super::Globalization::Language>>(self)?;
         unsafe {
@@ -4247,8 +4247,8 @@ impl HttpLanguageHeaderValueCollection {
             (::windows::core::Interface::vtable(this).ToString)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`, `\"Globalization\"`*"]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Globalization"))]
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<super::super::super::Globalization::Language> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<super::super::super::Globalization::Language>>(self)?;
         unsafe {
@@ -4265,8 +4265,8 @@ impl HttpLanguageHeaderValueCollection {
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`, `\"Globalization\"`*"]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Globalization"))]
     pub fn GetView(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::super::Globalization::Language>> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<super::super::super::Globalization::Language>>(self)?;
         unsafe {
@@ -4274,8 +4274,8 @@ impl HttpLanguageHeaderValueCollection {
             (::windows::core::Interface::vtable(this).GetView)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<super::super::super::Globalization::Language>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`, `\"Globalization\"`*"]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Globalization"))]
     pub fn IndexOf<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::Language>>(&self, value: Param0, index: &mut u32) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<super::super::super::Globalization::Language>>(self)?;
         unsafe {
@@ -4283,14 +4283,14 @@ impl HttpLanguageHeaderValueCollection {
             (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.into_param().abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`, `\"Globalization\"`*"]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Globalization"))]
     pub fn SetAt<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Globalization::Language>>(&self, index: u32, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<super::super::super::Globalization::Language>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetAt)(::windows::core::Interface::as_raw(this), index, value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`, `\"Globalization\"`*"]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Globalization"))]
     pub fn InsertAt<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Globalization::Language>>(&self, index: u32, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<super::super::super::Globalization::Language>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).InsertAt)(::windows::core::Interface::as_raw(this), index, value.into_param().abi()).ok() }
@@ -4301,8 +4301,8 @@ impl HttpLanguageHeaderValueCollection {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<super::super::super::Globalization::Language>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAt)(::windows::core::Interface::as_raw(this), index).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`, `\"Globalization\"`*"]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Globalization"))]
     pub fn Append<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::Language>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<super::super::super::Globalization::Language>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Append)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
@@ -4319,8 +4319,8 @@ impl HttpLanguageHeaderValueCollection {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<super::super::super::Globalization::Language>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Clear)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`, `\"Globalization\"`*"]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Globalization"))]
     pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<super::super::super::Globalization::Language>]) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<super::super::super::Globalization::Language>>(self)?;
         unsafe {
@@ -4328,8 +4328,8 @@ impl HttpLanguageHeaderValueCollection {
             (::windows::core::Interface::vtable(this).GetMany)(::windows::core::Interface::as_raw(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
+    #[doc = "*Required features: `\"Web_Http_Headers\"`, `\"Foundation_Collections\"`, `\"Globalization\"`*"]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Globalization"))]
     pub fn ReplaceAll(&self, items: &[::core::option::Option<super::super::super::Globalization::Language>]) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IVector<super::super::super::Globalization::Language>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).ReplaceAll)(::windows::core::Interface::as_raw(this), items.len() as u32, ::core::mem::transmute(items.as_ptr())).ok() }

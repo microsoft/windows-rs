@@ -1024,14 +1024,14 @@ impl GetSmsMessagesOperation {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn SetProgress<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::AsyncOperationProgressHandler<super::super::Foundation::Collections::IVectorView<ISmsMessage>, i32>>>(&self, handler: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetProgress)(::windows::core::Interface::as_raw(this), handler.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn Progress(&self) -> ::windows::core::Result<super::super::Foundation::AsyncOperationProgressHandler<super::super::Foundation::Collections::IVectorView<ISmsMessage>, i32>> {
         let this = self;
         unsafe {
@@ -1039,14 +1039,14 @@ impl GetSmsMessagesOperation {
             (::windows::core::Interface::vtable(this).Progress)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::AsyncOperationProgressHandler<super::super::Foundation::Collections::IVectorView<ISmsMessage>, i32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn SetCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::AsyncOperationWithProgressCompletedHandler<super::super::Foundation::Collections::IVectorView<ISmsMessage>, i32>>>(&self, handler: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCompleted)(::windows::core::Interface::as_raw(this), handler.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn Completed(&self) -> ::windows::core::Result<super::super::Foundation::AsyncOperationWithProgressCompletedHandler<super::super::Foundation::Collections::IVectorView<ISmsMessage>, i32>> {
         let this = self;
         unsafe {
@@ -1054,8 +1054,8 @@ impl GetSmsMessagesOperation {
             (::windows::core::Interface::vtable(this).Completed)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::AsyncOperationWithProgressCompletedHandler<super::super::Foundation::Collections::IVectorView<ISmsMessage>, i32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn GetResults(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ISmsMessage>> {
         let this = self;
         unsafe {

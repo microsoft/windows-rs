@@ -611,16 +611,6 @@ impl<'a> Reader<'a> {
 
         Signature { def: row, params, return_type }
     }
-    pub fn method_def_cfg(&self, row: MethodDef) -> Cfg {
-        let mut cfg = Cfg::default();
-        self.method_def_cfg_combine(row, &mut cfg);
-        self.cfg_add_attributes(&mut cfg, self.method_def_attributes(row));
-        cfg
-    }
-    // TODO: maybe inline this at the callsite to avoid recalculating the method signature
-    fn method_def_cfg_combine(&self, row: MethodDef, cfg: &mut Cfg) {
-        self.signature_cfg_combine(&self.method_def_signature(row, &[]), cfg);
-    }
     pub fn method_def_size(&self, method: MethodDef) -> usize {
         fn type_size(reader: &Reader, ty: &Type) -> usize {
             match ty {
@@ -1058,7 +1048,7 @@ impl<'a> Reader<'a> {
             reader.type_def_cfg_combine(def, generics, cfg);
 
             for method in reader.type_def_methods(def) {
-                reader.method_def_cfg_combine(method, cfg);
+                reader.signature_cfg_combine(&reader.method_def_signature(method, generics), cfg);
             }
         }
 
@@ -1113,7 +1103,7 @@ impl<'a> Reader<'a> {
                         }
                     }
                 }
-                TypeKind::Delegate => self.method_def_cfg_combine(self.type_def_invoke_method(row), cfg),
+                TypeKind::Delegate => self.signature_cfg_combine(&self.method_def_signature(self.type_def_invoke_method(row), generics), cfg),
                 _ => {}
             }
         }
@@ -1175,6 +1165,12 @@ impl<'a> Reader<'a> {
     // Signature queries
     //
 
+    pub fn signature_cfg(&self, signature: &Signature) -> Cfg {
+        let mut cfg = Cfg::default();
+        self.signature_cfg_combine(signature, &mut cfg);
+        self.cfg_add_attributes(&mut cfg, self.method_def_attributes(signature.def));
+        cfg
+    }
     fn signature_cfg_combine(&self, signature: &Signature, cfg: &mut Cfg) {
         signature.return_type.iter().for_each(|ty| self.type_cfg_combine(ty, cfg));
         signature.params.iter().for_each(|param| self.type_cfg_combine(&param.ty, cfg));
