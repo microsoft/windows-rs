@@ -17,6 +17,7 @@ mod hstring;
 mod inspectable;
 mod interface;
 mod into_param;
+mod my_param;
 mod param;
 mod pcstr;
 mod pcwstr;
@@ -57,6 +58,7 @@ pub use interface::*;
 pub use into_param::*;
 #[doc(hidden)]
 pub use param::*;
+pub use my_param::*;
 pub use pcstr::*;
 pub use pcwstr::*;
 pub use pstr::*;
