@@ -92,19 +92,17 @@ pub fn namespace(gen: &Gen, tree: &Tree) -> String {
     // TODO: replace with Vec once parity is achieved - BTreeMap just used to make diffing simpler.
     let mut types = BTreeMap::<&str, TokenStream>::new();
 
-    if let Some(namespace_types) = gen.reader.namespace_types(tree.namespace) {
-        for def in namespace_types {
-            if let Some(tokens) = gen.define(def) {
-                combine_type(&mut types, gen.reader.type_def_type_name(def), tokens);
-            } else {
-                if !gen.sys {
-                    for method in gen.reader.type_def_methods(def) {
-                        combine(&mut types, gen.reader.method_def_name(method), functions::gen(gen, method));
-                    }
+    for def in gen.reader.namespace_types(tree.namespace) {
+        if let Some(tokens) = gen.define(def) {
+            combine_type(&mut types, gen.reader.type_def_type_name(def), tokens);
+        } else {
+            if !gen.sys {
+                for method in gen.reader.type_def_methods(def) {
+                    combine(&mut types, gen.reader.method_def_name(method), functions::gen(gen, method));
                 }
-                for field in gen.reader.type_def_fields(def) {
-                    combine(&mut types, gen.reader.field_name(field), constants::gen(gen, field));
-                }
+            }
+            for field in gen.reader.type_def_fields(def) {
+                combine(&mut types, gen.reader.field_name(field), constants::gen(gen, field));
             }
         }
     }
@@ -123,10 +121,8 @@ pub fn namespace(gen: &Gen, tree: &Tree) -> String {
 pub fn namespace_impl(gen: &Gen, tree: &Tree) -> String {
     let mut types = BTreeMap::<&str, TokenStream>::new();
 
-    if let Some(namespace_types) = gen.reader.namespace_types(tree.namespace) {
-        for def in namespace_types {
-            combine_type(&mut types, gen.reader.type_def_type_name(def), implements::gen(gen, def));
-        }
+    for def in gen.reader.namespace_types(tree.namespace) {
+        combine_type(&mut types, gen.reader.type_def_type_name(def), implements::gen(gen, def));
     }
 
     let types = types.values();

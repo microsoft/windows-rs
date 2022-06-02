@@ -419,8 +419,8 @@ impl<'a> Gen<'a> {
     }
     fn scoped_name(&self, def: TypeDef) -> String {
         if let Some(enclosing_type) = self.reader.type_def_enclosing_type(def) {
-            for (index, nested_type) in self.reader.nested_types(enclosing_type).iter().enumerate() {
-                if self.reader.type_def_name(*nested_type) == self.reader.type_def_name(def) {
+            for (index, nested_type) in self.reader.nested_types(enclosing_type).enumerate() {
+                if self.reader.type_def_name(nested_type) == self.reader.type_def_name(def) {
                     return format!("{}_{}", &self.scoped_name(enclosing_type), index);
                 }
             }

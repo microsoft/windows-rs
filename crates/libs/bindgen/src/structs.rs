@@ -96,9 +96,9 @@ fn gen_struct_with_name(gen: &Gen, def: TypeDef, struct_name: &str, cfg: &Cfg) -
         tokens.combine(&extensions::gen(gen.reader.type_def_type_name(def)));
     }
 
-    for (index, nested_type) in gen.reader.nested_types(def).iter().enumerate() {
+    for (index, nested_type) in gen.reader.nested_types(def).enumerate() {
         let nested_name = format!("{}_{}", struct_name, index);
-        tokens.combine(&gen_struct_with_name(gen, *nested_type, &nested_name, &cfg));
+        tokens.combine(&gen_struct_with_name(gen, nested_type, &nested_name, &cfg));
     }
 
     tokens
