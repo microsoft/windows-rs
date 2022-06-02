@@ -233,18 +233,18 @@ impl<'a> Reader<'a> {
     //
 
     pub fn namespace_types(&self, namespace: &str) -> impl Iterator<Item = TypeDef> + '_ {
-        OptionalIterator::new(self.types.get(namespace).map(|types| types.values().flatten().copied()))
+        self.types.get(namespace).map(|types| types.values().flatten().copied()).into_iter().flatten()
     }
     pub fn nested_types(&self, type_def: TypeDef) -> impl Iterator<Item = TypeDef> + '_ {
-        OptionalIterator::new(self.nested.get(&type_def).map(|map| map.values().copied()))
+        self.nested.get(&type_def).map(|map| map.values().copied()).into_iter().flatten()
     }
     pub fn get(&self, type_name: TypeName) -> impl Iterator<Item = TypeDef> + '_ {
         if let Some(types) = self.types.get(type_name.namespace) {
             if let Some(definitions) = types.get(type_name.name) {
-                return OptionalIterator::Some(definitions.iter().copied());
+                return Some(definitions.iter().copied()).into_iter().flatten();
             }
         }
-        OptionalIterator::None
+        None.into_iter().flatten()
     }
     pub fn get_nested(&self, outer: TypeDef, name: &str) -> TypeDef {
         self.nested[&outer][name]
@@ -1672,28 +1672,3 @@ pub fn type_deref(ty: &Type) -> Type {
 const REMAP_TYPES: [(TypeName, TypeName); 1] = [(TypeName::D2D_MATRIX_3X2_F, TypeName::Matrix3x2)];
 
 pub const CORE_TYPES: [(TypeName, Type); 11] = [(TypeName::GUID, Type::GUID), (TypeName::IUnknown, Type::IUnknown), (TypeName::HResult, Type::HRESULT), (TypeName::HRESULT, Type::HRESULT), (TypeName::HSTRING, Type::String), (TypeName::IInspectable, Type::IInspectable), (TypeName::LARGE_INTEGER, Type::I64), (TypeName::ULARGE_INTEGER, Type::U64), (TypeName::PSTR, Type::PSTR), (TypeName::PWSTR, Type::PWSTR), (TypeName::Type, Type::TypeName)];
-
-/// Like an `Option<T>` but with a different iterator implementation when `T: Iterator`
-enum OptionalIterator<T> {
-    Some(T),
-    None,
-}
-
-impl<T> OptionalIterator<T> {
-    fn new(item: Option<T>) -> Self {
-        match item {
-            Some(inner) => Self::Some(inner),
-            None => Self::None,
-        }
-    }
-}
-
-impl<T: Iterator> Iterator for OptionalIterator<T> {
-    type Item = T::Item;
-    fn next(&mut self) -> Option<Self::Item> {
-        match self {
-            Self::Some(inner) => inner.next(),
-            Self::None => None,
-        }
-    }
-}
