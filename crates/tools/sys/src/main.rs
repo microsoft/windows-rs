@@ -1,11 +1,11 @@
 use rayon::prelude::*;
 use std::io::prelude::*;
 
-const EXCLUDE_NAMESPACES: [&str; 1] = ["Windows.Win32.Interop"];
+const EXCLUDE_NAMESPACES: [&str; 2] = ["Windows.Win32.Interop", "Windows.UI.Xaml"];
 
 fn main() {
     let mut output = std::path::PathBuf::from("crates/libs/sys/src/Windows");
-    let _ = std::fs::remove_dir_all(&output);
+    //let _ = std::fs::remove_dir_all(&output);
     output.pop();
 
     let files = vec![metadata::reader::File::new("crates/libs/metadata/default/Windows.winmd").unwrap(), metadata::reader::File::new("crates/libs/metadata/default/Windows.Win32.winmd").unwrap(), metadata::reader::File::new("crates/libs/metadata/default/Windows.Win32.Interop.winmd").unwrap()];
@@ -13,6 +13,7 @@ fn main() {
     let root = reader.tree("Windows", &EXCLUDE_NAMESPACES).expect("`Windows` namespace not found");
 
     let trees = root.flatten();
+    return;
     trees.par_iter().for_each(|tree| gen_tree(reader, &output, tree));
 
     output.pop();
