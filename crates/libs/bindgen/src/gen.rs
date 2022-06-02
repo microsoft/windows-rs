@@ -575,7 +575,7 @@ impl<'a> Gen<'a> {
                     pub fn get(&self) -> ::windows::core::Result<#return_type> {
                         if self.Status()? == #namespace AsyncStatus::Started {
                             let (_waiter, signaler) = ::windows::core::Waiter::new()?;
-                            self.SetCompleted(#namespace  #handler::new(move |_sender, _args| {
+                            self.SetCompleted(&#namespace  #handler::new(move |_sender, _args| {
                                 // Safe because the waiter will only be dropped after being signaled.
                                 unsafe { signaler.signal(); }
                                 Ok(())
@@ -592,7 +592,7 @@ impl<'a> Gen<'a> {
                         if self.Status()? == #namespace AsyncStatus::Started {
                             let waker = context.waker().clone();
 
-                            let _ = self.SetCompleted(#namespace #handler::new(move |_sender, _args| {
+                            let _ = self.SetCompleted(&#namespace #handler::new(move |_sender, _args| {
                                 waker.wake_by_ref();
                                 Ok(())
                             }));

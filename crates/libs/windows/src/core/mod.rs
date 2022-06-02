@@ -36,7 +36,7 @@ mod weak_ref_count;
 pub use abi::*;
 pub use agile_reference::*;
 pub use array::*;
-use borrowed::*;
+pub use borrowed::*;
 #[doc(hidden)]
 pub use as_impl::*;
 #[doc(hidden)]

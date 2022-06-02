@@ -139,6 +139,15 @@ fn gen_win_delegate(gen: &Gen, def: TypeDef) -> TokenStream {
                 #invoke_upcall
             }
         }
+        #features
+        impl<'a, U, #constraints> From<U> for ::windows::core::Borrowed<'a, #ident>
+        where
+            U: ::core::convert::Into<&'a #ident>,
+        {
+            fn from(item: U) -> Self {
+                unsafe { ::windows::core::Borrowed::new(item.into()) }
+            }
+        }
     };
 
     tokens.combine(&gen.interface_core_traits(def, generics, &ident, &constraints, &phantoms, &features));

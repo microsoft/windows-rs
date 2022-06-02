@@ -133,7 +133,17 @@ fn gen_class(gen: &Gen, def: TypeDef) -> TokenStream {
 }
 
 fn gen_conversions(gen: &Gen, def: TypeDef, name: &TokenStream, interfaces: &[Interface], cfg: &Cfg) -> TokenStream {
-    let mut tokens = quote! {};
+    let mut tokens = {
+        let cfg = gen.cfg_features(&cfg);
+        quote! {
+            #cfg
+            impl <'a, T> From<T> for ::windows::core::Borrowed<'a, #name> where T: ::core::convert::Into<&'a #name> {
+                fn from(item: T) -> Self {
+                    unsafe { ::windows::core::Borrowed::new(item.into()) }
+                }
+            }
+        }
+    };
 
     for def in &[Type::IUnknown, Type::IInspectable] {
         let into = gen.type_name(def);
