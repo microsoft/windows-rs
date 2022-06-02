@@ -11,7 +11,6 @@ impl<'a> Tree<'a> {
         Self { namespace, nested: BTreeMap::new() }
     }
     pub(crate) fn insert_namespace(&mut self, namespace: &'a str, pos: usize) -> &mut Self {
-        println!("insert: {}", namespace);
         if let Some(next) = namespace[pos..].find('.') {
             let next = pos + next;
             self.nested.entry(&namespace[pos..next]).or_insert_with(|| Self::from_namespace(&namespace[..next])).insert_namespace(namespace, next + 1)

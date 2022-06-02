@@ -219,7 +219,7 @@ impl<'a> Reader<'a> {
     pub fn tree(&'a self, root: &'a str, exclude: &[&str]) -> Option<Tree> {
         let mut tree = Tree::from_namespace("");
         for ns in self.types.keys() {
-            if !exclude.iter().any(|x| x == ns) {
+            if !exclude.iter().any(|x| ns.starts_with(x)) {
                 tree.insert_namespace(ns, 0);
             }
         }

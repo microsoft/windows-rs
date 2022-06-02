@@ -13,7 +13,6 @@ fn main() {
     let root = reader.tree("Windows", &EXCLUDE_NAMESPACES).expect("`Windows` namespace not found");
 
     let trees = root.flatten();
-    return;
     trees.par_iter().for_each(|tree| gen_tree(reader, &output, tree));
 
     output.pop();
