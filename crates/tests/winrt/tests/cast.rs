@@ -3,7 +3,7 @@ use windows::Foundation::{IClosable, IStringable, Uri};
 
 #[test]
 fn try_into() -> Result<()> {
-    let uri = Uri::CreateUri("http://kennykerr.ca")?;
+    let uri = Uri::CreateUri(&windows::core::HSTRING::from("http://kennykerr.ca"))?;
 
     // Implicit cast to IStringable should work.
     assert!(uri.ToString()? == "http://kennykerr.ca/");

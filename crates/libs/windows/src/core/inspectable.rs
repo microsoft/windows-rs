@@ -20,6 +20,15 @@ impl IInspectable {
     }
 }
 
+impl<'a, T> From<T> for super::Borrowed<'a, IInspectable>
+where
+    T: Into<&'a IInspectable>,
+{
+    fn from(item: T) -> Self {
+        unsafe { Borrowed::new(item.into()) }
+    }
+}
+
 #[doc(hidden)]
 #[repr(C)]
 pub struct IInspectableVtbl {

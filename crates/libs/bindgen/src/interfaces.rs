@@ -142,8 +142,8 @@ fn gen_conversions(gen: &Gen, def: TypeDef, _generics: &[Type], interfaces: &[In
                 }
             }
             #cfg
-            impl<'a, #constraints> ::core::convert::From<&'a #into> for &'a #name {
-                fn from(value: &'a #into) -> Self {
+            impl<'a, #constraints> ::core::convert::From<&'a #name> for &'a #into {
+                fn from(value: &'a #name) -> Self {
                     unsafe { ::core::mem::transmute(value) }
                 }
             }

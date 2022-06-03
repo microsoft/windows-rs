@@ -156,25 +156,19 @@ fn hstring_compat() -> Result<()> {
         let hey = HSTRING::from("Hey");
         let world = HSTRING::from("World");
         assert_eq!(WindowsCompareStringOrdinal(&hey, &world)?, -1);
-        assert_eq!(WindowsCompareStringOrdinal("Hey", "World")?, -1);
 
         assert_eq!(WindowsConcatString(&hey, &world)?, "HeyWorld");
-        assert_eq!(WindowsConcatString("Hey", "World")?, "HeyWorld");
 
-        assert_eq!(WindowsCreateString(hey.as_wide())?, "Hey");
+        assert_eq!(WindowsCreateString(&hey.as_wide())?, "Hey");
 
         assert_eq!(WindowsDuplicateString(&hey)?, "Hey");
-        assert_eq!(WindowsDuplicateString("Hey")?, "Hey");
 
         assert_eq!(WindowsGetStringLen(&hey), 3);
-        assert_eq!(WindowsGetStringLen("Hey"), 3);
         assert_eq!(WindowsGetStringLen(&world), 5);
-        assert_eq!(WindowsGetStringLen("World"), 5);
 
-        assert_eq!(WindowsIsStringEmpty(HSTRING::new()), true);
-        assert_eq!(WindowsIsStringEmpty(""), true);
+        assert_eq!(WindowsIsStringEmpty(&HSTRING::new()), true);
+        assert_eq!(WindowsIsStringEmpty(&HSTRING::default()), true);
         assert_eq!(WindowsIsStringEmpty(&world), false);
-        assert_eq!(WindowsIsStringEmpty("World"), false);
 
         let mut len = 0;
         let buffer = WindowsGetStringRawBuffer(&world, &mut len);

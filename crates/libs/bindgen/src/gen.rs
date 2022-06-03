@@ -279,10 +279,14 @@ impl<'a> Gen<'a> {
         let mut tokens = TokenStream::new();
         let mut skipped = false;
         for (position, param) in params.iter().enumerate() {
-            if self.reader.signature_param_is_convertible(param) {
+            if self.reader.signature_param_is_in_param_convertible(param) {
                 let name: TokenStream = format!("Param{}", position).into();
                 let into = self.type_name(&param.ty);
                 tokens.combine(&quote! { #name: ::std::convert::Into<::windows::core::InParam<'a, #into>>, });
+            } else if self.reader.signature_param_is_convertible(param) {
+                let name: TokenStream = format!("Param{}", position).into();
+                let into = self.type_name(&param.ty);
+                tokens.combine(&quote! { #name: ::std::convert::Into<#into>, });
             }
         }
         if !tokens.is_empty() {
@@ -878,8 +882,12 @@ impl<'a> Gen<'a> {
                         tokens.combine(&quote! { #name.len() as _, });
                         continue;
                     }
-                    if self.reader.signature_param_is_convertible(param) {
+                    if self.reader.signature_param_is_in_param_convertible(param) {
                         tokens.combine(&quote! { #name.into().abi(), });
+                        continue;
+                    }
+                    if  self.reader.signature_param_is_convertible(param) {
+                        tokens.combine(&quote! { #name.into(), });
                         continue;
                     }
                     tokens.combine(&quote! { ::core::mem::transmute(#name), });
@@ -938,7 +946,7 @@ impl<'a> Gen<'a> {
                 continue;
             }
 
-            if self.reader.signature_param_is_convertible(param) {
+            if self.reader.signature_param_is_in_param_convertible(param) || self.reader.signature_param_is_convertible(param) {
                 let kind: TokenStream = format!("Param{}", position).into();
                 tokens.combine(&quote! { #name: #kind, });
                 continue;

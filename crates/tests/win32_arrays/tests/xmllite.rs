@@ -11,9 +11,9 @@ fn test() -> Result<()> {
         writer.SetOutput(&stream)?;
 
         writer.WriteStartDocument(XmlStandalone_Omit)?;
-        writer.WriteStartElement(None, "html", None)?;
-        writer.WriteElementString(None, "head", None, "The quick brown fox jumps over the lazy dog")?;
-        writer.WriteStartElement(None, "body", None)?;
+        writer.WriteStartElement(PCWSTR::default(), pcwstr(&HSTRING::from("html")), PCWSTR::default())?;
+        writer.WriteElementString(PCWSTR::default(), pcwstr(&HSTRING::from("head")), PCWSTR::default(), pcwstr(&HSTRING::from("The quick brown fox jumps over the lazy dog")))?;
+        writer.WriteStartElement(PCWSTR::default(), pcwstr(&HSTRING::from("body")), PCWSTR::default())?;
         writer.WriteChars(&[])?;
         writer.WriteChars(&[0x52, 0x75, 0x73, 0x74])?;
         writer.WriteEndDocument()?;
@@ -136,4 +136,8 @@ fn lite() -> Result<()> {
 
         Ok(())
     }
+}
+
+fn pcwstr(s: &HSTRING) -> PCWSTR {
+    PCWSTR(s.as_wide().as_ptr())
 }

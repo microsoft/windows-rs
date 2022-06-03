@@ -267,8 +267,8 @@ impl ::core::convert::From<IPropertyValue> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl<'a> ::core::convert::From<&'a ::windows::core::IUnknown> for &'a IPropertyValue {
-    fn from(value: &'a ::windows::core::IUnknown) -> Self {
+impl<'a> ::core::convert::From<&'a IPropertyValue> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IPropertyValue) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -282,8 +282,8 @@ impl ::core::convert::From<IPropertyValue> for ::windows::core::IInspectable {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl<'a> ::core::convert::From<&'a ::windows::core::IInspectable> for &'a IPropertyValue {
-    fn from(value: &'a ::windows::core::IInspectable) -> Self {
+impl<'a> ::core::convert::From<&'a IPropertyValue> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IPropertyValue) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -440,8 +440,8 @@ impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::From<IReference
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl<'a, T: ::windows::core::RuntimeType + 'static> ::core::convert::From<&'a ::windows::core::IUnknown> for &'a IReference<T> {
-    fn from(value: &'a ::windows::core::IUnknown) -> Self {
+impl<'a, T: ::windows::core::RuntimeType + 'static> ::core::convert::From<&'a IReference<T>> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IReference<T>) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -455,8 +455,8 @@ impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::From<IReference
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl<'a, T: ::windows::core::RuntimeType + 'static> ::core::convert::From<&'a ::windows::core::IInspectable> for &'a IReference<T> {
-    fn from(value: &'a ::windows::core::IInspectable) -> Self {
+impl<'a, T: ::windows::core::RuntimeType + 'static> ::core::convert::From<&'a IReference<T>> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IReference<T>) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -538,8 +538,8 @@ impl ::core::convert::From<IStringable> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl<'a> ::core::convert::From<&'a ::windows::core::IUnknown> for &'a IStringable {
-    fn from(value: &'a ::windows::core::IUnknown) -> Self {
+impl<'a> ::core::convert::From<&'a IStringable> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IStringable) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -553,8 +553,8 @@ impl ::core::convert::From<IStringable> for ::windows::core::IInspectable {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl<'a> ::core::convert::From<&'a ::windows::core::IInspectable> for &'a IStringable {
-    fn from(value: &'a ::windows::core::IInspectable) -> Self {
+impl<'a> ::core::convert::From<&'a IStringable> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IStringable) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1320,12 +1320,12 @@ impl<'a> ::core::convert::Into<Option<::windows::core::Borrowed<'a, BSTR>>> for 
 }
 pub const CLASS_E_CLASSNOTAVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221231i32);
 #[inline]
-pub unsafe fn CloseHandle<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, HANDLE>>>(hobject: Param0) -> BOOL {
+pub unsafe fn CloseHandle<'a, Param0: ::std::convert::Into<HANDLE>>(hobject: Param0) -> BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CloseHandle(hobject: HANDLE) -> BOOL;
     }
-    ::core::mem::transmute(CloseHandle(hobject.into().abi()))
+    ::core::mem::transmute(CloseHandle(hobject.into()))
 }
 pub const CO_E_NOTINITIALIZED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221008i32);
 pub const E_NOINTERFACE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147467262i32);
@@ -1413,12 +1413,12 @@ where
 }
 pub const S_OK: ::windows::core::HRESULT = ::windows::core::HRESULT(0i32);
 #[inline]
-pub unsafe fn SysAllocStringByteLen<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::PCSTR>>>(psz: Param0, len: u32) -> BSTR {
+pub unsafe fn SysAllocStringByteLen(psz: ::windows::core::PCSTR, len: u32) -> BSTR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SysAllocStringByteLen(psz: ::windows::core::PCSTR, len: u32) -> BSTR;
     }
-    ::core::mem::transmute(SysAllocStringByteLen(psz.into().abi(), ::core::mem::transmute(len)))
+    ::core::mem::transmute(SysAllocStringByteLen(::core::mem::transmute(psz), ::core::mem::transmute(len)))
 }
 #[inline]
 pub unsafe fn SysAllocStringLen(strin: &[u16]) -> BSTR {
@@ -1588,8 +1588,8 @@ impl ::core::convert::From<IAgileObject> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl<'a> ::core::convert::From<&'a ::windows::core::IUnknown> for &'a IAgileObject {
-    fn from(value: &'a ::windows::core::IUnknown) -> Self {
+impl<'a> ::core::convert::From<&'a IAgileObject> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IAgileObject) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1660,8 +1660,8 @@ impl ::core::convert::From<IErrorInfo> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl<'a> ::core::convert::From<&'a ::windows::core::IUnknown> for &'a IErrorInfo {
-    fn from(value: &'a ::windows::core::IUnknown) -> Self {
+impl<'a> ::core::convert::From<&'a IErrorInfo> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IErrorInfo) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1773,36 +1773,36 @@ impl ::core::ops::Not for FORMAT_MESSAGE_OPTIONS {
     }
 }
 #[inline]
-pub unsafe fn FormatMessageW(dwflags: FORMAT_MESSAGE_OPTIONS, lpsource: *const ::core::ffi::c_void, dwmessageid: u32, dwlanguageid: u32, lpbuffer: ::windows::core::PWSTR, nsize: u32, arguments: *const *const i8) -> u32 {
+pub unsafe fn FormatMessageW<'a, Param0: ::std::convert::Into<FORMAT_MESSAGE_OPTIONS>>(dwflags: Param0, lpsource: *const ::core::ffi::c_void, dwmessageid: u32, dwlanguageid: u32, lpbuffer: ::windows::core::PWSTR, nsize: u32, arguments: *const *const i8) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn FormatMessageW(dwflags: FORMAT_MESSAGE_OPTIONS, lpsource: *const ::core::ffi::c_void, dwmessageid: u32, dwlanguageid: u32, lpbuffer: ::windows::core::PWSTR, nsize: u32, arguments: *const *const i8) -> u32;
     }
-    ::core::mem::transmute(FormatMessageW(::core::mem::transmute(dwflags), ::core::mem::transmute(lpsource), ::core::mem::transmute(dwmessageid), ::core::mem::transmute(dwlanguageid), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nsize), ::core::mem::transmute(arguments)))
+    ::core::mem::transmute(FormatMessageW(dwflags.into(), ::core::mem::transmute(lpsource), ::core::mem::transmute(dwmessageid), ::core::mem::transmute(dwlanguageid), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nsize), ::core::mem::transmute(arguments)))
 }
 #[inline]
-pub unsafe fn FreeLibrary<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, HINSTANCE>>>(hlibmodule: Param0) -> BOOL {
+pub unsafe fn FreeLibrary<'a, Param0: ::std::convert::Into<HINSTANCE>>(hlibmodule: Param0) -> BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn FreeLibrary(hlibmodule: HINSTANCE) -> BOOL;
     }
-    ::core::mem::transmute(FreeLibrary(hlibmodule.into().abi()))
+    ::core::mem::transmute(FreeLibrary(hlibmodule.into()))
 }
 #[inline]
-pub unsafe fn GetProcAddress<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, HINSTANCE>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::PCSTR>>>(hmodule: Param0, lpprocname: Param1) -> FARPROC {
+pub unsafe fn GetProcAddress<'a, Param0: ::std::convert::Into<HINSTANCE>>(hmodule: Param0, lpprocname: ::windows::core::PCSTR) -> FARPROC {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetProcAddress(hmodule: HINSTANCE, lpprocname: ::windows::core::PCSTR) -> FARPROC;
     }
-    ::core::mem::transmute(GetProcAddress(hmodule.into().abi(), lpprocname.into().abi()))
+    ::core::mem::transmute(GetProcAddress(hmodule.into(), ::core::mem::transmute(lpprocname)))
 }
 #[inline]
-pub unsafe fn LoadLibraryA<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::PCSTR>>>(lplibfilename: Param0) -> ::windows::core::Result<HINSTANCE> {
+pub unsafe fn LoadLibraryA(lplibfilename: ::windows::core::PCSTR) -> ::windows::core::Result<HINSTANCE> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn LoadLibraryA(lplibfilename: ::windows::core::PCSTR) -> HINSTANCE;
     }
-    let result__ = LoadLibraryA(lplibfilename.into().abi());
+    let result__ = LoadLibraryA(::core::mem::transmute(lplibfilename));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[inline]
@@ -1882,20 +1882,20 @@ impl ::core::ops::Not for HEAP_FLAGS {
     }
 }
 #[inline]
-pub unsafe fn HeapAlloc<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, HeapHandle>>>(hheap: Param0, dwflags: HEAP_FLAGS, dwbytes: usize) -> *mut ::core::ffi::c_void {
+pub unsafe fn HeapAlloc<'a, Param0: ::std::convert::Into<HeapHandle>, Param1: ::std::convert::Into<HEAP_FLAGS>>(hheap: Param0, dwflags: Param1, dwbytes: usize) -> *mut ::core::ffi::c_void {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HeapAlloc(hheap: HeapHandle, dwflags: HEAP_FLAGS, dwbytes: usize) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(HeapAlloc(hheap.into().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwbytes)))
+    ::core::mem::transmute(HeapAlloc(hheap.into(), dwflags.into(), ::core::mem::transmute(dwbytes)))
 }
 #[inline]
-pub unsafe fn HeapFree<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, HeapHandle>>>(hheap: Param0, dwflags: HEAP_FLAGS, lpmem: *const ::core::ffi::c_void) -> BOOL {
+pub unsafe fn HeapFree<'a, Param0: ::std::convert::Into<HeapHandle>, Param1: ::std::convert::Into<HEAP_FLAGS>>(hheap: Param0, dwflags: Param1, lpmem: *const ::core::ffi::c_void) -> BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HeapFree(hheap: HeapHandle, dwflags: HEAP_FLAGS, lpmem: *const ::core::ffi::c_void) -> BOOL;
     }
-    ::core::mem::transmute(HeapFree(hheap.into().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpmem)))
+    ::core::mem::transmute(HeapFree(hheap.into(), dwflags.into(), ::core::mem::transmute(lpmem)))
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -1933,29 +1933,29 @@ where
     }
 }
 #[inline]
-pub unsafe fn CreateEventA<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, BOOL>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, BOOL>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::PCSTR>>>(lpeventattributes: *const SECURITY_ATTRIBUTES, bmanualreset: Param1, binitialstate: Param2, lpname: Param3) -> ::windows::core::Result<HANDLE> {
+pub unsafe fn CreateEventA<'a, Param1: ::std::convert::Into<BOOL>, Param2: ::std::convert::Into<BOOL>>(lpeventattributes: *const SECURITY_ATTRIBUTES, bmanualreset: Param1, binitialstate: Param2, lpname: ::windows::core::PCSTR) -> ::windows::core::Result<HANDLE> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateEventA(lpeventattributes: *const SECURITY_ATTRIBUTES, bmanualreset: BOOL, binitialstate: BOOL, lpname: ::windows::core::PCSTR) -> HANDLE;
     }
-    let result__ = CreateEventA(::core::mem::transmute(lpeventattributes), bmanualreset.into().abi(), binitialstate.into().abi(), lpname.into().abi());
+    let result__ = CreateEventA(::core::mem::transmute(lpeventattributes), bmanualreset.into(), binitialstate.into(), ::core::mem::transmute(lpname));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn SetEvent<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, HANDLE>>>(hevent: Param0) -> BOOL {
+pub unsafe fn SetEvent<'a, Param0: ::std::convert::Into<HANDLE>>(hevent: Param0) -> BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetEvent(hevent: HANDLE) -> BOOL;
     }
-    ::core::mem::transmute(SetEvent(hevent.into().abi()))
+    ::core::mem::transmute(SetEvent(hevent.into()))
 }
 #[inline]
-pub unsafe fn WaitForSingleObject<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, HANDLE>>>(hhandle: Param0, dwmilliseconds: u32) -> u32 {
+pub unsafe fn WaitForSingleObject<'a, Param0: ::std::convert::Into<HANDLE>>(hhandle: Param0, dwmilliseconds: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WaitForSingleObject(hhandle: HANDLE, dwmilliseconds: u32) -> u32;
     }
-    ::core::mem::transmute(WaitForSingleObject(hhandle.into().abi(), ::core::mem::transmute(dwmilliseconds)))
+    ::core::mem::transmute(WaitForSingleObject(hhandle.into(), ::core::mem::transmute(dwmilliseconds)))
 }
 #[repr(transparent)]
 pub struct IAgileReference(::windows::core::IUnknown);
@@ -1978,8 +1978,8 @@ impl ::core::convert::From<IAgileReference> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl<'a> ::core::convert::From<&'a ::windows::core::IUnknown> for &'a IAgileReference {
-    fn from(value: &'a ::windows::core::IUnknown) -> Self {
+impl<'a> ::core::convert::From<&'a IAgileReference> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IAgileReference) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2039,13 +2039,13 @@ impl ::core::fmt::Debug for AgileReferenceOptions {
     }
 }
 #[inline]
-pub unsafe fn RoGetAgileReference<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(options: AgileReferenceOptions, riid: *const ::windows::core::GUID, punk: Param2) -> ::windows::core::Result<IAgileReference> {
+pub unsafe fn RoGetAgileReference<'a, Param0: ::std::convert::Into<AgileReferenceOptions>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(options: Param0, riid: *const ::windows::core::GUID, punk: Param2) -> ::windows::core::Result<IAgileReference> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RoGetAgileReference(options: AgileReferenceOptions, riid: *const ::windows::core::GUID, punk: *mut ::core::ffi::c_void, ppagilereference: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-    RoGetAgileReference(::core::mem::transmute(options), ::core::mem::transmute(riid), punk.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAgileReference>(result__)
+    RoGetAgileReference(options.into(), ::core::mem::transmute(riid), punk.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAgileReference>(result__)
 }
 #[repr(transparent)]
 pub struct ILanguageExceptionErrorInfo(::windows::core::IUnknown);
@@ -2068,8 +2068,8 @@ impl ::core::convert::From<ILanguageExceptionErrorInfo> for ::windows::core::IUn
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl<'a> ::core::convert::From<&'a ::windows::core::IUnknown> for &'a ILanguageExceptionErrorInfo {
-    fn from(value: &'a ::windows::core::IUnknown) -> Self {
+impl<'a> ::core::convert::From<&'a ILanguageExceptionErrorInfo> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ILanguageExceptionErrorInfo) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2136,8 +2136,8 @@ impl ::core::convert::From<ILanguageExceptionErrorInfo2> for ::windows::core::IU
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl<'a> ::core::convert::From<&'a ::windows::core::IUnknown> for &'a ILanguageExceptionErrorInfo2 {
-    fn from(value: &'a ::windows::core::IUnknown) -> Self {
+impl<'a> ::core::convert::From<&'a ILanguageExceptionErrorInfo2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ILanguageExceptionErrorInfo2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2151,8 +2151,8 @@ impl ::core::convert::From<ILanguageExceptionErrorInfo2> for ILanguageExceptionE
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl<'a> ::core::convert::From<&'a ILanguageExceptionErrorInfo> for &'a ILanguageExceptionErrorInfo2 {
-    fn from(value: &'a ILanguageExceptionErrorInfo) -> Self {
+impl<'a> ::core::convert::From<&'a ILanguageExceptionErrorInfo2> for &'a ILanguageExceptionErrorInfo {
+    fn from(value: &'a ILanguageExceptionErrorInfo2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2213,8 +2213,8 @@ impl ::core::convert::From<IRestrictedErrorInfo> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl<'a> ::core::convert::From<&'a ::windows::core::IUnknown> for &'a IRestrictedErrorInfo {
-    fn from(value: &'a ::windows::core::IUnknown) -> Self {
+impl<'a> ::core::convert::From<&'a IRestrictedErrorInfo> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRestrictedErrorInfo) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2273,8 +2273,8 @@ impl ::core::convert::From<IWeakReference> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl<'a> ::core::convert::From<&'a ::windows::core::IUnknown> for &'a IWeakReference {
-    fn from(value: &'a ::windows::core::IUnknown) -> Self {
+impl<'a> ::core::convert::From<&'a IWeakReference> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWeakReference) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2330,8 +2330,8 @@ impl ::core::convert::From<IWeakReferenceSource> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl<'a> ::core::convert::From<&'a ::windows::core::IUnknown> for &'a IWeakReferenceSource {
-    fn from(value: &'a ::windows::core::IUnknown) -> Self {
+impl<'a> ::core::convert::From<&'a IWeakReferenceSource> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWeakReferenceSource) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }

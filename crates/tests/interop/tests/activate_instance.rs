@@ -1,5 +1,5 @@
 use windows::{
-    core::{Interface, Result},
+    core::{Interface, Result, HSTRING},
     Foundation::Collections::StringMap,
     Win32::System::Com::{CoInitializeEx, COINIT_MULTITHREADED},
     Win32::System::WinRT::RoActivateInstance,
@@ -13,11 +13,14 @@ use windows::{
 fn test() -> Result<()> {
     unsafe { CoInitializeEx(core::ptr::null_mut(), COINIT_MULTITHREADED)? };
 
-    let instance = unsafe { RoActivateInstance("Windows.Foundation.Collections.StringMap")? };
+    let instance: HSTRING = "Windows.Foundation.Collections.StringMap".into();
+    let instance = unsafe { RoActivateInstance(&instance)? };
 
     let map = instance.cast::<StringMap>()?;
-    map.Insert("hello", "world")?;
-    assert_eq!(map.Lookup("hello")?, "world");
+    let key: HSTRING = "hello".into();
+    let value: HSTRING = "world".into();
+    map.Insert(&key, &value)?;
+    assert_eq!(map.Lookup(&key)?, "world");
 
     Ok(())
 }

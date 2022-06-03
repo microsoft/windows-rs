@@ -161,6 +161,12 @@ fn gen_conversions(gen: &Gen, def: TypeDef, name: &TokenStream, interfaces: &[In
                     ::core::convert::From::from(::core::clone::Clone::clone(value))
                 }
             }
+            #features
+            impl ::core::convert::From<&#name> for &#into {
+                fn from(value: &#name) -> Self {
+                    unsafe { ::core::mem::transmute(value) }
+                }
+            }
         });
     }
 

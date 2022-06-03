@@ -100,7 +100,10 @@ impl IUnknownVtbl {
     }
 }
 
-impl <'a, T> From<T> for super::Borrowed<'a, IUnknown> where T: Into<&'a IUnknown> {
+impl<'a, T> From<T> for super::Borrowed<'a, IUnknown>
+where
+    T: Into<&'a IUnknown>,
+{
     fn from(item: T) -> Self {
         unsafe { Borrowed::new(item.into()) }
     }

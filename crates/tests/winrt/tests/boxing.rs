@@ -81,7 +81,7 @@ fn boxing_into() -> windows::core::Result<()> {
 
 #[test]
 fn explicit_boxing() -> windows::core::Result<()> {
-    let object = PropertyValue::CreateString("hello")?;
+    let object = PropertyValue::CreateString(&HSTRING::from("hello"))?;
     let pv: IPropertyValue = object.cast()?;
     assert!(pv.GetString()? == "hello");
 

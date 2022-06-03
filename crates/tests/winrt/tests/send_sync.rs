@@ -1,5 +1,6 @@
+use std::convert::TryFrom;
 use std::thread;
-use windows::core::{Interface, HRESULT};
+use windows::core::{Interface, HRESULT, HSTRING};
 use windows::Foundation::*;
 use windows::Storage::Streams::*;
 
@@ -7,7 +8,7 @@ use windows::Storage::Streams::*;
 // (if this compiles it worked)
 #[test]
 fn send_sync() -> windows::core::Result<()> {
-    let url = Uri::CreateUri("http://kennykerr.ca")?;
+    let url = Uri::CreateUri(&windows::core::HSTRING::from("http://kennykerr.ca"))?;
 
     thread::spawn(move || {
         assert_eq!("http://kennykerr.ca/", url.ToString().unwrap());
@@ -20,7 +21,7 @@ fn send_sync() -> windows::core::Result<()> {
 fn send_async() {
     let stream = InMemoryRandomAccessStream::new().unwrap();
 
-    let writer = DataWriter::CreateDataWriter(&stream).unwrap();
+    let writer = DataWriter::CreateDataWriter(&IOutputStream::try_from(&stream).unwrap()).unwrap();
     writer.WriteByte(1).unwrap();
     writer.WriteByte(2).unwrap();
     writer.WriteByte(3).unwrap();
@@ -30,7 +31,7 @@ fn send_async() {
         store_async.get().unwrap();
 
         stream.Seek(0).unwrap();
-        let reader = DataReader::CreateDataReader(&stream).unwrap();
+        let reader = DataReader::CreateDataReader(&IInputStream::try_from(stream).unwrap()).unwrap();
         let load_async = reader.LoadAsync(3).unwrap();
 
         let wait = thread::spawn(move || {
@@ -54,7 +55,7 @@ fn send_async() {
 fn send_async_no_class() {
     let stream = InMemoryRandomAccessStream::new().unwrap();
 
-    let writer = DataWriter::CreateDataWriter(&stream).unwrap();
+    let writer = DataWriter::CreateDataWriter(&IOutputStream::try_from(&stream).unwrap()).unwrap();
     writer.WriteByte(1).unwrap();
     writer.WriteByte(2).unwrap();
     writer.WriteByte(3).unwrap();
@@ -64,7 +65,7 @@ fn send_async_no_class() {
         store_async.get().unwrap();
 
         stream.Seek(0).unwrap();
-        let reader = DataReader::CreateDataReader(&stream).unwrap();
+        let reader = DataReader::CreateDataReader(&IInputStream::try_from(stream).unwrap()).unwrap();
         let load_async: IAsyncOperation<u32> = reader.LoadAsync(3).unwrap().cast().unwrap();
 
         let wait = thread::spawn(move || {
@@ -88,7 +89,7 @@ fn send_async_no_class() {
 fn send_sync_err() {
     assert!(helpers::set_thread_ui_language("en-US"));
 
-    let err = Uri::CreateUri("BADURI").unwrap_err();
+    let err = Uri::CreateUri(&HSTRING::from("BADURI")).unwrap_err();
     let code = err.code();
 
     let wait = thread::spawn(move || {

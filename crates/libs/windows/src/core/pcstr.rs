@@ -47,7 +47,10 @@ unsafe impl Abi for PCSTR {
     }
 }
 
-impl <'a, T> From<T> for super::Borrowed<'a, PCSTR> where T: Into<&'a PCSTR> {
+impl<'a, T> From<T> for super::Borrowed<'a, PCSTR>
+where
+    T: Into<&'a PCSTR>,
+{
     fn from(item: T) -> Self {
         unsafe { super::Borrowed::new(item.into()) }
     }

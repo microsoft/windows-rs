@@ -14,10 +14,10 @@ mod guid;
 mod heap;
 mod hresult;
 mod hstring;
+mod in_param;
 mod inspectable;
 mod interface;
 mod into_param;
-mod in_param;
 mod param;
 mod pcstr;
 mod pcwstr;
@@ -36,9 +36,9 @@ mod weak_ref_count;
 pub use abi::*;
 pub use agile_reference::*;
 pub use array::*;
-pub use borrowed::*;
 #[doc(hidden)]
 pub use as_impl::*;
+pub use borrowed::*;
 #[doc(hidden)]
 pub use compose::*;
 pub(crate) use delay_load::*;
@@ -52,13 +52,13 @@ pub use guid::*;
 pub(crate) use heap::*;
 pub use hresult::*;
 pub use hstring::*;
+pub use in_param::*;
 pub use inspectable::*;
 pub use interface::*;
 #[doc(hidden)]
 pub use into_param::*;
 #[doc(hidden)]
 pub use param::*;
-pub use in_param::*;
 pub use pcstr::*;
 pub use pcwstr::*;
 pub use pstr::*;

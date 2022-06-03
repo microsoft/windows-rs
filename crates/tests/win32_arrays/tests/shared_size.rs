@@ -6,8 +6,7 @@ fn test() -> Result<()> {
         let mut results: [u8; 2] = [255; 2];
         let dc = GetDC(HWND::default());
 
-        // TODO: workaround for https://github.com/microsoft/win32metadata/issues/817
-        assert!(0 != SetICMMode(dc, ICM_ON as _));
+        assert!(0 != SetICMMode(dc, ICM_ON));
 
         let input = [RGBTRIPLE { rgbtBlue: 1, rgbtGreen: 2, rgbtRed: 3 }, RGBTRIPLE { rgbtBlue: 4, rgbtGreen: 5, rgbtRed: 6 }];
 

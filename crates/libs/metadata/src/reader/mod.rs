@@ -1137,8 +1137,11 @@ impl<'a> Reader<'a> {
         signature.return_type.iter().for_each(|ty| self.type_cfg_combine(ty, cfg));
         signature.params.iter().for_each(|param| self.type_cfg_combine(&param.ty, cfg));
     }
-    pub fn signature_param_is_convertible(&self, param: &SignatureParam) -> bool {
+    pub fn signature_param_is_in_param_convertible(&self, param: &SignatureParam) -> bool {
         self.param_flags(param.def).input() && !param.ty.is_winrt_array() && !param.ty.is_pointer() && self.type_is_convertible(&param.ty) && param.array_info == ArrayInfo::None
+    }
+    pub fn signature_param_is_convertible(&self, param: &SignatureParam) -> bool {
+        self.param_flags(param.def).input() && !param.ty.is_winrt_array() && !param.ty.is_pointer() &&  self.type_is_primitive_type_def(&param.ty) && param.array_info == ArrayInfo::None 
     }
     pub fn signature_param_is_retval(&self, param: &SignatureParam) -> bool {
         // The Win32 metadata uses `RetValAttribute` to call out retval methods but it is employed
@@ -1502,6 +1505,12 @@ impl<'a> Reader<'a> {
             Type::TypeDef((row, _)) => self.type_def_is_convertible(*row),
             Type::String | Type::IInspectable | Type::GUID | Type::IUnknown | Type::GenericParam(_) => true,
             Type::WinrtConstRef(ty) => self.type_is_convertible(ty),
+            _ => false,
+        }
+    }
+    pub fn type_is_primitive_type_def(&self, ty: &Type) -> bool {
+        match ty {
+            Type::TypeDef((row, _)) => self.type_def_is_primitive(*row),
             _ => false,
         }
     }

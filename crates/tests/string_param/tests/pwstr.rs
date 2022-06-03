@@ -13,14 +13,6 @@ fn test() {
         assert_eq!(utf8.len(), len);
         assert_eq!(utf16.len(), len);
 
-        assert_eq!(utf8, std::slice::from_raw_parts(IntoParam::<PCSTR>::into_param("test").abi().0, len));
-        assert_eq!(utf8, std::slice::from_raw_parts(IntoParam::<PCSTR>::into_param(String::from("test")).abi().0, len));
-
-        assert_eq!(utf16, std::slice::from_raw_parts(IntoParam::<PCWSTR>::into_param("test").abi().0, len));
-        assert_eq!(utf16, std::slice::from_raw_parts(IntoParam::<PCWSTR>::into_param(String::from("test")).abi().0, len));
-        assert_eq!(utf16, std::slice::from_raw_parts(IntoParam::<PCWSTR>::into_param(OsStr::new("test")).abi().0, len));
-        assert_eq!(utf16, std::slice::from_raw_parts(IntoParam::<PCWSTR>::into_param(OsString::from("test")).abi().0, len));
-
         assert_eq!(GetLastError(), ERROR_BUSY_DRIVE);
     }
 }

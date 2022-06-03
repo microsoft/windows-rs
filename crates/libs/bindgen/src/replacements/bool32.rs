@@ -115,7 +115,7 @@ pub fn gen() -> TokenStream {
         unsafe impl ::windows::core::Abi for BOOL {
             type Abi = Self;
         }
-        
+
         impl <'a, T> From<T> for ::windows::core::Borrowed<'a, BOOL> where T: Into<&'a BOOL> {
             fn from(item: T) -> Self {
                 unsafe { ::windows::core::Borrowed::new(item.into()) }

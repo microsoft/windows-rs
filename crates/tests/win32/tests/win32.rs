@@ -180,12 +180,12 @@ fn onecore_imports() -> windows::core::Result<()> {
     unsafe {
         HasExpandedResources()?;
 
-        let uri = CreateUri(PCWSTR(windows::core::HSTRING::from("http://kennykerr.ca").as_wide().as_ptr()), Default::default(), 0)?;
+        let uri = CreateUri(PCWSTR(windows::core::HSTRING::from("http://kennykerr.ca").as_wide().as_ptr()), URI_CREATE_FLAGS::default(), 0)?;
 
         let port = uri.GetPort()?;
         assert!(port == 80);
 
-        let result = MiniDumpWriteDump(None, 0, None, MiniDumpNormal, core::ptr::null_mut(), core::ptr::null_mut(), core::ptr::null_mut());
+        let result = MiniDumpWriteDump(HANDLE::default(), 0, HANDLE::default(), MiniDumpNormal, core::ptr::null_mut(), core::ptr::null_mut(), core::ptr::null_mut());
         assert!(!result.as_bool());
 
         assert!(D3DDisassemble11Trace(core::ptr::null_mut(), 0, None, 0, 0, 0).is_err());
