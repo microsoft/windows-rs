@@ -1,3 +1,4 @@
+#[derive(PartialEq, Eq, Hash)]
 #[repr(C)]
 pub struct GUID {
     pub data1: u32,
