@@ -22,6 +22,34 @@ impl<'a> Tree<'a> {
         // TODO: surely there's a way to do this without a ton of intermediate Vec's...
         std::iter::once(self).chain(self.nested.values().flat_map(|tree| tree.flatten())).collect()
     }
+
+    pub fn flatten_iter(&self) -> Vec<&Self> {
+        let mut res = Vec::new();
+        let mut stack = vec![self];
+
+        while let Some(tree) = stack.pop() {
+            res.push(tree);
+            stack.extend(tree.nested.values().rev());
+        }
+
+        res
+    }
+
+    pub fn flatten_rec(&'a self) -> Vec<&'a Self> {
+        fn visit<'a>(this: &'a Tree<'a>, res: &mut Vec<&'a Tree<'a>>) {
+            res.push(this);
+
+            for child in this.nested.values() {
+                visit(child, res);
+            }
+        }
+
+        let mut res = Vec::new();
+
+        visit(self, &mut res);
+
+        res
+    }
     pub fn seek(mut self, namespace: &'a str) -> Option<Self> {
         if let Some(next) = namespace.find('.') {
             self.nested.remove(&namespace[..next]).and_then(|tree| tree.seek(&namespace[next + 1..]))

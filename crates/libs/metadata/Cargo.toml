@@ -18,3 +18,10 @@ features = [
     "Win32_System_SystemServices",
     "Win32_System_Diagnostics_Debug",
 ]
+
+[dev-dependencies]
+criterion = "0.3.5"
+
+[[bench]]
+name = "my_benchmark"
+harness = false
