@@ -11,7 +11,7 @@ pub fn criterion_benchmark(c: &mut Criterion) {
 
     let mut group = c.benchmark_group("flatten");
 
-    group.bench_function("flatten", |b| {
+    group.bench_function("flatten_master", |b| {
         b.iter(|| {
             let root = black_box(&root);
             root.flatten()
