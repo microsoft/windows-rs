@@ -19,7 +19,6 @@ impl<'a> Tree<'a> {
         }
     }
     pub fn flatten(&self) -> Vec<&Self> {
-        // TODO: surely there's a way to do this without a ton of intermediate Vec's...
         std::iter::once(self).chain(self.nested.values().flat_map(|tree| tree.flatten())).collect()
     }
     pub fn seek(mut self, namespace: &'a str) -> Option<Self> {
