@@ -20640,6 +20640,15 @@ impl WIN32_ERROR {
         ::windows::core::HRESULT(if self.0 == 0 { self.0 } else { (self.0 & 0x0000_FFFF) | (7 << 16) | 0x8000_0000 } as _)
     }
     #[inline]
+    pub fn from_error(error: &::windows::core::Error) -> ::core::option::Option<Self> {
+        let hresult = error.code().0 as u32;
+        if ((hresult >> 16) & 0x7FF) == 7 {
+            Some(Self(hresult & 0xFFFF))
+        } else {
+            None
+        }
+    }
+    #[inline]
     pub const fn ok(self) -> ::windows::core::Result<()> {
         if self.is_ok() {
             Ok(())

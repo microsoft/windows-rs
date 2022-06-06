@@ -60,17 +60,6 @@ impl Error {
 
         self.code.message()
     }
-
-    /// Returns the win32 error code if the underlying HRESULT's facility is win32
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn win32_error(&self) -> Option<crate::Win32::Foundation::WIN32_ERROR> {
-        let hresult = self.code.0 as u32;
-        if ((hresult >> 16) & 0x7FF) == 7 {
-            Some(crate::Win32::Foundation::WIN32_ERROR(hresult & 0xFFFF))
-        } else {
-            None
-        }
-    }
 }
 
 impl core::convert::From<Error> for HRESULT {
