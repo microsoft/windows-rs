@@ -103,7 +103,7 @@ pub enum InterfaceKind {
     Base,
 }
 
-#[derive(PartialEq, Eq)]
+#[derive(Copy, Clone, PartialEq, Eq)]
 pub enum SignatureKind {
     Query((usize, usize)),
     QueryOptional((usize, usize)),
@@ -1200,8 +1200,8 @@ impl<'a> Reader<'a> {
             match return_type {
                 Type::HRESULT => {
                     if signature.params.len() >= 2 {
-                        if let Some(guid) = signature.params.iter().position(|param|self.signature_param_is_query_guid(param)) {
-                            if let Some(object) = signature.params.iter().position(|param|self.signature_param_is_query_object(param)) {
+                        if let Some(guid) = self.signature_param_is_query_guid(&signature.params) {
+                            if let Some(object) = self.signature_param_is_query_object(&signature.params) {
                                 if self.param_flags(signature.params[object].def).optional() {
                                     return SignatureKind::QueryOptional((object, guid));
                                 } else {
@@ -1234,11 +1234,21 @@ impl<'a> Reader<'a> {
 
         SignatureKind::ReturnVoid
     }
-    fn signature_param_is_query_guid(&self, param: &SignatureParam) -> bool {
-        param.ty == Type::ConstPtr((Box::new(Type::GUID), 1)) && !self.param_flags(param.def).output()
+    fn signature_param_is_query_guid(&self, params: &[SignatureParam]) -> Option<usize> {
+        for pos in (0..params.len()).rev() {
+            if params[pos].ty == Type::ConstPtr((Box::new(Type::GUID), 1)) && !self.param_flags(params[pos].def).output() {
+                return Some(pos);
+            }
+        }
+        None
     }
-    fn signature_param_is_query_object(&self, param: &SignatureParam) -> bool {
-        param.ty == Type::MutPtr((Box::new(Type::Void), 2)) && self.param_is_com_out_ptr(param.def) 
+    fn signature_param_is_query_object(&self, params: &[SignatureParam]) -> Option<usize> {
+        for pos in (0..params.len()).rev() {
+            if params[pos].ty == Type::MutPtr((Box::new(Type::Void), 2)) && self.param_is_com_out_ptr(params[pos].def) {
+                return Some(pos);
+            }
+        }
+        None
     }
 
     //

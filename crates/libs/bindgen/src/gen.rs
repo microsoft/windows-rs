@@ -834,10 +834,34 @@ impl<'a> Gen<'a> {
             quote! {}
         }
     }
-    pub fn win32_args(&self, params: &[SignatureParam]) -> TokenStream {
+    pub fn win32_args(&self, params: &[SignatureParam], kind: SignatureKind) -> TokenStream {
         let mut tokens = quote! {};
 
-        for param in params {
+        for (position, param) in params.iter().enumerate() {
+            match kind {
+                SignatureKind::Query((object, guid)) => {
+                    if object == position {
+                        tokens.combine(&quote! { &mut result__ as *mut _ as *mut _, });
+                        continue;
+                    }
+                    if guid == position {
+                        tokens.combine(&quote! { &<T as ::windows::core::Interface>::IID, });
+                        continue;
+                    }
+                }
+                SignatureKind::QueryOptional((object, guid)) => {
+                    if object == position {
+                        tokens.combine(&quote! { result__ as *mut _ as *mut _, });
+                        continue;
+                    }
+                    if guid == position {
+                        tokens.combine(&quote! { &<T as ::windows::core::Interface>::IID, });
+                        continue;
+                    }
+                }
+                _ => {}
+            }
+
             let name = self.param_name(param.def);
 
             if let ArrayInfo::Fixed(fixed) = param.array_info {
@@ -880,10 +904,19 @@ impl<'a> Gen<'a> {
 
         tokens
     }
-    pub fn win32_params(&self, params: &[SignatureParam]) -> TokenStream {
+    pub fn win32_params(&self, params: &[SignatureParam], kind: SignatureKind) -> TokenStream {
         let mut tokens = quote! {};
 
         for (position, param) in params.iter().enumerate() {
+            match kind {
+                SignatureKind::Query((object, guid)) | SignatureKind::QueryOptional((object, guid)) => {
+                    if object == position || guid == position {
+                        continue;
+                    }
+                }
+                _ => {}
+            }
+
             let name = self.param_name(param.def);
 
             if let ArrayInfo::Fixed(fixed) = param.array_info {
@@ -973,7 +1006,7 @@ impl<'a> Gen<'a> {
 
             let return_type = match signature_kind {
                 SignatureKind::ReturnVoid => quote! {},
-                SignatureKind::Query | SignatureKind::QueryOptional | SignatureKind::ResultVoid => quote! { -> ::windows::core::Result<()> },
+                SignatureKind::Query(_) | SignatureKind::QueryOptional(_) | SignatureKind::ResultVoid => quote! { -> ::windows::core::Result<()> },
                 SignatureKind::ResultValue => {
                     let return_type = type_deref(&signature.params[signature.params.len() - 1].ty);
                     let return_type = self.type_name(&return_type);
