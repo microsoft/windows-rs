@@ -105,8 +105,8 @@ pub enum InterfaceKind {
 
 #[derive(PartialEq, Eq)]
 pub enum SignatureKind {
-    Query,
-    QueryOptional,
+    Query((usize, usize)),
+    QueryOptional((usize, usize)),
     ResultValue,
     ResultVoid,
     ReturnStruct,
