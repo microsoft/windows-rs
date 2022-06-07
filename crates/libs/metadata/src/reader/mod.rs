@@ -1200,14 +1200,13 @@ impl<'a> Reader<'a> {
             match return_type {
                 Type::HRESULT => {
                     if signature.params.len() >= 2 {
-                        let guid = &signature.params[signature.params.len() - 2];
-                        let object = &signature.params[signature.params.len() - 1];
-
-                        if guid.ty == Type::ConstPtr((Box::new(Type::GUID), 1)) && !self.param_flags(guid.def).output() && object.ty == Type::MutPtr((Box::new(Type::Void), 2)) && self.param_is_com_out_ptr(object.def) {
-                            if self.param_flags(object.def).optional() {
-                                return SignatureKind::QueryOptional;
-                            } else {
-                                return SignatureKind::Query;
+                        if let Some(guid) = signature.params.iter().position(|param|self.signature_param_is_query_guid(param)) {
+                            if let Some(object) = signature.params.iter().position(|param|self.signature_param_is_query_object(param)) {
+                                if self.param_flags(signature.params[object].def).optional() {
+                                    return SignatureKind::QueryOptional((object, guid));
+                                } else {
+                                    return SignatureKind::Query((object, guid));
+                                }
                             }
                         }
                     }
@@ -1234,6 +1233,12 @@ impl<'a> Reader<'a> {
         }
 
         SignatureKind::ReturnVoid
+    }
+    fn signature_param_is_query_guid(&self, param: &SignatureParam) -> bool {
+        param.ty == Type::ConstPtr((Box::new(Type::GUID), 1)) && !self.param_flags(param.def).output()
+    }
+    fn signature_param_is_query_object(&self, param: &SignatureParam) -> bool {
+        param.ty == Type::MutPtr((Box::new(Type::Void), 2)) && self.param_is_com_out_ptr(param.def) 
     }
 
     //
