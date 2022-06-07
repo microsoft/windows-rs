@@ -115,7 +115,7 @@ fn bool_as_error() {
         let error: windows::core::Error = result.unwrap_err();
         assert_eq!(error.code(), windows::core::HRESULT(-2147024890));
         let message: String = error.message().try_into().unwrap();
-        assert_eq!(message.trim_end(), "The handle is invalid.");
+        assert_eq!(message, "The handle is invalid.");
     }
 }
 
