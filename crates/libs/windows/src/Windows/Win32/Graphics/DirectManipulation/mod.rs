@@ -750,8 +750,8 @@ impl IDirectManipulationContent {
         (::windows::core::Interface::vtable(self).GetViewport)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
-    pub unsafe fn GetTag(&self, riid: *const ::windows::core::GUID, object: *mut *mut ::core::ffi::c_void, id: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetTag)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(riid), ::core::mem::transmute(object), ::core::mem::transmute(id)).ok()
+    pub unsafe fn GetTag<T: ::windows::core::Interface>(&self, id: *mut u32, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetTag)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _, ::core::mem::transmute(id)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
     pub unsafe fn SetTag<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, object: Param0, id: u32) -> ::windows::core::Result<()> {
@@ -1730,8 +1730,8 @@ impl IDirectManipulationViewport {
         (::windows::core::Interface::vtable(self).GetStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DIRECTMANIPULATION_STATUS>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
-    pub unsafe fn GetTag(&self, riid: *const ::windows::core::GUID, object: *mut *mut ::core::ffi::c_void, id: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetTag)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(riid), ::core::mem::transmute(object), ::core::mem::transmute(id)).ok()
+    pub unsafe fn GetTag<T: ::windows::core::Interface>(&self, id: *mut u32, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetTag)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _, ::core::mem::transmute(id)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
     pub unsafe fn SetTag<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, object: Param0, id: u32) -> ::windows::core::Result<()> {
@@ -1940,8 +1940,8 @@ impl IDirectManipulationViewport2 {
         (::windows::core::Interface::vtable(self).base__.GetStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DIRECTMANIPULATION_STATUS>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
-    pub unsafe fn GetTag(&self, riid: *const ::windows::core::GUID, object: *mut *mut ::core::ffi::c_void, id: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetTag)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(riid), ::core::mem::transmute(object), ::core::mem::transmute(id)).ok()
+    pub unsafe fn GetTag<T: ::windows::core::Interface>(&self, id: *mut u32, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetTag)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _, ::core::mem::transmute(id)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
     pub unsafe fn SetTag<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, object: Param0, id: u32) -> ::windows::core::Result<()> {
