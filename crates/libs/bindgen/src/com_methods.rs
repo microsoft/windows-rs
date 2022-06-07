@@ -52,7 +52,7 @@ pub fn gen(gen: &Gen, def: TypeDef, kind: InterfaceKind, method: MethodDef, meth
             let leading_params = &signature.params[..signature.params.len() - 1];
             let args = gen.win32_args(leading_params);
             let params = gen.win32_params(leading_params);
-            let return_type = type_deref(&signature.params[signature.params.len() - 1].ty);
+            let return_type = signature.params[signature.params.len() - 1].ty.deref();
             let return_type_tokens = gen.type_name(&return_type);
             let abi_return_type_tokens = gen.type_abi_name(&return_type);
 
@@ -166,7 +166,7 @@ pub fn gen_upcall(gen: &Gen, sig: &Signature, inner: TokenStream) -> TokenStream
 fn gen_win32_invoke_arg(gen: &Gen, param: &SignatureParam) -> TokenStream {
     let name = gen.param_name(param.def);
 
-    if (!gen.reader.type_is_pointer(&param.ty) && gen.reader.type_is_nullable(&param.ty)) || (gen.reader.param_flags(param.def).input() && !gen.reader.type_is_primitive(&param.ty)) {
+    if (!param.ty.is_pointer() && gen.reader.type_is_nullable(&param.ty)) || (gen.reader.param_flags(param.def).input() && !gen.reader.type_is_primitive(&param.ty)) {
         quote! { ::core::mem::transmute(&#name) }
     } else {
         quote! { ::core::mem::transmute_copy(&#name) }

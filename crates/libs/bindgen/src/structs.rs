@@ -210,7 +210,7 @@ fn gen_debug(gen: &Gen, def: TypeDef, ident: &TokenStream, cfg: &Cfg) -> TokenSt
                 let name = gen.reader.field_name(f);
                 let ident = to_ident(name);
                 let ty = gen.reader.field_type(f, Some(def));
-                if !gen.reader.type_is_pointer(&ty) && gen.reader.type_is_callback(&ty) {
+                if !ty.is_pointer() && gen.reader.type_is_callback(&ty) {
                     quote! { .field(#name, &self.#ident.map(|f| f as usize)) }
                 } else if gen.reader.type_is_callback_array(&ty) {
                     quote! {}
