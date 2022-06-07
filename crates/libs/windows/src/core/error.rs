@@ -54,7 +54,7 @@ impl Error {
 
             if self.code == code {
                 let message = if !message.is_empty() { message } else { fallback };
-                return HSTRING::from_wide(message.as_wide());
+                return HSTRING::from_wide(wide_trim_end(message.as_wide()));
             }
         }
 
