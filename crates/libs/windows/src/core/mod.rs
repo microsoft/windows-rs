@@ -113,3 +113,13 @@ pub fn as_mut_ptr_or_null<T>(value: &mut [T]) -> *mut T {
         value.as_mut_ptr()
     }
 }
+
+fn wide_trim_end(mut wide: &[u16]) -> &[u16] {
+    while let Some(last) = wide.last() {
+        match last {
+            32 | 9..=13 => wide = &wide[..wide.len() - 1],
+            _ => break,
+        }
+    }
+    wide
+}
