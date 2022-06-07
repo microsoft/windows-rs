@@ -409,7 +409,7 @@ fn create_factory() -> Result<ID2D1Factory1> {
 
     let mut result = None;
 
-    unsafe { D2D1CreateFactory(D2D1_FACTORY_TYPE_SINGLE_THREADED, &ID2D1Factory1::IID, &options, std::mem::transmute(&mut result)).map(|()| result.unwrap()) }
+    unsafe { D2D1CreateFactory(D2D1_FACTORY_TYPE_SINGLE_THREADED, &ID2D1Factory1::IID, &options, &mut result as *mut _ as _).map(|()| result.unwrap()) }
 }
 
 fn create_style(factory: &ID2D1Factory1) -> Result<ID2D1StrokeStyle> {
