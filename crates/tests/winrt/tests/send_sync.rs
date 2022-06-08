@@ -8,7 +8,7 @@ use windows::Storage::Streams::*;
 // (if this compiles it worked)
 #[test]
 fn send_sync() -> windows::core::Result<()> {
-    let url = Uri::CreateUri(&windows::core::HSTRING::from("http://kennykerr.ca"))?;
+    let url = Uri::CreateUri(&HSTRING::from("http://kennykerr.ca"))?;
 
     thread::spawn(move || {
         assert_eq!("http://kennykerr.ca/", url.ToString().unwrap());

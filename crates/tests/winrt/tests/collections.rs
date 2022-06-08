@@ -69,9 +69,9 @@ fn property_set() -> windows::core::Result<()> {
 
     let set = PropertySet::new()?;
 
-    set.Insert(&windows::core::HSTRING::from("A"), &windows::core::IInspectable::try_from(1i32)?)?;
-    set.Insert(&windows::core::HSTRING::from("B"), &windows::core::IInspectable::try_from(2i32)?)?;
-    set.Insert(&windows::core::HSTRING::from("C"), &windows::core::IInspectable::try_from(3i32)?)?;
+    set.Insert(&windows::core::HSTRING::from("A"), &windows::core::IInspectable::try_from(1)?)?;
+    set.Insert(&windows::core::HSTRING::from("B"), &windows::core::IInspectable::try_from(2)?)?;
+    set.Insert(&windows::core::HSTRING::from("C"), &windows::core::IInspectable::try_from(3)?)?;
 
     assert!(set.Size()? == 3);
 
