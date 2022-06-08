@@ -22,7 +22,7 @@ pub fn gen_win_handle(gen: &Gen, def: TypeDef) -> TokenStream {
     let ident = to_ident(name);
     let underlying_type = gen.reader.type_def_underlying_type(def);
     let signature = gen.type_default_name(&underlying_type);
-    let check = if gen.reader.type_is_pointer(&underlying_type) {
+    let check = if underlying_type.is_pointer() {
         quote! {
             impl #ident {
                 pub fn is_invalid(&self) -> bool {
@@ -37,7 +37,7 @@ pub fn gen_win_handle(gen: &Gen, def: TypeDef) -> TokenStream {
             let invalid = invalid.iter().map(|value| {
                 let literal = Literal::i64_unsuffixed(*value);
 
-                if *value < 0 && gen.reader.type_is_unsigned(&underlying_type) {
+                if *value < 0 && underlying_type.is_unsigned() {
                     quote! { self.0 == #literal as _ }
                 } else {
                     quote! { self.0 == #literal }

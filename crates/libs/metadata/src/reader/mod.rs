@@ -5,6 +5,7 @@ mod flags;
 mod guid;
 mod row;
 mod tree;
+mod r#type;
 mod type_name;
 
 use super::*;
@@ -13,6 +14,7 @@ pub use codes::*;
 pub use file::*;
 pub use flags::*;
 pub use guid::*;
+pub use r#type::*;
 pub use row::*;
 pub use tree::*;
 pub use type_name::*;
@@ -48,43 +50,6 @@ pub enum ArrayInfo {
     RelativePtr(usize),
     None,
     Removed,
-}
-
-#[derive(Clone, PartialEq, PartialOrd, Eq, Ord)]
-pub enum Type {
-    Void,
-    Bool,
-    Char,
-    I8,
-    U8,
-    I16,
-    U16,
-    I32,
-    U32,
-    I64,
-    U64,
-    F32,
-    F64,
-    ISize,
-    USize,
-    String,
-    GUID,
-    IUnknown,
-    IInspectable,
-    HRESULT,
-    PSTR,
-    PWSTR,
-    PCSTR,
-    PCWSTR,
-    TypeName,
-    GenericParam(GenericParam),
-    TypeDef((TypeDef, Vec<Self>)),
-    MutPtr((Box<Self>, usize)),
-    ConstPtr((Box<Self>, usize)),
-    Win32Array((Box<Self>, usize)),
-    WinrtArray(Box<Self>),
-    WinrtArrayRef(Box<Self>),
-    WinrtConstRef(Box<Self>),
 }
 
 #[derive(Clone, PartialEq, PartialOrd, Eq, Ord)]
@@ -360,7 +325,7 @@ impl<'a> Reader<'a> {
 
     pub fn constant_type(&self, row: Constant) -> Type {
         let code = self.row_usize(row.0, 0);
-        type_from_code(code).expect("Type not found")
+        Type::from_code(code).expect("Type not found")
     }
     pub fn constant_value(&self, row: Constant) -> Value {
         let mut blob = self.row_blob(row.0, 2);
@@ -406,7 +371,7 @@ impl<'a> Reader<'a> {
         let def = self.type_from_blob(&mut blob, enclosing, &[]).expect("Type not found");
 
         if self.field_is_const(row) {
-            type_to_const(def)
+            def.to_const()
         } else {
             def
         }
@@ -566,7 +531,7 @@ impl<'a> Reader<'a> {
                     None
                 } else {
                     let ty = self.type_from_blob(&mut blob, None, generics).expect("Parameter type not found");
-                    let ty = if !self.param_flags(param).output() { type_to_const(ty) } else { ty };
+                    let ty = if !self.param_flags(param).output() { ty.to_const() } else { ty };
                     let array_info = self.param_array_info(param);
                     Some(SignatureParam { def: param, ty, array_info })
                 }
@@ -1171,7 +1136,7 @@ impl<'a> Reader<'a> {
         signature.params.iter().for_each(|param| self.type_cfg_combine(&param.ty, cfg));
     }
     pub fn signature_param_is_convertible(&self, param: &SignatureParam) -> bool {
-        self.param_flags(param.def).input() && !self.type_is_winrt_array(&param.ty) && !self.type_is_pointer(&param.ty) && self.type_is_convertible(&param.ty) && param.array_info == ArrayInfo::None
+        self.param_flags(param.def).input() && !param.ty.is_winrt_array() && !param.ty.is_pointer() && self.type_is_convertible(&param.ty) && param.array_info == ArrayInfo::None
     }
     pub fn signature_param_is_retval(&self, param: &SignatureParam) -> bool {
         // The Win32 metadata uses `RetValAttribute` to call out retval methods but it is employed
@@ -1179,10 +1144,10 @@ impl<'a> Reader<'a> {
         if self.param_is_retval(param.def) {
             return true;
         }
-        if !self.type_is_pointer(&param.ty) {
+        if !param.ty.is_pointer() {
             return false;
         }
-        if self.type_is_void(&param.ty) {
+        if param.ty.is_void() {
             return false;
         }
         let flags = self.param_flags(param.def);
@@ -1461,7 +1426,7 @@ impl<'a> Reader<'a> {
     fn type_from_blob_impl(&self, blob: &mut Blob, enclosing: Option<TypeDef>, generics: &[Type]) -> Type {
         let code = blob.read_usize();
 
-        if let Some(code) = type_from_code(code) {
+        if let Some(code) = Type::from_code(code) {
             return code;
         }
 
@@ -1580,82 +1545,6 @@ impl<'a> Reader<'a> {
             Type::TypeDef((row, _)) => self.type_def_is_handle(*row),
             _ => false,
         }
-    }
-    pub fn type_is_generic(&self, ty: &Type) -> bool {
-        matches!(ty, Type::GenericParam(_))
-    }
-    pub fn type_is_pointer(&self, ty: &Type) -> bool {
-        matches!(ty, Type::ConstPtr(_) | Type::MutPtr(_))
-    }
-    pub fn type_is_unsigned(&self, ty: &Type) -> bool {
-        matches!(ty, Type::U8 | Type::U16 | Type::U32 | Type::U64 | Type::USize)
-    }
-    pub fn type_is_void(&self, ty: &Type) -> bool {
-        match ty {
-            // TODO: do we care about void behind pointers?
-            Type::ConstPtr((kind, _)) | Type::MutPtr((kind, _)) => self.type_is_void(kind),
-            Type::Void => true,
-            _ => false,
-        }
-    }
-    pub fn type_is_winrt_array(&self, ty: &Type) -> bool {
-        matches!(ty, Type::WinrtArray(_))
-    }
-
-    pub fn type_is_winrt_array_ref(&self, ty: &Type) -> bool {
-        matches!(ty, Type::WinrtArrayRef(_))
-    }
-
-    pub fn type_is_winrt_const_ref(&self, ty: &Type) -> bool {
-        matches!(ty, Type::WinrtConstRef(_))
-    }
-}
-
-fn type_from_code(code: usize) -> Option<Type> {
-    match code {
-        0x01 => Some(Type::Void),
-        0x02 => Some(Type::Bool),
-        0x03 => Some(Type::Char),
-        0x04 => Some(Type::I8),
-        0x05 => Some(Type::U8),
-        0x06 => Some(Type::I16),
-        0x07 => Some(Type::U16),
-        0x08 => Some(Type::I32),
-        0x09 => Some(Type::U32),
-        0x0a => Some(Type::I64),
-        0x0b => Some(Type::U64),
-        0x0c => Some(Type::F32),
-        0x0d => Some(Type::F64),
-        0x18 => Some(Type::ISize),
-        0x19 => Some(Type::USize),
-        0x0e => Some(Type::String),
-        0x1c => Some(Type::IInspectable),
-        _ => None,
-    }
-}
-pub fn type_to_const(ty: Type) -> Type {
-    match ty {
-        Type::MutPtr((kind, pointers)) => Type::ConstPtr((kind, pointers)),
-        Type::PSTR => Type::PCSTR,
-        Type::PWSTR => Type::PCWSTR,
-        _ => ty,
-    }
-}
-// TODO: just make these member functions
-pub fn type_deref(ty: &Type) -> Type {
-    match ty {
-        Type::ConstPtr((kind, 1)) | Type::MutPtr((kind, 1)) => {
-            if **kind == Type::Void {
-                Type::U8
-            } else {
-                *kind.clone()
-            }
-        }
-        Type::ConstPtr((kind, pointers)) => Type::ConstPtr((kind.clone(), pointers - 1)),
-        Type::MutPtr((kind, pointers)) => Type::MutPtr((kind.clone(), pointers - 1)),
-        Type::PSTR | Type::PCSTR => Type::U8,
-        Type::PWSTR | Type::PCWSTR => Type::U16,
-        _ => unimplemented!(),
     }
 }
 

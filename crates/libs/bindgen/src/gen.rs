@@ -97,7 +97,7 @@ impl<'a> Gen<'a> {
         } else {
             let kind = self.type_name(ty);
 
-            if self.reader.type_is_generic(ty) {
+            if ty.is_generic() {
                 quote! { <#kind as ::windows::core::RuntimeType>::DefaultType }
             } else if self.reader.type_is_nullable(ty) && !self.sys {
                 quote! { ::core::option::Option<#kind> }
@@ -800,16 +800,16 @@ impl<'a> Gen<'a> {
                 let abi_size_name: TokenStream = format!("{}_array_size", self.reader.param_name(p.def)).into();
 
                 if self.reader.param_flags(p.def).input() {
-                    if self.reader.type_is_winrt_array(&p.ty) {
+                    if p.ty.is_winrt_array() {
                         quote! { #abi_size_name: u32, #name: *const #abi, }
-                    } else if self.reader.type_is_winrt_const_ref(&p.ty) {
+                    } else if p.ty.is_winrt_const_ref() {
                         quote! { #name: &#abi, }
                     } else {
                         quote! { #name: #abi, }
                     }
-                } else if self.reader.type_is_winrt_array(&p.ty) {
+                } else if p.ty.is_winrt_array() {
                     quote! { #abi_size_name: u32, #name: *mut #abi, }
-                } else if self.reader.type_is_winrt_array_ref(&p.ty) {
+                } else if p.ty.is_winrt_array_ref() {
                     quote! { #abi_size_name: *mut u32, #name: *mut *mut #abi, }
                 } else {
                     quote! { #name: *mut #abi, }
@@ -888,7 +888,7 @@ impl<'a> Gen<'a> {
 
             if let ArrayInfo::Fixed(fixed) = param.array_info {
                 if fixed > 0 && self.reader.param_free_with(param.def).is_none() {
-                    let ty = type_deref(&param.ty);
+                    let ty = param.ty.deref();
                     let ty = self.type_default_name(&ty);
                     let len = Literal::u32_unsuffixed(fixed as _);
 
@@ -904,7 +904,7 @@ impl<'a> Gen<'a> {
             }
 
             if let ArrayInfo::RelativeLen(_) = param.array_info {
-                let ty = type_deref(&param.ty);
+                let ty = param.ty.deref();
                 let ty = self.type_default_name(&ty);
                 let ty = if self.reader.param_flags(param.def).output() {
                     quote! { &mut [#ty] }
@@ -941,7 +941,7 @@ impl<'a> Gen<'a> {
             let return_type = if let Some(return_type) = &signature.return_type {
                 let tokens = self.type_name(return_type);
 
-                if self.reader.type_is_winrt_array(return_type) {
+                if return_type.is_winrt_array() {
                     quote! { ::windows::core::Array<#tokens> }
                 } else {
                     tokens
@@ -975,7 +975,7 @@ impl<'a> Gen<'a> {
                 SignatureKind::ReturnVoid => quote! {},
                 SignatureKind::Query | SignatureKind::QueryOptional | SignatureKind::ResultVoid => quote! { -> ::windows::core::Result<()> },
                 SignatureKind::ResultValue => {
-                    let return_type = type_deref(&signature.params[signature.params.len() - 1].ty);
+                    let return_type = signature.params[signature.params.len() - 1].ty.deref();
                     let return_type = self.type_name(&return_type);
 
                     quote! { -> ::windows::core::Result<#return_type> }
@@ -990,16 +990,16 @@ impl<'a> Gen<'a> {
         let default_type = self.type_default_name(&param.ty);
 
         let sig = if self.reader.param_flags(param.def).input() {
-            if self.reader.type_is_winrt_array(&param.ty) {
+            if param.ty.is_winrt_array() {
                 quote! { &[#default_type] }
             } else if self.reader.type_is_primitive(&param.ty) {
                 quote! { #default_type }
             } else {
                 quote! { &#default_type }
             }
-        } else if self.reader.type_is_winrt_array(&param.ty) {
+        } else if param.ty.is_winrt_array() {
             quote! { &mut [#default_type] }
-        } else if self.reader.type_is_winrt_array_ref(&param.ty) {
+        } else if param.ty.is_winrt_array_ref() {
             let kind = self.type_name(&param.ty);
             quote! { &mut ::windows::core::Array<#kind> }
         } else {
