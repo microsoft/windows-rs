@@ -38,6 +38,8 @@ pub enum Type {
 }
 
 impl Type {
+    /// Creates a `Type` object from an `ELEMENT_TYPE` (see ECMA-335) type constant, typically
+    /// used to indicate the type of a constant or primitive type signature.
     pub fn from_code(code: usize) -> Option<Self> {
         match code {
             0x01 => Some(Self::Void),
@@ -60,14 +62,20 @@ impl Type {
             _ => None,
         }
     }
+
+    /// Converts the `Type` to an equivalent `const` variant if appropriate, typically used when the
+    /// mutability is informed by something outside of the type signature.
     pub fn to_const(self) -> Self {
         match self {
-            Self::MutPtr((kind, pointers)) => Self::ConstPtr((kind, pointers)),
+            Self::MutPtr(p) => Self::ConstPtr(p),
             Self::PSTR => Self::PCSTR,
             Self::PWSTR => Self::PCWSTR,
             _ => self,
         }
     }
+
+    /// Removes one level of indirection, typically used when transforming a logical return or array parameter
+    /// from its underlying type signature.
     pub fn deref(&self) -> Self {
         match self {
             Self::ConstPtr((kind, 1)) | Self::MutPtr((kind, 1)) => {
@@ -81,27 +89,41 @@ impl Type {
             Self::MutPtr((kind, pointers)) => Self::MutPtr((kind.clone(), pointers - 1)),
             Self::PSTR | Self::PCSTR => Self::U8,
             Self::PWSTR | Self::PCWSTR => Self::U16,
-            _ => unimplemented!(),
+            _ => panic!("`deref` can only be called on pointer types"),
         }
     }
+
+    /// Returns `true` if the `Type` represents a WinRT array.
     pub fn is_winrt_array(&self) -> bool {
         matches!(self, Type::WinrtArray(_))
     }
+
+    /// Returns `true` if the `Type` represents a mutable WinRT array reference.
     pub fn is_winrt_array_ref(&self) -> bool {
         matches!(self, Type::WinrtArrayRef(_))
     }
+
+    /// Returns `true` if the `Type` represents an immutable WinRT array reference.
     pub fn is_winrt_const_ref(&self) -> bool {
         matches!(self, Type::WinrtConstRef(_))
     }
+
+    /// Returns `true` if the `Type` is a generic parameter.
     pub fn is_generic(&self) -> bool {
         matches!(self, Type::GenericParam(_))
     }
+
+    /// Returns `true` if the `Type` is a pointer.
     pub fn is_pointer(&self) -> bool {
         matches!(self, Type::ConstPtr(_) | Type::MutPtr(_))
     }
+
+    /// Returns `true` if the `Type` is unsigned.
     pub fn is_unsigned(&self) -> bool {
         matches!(self, Type::U8 | Type::U16 | Type::U32 | Type::U64 | Type::USize)
     }
+
+    /// Returns `true` if the `Type` is incomplete.
     pub fn is_void(&self) -> bool {
         match self {
             // TODO: do we care about void behind pointers?
