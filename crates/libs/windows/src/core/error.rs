@@ -77,7 +77,7 @@ impl core::convert::From<Error> for HRESULT {
 
 impl core::convert::From<Error> for std::io::Error {
     fn from(from: Error) -> Self {
-        Self::from_raw_os_error((from.code.0 & 0xFFFF) as _)
+        Self::from_raw_os_error(from.code.0)
     }
 }
 
