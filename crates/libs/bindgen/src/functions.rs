@@ -115,7 +115,7 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
             let leading_params = &signature.params[..signature.params.len() - 1];
             let args = gen.win32_args(leading_params, kind);
             let params = gen.win32_params(leading_params, kind);
-            let return_type = type_deref(&signature.params[signature.params.len() - 1].ty);
+            let return_type = signature.params[signature.params.len() - 1].ty.deref();
             let return_type_tokens = gen.type_name(&return_type);
             let abi_return_type_tokens = gen.type_abi_name(&return_type);
 
@@ -246,7 +246,7 @@ fn handle_last_error(gen: &Gen, def: MethodDef, signature: &Signature) -> bool {
         if gen.reader.impl_map_flags(map).last_error() {
             if let Some(Type::TypeDef((return_type, _))) = &signature.return_type {
                 if gen.reader.type_def_is_handle(*return_type) {
-                    if gen.reader.type_is_pointer(&gen.reader.type_def_underlying_type(*return_type)) {
+                    if gen.reader.type_def_underlying_type(*return_type).is_pointer() {
                         return true;
                     }
                     if !gen.reader.type_def_invalid_values(*return_type).is_empty() {

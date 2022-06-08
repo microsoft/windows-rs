@@ -25,7 +25,7 @@ pub fn gen(gen: &Gen, def: TypeDef, generics: &[Type], kind: InterfaceKind, meth
 
     let return_type_tokens = if let Some(return_type) = &signature.return_type {
         let tokens = gen.type_name(return_type);
-        if gen.reader.type_is_winrt_array(return_type) {
+        if return_type.is_winrt_array() {
             quote! { ::windows::core::Array<#tokens> }
         } else {
             quote! { #tokens }
@@ -35,7 +35,7 @@ pub fn gen(gen: &Gen, def: TypeDef, generics: &[Type], kind: InterfaceKind, meth
     };
 
     let return_arg = if let Some(return_type) = &signature.return_type {
-        if gen.reader.type_is_winrt_array(return_type) {
+        if return_type.is_winrt_array() {
             let return_type = gen.type_name(return_type);
             quote! { ::windows::core::Array::<#return_type>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _ }
         } else {
@@ -53,7 +53,7 @@ pub fn gen(gen: &Gen, def: TypeDef, generics: &[Type], kind: InterfaceKind, meth
     };
 
     let (vcall, vcall_none) = if let Some(return_type) = &signature.return_type {
-        if gen.reader.type_is_winrt_array(return_type) {
+        if return_type.is_winrt_array() {
             (
                 quote! {
                     let mut result__ = ::core::mem::MaybeUninit::<#return_type_tokens>::zeroed();
@@ -148,7 +148,7 @@ fn gen_winrt_params(gen: &Gen, params: &[SignatureParam]) -> TokenStream {
         let default_type = gen.type_default_name(&param.ty);
 
         if gen.reader.param_flags(param.def).input() {
-            if gen.reader.type_is_winrt_array(&param.ty) {
+            if param.ty.is_winrt_array() {
                 result.combine(&quote! { #name: &[#default_type], });
             } else if gen.reader.signature_param_is_convertible(param) {
                 let kind: TokenStream = format!("Param{}", position).into();
@@ -156,9 +156,9 @@ fn gen_winrt_params(gen: &Gen, params: &[SignatureParam]) -> TokenStream {
             } else {
                 result.combine(&quote! { #name: #kind, });
             }
-        } else if gen.reader.type_is_winrt_array(&param.ty) {
+        } else if param.ty.is_winrt_array() {
             result.combine(&quote! { #name: &mut [#default_type], });
-        } else if gen.reader.type_is_winrt_array_ref(&param.ty) {
+        } else if param.ty.is_winrt_array_ref() {
             result.combine(&quote! { #name: &mut ::windows::core::Array<#kind>, });
         } else {
             result.combine(&quote! { #name: &mut #default_type, });
@@ -174,10 +174,10 @@ fn gen_winrt_abi_args(gen: &Gen, params: &[SignatureParam]) -> TokenStream {
         let name = gen.param_name(param.def);
 
         let param = if gen.reader.param_flags(param.def).input() {
-            if gen.reader.type_is_winrt_array(&param.ty) {
+            if param.ty.is_winrt_array() {
                 quote! { #name.len() as u32, ::core::mem::transmute(#name.as_ptr()), }
             } else if gen.reader.signature_param_is_convertible(param) {
-                if gen.reader.type_is_winrt_const_ref(&param.ty) {
+                if param.ty.is_winrt_const_ref() {
                     quote! { &#name.into_param().abi(), }
                 } else {
                     quote! { #name.into_param().abi(), }
@@ -187,9 +187,9 @@ fn gen_winrt_abi_args(gen: &Gen, params: &[SignatureParam]) -> TokenStream {
             } else {
                 quote! { ::core::mem::transmute_copy(#name), }
             }
-        } else if gen.reader.type_is_winrt_array(&param.ty) {
+        } else if param.ty.is_winrt_array() {
             quote! { #name.len() as u32, ::core::mem::transmute_copy(&#name), }
-        } else if gen.reader.type_is_winrt_array_ref(&param.ty) {
+        } else if param.ty.is_winrt_array_ref() {
             quote! { #name.set_abi_len(), #name as *mut _ as _, }
         } else if gen.reader.type_is_blittable(&param.ty) {
             quote! { #name, }
@@ -205,7 +205,7 @@ pub fn gen_upcall(gen: &Gen, sig: &Signature, inner: TokenStream) -> TokenStream
     let invoke_args = sig.params.iter().map(|param| gen_winrt_invoke_arg(gen, param));
 
     match &sig.return_type {
-        Some(return_type) if gen.reader.type_is_winrt_array(return_type) => {
+        Some(return_type) if return_type.is_winrt_array() => {
             quote! {
                 match #inner(#(#invoke_args,)*) {
                     ::core::result::Result::Ok(ok__) => {
@@ -243,18 +243,18 @@ fn gen_winrt_invoke_arg(gen: &Gen, param: &SignatureParam) -> TokenStream {
     let abi_size_name: TokenStream = format!("{}_array_size", gen.reader.param_name(param.def)).into();
 
     if gen.reader.param_flags(param.def).input() {
-        if gen.reader.type_is_winrt_array(&param.ty) {
+        if param.ty.is_winrt_array() {
             quote! { ::core::slice::from_raw_parts(::core::mem::transmute_copy(&#name), #abi_size_name as _) }
         } else if gen.reader.type_is_primitive(&param.ty) {
             quote! { #name }
-        } else if gen.reader.type_is_winrt_const_ref(&param.ty) {
+        } else if param.ty.is_winrt_const_ref() {
             quote! { ::core::mem::transmute_copy(&#name) }
         } else {
             quote! { ::core::mem::transmute(&#name) }
         }
-    } else if gen.reader.type_is_winrt_array(&param.ty) {
+    } else if param.ty.is_winrt_array() {
         quote! { ::core::slice::from_raw_parts_mut(::core::mem::transmute_copy(&#name), #abi_size_name as _) }
-    } else if gen.reader.type_is_winrt_array_ref(&param.ty) {
+    } else if param.ty.is_winrt_array_ref() {
         quote! { ::windows::core::ArrayProxy::from_raw_parts(::core::mem::transmute_copy(&#name), #abi_size_name).as_array() }
     } else {
         quote! { ::core::mem::transmute_copy(&#name) }

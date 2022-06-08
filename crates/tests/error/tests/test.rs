@@ -26,7 +26,7 @@ fn win32_error() -> Result<()> {
     let hresult: HRESULT = ERROR_BAD_ARGUMENTS.into();
 
     assert_eq!(error.code(), hresult);
-    assert_eq!(error.win32_error(), Some(ERROR_BAD_ARGUMENTS));
+    assert_eq!(WIN32_ERROR::from_error(&error), Some(ERROR_BAD_ARGUMENTS));
     assert_eq!(ERROR_BAD_ARGUMENTS.is_ok(), false);
     assert_eq!(ERROR_BAD_ARGUMENTS.is_err(), true);
     assert_eq!(ERROR_SUCCESS.is_ok(), true);
