@@ -839,67 +839,51 @@ impl<'a> Gen<'a> {
 
         for (position, param) in params.iter().enumerate() {
             match kind {
-                SignatureKind::Query((object, guid)) => {
-                    if object == position {
-                        tokens.combine(&quote! { &mut result__ as *mut _ as *mut _, });
-                        continue;
-                    }
-                    if guid == position {
-                        tokens.combine(&quote! { &<T as ::windows::core::Interface>::IID, });
-                        continue;
-                    }
+                SignatureKind::Query(query) if query.object == position => {
+                    tokens.combine(&quote! { &mut result__ as *mut _ as *mut _, });
                 }
-                SignatureKind::QueryOptional((object, guid)) => {
-                    if object == position {
-                        tokens.combine(&quote! { result__ as *mut _ as *mut _, });
+                SignatureKind::QueryOptional(query) if query.object == position => {
+                    tokens.combine(&quote! { result__ as *mut _ as *mut _, });
+                }
+                SignatureKind::Query(query) | SignatureKind::QueryOptional(query) if query.guid == position => {
+                    tokens.combine(&quote! { &<T as ::windows::core::Interface>::IID, });
+                }
+                _ => {
+                    let name = self.param_name(param.def);
+                    if let ArrayInfo::Fixed(fixed) = param.array_info {
+                        if fixed > 0 && self.reader.param_free_with(param.def).is_none() {
+                            let signature = if self.reader.param_flags(param.def).output() {
+                                quote! { ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(#name)), }
+                            } else {
+                                quote! { ::core::mem::transmute(::windows::core::as_ptr_or_null(#name)), }
+                            };
+
+                            tokens.combine(&signature);
+                            continue;
+                        }
+                    }
+                    if let ArrayInfo::RelativeLen(_) = param.array_info {
+                        let signature = if self.reader.param_flags(param.def).output() {
+                            quote! { ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(#name)), }
+                        } else {
+                            quote! { ::core::mem::transmute(::windows::core::as_ptr_or_null(#name)), }
+                        };
+
+                        tokens.combine(&signature);
                         continue;
                     }
-                    if guid == position {
-                        tokens.combine(&quote! { &<T as ::windows::core::Interface>::IID, });
+                    if let ArrayInfo::RelativePtr(relative) = param.array_info {
+                        let name = self.param_name(params[relative].def);
+                        tokens.combine(&quote! { #name.len() as _, });
                         continue;
                     }
-                }
-                _ => {}
-            }
-
-            let name = self.param_name(param.def);
-
-            if let ArrayInfo::Fixed(fixed) = param.array_info {
-                if fixed > 0 && self.reader.param_free_with(param.def).is_none() {
-                    let signature = if self.reader.param_flags(param.def).output() {
-                        quote! { ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(#name)), }
-                    } else {
-                        quote! { ::core::mem::transmute(::windows::core::as_ptr_or_null(#name)), }
-                    };
-
-                    tokens.combine(&signature);
-                    continue;
+                    if self.reader.signature_param_is_convertible(param) {
+                        tokens.combine(&quote! { #name.into_param().abi(), });
+                        continue;
+                    }
+                    tokens.combine(&quote! { ::core::mem::transmute(#name), });
                 }
             }
-
-            if let ArrayInfo::RelativeLen(_) = param.array_info {
-                let signature = if self.reader.param_flags(param.def).output() {
-                    quote! { ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(#name)), }
-                } else {
-                    quote! { ::core::mem::transmute(::windows::core::as_ptr_or_null(#name)), }
-                };
-
-                tokens.combine(&signature);
-                continue;
-            }
-
-            if let ArrayInfo::RelativePtr(relative) = param.array_info {
-                let name = self.param_name(params[relative].def);
-                tokens.combine(&quote! { #name.len() as _, });
-                continue;
-            }
-
-            if self.reader.signature_param_is_convertible(param) {
-                tokens.combine(&quote! { #name.into_param().abi(), });
-                continue;
-            }
-
-            tokens.combine(&quote! { ::core::mem::transmute(#name), });
         }
 
         tokens
@@ -909,8 +893,8 @@ impl<'a> Gen<'a> {
 
         for (position, param) in params.iter().enumerate() {
             match kind {
-                SignatureKind::Query((object, guid)) | SignatureKind::QueryOptional((object, guid)) => {
-                    if object == position || guid == position {
+                SignatureKind::Query(query) | SignatureKind::QueryOptional(query) => {
+                    if query.object == position || query.guid == position {
                         continue;
                     }
                 }

@@ -69,9 +69,15 @@ pub enum InterfaceKind {
 }
 
 #[derive(Copy, Clone, PartialEq, Eq)]
+pub struct QueryPosition {
+    pub object: usize,
+    pub guid: usize,
+}
+
+#[derive(Copy, Clone, PartialEq, Eq)]
 pub enum SignatureKind {
-    Query((usize, usize)),
-    QueryOptional((usize, usize)),
+    Query(QueryPosition),
+    QueryOptional(QueryPosition),
     ResultValue,
     ResultVoid,
     ReturnStruct,
@@ -1168,9 +1174,9 @@ impl<'a> Reader<'a> {
                         if let Some(guid) = self.signature_param_is_query_guid(&signature.params) {
                             if let Some(object) = self.signature_param_is_query_object(&signature.params) {
                                 if self.param_flags(signature.params[object].def).optional() {
-                                    return SignatureKind::QueryOptional((object, guid));
+                                    return SignatureKind::QueryOptional(QueryPosition { object, guid });
                                 } else {
-                                    return SignatureKind::Query((object, guid));
+                                    return SignatureKind::Query(QueryPosition { object, guid });
                                 }
                             }
                         }
