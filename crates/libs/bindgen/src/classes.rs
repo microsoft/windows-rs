@@ -133,7 +133,7 @@ fn gen_class(gen: &Gen, def: TypeDef) -> TokenStream {
 }
 
 fn gen_conversions(gen: &Gen, def: TypeDef, name: &TokenStream, interfaces: &[Interface], cfg: &Cfg) -> TokenStream {
-    let mut tokens = quote!{};
+    let mut tokens = quote! {};
     for def in &[Type::IUnknown, Type::IInspectable] {
         let into = gen.type_name(def);
         let features = gen.cfg_features(cfg);

@@ -1,6 +1,6 @@
 /// A logically borrowed type that still retains the in-memory representation of the underlying type.
 ///
-/// `Borrowed`s can be thought of much like an `Option<&T>`. The reason `Borrowed` must be used instead of 
+/// `Borrowed`s can be thought of much like an `Option<&T>`. The reason `Borrowed` must be used instead of
 /// `Option<&T>` is because `Borrowed` has the same in-memory layout as `T`. This is necessary
 /// for FFI calls that expect a logically borrowed type that, in-memory, looks like an owned type.
 ///
@@ -23,7 +23,7 @@
 /// * `None` - because `Borrowed`s are always optional
 ///
 /// It's important to note that owned values **cannot** be passed as `Borrowed`s. After all, `Borrowed` types are borrowed and not owned. Just as you cannot
-/// pass a `T` into a function that expects a `&T`, you cannot pass a `T` into a function that expects a `Borrowed<'a, T>`. If you get something similar to 
+/// pass a `T` into a function that expects a `&T`, you cannot pass a `T` into a function that expects a `Borrowed<'a, T>`. If you get something similar to
 /// the following error, it's likely because you are trying to pass an owned value instead of a borrowed value:
 ///
 /// ```
@@ -64,13 +64,20 @@ impl<'a, T> Borrowed<'a, T> {
     }
 }
 
-impl <'a, T: 'a , U> From<&'a U> for Borrowed<'a, T> where T: super::Abi, &'a U: Into<&'a T> {
+impl<'a, T: 'a, U> From<&'a U> for Borrowed<'a, T>
+where
+    T: super::Abi,
+    &'a U: Into<&'a T>,
+{
     fn from(item: &'a U) -> Self {
         Borrowed::new(Some(item.into()))
     }
 }
 
-impl <'a, T: super::Abi> From<Option<&'a T>> for Borrowed<'a, T> where  &'a T: Into<Borrowed<'a, T>> {
+impl<'a, T: super::Abi> From<Option<&'a T>> for Borrowed<'a, T>
+where
+    &'a T: Into<Borrowed<'a, T>>,
+{
     fn from(item: Option<&'a T>) -> Self {
         item.map(|i| i.into()).unwrap_or_else(|| Borrowed::new(None))
     }

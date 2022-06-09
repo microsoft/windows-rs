@@ -135,7 +135,7 @@ fn gen_windows_traits(gen: &Gen, def: TypeDef, name: &TokenStream, cfg: &Cfg) ->
                     #into_abi
                 }
                 unsafe fn from_abi(abi: Self::Abi) -> ::windows::core::Result<Self> {
-                   #from_abi 
+                   #from_abi
                 }
             }
         };

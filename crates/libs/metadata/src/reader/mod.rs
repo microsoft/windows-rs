@@ -790,7 +790,7 @@ impl<'a> Reader<'a> {
         // TODO: should this just check whether the struct has > 1 fields rather than type_def_is_handle?
         self.type_def_kind(row) == TypeKind::Struct && !self.type_def_is_handle(row)
     }
-    pub fn type_def_is_convertible(&self, row: TypeDef) -> bool {
+    pub fn type_def_is_borrowed(&self, row: TypeDef) -> bool {
         match self.type_def_kind(row) {
             TypeKind::Delegate => self.type_def_flags(row).winrt(),
             _ => !self.type_def_is_primitive(row),
@@ -1137,11 +1137,11 @@ impl<'a> Reader<'a> {
         signature.return_type.iter().for_each(|ty| self.type_cfg_combine(ty, cfg));
         signature.params.iter().for_each(|param| self.type_cfg_combine(&param.ty, cfg));
     }
-    pub fn signature_param_is_in_param_convertible(&self, param: &SignatureParam) -> bool {
-        self.param_flags(param.def).input() && !param.ty.is_winrt_array() && !param.ty.is_pointer() && self.type_is_convertible(&param.ty) && param.array_info == ArrayInfo::None
+    pub fn signature_param_is_borrowed(&self, param: &SignatureParam) -> bool {
+        self.param_flags(param.def).input() && !param.ty.is_winrt_array() && !param.ty.is_pointer() && self.type_is_borrowed(&param.ty) && param.array_info == ArrayInfo::None
     }
     pub fn signature_param_is_convertible(&self, param: &SignatureParam) -> bool {
-        self.param_flags(param.def).input() && !param.ty.is_winrt_array() && !param.ty.is_pointer() &&  self.type_is_primitive_type_def(&param.ty) && param.array_info == ArrayInfo::None 
+        self.param_flags(param.def).input() && !param.ty.is_winrt_array() && !param.ty.is_pointer() && self.type_is_primitive_type_def(&param.ty) && param.array_info == ArrayInfo::None
     }
     pub fn signature_param_is_retval(&self, param: &SignatureParam) -> bool {
         // The Win32 metadata uses `RetValAttribute` to call out retval methods but it is employed
@@ -1500,11 +1500,11 @@ impl<'a> Reader<'a> {
             _ => false,
         }
     }
-    pub fn type_is_convertible(&self, ty: &Type) -> bool {
+    pub fn type_is_borrowed(&self, ty: &Type) -> bool {
         match ty {
-            Type::TypeDef((row, _)) => self.type_def_is_convertible(*row),
+            Type::TypeDef((row, _)) => self.type_def_is_borrowed(*row),
             Type::String | Type::IInspectable | Type::GUID | Type::IUnknown | Type::GenericParam(_) => true,
-            Type::WinrtConstRef(ty) => self.type_is_convertible(ty),
+            Type::WinrtConstRef(ty) => self.type_is_borrowed(ty),
             _ => false,
         }
     }
