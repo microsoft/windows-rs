@@ -53,14 +53,8 @@ impl<'a, T> std::ops::Deref for Borrowed<'a, T> {
     }
 }
 
-// TODO: implement this for all primitive types
-impl<'a> From<&'a i32> for Borrowed<'a, i32> {
-    fn from(i: &'a i32) -> Self {
-        unsafe { Borrowed::new(&i) }
-    }
-}
-impl<'a> From<&'a super::GUID> for Borrowed<'a, super::GUID> {
-    fn from(i: &'a super::GUID) -> Self {
-        unsafe { Borrowed::new(&i) }
+impl <'a, T: 'a , U> From<&'a U> for Borrowed<'a, T> where T: super::Abi, &'a U: Into<&'a T> {
+    fn from(item: &'a U) -> Self {
+        unsafe { Borrowed::new(item.into()) }
     }
 }

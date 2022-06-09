@@ -119,17 +119,7 @@ fn gen_methods(gen: &Gen, def: TypeDef, generics: &[Type], interfaces: &[Interfa
 }
 
 fn gen_conversions(gen: &Gen, def: TypeDef, _generics: &[Type], interfaces: &[Interface], name: &TokenStream, constraints: &TokenStream, cfg: &Cfg) -> TokenStream {
-    let mut tokens = {
-        let cfg = gen.cfg_features(&cfg);
-        quote! {
-            #cfg
-            impl <'a, U, #constraints> From<U> for ::windows::core::Borrowed<'a, #name> where U: ::core::convert::Into<&'a #name> {
-                fn from(item: U) -> Self {
-                    unsafe { ::windows::core::Borrowed::new(item.into()) }
-                }
-            }
-        }
-    };
+    let mut tokens = quote!{};
 
     for ty in &gen.reader.type_def_vtables(def) {
         let into = gen.type_name(ty);

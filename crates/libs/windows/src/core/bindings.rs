@@ -254,14 +254,6 @@ impl IPropertyValue {
         unsafe { (::windows::core::Interface::vtable(this).GetRectArray)(::windows::core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
 }
-impl<'a, U> From<U> for ::windows::core::Borrowed<'a, IPropertyValue>
-where
-    U: ::core::convert::Into<&'a IPropertyValue>,
-{
-    fn from(item: U) -> Self {
-        unsafe { ::windows::core::Borrowed::new(item.into()) }
-    }
-}
 impl ::core::convert::From<IPropertyValue> for ::windows::core::IUnknown {
     fn from(value: IPropertyValue) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -427,14 +419,6 @@ impl<T: ::windows::core::RuntimeType + 'static> IReference<T> {
         }
     }
 }
-impl<'a, U, T: ::windows::core::RuntimeType + 'static> From<U> for ::windows::core::Borrowed<'a, IReference<T>>
-where
-    U: ::core::convert::Into<&'a IReference<T>>,
-{
-    fn from(item: U) -> Self {
-        unsafe { ::windows::core::Borrowed::new(item.into()) }
-    }
-}
 impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::From<IReference<T>> for ::windows::core::IUnknown {
     fn from(value: IReference<T>) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -523,14 +507,6 @@ impl IStringable {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
             (::windows::core::Interface::vtable(this).ToString)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
-    }
-}
-impl<'a, U> From<U> for ::windows::core::Borrowed<'a, IStringable>
-where
-    U: ::core::convert::Into<&'a IStringable>,
-{
-    fn from(item: U) -> Self {
-        unsafe { ::windows::core::Borrowed::new(item.into()) }
     }
 }
 impl ::core::convert::From<IStringable> for ::windows::core::IUnknown {
@@ -1071,14 +1047,6 @@ impl ::core::convert::From<TimeSpan> for ::core::time::Duration {
         ::core::time::Duration::from_nanos((value.Duration * 100) as u64)
     }
 }
-impl<'a, T> From<T> for ::windows::core::Borrowed<'a, TimeSpan>
-where
-    T: Into<&'a TimeSpan>,
-{
-    fn from(item: T) -> Self {
-        unsafe { ::windows::core::Borrowed::new(item.into()) }
-    }
-}
 #[repr(transparent)]
 pub struct BOOL(pub i32);
 impl BOOL {
@@ -1173,14 +1141,6 @@ impl ::core::ops::Not for BOOL {
 }
 unsafe impl ::windows::core::Abi for BOOL {
     type Abi = Self;
-}
-impl<'a, T> From<T> for ::windows::core::Borrowed<'a, BOOL>
-where
-    T: Into<&'a BOOL>,
-{
-    fn from(item: T) -> Self {
-        unsafe { ::windows::core::Borrowed::new(item.into()) }
-    }
 }
 #[repr(transparent)]
 pub struct BSTR(*const u16);
@@ -1305,19 +1265,6 @@ impl ::core::ops::Drop for BSTR {
 unsafe impl ::windows::core::Abi for BSTR {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-impl<'a, T> ::core::convert::From<T> for ::windows::core::Borrowed<'a, BSTR>
-where
-    T: ::core::convert::Into<&'a BSTR>,
-{
-    fn from(item: T) -> Self {
-        unsafe { ::windows::core::Borrowed::new(item.into()) }
-    }
-}
-impl<'a> ::core::convert::Into<Option<::windows::core::Borrowed<'a, BSTR>>> for &'a BSTR {
-    fn into(self) -> ::core::option::Option<::windows::core::Borrowed<'a, BSTR>> {
-        Some(unsafe { ::windows::core::Borrowed::new(self) })
-    }
-}
 pub const CLASS_E_CLASSNOTAVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221231i32);
 #[inline]
 pub unsafe fn CloseHandle<'a, Param0: ::std::convert::Into<HANDLE>>(hobject: Param0) -> BOOL {
@@ -1368,14 +1315,6 @@ impl ::core::fmt::Debug for HANDLE {
 unsafe impl ::windows::core::Abi for HANDLE {
     type Abi = Self;
 }
-impl<'a, T> From<T> for ::windows::core::Borrowed<'a, HANDLE>
-where
-    T: Into<&'a HANDLE>,
-{
-    fn from(item: T) -> Self {
-        unsafe { ::windows::core::Borrowed::new(item.into()) }
-    }
-}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HINSTANCE(pub isize);
@@ -1402,14 +1341,6 @@ impl ::core::fmt::Debug for HINSTANCE {
 }
 unsafe impl ::windows::core::Abi for HINSTANCE {
     type Abi = Self;
-}
-impl<'a, T> From<T> for ::windows::core::Borrowed<'a, HINSTANCE>
-where
-    T: Into<&'a HINSTANCE>,
-{
-    fn from(item: T) -> Self {
-        unsafe { ::windows::core::Borrowed::new(item.into()) }
-    }
 }
 pub const S_OK: ::windows::core::HRESULT = ::windows::core::HRESULT(0i32);
 #[inline]
@@ -1575,14 +1506,6 @@ pub unsafe fn GetErrorInfo(dwreserved: u32) -> ::windows::core::Result<IErrorInf
 #[repr(transparent)]
 pub struct IAgileObject(::windows::core::IUnknown);
 impl IAgileObject {}
-impl<'a, U> From<U> for ::windows::core::Borrowed<'a, IAgileObject>
-where
-    U: ::core::convert::Into<&'a IAgileObject>,
-{
-    fn from(item: U) -> Self {
-        unsafe { ::windows::core::Borrowed::new(item.into()) }
-    }
-}
 impl ::core::convert::From<IAgileObject> for ::windows::core::IUnknown {
     fn from(value: IAgileObject) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -1645,14 +1568,6 @@ impl IErrorInfo {
     pub unsafe fn GetHelpContext(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
         (::windows::core::Interface::vtable(self).GetHelpContext)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
-    }
-}
-impl<'a, U> From<U> for ::windows::core::Borrowed<'a, IErrorInfo>
-where
-    U: ::core::convert::Into<&'a IErrorInfo>,
-{
-    fn from(item: U) -> Self {
-        unsafe { ::windows::core::Borrowed::new(item.into()) }
     }
 }
 impl ::core::convert::From<IErrorInfo> for ::windows::core::IUnknown {
@@ -1924,14 +1839,6 @@ impl ::core::fmt::Debug for HeapHandle {
 unsafe impl ::windows::core::Abi for HeapHandle {
     type Abi = Self;
 }
-impl<'a, T> From<T> for ::windows::core::Borrowed<'a, HeapHandle>
-where
-    T: Into<&'a HeapHandle>,
-{
-    fn from(item: T) -> Self {
-        unsafe { ::windows::core::Borrowed::new(item.into()) }
-    }
-}
 #[inline]
 pub unsafe fn CreateEventA<'a, Param1: ::std::convert::Into<BOOL>, Param2: ::std::convert::Into<BOOL>>(lpeventattributes: *const SECURITY_ATTRIBUTES, bmanualreset: Param1, binitialstate: Param2, lpname: ::windows::core::PCSTR) -> ::windows::core::Result<HANDLE> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -1963,14 +1870,6 @@ impl IAgileReference {
     pub unsafe fn Resolve<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).Resolve)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-}
-impl<'a, U> From<U> for ::windows::core::Borrowed<'a, IAgileReference>
-where
-    U: ::core::convert::Into<&'a IAgileReference>,
-{
-    fn from(item: U) -> Self {
-        unsafe { ::windows::core::Borrowed::new(item.into()) }
     }
 }
 impl ::core::convert::From<IAgileReference> for ::windows::core::IUnknown {
@@ -2055,14 +1954,6 @@ impl ILanguageExceptionErrorInfo {
         (::windows::core::Interface::vtable(self).GetLanguageException)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
 }
-impl<'a, U> From<U> for ::windows::core::Borrowed<'a, ILanguageExceptionErrorInfo>
-where
-    U: ::core::convert::Into<&'a ILanguageExceptionErrorInfo>,
-{
-    fn from(item: U) -> Self {
-        unsafe { ::windows::core::Borrowed::new(item.into()) }
-    }
-}
 impl ::core::convert::From<ILanguageExceptionErrorInfo> for ::windows::core::IUnknown {
     fn from(value: ILanguageExceptionErrorInfo) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -2121,14 +2012,6 @@ impl ILanguageExceptionErrorInfo2 {
     pub unsafe fn GetPropagationContextHead(&self) -> ::windows::core::Result<ILanguageExceptionErrorInfo2> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).GetPropagationContextHead)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ILanguageExceptionErrorInfo2>(result__)
-    }
-}
-impl<'a, U> From<U> for ::windows::core::Borrowed<'a, ILanguageExceptionErrorInfo2>
-where
-    U: ::core::convert::Into<&'a ILanguageExceptionErrorInfo2>,
-{
-    fn from(item: U) -> Self {
-        unsafe { ::windows::core::Borrowed::new(item.into()) }
     }
 }
 impl ::core::convert::From<ILanguageExceptionErrorInfo2> for ::windows::core::IUnknown {
@@ -2200,14 +2083,6 @@ impl IRestrictedErrorInfo {
         (::windows::core::Interface::vtable(self).GetReference)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<BSTR>(result__)
     }
 }
-impl<'a, U> From<U> for ::windows::core::Borrowed<'a, IRestrictedErrorInfo>
-where
-    U: ::core::convert::Into<&'a IRestrictedErrorInfo>,
-{
-    fn from(item: U) -> Self {
-        unsafe { ::windows::core::Borrowed::new(item.into()) }
-    }
-}
 impl ::core::convert::From<IRestrictedErrorInfo> for ::windows::core::IUnknown {
     fn from(value: IRestrictedErrorInfo) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -2260,14 +2135,6 @@ impl IWeakReference {
         (::windows::core::Interface::vtable(self).Resolve)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl<'a, U> From<U> for ::windows::core::Borrowed<'a, IWeakReference>
-where
-    U: ::core::convert::Into<&'a IWeakReference>,
-{
-    fn from(item: U) -> Self {
-        unsafe { ::windows::core::Borrowed::new(item.into()) }
-    }
-}
 impl ::core::convert::From<IWeakReference> for ::windows::core::IUnknown {
     fn from(value: IWeakReference) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -2315,14 +2182,6 @@ impl IWeakReferenceSource {
     pub unsafe fn GetWeakReference(&self) -> ::windows::core::Result<IWeakReference> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).GetWeakReference)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWeakReference>(result__)
-    }
-}
-impl<'a, U> From<U> for ::windows::core::Borrowed<'a, IWeakReferenceSource>
-where
-    U: ::core::convert::Into<&'a IWeakReferenceSource>,
-{
-    fn from(item: U) -> Self {
-        unsafe { ::windows::core::Borrowed::new(item.into()) }
     }
 }
 impl ::core::convert::From<IWeakReferenceSource> for ::windows::core::IUnknown {

@@ -277,7 +277,6 @@ impl<'a> Gen<'a> {
     }
     pub fn param_constraints(&self, params: &[SignatureParam]) -> TokenStream {
         let mut tokens = TokenStream::new();
-        let mut skipped = false;
         for (position, param) in params.iter().enumerate() {
             if self.reader.signature_param_is_in_param_convertible(param) {
                 let name: TokenStream = format!("Param{}", position).into();

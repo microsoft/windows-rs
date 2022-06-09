@@ -55,7 +55,7 @@ pub fn gen_win_handle(gen: &Gen, def: TypeDef) -> TokenStream {
         }
     };
 
-    let mut tokens = quote! {
+    let tokens = quote! {
         #[repr(transparent)]
         // Unfortunately, Rust requires these to be derived to allow constant patterns.
         #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -81,14 +81,6 @@ pub fn gen_win_handle(gen: &Gen, def: TypeDef) -> TokenStream {
             type Abi = Self;
         }
     };
-
-    tokens.combine(&quote! {
-        impl <'a, T> From<T> for ::windows::core::Borrowed<'a, #ident> where T: Into<&'a #ident> {
-            fn from(item: T) -> Self {
-                unsafe { ::windows::core::Borrowed::new(item.into()) }
-            }
-        }
-    });
 
     tokens
 }

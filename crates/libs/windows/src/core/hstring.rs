@@ -382,15 +382,6 @@ impl core::convert::From<HSTRING> for std::ffi::OsString {
     }
 }
 
-impl<'a, T> From<T> for Borrowed<'a, HSTRING>
-where
-    T: Into<&'a HSTRING>,
-{
-    fn from(item: T) -> Self {
-        unsafe { Borrowed::new(item.into()) }
-    }
-}
-
 const REFERENCE_FLAG: u32 = 1;
 
 #[repr(C)]

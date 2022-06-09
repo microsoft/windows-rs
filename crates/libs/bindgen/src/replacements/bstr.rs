@@ -136,16 +136,5 @@ pub fn gen() -> TokenStream {
         unsafe impl ::windows::core::Abi for BSTR {
             type Abi = ::core::mem::ManuallyDrop<Self>;
         }
-
-        impl <'a, T> ::core::convert::From<T> for ::windows::core::Borrowed<'a, BSTR> where T: ::core::convert::Into<&'a BSTR> {
-            fn from(item: T) -> Self {
-                unsafe { ::windows::core::Borrowed::new(item.into()) }
-            }
-        }
-        impl <'a> ::core::convert::Into<Option<::windows::core::Borrowed<'a, BSTR>>> for &'a BSTR {
-            fn into(self) -> ::core::option::Option<::windows::core::Borrowed<'a, BSTR>> {
-                Some(unsafe { ::windows::core::Borrowed::new(self) })
-            }
-        }
     }
 }

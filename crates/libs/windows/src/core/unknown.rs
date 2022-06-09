@@ -99,12 +99,3 @@ impl IUnknownVtbl {
         Self { QueryInterface: QueryInterface::<T, OFFSET>, AddRef: AddRef::<T, OFFSET>, Release: Release::<T, OFFSET> }
     }
 }
-
-impl<'a, T> From<T> for super::Borrowed<'a, IUnknown>
-where
-    T: Into<&'a IUnknown>,
-{
-    fn from(item: T) -> Self {
-        unsafe { Borrowed::new(item.into()) }
-    }
-}
