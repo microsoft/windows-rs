@@ -15,6 +15,12 @@ impl ::core::fmt::Debug for DateTime {
 }
 unsafe impl ::windows::core::Abi for DateTime {
     type Abi = Self;
+    fn abi(&self) -> Self::Abi {
+        *self
+    }
+    unsafe fn from_abi(abi: Self::Abi) -> ::windows::core::Result<Self> {
+        Ok(abi)
+    }
 }
 unsafe impl ::windows::core::RuntimeType for DateTime {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Foundation.DateTime;i8)");
@@ -590,6 +596,12 @@ impl ::core::fmt::Debug for Point {
 }
 unsafe impl ::windows::core::Abi for Point {
     type Abi = Self;
+    fn abi(&self) -> Self::Abi {
+        *self
+    }
+    unsafe fn from_abi(abi: Self::Abi) -> ::windows::core::Result<Self> {
+        Ok(abi)
+    }
 }
 unsafe impl ::windows::core::RuntimeType for Point {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Foundation.Point;f4;f4)");
@@ -668,6 +680,12 @@ impl ::core::default::Default for PropertyType {
 }
 unsafe impl ::windows::core::Abi for PropertyType {
     type Abi = Self;
+    fn abi(&self) -> Self::Abi {
+        *self
+    }
+    unsafe fn from_abi(abi: Self::Abi) -> ::windows::core::Result<Self> {
+        Ok(abi)
+    }
 }
 impl ::core::fmt::Debug for PropertyType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -945,6 +963,12 @@ impl ::core::fmt::Debug for Rect {
 }
 unsafe impl ::windows::core::Abi for Rect {
     type Abi = Self;
+    fn abi(&self) -> Self::Abi {
+        *self
+    }
+    unsafe fn from_abi(abi: Self::Abi) -> ::windows::core::Result<Self> {
+        Ok(abi)
+    }
 }
 unsafe impl ::windows::core::RuntimeType for Rect {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Foundation.Rect;f4;f4;f4;f4)");
@@ -982,6 +1006,12 @@ impl ::core::fmt::Debug for Size {
 }
 unsafe impl ::windows::core::Abi for Size {
     type Abi = Self;
+    fn abi(&self) -> Self::Abi {
+        *self
+    }
+    unsafe fn from_abi(abi: Self::Abi) -> ::windows::core::Result<Self> {
+        Ok(abi)
+    }
 }
 unsafe impl ::windows::core::RuntimeType for Size {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Foundation.Size;f4;f4)");
@@ -1018,6 +1048,12 @@ impl ::core::fmt::Debug for TimeSpan {
 }
 unsafe impl ::windows::core::Abi for TimeSpan {
     type Abi = Self;
+    fn abi(&self) -> Self::Abi {
+        *self
+    }
+    unsafe fn from_abi(abi: Self::Abi) -> ::windows::core::Result<Self> {
+        Ok(abi)
+    }
 }
 unsafe impl ::windows::core::RuntimeType for TimeSpan {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Foundation.TimeSpan;i8)");
@@ -1141,6 +1177,12 @@ impl ::core::ops::Not for BOOL {
 }
 unsafe impl ::windows::core::Abi for BOOL {
     type Abi = Self;
+    fn abi(&self) -> Self::Abi {
+        *self
+    }
+    unsafe fn from_abi(abi: Self::Abi) -> ::windows::core::Result<Self> {
+        Ok(abi)
+    }
 }
 #[repr(transparent)]
 pub struct BSTR(*const u16);
@@ -1264,6 +1306,12 @@ impl ::core::ops::Drop for BSTR {
 }
 unsafe impl ::windows::core::Abi for BSTR {
     type Abi = ::core::mem::ManuallyDrop<Self>;
+    fn abi(&self) -> Self::Abi {
+        core::mem::ManuallyDrop::new(unsafe { core::mem::transmute_copy(self) })
+    }
+    unsafe fn from_abi(abi: Self::Abi) -> ::windows::core::Result<Self> {
+        Ok(core::mem::ManuallyDrop::into_inner(abi))
+    }
 }
 pub const CLASS_E_CLASSNOTAVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221231i32);
 #[inline]
@@ -1314,6 +1362,12 @@ impl ::core::fmt::Debug for HANDLE {
 }
 unsafe impl ::windows::core::Abi for HANDLE {
     type Abi = Self;
+    fn abi(&self) -> Self::Abi {
+        *self
+    }
+    unsafe fn from_abi(abi: Self::Abi) -> ::windows::core::Result<Self> {
+        Ok(abi)
+    }
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -1341,6 +1395,12 @@ impl ::core::fmt::Debug for HINSTANCE {
 }
 unsafe impl ::windows::core::Abi for HINSTANCE {
     type Abi = Self;
+    fn abi(&self) -> Self::Abi {
+        *self
+    }
+    unsafe fn from_abi(abi: Self::Abi) -> ::windows::core::Result<Self> {
+        Ok(abi)
+    }
 }
 pub const S_OK: ::windows::core::HRESULT = ::windows::core::HRESULT(0i32);
 #[inline]
@@ -1391,6 +1451,12 @@ impl ::core::default::Default for WIN32_ERROR {
 }
 unsafe impl ::windows::core::Abi for WIN32_ERROR {
     type Abi = Self;
+    fn abi(&self) -> Self::Abi {
+        *self
+    }
+    unsafe fn from_abi(abi: Self::Abi) -> ::windows::core::Result<Self> {
+        Ok(abi)
+    }
 }
 impl ::core::fmt::Debug for WIN32_ERROR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1457,6 +1523,12 @@ impl ::core::fmt::Debug for SECURITY_ATTRIBUTES {
 }
 unsafe impl ::windows::core::Abi for SECURITY_ATTRIBUTES {
     type Abi = Self;
+    fn abi(&self) -> Self::Abi {
+        *self
+    }
+    unsafe fn from_abi(abi: Self::Abi) -> ::windows::core::Result<Self> {
+        Ok(abi)
+    }
 }
 impl ::core::cmp::PartialEq for SECURITY_ATTRIBUTES {
     fn eq(&self, other: &Self) -> bool {
@@ -1653,6 +1725,12 @@ impl ::core::default::Default for FORMAT_MESSAGE_OPTIONS {
 }
 unsafe impl ::windows::core::Abi for FORMAT_MESSAGE_OPTIONS {
     type Abi = Self;
+    fn abi(&self) -> Self::Abi {
+        *self
+    }
+    unsafe fn from_abi(abi: Self::Abi) -> ::windows::core::Result<Self> {
+        Ok(abi)
+    }
 }
 impl ::core::fmt::Debug for FORMAT_MESSAGE_OPTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1762,6 +1840,12 @@ impl ::core::default::Default for HEAP_FLAGS {
 }
 unsafe impl ::windows::core::Abi for HEAP_FLAGS {
     type Abi = Self;
+    fn abi(&self) -> Self::Abi {
+        *self
+    }
+    unsafe fn from_abi(abi: Self::Abi) -> ::windows::core::Result<Self> {
+        Ok(abi)
+    }
 }
 impl ::core::fmt::Debug for HEAP_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1838,6 +1922,12 @@ impl ::core::fmt::Debug for HeapHandle {
 }
 unsafe impl ::windows::core::Abi for HeapHandle {
     type Abi = Self;
+    fn abi(&self) -> Self::Abi {
+        *self
+    }
+    unsafe fn from_abi(abi: Self::Abi) -> ::windows::core::Result<Self> {
+        Ok(abi)
+    }
 }
 #[inline]
 pub unsafe fn CreateEventA<'a, Param1: ::std::convert::Into<BOOL>, Param2: ::std::convert::Into<BOOL>>(lpeventattributes: *const SECURITY_ATTRIBUTES, bmanualreset: Param1, binitialstate: Param2, lpname: ::windows::core::PCSTR) -> ::windows::core::Result<HANDLE> {
@@ -1931,6 +2021,12 @@ impl ::core::default::Default for AgileReferenceOptions {
 }
 unsafe impl ::windows::core::Abi for AgileReferenceOptions {
     type Abi = Self;
+    fn abi(&self) -> Self::Abi {
+        *self
+    }
+    unsafe fn from_abi(abi: Self::Abi) -> ::windows::core::Result<Self> {
+        Ok(abi)
+    }
 }
 impl ::core::fmt::Debug for AgileReferenceOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {

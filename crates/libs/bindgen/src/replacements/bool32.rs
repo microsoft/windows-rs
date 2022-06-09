@@ -114,6 +114,12 @@ pub fn gen() -> TokenStream {
 
         unsafe impl ::windows::core::Abi for BOOL {
             type Abi = Self;
+            fn abi(&self) -> Self::Abi {
+                *self
+            }
+            unsafe fn from_abi(abi: Self::Abi) -> ::windows::core::Result<Self> {
+                Ok(abi)
+            }
         }
     }
 }

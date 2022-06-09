@@ -6,7 +6,6 @@ use bindings::*;
 /// A globally unique identifier ([GUID](https://docs.microsoft.com/en-us/windows/win32/api/guiddef/ns-guiddef-guid))
 /// used to identify COM and WinRT interfaces.
 #[repr(C)]
-// TODO: write these out
 #[derive(Clone, Copy, Default, PartialEq, Eq, Hash)]
 pub struct GUID {
     pub data1: u32,
@@ -61,6 +60,14 @@ impl GUID {
 
 unsafe impl Abi for GUID {
     type Abi = Self;
+
+    fn abi(&self) -> Self::Abi {
+        *self
+    }
+
+    unsafe fn from_abi(abi: Self::Abi) -> Result<Self> {
+        Ok(abi)
+    }
 }
 
 unsafe impl RuntimeType for GUID {

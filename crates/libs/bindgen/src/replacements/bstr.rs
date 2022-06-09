@@ -135,6 +135,13 @@ pub fn gen() -> TokenStream {
         }
         unsafe impl ::windows::core::Abi for BSTR {
             type Abi = ::core::mem::ManuallyDrop<Self>;
+            fn abi(&self) -> Self::Abi {
+                // SAFETY: `BSTR`s can be aliased as long as the alias does not outlive the original handle
+                core::mem::ManuallyDrop::new(unsafe { core::mem::transmute_copy(self) })
+            }
+            unsafe fn from_abi(abi: Self::Abi) -> ::windows::core::Result<Self> {
+                Ok(core::mem::ManuallyDrop::into_inner(abi))
+            }
         }
     }
 }

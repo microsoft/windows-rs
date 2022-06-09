@@ -108,10 +108,21 @@ fn gen_windows_traits(gen: &Gen, def: TypeDef, name: &TokenStream, cfg: &Cfg) ->
     if gen.sys {
         quote! {}
     } else {
-        let abi = if gen.reader.type_def_is_blittable(def) {
+        let blittable = gen.reader.type_def_is_blittable(def);
+        let abi = if blittable {
             quote! { Self }
         } else {
             quote! { ::core::mem::ManuallyDrop<Self> }
+        };
+        let into_abi = if blittable {
+            quote! { *self }
+        } else {
+            quote! { ::core::mem::ManuallyDrop::new(unsafe { ::core::mem::transmute_copy(self) }) }
+        };
+        let from_abi = if blittable {
+            quote! { Ok(abi) }
+        } else {
+            quote! { Ok(::core::mem::ManuallyDrop::into_inner(abi)) }
         };
 
         let features = gen.cfg_features(cfg);
@@ -120,6 +131,12 @@ fn gen_windows_traits(gen: &Gen, def: TypeDef, name: &TokenStream, cfg: &Cfg) ->
             #features
             unsafe impl ::windows::core::Abi for #name {
                 type Abi = #abi;
+                fn abi(&self) -> Self::Abi {
+                    #into_abi
+                }
+                unsafe fn from_abi(abi: Self::Abi) -> ::windows::core::Result<Self> {
+                   #from_abi 
+                }
             }
         };
 

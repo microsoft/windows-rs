@@ -124,6 +124,12 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
             #features
             unsafe impl ::windows::core::Abi for #ident {
                 type Abi = Self;
+                fn abi(&self) -> Self::Abi {
+                    *self
+                }
+                unsafe fn from_abi(abi: Self::Abi) -> ::windows::core::Result<Self> {
+                    Ok(abi)
+                }
             }
             #features
             impl ::core::fmt::Debug for #ident {

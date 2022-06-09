@@ -33,16 +33,11 @@ impl ::core::fmt::Debug for PCSTR {
 unsafe impl Abi for PCSTR {
     type Abi = Self;
 
-    unsafe fn from_abi(abi: Self::Abi) -> Result<Self> {
-        Ok(abi)
+    fn abi(&self) -> Self::Abi {
+        *self
     }
 
-    #[cfg(feature = "alloc")]
-    unsafe fn drop_param(param: &mut Param<'_, Self>) {
-        if let Param::Boxed(value) = param {
-            if !value.is_null() {
-                heap_free(value.0 as _);
-            }
-        }
+    unsafe fn from_abi(abi: Self::Abi) -> Result<Self> {
+        Ok(abi)
     }
 }

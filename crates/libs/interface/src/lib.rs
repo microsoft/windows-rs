@@ -243,16 +243,6 @@ impl Interface {
                     ::core::convert::From::from(::core::clone::Clone::clone(value))
                 }
             }
-            impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for #name {
-                fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-                    ::windows::core::Param::Owned(self.into())
-                }
-            }
-            impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a #name {
-                fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-                    ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-                }
-            }
             impl ::core::clone::Clone for #name {
                 fn clone(&self) -> Self {
                     Self(self.0.clone())

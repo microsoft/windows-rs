@@ -1,5 +1,3 @@
-#![warn(unsafe_op_in_unsafe_fn)]
-
 /// A logically borrowed type that still retains the in-memory representation of the underlying type.
 ///
 /// Generally a value of type `Borrowed<'a, T>` can be thought of as equivalent to `&'a T` with the only different being that
@@ -20,29 +18,15 @@ pub struct Borrowed<'a, T> {
     lifetime: core::marker::PhantomData<&'a ()>,
 }
 
-impl<'a, T> Borrowed<'a, T> {
+impl<'a, T: super::Abi> Borrowed<'a, T> {
     /// Create a new `Borrowed` value.
     ///
     /// Normally, it is not necessary to use this function. Generally, there is a `From` implementation
     /// that allows you to call `.into` to safely create a `Borrowed` value.
-    ///
-    /// # Safety
-    ///
-    /// It must be safe to alias `T` as long as `T`'s destructor is not run.
-    ///
-    /// For example, `IUnknown` is fine to alias as long as the reference count is guaranteed to stay above 0
-    /// until the original `item` is dropped. On the other hand `Box<T>` is not fine to alias and thus passing a `Box`
-    /// to this function would be UB.
-    pub unsafe fn new(item: &'a T) -> Self {
+    pub fn new(item: &'a T) -> Self {
+        // SAFETY: `T` is safe to alias since that is a condition of implmenting `Abi`
         let item = unsafe { core::mem::transmute_copy(item) };
         Self { item, lifetime: core::marker::PhantomData }
-    }
-}
-
-impl<'a, T: super::Abi> Borrowed<'a, T> {
-    pub fn abi(&self) -> T::Abi {
-        // SAFETY:  TODO
-        unsafe { std::mem::transmute_copy(self) }
     }
 }
 
@@ -55,6 +39,6 @@ impl<'a, T> std::ops::Deref for Borrowed<'a, T> {
 
 impl <'a, T: 'a , U> From<&'a U> for Borrowed<'a, T> where T: super::Abi, &'a U: Into<&'a T> {
     fn from(item: &'a U) -> Self {
-        unsafe { Borrowed::new(item.into()) }
+        Borrowed::new(item.into())
     }
 }
