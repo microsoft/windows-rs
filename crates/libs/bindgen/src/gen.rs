@@ -834,56 +834,73 @@ impl<'a> Gen<'a> {
             quote! {}
         }
     }
-    pub fn win32_args(&self, params: &[SignatureParam]) -> TokenStream {
+    pub fn win32_args(&self, params: &[SignatureParam], kind: SignatureKind) -> TokenStream {
         let mut tokens = quote! {};
 
-        for param in params {
-            let name = self.param_name(param.def);
+        for (position, param) in params.iter().enumerate() {
+            match kind {
+                SignatureKind::Query(query) if query.object == position => {
+                    tokens.combine(&quote! { &mut result__ as *mut _ as *mut _, });
+                }
+                SignatureKind::QueryOptional(query) if query.object == position => {
+                    tokens.combine(&quote! { result__ as *mut _ as *mut _, });
+                }
+                SignatureKind::Query(query) | SignatureKind::QueryOptional(query) if query.guid == position => {
+                    tokens.combine(&quote! { &<T as ::windows::core::Interface>::IID, });
+                }
+                _ => {
+                    let name = self.param_name(param.def);
+                    if let ArrayInfo::Fixed(fixed) = param.array_info {
+                        if fixed > 0 && self.reader.param_free_with(param.def).is_none() {
+                            let signature = if self.reader.param_flags(param.def).output() {
+                                quote! { ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(#name)), }
+                            } else {
+                                quote! { ::core::mem::transmute(::windows::core::as_ptr_or_null(#name)), }
+                            };
 
-            if let ArrayInfo::Fixed(fixed) = param.array_info {
-                if fixed > 0 && self.reader.param_free_with(param.def).is_none() {
-                    let signature = if self.reader.param_flags(param.def).output() {
-                        quote! { ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(#name)), }
-                    } else {
-                        quote! { ::core::mem::transmute(::windows::core::as_ptr_or_null(#name)), }
-                    };
+                            tokens.combine(&signature);
+                            continue;
+                        }
+                    }
+                    if let ArrayInfo::RelativeLen(_) = param.array_info {
+                        let signature = if self.reader.param_flags(param.def).output() {
+                            quote! { ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(#name)), }
+                        } else {
+                            quote! { ::core::mem::transmute(::windows::core::as_ptr_or_null(#name)), }
+                        };
 
-                    tokens.combine(&signature);
-                    continue;
+                        tokens.combine(&signature);
+                        continue;
+                    }
+                    if let ArrayInfo::RelativePtr(relative) = param.array_info {
+                        let name = self.param_name(params[relative].def);
+                        tokens.combine(&quote! { #name.len() as _, });
+                        continue;
+                    }
+                    if self.reader.signature_param_is_convertible(param) {
+                        tokens.combine(&quote! { #name.into_param().abi(), });
+                        continue;
+                    }
+                    tokens.combine(&quote! { ::core::mem::transmute(#name), });
                 }
             }
-
-            if let ArrayInfo::RelativeLen(_) = param.array_info {
-                let signature = if self.reader.param_flags(param.def).output() {
-                    quote! { ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(#name)), }
-                } else {
-                    quote! { ::core::mem::transmute(::windows::core::as_ptr_or_null(#name)), }
-                };
-
-                tokens.combine(&signature);
-                continue;
-            }
-
-            if let ArrayInfo::RelativePtr(relative) = param.array_info {
-                let name = self.param_name(params[relative].def);
-                tokens.combine(&quote! { #name.len() as _, });
-                continue;
-            }
-
-            if self.reader.signature_param_is_convertible(param) {
-                tokens.combine(&quote! { #name.into_param().abi(), });
-                continue;
-            }
-
-            tokens.combine(&quote! { ::core::mem::transmute(#name), });
         }
 
         tokens
     }
-    pub fn win32_params(&self, params: &[SignatureParam]) -> TokenStream {
+    pub fn win32_params(&self, params: &[SignatureParam], kind: SignatureKind) -> TokenStream {
         let mut tokens = quote! {};
 
         for (position, param) in params.iter().enumerate() {
+            match kind {
+                SignatureKind::Query(query) | SignatureKind::QueryOptional(query) => {
+                    if query.object == position || query.guid == position {
+                        continue;
+                    }
+                }
+                _ => {}
+            }
+
             let name = self.param_name(param.def);
 
             if let ArrayInfo::Fixed(fixed) = param.array_info {
@@ -973,7 +990,7 @@ impl<'a> Gen<'a> {
 
             let return_type = match signature_kind {
                 SignatureKind::ReturnVoid => quote! {},
-                SignatureKind::Query | SignatureKind::QueryOptional | SignatureKind::ResultVoid => quote! { -> ::windows::core::Result<()> },
+                SignatureKind::Query(_) | SignatureKind::QueryOptional(_) | SignatureKind::ResultVoid => quote! { -> ::windows::core::Result<()> },
                 SignatureKind::ResultValue => {
                     let return_type = signature.params[signature.params.len() - 1].ty.deref();
                     let return_type = self.type_name(&return_type);

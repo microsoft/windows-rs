@@ -68,10 +68,16 @@ pub enum InterfaceKind {
     Base,
 }
 
-#[derive(PartialEq, Eq)]
+#[derive(Copy, Clone, PartialEq, Eq)]
+pub struct QueryPosition {
+    pub object: usize,
+    pub guid: usize,
+}
+
+#[derive(Copy, Clone, PartialEq, Eq)]
 pub enum SignatureKind {
-    Query,
-    QueryOptional,
+    Query(QueryPosition),
+    QueryOptional(QueryPosition),
     ResultValue,
     ResultVoid,
     ReturnStruct,
@@ -1165,14 +1171,13 @@ impl<'a> Reader<'a> {
             match return_type {
                 Type::HRESULT => {
                     if signature.params.len() >= 2 {
-                        let guid = &signature.params[signature.params.len() - 2];
-                        let object = &signature.params[signature.params.len() - 1];
-
-                        if guid.ty == Type::ConstPtr((Box::new(Type::GUID), 1)) && !self.param_flags(guid.def).output() && object.ty == Type::MutPtr((Box::new(Type::Void), 2)) && self.param_is_com_out_ptr(object.def) {
-                            if self.param_flags(object.def).optional() {
-                                return SignatureKind::QueryOptional;
-                            } else {
-                                return SignatureKind::Query;
+                        if let Some(guid) = self.signature_param_is_query_guid(&signature.params) {
+                            if let Some(object) = self.signature_param_is_query_object(&signature.params) {
+                                if self.param_flags(signature.params[object].def).optional() {
+                                    return SignatureKind::QueryOptional(QueryPosition { object, guid });
+                                } else {
+                                    return SignatureKind::Query(QueryPosition { object, guid });
+                                }
                             }
                         }
                     }
@@ -1199,6 +1204,22 @@ impl<'a> Reader<'a> {
         }
 
         SignatureKind::ReturnVoid
+    }
+    fn signature_param_is_query_guid(&self, params: &[SignatureParam]) -> Option<usize> {
+        for pos in (0..params.len()).rev() {
+            if params[pos].ty == Type::ConstPtr((Box::new(Type::GUID), 1)) && !self.param_flags(params[pos].def).output() {
+                return Some(pos);
+            }
+        }
+        None
+    }
+    fn signature_param_is_query_object(&self, params: &[SignatureParam]) -> Option<usize> {
+        for pos in (0..params.len()).rev() {
+            if params[pos].ty == Type::MutPtr((Box::new(Type::Void), 2)) && self.param_is_com_out_ptr(params[pos].def) {
+                return Some(pos);
+            }
+        }
+        None
     }
 
     //

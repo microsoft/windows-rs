@@ -20,38 +20,37 @@ pub fn gen(gen: &Gen, def: TypeDef, kind: InterfaceKind, method: MethodDef, meth
         bases.combine(&quote! { .base__ });
     }
 
-    match gen.reader.signature_kind(&signature) {
-        SignatureKind::Query => {
-            let leading_params = &signature.params[..signature.params.len() - 2];
-            let args = gen.win32_args(leading_params);
-            let params = gen.win32_params(leading_params);
+    let kind = gen.reader.signature_kind(&signature);
+    match kind {
+        SignatureKind::Query(_) => {
+            let args = gen.win32_args(&signature.params, kind);
+            let params = gen.win32_params(&signature.params, kind);
 
             quote! {
                 #doc
                 #features
                 pub unsafe fn #name<#constraints T: ::windows::core::Interface>(&self, #params) -> ::windows::core::Result<T> {
                     let mut result__ = ::core::option::Option::None;
-                    (::windows::core::Interface::vtable(self)#bases.#vname)(::windows::core::Interface::as_raw(self), #args &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+                    (::windows::core::Interface::vtable(self)#bases.#vname)(::windows::core::Interface::as_raw(self), #args).and_some(result__)
                 }
             }
         }
-        SignatureKind::QueryOptional => {
-            let leading_params = &signature.params[..signature.params.len() - 2];
-            let args = gen.win32_args(leading_params);
-            let params = gen.win32_params(leading_params);
+        SignatureKind::QueryOptional(_) => {
+            let args = gen.win32_args(&signature.params, kind);
+            let params = gen.win32_params(&signature.params, kind);
 
             quote! {
                 #doc
                 #features
                 pub unsafe fn #name<#constraints T: ::windows::core::Interface>(&self, #params result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
-                    (::windows::core::Interface::vtable(self)#bases.#vname)(::windows::core::Interface::as_raw(self), #args &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
+                    (::windows::core::Interface::vtable(self)#bases.#vname)(::windows::core::Interface::as_raw(self), #args).ok()
                 }
             }
         }
         SignatureKind::ResultValue => {
             let leading_params = &signature.params[..signature.params.len() - 1];
-            let args = gen.win32_args(leading_params);
-            let params = gen.win32_params(leading_params);
+            let args = gen.win32_args(leading_params, kind);
+            let params = gen.win32_params(leading_params, kind);
             let return_type = signature.params[signature.params.len() - 1].ty.deref();
             let return_type_tokens = gen.type_name(&return_type);
             let abi_return_type_tokens = gen.type_abi_name(&return_type);
@@ -67,8 +66,8 @@ pub fn gen(gen: &Gen, def: TypeDef, kind: InterfaceKind, method: MethodDef, meth
             }
         }
         SignatureKind::ResultVoid => {
-            let args = gen.win32_args(&signature.params);
-            let params = gen.win32_params(&signature.params);
+            let args = gen.win32_args(&signature.params, kind);
+            let params = gen.win32_params(&signature.params, kind);
 
             quote! {
                 #doc
@@ -79,8 +78,8 @@ pub fn gen(gen: &Gen, def: TypeDef, kind: InterfaceKind, method: MethodDef, meth
             }
         }
         SignatureKind::ReturnStruct => {
-            let args = gen.win32_args(&signature.params);
-            let params = gen.win32_params(&signature.params);
+            let args = gen.win32_args(&signature.params, kind);
+            let params = gen.win32_params(&signature.params, kind);
             let return_type = gen.type_name(&signature.return_type.unwrap());
 
             quote! {
@@ -94,8 +93,8 @@ pub fn gen(gen: &Gen, def: TypeDef, kind: InterfaceKind, method: MethodDef, meth
             }
         }
         SignatureKind::PreserveSig => {
-            let args = gen.win32_args(&signature.params);
-            let params = gen.win32_params(&signature.params);
+            let args = gen.win32_args(&signature.params, kind);
+            let params = gen.win32_params(&signature.params, kind);
             let return_type = gen.return_sig(&signature);
 
             quote! {
@@ -107,8 +106,8 @@ pub fn gen(gen: &Gen, def: TypeDef, kind: InterfaceKind, method: MethodDef, meth
             }
         }
         SignatureKind::ReturnVoid => {
-            let args = gen.win32_args(&signature.params);
-            let params = gen.win32_params(&signature.params);
+            let args = gen.win32_args(&signature.params, kind);
+            let params = gen.win32_params(&signature.params, kind);
 
             quote! {
                 #doc
@@ -139,7 +138,7 @@ pub fn gen_upcall(gen: &Gen, sig: &Signature, inner: TokenStream) -> TokenStream
                 }
             }
         }
-        SignatureKind::Query | SignatureKind::QueryOptional | SignatureKind::ResultVoid => {
+        SignatureKind::Query(_) | SignatureKind::QueryOptional(_) | SignatureKind::ResultVoid => {
             let invoke_args = sig.params.iter().map(|param| gen_win32_invoke_arg(gen, param));
 
             quote! {
