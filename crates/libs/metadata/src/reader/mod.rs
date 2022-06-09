@@ -1206,20 +1206,10 @@ impl<'a> Reader<'a> {
         SignatureKind::ReturnVoid
     }
     fn signature_param_is_query_guid(&self, params: &[SignatureParam]) -> Option<usize> {
-        for pos in (0..params.len()).rev() {
-            if params[pos].ty == Type::ConstPtr((Box::new(Type::GUID), 1)) && !self.param_flags(params[pos].def).output() {
-                return Some(pos);
-            }
-        }
-        None
+        params.iter().rposition(|param| param.ty == Type::ConstPtr((Box::new(Type::GUID), 1)) && !self.param_flags(param.def).output())
     }
     fn signature_param_is_query_object(&self, params: &[SignatureParam]) -> Option<usize> {
-        for pos in (0..params.len()).rev() {
-            if params[pos].ty == Type::MutPtr((Box::new(Type::Void), 2)) && self.param_is_com_out_ptr(params[pos].def) {
-                return Some(pos);
-            }
-        }
-        None
+        params.iter().rposition(|param| param.ty == Type::MutPtr((Box::new(Type::Void), 2)) && self.param_is_com_out_ptr(param.def))
     }
 
     //
