@@ -66,7 +66,7 @@ impl Window {
         let variable = unsafe {
             let variable = manager.CreateAnimationVariable(0.0)?;
 
-            manager.ScheduleTransition(&variable, transition, get_time(frequency)?)?;
+            manager.ScheduleTransition(&variable, &transition, get_time(frequency)?)?;
 
             variable
         };
@@ -156,13 +156,13 @@ impl Window {
             target.SetTarget(clock);
             target.Clear(std::ptr::null());
             self.draw_clock()?;
-            target.SetTarget(previous);
+            target.SetTarget(previous.as_ref());
             target.SetTransform(&Matrix3x2::translation(5.0, 5.0));
 
             let mut output = None;
             shadow.GetOutput(&mut output);
 
-            target.DrawImage(output, std::ptr::null(), std::ptr::null(), D2D1_INTERPOLATION_MODE_LINEAR, D2D1_COMPOSITE_MODE_SOURCE_OVER);
+            target.DrawImage(output.as_ref(), std::ptr::null(), std::ptr::null(), D2D1_INTERPOLATION_MODE_LINEAR, D2D1_COMPOSITE_MODE_SOURCE_OVER);
 
             target.SetTransform(&Matrix3x2::identity());
 
@@ -209,15 +209,15 @@ impl Window {
         unsafe {
             target.SetTransform(&(Matrix3x2::rotation(angles.second, 0.0, 0.0) * translation));
 
-            target.DrawLine(D2D_POINT_2F::default(), D2D_POINT_2F { x: 0.0, y: -(radius * 0.75) }, brush, radius / 25.0, &self.style);
+            target.DrawLine(&D2D_POINT_2F::default(), &D2D_POINT_2F { x: 0.0, y: -(radius * 0.75) }, brush, radius / 25.0, &self.style);
 
             target.SetTransform(&(Matrix3x2::rotation(angles.minute, 0.0, 0.0) * translation));
 
-            target.DrawLine(D2D_POINT_2F::default(), D2D_POINT_2F { x: 0.0, y: -(radius * 0.75) }, brush, radius / 15.0, &self.style);
+            target.DrawLine(&D2D_POINT_2F::default(), &D2D_POINT_2F { x: 0.0, y: -(radius * 0.75) }, brush, radius / 15.0, &self.style);
 
             target.SetTransform(&(Matrix3x2::rotation(angles.hour, 0.0, 0.0) * translation));
 
-            target.DrawLine(D2D_POINT_2F::default(), D2D_POINT_2F { x: 0.0, y: -(radius * 0.5) }, brush, radius / 10.0, &self.style);
+            target.DrawLine(&D2D_POINT_2F::default(), &D2D_POINT_2F { x: 0.0, y: -(radius * 0.5) }, brush, radius / 10.0, &self.style);
         }
 
         Ok(())
@@ -245,7 +245,7 @@ impl Window {
             colorContext: None,
         };
 
-        unsafe { target.CreateBitmap2(size_u, std::ptr::null(), 0, &properties) }
+        unsafe { target.CreateBitmap2(&size_u, std::ptr::null(), 0, &properties) }
     }
 
     fn resize_swapchain_bitmap(&mut self) -> Result<()> {
@@ -309,11 +309,11 @@ impl Window {
 
     fn run(&mut self) -> Result<()> {
         unsafe {
-            let instance = GetModuleHandleA(None)?;
+            let instance = GetModuleHandleA(PCSTR::default())?;
             debug_assert!(instance.0 != 0);
 
             let wc = WNDCLASSA {
-                hCursor: LoadCursorW(None, IDC_HAND)?,
+                hCursor: LoadCursorW(HINSTANCE::default(), IDC_HAND)?,
                 hInstance: instance,
                 lpszClassName: PCSTR(b"window\0".as_ptr()),
 
@@ -325,7 +325,7 @@ impl Window {
             let atom = RegisterClassA(&wc);
             debug_assert!(atom != 0);
 
-            let handle = CreateWindowExA(Default::default(), PCSTR(b"window\0".as_ptr()), PCSTR(b"Sample Window\0".as_ptr()), WS_OVERLAPPEDWINDOW | WS_VISIBLE, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, None, None, instance, self as *mut _ as _);
+            let handle = CreateWindowExA(WINDOW_EX_STYLE::default(), PCSTR(b"window\0".as_ptr()), PCSTR(b"Sample Window\0".as_ptr()), WS_OVERLAPPEDWINDOW | WS_VISIBLE, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, HWND::default(), HMENU::default(), instance, self as *mut _ as _);
 
             debug_assert!(handle.0 != 0);
             debug_assert!(handle == self.handle);
@@ -335,14 +335,14 @@ impl Window {
                 if self.visible {
                     self.render()?;
 
-                    while PeekMessageA(&mut message, None, 0, 0, PM_REMOVE).into() {
+                    while PeekMessageA(&mut message, HWND::default(), 0, 0, PM_REMOVE).into() {
                         if message.message == WM_QUIT {
                             return Ok(());
                         }
                         DispatchMessageA(&message);
                     }
                 } else {
-                    GetMessageA(&mut message, None, 0, 0);
+                    GetMessageA(&mut message, HWND::default(), 0, 0);
 
                     if message.message == WM_QUIT {
                         return Ok(());
@@ -449,7 +449,7 @@ fn create_device() -> Result<ID3D11Device> {
 
 fn create_render_target(factory: &ID2D1Factory1, device: &ID3D11Device) -> Result<ID2D1DeviceContext> {
     unsafe {
-        let d2device = factory.CreateDevice(device.cast::<IDXGIDevice>()?)?;
+        let d2device = factory.CreateDevice(&device.cast::<IDXGIDevice>()?)?;
 
         let target = d2device.CreateDeviceContext(D2D1_DEVICE_CONTEXT_OPTIONS_NONE)?;
 
@@ -477,7 +477,7 @@ fn create_swapchain_bitmap(swapchain: &IDXGISwapChain1, target: &ID2D1DeviceCont
 
     unsafe {
         let bitmap = target.CreateBitmapFromDxgiSurface(&surface, &props)?;
-        target.SetTarget(bitmap);
+        target.SetTarget(&bitmap);
     };
 
     Ok(())
