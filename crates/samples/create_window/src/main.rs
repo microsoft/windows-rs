@@ -2,13 +2,13 @@ use windows::{core::*, Win32::Foundation::*, Win32::Graphics::Gdi::ValidateRect,
 
 fn main() -> Result<()> {
     unsafe {
-        let instance = GetModuleHandleA(None)?;
+        let instance = GetModuleHandleA(PCSTR::default())?;
         debug_assert!(instance.0 != 0);
 
-        let window_class = "window";
+        let window_class = PCSTR(b"window\0".as_ptr());
 
         let wc = WNDCLASSA {
-            hCursor: LoadCursorW(None, IDC_ARROW)?,
+            hCursor: LoadCursorW(HINSTANCE::default(), IDC_ARROW)?,
             hInstance: instance,
             lpszClassName: PCSTR(b"window\0".as_ptr()),
 
@@ -20,7 +20,7 @@ fn main() -> Result<()> {
         let atom = RegisterClassA(&wc);
         debug_assert!(atom != 0);
 
-        CreateWindowExA(Default::default(), window_class, "This is a sample window", WS_OVERLAPPEDWINDOW | WS_VISIBLE, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, None, None, instance, std::ptr::null());
+        CreateWindowExA(WINDOW_EX_STYLE::default(), window_class, PCSTR(b"This is a sample window\0".as_ptr()), WS_OVERLAPPEDWINDOW | WS_VISIBLE, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, HWND::default(), HMENU::default(), instance, std::ptr::null());
 
         let mut message = MSG::default();
 

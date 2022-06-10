@@ -11,7 +11,8 @@ fn main() -> Result<()> {
     let factory: ISpellCheckerFactory = unsafe { CoCreateInstance(&SpellCheckerFactory, None, CLSCTX_ALL)? };
 
     // Make sure that the "en-US" locale is supported
-    let locale = "en-US";
+    let locale = HSTRING::from("en-US");
+    let locale = pcwstr(&locale);
     let supported = unsafe { factory.IsSupported(locale)? };
     supported.expect("en-US is supported");
 
@@ -20,7 +21,7 @@ fn main() -> Result<()> {
 
     // Get errors enumerator for the supplied string
     println!("Checking the text: '{}'", input);
-    let errors = unsafe { checker.ComprehensiveCheck(input.clone())? };
+    let errors = unsafe { checker.ComprehensiveCheck(pcwstr(&input.clone().into()))? };
 
     // Loop through all the errors
     while let Ok(error) = unsafe { errors.Next() } {
@@ -49,7 +50,7 @@ fn main() -> Result<()> {
             }
             CORRECTIVE_ACTION_GET_SUGGESTIONS => {
                 // Get an enumerator for all the suggestions for a substring
-                let suggestions = unsafe { checker.Suggest(substring)? };
+                let suggestions = unsafe { checker.Suggest(pcwstr(&substring.into()))? };
 
                 // Loop through the suggestions
                 loop {
@@ -87,4 +88,8 @@ unsafe fn read_to_string(ptr: PWSTR) -> String {
 
     let slice = std::slice::from_raw_parts(ptr.0, len);
     String::from_utf16(slice).unwrap()
+}
+
+fn pcwstr(s: &HSTRING) -> PCWSTR {
+    PCWSTR(s.as_wide().as_ptr())
 }

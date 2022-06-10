@@ -44,14 +44,14 @@ fn run_sample<S>() -> Result<()>
 where
     S: DXSample,
 {
-    let instance = unsafe { GetModuleHandleA(None)? };
+    let instance = unsafe { GetModuleHandleA(PCSTR::default())? };
 
     let wc = WNDCLASSEXA {
         cbSize: std::mem::size_of::<WNDCLASSEXA>() as u32,
         style: CS_HREDRAW | CS_VREDRAW,
         lpfnWndProc: Some(wndproc::<S>),
         hInstance: instance,
-        hCursor: unsafe { LoadCursorW(None, IDC_ARROW)? },
+        hCursor: unsafe { LoadCursorW(HINSTANCE::default(), IDC_ARROW)? },
         lpszClassName: PCSTR(b"RustWindowClass\0".as_ptr()),
         ..Default::default()
     };
@@ -73,18 +73,20 @@ where
         title.push_str(" (WARP)");
     }
 
+    title.push('\0');
+
     let hwnd = unsafe {
         CreateWindowExA(
-            Default::default(),
-            "RustWindowClass",
-            title,
+            WINDOW_EX_STYLE::default(),
+            PCSTR(b"RustWindowClass".as_ptr()),
+            PCSTR(title.as_ptr()),
             WS_OVERLAPPEDWINDOW,
             CW_USEDEFAULT,
             CW_USEDEFAULT,
             window_rect.right - window_rect.left,
             window_rect.bottom - window_rect.top,
-            None, // no parent window
-            None, // no menus
+            HWND::default(),  // no parent window
+            HMENU::default(), // no menus
             instance,
             &mut sample as *mut _ as _,
         )
@@ -96,7 +98,7 @@ where
     loop {
         let mut message = MSG::default();
 
-        if unsafe { PeekMessageA(&mut message, None, 0, 0, PM_REMOVE) }.into() {
+        if unsafe { PeekMessageA(&mut message, HWND::default(), 0, 0, PM_REMOVE) }.into() {
             unsafe {
                 TranslateMessage(&message);
                 DispatchMessageA(&message);
@@ -262,11 +264,11 @@ mod d3d12_hello_triangle {
                 ..Default::default()
             };
 
-            let swap_chain: IDXGISwapChain3 = unsafe { self.dxgi_factory.CreateSwapChainForHwnd(&command_queue, hwnd, &swap_chain_desc, std::ptr::null(), None)? }.cast()?;
+            let swap_chain: IDXGISwapChain3 = unsafe { self.dxgi_factory.CreateSwapChainForHwnd(&command_queue, *hwnd, &swap_chain_desc, std::ptr::null(), None)? }.cast()?;
 
             // This sample does not support fullscreen transitions
             unsafe {
-                self.dxgi_factory.MakeWindowAssociation(hwnd, DXGI_MWA_NO_ALT_ENTER)?;
+                self.dxgi_factory.MakeWindowAssociation(*hwnd, DXGI_MWA_NO_ALT_ENTER)?;
             }
 
             let frame_index = unsafe { swap_chain.GetCurrentBackBufferIndex() };
@@ -304,7 +306,7 @@ mod d3d12_hello_triangle {
 
             let fence_value = 1;
 
-            let fence_event = unsafe { CreateEventA(std::ptr::null(), false, false, None)? };
+            let fence_event = unsafe { CreateEventA(std::ptr::null(), false, false, PCSTR::default())? };
 
             self.resources = Some(Resources {
                 command_queue,
@@ -387,7 +389,7 @@ mod d3d12_hello_triangle {
 
         // Record commands.
         unsafe {
-            command_list.ClearRenderTargetView(rtv_handle, [0.0, 0.2, 0.4, 1.0].as_ptr(), &[]);
+            command_list.ClearRenderTargetView(&rtv_handle, [0.0, 0.2, 0.4, 1.0].as_ptr(), &[]);
             command_list.IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
             command_list.IASetVertexBuffers(0, &[resources.vbv]);
             command_list.DrawInstanced(3, 1, 0, 0);
@@ -426,7 +428,7 @@ mod d3d12_hello_triangle {
         let adapter = if command_line.use_warp_device { unsafe { dxgi_factory.EnumWarpAdapter() } } else { get_hardware_adapter(&dxgi_factory) }?;
 
         let mut device: Option<ID3D12Device> = None;
-        unsafe { D3D12CreateDevice(adapter, D3D_FEATURE_LEVEL_11_0, &mut device) }?;
+        unsafe { D3D12CreateDevice(&adapter, D3D_FEATURE_LEVEL_11_0, &mut device) }?;
         Ok((dxgi_factory, device.unwrap()))
     }
 
@@ -447,12 +449,13 @@ mod d3d12_hello_triangle {
         let asset_path = exe_path.parent().unwrap();
         let shaders_hlsl_path = asset_path.join("shaders.hlsl");
         let shaders_hlsl = shaders_hlsl_path.to_str().unwrap();
+        let shaders_hlsl = pcwstr(&shaders_hlsl.into());
 
         let mut vertex_shader = None;
-        let vertex_shader = unsafe { D3DCompileFromFile(shaders_hlsl, std::ptr::null(), None, "VSMain", "vs_5_0", compile_flags, 0, &mut vertex_shader, std::ptr::null_mut()) }.map(|()| vertex_shader.unwrap())?;
+        let vertex_shader = unsafe { D3DCompileFromFile(shaders_hlsl, std::ptr::null(), None, PCSTR(b"VSMain\0".as_ptr()), PCSTR(b"vs_5_0\0".as_ptr()), compile_flags, 0, &mut vertex_shader, std::ptr::null_mut()) }.map(|()| vertex_shader.unwrap())?;
 
         let mut pixel_shader = None;
-        let pixel_shader = unsafe { D3DCompileFromFile(shaders_hlsl, std::ptr::null(), None, "PSMain", "ps_5_0", compile_flags, 0, &mut pixel_shader, std::ptr::null_mut()) }.map(|()| pixel_shader.unwrap())?;
+        let pixel_shader = unsafe { D3DCompileFromFile(shaders_hlsl, std::ptr::null(), None, PCSTR(b"PSMain\0".as_ptr()), PCSTR(b"ps_5_0\0".as_ptr()), compile_flags, 0, &mut pixel_shader, std::ptr::null_mut()) }.map(|()| pixel_shader.unwrap())?;
 
         let mut input_element_descs: [D3D12_INPUT_ELEMENT_DESC; 2] = [
             D3D12_INPUT_ELEMENT_DESC {
@@ -599,4 +602,8 @@ fn main() -> Result<()> {
     run_sample::<d3d12_hello_triangle::Sample>()?;
 
     Ok(())
+}
+
+fn pcwstr(s: &HSTRING) -> PCWSTR {
+    PCWSTR(s.as_wide().as_ptr())
 }

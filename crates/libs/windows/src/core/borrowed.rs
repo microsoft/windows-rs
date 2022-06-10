@@ -8,7 +8,7 @@
 ///
 /// Many functions in the `windows` crate have signatures similar to the following:
 ///
-/// ```rust
+/// ```ignore
 /// fn SomeFunction<'a, P: Into<Borrowed<'a, IUnknown>>>(iunknown: P);
 /// ```
 ///
@@ -26,7 +26,7 @@
 /// pass a `T` into a function that expects a `&T`, you cannot pass a `T` into a function that expects a `Borrowed<'a, T>`. If you get something similar to
 /// the following error, it's likely because you are trying to pass an owned value instead of a borrowed value:
 ///
-/// ```
+/// ```ignore
 ///  the trait bound `SomeType: Into<Borrowed<'_, SomeType>>` is not satisfied
 /// ```
 #[repr(transparent)]

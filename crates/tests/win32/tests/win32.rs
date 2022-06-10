@@ -197,7 +197,8 @@ fn onecore_imports() -> windows::core::Result<()> {
 #[test]
 fn interface() -> windows::core::Result<()> {
     unsafe {
-        let uri = CreateUri("http://kennykerr.ca", Default::default(), 0)?;
+        let uri = HSTRING::from("http://kennykerr.ca");
+        let uri = CreateUri(PCWSTR(uri.as_wide().as_ptr()), URI_CREATE_FLAGS::default(), 0)?;
 
         let domain = uri.GetDomain()?;
         assert!(domain == "kennykerr.ca");
