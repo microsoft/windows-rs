@@ -11,7 +11,7 @@ fn main() -> Result<()> {
 
         let doc: IHTMLDocument3 = CoCreateInstance(&HTMLDocument, None, CLSCTX_ALL)?;
 
-        let text = doc.createTextNode("windows-rs")?;
+        let text = doc.createTextNode(&"windows-rs".into())?;
 
         let text: IHTMLDOMTextNode = text.cast()?;
 

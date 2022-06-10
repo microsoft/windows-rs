@@ -78,7 +78,7 @@ where
     let hwnd = unsafe {
         CreateWindowExA(
             WINDOW_EX_STYLE::default(),
-            PCSTR(b"RustWindowClass".as_ptr()),
+            PCSTR(b"RustWindowClass\0".as_ptr()),
             PCSTR(title.as_ptr()),
             WS_OVERLAPPEDWINDOW,
             CW_USEDEFAULT,
@@ -449,7 +449,7 @@ mod d3d12_hello_triangle {
         let asset_path = exe_path.parent().unwrap();
         let shaders_hlsl_path = asset_path.join("shaders.hlsl");
         let shaders_hlsl = shaders_hlsl_path.to_str().unwrap();
-        let shaders_hlsl = pcwstr(&shaders_hlsl.into());
+        let shaders_hlsl = PCWSTR::from(&shaders_hlsl.into());
 
         let mut vertex_shader = None;
         let vertex_shader = unsafe { D3DCompileFromFile(shaders_hlsl, std::ptr::null(), None, PCSTR(b"VSMain\0".as_ptr()), PCSTR(b"vs_5_0\0".as_ptr()), compile_flags, 0, &mut vertex_shader, std::ptr::null_mut()) }.map(|()| vertex_shader.unwrap())?;
@@ -602,8 +602,4 @@ fn main() -> Result<()> {
     run_sample::<d3d12_hello_triangle::Sample>()?;
 
     Ok(())
-}
-
-fn pcwstr(s: &HSTRING) -> PCWSTR {
-    PCWSTR(s.as_wide().as_ptr())
 }

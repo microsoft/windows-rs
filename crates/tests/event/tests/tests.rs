@@ -23,7 +23,7 @@ fn add_remove() -> Result<()> {
 
     // Raise and observe event.
     assert_eq!(check.load(Ordering::Relaxed), 0);
-    event.call(|delegate| delegate.Invoke(None, 123))?;
+    event.call(|delegate| delegate.Invoke(None, &123))?;
     assert_eq!(check.load(Ordering::Relaxed), 123);
 
     // Remove event handler.
@@ -31,7 +31,7 @@ fn add_remove() -> Result<()> {
 
     // Raise event without effect.
     check.store(0, Ordering::Relaxed);
-    event.call(|delegate| delegate.Invoke(None, 123))?;
+    event.call(|delegate| delegate.Invoke(None, &123))?;
     assert_eq!(check.load(Ordering::Relaxed), 0);
 
     Ok(())
@@ -51,7 +51,7 @@ fn multiple() -> Result<()> {
     assert_eq!(a_check.load(Ordering::Relaxed), 0);
     assert_eq!(b_check.load(Ordering::Relaxed), 0);
     assert_eq!(c_check.load(Ordering::Relaxed), 0);
-    event.call(|delegate| delegate.Invoke(None, 10))?;
+    event.call(|delegate| delegate.Invoke(None, &10))?;
     assert_eq!(a_check.load(Ordering::Relaxed), 0);
     assert_eq!(b_check.load(Ordering::Relaxed), 0);
     assert_eq!(c_check.load(Ordering::Relaxed), 0);
@@ -64,7 +64,7 @@ fn multiple() -> Result<()> {
     assert_eq!(a_check.load(Ordering::Relaxed), 0);
     assert_eq!(b_check.load(Ordering::Relaxed), 0);
     assert_eq!(c_check.load(Ordering::Relaxed), 0);
-    event.call(|delegate| delegate.Invoke(None, 10))?;
+    event.call(|delegate| delegate.Invoke(None, &10))?;
     assert_eq!(a_check.load(Ordering::Relaxed), 10);
     assert_eq!(b_check.load(Ordering::Relaxed), 0);
     assert_eq!(c_check.load(Ordering::Relaxed), 0);
@@ -77,7 +77,7 @@ fn multiple() -> Result<()> {
     assert_eq!(a_check.load(Ordering::Relaxed), 10);
     assert_eq!(b_check.load(Ordering::Relaxed), 0);
     assert_eq!(c_check.load(Ordering::Relaxed), 0);
-    event.call(|delegate| delegate.Invoke(None, 20))?;
+    event.call(|delegate| delegate.Invoke(None, &20))?;
     assert_eq!(a_check.load(Ordering::Relaxed), 20);
     assert_eq!(b_check.load(Ordering::Relaxed), 20);
     assert_eq!(c_check.load(Ordering::Relaxed), 0);
@@ -90,7 +90,7 @@ fn multiple() -> Result<()> {
     assert_eq!(a_check.load(Ordering::Relaxed), 20);
     assert_eq!(b_check.load(Ordering::Relaxed), 20);
     assert_eq!(c_check.load(Ordering::Relaxed), 0);
-    event.call(|delegate| delegate.Invoke(None, 30))?;
+    event.call(|delegate| delegate.Invoke(None, &30))?;
     assert_eq!(a_check.load(Ordering::Relaxed), 30);
     assert_eq!(b_check.load(Ordering::Relaxed), 30);
     assert_eq!(c_check.load(Ordering::Relaxed), 30);
@@ -100,7 +100,7 @@ fn multiple() -> Result<()> {
     assert_eq!(a_check.load(Ordering::Relaxed), 30);
     assert_eq!(b_check.load(Ordering::Relaxed), 30);
     assert_eq!(c_check.load(Ordering::Relaxed), 30);
-    event.call(|delegate| delegate.Invoke(None, 40))?;
+    event.call(|delegate| delegate.Invoke(None, &40))?;
     assert_eq!(a_check.load(Ordering::Relaxed), 30);
     assert_eq!(b_check.load(Ordering::Relaxed), 40);
     assert_eq!(c_check.load(Ordering::Relaxed), 40);
@@ -110,7 +110,7 @@ fn multiple() -> Result<()> {
     assert_eq!(a_check.load(Ordering::Relaxed), 30);
     assert_eq!(b_check.load(Ordering::Relaxed), 40);
     assert_eq!(c_check.load(Ordering::Relaxed), 40);
-    event.call(|delegate| delegate.Invoke(None, 50))?;
+    event.call(|delegate| delegate.Invoke(None, &50))?;
     assert_eq!(a_check.load(Ordering::Relaxed), 30);
     assert_eq!(b_check.load(Ordering::Relaxed), 40);
     assert_eq!(c_check.load(Ordering::Relaxed), 50);
@@ -120,7 +120,7 @@ fn multiple() -> Result<()> {
     assert_eq!(a_check.load(Ordering::Relaxed), 30);
     assert_eq!(b_check.load(Ordering::Relaxed), 40);
     assert_eq!(c_check.load(Ordering::Relaxed), 50);
-    event.call(|delegate| delegate.Invoke(None, 60))?;
+    event.call(|delegate| delegate.Invoke(None, &60))?;
     assert_eq!(a_check.load(Ordering::Relaxed), 30);
     assert_eq!(b_check.load(Ordering::Relaxed), 40);
     assert_eq!(c_check.load(Ordering::Relaxed), 50);

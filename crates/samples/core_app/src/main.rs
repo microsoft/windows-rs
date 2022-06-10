@@ -59,7 +59,7 @@ fn main() -> Result<()> {
         CoInitializeEx(std::ptr::null(), COINIT_MULTITHREADED)?;
 
         if let Err(result) = Package::Current() {
-            MessageBoxW(HWND::default(), pcwstr(&"This sample must be registered (via register.cmd) and launched from Start.".into()), pcwstr(&"Error".into()), MB_ICONSTOP | MB_OK);
+            MessageBoxW(HWND::default(), PCWSTR::from(&"This sample must be registered (via register.cmd) and launched from Start.".into()), PCWSTR::from(&"Error".into()), MB_ICONSTOP | MB_OK);
             return Err(result);
         }
     }
@@ -67,8 +67,4 @@ fn main() -> Result<()> {
     let app: IFrameworkViewSource = CoreApp().into();
     CoreApplication::Run(&app)?;
     Ok(())
-}
-
-fn pcwstr(s: &HSTRING) -> PCWSTR {
-    PCWSTR(s.as_wide().as_ptr())
 }

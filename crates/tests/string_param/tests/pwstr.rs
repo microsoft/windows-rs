@@ -1,4 +1,3 @@
-use std::ffi::{OsStr, OsString};
 use windows::{core::*, Win32::Foundation::*};
 
 #[test]

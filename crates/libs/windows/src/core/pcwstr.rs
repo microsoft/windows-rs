@@ -33,3 +33,9 @@ impl ::core::fmt::Debug for PCWSTR {
 unsafe impl Abi for PCWSTR {
     type Abi = Self;
 }
+
+impl From<&HSTRING> for PCWSTR {
+    fn from(hstring: &HSTRING) -> Self {
+        Self(hstring.as_wide().as_ptr())
+    }
+}
