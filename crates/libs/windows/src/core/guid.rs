@@ -60,14 +60,6 @@ impl GUID {
 
 unsafe impl Abi for GUID {
     type Abi = Self;
-
-    fn abi(&self) -> Self::Abi {
-        *self
-    }
-
-    unsafe fn from_abi(abi: Self::Abi) -> Result<Self> {
-        Ok(abi)
-    }
 }
 
 unsafe impl RuntimeType for GUID {

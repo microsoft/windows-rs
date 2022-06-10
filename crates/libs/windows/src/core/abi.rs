@@ -4,9 +4,9 @@ use super::*;
 ///
 /// # Safety
 ///
-/// * It must be safe to alias `Self`
-///     * For example, aliasing `IUnknown` is safe while aliasing `Box<T>` is not.
-/// * Values of type `Abi` must not outlive the associated values of type `Self`
+/// * It must always be safe to memcopy `Self` into `Self::Abi`.
+/// * It must always be safe to memcopy `Self::Abi`.
+/// * It must be safe to memcopy `Self::Abi` into `Self` if `is_valid_abi` returns true.
 /// * The associated type `Abi` must be safe to transfer over FFI boundaries (e.g., it must have a stable layout)
 ///     * The `Abi` type must also be trivially droppable. For non-trivially droppable types consider wrapping in `ManuallyDrop`.
 ///       This ensures that when the type is passed over an FFI boundary, the `Drop` impl is not called.
@@ -18,39 +18,41 @@ pub unsafe trait Abi: Sized {
     type Abi;
 
     /// Converts `self` to an Abi value
-    fn abi(&self) -> Self::Abi;
+    ///
+    /// Note: `Self::Abi` is only valid for however long `&self` lives for
+    fn abi(&self) -> Self::Abi {
+        // SAFETY: the `Abi` trait ensures that `Self` can be memcopied into `Self::Abi`
+        unsafe { core::mem::transmute_copy(self) }
+    }
 
     /// Converts an abi value to `Self` or fails.
     ///
-    /// Requirements:
-    /// * `from_abi` must check for illegal representations and return an error if they are found.
-    /// * For example, since `Abi` can be all zeros, if `Self` cannot be, then `from_abi` must check for all zeros and return an error if found.
-    unsafe fn from_abi(abi: Self::Abi) -> Result<Self>;
-}
-
-unsafe impl<T: Interface> Abi for T {
-    type Abi = *mut core::ffi::c_void;
-
-    fn abi(&self) -> Self::Abi {
-        self.as_raw()
+    /// * Safety: `abi` must be in a state where it can be trivially transmuted into a valid value of type `Self`
+    unsafe fn from_abi(abi: Self::Abi) -> Result<Self> {
+        if Self::abi_is_possibly_valid(&abi) {
+            Ok(core::mem::transmute_copy(&abi))
+        } else {
+            Err(Error::OK)
+        }
     }
 
-    /// Converts an abi value to `Self` or fails
+    /// Converts a reference to an abi value to a reference to `Self` or fails if we can determine `abi` is not valid.
     ///
-    /// # Safety
-    ///
-    /// This function is safe as long as `abi` is a valid interface pointer or null
-    /// The interface's ref count is assumed to already have been incremented for
-    /// this handle meaning that if the interface pointer gets dropped it is
-    /// safe to call `Release`.
-    unsafe fn from_abi(abi: Self::Abi) -> Result<Self> {
-        if abi.is_null() {
-            Err(Error::OK)
+    /// * Safety: `abi` must be in a state where it can be trivially transmuted into a valid value of type `Self`
+    unsafe fn from_abi_ref(abi: &Self::Abi) -> Result<&Self> {
+        if Self::abi_is_possibly_valid(abi) {
+            // SAFETY: the `Abi` trait ensures that `Self::Abi` can be memcopied into `Self` when `abi_is_valid` returns true
+            Ok(core::mem::transmute(abi))
         } else {
-            // there's no need to call `AddRef` after converting since `abi` is required to
-            // be an "owning" pointer and already have an incremented ref count
-            Ok(core::mem::transmute_copy(&abi))
+            Err(Error::OK)
         }
+    }
+
+    /// Whether `abi` is known to be invalid
+    ///
+    /// Note: this does not guarantee that
+    fn abi_is_possibly_valid(abi: &Self::Abi) -> bool {
+        true
     }
 }
 
@@ -58,23 +60,15 @@ unsafe impl<T: Interface> Abi for T {
 // in-memory representation, and all representations of `Abi` are valid representations of `Self`.
 unsafe impl<T: Interface> Abi for Option<T> {
     type Abi = *mut core::ffi::c_void;
+}
 
-    fn abi(&self) -> Self::Abi {
-        self.as_ref().map(|i| i.as_raw()).unwrap_or_else(std::ptr::null_mut)
-    }
+// SAFETY: optional interfaces are FFI safe, optional interfaces and raw pointers have the same
+// in-memory representation, and all representations of `Abi` are valid representations of `Self`.
+unsafe impl<T: Interface> Abi for T {
+    type Abi = *mut core::ffi::c_void;
 
-    /// Converts an abi value to `Self` or fails
-    ///
-    /// # Safety
-    ///
-    /// This function is safe as long as `abi` is a valid interface pointer or null
-    /// The interface's ref count is assumed to already have been incremented for
-    /// this handle meaning that if the interface pointer gets dropped it is
-    /// safe to call `Release`.
-    unsafe fn from_abi(abi: Self::Abi) -> Result<Self> {
-        // there's no need to call `AddRef` after converting since `abi` is required to
-        // be an "owning" pointer and already have an incremented ref count
-        Ok(core::mem::transmute_copy(&abi))
+    fn abi_is_possibly_valid(abi: &Self::Abi) -> bool {
+        !abi.is_null()
     }
 }
 
@@ -83,14 +77,6 @@ macro_rules! primitive_types {
         $(
             unsafe impl Abi for $t {
                 type Abi = Self;
-
-                fn abi(&self) -> Self::Abi {
-                    *self
-                }
-
-                unsafe fn from_abi(abi: Self::Abi) -> Result<Self> {
-                    Ok(abi)
-                }
             }
         )*
     };
@@ -116,35 +102,9 @@ primitive_types! {
 // all representations of `Abi` are valid representations of `Self`.
 unsafe impl<T> Abi for *mut T {
     type Abi = Self;
-
-    fn abi(&self) -> Self::Abi {
-        *self
-    }
-
-    /// Converts an abi value to `Self` or fails.
-    ///
-    /// # SAFETY
-    ///
-    /// This is safe to call as long as `abi` is valid pointer to `T`
-    unsafe fn from_abi(abi: Self::Abi) -> Result<Self> {
-        Ok(abi)
-    }
 }
 
 // SAFETY: see the justification for `*mut T`
 unsafe impl<T> Abi for *const T {
     type Abi = Self;
-
-    fn abi(&self) -> Self::Abi {
-        *self
-    }
-
-    /// Converts an abi value to `Self` or fails.
-    ///
-    /// # SAFETY
-    ///
-    /// This is safe to call as long as `abi` is valid pointer to `T`
-    unsafe fn from_abi(abi: Self::Abi) -> Result<Self> {
-        Ok(abi)
-    }
 }

@@ -1,7 +1,7 @@
 /// A logically borrowed type that still retains the in-memory representation of the underlying type.
 ///
 /// `Borrowed`s can be thought of much like an `Option<&T>`. The reason `Borrowed` must be used instead of
-/// `Option<&T>` is because `Borrowed` has the same in-memory layout as `T`. This is necessary
+/// `Option<&T>` is because `Borrowed` has the same in-memory layout as `Option<T>`. This is necessary
 /// for FFI calls that expect a logically borrowed type that, in-memory, looks like an owned type.
 ///
 /// # Usage
@@ -30,8 +30,8 @@
 ///  the trait bound `SomeType: Into<Borrowed<'_, SomeType>>` is not satisfied
 /// ```
 #[repr(transparent)]
-pub struct Borrowed<'a, T> {
-    item: Option<core::mem::ManuallyDrop<T>>,
+pub struct Borrowed<'a, T: super::Abi> {
+    item: T::Abi,
     lifetime: core::marker::PhantomData<&'a ()>,
 }
 
@@ -41,26 +41,23 @@ impl<'a, T: super::Abi> Borrowed<'a, T> {
     /// Normally, it is not necessary to use this function. Generally, there is a `From` implementation
     /// that allows you to call `.into` to safely create a `Borrowed` value.
     pub fn new(item: Option<&'a T>) -> Self {
-        // SAFETY: `T` is safe to alias since that is a condition of implmenting `Abi`
-        let item = item.map(|i| core::mem::ManuallyDrop::new(unsafe { core::mem::transmute_copy(i) }));
+        // SAFETY: The `Abi` trait ensures `T::Abi` is safe to zero initialize
+        let item = item.map(|i| i.abi()).unwrap_or_else(|| unsafe { core::mem::MaybeUninit::zeroed().assume_init() });
         Self { item, lifetime: core::marker::PhantomData }
     }
 
     /// Get the abi representation for this param
+    ///
+    /// Note: the return value is only guranteed to be valid for the lifetime of `&self`
     pub fn abi(&self) -> T::Abi {
-        match &self.item {
-            Some(inner) => inner.abi(),
-            // SAFETY: the `Abi` trait guarantees that all zeros is a valid representation
-            // of its associated `Abi` type.
-            None => unsafe { std::mem::MaybeUninit::zeroed().assume_init() },
-        }
+        // SAFETY: The `Abi` trait ensures `T::Abi` is safe to memcopy
+        unsafe { core::mem::transmute_copy(&self.item) }
     }
-}
 
-impl<'a, T> Borrowed<'a, T> {
     /// Get an optional reference to the underlying value
     pub fn as_ref(&self) -> Option<&T> {
-        self.item.as_ref().map(|s| &**s)
+        // SAFETY: since we `item` was created from a valid `T` we can be sure that it's possible to convert back
+        unsafe { <T as super::Abi>::from_abi_ref(&self.item).ok() }
     }
 }
 
@@ -80,5 +77,11 @@ where
 {
     fn from(item: Option<&'a T>) -> Self {
         item.map(|i| i.into()).unwrap_or_else(|| Borrowed::new(None))
+    }
+}
+
+impl<'a, T: super::Abi + core::fmt::Debug> core::fmt::Debug for Borrowed<'a, T> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "{:?}", self.as_ref())
     }
 }
