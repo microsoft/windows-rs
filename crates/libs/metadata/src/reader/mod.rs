@@ -132,23 +132,22 @@ pub struct SignatureParam {
 }
 
 #[derive(Default, Clone)]
-pub struct Cfg {
-    // TODO: use String for now and maybe StringRef if that's too slow
-    pub types: BTreeMap<String, BTreeSet<TypeDef>>,
+pub struct Cfg<'a> {
+    pub types: BTreeMap<&'a str, BTreeSet<TypeDef>>,
     pub arches: BTreeSet<&'static str>,
 }
 
-impl Cfg {
-    pub fn add_feature(&mut self, feature: &str) {
-        self.types.entry(feature.to_string()).or_default();
+impl<'a> Cfg<'a> {
+    pub fn add_feature(&mut self, feature: &'a str) {
+        self.types.entry(feature).or_default();
     }
     pub fn union(&self, other: &Self) -> Self {
         let mut union = Self::default();
         self.types.keys().for_each(|feature| {
-            union.types.entry(feature.clone()).or_default();
+            union.types.entry(feature).or_default();
         });
         other.types.keys().for_each(|feature| {
-            union.types.entry(feature.clone()).or_default();
+            union.types.entry(feature).or_default();
         });
         self.arches.iter().for_each(|arch| {
             union.arches.insert(arch);
@@ -399,7 +398,7 @@ impl<'a> Reader<'a> {
         self.cfg_add_attributes(&mut cfg, self.field_attributes(row));
         cfg
     }
-    fn field_cfg_combine(&self, row: Field, enclosing: Option<TypeDef>, cfg: &mut Cfg) {
+    fn field_cfg_combine(&'a self, row: Field, enclosing: Option<TypeDef>, cfg: &mut Cfg<'a>) {
         self.type_cfg_combine(&self.field_type(row, enclosing), cfg)
     }
 
@@ -1010,7 +1009,7 @@ impl<'a> Reader<'a> {
     pub fn type_def_cfg_impl(&self, def: TypeDef, generics: &[Type]) -> Cfg {
         let mut cfg = Cfg::default();
 
-        fn combine<'a>(reader: &'a Reader, def: TypeDef, generics: &[Type], cfg: &'a mut Cfg) {
+        fn combine<'a>(reader: &'a Reader, def: TypeDef, generics: &[Type], cfg: &mut Cfg<'a>) {
             reader.type_def_cfg_combine(def, generics, cfg);
 
             for method in reader.type_def_methods(def) {
@@ -1037,12 +1036,12 @@ impl<'a> Reader<'a> {
         self.cfg_add_attributes(&mut cfg, self.type_def_attributes(def));
         cfg
     }
-    fn type_def_cfg_combine(&self, row: TypeDef, generics: &[Type], cfg: &mut Cfg) {
+    fn type_def_cfg_combine(&'a self, row: TypeDef, generics: &[Type], cfg: &mut Cfg<'a>) {
         for generic in generics {
             self.type_cfg_combine(generic, cfg);
         }
 
-        if cfg.types.entry(self.type_def_namespace(row).to_string()).or_default().insert(row) {
+        if cfg.types.entry(self.type_def_namespace(row)).or_default().insert(row) {
             match self.type_def_kind(row) {
                 TypeKind::Class => {
                     if let Some(Type::TypeDef((row, _))) = self.type_def_interfaces(row, generics).find(|row| row.kind == InterfaceKind::Default).map(|interface| interface.ty) {
@@ -1137,7 +1136,7 @@ impl<'a> Reader<'a> {
         self.cfg_add_attributes(&mut cfg, self.method_def_attributes(signature.def));
         cfg
     }
-    fn signature_cfg_combine(&self, signature: &Signature, cfg: &mut Cfg) {
+    fn signature_cfg_combine(&'a self, signature: &Signature, cfg: &mut Cfg<'a>) {
         signature.return_type.iter().for_each(|ty| self.type_cfg_combine(ty, cfg));
         signature.params.iter().for_each(|param| self.type_cfg_combine(&param.ty, cfg));
     }
@@ -1244,7 +1243,7 @@ impl<'a> Reader<'a> {
         self.type_cfg_combine(ty, &mut cfg);
         cfg
     }
-    fn type_cfg_combine(&self, ty: &Type, cfg: &mut Cfg) {
+    fn type_cfg_combine(&'a self, ty: &Type, cfg: &mut Cfg<'a>) {
         match ty {
             Type::TypeDef((row, generics)) => self.type_def_cfg_combine(*row, generics, cfg),
             Type::Win32Array((ty, _)) => self.type_cfg_combine(ty, cfg),
