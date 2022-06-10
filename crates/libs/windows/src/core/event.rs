@@ -23,6 +23,7 @@ impl<T: Interface + Clone> Event<T> {
     pub fn new() -> Self {
         Self { delegates: Array::new(), swap: Mutex::default(), change: Mutex::default() }
     }
+
     /// Registers a delegate with the event object.
     pub fn add(&mut self, delegate: &T) -> Result<i64> {
         let mut _lock_free_drop = Array::new();
@@ -32,7 +33,7 @@ impl<T: Interface + Clone> Event<T> {
             for delegate in self.delegates.as_slice() {
                 new_delegates.push(delegate.clone());
             }
-            let delegate = Delegate::new(delegate);
+            let delegate = Delegate::new(delegate)?;
             let token = delegate.to_token();
             new_delegates.push(delegate);
 
@@ -41,6 +42,7 @@ impl<T: Interface + Clone> Event<T> {
             token
         })
     }
+
     /// Revokes a delegate's registration from the event object.
     pub fn remove(&mut self, token: i64) -> Result<()> {
         let mut _lock_free_drop = Array::new();
@@ -53,9 +55,7 @@ impl<T: Interface + Clone> Event<T> {
             let mut new_delegates = Array::new();
             let mut removed = false;
             if capacity == 0 {
-                if self.delegates.as_slice()[0].to_token() == token {
-                    removed = true;
-                }
+                removed = self.delegates.as_slice()[0].to_token() == token;
             } else {
                 new_delegates = Array::with_capacity(capacity)?;
                 for delegate in self.delegates.as_slice() {
@@ -64,7 +64,6 @@ impl<T: Interface + Clone> Event<T> {
                         continue;
                     }
                     if capacity == 0 {
-                        debug_assert!(!removed);
                         break;
                     }
                     new_delegates.push(delegate.clone());
@@ -78,6 +77,7 @@ impl<T: Interface + Clone> Event<T> {
         }
         Ok(())
     }
+
     /// Clears the event, removing all delegates.
     pub fn clear(&mut self) {
         let mut _lock_free_drop = Array::new();
@@ -90,6 +90,7 @@ impl<T: Interface + Clone> Event<T> {
             _lock_free_drop = self.delegates.swap(Array::new());
         }
     }
+
     /// Invokes all of the event object's registered delegates with the provided callback.
     pub fn call<F: FnMut(&T) -> Result<()>>(&mut self, mut callback: F) -> Result<()> {
         let lock_free_calls = {
@@ -110,7 +111,7 @@ impl<T: Interface + Clone> Event<T> {
 
 /// A thread-safe reference-counted array of delegates.
 struct Array<T: Interface + Clone> {
-    buffer: *mut Buffer,
+    buffer: *mut Buffer<T>,
     len: usize,
     _phantom: std::marker::PhantomData<T>,
 }
@@ -126,45 +127,52 @@ impl<T: Interface + Clone> Array<T> {
     fn new() -> Self {
         Self { buffer: std::ptr::null_mut(), len: 0, _phantom: std::marker::PhantomData }
     }
+
     /// Creates a new, empty `Array<T>` with the specified capacity.
     fn with_capacity(capacity: usize) -> Result<Self> {
-        Ok(Self { buffer: Buffer::new(capacity * std::mem::size_of::<Delegate<T>>())?, len: 0, _phantom: std::marker::PhantomData })
+        Ok(Self { buffer: Buffer::new(capacity)?, len: 0, _phantom: std::marker::PhantomData })
     }
+
     /// Swaps the contents of two `Array<T>` objects.
     fn swap(&mut self, mut other: Self) -> Self {
         unsafe { std::ptr::swap(&mut self.buffer, &mut other.buffer) };
         std::mem::swap(&mut self.len, &mut other.len);
         other
     }
+
     /// Returns `true` if the array contains no delegates.
     fn is_empty(&self) -> bool {
         self.len == 0
     }
+
     /// Returns the number of delegates in the array.
     fn len(&self) -> usize {
         self.len
     }
+
     /// Appends a delegate to the back of the array.
     fn push(&mut self, delegate: Delegate<T>) {
         unsafe {
-            std::ptr::write((*self.buffer).as_mut_ptr::<Delegate<T>>().add(self.len) as _, delegate);
+            std::ptr::write((*self.buffer).as_mut_ptr().add(self.len), delegate);
             self.len += 1;
         }
     }
+
     /// Returns a slice containing of all delegates.
     fn as_slice(&self) -> &[Delegate<T>] {
         if self.is_empty() {
             &[]
         } else {
-            unsafe { std::slice::from_raw_parts((*self.buffer).as_ptr::<Delegate<T>>() as _, self.len) }
+            unsafe { std::slice::from_raw_parts((*self.buffer).as_ptr(), self.len) }
         }
     }
+
     /// Returns a mutable slice of all delegates.
     fn as_mut_slice(&mut self) -> &mut [Delegate<T>] {
         if self.is_empty() {
             &mut []
         } else {
-            unsafe { std::slice::from_raw_parts_mut((*self.buffer).as_mut_ptr::<Delegate<T>>() as _, self.len) }
+            unsafe { std::slice::from_raw_parts_mut((*self.buffer).as_mut_ptr(), self.len) }
         }
     }
 }
@@ -191,28 +199,30 @@ impl<T: Interface + Clone> Drop for Array<T> {
 
 /// A reference-counted buffer.
 #[repr(C)]
-struct Buffer(RefCount);
+struct Buffer<T>(RefCount, std::marker::PhantomData<T>);
 
-impl Buffer {
+impl<T: Interface + Clone> Buffer<T> {
     /// Creates a new `Buffer` with the specified size in bytes.
-    fn new(size: usize) -> Result<*mut Buffer> {
-        if size == 0 {
+    fn new(len: usize) -> Result<*mut Self> {
+        if len == 0 {
             Ok(std::ptr::null_mut())
         } else {
-            let alloc_size = std::mem::size_of::<Buffer>() + size;
-            let header = heap_alloc(alloc_size)? as *mut Buffer;
+            let alloc_size = std::mem::size_of::<Self>() + len * std::mem::size_of::<Delegate<T>>();
+            let header = heap_alloc(alloc_size)? as *mut Self;
             unsafe {
-                (*header).0 = RefCount::new(1);
+                header.write(Self(RefCount::new(1), std::marker::PhantomData));
             }
             Ok(header)
         }
     }
-    /// Returns a raw pointer to the buffer's contents.
-    fn as_ptr<T>(&self) -> *const T {
+
+    /// Returns a raw pointer to the buffer's contents. The resulting pointer might be uninititalized.
+    fn as_ptr(&self) -> *const Delegate<T> {
         unsafe { (self as *const Self).add(1) as *const _ }
     }
-    /// Returns a raw mutable pointer to the buffer's contents.
-    fn as_mut_ptr<T>(&mut self) -> *mut T {
+
+    /// Returns a raw mutable pointer to the buffer's contents. The resulting pointer might be uninititalized.
+    fn as_mut_ptr(&mut self) -> *mut Delegate<T> {
         unsafe { (self as *mut Self).add(1) as *mut _ }
     }
 }
@@ -220,21 +230,21 @@ impl Buffer {
 /// Holds either a direct or indirect reference to a delegate. A direct reference is typically
 /// agile while an indirect reference is an agile wrapper.
 #[derive(Clone)]
-enum Delegate<T: Interface + Clone> {
+enum Delegate<T> {
     Direct(T),
     Indirect(AgileReference<T>),
 }
 
 impl<T: Interface + Clone> Delegate<T> {
     /// Creates a new `Delegate<T>`, containing a suitable reference to the specified delegate.
-    fn new(delegate: &T) -> Self {
-        if delegate.cast::<IAgileObject>().is_err() {
-            if let Ok(delegate) = AgileReference::new(delegate) {
-                return Self::Indirect(delegate);
-            }
+    fn new(delegate: &T) -> Result<Self> {
+        if delegate.cast::<IAgileObject>().is_ok() {
+            Ok(Self::Direct(delegate.clone()))
+        } else {
+            Ok(Self::Indirect(AgileReference::new(delegate)?))
         }
-        Self::Direct(delegate.clone())
     }
+
     /// Returns an encoded token to identify the delegate.
     fn to_token(&self) -> i64 {
         unsafe {
@@ -244,6 +254,7 @@ impl<T: Interface + Clone> Delegate<T> {
             }
         }
     }
+
     /// Invokes the delegates with the provided callback.
     fn call<F: FnMut(&T) -> Result<()>>(&self, mut callback: F) -> Result<()> {
         match self {
