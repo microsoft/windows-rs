@@ -10,6 +10,6 @@ fn linker() -> windows::core::Result<()> {
 fn gdi() {
     use windows::Win32::Graphics::Gdi::*;
     unsafe {
-        AlphaBlend(HDC::default(), 0, 0, 0, 0, HDC::default(), 0, 0, 0, 0, &BLENDFUNCTION::default());
+        AlphaBlend(HDC::default(), 0, 0, 0, 0, HDC::default(), 0, 0, 0, 0, BLENDFUNCTION::default());
     }
 }

@@ -793,7 +793,7 @@ impl<'a> Reader<'a> {
     pub fn type_def_is_borrowed(&self, row: TypeDef) -> bool {
         match self.type_def_kind(row) {
             TypeKind::Delegate => self.type_def_flags(row).winrt(),
-            _ => !self.type_def_is_primitive(row),
+            _ => !self.type_def_is_blittable(row),
         }
     }
     pub fn type_def_is_primitive(&self, row: TypeDef) -> bool {
@@ -1503,7 +1503,7 @@ impl<'a> Reader<'a> {
     pub fn type_is_borrowed(&self, ty: &Type) -> bool {
         match ty {
             Type::TypeDef((row, _)) => self.type_def_is_borrowed(*row),
-            Type::String | Type::IInspectable | Type::GUID | Type::IUnknown | Type::GenericParam(_) => true,
+            Type::String | Type::IInspectable | Type::IUnknown | Type::GenericParam(_) => true,
             Type::WinrtConstRef(ty) => self.type_is_borrowed(ty),
             _ => false,
         }

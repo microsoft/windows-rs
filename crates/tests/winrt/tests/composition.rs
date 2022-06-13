@@ -10,7 +10,7 @@ fn create_dispatcher() -> DispatcherQueueController {
 
     let options = DispatcherQueueOptions { dwSize: core::mem::size_of::<DispatcherQueueOptions>() as u32, threadType: DQTYPE_THREAD_CURRENT, apartmentType: DQTAT_COM_NONE };
 
-    unsafe { CreateDispatcherQueueController(&options).unwrap() }
+    unsafe { CreateDispatcherQueueController(options).unwrap() }
 }
 
 #[test]
@@ -69,7 +69,7 @@ fn composition() -> windows::core::Result<()> {
 
     // Visual.set_brush expects a CompositionBrush but CreateColorBrushWithColor returns a
     // CompositionColorBrush that logically derives from CompositionBrush.
-    let brush = compositor.CreateColorBrushWithColor(&red)?;
+    let brush = compositor.CreateColorBrushWithColor(red)?;
     visual.SetBrush(&CompositionBrush::from(brush))?;
 
     // Visual.brush returns a CompositionBrush but we know that it's actually a CompositionColorBrush
@@ -77,22 +77,22 @@ fn composition() -> windows::core::Result<()> {
     let brush: CompositionColorBrush = visual.Brush()?.cast()?;
     assert!(brush.Color()? == red);
 
-    visual.SetOffset(&Vector3 { X: 1.0, Y: 2.0, Z: 3.0 })?;
+    visual.SetOffset(Vector3 { X: 1.0, Y: 2.0, Z: 3.0 })?;
 
     assert!(visual.Offset()? == Vector3 { X: 1.0, Y: 2.0, Z: 3.0 });
 
     let children = visual.Children()?;
 
     let child = compositor.CreateSpriteVisual()?;
-    child.SetOffset(&Vector3 { X: 1.0, Y: 0.0, Z: 0.0 })?;
+    child.SetOffset(Vector3 { X: 1.0, Y: 0.0, Z: 0.0 })?;
     children.InsertAtBottom(&Visual::from(child))?;
 
     let child = compositor.CreateSpriteVisual()?;
-    child.SetOffset(&Vector3 { X: 2.0, Y: 0.0, Z: 0.0 })?;
+    child.SetOffset(Vector3 { X: 2.0, Y: 0.0, Z: 0.0 })?;
     children.InsertAtBottom(&Visual::from(child))?;
 
     let child = compositor.CreateSpriteVisual()?;
-    child.SetOffset(&Vector3 { X: 3.0, Y: 0.0, Z: 0.0 })?;
+    child.SetOffset(Vector3 { X: 3.0, Y: 0.0, Z: 0.0 })?;
     children.InsertAtBottom(&Visual::from(child))?;
 
     assert!(children.Count()? == 3);

@@ -209,15 +209,15 @@ impl Window {
         unsafe {
             target.SetTransform(&(Matrix3x2::rotation(angles.second, 0.0, 0.0) * translation));
 
-            target.DrawLine(&D2D_POINT_2F::default(), &D2D_POINT_2F { x: 0.0, y: -(radius * 0.75) }, brush, radius / 25.0, &self.style);
+            target.DrawLine(D2D_POINT_2F::default(), D2D_POINT_2F { x: 0.0, y: -(radius * 0.75) }, brush, radius / 25.0, &self.style);
 
             target.SetTransform(&(Matrix3x2::rotation(angles.minute, 0.0, 0.0) * translation));
 
-            target.DrawLine(&D2D_POINT_2F::default(), &D2D_POINT_2F { x: 0.0, y: -(radius * 0.75) }, brush, radius / 15.0, &self.style);
+            target.DrawLine(D2D_POINT_2F::default(), D2D_POINT_2F { x: 0.0, y: -(radius * 0.75) }, brush, radius / 15.0, &self.style);
 
             target.SetTransform(&(Matrix3x2::rotation(angles.hour, 0.0, 0.0) * translation));
 
-            target.DrawLine(&D2D_POINT_2F::default(), &D2D_POINT_2F { x: 0.0, y: -(radius * 0.5) }, brush, radius / 10.0, &self.style);
+            target.DrawLine(D2D_POINT_2F::default(), D2D_POINT_2F { x: 0.0, y: -(radius * 0.5) }, brush, radius / 10.0, &self.style);
         }
 
         Ok(())
@@ -245,7 +245,7 @@ impl Window {
             colorContext: None,
         };
 
-        unsafe { target.CreateBitmap2(&size_u, std::ptr::null(), 0, &properties) }
+        unsafe { target.CreateBitmap2(size_u, std::ptr::null(), 0, &properties) }
     }
 
     fn resize_swapchain_bitmap(&mut self) -> Result<()> {

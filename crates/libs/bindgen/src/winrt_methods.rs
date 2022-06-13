@@ -185,7 +185,11 @@ fn gen_winrt_abi_args(gen: &Gen, params: &[SignatureParam]) -> TokenStream {
             } else if gen.reader.signature_param_is_convertible(param) {
                 quote! { #name.into(), }
             } else if gen.reader.type_is_blittable(&param.ty) {
-                quote! { #name, }
+                if param.ty.is_winrt_const_ref() {
+                    quote! { &#name, }
+                } else {
+                    quote! { #name, }
+                }
             } else {
                 quote! { ::core::mem::transmute_copy(#name), }
             }
