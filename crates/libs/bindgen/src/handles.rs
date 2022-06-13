@@ -55,7 +55,7 @@ pub fn gen_win_handle(gen: &Gen, def: TypeDef) -> TokenStream {
         }
     };
 
-    let tokens = quote! {
+    quote! {
         #[repr(transparent)]
         // Unfortunately, Rust requires these to be derived to allow constant patterns.
         #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -80,7 +80,5 @@ pub fn gen_win_handle(gen: &Gen, def: TypeDef) -> TokenStream {
         unsafe impl ::windows::core::Abi for #ident {
             type Abi = Self;
         }
-    };
-
-    tokens
+    }
 }

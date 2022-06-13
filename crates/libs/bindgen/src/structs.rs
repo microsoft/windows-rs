@@ -108,8 +108,7 @@ fn gen_windows_traits(gen: &Gen, def: TypeDef, name: &TokenStream, cfg: &Cfg) ->
     if gen.sys {
         quote! {}
     } else {
-        let blittable = gen.reader.type_def_is_blittable(def);
-        let abi = if blittable {
+        let abi = if gen.reader.type_def_is_blittable(def) {
             quote! { Self }
         } else {
             quote! { ::core::mem::ManuallyDrop<Self> }

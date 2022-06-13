@@ -1155,7 +1155,7 @@ impl BSTR {
         if self.0.is_null() {
             0
         } else {
-            unsafe { SysStringLen(Some(self.into())) as usize }
+            unsafe { SysStringLen(self) as usize }
         }
     }
     pub fn from_wide(value: &[u16]) -> Self {
@@ -1258,7 +1258,7 @@ impl ::core::cmp::PartialEq<BSTR> for &str {
 impl ::core::ops::Drop for BSTR {
     fn drop(&mut self) {
         if !self.0.is_null() {
-            unsafe { SysFreeString(Some((self as &Self).into())) }
+            unsafe { SysFreeString(self as &Self) }
         }
     }
 }
