@@ -55,7 +55,7 @@ pub fn gen_win_handle(gen: &Gen, def: TypeDef) -> TokenStream {
         }
     };
 
-    quote! {
+    let mut tokens = quote! {
         #[repr(transparent)]
         // Unfortunately, Rust requires these to be derived to allow constant patterns.
         #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -80,5 +80,21 @@ pub fn gen_win_handle(gen: &Gen, def: TypeDef) -> TokenStream {
         unsafe impl ::windows::core::Abi for #ident {
             type Abi = Self;
         }
+    };
+
+    if let Some(dependency) = gen.reader.type_def_usable_for(def) {
+        let type_name = gen.reader.type_def_type_name(dependency);
+        let mut dependency = gen.namespace(type_name.namespace);
+        dependency.push_str(type_name.name);
+
+        tokens.combine(&quote! {
+            impl ::core::convert::From<#ident> for #dependency {
+                fn from(item: #ident) -> #dependency {
+                    #dependency(item.0)
+                }
+            }
+        });
     }
+
+    tokens
 }
