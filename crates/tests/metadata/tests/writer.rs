@@ -8,6 +8,7 @@ fn writer() {
         tables.module.push(Module::new("test.winmd"));
         tables.type_def.push(TypeDef::module());
 
+        // TODO: writer should use `TypeName` for consistency with reader
         let mut stringable = TypeDef::winrt_interface("IStringable", "Windows.Foundation");
         stringable.method_list.push(MethodDef::new("ToString"));
         tables.type_def.push(stringable);
@@ -20,7 +21,11 @@ fn writer() {
     }
     {
         use metadata::reader::*;
+
         let files = vec![File::new(temp_file.to_str().unwrap()).unwrap()];
         let reader = &Reader::new(&files);
+        let def = reader.get(TypeName::new("Windows.Foundation", "IStringable")).next().unwrap();
+        let method = reader.type_def_methods(def).next().unwrap();
+        assert_eq!(reader.method_def_name(method), "ToString");
     }
 }
