@@ -16,6 +16,7 @@ mod structs;
 mod winrt_methods;
 pub use gen::*;
 use metadata::reader::*;
+use metadata::*;
 use method_names::*;
 use std::collections::*;
 use std::fmt::Write;

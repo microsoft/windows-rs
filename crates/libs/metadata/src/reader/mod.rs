@@ -1,23 +1,19 @@
 mod blob;
 mod codes;
 mod file;
-mod flags;
 mod guid;
 mod row;
 mod tree;
 mod r#type;
-mod type_name;
 
 use super::*;
 pub use blob::*;
 pub use codes::*;
 pub use file::*;
-pub use flags::*;
 pub use guid::*;
 pub use r#type::*;
 pub use row::*;
 pub use tree::*;
-pub use type_name::*;
 
 macro_rules! tables {
     ($($name:ident,)*) => ($(
@@ -94,7 +90,7 @@ pub enum AsyncKind {
     OperationWithProgress,
 }
 
-#[derive(PartialEq, Eq)]
+#[derive(PartialEq, Eq, Debug)]
 pub enum TypeKind {
     Interface,
     Class,
@@ -589,7 +585,7 @@ impl<'a> Reader<'a> {
         }
         fn type_def_size(reader: &Reader, def: TypeDef) -> usize {
             if reader.type_def_kind(def) == TypeKind::Struct {
-                if reader.type_def_flags(def).union() {
+                if reader.type_def_flags(def).explicit_layout() {
                     reader.type_def_fields(def).map(|field| type_size(reader, &reader.field_type(field, Some(def)))).max().unwrap_or(1)
                 } else {
                     reader.type_def_fields(def).fold(0, |sum, field| sum + type_size(reader, &reader.field_type(field, Some(def))))
@@ -721,7 +717,7 @@ impl<'a> Reader<'a> {
     }
     pub fn type_def_stdcall(&self, row: TypeDef) -> usize {
         if self.type_def_kind(row) == TypeKind::Struct {
-            if self.type_def_flags(row).union() {
+            if self.type_def_flags(row).explicit_layout() {
                 self.type_def_fields(row).map(|field| self.type_stdcall(&self.field_type(field, Some(row)))).max().unwrap_or(1)
             } else {
                 self.type_def_fields(row).fold(0, |sum, field| sum + self.type_stdcall(&self.field_type(field, Some(row))))
@@ -806,15 +802,15 @@ impl<'a> Reader<'a> {
             _ => false,
         }
     }
-    pub fn type_def_has_union(&self, row: TypeDef) -> bool {
+    pub fn type_def_has_explicit_layout(&self, row: TypeDef) -> bool {
         if self.type_def_kind(row) != TypeKind::Struct {
             return false;
         }
         fn check(reader: &Reader, row: TypeDef) -> bool {
-            if reader.type_def_flags(row).union() {
+            if reader.type_def_flags(row).explicit_layout() {
                 return true;
             }
-            if reader.type_def_fields(row).any(|field| reader.type_has_union(&reader.field_type(field, Some(row)))) {
+            if reader.type_def_fields(row).any(|field| reader.type_has_explicit_layout(&reader.field_type(field, Some(row)))) {
                 return true;
             }
             false
@@ -1357,10 +1353,10 @@ impl<'a> Reader<'a> {
             _ => true,
         }
     }
-    pub fn type_has_union(&self, ty: &Type) -> bool {
+    pub fn type_has_explicit_layout(&self, ty: &Type) -> bool {
         match ty {
-            Type::TypeDef((row, _)) => self.type_def_has_union(*row),
-            Type::Win32Array((ty, _)) => self.type_has_union(ty),
+            Type::TypeDef((row, _)) => self.type_def_has_explicit_layout(*row),
+            Type::Win32Array((ty, _)) => self.type_has_explicit_layout(ty),
             _ => false,
         }
     }

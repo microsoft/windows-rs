@@ -92,7 +92,7 @@ impl Tables {
         }
 
         for type_def in &self.type_def {
-            buffer.write(&type_def.flags);
+            buffer.write(&(type_def.flags.0 as u32));
             buffer.write(&strings.insert(&type_def.name));
             buffer.write(&strings.insert(&type_def.namespace));
             buffer.write(&0u16); // Extends
@@ -183,30 +183,3 @@ fn write_index(buffer: &mut Vec<u8>, index: usize, len: usize) {
         buffer.write(&(index as u32 + 1))
     }
 }
-
-// fn coded_index_size(tables: &[usize]) -> u32 {
-//     fn small(row_count: usize, bits: u8) -> bool {
-//         (row_count as u64) < (1u64 << (16 - bits))
-//     }
-
-//     fn bits_needed(value: usize) -> u8 {
-//         let mut value = value - 1;
-//         let mut bits: u8 = 1;
-//         loop {
-//             value >>= 1;
-//             if value == 0 {
-//                 break;
-//             }
-//             bits += 1;
-//         }
-//         bits
-//     }
-
-//     let bits_needed = bits_needed(tables.len());
-
-//     if tables.iter().all(|len| small(*len, bits_needed)) {
-//         2
-//     } else {
-//         4
-//     }
-// }

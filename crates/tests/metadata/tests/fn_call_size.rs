@@ -12,7 +12,7 @@ fn size() {
 fn function_size(namespace: &str, name: &str) -> usize {
     let files = vec![metadata::reader::File::new("../../libs/metadata/default/Windows.Win32.winmd").unwrap()];
     let reader = &metadata::reader::Reader::new(&files);
-    if let Some(def) = reader.get(metadata::reader::TypeName::new(namespace, "Apis")).next() {
+    if let Some(def) = reader.get(metadata::TypeName::new(namespace, "Apis")).next() {
         for method in reader.type_def_methods(def) {
             if reader.method_def_name(method) == name {
                 return reader.method_def_size(method);

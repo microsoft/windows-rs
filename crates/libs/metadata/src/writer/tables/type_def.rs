@@ -2,7 +2,7 @@ use super::*;
 
 #[derive(Default)]
 pub struct TypeDef {
-    pub flags: u32,
+    pub flags: TypeAttributes,
     pub name: String,
     pub namespace: String,
     pub field_list: Vec<Field>,
@@ -16,7 +16,7 @@ impl TypeDef {
         Self { name: "<Module>".to_string(), ..Default::default() }
     }
 
-    pub fn winrt_interface(name: &str, namespace: &str) -> Self {
-        Self { name: name.to_string(), namespace: namespace.to_string(), ..Default::default() }
+    pub fn new(type_name: TypeName) -> Self {
+        Self { name: type_name.name.to_string(), namespace: type_name.namespace.to_string(), ..Default::default() }
     }
 }

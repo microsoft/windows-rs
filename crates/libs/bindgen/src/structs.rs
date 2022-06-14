@@ -54,14 +54,14 @@ fn gen_struct_with_name(gen: &Gen, def: TypeDef, struct_name: &str, cfg: &Cfg) -
 
         if gen.reader.field_flags(f).literal() {
             quote! {}
-        } else if !gen.sys && flags.union() && !gen.reader.field_is_blittable(f, def) {
+        } else if !gen.sys && flags.explicit_layout() && !gen.reader.field_is_blittable(f, def) {
             quote! { pub #name: ::core::mem::ManuallyDrop<#ty>, }
         } else {
             quote! { pub #name: #ty, }
         }
     });
 
-    let struct_or_union = if flags.union() {
+    let struct_or_union = if flags.explicit_layout() {
         quote! { union }
     } else {
         quote! { struct }
@@ -153,7 +153,7 @@ fn gen_compare_traits(gen: &Gen, def: TypeDef, name: &TokenStream, cfg: &Cfg) ->
 
     if gen.sys {
         quote! {}
-    } else if gen.reader.type_def_is_blittable(def) || gen.reader.type_def_flags(def).union() || gen.reader.type_def_class_layout(def).is_some() {
+    } else if gen.reader.type_def_is_blittable(def) || gen.reader.type_def_flags(def).explicit_layout() || gen.reader.type_def_class_layout(def).is_some() {
         quote! {
             #features
             impl ::core::cmp::PartialEq for #name {
@@ -197,7 +197,7 @@ fn gen_compare_traits(gen: &Gen, def: TypeDef, name: &TokenStream, cfg: &Cfg) ->
 }
 
 fn gen_debug(gen: &Gen, def: TypeDef, ident: &TokenStream, cfg: &Cfg) -> TokenStream {
-    if gen.sys || gen.reader.type_def_has_union(def) || gen.reader.type_def_has_packing(def) {
+    if gen.sys || gen.reader.type_def_has_explicit_layout(def) || gen.reader.type_def_has_packing(def) {
         quote! {}
     } else {
         let name = ident.as_str();
@@ -245,7 +245,7 @@ fn gen_copy_clone(gen: &Gen, def: TypeDef, name: &TokenStream, cfg: &Cfg) -> Tok
                 }
             }
         }
-    } else if gen.reader.type_def_flags(def).union() {
+    } else if gen.reader.type_def_flags(def).explicit_layout() {
         quote! {
             #features
             impl ::core::clone::Clone for #name {
