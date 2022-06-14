@@ -1,5 +1,3 @@
-use metadata::*;
-
 #[test]
 fn writer() {
     let temp_file = std::env::temp_dir().join("test_metadata.winmd");

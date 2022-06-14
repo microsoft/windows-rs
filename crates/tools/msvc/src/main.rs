@@ -23,7 +23,7 @@ fn main() {
     let mut libraries = BTreeMap::<String, BTreeMap<String, usize>>::new();
     let root = reader.tree("Windows.Win32", &[]).expect("`Windows` namespace not found");
     for tree in root.flatten() {
-        if let Some(apis) = reader.get(metadata::TypeName::new(tree.namespace, "Apis")).next() {
+        if let Some(apis) = reader.get(metadata::reader::TypeName::new(tree.namespace, "Apis")).next() {
             for method in reader.type_def_methods(apis) {
                 let impl_map = reader.method_def_impl_map(method).expect("ImplMap not found");
                 let scope = reader.impl_map_scope(impl_map);

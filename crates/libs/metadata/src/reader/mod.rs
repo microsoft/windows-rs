@@ -5,6 +5,7 @@ mod guid;
 mod row;
 mod tree;
 mod r#type;
+mod type_name;
 
 use super::*;
 pub use blob::*;
@@ -14,6 +15,7 @@ pub use guid::*;
 pub use r#type::*;
 pub use row::*;
 pub use tree::*;
+pub use type_name::*;
 
 macro_rules! tables {
     ($($name:ident,)*) => ($(
