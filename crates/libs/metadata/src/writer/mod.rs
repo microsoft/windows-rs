@@ -1,4 +1,5 @@
 mod blobs;
+mod codes;
 mod gen;
 mod helpers;
 pub mod pe;
@@ -8,6 +9,7 @@ mod type_name;
 
 use super::*;
 use blobs::*;
+use codes::*;
 pub use gen::*;
 pub use helpers::*;
 use strings::*;

@@ -8,7 +8,7 @@ pub struct AssemblyRef {
 }
 
 impl AssemblyRef {
-    pub fn mscorlib() -> Self {
-        Self { major_version: 4, name: "mscorlib".to_string(), ..Default::default() }
+    pub fn new(name: &str) -> Self {
+        Self { name: name.to_string(), ..Default::default() }
     }
 }

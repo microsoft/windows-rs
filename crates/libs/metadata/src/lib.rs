@@ -1,12 +1,12 @@
 #![allow(dead_code)]
 
 use std::collections::*;
-mod common;
+mod flags;
 mod imp;
 pub mod reader;
 pub mod writer;
 
-pub use common::*;
+pub use flags::*;
 use imp::*;
 use std::io::*;
 use std::mem::*;

@@ -61,7 +61,6 @@ impl Tables {
     pub fn new(module: &str) -> Self {
         let mut new = Self::default();
         new.module.push(Module::new(module));
-        new.assembly_ref.push(AssemblyRef::mscorlib());
         new.type_def.push(TypeDef::module());
         new.type_ref.push(TypeRef::system_value_type());
         new.type_ref.push(TypeRef::system_enum());
@@ -105,7 +104,7 @@ impl Tables {
         }
 
         for type_ref in &self.type_ref {
-            write_coded_index(&mut buffer, ((self.assembly_ref.iter().position(|assembly_ref| assembly_ref.name == type_ref.assembly_ref).expect("AssemblyRef not found") + 1) << 2) | 2, resolution_scope);
+            write_coded_index(&mut buffer, type_ref.assembly_index.encode(), resolution_scope);
             buffer.write(&strings.insert(&type_ref.type_name.name));
             buffer.write(&strings.insert(&type_ref.type_name.namespace));
         }
@@ -151,7 +150,7 @@ impl Tables {
     }
 
     // Once all of the type information has been added, normalization is the process of packing
-    // the various relational records into their respective tables and leaving only offsets behind.
+    // the various relational records into their respective tables and leaving only indexes behind.
     fn normalize(&mut self) {
         for type_def in &mut self.type_def {
             type_def.field_index = self.field.len();
@@ -163,6 +162,16 @@ impl Tables {
         for method_def in &mut self.method_def {
             method_def.param_index = self.param.len();
             self.param.append(&mut method_def.param_list);
+        }
+
+        for type_ref in &mut self.type_ref {
+            let index = if let Some(index) = self.assembly_ref.iter().position(|row| row.name == type_ref.assembly_ref) {
+                index
+            } else {
+                self.assembly_ref.push(AssemblyRef::new(&type_ref.assembly_ref));
+                self.assembly_ref.len() - 1
+            };
+            type_ref.assembly_index = ResolutionScope::AssemblyRef(index);
         }
     }
 }

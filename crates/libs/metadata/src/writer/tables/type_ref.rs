@@ -2,13 +2,14 @@ use super::*;
 
 #[derive(Default)]
 pub struct TypeRef {
-    pub assembly_ref: String,
     pub type_name: TypeName,
+    pub assembly_ref: String,
+    pub assembly_index: ResolutionScope,
 }
 
 impl TypeRef {
     pub fn new(assembly_ref: &str, type_name: TypeName) -> Self {
-        Self { assembly_ref: assembly_ref.to_string(), type_name }
+        Self { assembly_ref: assembly_ref.to_string(), type_name, ..Default::default() }
     }
     pub fn system_value_type() -> Self {
         Self::new("mscorlib", TypeName::new("System", "ValueType"))
