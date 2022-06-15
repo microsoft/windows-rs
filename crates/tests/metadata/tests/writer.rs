@@ -5,7 +5,6 @@ fn writer() {
         use metadata::writer::*;
 
         let mut tables = Tables::new("test.winmd");
-        
 
         let mut stringable = TypeDef::new(TypeName::new("Windows.Foundation", "IStringable"));
         stringable.flags.set_public();
