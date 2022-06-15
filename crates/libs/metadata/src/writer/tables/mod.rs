@@ -1,5 +1,6 @@
 pub use super::*;
 
+mod assembly_ref;
 mod class_layout;
 mod constant;
 mod custom_attribute;
@@ -17,6 +18,7 @@ mod type_def;
 mod type_ref;
 mod type_spec;
 
+pub use assembly_ref::*;
 pub use class_layout::*;
 pub use constant::*;
 pub use custom_attribute::*;
@@ -50,17 +52,24 @@ pub struct Tables {
     pub module_ref: Vec<ModuleRef>,
     pub type_spec: Vec<TypeSpec>,
     pub impl_map: Vec<ImplMap>,
+    pub assembly_ref: Vec<AssemblyRef>,
     pub nested_class: Vec<NestedClass>,
     pub generic_param: Vec<GenericParam>,
 }
 
 impl Tables {
-    pub fn new() -> Self {
-        Self::default()
+    pub fn new(module: &str) -> Self {
+        let mut new = Self::default();
+        new.module.push(Module::new(module));
+        new.type_def.push(TypeDef::module());
+        new
     }
 
     pub(crate) fn into_stream(mut self, strings: &mut Strings, blobs: &mut Blobs) -> Vec<u8> {
         self.normalize();
+
+        let resolution_scope = composite_index_size(&[self.module.len(), self.module_ref.len(), self.assembly_ref.len(), self.type_ref.len()]);
+        let type_def_or_ref = composite_index_size(&[self.type_def.len(), self.type_ref.len(), self.type_spec.len()]);
 
         let mut buffer = Vec::new();
         let header = Header::new();
@@ -80,6 +89,7 @@ impl Tables {
         buffer.write(&(self.module_ref.len() as u32));
         buffer.write(&(self.type_spec.len() as u32));
         buffer.write(&(self.impl_map.len() as u32));
+        buffer.write(&(self.assembly_ref.len() as u32));
         buffer.write(&(self.nested_class.len() as u32));
         buffer.write(&(self.generic_param.len() as u32));
 
@@ -91,13 +101,25 @@ impl Tables {
             buffer.write(&0u32); // EncBaseId (reserved)
         }
 
+        for type_ref in &self.type_ref {
+            write_coded_index(&mut buffer, type_ref.assembly_index.encode(), resolution_scope);
+            buffer.write(&strings.insert(&type_ref.type_name.name));
+            buffer.write(&strings.insert(&type_ref.type_name.namespace));
+        }
+
         for type_def in &self.type_def {
-            buffer.write(&type_def.flags);
-            buffer.write(&strings.insert(&type_def.name));
-            buffer.write(&strings.insert(&type_def.namespace));
-            buffer.write(&0u16); // Extends
+            buffer.write(&(type_def.flags.0 as u32));
+            buffer.write(&strings.insert(&type_def.type_name.name));
+            buffer.write(&strings.insert(&type_def.type_name.namespace));
+            write_coded_index(&mut buffer, type_def.extends_index.encode(), type_def_or_ref);
             write_index(&mut buffer, type_def.field_index, self.field.len());
             write_index(&mut buffer, type_def.method_index, self.method_def.len());
+        }
+
+        for field in &self.field {
+            buffer.write(&0u16); // Flags
+            buffer.write(&strings.insert(&field.name));
+            buffer.write(&blobs.insert(&field.signature));
         }
 
         for method_def in &self.method_def {
@@ -110,9 +132,21 @@ impl Tables {
         }
 
         for param in &self.param {
-            buffer.write(&param.flags);
+            buffer.write(&(param.flags.0 as u16));
             buffer.write(&param.sequence);
             buffer.write(&strings.insert(&param.name));
+        }
+
+        for assembly_ref in &self.assembly_ref {
+            buffer.write(&assembly_ref.major_version);
+            buffer.write(&assembly_ref.minor_version);
+            buffer.write(&assembly_ref.build_number);
+            buffer.write(&assembly_ref.revision_number);
+            buffer.write(&0u32); // Flags
+            buffer.write(&0u32); // PublicKeyOrToken
+            buffer.write(&strings.insert(&assembly_ref.name));
+            buffer.write(&0u32); // Culture
+            buffer.write(&0u32); // HashValue
         }
 
         buffer.resize(round(buffer.len(), 4), 0);
@@ -120,18 +154,38 @@ impl Tables {
     }
 
     // Once all of the type information has been added, normalization is the process of packing
-    // the various relational records into their respective tables and leaving only offsets behind.
+    // the various relational records into their respective tables and leaving only indexes behind.
     fn normalize(&mut self) {
         for type_def in &mut self.type_def {
             type_def.field_index = self.field.len();
             type_def.method_index = self.method_def.len();
             self.field.append(&mut type_def.field_list);
             self.method_def.append(&mut type_def.method_list);
+
+            if let Some(extends) = type_def.extends.take() {
+                let index = if let Some(index) = self.type_ref.iter().position(|row| row.type_name == extends.type_name) {
+                    index
+                } else {
+                    self.type_ref.push(extends);
+                    self.type_ref.len() - 1
+                };
+                type_def.extends_index = TypeDefOrRef::TypeRef(index);
+            }
         }
 
         for method_def in &mut self.method_def {
             method_def.param_index = self.param.len();
             self.param.append(&mut method_def.param_list);
+        }
+
+        for type_ref in &mut self.type_ref {
+            let index = if let Some(index) = self.assembly_ref.iter().position(|row| row.name == type_ref.assembly_ref.name) {
+                index
+            } else {
+                self.assembly_ref.push(type_ref.assembly_ref.clone());
+                self.assembly_ref.len() - 1
+            };
+            type_ref.assembly_index = ResolutionScope::AssemblyRef(index);
         }
     }
 }
@@ -166,8 +220,9 @@ impl Header {
                    1 << 0x0C | // CustomAttribute
                    1 << 0x0F | // ClassLayout
                    1 << 0x1A | // ModuleRef
-                   1 << 0x1B | // TypeSpec,
+                   1 << 0x1B | // TypeSpec
                    1 << 0x1C | // ImplMap
+                   1 << 0x23 | // AssemblyRef
                    1 << 0x29 | // NestedClass
                    1 << 0x2A, // GenericParam
             // TODO: mark sorted tables?
@@ -184,29 +239,10 @@ fn write_index(buffer: &mut Vec<u8>, index: usize, len: usize) {
     }
 }
 
-// fn coded_index_size(tables: &[usize]) -> u32 {
-//     fn small(row_count: usize, bits: u8) -> bool {
-//         (row_count as u64) < (1u64 << (16 - bits))
-//     }
-
-//     fn bits_needed(value: usize) -> u8 {
-//         let mut value = value - 1;
-//         let mut bits: u8 = 1;
-//         loop {
-//             value >>= 1;
-//             if value == 0 {
-//                 break;
-//             }
-//             bits += 1;
-//         }
-//         bits
-//     }
-
-//     let bits_needed = bits_needed(tables.len());
-
-//     if tables.iter().all(|len| small(*len, bits_needed)) {
-//         2
-//     } else {
-//         4
-//     }
-// }
+fn write_coded_index(buffer: &mut Vec<u8>, value: usize, size: usize) {
+    if size == 2 {
+        buffer.write(&(value as u16))
+    } else {
+        buffer.write(&(value as u32))
+    }
+}

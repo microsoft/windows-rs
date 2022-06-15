@@ -2,21 +2,23 @@ use super::*;
 
 #[derive(Default)]
 pub struct TypeDef {
-    pub flags: u32,
-    pub name: String,
-    pub namespace: String,
+    pub flags: TypeAttributes,
+    pub type_name: TypeName,
+    pub extends: Option<TypeRef>,
     pub field_list: Vec<Field>,
     pub method_list: Vec<MethodDef>,
+
     pub(crate) field_index: usize,
     pub(crate) method_index: usize,
+    pub(crate) extends_index: TypeDefOrRef,
 }
 
 impl TypeDef {
     pub fn module() -> Self {
-        Self { name: "<Module>".to_string(), ..Default::default() }
+        Self::new(TypeName::new("", "<Module>"))
     }
 
-    pub fn winrt_interface(name: &str, namespace: &str) -> Self {
-        Self { name: name.to_string(), namespace: namespace.to_string(), ..Default::default() }
+    pub fn new(type_name: TypeName) -> Self {
+        Self { type_name, ..Default::default() }
     }
 }

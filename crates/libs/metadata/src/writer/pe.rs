@@ -1,7 +1,7 @@
 use super::*;
 use windows_sys::{Win32::System::Diagnostics::Debug::*, Win32::System::SystemServices::*};
 
-pub(crate) fn write(filename: &str, tables: Tables) {
+pub fn write(filename: &str, tables: Tables) {
     let mut dos: IMAGE_DOS_HEADER = unsafe { zeroed() };
     dos.e_magic = IMAGE_DOS_SIGNATURE as _;
     dos.e_lfarlc = 64;
@@ -80,7 +80,8 @@ pub(crate) fn write(filename: &str, tables: Tables) {
 
     let mut buffer = Vec::<u8>::new();
     buffer.write(&dos);
-    buffer.write(&IMAGE_NT_SIGNATURE);
+    // TODO: workaround for https://github.com/microsoft/win32metadata/issues/963
+    buffer.write(&(IMAGE_NT_SIGNATURE as u32));
     buffer.write(&file);
     buffer.write(&optional);
     buffer.write(&section);
