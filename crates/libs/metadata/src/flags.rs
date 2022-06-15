@@ -38,9 +38,11 @@ impl ParamAttributes {
     pub fn input(&self) -> bool {
         self.0 & 0x1 != 0
     }
+
     pub fn output(&self) -> bool {
         self.0 & 0x2 != 0
     }
+
     pub fn optional(&self) -> bool {
         self.0 & 0x10 != 0
     }

@@ -62,9 +62,6 @@ impl Tables {
         let mut new = Self::default();
         new.module.push(Module::new(module));
         new.type_def.push(TypeDef::module());
-        new.type_ref.push(TypeRef::system_value_type());
-        new.type_ref.push(TypeRef::system_enum());
-        new.type_ref.push(TypeRef::system_delegate());
         new
     }
 
@@ -72,6 +69,7 @@ impl Tables {
         self.normalize();
 
         let resolution_scope = composite_index_size(&[self.module.len(), self.module_ref.len(), self.assembly_ref.len(), self.type_ref.len()]);
+        let type_def_or_ref = composite_index_size(&[self.type_def.len(), self.type_ref.len(), self.type_spec.len()]);
 
         let mut buffer = Vec::new();
         let header = Header::new();
@@ -113,9 +111,15 @@ impl Tables {
             buffer.write(&(type_def.flags.0 as u32));
             buffer.write(&strings.insert(&type_def.type_name.name));
             buffer.write(&strings.insert(&type_def.type_name.namespace));
-            buffer.write(&0u16); // Extends
+            write_coded_index(&mut buffer, type_def.extends_index.encode(), type_def_or_ref);
             write_index(&mut buffer, type_def.field_index, self.field.len());
             write_index(&mut buffer, type_def.method_index, self.method_def.len());
+        }
+
+        for field in &self.field {
+            buffer.write(&0u16); // Flags
+            buffer.write(&strings.insert(&field.name));
+            buffer.write(&blobs.insert(&field.signature));
         }
 
         for method_def in &self.method_def {
@@ -157,6 +161,16 @@ impl Tables {
             type_def.method_index = self.method_def.len();
             self.field.append(&mut type_def.field_list);
             self.method_def.append(&mut type_def.method_list);
+
+            if let Some(extends) = &type_def.extends {
+                let index = if let Some(index) = self.type_ref.iter().position(|row| row.type_name == extends.type_name) {
+                    index
+                } else {
+                    self.type_ref.push(extends.clone());
+                    self.type_ref.len() - 1
+                };
+                type_def.extends_index = TypeDefOrRef::TypeRef(index);
+            }
         }
 
         for method_def in &mut self.method_def {
