@@ -4,7 +4,8 @@ use super::*;
 pub struct TypeRef {
     pub type_name: TypeName,
     pub assembly_ref: AssemblyRef,
-    pub assembly_index: ResolutionScope,
+
+    pub(crate) assembly_index: ResolutionScope,
 }
 
 impl TypeRef {

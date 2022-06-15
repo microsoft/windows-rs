@@ -132,7 +132,7 @@ impl Tables {
         }
 
         for param in &self.param {
-            buffer.write(&param.flags);
+            buffer.write(&(param.flags.0 as u16));
             buffer.write(&param.sequence);
             buffer.write(&strings.insert(&param.name));
         }
@@ -162,11 +162,11 @@ impl Tables {
             self.field.append(&mut type_def.field_list);
             self.method_def.append(&mut type_def.method_list);
 
-            if let Some(extends) = &type_def.extends {
+            if let Some(extends) = type_def.extends.take() {
                 let index = if let Some(index) = self.type_ref.iter().position(|row| row.type_name == extends.type_name) {
                     index
                 } else {
-                    self.type_ref.push(extends.clone());
+                    self.type_ref.push(extends);
                     self.type_ref.len() - 1
                 };
                 type_def.extends_index = TypeDefOrRef::TypeRef(index);

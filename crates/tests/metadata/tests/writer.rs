@@ -11,7 +11,11 @@ fn writer() {
         def.flags.set_abstract();
         def.flags.set_winrt();
         def.flags.set_interface();
-        def.method_list.push(MethodDef::new("ToString"));
+
+        let mut method = MethodDef::new("ToString");
+        method.param_list.push(Param { name: "param123".to_string(), sequence: 123, ..Default::default() });
+        def.method_list.push(method);
+
         tables.type_def.push(def);
 
         let mut def = TypeDef::new(TypeName::new("TestWindows.Foundation", "Rect"));
@@ -40,6 +44,10 @@ fn writer() {
 
         let method = reader.type_def_methods(def).next().unwrap();
         assert_eq!(reader.method_def_name(method), "ToString");
+
+        let param = reader.method_def_params(method).next().unwrap();
+        assert_eq!(reader.param_name(param), "param123");
+        assert_eq!(reader.param_sequence(param), 123);
 
         let def = reader.get(TypeName::new("TestWindows.Foundation", "Rect")).next().unwrap();
         assert_eq!(reader.type_def_kind(def), TypeKind::Struct);
