@@ -6,20 +6,26 @@ fn writer() {
 
         let mut tables = Tables::new("test.winmd");
 
-        let mut stringable = TypeDef::new(TypeName::new("TestWindows.Foundation", "IStringable"));
-        stringable.flags.set_public();
-        stringable.flags.set_abstract();
-        stringable.flags.set_winrt();
-        stringable.flags.set_interface();
-        stringable.method_list.push(MethodDef::new("ToString"));
-        tables.type_def.push(stringable);
+        let mut def = TypeDef::new(TypeName::new("TestWindows.Foundation", "IStringable"));
+        def.flags.set_public();
+        def.flags.set_abstract();
+        def.flags.set_winrt();
+        def.flags.set_interface();
+        def.method_list.push(MethodDef::new("ToString"));
+        tables.type_def.push(def);
 
-        let mut rect = TypeDef::new(TypeName::new("TestWindows.Foundation", "Rect"));
-        rect.flags.set_public();
-        rect.flags.set_winrt();
-        rect.extends = Some(TypeRef::system_value_type());
-        rect.field_list.push(Field::new("Height"));
-        tables.type_def.push(rect);
+        let mut def = TypeDef::new(TypeName::new("TestWindows.Foundation", "Rect"));
+        def.flags.set_public();
+        def.flags.set_winrt();
+        def.extends = Some(TypeRef::system_value_type());
+        def.field_list.push(Field::new("Height"));
+        tables.type_def.push(def);
+
+        let mut def = TypeDef::new(TypeName::new("TestWindows.Foundation", "AsyncStatus"));
+        def.flags.set_public();
+        def.flags.set_winrt();
+        def.extends = Some(TypeRef::system_enum());
+        tables.type_def.push(def);
 
         pe::write(temp_file.to_str().unwrap(), tables);
     }
@@ -41,5 +47,9 @@ fn writer() {
 
         let field = reader.type_def_fields(def).next().unwrap();
         assert_eq!(reader.field_name(field), "Height");
+
+        let def = reader.get(TypeName::new("TestWindows.Foundation", "AsyncStatus")).next().unwrap();
+        assert_eq!(reader.type_def_kind(def), TypeKind::Enum);
+        assert!(reader.type_def_flags(def).winrt());
     }
 }

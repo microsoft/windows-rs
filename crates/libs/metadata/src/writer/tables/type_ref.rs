@@ -3,24 +3,20 @@ use super::*;
 #[derive(Default, Clone)]
 pub struct TypeRef {
     pub type_name: TypeName,
-    pub assembly_ref: String,
+    pub assembly_ref: AssemblyRef,
     pub assembly_index: ResolutionScope,
 }
 
 impl TypeRef {
-    pub fn new(assembly_ref: &str, type_name: TypeName) -> Self {
-        Self { assembly_ref: assembly_ref.to_string(), type_name, ..Default::default() }
-    }
-
     pub fn system_value_type() -> Self {
-        Self::new("mscorlib", TypeName::system_value_type())
+        Self { assembly_ref: AssemblyRef::mscorlib(), type_name: TypeName::system_value_type(), ..Default::default() }
     }
 
     pub fn system_enum() -> Self {
-        Self::new("mscorlib", TypeName::system_enum())
+        Self { assembly_ref: AssemblyRef::mscorlib(), type_name: TypeName::system_enum(), ..Default::default() }
     }
 
     pub fn system_delegate() -> Self {
-        Self::new("mscorlib", TypeName::system_delegate())
+        Self { assembly_ref: AssemblyRef::mscorlib(), type_name: TypeName::system_delegate(), ..Default::default() }
     }
 }

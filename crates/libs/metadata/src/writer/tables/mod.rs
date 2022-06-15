@@ -179,10 +179,10 @@ impl Tables {
         }
 
         for type_ref in &mut self.type_ref {
-            let index = if let Some(index) = self.assembly_ref.iter().position(|row| row.name == type_ref.assembly_ref) {
+            let index = if let Some(index) = self.assembly_ref.iter().position(|row| row.name == type_ref.assembly_ref.name) {
                 index
             } else {
-                self.assembly_ref.push(AssemblyRef::new(&type_ref.assembly_ref));
+                self.assembly_ref.push(type_ref.assembly_ref.clone());
                 self.assembly_ref.len() - 1
             };
             type_ref.assembly_index = ResolutionScope::AssemblyRef(index);
