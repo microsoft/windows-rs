@@ -3,8 +3,7 @@ use super::*;
 #[derive(Default)]
 pub struct TypeDef {
     pub flags: TypeAttributes,
-    pub name: String,
-    pub namespace: String,
+    pub type_name: TypeName,
     pub extends: TypeName,
     pub field_list: Vec<Field>,
     pub method_list: Vec<MethodDef>,
@@ -14,10 +13,10 @@ pub struct TypeDef {
 
 impl TypeDef {
     pub fn module() -> Self {
-        Self { name: "<Module>".to_string(), ..Default::default() }
+        Self::new(TypeName::new("", "<Module>"))
     }
 
     pub fn new(type_name: TypeName) -> Self {
-        Self { name: type_name.name, namespace: type_name.namespace, ..Default::default() }
+        Self { type_name, ..Default::default() }
     }
 }

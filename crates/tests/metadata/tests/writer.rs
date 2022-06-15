@@ -4,9 +4,8 @@ fn writer() {
     {
         use metadata::writer::*;
 
-        let mut tables = Tables::new();
-        tables.module.push(Module::new("test.winmd"));
-        tables.type_def.push(TypeDef::module());
+        let mut tables = Tables::new("test.winmd");
+        
 
         let mut stringable = TypeDef::new(TypeName::new("Windows.Foundation", "IStringable"));
         stringable.flags.set_public();
