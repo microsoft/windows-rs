@@ -72,7 +72,6 @@ impl Tables {
     pub(crate) fn into_stream(mut self, strings: &mut Strings, blobs: &mut Blobs) -> Vec<u8> {
         self.normalize();
 
-        // let type_def_or_ref = composite_index_size(&[self.type_def.len(), self.type_ref.len(), 0]); // No TypeSpec rows
         let resolution_scope = composite_index_size(&[self.module.len(), self.module_ref.len(), self.assembly_ref.len(), self.type_ref.len()]);
 
         let mut buffer = Vec::new();
