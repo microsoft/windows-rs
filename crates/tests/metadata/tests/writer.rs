@@ -29,6 +29,7 @@ fn writer() {
         def.flags.set_public();
         def.flags.set_winrt();
         def.extends = Some(TypeRef::system_enum());
+        def.field_list.push(Field { name: "Completed".to_string(), constant: Some(Value::I32(1)), ..Default::default() });
         tables.type_def.push(def);
 
         pe::write(temp_file.to_str().unwrap(), tables);

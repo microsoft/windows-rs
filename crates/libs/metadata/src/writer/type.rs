@@ -63,4 +63,12 @@ impl Type {
             _ => None,
         }
     }
+
+    /// Encodes the `Type` as FieldSig (see ECMA-335).
+    pub fn to_field_sig(&self) -> Vec<u8> {
+        if let Some(code) = self.to_code() {
+            return vec![0x6, code as _];
+        }
+        unimplemented!();
+    }
 }

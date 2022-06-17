@@ -107,7 +107,7 @@ impl Tables {
         for field in &self.field {
             buffer.write(&0u16); // Flags
             buffer.write(&strings.insert(&field.name));
-            buffer.write(&blobs.insert(&field.signature));
+            buffer.write(&blobs.insert(&field.ty.to_field_sig()));
         }
 
         for method_def in &self.method_def {
@@ -126,8 +126,9 @@ impl Tables {
         }
 
         for constant in &self.constant {
-            buffer.write(&(constant.ty.to_code().expect("Unexpected constant type") as u16));
+            buffer.write(&(constant.value.ty().to_code().expect("Unexpected constant type") as u16));
             write_coded_index(&mut buffer, constant.parent_index.encode(), has_constant);
+            buffer.write(&blobs.insert(&constant.value.to_blob()));
         }
 
         for assembly_ref in &self.assembly_ref {
@@ -179,6 +180,12 @@ impl Tables {
                 self.assembly_ref.len() - 1
             };
             type_ref.assembly_index = ResolutionScope::AssemblyRef(index);
+        }
+
+        for (field_index, field) in self.field.iter_mut().enumerate() {
+            if let Some(value) = field.constant.take() {
+                self.constant.push(Constant { value, parent_index: HasConstant::Field(field_index) })
+            }
         }
     }
 }
