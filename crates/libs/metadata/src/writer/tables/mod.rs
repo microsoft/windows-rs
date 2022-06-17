@@ -14,6 +14,7 @@ mod module;
 mod module_ref;
 mod nested_class;
 mod param;
+mod property;
 mod type_def;
 mod type_ref;
 mod type_spec;
@@ -32,6 +33,7 @@ pub use module::*;
 pub use module_ref::*;
 pub use nested_class::*;
 pub use param::*;
+pub use property::*;
 pub use type_def::*;
 pub use type_ref::*;
 pub use type_spec::*;
@@ -49,6 +51,7 @@ pub struct Tables {
     pub constant: Vec<Constant>,
     pub custom_attribute: Vec<CustomAttribute>,
     pub class_layout: Vec<ClassLayout>,
+    pub property: Vec<Property>,
     pub module_ref: Vec<ModuleRef>,
     pub type_spec: Vec<TypeSpec>,
     pub impl_map: Vec<ImplMap>,
@@ -70,28 +73,13 @@ impl Tables {
 
         let resolution_scope = composite_index_size(&[self.module.len(), self.module_ref.len(), self.assembly_ref.len(), self.type_ref.len()]);
         let type_def_or_ref = composite_index_size(&[self.type_def.len(), self.type_ref.len(), self.type_spec.len()]);
+        let has_constant = composite_index_size(&[self.field.len(), self.param.len(), self.property.len()]);
 
         let mut buffer = Vec::new();
         let header = Header::new();
         buffer.write(&header);
 
-        buffer.write(&(self.module.len() as u32));
-        buffer.write(&(self.type_ref.len() as u32));
-        buffer.write(&(self.type_def.len() as u32));
-        buffer.write(&(self.field.len() as u32));
-        buffer.write(&(self.method_def.len() as u32));
-        buffer.write(&(self.param.len() as u32));
-        buffer.write(&(self.interface_impl.len() as u32));
-        buffer.write(&(self.member_ref.len() as u32));
-        buffer.write(&(self.constant.len() as u32));
-        buffer.write(&(self.custom_attribute.len() as u32));
-        buffer.write(&(self.class_layout.len() as u32));
-        buffer.write(&(self.module_ref.len() as u32));
-        buffer.write(&(self.type_spec.len() as u32));
-        buffer.write(&(self.impl_map.len() as u32));
-        buffer.write(&(self.assembly_ref.len() as u32));
-        buffer.write(&(self.nested_class.len() as u32));
-        buffer.write(&(self.generic_param.len() as u32));
+        write_table_sizes(&mut buffer, &[self.module.len(), self.type_ref.len(), self.type_def.len(), self.field.len(), self.method_def.len(), self.param.len(), self.interface_impl.len(), self.member_ref.len(), self.constant.len(), self.custom_attribute.len(), self.class_layout.len(), self.property.len(), self.module_ref.len(), self.type_spec.len(), self.impl_map.len(), self.assembly_ref.len(), self.nested_class.len(), self.generic_param.len()]);
 
         for module in &self.module {
             buffer.write(&0u16); // Generation (reserved)
@@ -135,6 +123,10 @@ impl Tables {
             buffer.write(&(param.flags.0 as u16));
             buffer.write(&param.sequence);
             buffer.write(&strings.insert(&param.name));
+        }
+
+        for constant in &self.constant {
+            buffer.write(&(constant.ty.to_code().expect("Unexpected constant type") as u16));
         }
 
         for assembly_ref in &self.assembly_ref {
@@ -219,6 +211,7 @@ impl Header {
                    1 << 0x0B | // Constant
                    1 << 0x0C | // CustomAttribute
                    1 << 0x0F | // ClassLayout
+                   1 << 0x17 | // Property
                    1 << 0x1A | // ModuleRef
                    1 << 0x1B | // TypeSpec
                    1 << 0x1C | // ImplMap
@@ -228,6 +221,12 @@ impl Header {
             // TODO: mark sorted tables?
             ..Default::default()
         }
+    }
+}
+
+fn write_table_sizes(buffer: &mut Vec<u8>, tables: &[usize]) {
+    for table in tables {
+        buffer.write(&(*table as u32));
     }
 }
 

@@ -25,11 +25,10 @@ pub fn composite_index_size(tables: &[usize]) -> usize {
     fn bits_needed(value: usize) -> u8 {
         let mut value = value - 1;
         let mut bits: u8 = 1;
-        loop {
+        while {
             value >>= 1;
-            if value == 0 {
-                break;
-            }
+            value != 0
+        } {
             bits += 1;
         }
         bits

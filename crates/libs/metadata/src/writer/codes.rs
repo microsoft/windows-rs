@@ -14,7 +14,7 @@ impl ResolutionScope {
             Self::ModuleRef(row) => ((row + 1) << 2) + 1,
             Self::AssemblyRef(row) => ((row + 1) << 2) + 2,
             Self::TypeRef(row) => ((row + 1) << 2) + 3,
-            _ => unimplemented!(),
+            _ => 0,
         }
     }
 }
