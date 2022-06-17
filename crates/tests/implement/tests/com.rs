@@ -6,7 +6,11 @@ use windows::Win32::Foundation::HANDLE;
 use windows::Win32::System::WinRT::Composition::*;
 use windows::Win32::System::WinRT::Display::*;
 
-#[implement(windows::Foundation::IStringable, windows::Win32::System::WinRT::Composition::ISwapChainInterop, windows::Win32::System::WinRT::Display::IDisplayPathInterop)]
+#[implement(
+    windows::Foundation::IStringable,
+    windows::Win32::System::WinRT::Composition::ISwapChainInterop,
+    windows::Win32::System::WinRT::Display::IDisplayPathInterop
+)]
 struct Mix;
 
 impl IStringable_Impl for Mix {

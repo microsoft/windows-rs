@@ -7,15 +7,32 @@ fn main() -> std::io::Result<()> {
     let metadata_dir = format!("{}\\System32\\WinMetadata", env!("windir"));
     std::fs::create_dir_all(".windows/winmd")?;
 
-    Command::new("midlrt.exe").arg("/winrt").arg("/nomidl").arg("/h").arg("nul").arg("/metadata_dir").arg(&metadata_dir).arg("/reference").arg(format!("{}\\Windows.Foundation.winmd", metadata_dir)).arg("/winmd").arg(".windows/winmd/component.winmd").arg("src/component.idl").status()?;
+    Command::new("midlrt.exe")
+        .arg("/winrt")
+        .arg("/nomidl")
+        .arg("/h")
+        .arg("nul")
+        .arg("/metadata_dir")
+        .arg(&metadata_dir)
+        .arg("/reference")
+        .arg(format!("{}\\Windows.Foundation.winmd", metadata_dir))
+        .arg("/winmd")
+        .arg(".windows/winmd/component.winmd")
+        .arg("src/component.idl")
+        .status()?;
 
     std::fs::remove_file("src/bindings.rs").ok();
     let mut bindings = File::create("src/bindings.rs")?;
 
     // TODO: this needs to be simpler
-    let files = vec![metadata::reader::File::new("../../libs/metadata/default/Windows.winmd").unwrap(), metadata::reader::File::new(".windows/winmd/component.winmd").unwrap()];
+    let files = vec![
+        metadata::reader::File::new("../../libs/metadata/default/Windows.winmd").unwrap(),
+        metadata::reader::File::new(".windows/winmd/component.winmd").unwrap(),
+    ];
     let reader = &metadata::reader::Reader::new(&files);
-    let tree = reader.tree("test_component", &[]).expect("`test_component` namespace not found");
+    let tree = reader
+        .tree("test_component", &[])
+        .expect("`test_component` namespace not found");
     let mut gen = bindgen::Gen::new(reader);
     gen.namespace = tree.namespace;
     gen.component = true;

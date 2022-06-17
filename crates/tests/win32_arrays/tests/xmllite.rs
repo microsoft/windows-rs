@@ -1,4 +1,7 @@
-use windows::{core::*, Win32::Data::Xml::XmlLite::*, Win32::System::Com::StructuredStorage::*, Win32::System::Com::*};
+use windows::{
+    core::*, Win32::Data::Xml::XmlLite::*, Win32::System::Com::StructuredStorage::*,
+    Win32::System::Com::*,
+};
 
 #[test]
 fn test() -> Result<()> {
@@ -12,7 +15,12 @@ fn test() -> Result<()> {
 
         writer.WriteStartDocument(XmlStandalone_Omit)?;
         writer.WriteStartElement(None, "html", None)?;
-        writer.WriteElementString(None, "head", None, "The quick brown fox jumps over the lazy dog")?;
+        writer.WriteElementString(
+            None,
+            "head",
+            None,
+            "The quick brown fox jumps over the lazy dog",
+        )?;
         writer.WriteStartElement(None, "body", None)?;
         writer.WriteChars(&[])?;
         writer.WriteChars(&[0x52, 0x75, 0x73, 0x74])?;
@@ -38,13 +46,19 @@ fn test() -> Result<()> {
         reader.Read(&mut node_type).ok()?;
         assert_eq!(node_type, XmlNodeType_Element);
         reader.GetLocalName(&mut name, &mut name_len)?;
-        assert_eq!(String::from_utf16_lossy(std::slice::from_raw_parts(name.0, name_len as _)), "html");
+        assert_eq!(
+            String::from_utf16_lossy(std::slice::from_raw_parts(name.0, name_len as _)),
+            "html"
+        );
 
         let mut node_type = XmlNodeType_None;
         reader.Read(&mut node_type).ok()?;
         assert_eq!(node_type, XmlNodeType_Element);
         reader.GetLocalName(&mut name, &mut name_len)?;
-        assert_eq!(String::from_utf16_lossy(std::slice::from_raw_parts(name.0, name_len as _)), "head");
+        assert_eq!(
+            String::from_utf16_lossy(std::slice::from_raw_parts(name.0, name_len as _)),
+            "head"
+        );
 
         let mut node_type = XmlNodeType_None;
         reader.Read(&mut node_type).ok()?;
@@ -62,7 +76,10 @@ fn test() -> Result<()> {
         }
 
         assert_eq!(read_count, 5);
-        assert_eq!(String::from_utf16_lossy(std::slice::from_raw_parts(message.as_ptr(), message.len())), "The quick brown fox jumps over the lazy dog");
+        assert_eq!(
+            String::from_utf16_lossy(std::slice::from_raw_parts(message.as_ptr(), message.len())),
+            "The quick brown fox jumps over the lazy dog"
+        );
 
         let mut node_type = XmlNodeType_None;
         reader.Read(&mut node_type).ok()?;
@@ -78,7 +95,10 @@ fn test() -> Result<()> {
 
         reader.ReadValueChunk(&mut chunk, &mut chars_read).ok()?;
         assert_eq!(chars_read, 4);
-        assert_eq!(String::from_utf16_lossy(std::slice::from_raw_parts(chunk.as_ptr(), chars_read as _)), "Rust");
+        assert_eq!(
+            String::from_utf16_lossy(std::slice::from_raw_parts(chunk.as_ptr(), chars_read as _)),
+            "Rust"
+        );
 
         Ok(())
     }
@@ -96,7 +116,10 @@ fn lite() -> Result<()> {
 
         writer.WriteStartElement(HSTRING::from("html").as_wide())?;
         writer.WriteAttributeString(HSTRING::from("no-value").as_wide(), &[])?;
-        writer.WriteAttributeString(HSTRING::from("with-value").as_wide(), HSTRING::from("value").as_wide())?;
+        writer.WriteAttributeString(
+            HSTRING::from("with-value").as_wide(),
+            HSTRING::from("value").as_wide(),
+        )?;
         writer.WriteEndElement(HSTRING::from("html").as_wide())?;
         writer.Flush()?;
 
@@ -115,24 +138,39 @@ fn lite() -> Result<()> {
         reader.Read(&mut node_type).ok()?;
         assert_eq!(node_type, XmlNodeType_Element);
         reader.GetLocalName(&mut name, &mut name_len)?;
-        assert_eq!(String::from_utf16_lossy(std::slice::from_raw_parts(name.0, name_len as _)), "html");
+        assert_eq!(
+            String::from_utf16_lossy(std::slice::from_raw_parts(name.0, name_len as _)),
+            "html"
+        );
 
         assert_eq!(reader.GetAttributeCount()?, 2);
         reader.MoveToFirstAttribute().ok()?;
 
         reader.GetLocalName(&mut name, &mut name_len)?;
-        assert_eq!(String::from_utf16_lossy(std::slice::from_raw_parts(name.0, name_len as _)), "no-value");
+        assert_eq!(
+            String::from_utf16_lossy(std::slice::from_raw_parts(name.0, name_len as _)),
+            "no-value"
+        );
 
         reader.GetValue(&mut name, &mut name_len)?;
-        assert_eq!(String::from_utf16_lossy(std::slice::from_raw_parts(name.0, name_len as _)), "");
+        assert_eq!(
+            String::from_utf16_lossy(std::slice::from_raw_parts(name.0, name_len as _)),
+            ""
+        );
 
         reader.MoveToNextAttribute().ok()?;
 
         reader.GetLocalName(&mut name, &mut name_len)?;
-        assert_eq!(String::from_utf16_lossy(std::slice::from_raw_parts(name.0, name_len as _)), "with-value");
+        assert_eq!(
+            String::from_utf16_lossy(std::slice::from_raw_parts(name.0, name_len as _)),
+            "with-value"
+        );
 
         reader.GetValue(&mut name, &mut name_len)?;
-        assert_eq!(String::from_utf16_lossy(std::slice::from_raw_parts(name.0, name_len as _)), "value");
+        assert_eq!(
+            String::from_utf16_lossy(std::slice::from_raw_parts(name.0, name_len as _)),
+            "value"
+        );
 
         Ok(())
     }

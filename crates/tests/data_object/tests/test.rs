@@ -91,7 +91,8 @@ fn test() -> Result<()> {
         d.GetData(core::ptr::null_mut())?;
         d.GetDataHere(core::ptr::null_mut(), core::ptr::null_mut())?;
         d.QueryGetData(core::ptr::null_mut())?;
-        d.GetCanonicalFormatEtc(core::ptr::null(), core::ptr::null_mut()).ok()?;
+        d.GetCanonicalFormatEtc(core::ptr::null(), core::ptr::null_mut())
+            .ok()?;
         d.SetData(core::ptr::null_mut(), core::ptr::null_mut(), false)?;
         let _ = d.EnumFormatEtc(0);
         d.DAdvise(core::ptr::null_mut(), 0, None)?;

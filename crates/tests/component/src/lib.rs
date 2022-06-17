@@ -1,4 +1,12 @@
-#![allow(non_snake_case, non_upper_case_globals, non_camel_case_types, clashing_extern_declarations, unused_variables, dead_code, clippy::all)]
+#![allow(
+    non_snake_case,
+    non_upper_case_globals,
+    non_camel_case_types,
+    clashing_extern_declarations,
+    unused_variables,
+    dead_code,
+    clippy::all
+)]
 
 mod bindings;
 use std::mem::*;
@@ -30,7 +38,10 @@ impl IActivationFactory_Impl for ClassFactory {
 }
 
 #[no_mangle]
-unsafe extern "stdcall" fn DllGetActivationFactory(name: ManuallyDrop<HSTRING>, result: *mut *mut std::ffi::c_void) -> HRESULT {
+unsafe extern "stdcall" fn DllGetActivationFactory(
+    name: ManuallyDrop<HSTRING>,
+    result: *mut *mut std::ffi::c_void,
+) -> HRESULT {
     let factory: Option<IActivationFactory> = match name.to_string().as_str() {
         "test_component.Class" => Some(ClassFactory.into()),
         _ => None,

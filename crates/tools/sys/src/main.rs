@@ -8,12 +8,21 @@ fn main() {
     let _ = std::fs::remove_dir_all(&output);
     output.pop();
 
-    let files = vec![metadata::reader::File::new("crates/libs/metadata/default/Windows.winmd").unwrap(), metadata::reader::File::new("crates/libs/metadata/default/Windows.Win32.winmd").unwrap(), metadata::reader::File::new("crates/libs/metadata/default/Windows.Win32.Interop.winmd").unwrap()];
+    let files = vec![
+        metadata::reader::File::new("crates/libs/metadata/default/Windows.winmd").unwrap(),
+        metadata::reader::File::new("crates/libs/metadata/default/Windows.Win32.winmd").unwrap(),
+        metadata::reader::File::new("crates/libs/metadata/default/Windows.Win32.Interop.winmd")
+            .unwrap(),
+    ];
     let reader = &metadata::reader::Reader::new(&files);
-    let root = reader.tree("Windows", &EXCLUDE_NAMESPACES).expect("`Windows` namespace not found");
+    let root = reader
+        .tree("Windows", &EXCLUDE_NAMESPACES)
+        .expect("`Windows` namespace not found");
 
     let trees = root.flatten();
-    trees.par_iter().for_each(|tree| gen_tree(reader, &output, tree));
+    trees
+        .par_iter()
+        .for_each(|tree| gen_tree(reader, &output, tree));
 
     output.pop();
     output.push("Cargo.toml");
@@ -83,9 +92,11 @@ deprecated = []
         if let Some(pos) = feature.rfind('_') {
             let dependency = &feature[..pos];
 
-            file.write_all(format!("{} = [\"{}\"]\n", feature, dependency).as_bytes()).unwrap();
+            file.write_all(format!("{} = [\"{}\"]\n", feature, dependency).as_bytes())
+                .unwrap();
         } else {
-            file.write_all(format!("{} = []\n", feature).as_bytes()).unwrap();
+            file.write_all(format!("{} = []\n", feature).as_bytes())
+                .unwrap();
         }
     }
 
@@ -93,7 +104,11 @@ deprecated = []
     std::fs::copy(".github/license-apache", "crates/libs/sys/license-apache").unwrap();
 }
 
-fn gen_tree(reader: &metadata::reader::Reader, output: &std::path::Path, tree: &metadata::reader::Tree) {
+fn gen_tree(
+    reader: &metadata::reader::Reader,
+    output: &std::path::Path,
+    tree: &metadata::reader::Tree,
+) {
     let mut path = std::path::PathBuf::from(output);
     path.push(tree.namespace.replace('.', "/"));
     std::fs::create_dir_all(&path).unwrap();
@@ -106,7 +121,12 @@ fn gen_tree(reader: &metadata::reader::Reader, output: &std::path::Path, tree: &
     gen.doc = true;
     let mut tokens = bindgen::namespace(&gen, tree);
 
-    let mut child = std::process::Command::new("rustfmt").stdin(std::process::Stdio::piped()).stdout(std::process::Stdio::piped()).stderr(std::process::Stdio::null()).spawn().expect("Failed to spawn `rustfmt`");
+    let mut child = std::process::Command::new("rustfmt")
+        .stdin(std::process::Stdio::piped())
+        .stdout(std::process::Stdio::piped())
+        .stderr(std::process::Stdio::null())
+        .spawn()
+        .expect("Failed to spawn `rustfmt`");
     let mut stdin = child.stdin.take().expect("Failed to open stdin");
     stdin.write_all(tokens.as_bytes()).unwrap();
     drop(stdin);

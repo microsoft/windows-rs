@@ -25,19 +25,34 @@ fn main() {
 
     println!("Platform: {}", platform);
 
-    let files = vec![metadata::reader::File::new("crates/libs/metadata/default/Windows.winmd").unwrap(), metadata::reader::File::new("crates/libs/metadata/default/Windows.Win32.winmd").unwrap(), metadata::reader::File::new("crates/libs/metadata/default/Windows.Win32.Interop.winmd").unwrap()];
+    let files = vec![
+        metadata::reader::File::new("crates/libs/metadata/default/Windows.winmd").unwrap(),
+        metadata::reader::File::new("crates/libs/metadata/default/Windows.Win32.winmd").unwrap(),
+        metadata::reader::File::new("crates/libs/metadata/default/Windows.Win32.Interop.winmd")
+            .unwrap(),
+    ];
     let reader = &metadata::reader::Reader::new(&files);
 
     let mut libraries = BTreeMap::<String, BTreeMap<String, usize>>::new();
-    let root = reader.tree("Windows.Win32", &[]).expect("`Windows` namespace not found");
+    let root = reader
+        .tree("Windows.Win32", &[])
+        .expect("`Windows` namespace not found");
     for tree in root.flatten() {
-        if let Some(apis) = reader.get(metadata::reader::TypeName::new(tree.namespace, "Apis")).next() {
+        if let Some(apis) = reader
+            .get(metadata::reader::TypeName::new(tree.namespace, "Apis"))
+            .next()
+        {
             for method in reader.type_def_methods(apis) {
-                let impl_map = reader.method_def_impl_map(method).expect("ImplMap not found");
+                let impl_map = reader
+                    .method_def_impl_map(method)
+                    .expect("ImplMap not found");
                 let scope = reader.impl_map_scope(impl_map);
                 let library = reader.module_ref_name(scope).to_lowercase();
                 let params = reader.method_def_size(method);
-                libraries.entry(library).or_default().insert(reader.method_def_name(method).to_string(), params);
+                libraries
+                    .entry(library)
+                    .or_default()
+                    .insert(reader.method_def_name(method).to_string(), params);
             }
         }
     }
@@ -57,7 +72,12 @@ fn main() {
     }
 }
 
-fn build_library(output: &std::path::Path, library: &str, functions: &BTreeMap<String, usize>, platform: &str) {
+fn build_library(
+    output: &std::path::Path,
+    library: &str,
+    functions: &BTreeMap<String, usize>,
+    platform: &str,
+) {
     println!("{}", library);
 
     // Note that we don't use set_extension as it confuses PathBuf when the library name includes a period.
@@ -79,7 +99,8 @@ EXPORTS
 
     for (function, params) in functions {
         if platform.eq("i686_gnu") {
-            def.write_all(format!("{}@{}\n", function, params).as_bytes()).unwrap();
+            def.write_all(format!("{}@{}\n", function, params).as_bytes())
+                .unwrap();
         } else {
             def.write_all(format!("{}\n", function).as_bytes()).unwrap();
         }
@@ -111,7 +132,8 @@ fn build_mri(output: &std::path::Path, libraries: &BTreeMap<String, BTreeMap<Str
     mri.write_all(b"CREATE libwindows.a\n").unwrap();
 
     for library in libraries.keys() {
-        mri.write_all(format!("ADDLIB lib{}.a\n", library).as_bytes()).unwrap();
+        mri.write_all(format!("ADDLIB lib{}.a\n", library).as_bytes())
+            .unwrap();
     }
 
     mri.write_all(b"SAVE\nEND\n").unwrap();

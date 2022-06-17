@@ -119,7 +119,9 @@ impl<T: ::windows::core::RuntimeType + 'static> IVector_Impl<T> for Vector<T> {
     }
     fn ReplaceAll(&self, items: &[T::DefaultType]) -> Result<()> {
         let mut writer = self.0.write().unwrap();
-        writer.try_reserve(items.len() + 1).map_err(|_| err_memory())?;
+        writer
+            .try_reserve(items.len() + 1)
+            .map_err(|_| err_memory())?;
         for item in items {
             writer.push(item.clone());
         }
@@ -154,7 +156,8 @@ fn GetAt() -> Result<()> {
     assert_eq!(v.GetAt(0)?, 123);
     assert_eq!(v.GetAt(1).unwrap_err().code(), E_BOUNDS);
 
-    let v: IVector<IStringable> = Vector::new(vec![Some(Uri::CreateUri("http://test/")?.cast()?), None]).into();
+    let v: IVector<IStringable> =
+        Vector::new(vec![Some(Uri::CreateUri("http://test/")?.cast()?), None]).into();
     assert_eq!(v.GetAt(0)?.ToString()?, "http://test/");
     assert_eq!(v.GetAt(1).unwrap_err().code(), S_OK);
 
@@ -186,7 +189,10 @@ fn IndexOf() -> Result<()> {
     assert_eq!(index, 0);
     assert_eq!(v.IndexOf(None, &mut index)?, true);
     assert_eq!(index, 1);
-    assert_eq!(v.IndexOf(Uri::CreateUri("http://test/")?, &mut index)?, false);
+    assert_eq!(
+        v.IndexOf(Uri::CreateUri("http://test/")?, &mut index)?,
+        false
+    );
 
     Ok(())
 }
@@ -208,7 +214,10 @@ fn test() -> Result<()> {
     assert!(v.GetAt(20).is_err());
     assert_eq!(3, v.Size()?);
     let c: IInspectable = (&v).into();
-    assert_eq!(c.GetRuntimeClassName()?, "Windows.Foundation.Collections.IVector"); // TODO: needs to have `1<Int32>
+    assert_eq!(
+        c.GetRuntimeClassName()?,
+        "Windows.Foundation.Collections.IVector"
+    ); // TODO: needs to have `1<Int32>
 
     let mut index = 0;
     assert_eq!(true, v.IndexOf(20, &mut index)?);
@@ -230,7 +239,12 @@ fn test() -> Result<()> {
     assert_eq!(2, index);
     assert_eq!(false, v.IndexOf("123", &mut index)?);
 
-    let v: IVectorView<IStringable> = Vector::new(vec![Some(Uri::CreateUri("http://one/")?.try_into().unwrap()), Some(Uri::CreateUri("http://two/")?.try_into().unwrap()), Some(Uri::CreateUri("http://three/")?.try_into().unwrap())]).into();
+    let v: IVectorView<IStringable> = Vector::new(vec![
+        Some(Uri::CreateUri("http://one/")?.try_into().unwrap()),
+        Some(Uri::CreateUri("http://two/")?.try_into().unwrap()),
+        Some(Uri::CreateUri("http://three/")?.try_into().unwrap()),
+    ])
+    .into();
 
     assert_eq!("http://one/", v.GetAt(0)?.ToString()?);
     assert_eq!("http://two/", v.GetAt(1)?.ToString()?);

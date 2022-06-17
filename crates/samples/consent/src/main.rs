@@ -1,4 +1,7 @@
-use windows::{core::*, Foundation::*, Security::Credentials::UI::*, Win32::Foundation::*, Win32::System::WinRT::*};
+use windows::{
+    core::*, Foundation::*, Security::Credentials::UI::*, Win32::Foundation::*,
+    Win32::System::WinRT::*,
+};
 
 fn main() -> Result<()> {
     unsafe {
@@ -6,7 +9,8 @@ fn main() -> Result<()> {
 
         let window = HWND(0); // <== replace with your app's window handle
 
-        let operation: IAsyncOperation<UserConsentVerificationResult> = interop.RequestVerificationForWindowAsync(window, "Hello from Rust")?;
+        let operation: IAsyncOperation<UserConsentVerificationResult> =
+            interop.RequestVerificationForWindowAsync(window, "Hello from Rust")?;
 
         let result: UserConsentVerificationResult = operation.get()?;
 

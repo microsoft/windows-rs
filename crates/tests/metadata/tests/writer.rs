@@ -13,7 +13,11 @@ fn writer() {
         def.flags.set_interface();
 
         let mut method = MethodDef::new("ToString");
-        method.param_list.push(Param { name: "param123".to_string(), sequence: 123, ..Default::default() });
+        method.param_list.push(Param {
+            name: "param123".to_string(),
+            sequence: 123,
+            ..Default::default()
+        });
         def.method_list.push(method);
 
         tables.type_def.push(def);
@@ -38,7 +42,10 @@ fn writer() {
 
         let files = vec![File::new(temp_file.to_str().unwrap()).unwrap()];
         let reader = &Reader::new(&files);
-        let def = reader.get(TypeName::new("TestWindows.Foundation", "IStringable")).next().unwrap();
+        let def = reader
+            .get(TypeName::new("TestWindows.Foundation", "IStringable"))
+            .next()
+            .unwrap();
         assert_eq!(reader.type_def_kind(def), TypeKind::Interface);
         assert!(reader.type_def_flags(def).winrt());
 
@@ -49,14 +56,20 @@ fn writer() {
         assert_eq!(reader.param_name(param), "param123");
         assert_eq!(reader.param_sequence(param), 123);
 
-        let def = reader.get(TypeName::new("TestWindows.Foundation", "Rect")).next().unwrap();
+        let def = reader
+            .get(TypeName::new("TestWindows.Foundation", "Rect"))
+            .next()
+            .unwrap();
         assert_eq!(reader.type_def_kind(def), TypeKind::Struct);
         assert!(reader.type_def_flags(def).winrt());
 
         let field = reader.type_def_fields(def).next().unwrap();
         assert_eq!(reader.field_name(field), "Height");
 
-        let def = reader.get(TypeName::new("TestWindows.Foundation", "AsyncStatus")).next().unwrap();
+        let def = reader
+            .get(TypeName::new("TestWindows.Foundation", "AsyncStatus"))
+            .next()
+            .unwrap();
         assert_eq!(reader.type_def_kind(def), TypeKind::Enum);
         assert!(reader.type_def_flags(def).winrt());
     }

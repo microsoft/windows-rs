@@ -1,6 +1,8 @@
 use windows::{
     ApplicationModel::Email::EmailAttachment,
-    Devices::WiFiDirect::{WiFiDirectConnectionParameters, WiFiDirectDevice, WiFiDirectDeviceSelectorType},
+    Devices::WiFiDirect::{
+        WiFiDirectConnectionParameters, WiFiDirectDevice, WiFiDirectDeviceSelectorType,
+    },
     Storage::Streams::{InMemoryRandomAccessStream, RandomAccessStreamReference},
 };
 

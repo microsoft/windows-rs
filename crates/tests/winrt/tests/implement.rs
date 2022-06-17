@@ -6,7 +6,10 @@ use windows::{core::*, Foundation::*};
 fn implement() -> Result<()> {
     let (sender, receiver) = std::sync::mpsc::channel();
     {
-        let t = Thing { value: "hello".to_string(), sender };
+        let t = Thing {
+            value: "hello".to_string(),
+            sender,
+        };
 
         let s: IStringable = t.into();
         assert_eq!(s.ToString()?, "hello");
@@ -19,7 +22,10 @@ fn implement() -> Result<()> {
 
     let (sender, receiver) = std::sync::mpsc::channel();
     {
-        let t = Thing { value: "world".to_string(), sender };
+        let t = Thing {
+            value: "world".to_string(),
+            sender,
+        };
 
         let c: IClosable = t.into();
         c.Close()?;
@@ -32,7 +38,10 @@ fn implement() -> Result<()> {
 
     let (sender, receiver) = std::sync::mpsc::channel();
     {
-        let t = Thing { value: "object".to_string(), sender };
+        let t = Thing {
+            value: "object".to_string(),
+            sender,
+        };
 
         let s: IStringable = t.into();
         assert!(s.ToString()? == "object");

@@ -29,9 +29,15 @@ fn unsigned_enum() {
     days |= AppointmentDaysOfWeek::Tuesday;
     days |= AppointmentDaysOfWeek::Wednesday;
 
-    assert!(days == AppointmentDaysOfWeek::Monday | AppointmentDaysOfWeek::Tuesday | AppointmentDaysOfWeek::Wednesday);
+    assert!(
+        days == AppointmentDaysOfWeek::Monday
+            | AppointmentDaysOfWeek::Tuesday
+            | AppointmentDaysOfWeek::Wednesday
+    );
 
-    days &= AppointmentDaysOfWeek::Monday | AppointmentDaysOfWeek::Wednesday | AppointmentDaysOfWeek::Friday;
+    days &= AppointmentDaysOfWeek::Monday
+        | AppointmentDaysOfWeek::Wednesday
+        | AppointmentDaysOfWeek::Friday;
 
     assert!(days == AppointmentDaysOfWeek::Monday | AppointmentDaysOfWeek::Wednesday);
     days &= AppointmentDaysOfWeek::Wednesday;

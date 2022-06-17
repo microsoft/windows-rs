@@ -1,4 +1,6 @@
-use windows::{Win32::Foundation::*, Win32::Storage::FileSystem::*, Win32::UI::Input::KeyboardAndMouse::*};
+use windows::{
+    Win32::Foundation::*, Win32::Storage::FileSystem::*, Win32::UI::Input::KeyboardAndMouse::*,
+};
 
 #[test]
 fn keyboard_state() {

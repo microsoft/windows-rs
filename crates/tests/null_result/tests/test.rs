@@ -68,7 +68,12 @@ impl IXamlType_Impl for Test {
     fn AddToVector(&self, _: &Option<IInspectable>, _: &Option<IInspectable>) -> Result<()> {
         todo!()
     }
-    fn AddToMap(&self, _: &Option<IInspectable>, _: &Option<IInspectable>, _: &Option<IInspectable>) -> Result<()> {
+    fn AddToMap(
+        &self,
+        _: &Option<IInspectable>,
+        _: &Option<IInspectable>,
+        _: &Option<IInspectable>,
+    ) -> Result<()> {
         todo!()
     }
     fn RunInitializer(&self) -> Result<()> {

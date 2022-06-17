@@ -22,7 +22,12 @@ impl IDataObject_Impl for DataObject {
     fn EnumFormatEtc(&self, _: u32) -> Result<IEnumFORMATETC> {
         todo!()
     }
-    fn DAdvise(&self, format: *const FORMATETC, value: u32, sink: &Option<IAdviseSink>) -> Result<u32> {
+    fn DAdvise(
+        &self,
+        format: *const FORMATETC,
+        value: u32,
+        sink: &Option<IAdviseSink>,
+    ) -> Result<u32> {
         assert_eq!(format, std::ptr::null());
         assert_eq!(value, 789);
         assert!(sink.is_none());
@@ -40,9 +45,21 @@ impl IDataObject_Impl for DataObject {
 struct DropTarget();
 
 impl IDropTarget_Impl for DropTarget {
-    fn DragEnter(&self, object: &Option<IDataObject>, state: u32, point: &POINTL, effect: *mut u32) -> Result<()> {
+    fn DragEnter(
+        &self,
+        object: &Option<IDataObject>,
+        state: u32,
+        point: &POINTL,
+        effect: *mut u32,
+    ) -> Result<()> {
         unsafe {
-            assert_eq!(object.as_ref().unwrap().DAdvise(std::ptr::null(), 789, None)?, 123);
+            assert_eq!(
+                object
+                    .as_ref()
+                    .unwrap()
+                    .DAdvise(std::ptr::null(), 789, None)?,
+                123
+            );
             assert_eq!(state, 456);
             assert_eq!(*effect, 741);
             *effect = 147;

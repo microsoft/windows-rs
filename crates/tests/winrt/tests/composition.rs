@@ -1,13 +1,20 @@
 use windows::{
     System::DispatcherQueueController,
-    Win32::System::WinRT::{CreateDispatcherQueueController, DispatcherQueueOptions, DQTAT_COM_NONE, DQTYPE_THREAD_CURRENT},
+    Win32::System::WinRT::{
+        CreateDispatcherQueueController, DispatcherQueueOptions, DQTAT_COM_NONE,
+        DQTYPE_THREAD_CURRENT,
+    },
 };
 
 fn create_dispatcher() -> DispatcherQueueController {
     // We need a DispatcherQueue on our thread to properly create a Compositor. Note that since
     // we aren't pumping messages, the Compositor won't commit. This is fine for the test for now.
 
-    let options = DispatcherQueueOptions { dwSize: core::mem::size_of::<DispatcherQueueOptions>() as u32, threadType: DQTYPE_THREAD_CURRENT, apartmentType: DQTAT_COM_NONE };
+    let options = DispatcherQueueOptions {
+        dwSize: core::mem::size_of::<DispatcherQueueOptions>() as u32,
+        threadType: DQTYPE_THREAD_CURRENT,
+        apartmentType: DQTAT_COM_NONE,
+    };
 
     unsafe { CreateDispatcherQueueController(options).unwrap() }
 }
@@ -64,7 +71,14 @@ fn composition() -> windows::core::Result<()> {
     let visual = compositor.CreateSpriteVisual()?;
     let red = Colors::Red()?;
 
-    assert!(red == Color { A: 255, R: 255, G: 0, B: 0 });
+    assert!(
+        red == Color {
+            A: 255,
+            R: 255,
+            G: 0,
+            B: 0
+        }
+    );
 
     // Visual.set_brush expects a CompositionBrush but CreateColorBrushWithColor returns a
     // CompositionColorBrush that logically derives from CompositionBrush.
@@ -76,22 +90,45 @@ fn composition() -> windows::core::Result<()> {
     let brush: CompositionColorBrush = visual.Brush()?.cast()?;
     assert!(brush.Color()? == red);
 
-    visual.SetOffset(Vector3 { X: 1.0, Y: 2.0, Z: 3.0 })?;
+    visual.SetOffset(Vector3 {
+        X: 1.0,
+        Y: 2.0,
+        Z: 3.0,
+    })?;
 
-    assert!(visual.Offset()? == Vector3 { X: 1.0, Y: 2.0, Z: 3.0 });
+    assert!(
+        visual.Offset()?
+            == Vector3 {
+                X: 1.0,
+                Y: 2.0,
+                Z: 3.0
+            }
+    );
 
     let children = visual.Children()?;
 
     let child = compositor.CreateSpriteVisual()?;
-    child.SetOffset(Vector3 { X: 1.0, Y: 0.0, Z: 0.0 })?;
+    child.SetOffset(Vector3 {
+        X: 1.0,
+        Y: 0.0,
+        Z: 0.0,
+    })?;
     children.InsertAtBottom(child)?;
 
     let child = compositor.CreateSpriteVisual()?;
-    child.SetOffset(Vector3 { X: 2.0, Y: 0.0, Z: 0.0 })?;
+    child.SetOffset(Vector3 {
+        X: 2.0,
+        Y: 0.0,
+        Z: 0.0,
+    })?;
     children.InsertAtBottom(child)?;
 
     let child = compositor.CreateSpriteVisual()?;
-    child.SetOffset(Vector3 { X: 3.0, Y: 0.0, Z: 0.0 })?;
+    child.SetOffset(Vector3 {
+        X: 3.0,
+        Y: 0.0,
+        Z: 0.0,
+    })?;
     children.InsertAtBottom(child)?;
 
     assert!(children.Count()? == 3);
@@ -99,17 +136,38 @@ fn composition() -> windows::core::Result<()> {
     let iterator = children.First()?;
     assert!(iterator.HasCurrent()?);
 
-    assert!(iterator.Current()?.Offset()? == Vector3 { X: 3.0, Y: 0.0, Z: 0.0 });
+    assert!(
+        iterator.Current()?.Offset()?
+            == Vector3 {
+                X: 3.0,
+                Y: 0.0,
+                Z: 0.0
+            }
+    );
 
     assert!(iterator.MoveNext()?);
     assert!(iterator.HasCurrent()?);
 
-    assert!(iterator.Current()?.Offset()? == Vector3 { X: 2.0, Y: 0.0, Z: 0.0 });
+    assert!(
+        iterator.Current()?.Offset()?
+            == Vector3 {
+                X: 2.0,
+                Y: 0.0,
+                Z: 0.0
+            }
+    );
 
     assert!(iterator.MoveNext()?);
     assert!(iterator.HasCurrent()?);
 
-    assert!(iterator.Current()?.Offset()? == Vector3 { X: 1.0, Y: 0.0, Z: 0.0 });
+    assert!(
+        iterator.Current()?.Offset()?
+            == Vector3 {
+                X: 1.0,
+                Y: 0.0,
+                Z: 0.0
+            }
+    );
 
     assert!(!(iterator.MoveNext()?));
     assert!(!(iterator.HasCurrent()?));

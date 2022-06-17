@@ -96,7 +96,8 @@ fn explicit_boxing() -> windows::core::Result<()> {
     assert!(!array.is_empty());
     assert!(array.len() == 3);
 
-    let object = PropertyValue::CreateStringArray(&["Hello".into(), "Rust".into(), "WinRT".into()])?;
+    let object =
+        PropertyValue::CreateStringArray(&["Hello".into(), "Rust".into(), "WinRT".into()])?;
     let pv: IPropertyValue = object.cast()?;
     let mut array = windows::core::Array::new();
     assert!(array.is_empty());

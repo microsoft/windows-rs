@@ -5,9 +5,19 @@ use windows::{core::*, Win32::Foundation::*, Win32::System::Com::*};
 /// A custom declaration of implementation of `IUri`
 #[interface("a39ee748-6a27-4817-a6f2-13914bef5890")]
 unsafe trait ICustomUri: IUnknown {
-    unsafe fn GetPropertyBSTR(&self, property: Uri_PROPERTY, value: *mut BSTR, flags: u32) -> HRESULT;
+    unsafe fn GetPropertyBSTR(
+        &self,
+        property: Uri_PROPERTY,
+        value: *mut BSTR,
+        flags: u32,
+    ) -> HRESULT;
     unsafe fn GetPropertyLength(&self) -> HRESULT;
-    unsafe fn GetPropertyDWORD(&self, property: Uri_PROPERTY, value: *mut u32, flags: u32) -> HRESULT;
+    unsafe fn GetPropertyDWORD(
+        &self,
+        property: Uri_PROPERTY,
+        value: *mut u32,
+        flags: u32,
+    ) -> HRESULT;
     unsafe fn HasProperty(&self); // Note: this definition is missing its return value
     unsafe fn GetAbsoluteUri(&self) -> HRESULT;
     unsafe fn GetAuthority(&self) -> HRESULT;
@@ -124,7 +134,10 @@ fn test_custom_interface() -> windows::core::Result<()> {
         let p: ICustomPersistMemory = Persist::new().into();
         // This works because `ICustomPersistMemory` and `IPersistMemory` share the same guid
         let p: IPersistMemory = p.cast()?;
-        assert_eq!(p.GetClassID()?, "117fb826-2155-483a-b50d-bc99a2c7cca3".into());
+        assert_eq!(
+            p.GetClassID()?,
+            "117fb826-2155-483a-b50d-bc99a2c7cca3".into()
+        );
         // TODO: can't test IsDirty until this is fixed: https://github.com/microsoft/win32metadata/issues/838
         assert_eq!(p.GetSizeMax()?, 10);
         p.Load(&[0xAAu8, 0xBB, 0xCC])?;
@@ -138,10 +151,12 @@ fn test_custom_interface() -> windows::core::Result<()> {
         p.GetSizeMax(&mut size).ok()?;
         assert_eq!(size, 10);
         assert_eq!(p.IsDirty(), S_FALSE);
-        p.Load(&[0xAAu8, 0xBB, 0xCC] as *const _ as *const _, 3).ok()?;
+        p.Load(&[0xAAu8, 0xBB, 0xCC] as *const _ as *const _, 3)
+            .ok()?;
         assert_eq!(p.IsDirty(), S_OK);
         let mut memory = [0x00u8, 0x00, 0x00, 0x00];
-        p.Save(&mut memory as *mut _ as *mut _, true.into(), 4).ok()?;
+        p.Save(&mut memory as *mut _ as *mut _, true.into(), 4)
+            .ok()?;
         assert_eq!(p.IsDirty(), S_FALSE);
         assert_eq!(memory, [0xAAu8, 0xBB, 0xCC, 0x00]);
 

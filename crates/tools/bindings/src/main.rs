@@ -62,7 +62,10 @@ fn main() -> std::io::Result<()> {
         "Windows.Win32.System.WinRT.IWeakReferenceSource",
     ];
 
-    let files = vec![metadata::reader::File::new("crates/libs/metadata/default/Windows.winmd").unwrap(), metadata::reader::File::new("crates/libs/metadata/default/Windows.Win32.winmd").unwrap()];
+    let files = vec![
+        metadata::reader::File::new("crates/libs/metadata/default/Windows.winmd").unwrap(),
+        metadata::reader::File::new("crates/libs/metadata/default/Windows.Win32.winmd").unwrap(),
+    ];
     let reader = &metadata::reader::Reader::new(&files);
 
     let gen = &mut bindgen::Gen::new(reader);
