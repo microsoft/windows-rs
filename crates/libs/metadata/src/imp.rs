@@ -17,7 +17,10 @@ extern "C" {
     pub fn strlen(cs: *const u8) -> usize;
 }
 
-pub fn composite_index_size(tables: &[usize]) -> usize {
+/// A coded index (see codes.rs) is a table index that may refer to different tables. The size of the column in memory
+/// must therefore be large enough to hold an index for a row in the largest possible table. This function determines
+/// this size for the given winmd file.
+pub fn coded_index_size(tables: &[usize]) -> usize {
     fn small(row_count: usize, bits: u8) -> bool {
         (row_count as u64) < (1u64 << (16 - bits))
     }

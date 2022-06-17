@@ -200,20 +200,20 @@ impl File {
         }
 
         let tables = &result.tables;
-        let type_def_or_ref = composite_index_size(&[tables[TABLE_TYPEDEF].len, tables[TABLE_TYPEREF].len, tables[TABLE_TYPESPEC].len]);
-        let has_constant = composite_index_size(&[tables[TABLE_FIELD].len, tables[TABLE_PARAM].len, unused_property.len]);
-        let has_field_marshal = composite_index_size(&[tables[TABLE_FIELD].len, tables[TABLE_PARAM].len]);
-        let has_decl_security = composite_index_size(&[tables[TABLE_TYPEDEF].len, tables[TABLE_METHODDEF].len, unused_assembly.len]);
-        let member_ref_parent = composite_index_size(&[tables[TABLE_TYPEDEF].len, tables[TABLE_TYPEREF].len, tables[TABLE_MODULEREF].len, tables[TABLE_METHODDEF].len, tables[TABLE_TYPESPEC].len]);
-        let has_semantics = composite_index_size(&[unused_event.len, unused_property.len]);
-        let method_def_or_ref = composite_index_size(&[tables[TABLE_METHODDEF].len, tables[TABLE_MEMBERREF].len]);
-        let member_forwarded = composite_index_size(&[tables[TABLE_FIELD].len, tables[TABLE_METHODDEF].len]);
-        let implementation = composite_index_size(&[unused_file.len, tables[TABLE_ASSEMBLYREF].len, unused_exported_type.len]);
-        let custom_attribute_type = composite_index_size(&[tables[TABLE_METHODDEF].len, tables[TABLE_MEMBERREF].len, unused_empty.len, unused_empty.len, unused_empty.len]);
-        let resolution_scope = composite_index_size(&[tables[TABLE_MODULE].len, tables[TABLE_MODULEREF].len, tables[TABLE_ASSEMBLYREF].len, tables[TABLE_TYPEREF].len]);
-        let type_or_method_def = composite_index_size(&[tables[TABLE_TYPEDEF].len, tables[TABLE_METHODDEF].len]);
+        let type_def_or_ref = coded_index_size(&[tables[TABLE_TYPEDEF].len, tables[TABLE_TYPEREF].len, tables[TABLE_TYPESPEC].len]);
+        let has_constant = coded_index_size(&[tables[TABLE_FIELD].len, tables[TABLE_PARAM].len, unused_property.len]);
+        let has_field_marshal = coded_index_size(&[tables[TABLE_FIELD].len, tables[TABLE_PARAM].len]);
+        let has_decl_security = coded_index_size(&[tables[TABLE_TYPEDEF].len, tables[TABLE_METHODDEF].len, unused_assembly.len]);
+        let member_ref_parent = coded_index_size(&[tables[TABLE_TYPEDEF].len, tables[TABLE_TYPEREF].len, tables[TABLE_MODULEREF].len, tables[TABLE_METHODDEF].len, tables[TABLE_TYPESPEC].len]);
+        let has_semantics = coded_index_size(&[unused_event.len, unused_property.len]);
+        let method_def_or_ref = coded_index_size(&[tables[TABLE_METHODDEF].len, tables[TABLE_MEMBERREF].len]);
+        let member_forwarded = coded_index_size(&[tables[TABLE_FIELD].len, tables[TABLE_METHODDEF].len]);
+        let implementation = coded_index_size(&[unused_file.len, tables[TABLE_ASSEMBLYREF].len, unused_exported_type.len]);
+        let custom_attribute_type = coded_index_size(&[tables[TABLE_METHODDEF].len, tables[TABLE_MEMBERREF].len, unused_empty.len, unused_empty.len, unused_empty.len]);
+        let resolution_scope = coded_index_size(&[tables[TABLE_MODULE].len, tables[TABLE_MODULEREF].len, tables[TABLE_ASSEMBLYREF].len, tables[TABLE_TYPEREF].len]);
+        let type_or_method_def = coded_index_size(&[tables[TABLE_TYPEDEF].len, tables[TABLE_METHODDEF].len]);
 
-        let has_custom_attribute = composite_index_size(&[
+        let has_custom_attribute = coded_index_size(&[
             tables[TABLE_METHODDEF].len,
             tables[TABLE_FIELD].len,
             tables[TABLE_TYPEREF].len,

@@ -71,9 +71,9 @@ impl Tables {
     pub(crate) fn into_stream(mut self, strings: &mut Strings, blobs: &mut Blobs) -> Vec<u8> {
         self.normalize();
 
-        let resolution_scope = composite_index_size(&[self.module.len(), self.module_ref.len(), self.assembly_ref.len(), self.type_ref.len()]);
-        let type_def_or_ref = composite_index_size(&[self.type_def.len(), self.type_ref.len(), self.type_spec.len()]);
-        let has_constant = composite_index_size(&[self.field.len(), self.param.len(), self.property.len()]);
+        let resolution_scope = coded_index_size(&[self.module.len(), self.module_ref.len(), self.assembly_ref.len(), self.type_ref.len()]);
+        let type_def_or_ref = coded_index_size(&[self.type_def.len(), self.type_ref.len(), self.type_spec.len()]);
+        let has_constant = coded_index_size(&[self.field.len(), self.param.len(), self.property.len()]);
 
         let mut buffer = Vec::new();
         let header = Header::new();
@@ -127,6 +127,7 @@ impl Tables {
 
         for constant in &self.constant {
             buffer.write(&(constant.ty.to_code().expect("Unexpected constant type") as u16));
+            write_coded_index(&mut buffer, constant.parent_index.encode(), has_constant);
         }
 
         for assembly_ref in &self.assembly_ref {
