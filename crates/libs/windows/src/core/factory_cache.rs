@@ -17,7 +17,7 @@ impl<C, I> FactoryCache<C, I> {
 }
 
 impl<C: RuntimeName, I: Interface> FactoryCache<C, I> {
-    pub fn call<R, F: FnOnce(&I) -> Result<R>>(&mut self, callback: F) -> Result<R> {
+    pub fn call<R, F: FnOnce(&I) -> Result<R>>(&self, callback: F) -> Result<R> {
         loop {
             // Attempt to load a previously cached factory pointer.
             let ptr = self.shared.load(Ordering::Relaxed);
@@ -43,6 +43,9 @@ impl<C: RuntimeName, I: Interface> FactoryCache<C, I> {
         }
     }
 }
+
+unsafe impl<C, I> core::marker::Send for FactoryCache<C, I> {}
+unsafe impl<C, I> ::core::marker::Sync for FactoryCache<C, I> {}
 
 /// Attempts to load the factory interface for the given WinRT class
 pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
