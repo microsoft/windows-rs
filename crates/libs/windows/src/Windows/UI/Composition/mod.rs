@@ -497,8 +497,8 @@ impl AnimationController {
     }
     #[doc(hidden)]
     pub fn IAnimationControllerStatics<R, F: FnOnce(&IAnimationControllerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<AnimationController, IAnimationControllerStatics> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<AnimationController, IAnimationControllerStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::core::clone::Clone for AnimationController {
@@ -6278,8 +6278,8 @@ impl CompositionCapabilities {
     }
     #[doc(hidden)]
     pub fn ICompositionCapabilitiesStatics<R, F: FnOnce(&ICompositionCapabilitiesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<CompositionCapabilities, ICompositionCapabilitiesStatics> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<CompositionCapabilities, ICompositionCapabilitiesStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::core::clone::Clone for CompositionCapabilities {
@@ -8743,8 +8743,8 @@ impl CompositionEasingFunction {
     }
     #[doc(hidden)]
     pub fn ICompositionEasingFunctionStatics<R, F: FnOnce(&ICompositionEasingFunctionStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<CompositionEasingFunction, ICompositionEasingFunctionStatics> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<CompositionEasingFunction, ICompositionEasingFunctionStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::core::clone::Clone for CompositionEasingFunction {
@@ -9524,8 +9524,8 @@ impl CompositionEffectSourceParameter {
     }
     #[doc(hidden)]
     pub fn ICompositionEffectSourceParameterFactory<R, F: FnOnce(&ICompositionEffectSourceParameterFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<CompositionEffectSourceParameter, ICompositionEffectSourceParameterFactory> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<CompositionEffectSourceParameter, ICompositionEffectSourceParameterFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::core::clone::Clone for CompositionEffectSourceParameter {
@@ -13652,8 +13652,8 @@ impl CompositionObject {
     }
     #[doc(hidden)]
     pub fn ICompositionObjectStatics<R, F: FnOnce(&ICompositionObjectStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<CompositionObject, ICompositionObjectStatics> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<CompositionObject, ICompositionObjectStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::core::clone::Clone for CompositionObject {
@@ -13790,8 +13790,8 @@ impl CompositionPath {
     }
     #[doc(hidden)]
     pub fn ICompositionPathFactory<R, F: FnOnce(&ICompositionPathFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<CompositionPath, ICompositionPathFactory> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<CompositionPath, ICompositionPathFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::core::clone::Clone for CompositionPath {
@@ -14949,8 +14949,8 @@ impl CompositionProjectedShadowCasterCollection {
     }
     #[doc(hidden)]
     pub fn ICompositionProjectedShadowCasterCollectionStatics<R, F: FnOnce(&ICompositionProjectedShadowCasterCollectionStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<CompositionProjectedShadowCasterCollection, ICompositionProjectedShadowCasterCollectionStatics> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<CompositionProjectedShadowCasterCollection, ICompositionProjectedShadowCasterCollectionStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::core::clone::Clone for CompositionProjectedShadowCasterCollection {
@@ -21517,8 +21517,8 @@ impl Compositor {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<Compositor, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<Compositor, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
     #[doc = "*Required features: `\"UI_Composition\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -22182,8 +22182,8 @@ impl Compositor {
     }
     #[doc(hidden)]
     pub fn ICompositorStatics<R, F: FnOnce(&ICompositorStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<Compositor, ICompositorStatics> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<Compositor, ICompositorStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::core::clone::Clone for Compositor {
@@ -23587,8 +23587,8 @@ impl DelegatedInkTrailVisual {
     }
     #[doc(hidden)]
     pub fn IDelegatedInkTrailVisualStatics<R, F: FnOnce(&IDelegatedInkTrailVisualStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<DelegatedInkTrailVisual, IDelegatedInkTrailVisualStatics> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<DelegatedInkTrailVisual, IDelegatedInkTrailVisualStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::core::clone::Clone for DelegatedInkTrailVisual {
