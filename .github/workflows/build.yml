@@ -133,6 +133,7 @@ jobs:
         cargo clippy -p test_arch &&
         cargo clippy -p test_arch_feature &&
         cargo clippy -p test_bstr &&
+        cargo clippy -p test_cfg_generic &&
         cargo clippy -p test_class_factory &&
         cargo clippy -p test_component &&
         cargo clippy -p test_component_client &&
