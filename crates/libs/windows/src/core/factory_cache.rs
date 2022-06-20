@@ -44,7 +44,7 @@ impl<C: RuntimeName, I: Interface> FactoryCache<C, I> {
     }
 }
 
-unsafe impl<C, I> core::marker::Send for FactoryCache<C, I> {}
+// This is safe because `FactoryCache` only holds agile factory pointers, which are safe to cache and share between threads.
 unsafe impl<C, I> ::core::marker::Sync for FactoryCache<C, I> {}
 
 /// Attempts to load the factory interface for the given WinRT class
