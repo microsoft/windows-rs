@@ -153,7 +153,7 @@ pub fn gen(gen: &Gen, def: TypeDef, generics: &[Type], ident: &TokenStream, cons
                 TypeName::IVectorView => {
                     let item = gen.type_name(&interface_generics[0]);
                     let mut cfg = cfg.clone();
-                    cfg.add_feature("Windows.Foundation.Collections");
+                    gen.reader.type_def_cfg_combine(*interface, interface_generics, &mut cfg);
                     let features = gen.cfg_features(&cfg);
 
                     return quote! {
@@ -180,7 +180,7 @@ pub fn gen(gen: &Gen, def: TypeDef, generics: &[Type], ident: &TokenStream, cons
                 TypeName::IVector => {
                     let item = gen.type_name(&interface_generics[0]);
                     let mut cfg = cfg.clone();
-                    cfg.add_feature("Windows.Foundation.Collections");
+                    gen.reader.type_def_cfg_combine(*interface, interface_generics, &mut cfg);
                     let features = gen.cfg_features(&cfg);
 
                     return quote! {
@@ -205,7 +205,7 @@ pub fn gen(gen: &Gen, def: TypeDef, generics: &[Type], ident: &TokenStream, cons
                     };
                 }
                 TypeName::IIterable => {
-                    iterable = Some(interface_generics.to_vec());
+                    iterable = Some((*interface, interface_generics.to_vec()));
                 }
                 _ => {}
             }
@@ -214,10 +214,10 @@ pub fn gen(gen: &Gen, def: TypeDef, generics: &[Type], ident: &TokenStream, cons
 
     match iterable {
         None => TokenStream::new(),
-        Some(interface_generics) => {
+        Some((interface, interface_generics)) => {
             let item = gen.type_name(&interface_generics[0]);
             let mut cfg = cfg.clone();
-            cfg.add_feature("Windows.Foundation.Collections");
+            gen.reader.type_def_cfg_combine(interface, &interface_generics, &mut cfg);
             let features = gen.cfg_features(&cfg);
 
             quote! {
