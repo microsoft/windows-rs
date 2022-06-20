@@ -535,8 +535,8 @@ impl ButtonBase {
     }
     #[doc(hidden)]
     pub fn IButtonBaseStatics<R, F: FnOnce(&IButtonBaseStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<ButtonBase, IButtonBaseStatics> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<ButtonBase, IButtonBaseStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::core::clone::Clone for ButtonBase {
@@ -771,8 +771,8 @@ impl CalendarPanel {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<CalendarPanel, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<CalendarPanel, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::core::clone::Clone for CalendarPanel {
@@ -1447,8 +1447,8 @@ impl CarouselPanel {
     }
     #[doc(hidden)]
     pub fn ICarouselPanelFactory<R, F: FnOnce(&ICarouselPanelFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<CarouselPanel, ICarouselPanelFactory> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<CarouselPanel, ICarouselPanelFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::core::clone::Clone for CarouselPanel {
@@ -1738,13 +1738,13 @@ impl ColorPickerSlider {
     }
     #[doc(hidden)]
     pub fn IColorPickerSliderFactory<R, F: FnOnce(&IColorPickerSliderFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<ColorPickerSlider, IColorPickerSliderFactory> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<ColorPickerSlider, IColorPickerSliderFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IColorPickerSliderStatics<R, F: FnOnce(&IColorPickerSliderStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<ColorPickerSlider, IColorPickerSliderStatics> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<ColorPickerSlider, IColorPickerSliderStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::core::clone::Clone for ColorPickerSlider {
@@ -2229,13 +2229,13 @@ impl ColorSpectrum {
     }
     #[doc(hidden)]
     pub fn IColorSpectrumFactory<R, F: FnOnce(&IColorSpectrumFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<ColorSpectrum, IColorSpectrumFactory> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<ColorSpectrum, IColorSpectrumFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IColorSpectrumStatics<R, F: FnOnce(&IColorSpectrumStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<ColorSpectrum, IColorSpectrumStatics> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<ColorSpectrum, IColorSpectrumStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::core::clone::Clone for ColorSpectrum {
@@ -2608,8 +2608,8 @@ impl CommandBarFlyoutCommandBar {
     }
     #[doc(hidden)]
     pub fn ICommandBarFlyoutCommandBarFactory<R, F: FnOnce(&ICommandBarFlyoutCommandBarFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<CommandBarFlyoutCommandBar, ICommandBarFlyoutCommandBarFactory> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<CommandBarFlyoutCommandBar, ICommandBarFlyoutCommandBarFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::core::clone::Clone for CommandBarFlyoutCommandBar {
@@ -3408,8 +3408,8 @@ impl DragCompletedEventArgs {
     }
     #[doc(hidden)]
     pub fn IDragCompletedEventArgsFactory<R, F: FnOnce(&IDragCompletedEventArgsFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<DragCompletedEventArgs, IDragCompletedEventArgsFactory> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<DragCompletedEventArgs, IDragCompletedEventArgsFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::core::clone::Clone for DragCompletedEventArgs {
@@ -3626,8 +3626,8 @@ impl DragDeltaEventArgs {
     }
     #[doc(hidden)]
     pub fn IDragDeltaEventArgsFactory<R, F: FnOnce(&IDragDeltaEventArgsFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<DragDeltaEventArgs, IDragDeltaEventArgsFactory> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<DragDeltaEventArgs, IDragDeltaEventArgsFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::core::clone::Clone for DragDeltaEventArgs {
@@ -3844,8 +3844,8 @@ impl DragStartedEventArgs {
     }
     #[doc(hidden)]
     pub fn IDragStartedEventArgsFactory<R, F: FnOnce(&IDragStartedEventArgsFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<DragStartedEventArgs, IDragStartedEventArgsFactory> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<DragStartedEventArgs, IDragStartedEventArgsFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::core::clone::Clone for DragStartedEventArgs {
@@ -4416,28 +4416,28 @@ impl FlyoutBase {
     }
     #[doc(hidden)]
     pub fn IFlyoutBaseStatics<R, F: FnOnce(&IFlyoutBaseStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<FlyoutBase, IFlyoutBaseStatics> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<FlyoutBase, IFlyoutBaseStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IFlyoutBaseStatics2<R, F: FnOnce(&IFlyoutBaseStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<FlyoutBase, IFlyoutBaseStatics2> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<FlyoutBase, IFlyoutBaseStatics2> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IFlyoutBaseStatics3<R, F: FnOnce(&IFlyoutBaseStatics3) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<FlyoutBase, IFlyoutBaseStatics3> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<FlyoutBase, IFlyoutBaseStatics3> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IFlyoutBaseStatics5<R, F: FnOnce(&IFlyoutBaseStatics5) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<FlyoutBase, IFlyoutBaseStatics5> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<FlyoutBase, IFlyoutBaseStatics5> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IFlyoutBaseStatics6<R, F: FnOnce(&IFlyoutBaseStatics6) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<FlyoutBase, IFlyoutBaseStatics6> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<FlyoutBase, IFlyoutBaseStatics6> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::core::clone::Clone for FlyoutBase {
@@ -4781,8 +4781,8 @@ impl FlyoutShowOptions {
     }
     #[doc(hidden)]
     pub fn IFlyoutShowOptionsFactory<R, F: FnOnce(&IFlyoutShowOptionsFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<FlyoutShowOptions, IFlyoutShowOptionsFactory> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<FlyoutShowOptions, IFlyoutShowOptionsFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::core::clone::Clone for FlyoutShowOptions {
@@ -4942,8 +4942,8 @@ impl GeneratorPositionHelper {
     }
     #[doc(hidden)]
     pub fn IGeneratorPositionHelperStatics<R, F: FnOnce(&IGeneratorPositionHelperStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<GeneratorPositionHelper, IGeneratorPositionHelperStatics> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<GeneratorPositionHelper, IGeneratorPositionHelperStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::core::clone::Clone for GeneratorPositionHelper {
@@ -5512,13 +5512,13 @@ impl GridViewItemPresenter {
     }
     #[doc(hidden)]
     pub fn IGridViewItemPresenterFactory<R, F: FnOnce(&IGridViewItemPresenterFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<GridViewItemPresenter, IGridViewItemPresenterFactory> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<GridViewItemPresenter, IGridViewItemPresenterFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IGridViewItemPresenterStatics<R, F: FnOnce(&IGridViewItemPresenterStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<GridViewItemPresenter, IGridViewItemPresenterStatics> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<GridViewItemPresenter, IGridViewItemPresenterStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::core::clone::Clone for GridViewItemPresenter {
@@ -9129,8 +9129,8 @@ impl JumpListItemBackgroundConverter {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<JumpListItemBackgroundConverter, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<JumpListItemBackgroundConverter, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
@@ -9196,8 +9196,8 @@ impl JumpListItemBackgroundConverter {
     }
     #[doc(hidden)]
     pub fn IJumpListItemBackgroundConverterStatics<R, F: FnOnce(&IJumpListItemBackgroundConverterStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<JumpListItemBackgroundConverter, IJumpListItemBackgroundConverterStatics> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<JumpListItemBackgroundConverter, IJumpListItemBackgroundConverterStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::core::clone::Clone for JumpListItemBackgroundConverter {
@@ -9326,8 +9326,8 @@ impl JumpListItemForegroundConverter {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<JumpListItemForegroundConverter, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<JumpListItemForegroundConverter, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
@@ -9393,8 +9393,8 @@ impl JumpListItemForegroundConverter {
     }
     #[doc(hidden)]
     pub fn IJumpListItemForegroundConverterStatics<R, F: FnOnce(&IJumpListItemForegroundConverterStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<JumpListItemForegroundConverter, IJumpListItemForegroundConverterStatics> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<JumpListItemForegroundConverter, IJumpListItemForegroundConverterStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::core::clone::Clone for JumpListItemForegroundConverter {
@@ -9544,13 +9544,13 @@ impl LayoutInformation {
     }
     #[doc(hidden)]
     pub fn ILayoutInformationStatics<R, F: FnOnce(&ILayoutInformationStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<LayoutInformation, ILayoutInformationStatics> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<LayoutInformation, ILayoutInformationStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn ILayoutInformationStatics2<R, F: FnOnce(&ILayoutInformationStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<LayoutInformation, ILayoutInformationStatics2> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<LayoutInformation, ILayoutInformationStatics2> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::core::clone::Clone for LayoutInformation {
@@ -10919,28 +10919,28 @@ impl ListViewItemPresenter {
     }
     #[doc(hidden)]
     pub fn IListViewItemPresenterFactory<R, F: FnOnce(&IListViewItemPresenterFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<ListViewItemPresenter, IListViewItemPresenterFactory> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<ListViewItemPresenter, IListViewItemPresenterFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IListViewItemPresenterStatics<R, F: FnOnce(&IListViewItemPresenterStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<ListViewItemPresenter, IListViewItemPresenterStatics> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<ListViewItemPresenter, IListViewItemPresenterStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IListViewItemPresenterStatics2<R, F: FnOnce(&IListViewItemPresenterStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<ListViewItemPresenter, IListViewItemPresenterStatics2> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<ListViewItemPresenter, IListViewItemPresenterStatics2> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IListViewItemPresenterStatics3<R, F: FnOnce(&IListViewItemPresenterStatics3) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<ListViewItemPresenter, IListViewItemPresenterStatics3> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<ListViewItemPresenter, IListViewItemPresenterStatics3> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IListViewItemPresenterStatics4<R, F: FnOnce(&IListViewItemPresenterStatics4) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<ListViewItemPresenter, IListViewItemPresenterStatics4> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<ListViewItemPresenter, IListViewItemPresenterStatics4> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::core::clone::Clone for ListViewItemPresenter {
@@ -11483,8 +11483,8 @@ impl LoopingSelector {
     }
     #[doc(hidden)]
     pub fn ILoopingSelectorStatics<R, F: FnOnce(&ILoopingSelectorStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<LoopingSelector, ILoopingSelectorStatics> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<LoopingSelector, ILoopingSelectorStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::core::clone::Clone for LoopingSelector {
@@ -12484,13 +12484,13 @@ impl NavigationViewItemPresenter {
     }
     #[doc(hidden)]
     pub fn INavigationViewItemPresenterFactory<R, F: FnOnce(&INavigationViewItemPresenterFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<NavigationViewItemPresenter, INavigationViewItemPresenterFactory> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<NavigationViewItemPresenter, INavigationViewItemPresenterFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn INavigationViewItemPresenterStatics<R, F: FnOnce(&INavigationViewItemPresenterStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<NavigationViewItemPresenter, INavigationViewItemPresenterStatics> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<NavigationViewItemPresenter, INavigationViewItemPresenterStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::core::clone::Clone for NavigationViewItemPresenter {
@@ -13249,8 +13249,8 @@ impl PickerFlyoutBase {
     }
     #[doc(hidden)]
     pub fn IPickerFlyoutBaseStatics<R, F: FnOnce(&IPickerFlyoutBaseStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<PickerFlyoutBase, IPickerFlyoutBaseStatics> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<PickerFlyoutBase, IPickerFlyoutBaseStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::core::clone::Clone for PickerFlyoutBase {
@@ -13386,8 +13386,8 @@ impl PivotHeaderItem {
     }
     #[doc(hidden)]
     pub fn IPivotHeaderItemFactory<R, F: FnOnce(&IPivotHeaderItemFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<PivotHeaderItem, IPivotHeaderItemFactory> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<PivotHeaderItem, IPivotHeaderItemFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::core::clone::Clone for PivotHeaderItem {
@@ -13622,8 +13622,8 @@ impl PivotHeaderPanel {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<PivotHeaderPanel, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<PivotHeaderPanel, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::core::clone::Clone for PivotHeaderPanel {
@@ -13858,8 +13858,8 @@ impl PivotPanel {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<PivotPanel, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<PivotPanel, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn AreHorizontalSnapPointsRegular(&self) -> ::windows::core::Result<bool> {
@@ -14196,8 +14196,8 @@ impl Popup {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<Popup, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<Popup, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn Child(&self) -> ::windows::core::Result<super::super::UIElement> {
@@ -14464,23 +14464,23 @@ impl Popup {
     }
     #[doc(hidden)]
     pub fn IPopupStatics<R, F: FnOnce(&IPopupStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<Popup, IPopupStatics> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<Popup, IPopupStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IPopupStatics2<R, F: FnOnce(&IPopupStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<Popup, IPopupStatics2> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<Popup, IPopupStatics2> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IPopupStatics3<R, F: FnOnce(&IPopupStatics3) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<Popup, IPopupStatics3> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<Popup, IPopupStatics3> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IPopupStatics4<R, F: FnOnce(&IPopupStatics4) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<Popup, IPopupStatics4> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<Popup, IPopupStatics4> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::core::clone::Clone for Popup {
@@ -15107,8 +15107,8 @@ impl RangeBase {
     }
     #[doc(hidden)]
     pub fn IRangeBaseStatics<R, F: FnOnce(&IRangeBaseStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<RangeBase, IRangeBaseStatics> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<RangeBase, IRangeBaseStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::core::clone::Clone for RangeBase {
@@ -15521,8 +15521,8 @@ impl RepeatButton {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<RepeatButton, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<RepeatButton, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn Delay(&self) -> ::windows::core::Result<i32> {
@@ -15566,8 +15566,8 @@ impl RepeatButton {
     }
     #[doc(hidden)]
     pub fn IRepeatButtonStatics<R, F: FnOnce(&IRepeatButtonStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<RepeatButton, IRepeatButtonStatics> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<RepeatButton, IRepeatButtonStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::core::clone::Clone for RepeatButton {
@@ -15822,8 +15822,8 @@ impl ScrollBar {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<ScrollBar, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<ScrollBar, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn Orientation(&self) -> ::windows::core::Result<super::Orientation> {
@@ -15902,8 +15902,8 @@ impl ScrollBar {
     }
     #[doc(hidden)]
     pub fn IScrollBarStatics<R, F: FnOnce(&IScrollBarStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<ScrollBar, IScrollBarStatics> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<ScrollBar, IScrollBarStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::core::clone::Clone for ScrollBar {
@@ -16138,8 +16138,8 @@ impl ScrollEventArgs {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<ScrollEventArgs, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<ScrollEventArgs, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn NewValue(&self) -> ::windows::core::Result<f64> {
@@ -16541,8 +16541,8 @@ impl Selector {
     }
     #[doc(hidden)]
     pub fn ISelectorStatics<R, F: FnOnce(&ISelectorStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<Selector, ISelectorStatics> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<Selector, ISelectorStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::core::clone::Clone for Selector {
@@ -16817,8 +16817,8 @@ impl SelectorItem {
     }
     #[doc(hidden)]
     pub fn ISelectorItemStatics<R, F: FnOnce(&ISelectorItemStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<SelectorItem, ISelectorItemStatics> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<SelectorItem, ISelectorItemStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::core::clone::Clone for SelectorItem {
@@ -17417,8 +17417,8 @@ impl Thumb {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<Thumb, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<Thumb, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn IsDragging(&self) -> ::windows::core::Result<bool> {
@@ -17487,8 +17487,8 @@ impl Thumb {
     }
     #[doc(hidden)]
     pub fn IThumbStatics<R, F: FnOnce(&IThumbStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<Thumb, IThumbStatics> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<Thumb, IThumbStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::core::clone::Clone for Thumb {
@@ -17703,8 +17703,8 @@ impl TickBar {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<TickBar, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<TickBar, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
@@ -17730,8 +17730,8 @@ impl TickBar {
     }
     #[doc(hidden)]
     pub fn ITickBarStatics<R, F: FnOnce(&ITickBarStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<TickBar, ITickBarStatics> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<TickBar, ITickBarStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::core::clone::Clone for TickBar {
@@ -18063,13 +18063,13 @@ impl ToggleButton {
     }
     #[doc(hidden)]
     pub fn IToggleButtonFactory<R, F: FnOnce(&IToggleButtonFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<ToggleButton, IToggleButtonFactory> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<ToggleButton, IToggleButtonFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IToggleButtonStatics<R, F: FnOnce(&IToggleButtonStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<ToggleButton, IToggleButtonStatics> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<ToggleButton, IToggleButtonStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::core::clone::Clone for ToggleButton {

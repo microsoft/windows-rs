@@ -954,8 +954,8 @@ impl LearningModelBindingPreview {
     #[doc(hidden)]
     #[cfg(feature = "deprecated")]
     pub fn ILearningModelBindingPreviewFactory<R, F: FnOnce(&ILearningModelBindingPreviewFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<LearningModelBindingPreview, ILearningModelBindingPreviewFactory> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<LearningModelBindingPreview, ILearningModelBindingPreviewFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1543,8 +1543,8 @@ impl LearningModelPreview {
     #[doc(hidden)]
     #[cfg(feature = "deprecated")]
     pub fn ILearningModelPreviewStatics<R, F: FnOnce(&ILearningModelPreviewStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<LearningModelPreview, ILearningModelPreviewStatics> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<LearningModelPreview, ILearningModelPreviewStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 #[cfg(feature = "deprecated")]
