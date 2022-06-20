@@ -26,8 +26,6 @@ pub mod ViewManagement;
 pub mod WebUI;
 #[cfg(feature = "UI_WindowManagement")]
 pub mod WindowManagement;
-#[cfg(feature = "UI_Xaml")]
-pub mod Xaml;
 #[repr(C)]
 #[doc = "*Required features: `\"UI\"`*"]
 pub struct Color {

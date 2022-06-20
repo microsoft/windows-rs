@@ -15,7 +15,6 @@ features = [
     "Storage_Streams",
     "Win32_System_WinRT_Composition",
     "Win32_System_WinRT_Display",
-    "UI_Xaml",
     "Win32_Foundation",
     "Win32_System_Com",
 ]
