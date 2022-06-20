@@ -108,7 +108,6 @@ jobs:
         cargo test --target ${{ matrix.target }} -p sample_simple &&
         cargo test --target ${{ matrix.target }} -p sample_spellchecker &&
         cargo test --target ${{ matrix.target }} -p sample_uiautomation &&
-        cargo test --target ${{ matrix.target }} -p sample_xaml_app &&
         cargo test --target ${{ matrix.target }} -p sample_xml &&
         cargo test --target ${{ matrix.target }} -p windows_aarch64_msvc &&
         cargo test --target ${{ matrix.target }} -p windows_i686_gnu &&
@@ -150,7 +149,6 @@ jobs:
         cargo test --target ${{ matrix.target }} -p test_not_dll &&
         cargo test --target ${{ matrix.target }} -p test_no_use &&
         cargo test --target ${{ matrix.target }} -p test_ntstatus &&
-        cargo test --target ${{ matrix.target }} -p test_null_result &&
         cargo test --target ${{ matrix.target }} -p test_properties &&
         cargo test --target ${{ matrix.target }} -p test_query_signature &&
         cargo test --target ${{ matrix.target }} -p test_return_struct &&
