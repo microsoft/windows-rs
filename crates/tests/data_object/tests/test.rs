@@ -93,7 +93,14 @@ fn test() -> Result<()> {
         d.QueryGetData(core::ptr::null_mut())?;
         d.GetCanonicalFormatEtc(core::ptr::null(), core::ptr::null_mut()).ok()?;
         d.SetData(core::ptr::null_mut(), core::ptr::null_mut(), false)?;
-        let _ = d.EnumFormatEtc(0);
+
+        // EnumFormatEtc returns a null result value with a successful (S_OK) return code.
+        let r = d.EnumFormatEtc(0);
+        assert!(r.is_err());
+        let e = r.unwrap_err();
+        assert!(e.code() == S_OK);
+        assert!(e.info().is_none());
+
         d.DAdvise(core::ptr::null_mut(), 0, None)?;
 
         let i = d.as_impl().0.get();

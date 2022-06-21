@@ -1,7 +1,7 @@
 use rayon::prelude::*;
 use std::io::prelude::*;
 
-const EXCLUDE_NAMESPACES: [&str; 1] = ["Windows.Win32.Interop"];
+const EXCLUDE_NAMESPACES: [&str; 2] = ["Windows.Win32.Interop", "Windows.UI.Xaml"];
 
 fn main() {
     let mut output = std::path::PathBuf::from("crates/libs/windows/src/Windows");
