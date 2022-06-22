@@ -135,7 +135,7 @@ pub fn namespace_impl(gen: &Gen, tree: &Tree) -> String {
 }
 
 pub fn component(namespace: &str, files: &[File]) -> String {
-    let reader = &Reader::new(&files);
+    let reader = &Reader::new(files);
     let tree = reader.tree(namespace, &[]).expect("Namespace not found");
     let mut gen = Gen::new(reader);
     gen.namespace = tree.namespace;
