@@ -12,8 +12,7 @@ default-target = "x86_64-pc-windows-msvc"
 targets = []
 
 [dependencies.windows-sys]
-path = "../sys"
-version = "0.38.0"
+version = "0.36.1"
 features = [
     "Win32_System_SystemServices",
     "Win32_System_Diagnostics_Debug",
