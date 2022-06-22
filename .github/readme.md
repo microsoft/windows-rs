@@ -15,7 +15,7 @@ Start by adding the following to your Cargo.toml file:
 
 ```toml
 [dependencies.windows]
-version = "0.37.0"
+version = "0.38.0"
 features = [
     "alloc",
     "Data_Xml_Dom",

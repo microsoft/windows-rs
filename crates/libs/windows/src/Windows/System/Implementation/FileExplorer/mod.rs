@@ -330,8 +330,8 @@ impl SysStorageProviderEventReceivedEventArgs {
     }
     #[doc(hidden)]
     pub fn ISysStorageProviderEventReceivedEventArgsFactory<R, F: FnOnce(&ISysStorageProviderEventReceivedEventArgsFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<SysStorageProviderEventReceivedEventArgs, ISysStorageProviderEventReceivedEventArgsFactory> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<SysStorageProviderEventReceivedEventArgs, ISysStorageProviderEventReceivedEventArgsFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::core::clone::Clone for SysStorageProviderEventReceivedEventArgs {

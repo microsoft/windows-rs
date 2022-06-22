@@ -5,8 +5,8 @@ impl Class {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<Class, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<Class, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
     pub fn Property(&self) -> ::windows::core::Result<i32> {
         let this = self;
@@ -105,4 +105,40 @@ pub struct IClass_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     pub Property: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub SetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT,
+}
+pub trait IClass_Impl: Sized {
+    fn Property(&self) -> ::windows::core::Result<i32>;
+    fn SetProperty(&self, value: i32) -> ::windows::core::Result<()>;
+}
+impl ::windows::core::RuntimeName for IClass {
+    const NAME: &'static str = "test_component.IClass";
+}
+impl IClass_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IClass_Impl, const OFFSET: isize>() -> IClass_Vtbl {
+        unsafe extern "system" fn Property<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.Property() {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.SetProperty(value).into()
+        }
+        Self {
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IClass, OFFSET>(),
+            Property: Property::<Identity, Impl, OFFSET>,
+            SetProperty: SetProperty::<Identity, Impl, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IClass as ::windows::core::Interface>::IID
+    }
 }

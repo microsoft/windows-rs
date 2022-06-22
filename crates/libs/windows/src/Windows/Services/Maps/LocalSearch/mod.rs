@@ -210,8 +210,8 @@ impl LocalCategories {
     }
     #[doc(hidden)]
     pub fn ILocalCategoriesStatics<R, F: FnOnce(&ILocalCategoriesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<LocalCategories, ILocalCategoriesStatics> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<LocalCategories, ILocalCategoriesStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::windows::core::RuntimeName for LocalCategories {
@@ -389,8 +389,8 @@ impl LocalLocationFinder {
     }
     #[doc(hidden)]
     pub fn ILocalLocationFinderStatics<R, F: FnOnce(&ILocalLocationFinderStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<LocalLocationFinder, ILocalLocationFinderStatics> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<LocalLocationFinder, ILocalLocationFinderStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::windows::core::RuntimeName for LocalLocationFinder {
@@ -749,8 +749,8 @@ impl PlaceInfoHelper {
     }
     #[doc(hidden)]
     pub fn IPlaceInfoHelperStatics<R, F: FnOnce(&IPlaceInfoHelperStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<PlaceInfoHelper, IPlaceInfoHelperStatics> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<PlaceInfoHelper, IPlaceInfoHelperStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::windows::core::RuntimeName for PlaceInfoHelper {

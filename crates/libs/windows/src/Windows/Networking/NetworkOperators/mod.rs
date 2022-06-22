@@ -769,8 +769,8 @@ impl ESimManager {
     }
     #[doc(hidden)]
     pub fn IESimManagerStatics<R, F: FnOnce(&IESimManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<ESimManager, IESimManagerStatics> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<ESimManager, IESimManagerStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::windows::core::RuntimeName for ESimManager {
@@ -2130,8 +2130,8 @@ impl FdnAccessManager {
     }
     #[doc(hidden)]
     pub fn IFdnAccessManagerStatics<R, F: FnOnce(&IFdnAccessManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<FdnAccessManager, IFdnAccessManagerStatics> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<FdnAccessManager, IFdnAccessManagerStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::windows::core::RuntimeName for FdnAccessManager {
@@ -2223,8 +2223,8 @@ impl HotspotAuthenticationContext {
     }
     #[doc(hidden)]
     pub fn IHotspotAuthenticationContextStatics<R, F: FnOnce(&IHotspotAuthenticationContextStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<HotspotAuthenticationContext, IHotspotAuthenticationContextStatics> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<HotspotAuthenticationContext, IHotspotAuthenticationContextStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::core::clone::Clone for HotspotAuthenticationContext {
@@ -4881,8 +4881,8 @@ impl KnownCSimFilePaths {
     }
     #[doc(hidden)]
     pub fn IKnownCSimFilePathsStatics<R, F: FnOnce(&IKnownCSimFilePathsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<KnownCSimFilePaths, IKnownCSimFilePathsStatics> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<KnownCSimFilePaths, IKnownCSimFilePathsStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::windows::core::RuntimeName for KnownCSimFilePaths {
@@ -4917,8 +4917,8 @@ impl KnownRuimFilePaths {
     }
     #[doc(hidden)]
     pub fn IKnownRuimFilePathsStatics<R, F: FnOnce(&IKnownRuimFilePathsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<KnownRuimFilePaths, IKnownRuimFilePathsStatics> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<KnownRuimFilePaths, IKnownRuimFilePathsStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::windows::core::RuntimeName for KnownRuimFilePaths {
@@ -4961,8 +4961,8 @@ impl KnownSimFilePaths {
     }
     #[doc(hidden)]
     pub fn IKnownSimFilePathsStatics<R, F: FnOnce(&IKnownSimFilePathsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<KnownSimFilePaths, IKnownSimFilePathsStatics> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<KnownSimFilePaths, IKnownSimFilePathsStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::windows::core::RuntimeName for KnownSimFilePaths {
@@ -5013,8 +5013,8 @@ impl KnownUSimFilePaths {
     }
     #[doc(hidden)]
     pub fn IKnownUSimFilePathsStatics<R, F: FnOnce(&IKnownUSimFilePathsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<KnownUSimFilePaths, IKnownUSimFilePathsStatics> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<KnownUSimFilePaths, IKnownUSimFilePathsStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::windows::core::RuntimeName for KnownUSimFilePaths {
@@ -5099,8 +5099,8 @@ impl MobileBroadbandAccount {
     }
     #[doc(hidden)]
     pub fn IMobileBroadbandAccountStatics<R, F: FnOnce(&IMobileBroadbandAccountStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<MobileBroadbandAccount, IMobileBroadbandAccountStatics> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<MobileBroadbandAccount, IMobileBroadbandAccountStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::core::clone::Clone for MobileBroadbandAccount {
@@ -5363,8 +5363,8 @@ impl MobileBroadbandAccountWatcher {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<MobileBroadbandAccountWatcher, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<MobileBroadbandAccountWatcher, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -5596,8 +5596,8 @@ impl MobileBroadbandAntennaSar {
     }
     #[doc(hidden)]
     pub fn IMobileBroadbandAntennaSarFactory<R, F: FnOnce(&IMobileBroadbandAntennaSarFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<MobileBroadbandAntennaSar, IMobileBroadbandAntennaSarFactory> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<MobileBroadbandAntennaSar, IMobileBroadbandAntennaSarFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::core::clone::Clone for MobileBroadbandAntennaSar {
@@ -7971,8 +7971,8 @@ impl MobileBroadbandModem {
     }
     #[doc(hidden)]
     pub fn IMobileBroadbandModemStatics<R, F: FnOnce(&IMobileBroadbandModemStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<MobileBroadbandModem, IMobileBroadbandModemStatics> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<MobileBroadbandModem, IMobileBroadbandModemStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::core::clone::Clone for MobileBroadbandModem {
@@ -8195,8 +8195,8 @@ impl MobileBroadbandModemIsolation {
     }
     #[doc(hidden)]
     pub fn IMobileBroadbandModemIsolationFactory<R, F: FnOnce(&IMobileBroadbandModemIsolationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<MobileBroadbandModemIsolation, IMobileBroadbandModemIsolationFactory> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<MobileBroadbandModemIsolation, IMobileBroadbandModemIsolationFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::core::clone::Clone for MobileBroadbandModemIsolation {
@@ -11273,8 +11273,8 @@ impl NetworkOperatorTetheringAccessPointConfiguration {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<NetworkOperatorTetheringAccessPointConfiguration, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<NetworkOperatorTetheringAccessPointConfiguration, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
     pub fn Ssid(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -11642,23 +11642,23 @@ impl NetworkOperatorTetheringManager {
     }
     #[doc(hidden)]
     pub fn INetworkOperatorTetheringManagerStatics<R, F: FnOnce(&INetworkOperatorTetheringManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<NetworkOperatorTetheringManager, INetworkOperatorTetheringManagerStatics> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<NetworkOperatorTetheringManager, INetworkOperatorTetheringManagerStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn INetworkOperatorTetheringManagerStatics2<R, F: FnOnce(&INetworkOperatorTetheringManagerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<NetworkOperatorTetheringManager, INetworkOperatorTetheringManagerStatics2> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<NetworkOperatorTetheringManager, INetworkOperatorTetheringManagerStatics2> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn INetworkOperatorTetheringManagerStatics3<R, F: FnOnce(&INetworkOperatorTetheringManagerStatics3) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<NetworkOperatorTetheringManager, INetworkOperatorTetheringManagerStatics3> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<NetworkOperatorTetheringManager, INetworkOperatorTetheringManagerStatics3> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn INetworkOperatorTetheringManagerStatics4<R, F: FnOnce(&INetworkOperatorTetheringManagerStatics4) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<NetworkOperatorTetheringManager, INetworkOperatorTetheringManagerStatics4> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<NetworkOperatorTetheringManager, INetworkOperatorTetheringManagerStatics4> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::core::clone::Clone for NetworkOperatorTetheringManager {
@@ -12128,8 +12128,8 @@ impl ProvisioningAgent {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<ProvisioningAgent, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<ProvisioningAgent, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -12157,8 +12157,8 @@ impl ProvisioningAgent {
     }
     #[doc(hidden)]
     pub fn IProvisioningAgentStaticMethods<R, F: FnOnce(&IProvisioningAgentStaticMethods) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<ProvisioningAgent, IProvisioningAgentStaticMethods> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<ProvisioningAgent, IProvisioningAgentStaticMethods> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::core::clone::Clone for ProvisioningAgent {
@@ -12644,8 +12644,8 @@ impl UssdMessage {
     }
     #[doc(hidden)]
     pub fn IUssdMessageFactory<R, F: FnOnce(&IUssdMessageFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<UssdMessage, IUssdMessageFactory> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<UssdMessage, IUssdMessageFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::core::clone::Clone for UssdMessage {
@@ -12883,8 +12883,8 @@ impl UssdSession {
     }
     #[doc(hidden)]
     pub fn IUssdSessionStatics<R, F: FnOnce(&IUssdSessionStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<UssdSession, IUssdSessionStatics> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<UssdSession, IUssdSessionStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::core::clone::Clone for UssdSession {

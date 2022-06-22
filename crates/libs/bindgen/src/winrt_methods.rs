@@ -17,7 +17,7 @@ pub fn gen(gen: &Gen, def: TypeDef, generics: &[Type], kind: InterfaceKind, meth
     let vname = virtual_names.add(gen, method);
     let constraints = gen.param_constraints(params);
     let mut cfg = gen.reader.signature_cfg(&signature);
-    cfg.add_feature(gen.reader.type_def_namespace(def));
+    gen.reader.type_def_cfg_combine(def, generics, &mut cfg);
     let doc = gen.cfg_doc(&cfg);
     let features = gen.cfg_features(&cfg);
     let args = gen_winrt_abi_args(gen, params);

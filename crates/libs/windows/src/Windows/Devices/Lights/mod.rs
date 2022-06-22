@@ -300,8 +300,8 @@ impl Lamp {
     }
     #[doc(hidden)]
     pub fn ILampStatics<R, F: FnOnce(&ILampStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<Lamp, ILampStatics> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<Lamp, ILampStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::core::clone::Clone for Lamp {
@@ -616,8 +616,8 @@ impl LampArray {
     }
     #[doc(hidden)]
     pub fn ILampArrayStatics<R, F: FnOnce(&ILampArrayStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<LampArray, ILampArrayStatics> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<LampArray, ILampArrayStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::core::clone::Clone for LampArray {

@@ -12,8 +12,8 @@ impl ApplicationDataManager {
     }
     #[doc(hidden)]
     pub fn IApplicationDataManagerStatics<R, F: FnOnce(&IApplicationDataManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<ApplicationDataManager, IApplicationDataManagerStatics> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<ApplicationDataManager, IApplicationDataManagerStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::core::clone::Clone for ApplicationDataManager {

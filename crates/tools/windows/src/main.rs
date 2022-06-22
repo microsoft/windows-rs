@@ -1,7 +1,7 @@
 use rayon::prelude::*;
 use std::io::prelude::*;
 
-const EXCLUDE_NAMESPACES: [&str; 1] = ["Windows.Win32.Interop"];
+const EXCLUDE_NAMESPACES: [&str; 2] = ["Windows.Win32.Interop", "Windows.UI.Xaml"];
 
 fn main() {
     let mut output = std::path::PathBuf::from("crates/libs/windows/src/Windows");
@@ -24,7 +24,7 @@ fn main() {
         r#"
 [package]
 name = "windows"
-version = "0.37.0"
+version = "0.38.0"
 authors = ["Microsoft"]
 edition = "2018"
 license = "MIT OR Apache-2.0"
@@ -39,38 +39,38 @@ default-target = "x86_64-pc-windows-msvc"
 targets = []
 
 [target.i686-pc-windows-msvc.dependencies]
-windows_i686_msvc = { path = "../../targets/i686_msvc", version = "0.37.0" }
+windows_i686_msvc = { path = "../../targets/i686_msvc", version = "0.38.0" }
 
 [target.i686-uwp-windows-msvc.dependencies]
-windows_i686_msvc = { path = "../../targets/i686_msvc", version = "0.37.0" }
+windows_i686_msvc = { path = "../../targets/i686_msvc", version = "0.38.0" }
 
 [target.x86_64-pc-windows-msvc.dependencies]
-windows_x86_64_msvc = { path = "../../targets/x86_64_msvc", version = "0.37.0" }
+windows_x86_64_msvc = { path = "../../targets/x86_64_msvc", version = "0.38.0" }
 
 [target.x86_64-uwp-windows-msvc.dependencies]
-windows_x86_64_msvc = { path = "../../targets/x86_64_msvc", version = "0.37.0" }
+windows_x86_64_msvc = { path = "../../targets/x86_64_msvc", version = "0.38.0" }
 
 [target.aarch64-pc-windows-msvc.dependencies]
-windows_aarch64_msvc = { path = "../../targets/aarch64_msvc", version = "0.37.0" }
+windows_aarch64_msvc = { path = "../../targets/aarch64_msvc", version = "0.38.0" }
 
 [target.aarch64-uwp-windows-msvc.dependencies]
-windows_aarch64_msvc = { path = "../../targets/aarch64_msvc", version = "0.37.0" }
+windows_aarch64_msvc = { path = "../../targets/aarch64_msvc", version = "0.38.0" }
 
 [target.i686-pc-windows-gnu.dependencies]
-windows_i686_gnu = { path = "../../targets/i686_gnu", version = "0.37.0" }
+windows_i686_gnu = { path = "../../targets/i686_gnu", version = "0.38.0" }
 
 [target.i686-uwp-windows-gnu.dependencies]
-windows_i686_gnu = { path = "../../targets/i686_gnu", version = "0.37.0" }
+windows_i686_gnu = { path = "../../targets/i686_gnu", version = "0.38.0" }
 
 [target.x86_64-pc-windows-gnu.dependencies]
-windows_x86_64_gnu = { path = "../../targets/x86_64_gnu", version = "0.37.0" }
+windows_x86_64_gnu = { path = "../../targets/x86_64_gnu", version = "0.38.0" }
 
 [target.x86_64-uwp-windows-gnu.dependencies]
-windows_x86_64_gnu = { path = "../../targets/x86_64_gnu", version = "0.37.0" }
+windows_x86_64_gnu = { path = "../../targets/x86_64_gnu", version = "0.38.0" }
 
 [dependencies]
-windows-implement = { path = "../implement",  version = "0.37.0", optional = true }
-windows-interface = { path = "../interface",  version = "0.37.0", optional = true }
+windows-implement = { path = "../implement",  version = "0.38.0", optional = true }
+windows-interface = { path = "../interface",  version = "0.38.0", optional = true }
 
 [features]
 default = []

@@ -979,11 +979,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IAsyncOperatio
         ::core::convert::TryInto::<super::super::Foundation::IAsyncOperation<ISmsMessage>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation\"`, `\"deprecated\"`*"]
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
+#[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation_Collections\"`, `\"deprecated\"`*"]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
 #[repr(transparent)]
 pub struct GetSmsMessagesOperation(::windows::core::IUnknown);
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
 impl GetSmsMessagesOperation {
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1064,27 +1064,27 @@ impl GetSmsMessagesOperation {
         }
     }
 }
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
 impl ::core::clone::Clone for GetSmsMessagesOperation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
 impl ::core::cmp::PartialEq for GetSmsMessagesOperation {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
 impl ::core::cmp::Eq for GetSmsMessagesOperation {}
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
 impl ::core::fmt::Debug for GetSmsMessagesOperation {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GetSmsMessagesOperation").field(&self.0).finish()
     }
 }
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
 unsafe impl ::windows::core::RuntimeType for GetSmsMessagesOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.GetSmsMessagesOperation;pinterface({b5d036d7-e297-498f-ba60-0289e76e23dd};pinterface({bbe1fa4c-b0e3-4583-baef-1f1b2e483e56};{ed3c5e28-6984-4b07-811d-8d5906ed3cea});i4))");
     type DefaultType = ::core::option::Option<Self>;
@@ -1092,16 +1092,16 @@ unsafe impl ::windows::core::RuntimeType for GetSmsMessagesOperation {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
 unsafe impl ::windows::core::Interface for GetSmsMessagesOperation {
     type Vtable = super::super::Foundation::IAsyncOperationWithProgress_Vtbl<super::super::Foundation::Collections::IVectorView<ISmsMessage>, i32>;
     const IID: ::windows::core::GUID = <super::super::Foundation::IAsyncOperationWithProgress<super::super::Foundation::Collections::IVectorView<ISmsMessage>, i32> as ::windows::core::Interface>::IID;
 }
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
 impl ::windows::core::RuntimeName for GetSmsMessagesOperation {
     const NAME: &'static str = "Windows.Devices.Sms.GetSmsMessagesOperation";
 }
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
 impl GetSmsMessagesOperation {
     pub fn get(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ISmsMessage>> {
         if self.Status()? == super::super::Foundation::AsyncStatus::Started {
@@ -1116,7 +1116,7 @@ impl GetSmsMessagesOperation {
         self.GetResults()
     }
 }
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
 impl ::std::future::Future for GetSmsMessagesOperation {
     type Output = ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ISmsMessage>>;
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
@@ -1132,75 +1132,75 @@ impl ::std::future::Future for GetSmsMessagesOperation {
         }
     }
 }
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
 impl ::core::convert::From<GetSmsMessagesOperation> for ::windows::core::IUnknown {
     fn from(value: GetSmsMessagesOperation) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
 impl ::core::convert::From<&GetSmsMessagesOperation> for ::windows::core::IUnknown {
     fn from(value: &GetSmsMessagesOperation) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GetSmsMessagesOperation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GetSmsMessagesOperation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
 impl ::core::convert::From<GetSmsMessagesOperation> for ::windows::core::IInspectable {
     fn from(value: GetSmsMessagesOperation) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
 impl ::core::convert::From<&GetSmsMessagesOperation> for ::windows::core::IInspectable {
     fn from(value: &GetSmsMessagesOperation) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GetSmsMessagesOperation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GetSmsMessagesOperation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
 impl ::core::convert::TryFrom<GetSmsMessagesOperation> for super::super::Foundation::IAsyncInfo {
     type Error = ::windows::core::Error;
     fn try_from(value: GetSmsMessagesOperation) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
 impl ::core::convert::TryFrom<&GetSmsMessagesOperation> for super::super::Foundation::IAsyncInfo {
     type Error = ::windows::core::Error;
     fn try_from(value: &GetSmsMessagesOperation) -> ::windows::core::Result<Self> {
         ::windows::core::Interface::cast(value)
     }
 }
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IAsyncInfo> for GetSmsMessagesOperation {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IAsyncInfo> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IAsyncInfo> for &GetSmsMessagesOperation {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IAsyncInfo> {
         ::core::convert::TryInto::<super::super::Foundation::IAsyncInfo>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
@@ -2964,8 +2964,8 @@ impl SmsAppMessage {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<SmsAppMessage, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<SmsAppMessage, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -3261,8 +3261,8 @@ impl SmsBinaryMessage {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<SmsBinaryMessage, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<SmsBinaryMessage, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -3881,14 +3881,14 @@ impl SmsDevice {
     #[doc(hidden)]
     #[cfg(feature = "deprecated")]
     pub fn ISmsDeviceStatics<R, F: FnOnce(&ISmsDeviceStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<SmsDevice, ISmsDeviceStatics> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<SmsDevice, ISmsDeviceStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
     #[doc(hidden)]
     #[cfg(feature = "deprecated")]
     pub fn ISmsDeviceStatics2<R, F: FnOnce(&ISmsDeviceStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<SmsDevice, ISmsDeviceStatics2> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<SmsDevice, ISmsDeviceStatics2> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 #[cfg(feature = "deprecated")]
@@ -4121,8 +4121,8 @@ impl SmsDevice2 {
     }
     #[doc(hidden)]
     pub fn ISmsDevice2Statics<R, F: FnOnce(&ISmsDevice2Statics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<SmsDevice2, ISmsDevice2Statics> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<SmsDevice2, ISmsDevice2Statics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::core::clone::Clone for SmsDevice2 {
@@ -4725,8 +4725,8 @@ impl SmsFilterRule {
     }
     #[doc(hidden)]
     pub fn ISmsFilterRuleFactory<R, F: FnOnce(&ISmsFilterRuleFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<SmsFilterRule, ISmsFilterRuleFactory> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<SmsFilterRule, ISmsFilterRuleFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::core::clone::Clone for SmsFilterRule {
@@ -4831,8 +4831,8 @@ impl SmsFilterRules {
     }
     #[doc(hidden)]
     pub fn ISmsFilterRulesFactory<R, F: FnOnce(&ISmsFilterRulesFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<SmsFilterRules, ISmsFilterRulesFactory> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<SmsFilterRules, ISmsFilterRulesFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::core::clone::Clone for SmsFilterRules {
@@ -5428,8 +5428,8 @@ impl SmsMessageRegistration {
     }
     #[doc(hidden)]
     pub fn ISmsMessageRegistrationStatics<R, F: FnOnce(&ISmsMessageRegistrationStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<SmsMessageRegistration, ISmsMessageRegistrationStatics> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<SmsMessageRegistration, ISmsMessageRegistrationStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::core::clone::Clone for SmsMessageRegistration {
@@ -6058,8 +6058,8 @@ impl SmsTextMessage {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<SmsTextMessage, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<SmsTextMessage, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Devices_Sms\"`*"]
     pub fn Id(&self) -> ::windows::core::Result<u32> {
@@ -6201,8 +6201,8 @@ impl SmsTextMessage {
     #[doc(hidden)]
     #[cfg(feature = "deprecated")]
     pub fn ISmsTextMessageStatics<R, F: FnOnce(&ISmsTextMessageStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<SmsTextMessage, ISmsTextMessageStatics> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<SmsTextMessage, ISmsTextMessageStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 #[cfg(feature = "deprecated")]
@@ -6354,8 +6354,8 @@ impl SmsTextMessage2 {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<SmsTextMessage2, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<SmsTextMessage2, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Devices_Sms\"`*"]
     pub fn MessageType(&self) -> ::windows::core::Result<SmsMessageType> {

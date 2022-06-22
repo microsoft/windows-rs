@@ -120,7 +120,6 @@ jobs:
         cargo clippy -p sample_simple &&
         cargo clippy -p sample_spellchecker &&
         cargo clippy -p sample_uiautomation &&
-        cargo clippy -p sample_xaml_app &&
         cargo clippy -p sample_xml &&
         cargo clippy -p windows_aarch64_msvc &&
         cargo clippy -p windows_i686_gnu &&
@@ -133,6 +132,7 @@ jobs:
         cargo clippy -p test_arch &&
         cargo clippy -p test_arch_feature &&
         cargo clippy -p test_bstr &&
+        cargo clippy -p test_cfg_generic &&
         cargo clippy -p test_class_factory &&
         cargo clippy -p test_component &&
         cargo clippy -p test_component_client &&
@@ -161,7 +161,6 @@ jobs:
         cargo clippy -p test_not_dll &&
         cargo clippy -p test_no_use &&
         cargo clippy -p test_ntstatus &&
-        cargo clippy -p test_null_result &&
         cargo clippy -p test_properties &&
         cargo clippy -p test_query_signature &&
         cargo clippy -p test_return_struct &&

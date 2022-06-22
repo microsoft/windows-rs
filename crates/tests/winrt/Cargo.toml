@@ -17,8 +17,6 @@ features = [
     "ApplicationModel_Email",
     "UI_Composition",
     "System",
-    "UI_Xaml_Data",
-    "UI_Xaml_Interop",
     "Data_Xml_Dom",
     "ApplicationModel_Activation",
     "ApplicationModel_Appointments",

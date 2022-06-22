@@ -63,9 +63,9 @@ fn gen_class(gen: &Gen, def: TypeDef) -> TokenStream {
                         pub fn #interface_type<R, F: FnOnce(&#interface_type) -> ::windows::core::Result<R>>(
                             callback: F,
                         ) -> ::windows::core::Result<R> {
-                            static mut SHARED: ::windows::core::FactoryCache<#name, #interface_type> =
+                            static SHARED: ::windows::core::FactoryCache<#name, #interface_type> =
                                 ::windows::core::FactoryCache::new();
-                            unsafe { SHARED.call(callback) }
+                            SHARED.call(callback)
                         }
                     });
                 }
@@ -84,9 +84,9 @@ fn gen_class(gen: &Gen, def: TypeDef) -> TokenStream {
                 fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(
                     callback: F,
                 ) -> ::windows::core::Result<R> {
-                    static mut SHARED: ::windows::core::FactoryCache<#name, ::windows::core::IGenericFactory> =
+                    static SHARED: ::windows::core::FactoryCache<#name, ::windows::core::IGenericFactory> =
                         ::windows::core::FactoryCache::new();
-                    unsafe { SHARED.call(callback) }
+                    SHARED.call(callback)
                 }
             }
         } else {

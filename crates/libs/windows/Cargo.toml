@@ -1,7 +1,7 @@
 
 [package]
 name = "windows"
-version = "0.37.0"
+version = "0.38.0"
 authors = ["Microsoft"]
 edition = "2018"
 license = "MIT OR Apache-2.0"
@@ -16,38 +16,38 @@ default-target = "x86_64-pc-windows-msvc"
 targets = []
 
 [target.i686-pc-windows-msvc.dependencies]
-windows_i686_msvc = { path = "../../targets/i686_msvc", version = "0.37.0" }
+windows_i686_msvc = { path = "../../targets/i686_msvc", version = "0.38.0" }
 
 [target.i686-uwp-windows-msvc.dependencies]
-windows_i686_msvc = { path = "../../targets/i686_msvc", version = "0.37.0" }
+windows_i686_msvc = { path = "../../targets/i686_msvc", version = "0.38.0" }
 
 [target.x86_64-pc-windows-msvc.dependencies]
-windows_x86_64_msvc = { path = "../../targets/x86_64_msvc", version = "0.37.0" }
+windows_x86_64_msvc = { path = "../../targets/x86_64_msvc", version = "0.38.0" }
 
 [target.x86_64-uwp-windows-msvc.dependencies]
-windows_x86_64_msvc = { path = "../../targets/x86_64_msvc", version = "0.37.0" }
+windows_x86_64_msvc = { path = "../../targets/x86_64_msvc", version = "0.38.0" }
 
 [target.aarch64-pc-windows-msvc.dependencies]
-windows_aarch64_msvc = { path = "../../targets/aarch64_msvc", version = "0.37.0" }
+windows_aarch64_msvc = { path = "../../targets/aarch64_msvc", version = "0.38.0" }
 
 [target.aarch64-uwp-windows-msvc.dependencies]
-windows_aarch64_msvc = { path = "../../targets/aarch64_msvc", version = "0.37.0" }
+windows_aarch64_msvc = { path = "../../targets/aarch64_msvc", version = "0.38.0" }
 
 [target.i686-pc-windows-gnu.dependencies]
-windows_i686_gnu = { path = "../../targets/i686_gnu", version = "0.37.0" }
+windows_i686_gnu = { path = "../../targets/i686_gnu", version = "0.38.0" }
 
 [target.i686-uwp-windows-gnu.dependencies]
-windows_i686_gnu = { path = "../../targets/i686_gnu", version = "0.37.0" }
+windows_i686_gnu = { path = "../../targets/i686_gnu", version = "0.38.0" }
 
 [target.x86_64-pc-windows-gnu.dependencies]
-windows_x86_64_gnu = { path = "../../targets/x86_64_gnu", version = "0.37.0" }
+windows_x86_64_gnu = { path = "../../targets/x86_64_gnu", version = "0.38.0" }
 
 [target.x86_64-uwp-windows-gnu.dependencies]
-windows_x86_64_gnu = { path = "../../targets/x86_64_gnu", version = "0.37.0" }
+windows_x86_64_gnu = { path = "../../targets/x86_64_gnu", version = "0.38.0" }
 
 [dependencies]
-windows-implement = { path = "../implement",  version = "0.37.0", optional = true }
-windows-interface = { path = "../interface",  version = "0.37.0", optional = true }
+windows-implement = { path = "../implement",  version = "0.38.0", optional = true }
+windows-interface = { path = "../interface",  version = "0.38.0", optional = true }
 
 [features]
 default = []
@@ -390,30 +390,6 @@ UI_WebUI = ["UI"]
 UI_WebUI_Core = ["UI_WebUI"]
 UI_WindowManagement = ["UI"]
 UI_WindowManagement_Preview = ["UI_WindowManagement"]
-UI_Xaml = ["UI"]
-UI_Xaml_Automation = ["UI_Xaml"]
-UI_Xaml_Automation_Peers = ["UI_Xaml_Automation"]
-UI_Xaml_Automation_Provider = ["UI_Xaml_Automation"]
-UI_Xaml_Automation_Text = ["UI_Xaml_Automation"]
-UI_Xaml_Controls = ["UI_Xaml"]
-UI_Xaml_Controls_Maps = ["UI_Xaml_Controls"]
-UI_Xaml_Controls_Primitives = ["UI_Xaml_Controls"]
-UI_Xaml_Core = ["UI_Xaml"]
-UI_Xaml_Core_Direct = ["UI_Xaml_Core"]
-UI_Xaml_Data = ["UI_Xaml"]
-UI_Xaml_Documents = ["UI_Xaml"]
-UI_Xaml_Hosting = ["UI_Xaml"]
-UI_Xaml_Input = ["UI_Xaml"]
-UI_Xaml_Interop = ["UI_Xaml"]
-UI_Xaml_Markup = ["UI_Xaml"]
-UI_Xaml_Media = ["UI_Xaml"]
-UI_Xaml_Media_Animation = ["UI_Xaml_Media"]
-UI_Xaml_Media_Imaging = ["UI_Xaml_Media"]
-UI_Xaml_Media_Media3D = ["UI_Xaml_Media"]
-UI_Xaml_Navigation = ["UI_Xaml"]
-UI_Xaml_Printing = ["UI_Xaml"]
-UI_Xaml_Resources = ["UI_Xaml"]
-UI_Xaml_Shapes = ["UI_Xaml"]
 Web = []
 Web_AtomPub = ["Web"]
 Web_Http = ["Web"]

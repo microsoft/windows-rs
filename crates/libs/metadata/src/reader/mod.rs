@@ -1034,7 +1034,7 @@ impl<'a> Reader<'a> {
         self.cfg_add_attributes(&mut cfg, self.type_def_attributes(def));
         cfg
     }
-    fn type_def_cfg_combine(&'a self, row: TypeDef, generics: &[Type], cfg: &mut Cfg<'a>) {
+    pub fn type_def_cfg_combine(&'a self, row: TypeDef, generics: &[Type], cfg: &mut Cfg<'a>) {
         for generic in generics {
             self.type_cfg_combine(generic, cfg);
         }
@@ -1042,8 +1042,8 @@ impl<'a> Reader<'a> {
         if cfg.types.entry(self.type_def_namespace(row)).or_default().insert(row) {
             match self.type_def_kind(row) {
                 TypeKind::Class => {
-                    if let Some(Type::TypeDef((row, _))) = self.type_def_interfaces(row, generics).find(|row| row.kind == InterfaceKind::Default).map(|interface| interface.ty) {
-                        cfg.add_feature(self.type_def_namespace(row));
+                    if let Some(default_interface) = self.type_def_default_interface(row) {
+                        self.type_cfg_combine(&default_interface, cfg);
                     }
                 }
                 TypeKind::Interface => {
@@ -1241,7 +1241,7 @@ impl<'a> Reader<'a> {
         self.type_cfg_combine(ty, &mut cfg);
         cfg
     }
-    fn type_cfg_combine(&'a self, ty: &Type, cfg: &mut Cfg<'a>) {
+    pub fn type_cfg_combine(&'a self, ty: &Type, cfg: &mut Cfg<'a>) {
         match ty {
             Type::TypeDef((row, generics)) => self.type_def_cfg_combine(*row, generics, cfg),
             Type::Win32Array((ty, _)) => self.type_cfg_combine(ty, cfg),

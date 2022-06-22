@@ -853,8 +853,8 @@ impl TargetedContentContainer {
     }
     #[doc(hidden)]
     pub fn ITargetedContentContainerStatics<R, F: FnOnce(&ITargetedContentContainerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<TargetedContentContainer, ITargetedContentContainerStatics> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<TargetedContentContainer, ITargetedContentContainerStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::core::clone::Clone for TargetedContentContainer {
@@ -1760,8 +1760,8 @@ impl TargetedContentSubscription {
     }
     #[doc(hidden)]
     pub fn ITargetedContentSubscriptionStatics<R, F: FnOnce(&ITargetedContentSubscriptionStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<TargetedContentSubscription, ITargetedContentSubscriptionStatics> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+        static SHARED: ::windows::core::FactoryCache<TargetedContentSubscription, ITargetedContentSubscriptionStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl ::core::clone::Clone for TargetedContentSubscription {
