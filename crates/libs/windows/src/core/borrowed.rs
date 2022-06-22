@@ -85,3 +85,10 @@ impl<'a, T: super::Abi + core::fmt::Debug> core::fmt::Debug for Borrowed<'a, T> 
         write!(f, "{:?}", self.as_ref())
     }
 }
+
+impl<'a, T: super::Abi> Clone for Borrowed<'a, T> {
+    fn clone(&self) -> Self {
+        // SAFETY: it is safe to alias `Borrow<'a, T>`
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}

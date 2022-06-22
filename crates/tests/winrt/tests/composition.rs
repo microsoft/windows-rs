@@ -38,7 +38,7 @@ fn class_hierarchy_conversion() -> windows::core::Result<()> {
     let children = container.Children()?;
     let sprite: SpriteVisual = compositor.CreateSpriteVisual()?;
     sprite.SetComment(&HSTRING::from("test"))?;
-    children.InsertAtBottom(&Visual::from(sprite))?;
+    children.InsertAtBottom(&sprite)?;
     assert!(children.First()?.Current()?.Comment()? == "test");
 
     // Convert from SpriteVisual class to base Visual class *parameter* by reference (retaining the sprite).
@@ -46,7 +46,7 @@ fn class_hierarchy_conversion() -> windows::core::Result<()> {
     let children = container.Children()?;
     let sprite: &SpriteVisual = &compositor.CreateSpriteVisual()?;
     sprite.SetComment(&HSTRING::from("test"))?;
-    children.InsertAtBottom(&Visual::from(sprite))?;
+    children.InsertAtBottom(sprite)?;
     assert!(children.First()?.Current()?.Comment()? == "test");
     assert!(children.First()?.Current()?.Comment()? == sprite.Comment()?);
 
@@ -57,7 +57,7 @@ fn class_hierarchy_conversion() -> windows::core::Result<()> {
 fn composition() -> windows::core::Result<()> {
     use windows::core::Interface;
     use windows::Foundation::Numerics::Vector3;
-    use windows::UI::Composition::{CompositionBrush, CompositionColorBrush, Compositor, Visual};
+    use windows::UI::Composition::{CompositionColorBrush, Compositor};
     use windows::UI::{Color, Colors};
 
     let _dispatcher = create_dispatcher();
@@ -70,7 +70,7 @@ fn composition() -> windows::core::Result<()> {
     // Visual.set_brush expects a CompositionBrush but CreateColorBrushWithColor returns a
     // CompositionColorBrush that logically derives from CompositionBrush.
     let brush = compositor.CreateColorBrushWithColor(red)?;
-    visual.SetBrush(&CompositionBrush::from(brush))?;
+    visual.SetBrush(&brush)?;
 
     // Visual.brush returns a CompositionBrush but we know that it's actually a CompositionColorBrush
     // and need to convert it excplicitly since Rust/WinRT doesn't know that.
@@ -85,15 +85,15 @@ fn composition() -> windows::core::Result<()> {
 
     let child = compositor.CreateSpriteVisual()?;
     child.SetOffset(Vector3 { X: 1.0, Y: 0.0, Z: 0.0 })?;
-    children.InsertAtBottom(&Visual::from(child))?;
+    children.InsertAtBottom(&child)?;
 
     let child = compositor.CreateSpriteVisual()?;
     child.SetOffset(Vector3 { X: 2.0, Y: 0.0, Z: 0.0 })?;
-    children.InsertAtBottom(&Visual::from(child))?;
+    children.InsertAtBottom(&child)?;
 
     let child = compositor.CreateSpriteVisual()?;
     child.SetOffset(Vector3 { X: 3.0, Y: 0.0, Z: 0.0 })?;
-    children.InsertAtBottom(&Visual::from(child))?;
+    children.InsertAtBottom(&child)?;
 
     assert!(children.Count()? == 3);
 

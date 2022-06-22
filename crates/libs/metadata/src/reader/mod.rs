@@ -705,6 +705,12 @@ impl<'a> Reader<'a> {
             self.field_type(field, Some(row))
         }
     }
+    pub fn type_kind(&self, ty: &Type) -> Option<TypeKind> {
+        match ty {
+            Type::TypeDef((td, _)) => Some(self.type_def_kind(*td)),
+            _ => None,
+        }
+    }
     pub fn type_def_kind(&self, row: TypeDef) -> TypeKind {
         if self.type_def_flags(row).interface() {
             TypeKind::Interface
@@ -789,6 +795,12 @@ impl<'a> Reader<'a> {
     pub fn type_def_is_udt(&self, row: TypeDef) -> bool {
         // TODO: should this just check whether the struct has > 1 fields rather than type_def_is_handle?
         self.type_def_kind(row) == TypeKind::Struct && !self.type_def_is_handle(row)
+    }
+    pub fn type_def_is_in_class_hierarchy(&self, row: TypeDef) -> bool {
+        match self.type_def_kind(row) {
+            TypeKind::Class => true,
+            _ => false,
+        }
     }
     pub fn type_def_is_borrowed(&self, row: TypeDef) -> bool {
         match self.type_def_kind(row) {
@@ -1139,6 +1151,9 @@ impl<'a> Reader<'a> {
     }
     pub fn signature_param_is_borrowed(&self, param: &SignatureParam) -> bool {
         self.param_flags(param.def).input() && !param.ty.is_winrt_array() && !param.ty.is_pointer() && self.type_is_borrowed(&param.ty) && param.array_info == ArrayInfo::None
+    }
+    pub fn signature_param_is_param(&self, param: &SignatureParam) -> bool {
+        self.param_flags(param.def).input() && !param.ty.is_winrt_array() && !param.ty.is_pointer() && self.type_is_in_class_hierarchy(&param.ty) && param.array_info == ArrayInfo::None
     }
     pub fn signature_param_is_convertible(&self, param: &SignatureParam) -> bool {
         self.param_flags(param.def).input() && !param.ty.is_winrt_array() && !param.ty.is_pointer() && self.type_is_primitive_type_def(&param.ty) && param.array_info == ArrayInfo::None
@@ -1505,6 +1520,12 @@ impl<'a> Reader<'a> {
             Type::TypeDef((row, _)) => self.type_def_is_borrowed(*row),
             Type::String | Type::IInspectable | Type::IUnknown | Type::GenericParam(_) => true,
             Type::WinrtConstRef(ty) => self.type_is_borrowed(ty),
+            _ => false,
+        }
+    }
+    pub fn type_is_in_class_hierarchy(&self, ty: &Type) -> bool {
+        match ty {
+            Type::TypeDef((row, _)) => self.type_def_is_in_class_hierarchy(*row),
             _ => false,
         }
     }

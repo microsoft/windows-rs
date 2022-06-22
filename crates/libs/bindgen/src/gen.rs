@@ -278,7 +278,11 @@ impl<'a> Gen<'a> {
     pub fn param_constraints(&self, params: &[SignatureParam]) -> TokenStream {
         let mut tokens = TokenStream::new();
         for (position, param) in params.iter().enumerate() {
-            if self.reader.signature_param_is_borrowed(param) {
+            if self.reader.signature_param_is_param(param) {
+                let name: TokenStream = format!("Param{}", position).into();
+                let into = self.type_name(&param.ty);
+                tokens.combine(&quote! { #name: ::std::convert::Into<::windows::core::Param<'a, #into>>, });
+            } else if self.reader.signature_param_is_borrowed(param) {
                 let name: TokenStream = format!("Param{}", position).into();
                 let into = self.type_name(&param.ty);
                 tokens.combine(&quote! { #name: ::std::convert::Into<::windows::core::Borrowed<'a, #into>>, });
