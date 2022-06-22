@@ -134,6 +134,17 @@ pub fn namespace_impl(gen: &Gen, tree: &Tree) -> String {
     tokens.into_string()
 }
 
+pub fn component(namespace: &str, files: &[File]) -> String {
+    let reader = &Reader::new(files);
+    let tree = reader.tree(namespace, &[]).expect("Namespace not found");
+    let mut gen = Gen::new(reader);
+    gen.namespace = tree.namespace;
+    gen.component = true;
+    let mut bindings = crate::namespace(&gen, &tree);
+    bindings.push_str(&namespace_impl(&gen, &tree));
+    bindings
+}
+
 fn combine<'a>(types: &mut BTreeMap<&'a str, TokenStream>, name: &'a str, tokens: TokenStream) {
     types.entry(name).or_default().combine(&tokens);
 }
