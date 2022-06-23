@@ -63,7 +63,7 @@ where
     }
 }
 
-impl<'a, T: Abi> From<Option<&'a T>> for Param<'a, TCreateDataReader>
+impl<'a, T: Abi> From<Option<&'a T>> for Param<'a, T>
 where
     &'a T: Into<Borrowed<'a, T>>,
 {

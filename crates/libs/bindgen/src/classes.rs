@@ -187,6 +187,14 @@ fn gen_conversions(gen: &Gen, def: TypeDef, name: &TokenStream, interfaces: &[In
                     ::windows::core::Interface::cast(value)
                 }
             }
+            #features
+            impl<'a> ::core::convert::TryFrom<&#name> for ::windows::core::Param<'a, #into> {
+                type Error = ::windows::core::Error;
+                fn try_from(value: &#name) -> ::windows::core::Result<Self> {
+                    let item = ::std::convert::TryInto::try_into(value)?;
+                    Ok(::windows::core::Param::owned(item))
+                }
+            }
         });
     }
 

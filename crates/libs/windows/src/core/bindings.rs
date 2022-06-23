@@ -461,6 +461,13 @@ impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<&IRefer
         ::windows::core::Interface::cast(value)
     }
 }
+impl<'a, T: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<&IReference<T>> for ::windows::core::Param<'a, IPropertyValue> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IReference<T>) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::Param::owned(item))
+    }
+}
 impl<T: ::windows::core::RuntimeType + 'static> ::core::clone::Clone for IReference<T> {
     fn clone(&self) -> Self {
         Self(self.0.clone(), ::core::marker::PhantomData::<T>)
