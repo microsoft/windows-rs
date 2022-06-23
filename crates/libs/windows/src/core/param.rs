@@ -19,7 +19,7 @@ use super::{Abi, Borrowed};
 ///     you can pass a `&'a IInspectable` since `IInspectable` inherits from `IUnknown`.
 /// * `None` - because `Params`s are always optional
 /// * Children classes in a WinRT hierarchy.
-///   * For example, `CompositionProjectedShadowCaster` has a method called `SetBrush`. This method takes any type that implements `Into<Param<'a, CompositionBrush>>`. 
+///   * For example, `CompositionProjectedShadowCaster` has a method called `SetBrush`. This method takes any type that implements `Into<Param<'a, CompositionBrush>>`.
 ///     This allows you to pass a `&CompositionBrush` but also children classes like `CompositionColorBrush`.
 ///
 /// # What is the reason for `Param` existing?
@@ -30,22 +30,18 @@ use super::{Abi, Borrowed};
 ///
 /// `Param`s are composed of either an owned type or a `Borrowed<'a, T>`. If you want to know more about how the types line up at the abi layer, read the docs for `Borrowed`.
 pub struct Param<'a, T: Abi> {
-    inner: ParamRepr<'a, T>
+    inner: ParamRepr<'a, T>,
 }
 
 impl<'a, T: Abi> Param<'a, T> {
     /// Create an owned `Param`
     pub fn owned(item: T) -> Self {
-        Self {
-            inner: ParamRepr::Owned(item)
-        }
+        Self { inner: ParamRepr::Owned(item) }
     }
 
     /// Create an borrowed `Param`
     pub fn borrowed(item: Borrowed<'a, T>) -> Self {
-        Self {
-            inner: ParamRepr::Borrowed(item)
-        }
+        Self { inner: ParamRepr::Borrowed(item) }
     }
 
     /// Convert this `Param` into its abi representation

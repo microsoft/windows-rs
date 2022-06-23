@@ -1,4 +1,3 @@
-use std::convert::TryFrom;
 use std::thread;
 use windows::core::{Interface, HRESULT, HSTRING};
 use windows::Foundation::*;
@@ -21,7 +20,7 @@ fn send_sync() -> windows::core::Result<()> {
 fn send_async() {
     let stream = InMemoryRandomAccessStream::new().unwrap();
 
-    let writer = DataWriter::CreateDataWriter(&IOutputStream::try_from(&stream).unwrap()).unwrap();
+    let writer = DataWriter::CreateDataWriter(&stream).unwrap();
     writer.WriteByte(1).unwrap();
     writer.WriteByte(2).unwrap();
     writer.WriteByte(3).unwrap();
@@ -31,7 +30,7 @@ fn send_async() {
         store_async.get().unwrap();
 
         stream.Seek(0).unwrap();
-        let reader = DataReader::CreateDataReader(&IInputStream::try_from(stream).unwrap()).unwrap();
+        let reader = DataReader::CreateDataReader(&stream).unwrap();
         let load_async = reader.LoadAsync(3).unwrap();
 
         let wait = thread::spawn(move || {
@@ -55,7 +54,7 @@ fn send_async() {
 fn send_async_no_class() {
     let stream = InMemoryRandomAccessStream::new().unwrap();
 
-    let writer = DataWriter::CreateDataWriter(&IOutputStream::try_from(&stream).unwrap()).unwrap();
+    let writer = DataWriter::CreateDataWriter(&stream).unwrap();
     writer.WriteByte(1).unwrap();
     writer.WriteByte(2).unwrap();
     writer.WriteByte(3).unwrap();
@@ -65,7 +64,7 @@ fn send_async_no_class() {
         store_async.get().unwrap();
 
         stream.Seek(0).unwrap();
-        let reader = DataReader::CreateDataReader(&IInputStream::try_from(stream).unwrap()).unwrap();
+        let reader = DataReader::CreateDataReader(&stream).unwrap();
         let load_async: IAsyncOperation<u32> = reader.LoadAsync(3).unwrap().cast().unwrap();
 
         let wait = thread::spawn(move || {

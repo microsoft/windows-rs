@@ -797,10 +797,7 @@ impl<'a> Reader<'a> {
         self.type_def_kind(row) == TypeKind::Struct && !self.type_def_is_handle(row)
     }
     pub fn type_def_is_in_class_hierarchy(&self, row: TypeDef) -> bool {
-        match self.type_def_kind(row) {
-            TypeKind::Class => true,
-            _ => false,
-        }
+        matches!(self.type_def_kind(row), TypeKind::Class)
     }
     pub fn type_def_is_borrowed(&self, row: TypeDef) -> bool {
         match self.type_def_kind(row) {
@@ -1154,6 +1151,9 @@ impl<'a> Reader<'a> {
     }
     pub fn signature_param_is_param(&self, param: &SignatureParam) -> bool {
         self.param_flags(param.def).input() && !param.ty.is_winrt_array() && !param.ty.is_pointer() && self.type_is_in_class_hierarchy(&param.ty) && param.array_info == ArrayInfo::None
+    }
+    pub fn signature_param_is_failible_param(&self, param: &SignatureParam) -> bool {
+        self.param_flags(param.def).input() && !param.ty.is_winrt_array() && !param.ty.is_pointer() && self.type_is_non_exclusive_winrt_interface(&param.ty) && param.array_info == ArrayInfo::None
     }
     pub fn signature_param_is_convertible(&self, param: &SignatureParam) -> bool {
         self.param_flags(param.def).input() && !param.ty.is_winrt_array() && !param.ty.is_pointer() && self.type_is_primitive_type_def(&param.ty) && param.array_info == ArrayInfo::None
@@ -1520,6 +1520,12 @@ impl<'a> Reader<'a> {
             Type::TypeDef((row, _)) => self.type_def_is_borrowed(*row),
             Type::String | Type::IInspectable | Type::IUnknown | Type::GenericParam(_) => true,
             Type::WinrtConstRef(ty) => self.type_is_borrowed(ty),
+            _ => false,
+        }
+    }
+    pub fn type_is_non_exclusive_winrt_interface(&self, ty: &Type) -> bool {
+        match ty {
+            Type::TypeDef((row, _)) => !self.type_def_is_exclusive(*row) && self.type_def_flags(*row).winrt() && self.type_def_flags(*row).interface(),
             _ => false,
         }
     }

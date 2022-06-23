@@ -1,9 +1,8 @@
-use std::convert::TryFrom;
 use windows::{
     core::HSTRING,
     ApplicationModel::Email::EmailAttachment,
     Devices::WiFiDirect::{WiFiDirectConnectionParameters, WiFiDirectDevice, WiFiDirectDeviceSelectorType},
-    Storage::Streams::{IRandomAccessStream, IRandomAccessStreamReference, InMemoryRandomAccessStream, RandomAccessStreamReference},
+    Storage::Streams::{InMemoryRandomAccessStream, RandomAccessStreamReference},
 };
 
 // WiFiDirectDevice has a pair of static factory interfaces with overloads. This test
@@ -31,18 +30,18 @@ fn wifi() -> windows::core::Result<()> {
 #[test]
 fn email() -> windows::core::Result<()> {
     let stream = InMemoryRandomAccessStream::new()?;
-    let reference = RandomAccessStreamReference::CreateFromStream(&IRandomAccessStream::try_from(stream)?)?;
+    let reference = RandomAccessStreamReference::CreateFromStream(&stream)?;
 
     // Default constructor via IActivationFactory
     let a = EmailAttachment::new()?;
     assert!(a.FileName()?.is_empty());
 
     // create from IEmailAttachmentFactory
-    let b = EmailAttachment::Create(&HSTRING::from("create.txt"), &IRandomAccessStreamReference::try_from(&reference)?)?;
+    let b = EmailAttachment::Create(&HSTRING::from("create.txt"), &reference)?;
     assert!(b.FileName()? == "create.txt");
 
     // create from IEmailAttachmentFactory2 is renamed to create2
-    let c = EmailAttachment::Create2(&HSTRING::from("create2.txt"), &IRandomAccessStreamReference::try_from(reference)?, &HSTRING::from("text"))?;
+    let c = EmailAttachment::Create2(&HSTRING::from("create2.txt"), &reference, &HSTRING::from("text"))?;
     assert!(c.FileName()? == "create2.txt");
 
     Ok(())

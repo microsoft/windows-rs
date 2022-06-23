@@ -1,19 +1,17 @@
-use std::convert::TryFrom;
-
 #[test]
 fn async_get() -> windows::core::Result<()> {
     use windows::Storage::Streams::*;
 
     let stream = &InMemoryRandomAccessStream::new()?;
 
-    let writer = DataWriter::CreateDataWriter(&IOutputStream::try_from(stream)?)?;
+    let writer = DataWriter::CreateDataWriter(stream)?;
     writer.WriteByte(1)?;
     writer.WriteByte(2)?;
     writer.WriteByte(3)?;
     writer.StoreAsync()?.get()?;
 
     stream.Seek(0)?;
-    let reader = DataReader::CreateDataReader(&IInputStream::try_from(stream)?)?;
+    let reader = DataReader::CreateDataReader(stream)?;
     reader.LoadAsync(3)?.get()?;
 
     let mut bytes: [u8; 3] = [0; 3];
@@ -31,14 +29,14 @@ async fn async_await() -> windows::core::Result<()> {
 
     let stream = &InMemoryRandomAccessStream::new()?;
 
-    let writer = DataWriter::CreateDataWriter(&IOutputStream::try_from(stream)?)?;
+    let writer = DataWriter::CreateDataWriter(stream)?;
     writer.WriteByte(1)?;
     writer.WriteByte(2)?;
     writer.WriteByte(3)?;
     writer.StoreAsync()?.await?;
 
     stream.Seek(0)?;
-    let reader = DataReader::CreateDataReader(&IInputStream::try_from(stream)?)?;
+    let reader = DataReader::CreateDataReader(stream)?;
     reader.LoadAsync(3)?.await?;
 
     let mut bytes: [u8; 3] = [0; 3];

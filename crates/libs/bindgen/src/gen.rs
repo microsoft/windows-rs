@@ -282,6 +282,11 @@ impl<'a> Gen<'a> {
                 let name: TokenStream = format!("Param{}", position).into();
                 let into = self.type_name(&param.ty);
                 tokens.combine(&quote! { #name: ::std::convert::Into<::windows::core::Param<'a, #into>>, });
+            } else if self.reader.signature_param_is_failible_param(param) {
+                let name: TokenStream = format!("Param{}", position).into();
+                let error_name: TokenStream = format!("E{}", position).into();
+                let into = self.type_name(&param.ty);
+                tokens.combine(&quote! { #name: ::std::convert::TryInto<::windows::core::Param<'a, #into>, Error = #error_name>, #error_name: ::std::convert::Into<::windows::core::Error>, });
             } else if self.reader.signature_param_is_borrowed(param) {
                 let name: TokenStream = format!("Param{}", position).into();
                 let into = self.type_name(&param.ty);
