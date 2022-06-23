@@ -165,7 +165,7 @@ fn GetAt() -> Result<()> {
 fn Size() -> Result<()> {
     let v: IVector<i32> = Vector::new(vec![]).into();
     assert_eq!(v.Size()?, 0);
-    v.Append(&123)?;
+    v.Append(123)?;
     assert_eq!(v.Size()?, 1);
     Ok(())
 }
@@ -174,11 +174,11 @@ fn Size() -> Result<()> {
 fn IndexOf() -> Result<()> {
     let v: IVector<i32> = Vector::new(vec![123, 456]).into();
     let mut index = 0;
-    assert_eq!(v.IndexOf(&123, &mut index)?, true);
+    assert_eq!(v.IndexOf(123, &mut index)?, true);
     assert_eq!(index, 0);
-    assert_eq!(v.IndexOf(&456, &mut index)?, true);
+    assert_eq!(v.IndexOf(456, &mut index)?, true);
     assert_eq!(index, 1);
-    assert_eq!(v.IndexOf(&789, &mut index)?, false);
+    assert_eq!(v.IndexOf(789, &mut index)?, false);
 
     let uri = Uri::CreateUri(&HSTRING::from("http://test/"))?;
     let v: IVector<IStringable> = Vector::new(vec![Some(uri.cast()?), None]).into();

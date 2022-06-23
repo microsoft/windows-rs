@@ -107,16 +107,16 @@ impl IIterable_Impl<IKeyValuePair<i32, f32>> for Map {
 fn main() -> Result<()> {
     let map: IMap<i32, f32> = Map().into();
     map.Clear()?;
-    map.HasKey(&0)?;
-    map.Insert(&0, &0.0)?;
-    map.Lookup(&0)?;
-    map.Remove(&0)?;
+    map.HasKey(0)?;
+    map.Insert(0, 0.0)?;
+    map.Lookup(0)?;
+    map.Remove(0)?;
     map.Size()?;
     map.First()?;
 
     let view = map.GetView()?;
-    view.HasKey(&0)?;
-    view.Lookup(&0)?;
+    view.HasKey(0)?;
+    view.Lookup(0)?;
     view.Split(&mut None, &mut None)?;
     view.Size()?;
 

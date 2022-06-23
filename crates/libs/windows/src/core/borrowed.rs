@@ -23,6 +23,10 @@ impl<'a, T: super::Abi> Borrowed<'a, T> {
     pub fn new(item: Option<&'a T>) -> Self {
         // SAFETY: The `Abi` trait ensures `T::Abi` is safe to zero initialize
         let item = item.map(|i| i.abi()).unwrap_or_else(|| unsafe { core::mem::MaybeUninit::zeroed().assume_init() });
+        Self::from_abi(item)
+    }
+
+    pub fn from_abi(item: T::Abi) -> Self {
         Self { item, lifetime: core::marker::PhantomData }
     }
 
@@ -50,6 +54,23 @@ where
         Borrowed::new(Some(item.into()))
     }
 }
+
+macro_rules! primitive_types {
+    ($($t:ty),+) => {
+        $(
+            impl<'a> From<$t> for Borrowed<'a, $t>
+            {
+                fn from(item: $t) -> Self {
+                    use super::Abi;
+                    let item = item.abi();
+                    Borrowed::from_abi(item)
+                }
+            }
+        )*
+    };
+}
+
+primitive_types!(bool, i8, u8, i16, u16, i32, u32, i64, u64, f32, f64, usize, isize);
 
 impl<'a, T: super::Abi> From<Option<&'a T>> for Borrowed<'a, T>
 where

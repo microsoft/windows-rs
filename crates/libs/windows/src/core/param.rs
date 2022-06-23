@@ -83,3 +83,17 @@ impl<'a, T: Abi> ParamRepr<'a, T> {
         borrowed.abi()
     }
 }
+
+macro_rules! primitive_types {
+    ($($t:ty),+) => {
+        $(
+            impl <'a> From<$t> for Param<'a, $t> {
+                fn from(item: $t) -> Self {
+                    Self::borrowed(item.into())
+                }
+            }
+        )*
+    };
+}
+
+primitive_types!(bool, i8, u8, i16, u16, i32, u32, i64, u64, f32, f64, usize, isize);
