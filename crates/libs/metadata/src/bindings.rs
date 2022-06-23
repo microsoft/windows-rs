@@ -1,4 +1,5 @@
-#![allow(non_snake_case, non_upper_case_globals, non_camel_case_types, clashing_extern_declarations)]
+// Note: these definitions are taken from `windows-sys` to avoid a circular dependency.
+#![allow(non_snake_case,non_camel_case_types)]
 
 pub type IMAGE_DIRECTORY_ENTRY = u32;
 pub type IMAGE_DLL_CHARACTERISTICS = u16;
