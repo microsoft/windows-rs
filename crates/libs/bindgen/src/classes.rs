@@ -212,13 +212,13 @@ fn gen_conversions(gen: &Gen, def: TypeDef, name: &TokenStream, interfaces: &[In
             #features
             impl <'a> ::core::convert::From<&#name> for ::windows::core::Param<'a, #into> {
                 fn from(value: &#name) -> Self {
-                    ::windows::core::Param::Owned(value.into())
+                    ::windows::core::Param::owned(value.into())
                 }
             }
             #features
             impl <'a> ::core::convert::From<#name> for ::windows::core::Param<'a, #into> {
                 fn from(value: #name) -> Self {
-                    ::windows::core::Param::Owned(value.into())
+                    ::windows::core::Param::owned(value.into())
                 }
             }
         });

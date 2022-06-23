@@ -1,34 +1,14 @@
 /// A logically borrowed type that still retains the in-memory representation of the underlying type.
 ///
+/// Note: this type is normally only used as a field to a struct. For function parameters, the `Param`
+/// type, which builds on top of `Borrowed` is used.
+///
 /// `Borrowed`s can be thought of much like an `Option<&T>`. The reason `Borrowed` must be used instead of
 /// `Option<&T>` is because `Borrowed` has the same in-memory layout as `Option<T>`. This is necessary
 /// for FFI calls that expect a logically borrowed type that, in-memory, looks like an owned type.
 ///
-/// # Usage
-///
-/// Many functions in the `windows` crate have signatures similar to the following:
-///
-/// ```ignore
-/// fn SomeFunction<'a, P: Into<Borrowed<'a, IUnknown>>>(iunknown: P);
-/// ```
-///
-/// This signature allows the parameter `iunknown` to passed any value that implements `Into<Borrowed<'a, IUnknown>>`. In other
-/// words, `SomeFunction` takes values of any type that can turn themselves into a borrowed `IUnknown`. Generally, if this
-/// is safe to do, the `windows` crate provides an implementation. Here are the typical things that can be converted into an `Borrowed<'a, T>`:
-///
-/// * References to a value of type `T` (i.e., `&'a T`).
-/// * Anything that can be turned into a `&'a T`.
-///   * For example, many COM interfaces have such conversions to parent interfaces. For example, if a function requires an `Borrowed<'a, IUnknown>`,
-///     you can pass a `&'a IInspectable` since `IInspectable` inherits from `IUnknown`.
-/// * `None` - because `Borrowed`s are always optional
-///
-/// It's important to note that owned values **cannot** be passed as `Borrowed`s. After all, `Borrowed` types are borrowed and not owned. Just as you cannot
-/// pass a `T` into a function that expects a `&T`, you cannot pass a `T` into a function that expects a `Borrowed<'a, T>`. If you get something similar to
-/// the following error, it's likely because you are trying to pass an owned value instead of a borrowed value:
-///
-/// ```ignore
-///  the trait bound `SomeType: Into<Borrowed<'_, SomeType>>` is not satisfied
-/// ```
+/// It's important to note that owned values **cannot** be turn into `Borrowed`s. After all, `Borrowed` types are borrowed and not owned. Just as you cannot
+/// turn pass a `T` into function and get a `&T` back, you cannot pass a `T` into a function that ultimately expects a `Borrowed<'a, T>`.
 #[repr(transparent)]
 pub struct Borrowed<'a, T: super::Abi> {
     item: T::Abi,

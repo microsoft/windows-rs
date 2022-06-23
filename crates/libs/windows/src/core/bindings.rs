@@ -755,52 +755,52 @@ impl PropertyValue {
             (::windows::core::Interface::vtable(this).CreateBoolean)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
-    pub fn CreateString<'a, Param0: ::std::convert::Into<::windows::core::Borrowed<'a, ::windows::core::HSTRING>>>(value: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
+    pub fn CreateString<'a, Param0: ::std::convert::Into<::windows::core::Param<'a, ::windows::core::HSTRING>>>(value: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateString)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
-    pub fn CreateInspectable<'a, Param0: ::std::convert::Into<::windows::core::Borrowed<'a, ::windows::core::IInspectable>>>(value: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
+    pub fn CreateInspectable<'a, Param0: ::std::convert::Into<::windows::core::Param<'a, ::windows::core::IInspectable>>>(value: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInspectable)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
-    pub fn CreateGuid<'a, Param0: ::std::convert::Into<::windows::core::Borrowed<'a, ::windows::core::GUID>>>(value: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
+    pub fn CreateGuid(value: ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateGuid)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).CreateGuid)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
-    pub fn CreateDateTime<'a, Param0: ::std::convert::Into<::windows::core::Borrowed<'a, DateTime>>>(value: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
+    pub fn CreateDateTime(value: DateTime) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateDateTime)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).CreateDateTime)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
-    pub fn CreateTimeSpan<'a, Param0: ::std::convert::Into<::windows::core::Borrowed<'a, TimeSpan>>>(value: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
+    pub fn CreateTimeSpan(value: TimeSpan) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateTimeSpan)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).CreateTimeSpan)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
-    pub fn CreatePoint<'a, Param0: ::std::convert::Into<::windows::core::Borrowed<'a, Point>>>(value: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
+    pub fn CreatePoint(value: Point) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreatePoint)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).CreatePoint)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
-    pub fn CreateSize<'a, Param0: ::std::convert::Into<::windows::core::Borrowed<'a, Size>>>(value: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
+    pub fn CreateSize(value: Size) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateSize)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).CreateSize)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
-    pub fn CreateRect<'a, Param0: ::std::convert::Into<::windows::core::Borrowed<'a, Rect>>>(value: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
+    pub fn CreateRect(value: Rect) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateRect)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).CreateRect)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     pub fn CreateUInt8Array(value: &[u8]) -> ::windows::core::Result<::windows::core::IInspectable> {
@@ -1360,7 +1360,7 @@ pub unsafe fn SysAllocStringLen(strin: &[u16]) -> BSTR {
     ::core::mem::transmute(SysAllocStringLen(::core::mem::transmute(::windows::core::as_ptr_or_null(strin)), strin.len() as _))
 }
 #[inline]
-pub unsafe fn SysFreeString<'a, Param0: ::std::convert::Into<::windows::core::Borrowed<'a, BSTR>>>(bstrstring: Param0) {
+pub unsafe fn SysFreeString<'a, Param0: ::std::convert::Into<::windows::core::Param<'a, BSTR>>>(bstrstring: Param0) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SysFreeString(bstrstring: ::core::mem::ManuallyDrop<BSTR>);
@@ -1368,7 +1368,7 @@ pub unsafe fn SysFreeString<'a, Param0: ::std::convert::Into<::windows::core::Bo
     SysFreeString(bstrstring.into().abi())
 }
 #[inline]
-pub unsafe fn SysStringLen<'a, Param0: ::std::convert::Into<::windows::core::Borrowed<'a, BSTR>>>(pbstr: Param0) -> u32 {
+pub unsafe fn SysStringLen<'a, Param0: ::std::convert::Into<::windows::core::Param<'a, BSTR>>>(pbstr: Param0) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SysStringLen(pbstr: ::core::mem::ManuallyDrop<BSTR>) -> u32;
@@ -1616,7 +1616,7 @@ pub struct IErrorInfo_Vtbl {
     pub GetHelpContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwhelpcontext: *mut u32) -> ::windows::core::HRESULT,
 }
 #[inline]
-pub unsafe fn SetErrorInfo<'a, Param1: ::std::convert::Into<::windows::core::Borrowed<'a, IErrorInfo>>>(dwreserved: u32, perrinfo: Param1) -> ::windows::core::Result<()> {
+pub unsafe fn SetErrorInfo<'a, Param1: ::std::convert::Into<::windows::core::Param<'a, IErrorInfo>>>(dwreserved: u32, perrinfo: Param1) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetErrorInfo(dwreserved: u32, perrinfo: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
@@ -1938,7 +1938,7 @@ impl ::core::fmt::Debug for AgileReferenceOptions {
     }
 }
 #[inline]
-pub unsafe fn RoGetAgileReference<'a, Param0: ::std::convert::Into<AgileReferenceOptions>, Param2: ::std::convert::Into<::windows::core::Borrowed<'a, ::windows::core::IUnknown>>>(options: Param0, riid: *const ::windows::core::GUID, punk: Param2) -> ::windows::core::Result<IAgileReference> {
+pub unsafe fn RoGetAgileReference<'a, Param0: ::std::convert::Into<AgileReferenceOptions>, Param2: ::std::convert::Into<::windows::core::Param<'a, ::windows::core::IUnknown>>>(options: Param0, riid: *const ::windows::core::GUID, punk: Param2) -> ::windows::core::Result<IAgileReference> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RoGetAgileReference(options: AgileReferenceOptions, riid: *const ::windows::core::GUID, punk: *mut ::core::ffi::c_void, ppagilereference: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
@@ -2006,7 +2006,7 @@ impl ILanguageExceptionErrorInfo2 {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).GetPreviousLanguageExceptionErrorInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ILanguageExceptionErrorInfo2>(result__)
     }
-    pub unsafe fn CapturePropagationContext<'a, Param0: ::std::convert::Into<::windows::core::Borrowed<'a, ::windows::core::IUnknown>>>(&self, languageexception: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn CapturePropagationContext<'a, Param0: ::std::convert::Into<::windows::core::Param<'a, ::windows::core::IUnknown>>>(&self, languageexception: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).CapturePropagationContext)(::windows::core::Interface::as_raw(self), languageexception.into().abi()).ok()
     }
     pub unsafe fn GetPropagationContextHead(&self) -> ::windows::core::Result<ILanguageExceptionErrorInfo2> {
