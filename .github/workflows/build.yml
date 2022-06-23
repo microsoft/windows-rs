@@ -10,7 +10,7 @@ env:
   RUSTFLAGS: -Dwarnings
 
 jobs:
-  
+
   cargo_fmt:
     name: Check cargo formatting
     runs-on: windows-2019
@@ -81,7 +81,7 @@ jobs:
     - name: Update toolchain
       run: rustup update --no-self-update nightly && rustup default nightly-x86_64-pc-windows-msvc
     - name: Install clippy
-      run: rustup component add clippy      
+      run: rustup component add clippy
     - name: Configure environment
       shell: pwsh
       run: |
@@ -121,6 +121,7 @@ jobs:
         cargo clippy -p sample_spellchecker &&
         cargo clippy -p sample_uiautomation &&
         cargo clippy -p sample_xml &&
+        cargo clippy -p windows_aarch64_gnu &&
         cargo clippy -p windows_aarch64_msvc &&
         cargo clippy -p windows_i686_gnu &&
         cargo clippy -p windows_i686_msvc &&
@@ -180,4 +181,4 @@ jobs:
         cargo clippy -p tool_msvc &&
         cargo clippy -p tool_sys &&
         cargo clippy -p tool_windows &&
-        cargo clippy -p tool_yml 
+        cargo clippy -p tool_yml

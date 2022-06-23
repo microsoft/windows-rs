@@ -68,6 +68,9 @@ windows_x86_64_gnu = { path = "../../targets/x86_64_gnu", version = "0.38.0" }
 [target.x86_64-uwp-windows-gnu.dependencies]
 windows_x86_64_gnu = { path = "../../targets/x86_64_gnu", version = "0.38.0" }
 
+[target.aarch64-pc-windows-gnullvm.dependencies]
+windows_aarch64_gnu = { path = "../../targets/aarch64_gnu", version = "0.38.0" }
+
 [features]
 default = []
 deprecated = []

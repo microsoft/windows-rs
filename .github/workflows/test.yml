@@ -34,7 +34,7 @@ jobs:
     - name: Add toolchain target
       run: rustup target add ${{ matrix.target }}
     - name: Install clippy
-      run: rustup component add clippy      
+      run: rustup component add clippy
     - name: Configure Cargo for GNU toolchain
       shell: pwsh
       run: |
@@ -109,6 +109,7 @@ jobs:
         cargo test --target ${{ matrix.target }} -p sample_spellchecker &&
         cargo test --target ${{ matrix.target }} -p sample_uiautomation &&
         cargo test --target ${{ matrix.target }} -p sample_xml &&
+        cargo test --target ${{ matrix.target }} -p windows_aarch64_gnu &&
         cargo test --target ${{ matrix.target }} -p windows_aarch64_msvc &&
         cargo test --target ${{ matrix.target }} -p windows_i686_gnu &&
         cargo test --target ${{ matrix.target }} -p windows_i686_msvc &&
@@ -169,7 +170,7 @@ jobs:
         cargo test --target ${{ matrix.target }} -p tool_msvc &&
         cargo test --target ${{ matrix.target }} -p tool_sys &&
         cargo test --target ${{ matrix.target }} -p tool_windows &&
-        cargo test --target ${{ matrix.target }} -p tool_yml 
+        cargo test --target ${{ matrix.target }} -p tool_yml
 
     - name: Check import libs
       shell: pwsh
@@ -192,4 +193,3 @@ jobs:
           }
         }
       if: matrix.version == 'stable' && matrix.target == 'x86_64-pc-windows-msvc'
-    

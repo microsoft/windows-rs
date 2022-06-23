@@ -1,3 +1,4 @@
+cargo publish -p windows_aarch64_gnu
 cargo publish -p windows_aarch64_msvc
 cargo publish -p windows_i686_gnu
 cargo publish -p windows_i686_msvc
