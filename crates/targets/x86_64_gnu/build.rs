@@ -1,6 +1,6 @@
 fn main() {
     let target = std::env::var("TARGET").unwrap();
-    if target != "x86_64-pc-windows-gnu" && target != "x86_64-uwp-windows-gnu" {
+    if target != "x86_64-pc-windows-gnu" && target != "x86_64-uwp-windows-gnu" && target != "x86_64-uwp-windows-gnullvm" {
         return;
     }
 

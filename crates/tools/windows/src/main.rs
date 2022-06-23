@@ -65,6 +65,9 @@ windows_i686_gnu = { path = "../../targets/i686_gnu", version = "0.38.0" }
 [target.x86_64-pc-windows-gnu.dependencies]
 windows_x86_64_gnu = { path = "../../targets/x86_64_gnu", version = "0.38.0" }
 
+[target.x86_64-pc-windows-gnullvm.dependencies]
+windows_x86_64_gnu = { path = "../../targets/x86_64_gnu", version = "0.38.0" }
+
 [target.x86_64-uwp-windows-gnu.dependencies]
 windows_x86_64_gnu = { path = "../../targets/x86_64_gnu", version = "0.38.0" }
 
