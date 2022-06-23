@@ -1,7 +1,5 @@
 use super::*;
 
-// TODO: rename to file::write for consistency with reader?
-
 pub fn write(filename: &str, tables: Tables) {
     let mut dos: IMAGE_DOS_HEADER = unsafe { zeroed() };
     dos.e_magic = IMAGE_DOS_SIGNATURE as _;

@@ -2,7 +2,7 @@ mod blobs;
 mod codes;
 mod gen;
 mod helpers;
-pub mod pe;
+pub mod file;
 mod strings;
 mod tables;
 mod r#type;

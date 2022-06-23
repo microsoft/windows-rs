@@ -32,7 +32,7 @@ fn writer() {
         def.field_list.push(Field { name: "Completed".to_string(), constant: Some(Value::I32(1)), ..Default::default() });
         tables.type_def.push(def);
 
-        pe::write(temp_file.to_str().unwrap(), tables);
+        file::write(temp_file.to_str().unwrap(), tables);
     }
     {
         use metadata::reader::*;
