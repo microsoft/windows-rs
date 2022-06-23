@@ -10,10 +10,3 @@ repository = "https://github.com/microsoft/windows-rs"
 [package.metadata.docs.rs]
 default-target = "x86_64-pc-windows-msvc"
 targets = []
-
-[dependencies.windows-sys]
-version = "0.36.1"
-features = [
-    "Win32_System_SystemServices",
-    "Win32_System_Diagnostics_Debug",
-]

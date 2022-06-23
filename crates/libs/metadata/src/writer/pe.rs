@@ -1,5 +1,6 @@
 use super::*;
-use windows_sys::{Win32::System::Diagnostics::Debug::*, Win32::System::SystemServices::*};
+
+// TODO: rename to file::write for consistency with reader?
 
 pub fn write(filename: &str, tables: Tables) {
     let mut dos: IMAGE_DOS_HEADER = unsafe { zeroed() };
