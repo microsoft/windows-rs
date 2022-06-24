@@ -77,6 +77,11 @@ pub fn gen_win_handle(gen: &Gen, def: TypeDef) -> TokenStream {
                 f.debug_tuple(#name).field(&self.0).finish()
             }
         }
+        impl ::core::convert::From<::core::option::Option<#ident>> for #ident {
+            fn from(optional: ::core::option::Option<#ident>) -> #ident {
+                optional.unwrap_or_default()
+            }
+        }
         unsafe impl ::windows::core::Abi for #ident {
             type Abi = Self;
         }

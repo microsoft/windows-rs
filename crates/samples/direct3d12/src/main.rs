@@ -51,7 +51,7 @@ where
         style: CS_HREDRAW | CS_VREDRAW,
         lpfnWndProc: Some(wndproc::<S>),
         hInstance: instance,
-        hCursor: unsafe { LoadCursorW(HINSTANCE::default(), IDC_ARROW)? },
+        hCursor: unsafe { LoadCursorW(None, IDC_ARROW)? },
         lpszClassName: PCSTR(b"RustWindowClass\0".as_ptr()),
         ..Default::default()
     };
@@ -85,8 +85,8 @@ where
             CW_USEDEFAULT,
             window_rect.right - window_rect.left,
             window_rect.bottom - window_rect.top,
-            HWND::default(),  // no parent window
-            HMENU::default(), // no menus
+            None, // no parent window
+            None, // no menus
             instance,
             &mut sample as *mut _ as _,
         )
@@ -98,7 +98,7 @@ where
     loop {
         let mut message = MSG::default();
 
-        if unsafe { PeekMessageA(&mut message, HWND::default(), 0, 0, PM_REMOVE) }.into() {
+        if unsafe { PeekMessageA(&mut message, None, 0, 0, PM_REMOVE) }.into() {
             unsafe {
                 TranslateMessage(&message);
                 DispatchMessageA(&message);

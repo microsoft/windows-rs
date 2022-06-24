@@ -313,7 +313,7 @@ impl Window {
             debug_assert!(instance.0 != 0);
 
             let wc = WNDCLASSA {
-                hCursor: LoadCursorW(HINSTANCE::default(), IDC_HAND)?,
+                hCursor: LoadCursorW(None, IDC_HAND)?,
                 hInstance: instance,
                 lpszClassName: PCSTR(b"window\0".as_ptr()),
 
@@ -325,7 +325,7 @@ impl Window {
             let atom = RegisterClassA(&wc);
             debug_assert!(atom != 0);
 
-            let handle = CreateWindowExA(WINDOW_EX_STYLE::default(), PCSTR(b"window\0".as_ptr()), PCSTR(b"Sample Window\0".as_ptr()), WS_OVERLAPPEDWINDOW | WS_VISIBLE, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, HWND::default(), HMENU::default(), instance, self as *mut _ as _);
+            let handle = CreateWindowExA(WINDOW_EX_STYLE::default(), PCSTR(b"window\0".as_ptr()), PCSTR(b"Sample Window\0".as_ptr()), WS_OVERLAPPEDWINDOW | WS_VISIBLE, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, None, None, instance, self as *mut _ as _);
 
             debug_assert!(handle.0 != 0);
             debug_assert!(handle == self.handle);
@@ -335,14 +335,14 @@ impl Window {
                 if self.visible {
                     self.render()?;
 
-                    while PeekMessageA(&mut message, HWND::default(), 0, 0, PM_REMOVE).into() {
+                    while PeekMessageA(&mut message, None, 0, 0, PM_REMOVE).into() {
                         if message.message == WM_QUIT {
                             return Ok(());
                         }
                         DispatchMessageA(&message);
                     }
                 } else {
-                    GetMessageA(&mut message, HWND::default(), 0, 0);
+                    GetMessageA(&mut message, None, 0, 0);
 
                     if message.message == WM_QUIT {
                         return Ok(());
@@ -432,7 +432,7 @@ fn create_device_with_type(drive_type: D3D_DRIVER_TYPE) -> Result<ID3D11Device> 
 
     let mut device = None;
 
-    unsafe { D3D11CreateDevice(None, drive_type, HINSTANCE::default(), flags, &[], D3D11_SDK_VERSION, &mut device, std::ptr::null_mut(), &mut None).map(|()| device.unwrap()) }
+    unsafe { D3D11CreateDevice(None, drive_type, None, flags, &[], D3D11_SDK_VERSION, &mut device, std::ptr::null_mut(), &mut None).map(|()| device.unwrap()) }
 }
 
 fn create_device() -> Result<ID3D11Device> {

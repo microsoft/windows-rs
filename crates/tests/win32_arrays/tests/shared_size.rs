@@ -4,7 +4,7 @@ use windows::{core::*, Win32::Foundation::*, Win32::Graphics::Gdi::*, Win32::UI:
 fn test() -> Result<()> {
     unsafe {
         let mut results: [u8; 2] = [255; 2];
-        let dc = GetDC(HWND::default());
+        let dc = GetDC(None);
 
         assert!(0 != SetICMMode(dc, ICM_ON));
 

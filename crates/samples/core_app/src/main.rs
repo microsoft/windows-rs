@@ -59,7 +59,7 @@ fn main() -> Result<()> {
         CoInitializeEx(std::ptr::null(), COINIT_MULTITHREADED)?;
 
         if let Err(result) = Package::Current() {
-            MessageBoxW(HWND::default(), PCWSTR::from(&"This sample must be registered (via register.cmd) and launched from Start.".into()), PCWSTR::from(&"Error".into()), MB_ICONSTOP | MB_OK);
+            MessageBoxW(None, PCWSTR::from(&"This sample must be registered (via register.cmd) and launched from Start.".into()), PCWSTR::from(&"Error".into()), MB_ICONSTOP | MB_OK);
             return Err(result);
         }
     }

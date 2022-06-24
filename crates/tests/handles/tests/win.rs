@@ -12,7 +12,7 @@ fn handle() {
     let clone = handle.clone();
     assert!(clone == handle);
 
-    let default = HANDLE::default();
+    let default = None;
     assert!(default.is_invalid());
 
     assert_eq!(format!("{:?}", handle), "HANDLE(123)");

@@ -26,7 +26,7 @@ impl IDisplayPathInterop_Impl for Mix {
     }
 
     fn CreateSourcePresentationHandle(&self) -> Result<HANDLE> {
-        Ok(HANDLE::default())
+        Ok(None)
     }
 }
 
@@ -46,7 +46,7 @@ fn mix() -> Result<()> {
 
     let e: IDisplayPathInterop = d.cast()?;
     unsafe { assert!(e.GetSourceId()? == 123) };
-    unsafe { assert!(e.CreateSourcePresentationHandle()? == HANDLE::default()) };
+    unsafe { assert!(e.CreateSourcePresentationHandle()? == None) };
 
     Ok(())
 }

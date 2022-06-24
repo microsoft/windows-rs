@@ -18,7 +18,7 @@ fn test() -> Result<()> {
     assert_eq!(error.code(), HRESULT(-805305819));
 
     unsafe {
-        let mut provider = BCRYPT_ALG_HANDLE::default();
+        let mut provider = BCRYPT_ALG_None;
         let rng = HSTRING::from("RNG");
         BCryptOpenAlgorithmProvider(&mut provider, PCWSTR(rng.as_wide().as_ptr()), PCWSTR::default(), BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS::default())?;
 
