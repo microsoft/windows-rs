@@ -461,11 +461,11 @@ impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<&IRefer
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a, T: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<&IReference<T>> for ::windows::core::Param<'a, IPropertyValue> {
+impl<'a, T: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<&IReference<T>> for ::windows::core::InParam<'a, IPropertyValue> {
     type Error = ::windows::core::Error;
     fn try_from(value: &IReference<T>) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::Param::owned(item))
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl<T: ::windows::core::RuntimeType + 'static> ::core::clone::Clone for IReference<T> {
@@ -762,13 +762,13 @@ impl PropertyValue {
             (::windows::core::Interface::vtable(this).CreateBoolean)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
-    pub fn CreateString<'a, Param0: ::std::convert::Into<::windows::core::Param<'a, ::windows::core::HSTRING>>>(value: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
+    pub fn CreateString<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(value: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateString)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
-    pub fn CreateInspectable<'a, Param0: ::std::convert::Into<::windows::core::Param<'a, ::windows::core::IInspectable>>>(value: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
+    pub fn CreateInspectable<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(value: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
             (::windows::core::Interface::vtable(this).CreateInspectable)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
@@ -1319,6 +1319,11 @@ impl ::core::fmt::Debug for HANDLE {
         f.debug_tuple("HANDLE").field(&self.0).finish()
     }
 }
+impl ::core::convert::From<::core::option::Option<HANDLE>> for HANDLE {
+    fn from(optional: ::core::option::Option<HANDLE>) -> HANDLE {
+        optional.unwrap_or_default()
+    }
+}
 unsafe impl ::windows::core::Abi for HANDLE {
     type Abi = Self;
 }
@@ -1346,6 +1351,11 @@ impl ::core::fmt::Debug for HINSTANCE {
         f.debug_tuple("HINSTANCE").field(&self.0).finish()
     }
 }
+impl ::core::convert::From<::core::option::Option<HINSTANCE>> for HINSTANCE {
+    fn from(optional: ::core::option::Option<HINSTANCE>) -> HINSTANCE {
+        optional.unwrap_or_default()
+    }
+}
 unsafe impl ::windows::core::Abi for HINSTANCE {
     type Abi = Self;
 }
@@ -1367,7 +1377,7 @@ pub unsafe fn SysAllocStringLen(strin: &[u16]) -> BSTR {
     ::core::mem::transmute(SysAllocStringLen(::core::mem::transmute(::windows::core::as_ptr_or_null(strin)), strin.len() as _))
 }
 #[inline]
-pub unsafe fn SysFreeString<'a, Param0: ::std::convert::Into<::windows::core::Param<'a, BSTR>>>(bstrstring: Param0) {
+pub unsafe fn SysFreeString<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, BSTR>>>(bstrstring: Param0) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SysFreeString(bstrstring: ::core::mem::ManuallyDrop<BSTR>);
@@ -1375,7 +1385,7 @@ pub unsafe fn SysFreeString<'a, Param0: ::std::convert::Into<::windows::core::Pa
     SysFreeString(bstrstring.into().abi())
 }
 #[inline]
-pub unsafe fn SysStringLen<'a, Param0: ::std::convert::Into<::windows::core::Param<'a, BSTR>>>(pbstr: Param0) -> u32 {
+pub unsafe fn SysStringLen<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, BSTR>>>(pbstr: Param0) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SysStringLen(pbstr: ::core::mem::ManuallyDrop<BSTR>) -> u32;
@@ -1623,7 +1633,7 @@ pub struct IErrorInfo_Vtbl {
     pub GetHelpContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwhelpcontext: *mut u32) -> ::windows::core::HRESULT,
 }
 #[inline]
-pub unsafe fn SetErrorInfo<'a, Param1: ::std::convert::Into<::windows::core::Param<'a, IErrorInfo>>>(dwreserved: u32, perrinfo: Param1) -> ::windows::core::Result<()> {
+pub unsafe fn SetErrorInfo<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IErrorInfo>>>(dwreserved: u32, perrinfo: Param1) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetErrorInfo(dwreserved: u32, perrinfo: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
@@ -1843,6 +1853,11 @@ impl ::core::fmt::Debug for HeapHandle {
         f.debug_tuple("HeapHandle").field(&self.0).finish()
     }
 }
+impl ::core::convert::From<::core::option::Option<HeapHandle>> for HeapHandle {
+    fn from(optional: ::core::option::Option<HeapHandle>) -> HeapHandle {
+        optional.unwrap_or_default()
+    }
+}
 unsafe impl ::windows::core::Abi for HeapHandle {
     type Abi = Self;
 }
@@ -1945,7 +1960,7 @@ impl ::core::fmt::Debug for AgileReferenceOptions {
     }
 }
 #[inline]
-pub unsafe fn RoGetAgileReference<'a, Param0: ::std::convert::Into<AgileReferenceOptions>, Param2: ::std::convert::Into<::windows::core::Param<'a, ::windows::core::IUnknown>>>(options: Param0, riid: *const ::windows::core::GUID, punk: Param2) -> ::windows::core::Result<IAgileReference> {
+pub unsafe fn RoGetAgileReference<'a, Param0: ::std::convert::Into<AgileReferenceOptions>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(options: Param0, riid: *const ::windows::core::GUID, punk: Param2) -> ::windows::core::Result<IAgileReference> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RoGetAgileReference(options: AgileReferenceOptions, riid: *const ::windows::core::GUID, punk: *mut ::core::ffi::c_void, ppagilereference: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
@@ -2013,7 +2028,7 @@ impl ILanguageExceptionErrorInfo2 {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
         (::windows::core::Interface::vtable(self).GetPreviousLanguageExceptionErrorInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ILanguageExceptionErrorInfo2>(result__)
     }
-    pub unsafe fn CapturePropagationContext<'a, Param0: ::std::convert::Into<::windows::core::Param<'a, ::windows::core::IUnknown>>>(&self, languageexception: Param0) -> ::windows::core::Result<()> {
+    pub unsafe fn CapturePropagationContext<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, languageexception: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).CapturePropagationContext)(::windows::core::Interface::as_raw(self), languageexception.into().abi()).ok()
     }
     pub unsafe fn GetPropagationContextHead(&self) -> ::windows::core::Result<ILanguageExceptionErrorInfo2> {

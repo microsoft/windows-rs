@@ -189,11 +189,11 @@ fn gen_conversions(gen: &Gen, def: TypeDef, name: &TokenStream, interfaces: &[In
                 }
             }
             #features
-            impl<'a> ::core::convert::TryFrom<&#name> for ::windows::core::Param<'a, #into> {
+            impl<'a> ::core::convert::TryFrom<&#name> for ::windows::core::InParam<'a, #into> {
                 type Error = ::windows::core::Error;
                 fn try_from(value: &#name) -> ::windows::core::Result<Self> {
                     let item = ::std::convert::TryInto::try_into(value)?;
-                    Ok(::windows::core::Param::owned(item))
+                    Ok(::windows::core::InParam::owned(item))
                 }
             }
         });
@@ -219,9 +219,9 @@ fn gen_conversions(gen: &Gen, def: TypeDef, name: &TokenStream, interfaces: &[In
                 }
             }
             #features
-            impl <'a> ::core::convert::From<&#name> for ::windows::core::Param<'a, #into> {
+            impl <'a> ::core::convert::From<&#name> for ::windows::core::InParam<'a, #into> {
                 fn from(value: &#name) -> Self {
-                    ::windows::core::Param::owned(value.into())
+                    ::windows::core::InParam::owned(value.into())
                 }
             }
         });

@@ -166,11 +166,11 @@ fn gen_conversions(gen: &Gen, def: TypeDef, _generics: &[Type], interfaces: &[In
                     }
                 }
                 #cfg
-                impl<'a, #constraints> ::core::convert::TryFrom<&#name> for ::windows::core::Param<'a, #into> {
+                impl<'a, #constraints> ::core::convert::TryFrom<&#name> for ::windows::core::InParam<'a, #into> {
                     type Error = ::windows::core::Error;
                     fn try_from(value: &#name) -> ::windows::core::Result<Self> {
                         let item = ::std::convert::TryInto::try_into(value)?;
-                        Ok(::windows::core::Param::owned(item))
+                        Ok(::windows::core::InParam::owned(item))
                     }
                 }
             });
