@@ -134,6 +134,7 @@ fn gen_class(gen: &Gen, def: TypeDef) -> TokenStream {
 
 fn gen_conversions(gen: &Gen, def: TypeDef, name: &TokenStream, interfaces: &[Interface], cfg: &Cfg) -> TokenStream {
     let mut tokens = quote! {};
+
     for def in &[Type::IUnknown, Type::IInspectable] {
         let into = gen.type_name(def);
         let features = gen.cfg_features(cfg);
@@ -220,12 +221,6 @@ fn gen_conversions(gen: &Gen, def: TypeDef, name: &TokenStream, interfaces: &[In
             #features
             impl <'a> ::core::convert::From<&#name> for ::windows::core::Param<'a, #into> {
                 fn from(value: &#name) -> Self {
-                    ::windows::core::Param::owned(value.into())
-                }
-            }
-            #features
-            impl <'a> ::core::convert::From<#name> for ::windows::core::Param<'a, #into> {
-                fn from(value: #name) -> Self {
                     ::windows::core::Param::owned(value.into())
                 }
             }
