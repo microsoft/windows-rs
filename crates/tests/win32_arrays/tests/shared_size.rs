@@ -1,4 +1,4 @@
-use windows::{core::*, Win32::Foundation::*, Win32::Graphics::Gdi::*, Win32::UI::ColorSystem::*};
+use windows::{core::*, Win32::Graphics::Gdi::*, Win32::UI::ColorSystem::*};
 
 #[test]
 fn test() -> Result<()> {

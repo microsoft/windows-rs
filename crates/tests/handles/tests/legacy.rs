@@ -7,7 +7,7 @@ fn handle() {
     let handle = HANDLE(0);
     let _clone = handle.clone();
     let _copy: HANDLE = handle;
-    assert!(None == HANDLE(0));
+    assert!(HANDLE::default() == HANDLE(0));
     assert!(HANDLE(0).is_invalid());
     assert!(HANDLE(-1).is_invalid());
 
