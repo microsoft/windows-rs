@@ -4,7 +4,6 @@ use windows::{
     core::*,
     ApplicationModel::{Core::*, Package},
     Win32::{
-        Foundation::HWND,
         System::Com::*,
         UI::WindowsAndMessaging::{MessageBoxW, MB_ICONSTOP, MB_OK},
     },

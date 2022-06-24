@@ -705,12 +705,6 @@ impl<'a> Reader<'a> {
             self.field_type(field, Some(row))
         }
     }
-    pub fn type_kind(&self, ty: &Type) -> Option<TypeKind> {
-        match ty {
-            Type::TypeDef((td, _)) => Some(self.type_def_kind(*td)),
-            _ => None,
-        }
-    }
     pub fn type_def_kind(&self, row: TypeDef) -> TypeKind {
         if self.type_def_flags(row).interface() {
             TypeKind::Interface
