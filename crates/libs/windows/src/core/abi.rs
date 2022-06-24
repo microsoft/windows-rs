@@ -6,7 +6,6 @@ use super::*;
 ///
 /// * It must always be safe to memcopy `Self` into `Self::Abi`.
 /// * It must always be safe to memcopy `Self::Abi`.
-/// * It must be safe to memcopy `Self::Abi` into `Self` if `is_valid_abi` returns true.
 /// * The associated type `Abi` must be safe to transfer over FFI boundaries (e.g., it must have a stable layout)
 ///     * The `Abi` type must also be trivially droppable. For non-trivially droppable types consider wrapping in `ManuallyDrop`.
 ///       This ensures that when the type is passed over an FFI boundary, the `Drop` impl is not called.
@@ -25,9 +24,12 @@ pub unsafe trait Abi: Sized {
         unsafe { core::mem::transmute_copy(self) }
     }
 
-    /// Converts an abi value to `Self` or fails.
+    /// Converts an abi value to `Self` or fails if we can determine `abi` is not valid.
     ///
-    /// * Safety: `abi` must be in a state where it can be trivially transmuted into a valid value of type `Self`
+    /// # Safety
+    ///
+    /// `abi` must be in a state where it can be trivially transmuted into a valid value of type `Self`
+    /// if `abi_is_possibly_valid` returns true.
     unsafe fn from_abi(abi: Self::Abi) -> Result<Self> {
         if Self::abi_is_possibly_valid(&abi) {
             Ok(core::mem::transmute_copy(&abi))
@@ -38,10 +40,12 @@ pub unsafe trait Abi: Sized {
 
     /// Converts a reference to an abi value to a reference to `Self` or fails if we can determine `abi` is not valid.
     ///
-    /// * Safety: `abi` must be in a state where it can be trivially transmuted into a valid value of type `Self`
+    /// # Safety
+    ///
+    /// `abi` must be in a state where it can be trivially transmuted into a valid value of type `&Self`
+    /// if `abi_is_possibly_valid` returns true.
     unsafe fn from_abi_ref(abi: &Self::Abi) -> Result<&Self> {
         if Self::abi_is_possibly_valid(abi) {
-            // SAFETY: the `Abi` trait ensures that `Self::Abi` can be memcopied into `Self` when `abi_is_valid` returns true
             Ok(core::mem::transmute(abi))
         } else {
             Err(Error::OK)
@@ -50,26 +54,30 @@ pub unsafe trait Abi: Sized {
 
     /// Whether `abi` is known to be invalid
     ///
-    /// Note: this does not guarantee that
+    /// Note: this does not guarantee that it definitely *is* valid.
     fn abi_is_possibly_valid(abi: &Self::Abi) -> bool {
         true
     }
 }
 
-// SAFETY: optional interfaces are FFI safe, optional interfaces and raw pointers have the same
-// in-memory representation, and all representations of `Abi` are valid representations of `Self`.
 unsafe impl<T: Interface> Abi for Option<T> {
     type Abi = *mut core::ffi::c_void;
 }
 
-// SAFETY: optional interfaces are FFI safe, optional interfaces and raw pointers have the same
-// in-memory representation, and all representations of `Abi` are valid representations of `Self`.
 unsafe impl<T: Interface> Abi for T {
     type Abi = *mut core::ffi::c_void;
 
     fn abi_is_possibly_valid(abi: &Self::Abi) -> bool {
         !abi.is_null()
     }
+}
+
+unsafe impl<T> Abi for *mut T {
+    type Abi = Self;
+}
+
+unsafe impl<T> Abi for *const T {
+    type Abi = Self;
 }
 
 macro_rules! primitive_types {
@@ -96,15 +104,4 @@ primitive_types! {
     f64,
     usize,
     isize
-}
-
-// SAFETY: raw pointers are FFI safe, `Abi` & `Self` are the same so thus they have the same in-memory representation, and
-// all representations of `Abi` are valid representations of `Self`.
-unsafe impl<T> Abi for *mut T {
-    type Abi = Self;
-}
-
-// SAFETY: see the justification for `*mut T`
-unsafe impl<T> Abi for *const T {
-    type Abi = Self;
 }

@@ -23,10 +23,6 @@ impl<'a, T: super::Abi> Borrowed<'a, T> {
     pub fn new(item: Option<&'a T>) -> Self {
         // SAFETY: The `Abi` trait ensures `T::Abi` is safe to zero initialize
         let item = item.map(|i| i.abi()).unwrap_or_else(|| unsafe { core::mem::MaybeUninit::zeroed().assume_init() });
-        Self::from_abi(item)
-    }
-
-    pub fn from_abi(item: T::Abi) -> Self {
         Self { item, lifetime: core::marker::PhantomData }
     }
 
@@ -41,7 +37,15 @@ impl<'a, T: super::Abi> Borrowed<'a, T> {
     /// Get an optional reference to the underlying value
     pub fn as_ref(&self) -> Option<&T> {
         // SAFETY: since we `item` was created from a valid `T` we can be sure that it's possible to convert back
+        // for types that cannot be zero the check from `Abi::abi_is_possibly_valid` will catch that.
         unsafe { <T as super::Abi>::from_abi_ref(&self.item).ok() }
+    }
+}
+
+impl<'a, T: super::Abi + Copy> Borrowed<'a, T> {
+    /// Creates an `Borrowed` type from a `Copy` type meaning we don't need to borrow `item` like in `Borrowed::new`
+    pub(crate) fn new_from_owned(item: T) -> Self {
+        Self { item: item.abi(), lifetime: core::marker::PhantomData }
     }
 }
 
@@ -61,9 +65,7 @@ macro_rules! primitive_types {
             impl<'a> From<$t> for Borrowed<'a, $t>
             {
                 fn from(item: $t) -> Self {
-                    use super::Abi;
-                    let item = item.abi();
-                    Borrowed::from_abi(item)
+                    Borrowed::new_from_owned(item)
                 }
             }
         )*
@@ -89,7 +91,7 @@ impl<'a, T: super::Abi + core::fmt::Debug> core::fmt::Debug for Borrowed<'a, T> 
 
 impl<'a, T: super::Abi> Clone for Borrowed<'a, T> {
     fn clone(&self) -> Self {
-        // SAFETY: it is safe to alias `Borrow<'a, T>`
+        // SAFETY: it is safe to alias `Borrow<'a, T>` for the lifetime `'a`
         unsafe { core::mem::transmute_copy(self) }
     }
 }

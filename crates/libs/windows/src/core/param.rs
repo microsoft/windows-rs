@@ -1,6 +1,6 @@
 use super::{Abi, Borrowed};
 
-/// A "IN" param to a Windows API.
+/// An "IN" param to a Windows API.
 ///
 /// # Usage
 ///
@@ -10,8 +10,12 @@ use super::{Abi, Borrowed};
 /// fn SomeFunction<'a, P: Into<Param<'a, IUnknown>>>(iunknown: P);
 /// ```
 ///
-/// This signature allows the parameter `iunknown` to passed any value that implements `Into<Param<'a, IUnknown>>`. Generally, if this
-/// is safe to do, the `windows` crate provides an implementation. Here are the typical things that can be converted into an `Param<'a, T>`:
+/// This signature allows the parameter `iunknown` to passed any value that implements `Into<Param<'a, IUnknown>>`.
+///
+/// Generally, if this is safe to do, the `windows` crate provides an implementation. This means, you should be able
+/// to pass anything that is logically equivalent to an `IUnknown` into `SomeFunction`.
+///
+/// Here are the typical things that can be converted into an `Param<'a, T>`:
 ///
 /// * References to a value of type `T` (i.e., `&'a T`).
 /// * Anything that can be turned into a `&'a T`.
@@ -39,7 +43,7 @@ impl<'a, T: Abi> Param<'a, T> {
         Self { inner: ParamRepr::Owned(item) }
     }
 
-    /// Create an borrowed `Param`
+    /// Create a borrowed `Param`
     pub fn borrowed(item: Borrowed<'a, T>) -> Self {
         Self { inner: ParamRepr::Borrowed(item) }
     }
