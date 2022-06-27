@@ -26,6 +26,13 @@ impl<'a, T: super::Abi> Borrowed<'a, T> {
         Self { item, lifetime: core::marker::PhantomData }
     }
 
+    /// Create a new null `Borrowed` value.
+    pub fn none() -> Self {
+        // SAFETY: The `Abi` trait ensures `T::Abi` is safe to zero initialize
+        let item = unsafe { core::mem::MaybeUninit::zeroed().assume_init() };
+        Self { item, lifetime: core::marker::PhantomData }
+    }
+
     /// Get the abi representation for this param
     ///
     /// Note: the return value is only guranteed to be valid for the lifetime of `&self`
