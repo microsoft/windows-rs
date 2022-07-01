@@ -76,16 +76,11 @@ pub const DCM_FLAGS_TASKENG: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DoMsCtfMonitor<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(dwflags: u32, heventforservicestop: Param1) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DoMsCtfMonitor(dwflags: u32, heventforservicestop: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(DoMsCtfMonitor(::core::mem::transmute(dwflags), heventforservicestop.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DoMsCtfMonitor(dwflags: u32, heventforservicestop: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(DoMsCtfMonitor(::core::mem::transmute(dwflags), heventforservicestop.into_param().abi()))
 }
 pub const DocWrap: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf426f7e_7a5e_44d6_830c_a390ea9462a3);
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
@@ -13764,16 +13759,11 @@ pub struct IVersionInfo_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[inline]
 pub unsafe fn InitLocalMsCtfMonitor(dwflags: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InitLocalMsCtfMonitor(dwflags: u32) -> ::windows::core::HRESULT;
-        }
-        InitLocalMsCtfMonitor(::core::mem::transmute(dwflags)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitLocalMsCtfMonitor(dwflags: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    InitLocalMsCtfMonitor(::core::mem::transmute(dwflags)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
@@ -16088,16 +16078,11 @@ impl ::core::fmt::Debug for TsShiftDir {
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[inline]
 pub unsafe fn UninitLocalMsCtfMonitor() -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UninitLocalMsCtfMonitor() -> ::windows::core::HRESULT;
-        }
-        UninitLocalMsCtfMonitor().ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UninitLocalMsCtfMonitor() -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    UninitLocalMsCtfMonitor().ok()
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -785,100 +785,65 @@ pub const WAVERR_BASE: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Media\"`*"]
 #[inline]
 pub unsafe fn timeBeginPeriod(uperiod: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn timeBeginPeriod(uperiod: u32) -> u32;
-        }
-        ::core::mem::transmute(timeBeginPeriod(::core::mem::transmute(uperiod)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn timeBeginPeriod(uperiod: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(timeBeginPeriod(::core::mem::transmute(uperiod)))
 }
 #[doc = "*Required features: `\"Win32_Media\"`*"]
 #[inline]
 pub unsafe fn timeEndPeriod(uperiod: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn timeEndPeriod(uperiod: u32) -> u32;
-        }
-        ::core::mem::transmute(timeEndPeriod(::core::mem::transmute(uperiod)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn timeEndPeriod(uperiod: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(timeEndPeriod(::core::mem::transmute(uperiod)))
 }
 #[doc = "*Required features: `\"Win32_Media\"`*"]
 #[inline]
 pub unsafe fn timeGetDevCaps(ptc: *mut TIMECAPS, cbtc: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn timeGetDevCaps(ptc: *mut TIMECAPS, cbtc: u32) -> u32;
-        }
-        ::core::mem::transmute(timeGetDevCaps(::core::mem::transmute(ptc), ::core::mem::transmute(cbtc)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn timeGetDevCaps(ptc: *mut TIMECAPS, cbtc: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(timeGetDevCaps(::core::mem::transmute(ptc), ::core::mem::transmute(cbtc)))
 }
 #[doc = "*Required features: `\"Win32_Media\"`*"]
 #[inline]
 pub unsafe fn timeGetSystemTime(pmmt: *mut MMTIME, cbmmt: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn timeGetSystemTime(pmmt: *mut MMTIME, cbmmt: u32) -> u32;
-        }
-        ::core::mem::transmute(timeGetSystemTime(::core::mem::transmute(pmmt), ::core::mem::transmute(cbmmt)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn timeGetSystemTime(pmmt: *mut MMTIME, cbmmt: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(timeGetSystemTime(::core::mem::transmute(pmmt), ::core::mem::transmute(cbmmt)))
 }
 #[doc = "*Required features: `\"Win32_Media\"`*"]
 #[inline]
 pub unsafe fn timeGetTime() -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn timeGetTime() -> u32;
-        }
-        ::core::mem::transmute(timeGetTime())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn timeGetTime() -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(timeGetTime())
 }
 #[doc = "*Required features: `\"Win32_Media\"`*"]
 #[inline]
 pub unsafe fn timeKillEvent(utimerid: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn timeKillEvent(utimerid: u32) -> u32;
-        }
-        ::core::mem::transmute(timeKillEvent(::core::mem::transmute(utimerid)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn timeKillEvent(utimerid: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(timeKillEvent(::core::mem::transmute(utimerid)))
 }
 #[doc = "*Required features: `\"Win32_Media\"`*"]
 #[inline]
 pub unsafe fn timeSetEvent(udelay: u32, uresolution: u32, fptc: LPTIMECALLBACK, dwuser: usize, fuevent: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn timeSetEvent(udelay: u32, uresolution: u32, fptc: *mut ::core::ffi::c_void, dwuser: usize, fuevent: u32) -> u32;
-        }
-        ::core::mem::transmute(timeSetEvent(::core::mem::transmute(udelay), ::core::mem::transmute(uresolution), ::core::mem::transmute(fptc), ::core::mem::transmute(dwuser), ::core::mem::transmute(fuevent)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn timeSetEvent(udelay: u32, uresolution: u32, fptc: *mut ::core::ffi::c_void, dwuser: usize, fuevent: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(timeSetEvent(::core::mem::transmute(udelay), ::core::mem::transmute(uresolution), ::core::mem::transmute(fptc), ::core::mem::transmute(dwuser), ::core::mem::transmute(fuevent)))
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

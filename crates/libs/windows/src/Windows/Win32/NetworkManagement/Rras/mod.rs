@@ -2858,1878 +2858,1238 @@ pub const MPR_VS_Ikev2Only: u32 = 7u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MgmAddGroupMembershipEntry<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprotocol: Param0, dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, dwifindex: u32, dwifnexthopipaddr: u32, dwflags: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MgmAddGroupMembershipEntry(hprotocol: super::super::Foundation::HANDLE, dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, dwifindex: u32, dwifnexthopipaddr: u32, dwflags: u32) -> u32;
-        }
-        ::core::mem::transmute(MgmAddGroupMembershipEntry(hprotocol.into_param().abi(), ::core::mem::transmute(dwsourceaddr), ::core::mem::transmute(dwsourcemask), ::core::mem::transmute(dwgroupaddr), ::core::mem::transmute(dwgroupmask), ::core::mem::transmute(dwifindex), ::core::mem::transmute(dwifnexthopipaddr), ::core::mem::transmute(dwflags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MgmAddGroupMembershipEntry(hprotocol: super::super::Foundation::HANDLE, dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, dwifindex: u32, dwifnexthopipaddr: u32, dwflags: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MgmAddGroupMembershipEntry(hprotocol.into_param().abi(), ::core::mem::transmute(dwsourceaddr), ::core::mem::transmute(dwsourcemask), ::core::mem::transmute(dwgroupaddr), ::core::mem::transmute(dwgroupmask), ::core::mem::transmute(dwifindex), ::core::mem::transmute(dwifnexthopipaddr), ::core::mem::transmute(dwflags)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MgmDeRegisterMProtocol<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprotocol: Param0) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MgmDeRegisterMProtocol(hprotocol: super::super::Foundation::HANDLE) -> u32;
-        }
-        ::core::mem::transmute(MgmDeRegisterMProtocol(hprotocol.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MgmDeRegisterMProtocol(hprotocol: super::super::Foundation::HANDLE) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MgmDeRegisterMProtocol(hprotocol.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MgmDeleteGroupMembershipEntry<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprotocol: Param0, dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, dwifindex: u32, dwifnexthopipaddr: u32, dwflags: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MgmDeleteGroupMembershipEntry(hprotocol: super::super::Foundation::HANDLE, dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, dwifindex: u32, dwifnexthopipaddr: u32, dwflags: u32) -> u32;
-        }
-        ::core::mem::transmute(MgmDeleteGroupMembershipEntry(hprotocol.into_param().abi(), ::core::mem::transmute(dwsourceaddr), ::core::mem::transmute(dwsourcemask), ::core::mem::transmute(dwgroupaddr), ::core::mem::transmute(dwgroupmask), ::core::mem::transmute(dwifindex), ::core::mem::transmute(dwifnexthopipaddr), ::core::mem::transmute(dwflags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MgmDeleteGroupMembershipEntry(hprotocol: super::super::Foundation::HANDLE, dwsourceaddr: u32, dwsourcemask: u32, dwgroupaddr: u32, dwgroupmask: u32, dwifindex: u32, dwifnexthopipaddr: u32, dwflags: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MgmDeleteGroupMembershipEntry(hprotocol.into_param().abi(), ::core::mem::transmute(dwsourceaddr), ::core::mem::transmute(dwsourcemask), ::core::mem::transmute(dwgroupaddr), ::core::mem::transmute(dwgroupmask), ::core::mem::transmute(dwifindex), ::core::mem::transmute(dwifnexthopipaddr), ::core::mem::transmute(dwflags)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn MgmGetFirstMfe(pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnumentries: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MgmGetFirstMfe(pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnumentries: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(MgmGetFirstMfe(::core::mem::transmute(pdwbuffersize), ::core::mem::transmute(pbbuffer), ::core::mem::transmute(pdwnumentries)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MgmGetFirstMfe(pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnumentries: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MgmGetFirstMfe(::core::mem::transmute(pdwbuffersize), ::core::mem::transmute(pbbuffer), ::core::mem::transmute(pdwnumentries)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn MgmGetFirstMfeStats(pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnumentries: *mut u32, dwflags: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MgmGetFirstMfeStats(pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnumentries: *mut u32, dwflags: u32) -> u32;
-        }
-        ::core::mem::transmute(MgmGetFirstMfeStats(::core::mem::transmute(pdwbuffersize), ::core::mem::transmute(pbbuffer), ::core::mem::transmute(pdwnumentries), ::core::mem::transmute(dwflags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MgmGetFirstMfeStats(pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnumentries: *mut u32, dwflags: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MgmGetFirstMfeStats(::core::mem::transmute(pdwbuffersize), ::core::mem::transmute(pbbuffer), ::core::mem::transmute(pdwnumentries), ::core::mem::transmute(dwflags)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 #[inline]
 pub unsafe fn MgmGetMfe(pimm: *mut super::IpHelper::MIB_IPMCAST_MFE, pdwbuffersize: *mut u32, pbbuffer: *mut u8) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MgmGetMfe(pimm: *mut super::IpHelper::MIB_IPMCAST_MFE, pdwbuffersize: *mut u32, pbbuffer: *mut u8) -> u32;
-        }
-        ::core::mem::transmute(MgmGetMfe(::core::mem::transmute(pimm), ::core::mem::transmute(pdwbuffersize), ::core::mem::transmute(pbbuffer)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MgmGetMfe(pimm: *mut super::IpHelper::MIB_IPMCAST_MFE, pdwbuffersize: *mut u32, pbbuffer: *mut u8) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MgmGetMfe(::core::mem::transmute(pimm), ::core::mem::transmute(pdwbuffersize), ::core::mem::transmute(pbbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 #[inline]
 pub unsafe fn MgmGetMfeStats(pimm: *mut super::IpHelper::MIB_IPMCAST_MFE, pdwbuffersize: *mut u32, pbbuffer: *mut u8, dwflags: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MgmGetMfeStats(pimm: *mut super::IpHelper::MIB_IPMCAST_MFE, pdwbuffersize: *mut u32, pbbuffer: *mut u8, dwflags: u32) -> u32;
-        }
-        ::core::mem::transmute(MgmGetMfeStats(::core::mem::transmute(pimm), ::core::mem::transmute(pdwbuffersize), ::core::mem::transmute(pbbuffer), ::core::mem::transmute(dwflags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MgmGetMfeStats(pimm: *mut super::IpHelper::MIB_IPMCAST_MFE, pdwbuffersize: *mut u32, pbbuffer: *mut u8, dwflags: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MgmGetMfeStats(::core::mem::transmute(pimm), ::core::mem::transmute(pdwbuffersize), ::core::mem::transmute(pbbuffer), ::core::mem::transmute(dwflags)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 #[inline]
 pub unsafe fn MgmGetNextMfe(pimmstart: *mut super::IpHelper::MIB_IPMCAST_MFE, pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnumentries: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MgmGetNextMfe(pimmstart: *mut super::IpHelper::MIB_IPMCAST_MFE, pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnumentries: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(MgmGetNextMfe(::core::mem::transmute(pimmstart), ::core::mem::transmute(pdwbuffersize), ::core::mem::transmute(pbbuffer), ::core::mem::transmute(pdwnumentries)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MgmGetNextMfe(pimmstart: *mut super::IpHelper::MIB_IPMCAST_MFE, pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnumentries: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MgmGetNextMfe(::core::mem::transmute(pimmstart), ::core::mem::transmute(pdwbuffersize), ::core::mem::transmute(pbbuffer), ::core::mem::transmute(pdwnumentries)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 #[inline]
 pub unsafe fn MgmGetNextMfeStats(pimmstart: *mut super::IpHelper::MIB_IPMCAST_MFE, pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnumentries: *mut u32, dwflags: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MgmGetNextMfeStats(pimmstart: *mut super::IpHelper::MIB_IPMCAST_MFE, pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnumentries: *mut u32, dwflags: u32) -> u32;
-        }
-        ::core::mem::transmute(MgmGetNextMfeStats(::core::mem::transmute(pimmstart), ::core::mem::transmute(pdwbuffersize), ::core::mem::transmute(pbbuffer), ::core::mem::transmute(pdwnumentries), ::core::mem::transmute(dwflags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MgmGetNextMfeStats(pimmstart: *mut super::IpHelper::MIB_IPMCAST_MFE, pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnumentries: *mut u32, dwflags: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MgmGetNextMfeStats(::core::mem::transmute(pimmstart), ::core::mem::transmute(pdwbuffersize), ::core::mem::transmute(pbbuffer), ::core::mem::transmute(pdwnumentries), ::core::mem::transmute(dwflags)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn MgmGetProtocolOnInterface(dwifindex: u32, dwifnexthopaddr: u32, pdwifprotocolid: *mut u32, pdwifcomponentid: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MgmGetProtocolOnInterface(dwifindex: u32, dwifnexthopaddr: u32, pdwifprotocolid: *mut u32, pdwifcomponentid: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(MgmGetProtocolOnInterface(::core::mem::transmute(dwifindex), ::core::mem::transmute(dwifnexthopaddr), ::core::mem::transmute(pdwifprotocolid), ::core::mem::transmute(pdwifcomponentid)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MgmGetProtocolOnInterface(dwifindex: u32, dwifnexthopaddr: u32, pdwifprotocolid: *mut u32, pdwifcomponentid: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MgmGetProtocolOnInterface(::core::mem::transmute(dwifindex), ::core::mem::transmute(dwifnexthopaddr), ::core::mem::transmute(pdwifprotocolid), ::core::mem::transmute(pdwifcomponentid)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MgmGroupEnumerationEnd<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(henum: Param0) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MgmGroupEnumerationEnd(henum: super::super::Foundation::HANDLE) -> u32;
-        }
-        ::core::mem::transmute(MgmGroupEnumerationEnd(henum.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MgmGroupEnumerationEnd(henum: super::super::Foundation::HANDLE) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MgmGroupEnumerationEnd(henum.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MgmGroupEnumerationGetNext<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(henum: Param0, pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnumentries: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MgmGroupEnumerationGetNext(henum: super::super::Foundation::HANDLE, pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnumentries: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(MgmGroupEnumerationGetNext(henum.into_param().abi(), ::core::mem::transmute(pdwbuffersize), ::core::mem::transmute(pbbuffer), ::core::mem::transmute(pdwnumentries)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MgmGroupEnumerationGetNext(henum: super::super::Foundation::HANDLE, pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnumentries: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MgmGroupEnumerationGetNext(henum.into_param().abi(), ::core::mem::transmute(pdwbuffersize), ::core::mem::transmute(pbbuffer), ::core::mem::transmute(pdwnumentries)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MgmGroupEnumerationStart<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprotocol: Param0, metenumtype: MGM_ENUM_TYPES, phenumhandle: *mut super::super::Foundation::HANDLE) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MgmGroupEnumerationStart(hprotocol: super::super::Foundation::HANDLE, metenumtype: MGM_ENUM_TYPES, phenumhandle: *mut super::super::Foundation::HANDLE) -> u32;
-        }
-        ::core::mem::transmute(MgmGroupEnumerationStart(hprotocol.into_param().abi(), ::core::mem::transmute(metenumtype), ::core::mem::transmute(phenumhandle)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MgmGroupEnumerationStart(hprotocol: super::super::Foundation::HANDLE, metenumtype: MGM_ENUM_TYPES, phenumhandle: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MgmGroupEnumerationStart(hprotocol.into_param().abi(), ::core::mem::transmute(metenumtype), ::core::mem::transmute(phenumhandle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MgmRegisterMProtocol(prpiinfo: *mut ROUTING_PROTOCOL_CONFIG, dwprotocolid: u32, dwcomponentid: u32, phprotocol: *mut super::super::Foundation::HANDLE) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MgmRegisterMProtocol(prpiinfo: *mut ROUTING_PROTOCOL_CONFIG, dwprotocolid: u32, dwcomponentid: u32, phprotocol: *mut super::super::Foundation::HANDLE) -> u32;
-        }
-        ::core::mem::transmute(MgmRegisterMProtocol(::core::mem::transmute(prpiinfo), ::core::mem::transmute(dwprotocolid), ::core::mem::transmute(dwcomponentid), ::core::mem::transmute(phprotocol)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MgmRegisterMProtocol(prpiinfo: *mut ROUTING_PROTOCOL_CONFIG, dwprotocolid: u32, dwcomponentid: u32, phprotocol: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MgmRegisterMProtocol(::core::mem::transmute(prpiinfo), ::core::mem::transmute(dwprotocolid), ::core::mem::transmute(dwcomponentid), ::core::mem::transmute(phprotocol)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MgmReleaseInterfaceOwnership<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprotocol: Param0, dwifindex: u32, dwifnexthopaddr: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MgmReleaseInterfaceOwnership(hprotocol: super::super::Foundation::HANDLE, dwifindex: u32, dwifnexthopaddr: u32) -> u32;
-        }
-        ::core::mem::transmute(MgmReleaseInterfaceOwnership(hprotocol.into_param().abi(), ::core::mem::transmute(dwifindex), ::core::mem::transmute(dwifnexthopaddr)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MgmReleaseInterfaceOwnership(hprotocol: super::super::Foundation::HANDLE, dwifindex: u32, dwifnexthopaddr: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MgmReleaseInterfaceOwnership(hprotocol.into_param().abi(), ::core::mem::transmute(dwifindex), ::core::mem::transmute(dwifnexthopaddr)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MgmTakeInterfaceOwnership<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprotocol: Param0, dwifindex: u32, dwifnexthopaddr: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MgmTakeInterfaceOwnership(hprotocol: super::super::Foundation::HANDLE, dwifindex: u32, dwifnexthopaddr: u32) -> u32;
-        }
-        ::core::mem::transmute(MgmTakeInterfaceOwnership(hprotocol.into_param().abi(), ::core::mem::transmute(dwifindex), ::core::mem::transmute(dwifnexthopaddr)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MgmTakeInterfaceOwnership(hprotocol: super::super::Foundation::HANDLE, dwifindex: u32, dwifnexthopaddr: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MgmTakeInterfaceOwnership(hprotocol.into_param().abi(), ::core::mem::transmute(dwifindex), ::core::mem::transmute(dwifnexthopaddr)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn MprAdminBufferFree(pbuffer: *const ::core::ffi::c_void) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminBufferFree(pbuffer: *const ::core::ffi::c_void) -> u32;
-        }
-        ::core::mem::transmute(MprAdminBufferFree(::core::mem::transmute(pbuffer)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminBufferFree(pbuffer: *const ::core::ffi::c_void) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminBufferFree(::core::mem::transmute(pbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprAdminConnectionClearStats<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hrasserver: isize, hrasconnection: Param1) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminConnectionClearStats(hrasserver: isize, hrasconnection: super::super::Foundation::HANDLE) -> u32;
-        }
-        ::core::mem::transmute(MprAdminConnectionClearStats(::core::mem::transmute(hrasserver), hrasconnection.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminConnectionClearStats(hrasserver: isize, hrasconnection: super::super::Foundation::HANDLE) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminConnectionClearStats(::core::mem::transmute(hrasserver), hrasconnection.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn MprAdminConnectionEnum(hrasserver: isize, dwlevel: u32, lplpbbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *const u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminConnectionEnum(hrasserver: isize, dwlevel: u32, lplpbbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *const u32) -> u32;
-        }
-        ::core::mem::transmute(MprAdminConnectionEnum(::core::mem::transmute(hrasserver), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lplpbbuffer), ::core::mem::transmute(dwprefmaxlen), ::core::mem::transmute(lpdwentriesread), ::core::mem::transmute(lpdwtotalentries), ::core::mem::transmute(lpdwresumehandle)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminConnectionEnum(hrasserver: isize, dwlevel: u32, lplpbbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *const u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminConnectionEnum(::core::mem::transmute(hrasserver), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lplpbbuffer), ::core::mem::transmute(dwprefmaxlen), ::core::mem::transmute(lpdwentriesread), ::core::mem::transmute(lpdwtotalentries), ::core::mem::transmute(lpdwresumehandle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprAdminConnectionEnumEx(hrasserver: isize, pobjectheader: *const MPRAPI_OBJECT_HEADER, dwpreferedmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, pprasconn: *mut *mut RAS_CONNECTION_EX, lpdwresumehandle: *const u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminConnectionEnumEx(hrasserver: isize, pobjectheader: *const MPRAPI_OBJECT_HEADER, dwpreferedmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, pprasconn: *mut *mut RAS_CONNECTION_EX, lpdwresumehandle: *const u32) -> u32;
-        }
-        ::core::mem::transmute(MprAdminConnectionEnumEx(::core::mem::transmute(hrasserver), ::core::mem::transmute(pobjectheader), ::core::mem::transmute(dwpreferedmaxlen), ::core::mem::transmute(lpdwentriesread), ::core::mem::transmute(lpdwtotalentries), ::core::mem::transmute(pprasconn), ::core::mem::transmute(lpdwresumehandle)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminConnectionEnumEx(hrasserver: isize, pobjectheader: *const MPRAPI_OBJECT_HEADER, dwpreferedmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, pprasconn: *mut *mut RAS_CONNECTION_EX, lpdwresumehandle: *const u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminConnectionEnumEx(::core::mem::transmute(hrasserver), ::core::mem::transmute(pobjectheader), ::core::mem::transmute(dwpreferedmaxlen), ::core::mem::transmute(lpdwentriesread), ::core::mem::transmute(lpdwtotalentries), ::core::mem::transmute(pprasconn), ::core::mem::transmute(lpdwresumehandle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprAdminConnectionGetInfo<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hrasserver: isize, dwlevel: u32, hrasconnection: Param2, lplpbbuffer: *mut *mut u8) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminConnectionGetInfo(hrasserver: isize, dwlevel: u32, hrasconnection: super::super::Foundation::HANDLE, lplpbbuffer: *mut *mut u8) -> u32;
-        }
-        ::core::mem::transmute(MprAdminConnectionGetInfo(::core::mem::transmute(hrasserver), ::core::mem::transmute(dwlevel), hrasconnection.into_param().abi(), ::core::mem::transmute(lplpbbuffer)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminConnectionGetInfo(hrasserver: isize, dwlevel: u32, hrasconnection: super::super::Foundation::HANDLE, lplpbbuffer: *mut *mut u8) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminConnectionGetInfo(::core::mem::transmute(hrasserver), ::core::mem::transmute(dwlevel), hrasconnection.into_param().abi(), ::core::mem::transmute(lplpbbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprAdminConnectionGetInfoEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hrasserver: isize, hrasconnection: Param1, prasconnection: *mut RAS_CONNECTION_EX) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminConnectionGetInfoEx(hrasserver: isize, hrasconnection: super::super::Foundation::HANDLE, prasconnection: *mut RAS_CONNECTION_EX) -> u32;
-        }
-        ::core::mem::transmute(MprAdminConnectionGetInfoEx(::core::mem::transmute(hrasserver), hrasconnection.into_param().abi(), ::core::mem::transmute(prasconnection)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminConnectionGetInfoEx(hrasserver: isize, hrasconnection: super::super::Foundation::HANDLE, prasconnection: *mut RAS_CONNECTION_EX) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminConnectionGetInfoEx(::core::mem::transmute(hrasserver), hrasconnection.into_param().abi(), ::core::mem::transmute(prasconnection)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprAdminConnectionRemoveQuarantine<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hrasserver: Param0, hrasconnection: Param1, fisipaddress: Param2) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminConnectionRemoveQuarantine(hrasserver: super::super::Foundation::HANDLE, hrasconnection: super::super::Foundation::HANDLE, fisipaddress: super::super::Foundation::BOOL) -> u32;
-        }
-        ::core::mem::transmute(MprAdminConnectionRemoveQuarantine(hrasserver.into_param().abi(), hrasconnection.into_param().abi(), fisipaddress.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminConnectionRemoveQuarantine(hrasserver: super::super::Foundation::HANDLE, hrasconnection: super::super::Foundation::HANDLE, fisipaddress: super::super::Foundation::BOOL) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminConnectionRemoveQuarantine(hrasserver.into_param().abi(), hrasconnection.into_param().abi(), fisipaddress.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprAdminDeregisterConnectionNotification<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, heventnotification: Param1) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminDeregisterConnectionNotification(hmprserver: isize, heventnotification: super::super::Foundation::HANDLE) -> u32;
-        }
-        ::core::mem::transmute(MprAdminDeregisterConnectionNotification(::core::mem::transmute(hmprserver), heventnotification.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminDeregisterConnectionNotification(hmprserver: isize, heventnotification: super::super::Foundation::HANDLE) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminDeregisterConnectionNotification(::core::mem::transmute(hmprserver), heventnotification.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn MprAdminDeviceEnum(hmprserver: isize, dwlevel: u32, lplpbbuffer: *mut *mut u8, lpdwtotalentries: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminDeviceEnum(hmprserver: isize, dwlevel: u32, lplpbbuffer: *mut *mut u8, lpdwtotalentries: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(MprAdminDeviceEnum(::core::mem::transmute(hmprserver), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lplpbbuffer), ::core::mem::transmute(lpdwtotalentries)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminDeviceEnum(hmprserver: isize, dwlevel: u32, lplpbbuffer: *mut *mut u8, lpdwtotalentries: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminDeviceEnum(::core::mem::transmute(hmprserver), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lplpbbuffer), ::core::mem::transmute(lpdwtotalentries)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprAdminEstablishDomainRasServer<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(pszdomain: Param0, pszmachine: Param1, benable: Param2) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminEstablishDomainRasServer(pszdomain: ::windows::core::PCWSTR, pszmachine: ::windows::core::PCWSTR, benable: super::super::Foundation::BOOL) -> u32;
-        }
-        ::core::mem::transmute(MprAdminEstablishDomainRasServer(pszdomain.into_param().abi(), pszmachine.into_param().abi(), benable.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminEstablishDomainRasServer(pszdomain: ::windows::core::PCWSTR, pszmachine: ::windows::core::PCWSTR, benable: super::super::Foundation::BOOL) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminEstablishDomainRasServer(pszdomain.into_param().abi(), pszmachine.into_param().abi(), benable.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn MprAdminGetErrorString(dwerror: u32, lplpwserrorstring: *mut ::windows::core::PWSTR) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminGetErrorString(dwerror: u32, lplpwserrorstring: *mut ::windows::core::PWSTR) -> u32;
-        }
-        ::core::mem::transmute(MprAdminGetErrorString(::core::mem::transmute(dwerror), ::core::mem::transmute(lplpwserrorstring)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminGetErrorString(dwerror: u32, lplpwserrorstring: *mut ::windows::core::PWSTR) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminGetErrorString(::core::mem::transmute(dwerror), ::core::mem::transmute(lplpwserrorstring)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn MprAdminGetPDCServer<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpszdomain: Param0, lpszserver: Param1, lpszpdcserver: ::windows::core::PWSTR) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminGetPDCServer(lpszdomain: ::windows::core::PCWSTR, lpszserver: ::windows::core::PCWSTR, lpszpdcserver: ::windows::core::PWSTR) -> u32;
-        }
-        ::core::mem::transmute(MprAdminGetPDCServer(lpszdomain.into_param().abi(), lpszserver.into_param().abi(), ::core::mem::transmute(lpszpdcserver)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminGetPDCServer(lpszdomain: ::windows::core::PCWSTR, lpszserver: ::windows::core::PCWSTR, lpszpdcserver: ::windows::core::PWSTR) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminGetPDCServer(lpszdomain.into_param().abi(), lpszserver.into_param().abi(), ::core::mem::transmute(lpszpdcserver)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprAdminInterfaceConnect<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hmprserver: isize, hinterface: Param1, hevent: Param2, fsynchronous: Param3) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminInterfaceConnect(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, hevent: super::super::Foundation::HANDLE, fsynchronous: super::super::Foundation::BOOL) -> u32;
-        }
-        ::core::mem::transmute(MprAdminInterfaceConnect(::core::mem::transmute(hmprserver), hinterface.into_param().abi(), hevent.into_param().abi(), fsynchronous.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminInterfaceConnect(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, hevent: super::super::Foundation::HANDLE, fsynchronous: super::super::Foundation::BOOL) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminInterfaceConnect(::core::mem::transmute(hmprserver), hinterface.into_param().abi(), hevent.into_param().abi(), fsynchronous.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprAdminInterfaceCreate(hmprserver: isize, dwlevel: u32, lpbbuffer: *const u8, phinterface: *mut super::super::Foundation::HANDLE) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminInterfaceCreate(hmprserver: isize, dwlevel: u32, lpbbuffer: *const u8, phinterface: *mut super::super::Foundation::HANDLE) -> u32;
-        }
-        ::core::mem::transmute(MprAdminInterfaceCreate(::core::mem::transmute(hmprserver), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lpbbuffer), ::core::mem::transmute(phinterface)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminInterfaceCreate(hmprserver: isize, dwlevel: u32, lpbbuffer: *const u8, phinterface: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminInterfaceCreate(::core::mem::transmute(hmprserver), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lpbbuffer), ::core::mem::transmute(phinterface)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprAdminInterfaceDelete<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminInterfaceDelete(hmprserver: isize, hinterface: super::super::Foundation::HANDLE) -> u32;
-        }
-        ::core::mem::transmute(MprAdminInterfaceDelete(::core::mem::transmute(hmprserver), hinterface.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminInterfaceDelete(hmprserver: isize, hinterface: super::super::Foundation::HANDLE) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminInterfaceDelete(::core::mem::transmute(hmprserver), hinterface.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprAdminInterfaceDeviceGetInfo<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwindex: u32, dwlevel: u32, lplpbuffer: *mut *mut u8) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminInterfaceDeviceGetInfo(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwindex: u32, dwlevel: u32, lplpbuffer: *mut *mut u8) -> u32;
-        }
-        ::core::mem::transmute(MprAdminInterfaceDeviceGetInfo(::core::mem::transmute(hmprserver), hinterface.into_param().abi(), ::core::mem::transmute(dwindex), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lplpbuffer)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminInterfaceDeviceGetInfo(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwindex: u32, dwlevel: u32, lplpbuffer: *mut *mut u8) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminInterfaceDeviceGetInfo(::core::mem::transmute(hmprserver), hinterface.into_param().abi(), ::core::mem::transmute(dwindex), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lplpbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprAdminInterfaceDeviceSetInfo<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwindex: u32, dwlevel: u32, lpbbuffer: *const u8) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminInterfaceDeviceSetInfo(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwindex: u32, dwlevel: u32, lpbbuffer: *const u8) -> u32;
-        }
-        ::core::mem::transmute(MprAdminInterfaceDeviceSetInfo(::core::mem::transmute(hmprserver), hinterface.into_param().abi(), ::core::mem::transmute(dwindex), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lpbbuffer)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminInterfaceDeviceSetInfo(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwindex: u32, dwlevel: u32, lpbbuffer: *const u8) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminInterfaceDeviceSetInfo(::core::mem::transmute(hmprserver), hinterface.into_param().abi(), ::core::mem::transmute(dwindex), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lpbbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprAdminInterfaceDisconnect<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminInterfaceDisconnect(hmprserver: isize, hinterface: super::super::Foundation::HANDLE) -> u32;
-        }
-        ::core::mem::transmute(MprAdminInterfaceDisconnect(::core::mem::transmute(hmprserver), hinterface.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminInterfaceDisconnect(hmprserver: isize, hinterface: super::super::Foundation::HANDLE) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminInterfaceDisconnect(::core::mem::transmute(hmprserver), hinterface.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn MprAdminInterfaceEnum(hmprserver: isize, dwlevel: u32, lplpbbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *const u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminInterfaceEnum(hmprserver: isize, dwlevel: u32, lplpbbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *const u32) -> u32;
-        }
-        ::core::mem::transmute(MprAdminInterfaceEnum(::core::mem::transmute(hmprserver), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lplpbbuffer), ::core::mem::transmute(dwprefmaxlen), ::core::mem::transmute(lpdwentriesread), ::core::mem::transmute(lpdwtotalentries), ::core::mem::transmute(lpdwresumehandle)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminInterfaceEnum(hmprserver: isize, dwlevel: u32, lplpbbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *const u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminInterfaceEnum(::core::mem::transmute(hmprserver), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lplpbbuffer), ::core::mem::transmute(dwprefmaxlen), ::core::mem::transmute(lpdwentriesread), ::core::mem::transmute(lpdwtotalentries), ::core::mem::transmute(lpdwresumehandle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn MprAdminInterfaceGetCredentials<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpwsserver: Param0, lpwsinterfacename: Param1, lpwsusername: ::windows::core::PWSTR, lpwspassword: ::windows::core::PWSTR, lpwsdomainname: ::windows::core::PWSTR) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminInterfaceGetCredentials(lpwsserver: ::windows::core::PCWSTR, lpwsinterfacename: ::windows::core::PCWSTR, lpwsusername: ::windows::core::PWSTR, lpwspassword: ::windows::core::PWSTR, lpwsdomainname: ::windows::core::PWSTR) -> u32;
-        }
-        ::core::mem::transmute(MprAdminInterfaceGetCredentials(lpwsserver.into_param().abi(), lpwsinterfacename.into_param().abi(), ::core::mem::transmute(lpwsusername), ::core::mem::transmute(lpwspassword), ::core::mem::transmute(lpwsdomainname)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminInterfaceGetCredentials(lpwsserver: ::windows::core::PCWSTR, lpwsinterfacename: ::windows::core::PCWSTR, lpwsusername: ::windows::core::PWSTR, lpwspassword: ::windows::core::PWSTR, lpwsdomainname: ::windows::core::PWSTR) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminInterfaceGetCredentials(lpwsserver.into_param().abi(), lpwsinterfacename.into_param().abi(), ::core::mem::transmute(lpwsusername), ::core::mem::transmute(lpwspassword), ::core::mem::transmute(lpwsdomainname)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprAdminInterfaceGetCredentialsEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwlevel: u32, lplpbbuffer: *mut *mut u8) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminInterfaceGetCredentialsEx(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwlevel: u32, lplpbbuffer: *mut *mut u8) -> u32;
-        }
-        ::core::mem::transmute(MprAdminInterfaceGetCredentialsEx(::core::mem::transmute(hmprserver), hinterface.into_param().abi(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lplpbbuffer)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminInterfaceGetCredentialsEx(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwlevel: u32, lplpbbuffer: *mut *mut u8) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminInterfaceGetCredentialsEx(::core::mem::transmute(hmprserver), hinterface.into_param().abi(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lplpbbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`, `\"Win32_Security_Cryptography\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
 #[inline]
 pub unsafe fn MprAdminInterfaceGetCustomInfoEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, pcustominfo: *mut MPR_IF_CUSTOMINFOEX2) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminInterfaceGetCustomInfoEx(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, pcustominfo: *mut MPR_IF_CUSTOMINFOEX2) -> u32;
-        }
-        ::core::mem::transmute(MprAdminInterfaceGetCustomInfoEx(::core::mem::transmute(hmprserver), hinterface.into_param().abi(), ::core::mem::transmute(pcustominfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminInterfaceGetCustomInfoEx(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, pcustominfo: *mut MPR_IF_CUSTOMINFOEX2) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminInterfaceGetCustomInfoEx(::core::mem::transmute(hmprserver), hinterface.into_param().abi(), ::core::mem::transmute(pcustominfo)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprAdminInterfaceGetHandle<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hmprserver: isize, lpwsinterfacename: Param1, phinterface: *mut super::super::Foundation::HANDLE, fincludeclientinterfaces: Param3) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminInterfaceGetHandle(hmprserver: isize, lpwsinterfacename: ::windows::core::PCWSTR, phinterface: *mut super::super::Foundation::HANDLE, fincludeclientinterfaces: super::super::Foundation::BOOL) -> u32;
-        }
-        ::core::mem::transmute(MprAdminInterfaceGetHandle(::core::mem::transmute(hmprserver), lpwsinterfacename.into_param().abi(), ::core::mem::transmute(phinterface), fincludeclientinterfaces.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminInterfaceGetHandle(hmprserver: isize, lpwsinterfacename: ::windows::core::PCWSTR, phinterface: *mut super::super::Foundation::HANDLE, fincludeclientinterfaces: super::super::Foundation::BOOL) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminInterfaceGetHandle(::core::mem::transmute(hmprserver), lpwsinterfacename.into_param().abi(), ::core::mem::transmute(phinterface), fincludeclientinterfaces.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprAdminInterfaceGetInfo<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwlevel: u32, lplpbbuffer: *const *const u8) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminInterfaceGetInfo(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwlevel: u32, lplpbbuffer: *const *const u8) -> u32;
-        }
-        ::core::mem::transmute(MprAdminInterfaceGetInfo(::core::mem::transmute(hmprserver), hinterface.into_param().abi(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lplpbbuffer)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminInterfaceGetInfo(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwlevel: u32, lplpbbuffer: *const *const u8) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminInterfaceGetInfo(::core::mem::transmute(hmprserver), hinterface.into_param().abi(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lplpbbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprAdminInterfaceQueryUpdateResult<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwprotocolid: u32, lpdwupdateresult: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminInterfaceQueryUpdateResult(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwprotocolid: u32, lpdwupdateresult: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(MprAdminInterfaceQueryUpdateResult(::core::mem::transmute(hmprserver), hinterface.into_param().abi(), ::core::mem::transmute(dwprotocolid), ::core::mem::transmute(lpdwupdateresult)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminInterfaceQueryUpdateResult(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwprotocolid: u32, lpdwupdateresult: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminInterfaceQueryUpdateResult(::core::mem::transmute(hmprserver), hinterface.into_param().abi(), ::core::mem::transmute(dwprotocolid), ::core::mem::transmute(lpdwupdateresult)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn MprAdminInterfaceSetCredentials<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpwsserver: Param0, lpwsinterfacename: Param1, lpwsusername: Param2, lpwsdomainname: Param3, lpwspassword: Param4) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminInterfaceSetCredentials(lpwsserver: ::windows::core::PCWSTR, lpwsinterfacename: ::windows::core::PCWSTR, lpwsusername: ::windows::core::PCWSTR, lpwsdomainname: ::windows::core::PCWSTR, lpwspassword: ::windows::core::PCWSTR) -> u32;
-        }
-        ::core::mem::transmute(MprAdminInterfaceSetCredentials(lpwsserver.into_param().abi(), lpwsinterfacename.into_param().abi(), lpwsusername.into_param().abi(), lpwsdomainname.into_param().abi(), lpwspassword.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminInterfaceSetCredentials(lpwsserver: ::windows::core::PCWSTR, lpwsinterfacename: ::windows::core::PCWSTR, lpwsusername: ::windows::core::PCWSTR, lpwsdomainname: ::windows::core::PCWSTR, lpwspassword: ::windows::core::PCWSTR) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminInterfaceSetCredentials(lpwsserver.into_param().abi(), lpwsinterfacename.into_param().abi(), lpwsusername.into_param().abi(), lpwsdomainname.into_param().abi(), lpwspassword.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprAdminInterfaceSetCredentialsEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwlevel: u32, lpbbuffer: *const u8) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminInterfaceSetCredentialsEx(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwlevel: u32, lpbbuffer: *const u8) -> u32;
-        }
-        ::core::mem::transmute(MprAdminInterfaceSetCredentialsEx(::core::mem::transmute(hmprserver), hinterface.into_param().abi(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lpbbuffer)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminInterfaceSetCredentialsEx(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwlevel: u32, lpbbuffer: *const u8) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminInterfaceSetCredentialsEx(::core::mem::transmute(hmprserver), hinterface.into_param().abi(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lpbbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`, `\"Win32_Security_Cryptography\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
 #[inline]
 pub unsafe fn MprAdminInterfaceSetCustomInfoEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, pcustominfo: *const MPR_IF_CUSTOMINFOEX2) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminInterfaceSetCustomInfoEx(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, pcustominfo: *const MPR_IF_CUSTOMINFOEX2) -> u32;
-        }
-        ::core::mem::transmute(MprAdminInterfaceSetCustomInfoEx(::core::mem::transmute(hmprserver), hinterface.into_param().abi(), ::core::mem::transmute(pcustominfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminInterfaceSetCustomInfoEx(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, pcustominfo: *const MPR_IF_CUSTOMINFOEX2) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminInterfaceSetCustomInfoEx(::core::mem::transmute(hmprserver), hinterface.into_param().abi(), ::core::mem::transmute(pcustominfo)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprAdminInterfaceSetInfo<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwlevel: u32, lpbbuffer: *const u8) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminInterfaceSetInfo(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwlevel: u32, lpbbuffer: *const u8) -> u32;
-        }
-        ::core::mem::transmute(MprAdminInterfaceSetInfo(::core::mem::transmute(hmprserver), hinterface.into_param().abi(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lpbbuffer)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminInterfaceSetInfo(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwlevel: u32, lpbbuffer: *const u8) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminInterfaceSetInfo(::core::mem::transmute(hmprserver), hinterface.into_param().abi(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lpbbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprAdminInterfaceTransportAdd<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwtransportid: u32, pinterfaceinfo: *const u8, dwinterfaceinfosize: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminInterfaceTransportAdd(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwtransportid: u32, pinterfaceinfo: *const u8, dwinterfaceinfosize: u32) -> u32;
-        }
-        ::core::mem::transmute(MprAdminInterfaceTransportAdd(::core::mem::transmute(hmprserver), hinterface.into_param().abi(), ::core::mem::transmute(dwtransportid), ::core::mem::transmute(pinterfaceinfo), ::core::mem::transmute(dwinterfaceinfosize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminInterfaceTransportAdd(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwtransportid: u32, pinterfaceinfo: *const u8, dwinterfaceinfosize: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminInterfaceTransportAdd(::core::mem::transmute(hmprserver), hinterface.into_param().abi(), ::core::mem::transmute(dwtransportid), ::core::mem::transmute(pinterfaceinfo), ::core::mem::transmute(dwinterfaceinfosize)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprAdminInterfaceTransportGetInfo<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwtransportid: u32, ppinterfaceinfo: *mut *mut u8, lpdwinterfaceinfosize: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminInterfaceTransportGetInfo(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwtransportid: u32, ppinterfaceinfo: *mut *mut u8, lpdwinterfaceinfosize: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(MprAdminInterfaceTransportGetInfo(::core::mem::transmute(hmprserver), hinterface.into_param().abi(), ::core::mem::transmute(dwtransportid), ::core::mem::transmute(ppinterfaceinfo), ::core::mem::transmute(lpdwinterfaceinfosize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminInterfaceTransportGetInfo(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwtransportid: u32, ppinterfaceinfo: *mut *mut u8, lpdwinterfaceinfosize: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminInterfaceTransportGetInfo(::core::mem::transmute(hmprserver), hinterface.into_param().abi(), ::core::mem::transmute(dwtransportid), ::core::mem::transmute(ppinterfaceinfo), ::core::mem::transmute(lpdwinterfaceinfosize)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprAdminInterfaceTransportRemove<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwtransportid: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminInterfaceTransportRemove(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwtransportid: u32) -> u32;
-        }
-        ::core::mem::transmute(MprAdminInterfaceTransportRemove(::core::mem::transmute(hmprserver), hinterface.into_param().abi(), ::core::mem::transmute(dwtransportid)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminInterfaceTransportRemove(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwtransportid: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminInterfaceTransportRemove(::core::mem::transmute(hmprserver), hinterface.into_param().abi(), ::core::mem::transmute(dwtransportid)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprAdminInterfaceTransportSetInfo<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwtransportid: u32, pinterfaceinfo: *const u8, dwinterfaceinfosize: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminInterfaceTransportSetInfo(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwtransportid: u32, pinterfaceinfo: *const u8, dwinterfaceinfosize: u32) -> u32;
-        }
-        ::core::mem::transmute(MprAdminInterfaceTransportSetInfo(::core::mem::transmute(hmprserver), hinterface.into_param().abi(), ::core::mem::transmute(dwtransportid), ::core::mem::transmute(pinterfaceinfo), ::core::mem::transmute(dwinterfaceinfosize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminInterfaceTransportSetInfo(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwtransportid: u32, pinterfaceinfo: *const u8, dwinterfaceinfosize: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminInterfaceTransportSetInfo(::core::mem::transmute(hmprserver), hinterface.into_param().abi(), ::core::mem::transmute(dwtransportid), ::core::mem::transmute(pinterfaceinfo), ::core::mem::transmute(dwinterfaceinfosize)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprAdminInterfaceUpdatePhonebookInfo<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminInterfaceUpdatePhonebookInfo(hmprserver: isize, hinterface: super::super::Foundation::HANDLE) -> u32;
-        }
-        ::core::mem::transmute(MprAdminInterfaceUpdatePhonebookInfo(::core::mem::transmute(hmprserver), hinterface.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminInterfaceUpdatePhonebookInfo(hmprserver: isize, hinterface: super::super::Foundation::HANDLE) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminInterfaceUpdatePhonebookInfo(::core::mem::transmute(hmprserver), hinterface.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprAdminInterfaceUpdateRoutes<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, hinterface: Param1, dwprotocolid: u32, hevent: Param3) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminInterfaceUpdateRoutes(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwprotocolid: u32, hevent: super::super::Foundation::HANDLE) -> u32;
-        }
-        ::core::mem::transmute(MprAdminInterfaceUpdateRoutes(::core::mem::transmute(hmprserver), hinterface.into_param().abi(), ::core::mem::transmute(dwprotocolid), hevent.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminInterfaceUpdateRoutes(hmprserver: isize, hinterface: super::super::Foundation::HANDLE, dwprotocolid: u32, hevent: super::super::Foundation::HANDLE) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminInterfaceUpdateRoutes(::core::mem::transmute(hmprserver), hinterface.into_param().abi(), ::core::mem::transmute(dwprotocolid), hevent.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprAdminIsDomainRasServer<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pszdomain: Param0, pszmachine: Param1, pbisrasserver: *mut super::super::Foundation::BOOL) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminIsDomainRasServer(pszdomain: ::windows::core::PCWSTR, pszmachine: ::windows::core::PCWSTR, pbisrasserver: *mut super::super::Foundation::BOOL) -> u32;
-        }
-        ::core::mem::transmute(MprAdminIsDomainRasServer(pszdomain.into_param().abi(), pszmachine.into_param().abi(), ::core::mem::transmute(pbisrasserver)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminIsDomainRasServer(pszdomain: ::windows::core::PCWSTR, pszmachine: ::windows::core::PCWSTR, pbisrasserver: *mut super::super::Foundation::BOOL) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminIsDomainRasServer(pszdomain.into_param().abi(), pszmachine.into_param().abi(), ::core::mem::transmute(pbisrasserver)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprAdminIsServiceInitialized<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpwsservername: Param0, fisserviceinitialized: *const super::super::Foundation::BOOL) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminIsServiceInitialized(lpwsservername: ::windows::core::PCWSTR, fisserviceinitialized: *const super::super::Foundation::BOOL) -> u32;
-        }
-        ::core::mem::transmute(MprAdminIsServiceInitialized(lpwsservername.into_param().abi(), ::core::mem::transmute(fisserviceinitialized)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminIsServiceInitialized(lpwsservername: ::windows::core::PCWSTR, fisserviceinitialized: *const super::super::Foundation::BOOL) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminIsServiceInitialized(lpwsservername.into_param().abi(), ::core::mem::transmute(fisserviceinitialized)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprAdminIsServiceRunning<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpwsservername: Param0) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminIsServiceRunning(lpwsservername: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(MprAdminIsServiceRunning(lpwsservername.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminIsServiceRunning(lpwsservername: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminIsServiceRunning(lpwsservername.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn MprAdminMIBBufferFree(pbuffer: *const ::core::ffi::c_void) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminMIBBufferFree(pbuffer: *const ::core::ffi::c_void) -> u32;
-        }
-        ::core::mem::transmute(MprAdminMIBBufferFree(::core::mem::transmute(pbuffer)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminMIBBufferFree(pbuffer: *const ::core::ffi::c_void) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminMIBBufferFree(::core::mem::transmute(pbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn MprAdminMIBEntryCreate(hmibserver: isize, dwpid: u32, dwroutingpid: u32, lpentry: *const ::core::ffi::c_void, dwentrysize: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminMIBEntryCreate(hmibserver: isize, dwpid: u32, dwroutingpid: u32, lpentry: *const ::core::ffi::c_void, dwentrysize: u32) -> u32;
-        }
-        ::core::mem::transmute(MprAdminMIBEntryCreate(::core::mem::transmute(hmibserver), ::core::mem::transmute(dwpid), ::core::mem::transmute(dwroutingpid), ::core::mem::transmute(lpentry), ::core::mem::transmute(dwentrysize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminMIBEntryCreate(hmibserver: isize, dwpid: u32, dwroutingpid: u32, lpentry: *const ::core::ffi::c_void, dwentrysize: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminMIBEntryCreate(::core::mem::transmute(hmibserver), ::core::mem::transmute(dwpid), ::core::mem::transmute(dwroutingpid), ::core::mem::transmute(lpentry), ::core::mem::transmute(dwentrysize)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn MprAdminMIBEntryDelete(hmibserver: isize, dwprotocolid: u32, dwroutingpid: u32, lpentry: *const ::core::ffi::c_void, dwentrysize: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminMIBEntryDelete(hmibserver: isize, dwprotocolid: u32, dwroutingpid: u32, lpentry: *const ::core::ffi::c_void, dwentrysize: u32) -> u32;
-        }
-        ::core::mem::transmute(MprAdminMIBEntryDelete(::core::mem::transmute(hmibserver), ::core::mem::transmute(dwprotocolid), ::core::mem::transmute(dwroutingpid), ::core::mem::transmute(lpentry), ::core::mem::transmute(dwentrysize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminMIBEntryDelete(hmibserver: isize, dwprotocolid: u32, dwroutingpid: u32, lpentry: *const ::core::ffi::c_void, dwentrysize: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminMIBEntryDelete(::core::mem::transmute(hmibserver), ::core::mem::transmute(dwprotocolid), ::core::mem::transmute(dwroutingpid), ::core::mem::transmute(lpentry), ::core::mem::transmute(dwentrysize)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn MprAdminMIBEntryGet(hmibserver: isize, dwprotocolid: u32, dwroutingpid: u32, lpinentry: *const ::core::ffi::c_void, dwinentrysize: u32, lplpoutentry: *mut *mut ::core::ffi::c_void, lpoutentrysize: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminMIBEntryGet(hmibserver: isize, dwprotocolid: u32, dwroutingpid: u32, lpinentry: *const ::core::ffi::c_void, dwinentrysize: u32, lplpoutentry: *mut *mut ::core::ffi::c_void, lpoutentrysize: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(MprAdminMIBEntryGet(::core::mem::transmute(hmibserver), ::core::mem::transmute(dwprotocolid), ::core::mem::transmute(dwroutingpid), ::core::mem::transmute(lpinentry), ::core::mem::transmute(dwinentrysize), ::core::mem::transmute(lplpoutentry), ::core::mem::transmute(lpoutentrysize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminMIBEntryGet(hmibserver: isize, dwprotocolid: u32, dwroutingpid: u32, lpinentry: *const ::core::ffi::c_void, dwinentrysize: u32, lplpoutentry: *mut *mut ::core::ffi::c_void, lpoutentrysize: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminMIBEntryGet(::core::mem::transmute(hmibserver), ::core::mem::transmute(dwprotocolid), ::core::mem::transmute(dwroutingpid), ::core::mem::transmute(lpinentry), ::core::mem::transmute(dwinentrysize), ::core::mem::transmute(lplpoutentry), ::core::mem::transmute(lpoutentrysize)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn MprAdminMIBEntryGetFirst(hmibserver: isize, dwprotocolid: u32, dwroutingpid: u32, lpinentry: *const ::core::ffi::c_void, dwinentrysize: u32, lplpoutentry: *mut *mut ::core::ffi::c_void, lpoutentrysize: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminMIBEntryGetFirst(hmibserver: isize, dwprotocolid: u32, dwroutingpid: u32, lpinentry: *const ::core::ffi::c_void, dwinentrysize: u32, lplpoutentry: *mut *mut ::core::ffi::c_void, lpoutentrysize: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(MprAdminMIBEntryGetFirst(::core::mem::transmute(hmibserver), ::core::mem::transmute(dwprotocolid), ::core::mem::transmute(dwroutingpid), ::core::mem::transmute(lpinentry), ::core::mem::transmute(dwinentrysize), ::core::mem::transmute(lplpoutentry), ::core::mem::transmute(lpoutentrysize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminMIBEntryGetFirst(hmibserver: isize, dwprotocolid: u32, dwroutingpid: u32, lpinentry: *const ::core::ffi::c_void, dwinentrysize: u32, lplpoutentry: *mut *mut ::core::ffi::c_void, lpoutentrysize: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminMIBEntryGetFirst(::core::mem::transmute(hmibserver), ::core::mem::transmute(dwprotocolid), ::core::mem::transmute(dwroutingpid), ::core::mem::transmute(lpinentry), ::core::mem::transmute(dwinentrysize), ::core::mem::transmute(lplpoutentry), ::core::mem::transmute(lpoutentrysize)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn MprAdminMIBEntryGetNext(hmibserver: isize, dwprotocolid: u32, dwroutingpid: u32, lpinentry: *const ::core::ffi::c_void, dwinentrysize: u32, lplpoutentry: *mut *mut ::core::ffi::c_void, lpoutentrysize: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminMIBEntryGetNext(hmibserver: isize, dwprotocolid: u32, dwroutingpid: u32, lpinentry: *const ::core::ffi::c_void, dwinentrysize: u32, lplpoutentry: *mut *mut ::core::ffi::c_void, lpoutentrysize: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(MprAdminMIBEntryGetNext(::core::mem::transmute(hmibserver), ::core::mem::transmute(dwprotocolid), ::core::mem::transmute(dwroutingpid), ::core::mem::transmute(lpinentry), ::core::mem::transmute(dwinentrysize), ::core::mem::transmute(lplpoutentry), ::core::mem::transmute(lpoutentrysize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminMIBEntryGetNext(hmibserver: isize, dwprotocolid: u32, dwroutingpid: u32, lpinentry: *const ::core::ffi::c_void, dwinentrysize: u32, lplpoutentry: *mut *mut ::core::ffi::c_void, lpoutentrysize: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminMIBEntryGetNext(::core::mem::transmute(hmibserver), ::core::mem::transmute(dwprotocolid), ::core::mem::transmute(dwroutingpid), ::core::mem::transmute(lpinentry), ::core::mem::transmute(dwinentrysize), ::core::mem::transmute(lplpoutentry), ::core::mem::transmute(lpoutentrysize)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn MprAdminMIBEntrySet(hmibserver: isize, dwprotocolid: u32, dwroutingpid: u32, lpentry: *const ::core::ffi::c_void, dwentrysize: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminMIBEntrySet(hmibserver: isize, dwprotocolid: u32, dwroutingpid: u32, lpentry: *const ::core::ffi::c_void, dwentrysize: u32) -> u32;
-        }
-        ::core::mem::transmute(MprAdminMIBEntrySet(::core::mem::transmute(hmibserver), ::core::mem::transmute(dwprotocolid), ::core::mem::transmute(dwroutingpid), ::core::mem::transmute(lpentry), ::core::mem::transmute(dwentrysize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminMIBEntrySet(hmibserver: isize, dwprotocolid: u32, dwroutingpid: u32, lpentry: *const ::core::ffi::c_void, dwentrysize: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminMIBEntrySet(::core::mem::transmute(hmibserver), ::core::mem::transmute(dwprotocolid), ::core::mem::transmute(dwroutingpid), ::core::mem::transmute(lpentry), ::core::mem::transmute(dwentrysize)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn MprAdminMIBServerConnect<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpwsservername: Param0, phmibserver: *mut isize) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminMIBServerConnect(lpwsservername: ::windows::core::PCWSTR, phmibserver: *mut isize) -> u32;
-        }
-        ::core::mem::transmute(MprAdminMIBServerConnect(lpwsservername.into_param().abi(), ::core::mem::transmute(phmibserver)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminMIBServerConnect(lpwsservername: ::windows::core::PCWSTR, phmibserver: *mut isize) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminMIBServerConnect(lpwsservername.into_param().abi(), ::core::mem::transmute(phmibserver)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn MprAdminMIBServerDisconnect(hmibserver: isize) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminMIBServerDisconnect(hmibserver: isize);
-        }
-        MprAdminMIBServerDisconnect(::core::mem::transmute(hmibserver))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminMIBServerDisconnect(hmibserver: isize);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MprAdminMIBServerDisconnect(::core::mem::transmute(hmibserver))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprAdminPortClearStats<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hrasserver: isize, hport: Param1) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminPortClearStats(hrasserver: isize, hport: super::super::Foundation::HANDLE) -> u32;
-        }
-        ::core::mem::transmute(MprAdminPortClearStats(::core::mem::transmute(hrasserver), hport.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminPortClearStats(hrasserver: isize, hport: super::super::Foundation::HANDLE) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminPortClearStats(::core::mem::transmute(hrasserver), hport.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprAdminPortDisconnect<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hrasserver: isize, hport: Param1) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminPortDisconnect(hrasserver: isize, hport: super::super::Foundation::HANDLE) -> u32;
-        }
-        ::core::mem::transmute(MprAdminPortDisconnect(::core::mem::transmute(hrasserver), hport.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminPortDisconnect(hrasserver: isize, hport: super::super::Foundation::HANDLE) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminPortDisconnect(::core::mem::transmute(hrasserver), hport.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprAdminPortEnum<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hrasserver: isize, dwlevel: u32, hrasconnection: Param2, lplpbbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *const u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminPortEnum(hrasserver: isize, dwlevel: u32, hrasconnection: super::super::Foundation::HANDLE, lplpbbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *const u32) -> u32;
-        }
-        ::core::mem::transmute(MprAdminPortEnum(::core::mem::transmute(hrasserver), ::core::mem::transmute(dwlevel), hrasconnection.into_param().abi(), ::core::mem::transmute(lplpbbuffer), ::core::mem::transmute(dwprefmaxlen), ::core::mem::transmute(lpdwentriesread), ::core::mem::transmute(lpdwtotalentries), ::core::mem::transmute(lpdwresumehandle)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminPortEnum(hrasserver: isize, dwlevel: u32, hrasconnection: super::super::Foundation::HANDLE, lplpbbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *const u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminPortEnum(::core::mem::transmute(hrasserver), ::core::mem::transmute(dwlevel), hrasconnection.into_param().abi(), ::core::mem::transmute(lplpbbuffer), ::core::mem::transmute(dwprefmaxlen), ::core::mem::transmute(lpdwentriesread), ::core::mem::transmute(lpdwtotalentries), ::core::mem::transmute(lpdwresumehandle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprAdminPortGetInfo<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hrasserver: isize, dwlevel: u32, hport: Param2, lplpbbuffer: *mut *mut u8) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminPortGetInfo(hrasserver: isize, dwlevel: u32, hport: super::super::Foundation::HANDLE, lplpbbuffer: *mut *mut u8) -> u32;
-        }
-        ::core::mem::transmute(MprAdminPortGetInfo(::core::mem::transmute(hrasserver), ::core::mem::transmute(dwlevel), hport.into_param().abi(), ::core::mem::transmute(lplpbbuffer)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminPortGetInfo(hrasserver: isize, dwlevel: u32, hport: super::super::Foundation::HANDLE, lplpbbuffer: *mut *mut u8) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminPortGetInfo(::core::mem::transmute(hrasserver), ::core::mem::transmute(dwlevel), hport.into_param().abi(), ::core::mem::transmute(lplpbbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprAdminPortReset<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hrasserver: isize, hport: Param1) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminPortReset(hrasserver: isize, hport: super::super::Foundation::HANDLE) -> u32;
-        }
-        ::core::mem::transmute(MprAdminPortReset(::core::mem::transmute(hrasserver), hport.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminPortReset(hrasserver: isize, hport: super::super::Foundation::HANDLE) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminPortReset(::core::mem::transmute(hrasserver), hport.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprAdminRegisterConnectionNotification<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprserver: isize, heventnotification: Param1) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminRegisterConnectionNotification(hmprserver: isize, heventnotification: super::super::Foundation::HANDLE) -> u32;
-        }
-        ::core::mem::transmute(MprAdminRegisterConnectionNotification(::core::mem::transmute(hmprserver), heventnotification.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminRegisterConnectionNotification(hmprserver: isize, heventnotification: super::super::Foundation::HANDLE) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminRegisterConnectionNotification(::core::mem::transmute(hmprserver), heventnotification.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprAdminSendUserMessage<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hmprserver: isize, hconnection: Param1, lpwszmessage: Param2) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminSendUserMessage(hmprserver: isize, hconnection: super::super::Foundation::HANDLE, lpwszmessage: ::windows::core::PCWSTR) -> u32;
-        }
-        ::core::mem::transmute(MprAdminSendUserMessage(::core::mem::transmute(hmprserver), hconnection.into_param().abi(), lpwszmessage.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminSendUserMessage(hmprserver: isize, hconnection: super::super::Foundation::HANDLE, lpwszmessage: ::windows::core::PCWSTR) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminSendUserMessage(::core::mem::transmute(hmprserver), hconnection.into_param().abi(), lpwszmessage.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn MprAdminServerConnect<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpwsservername: Param0, phmprserver: *mut isize) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminServerConnect(lpwsservername: ::windows::core::PCWSTR, phmprserver: *mut isize) -> u32;
-        }
-        ::core::mem::transmute(MprAdminServerConnect(lpwsservername.into_param().abi(), ::core::mem::transmute(phmprserver)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminServerConnect(lpwsservername: ::windows::core::PCWSTR, phmprserver: *mut isize) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminServerConnect(lpwsservername.into_param().abi(), ::core::mem::transmute(phmprserver)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn MprAdminServerDisconnect(hmprserver: isize) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminServerDisconnect(hmprserver: isize);
-        }
-        MprAdminServerDisconnect(::core::mem::transmute(hmprserver))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminServerDisconnect(hmprserver: isize);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MprAdminServerDisconnect(::core::mem::transmute(hmprserver))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn MprAdminServerGetCredentials(hmprserver: isize, dwlevel: u32, lplpbbuffer: *const *const u8) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminServerGetCredentials(hmprserver: isize, dwlevel: u32, lplpbbuffer: *const *const u8) -> u32;
-        }
-        ::core::mem::transmute(MprAdminServerGetCredentials(::core::mem::transmute(hmprserver), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lplpbbuffer)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminServerGetCredentials(hmprserver: isize, dwlevel: u32, lplpbbuffer: *const *const u8) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminServerGetCredentials(::core::mem::transmute(hmprserver), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lplpbbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn MprAdminServerGetInfo(hmprserver: isize, dwlevel: u32, lplpbbuffer: *mut *mut u8) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminServerGetInfo(hmprserver: isize, dwlevel: u32, lplpbbuffer: *mut *mut u8) -> u32;
-        }
-        ::core::mem::transmute(MprAdminServerGetInfo(::core::mem::transmute(hmprserver), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lplpbbuffer)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminServerGetInfo(hmprserver: isize, dwlevel: u32, lplpbbuffer: *mut *mut u8) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminServerGetInfo(::core::mem::transmute(hmprserver), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lplpbbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[inline]
 pub unsafe fn MprAdminServerGetInfoEx(hmprserver: isize, pserverinfo: *mut MPR_SERVER_EX1) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminServerGetInfoEx(hmprserver: isize, pserverinfo: *mut MPR_SERVER_EX1) -> u32;
-        }
-        ::core::mem::transmute(MprAdminServerGetInfoEx(::core::mem::transmute(hmprserver), ::core::mem::transmute(pserverinfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminServerGetInfoEx(hmprserver: isize, pserverinfo: *mut MPR_SERVER_EX1) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminServerGetInfoEx(::core::mem::transmute(hmprserver), ::core::mem::transmute(pserverinfo)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn MprAdminServerSetCredentials(hmprserver: isize, dwlevel: u32, lpbbuffer: *const u8) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminServerSetCredentials(hmprserver: isize, dwlevel: u32, lpbbuffer: *const u8) -> u32;
-        }
-        ::core::mem::transmute(MprAdminServerSetCredentials(::core::mem::transmute(hmprserver), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lpbbuffer)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminServerSetCredentials(hmprserver: isize, dwlevel: u32, lpbbuffer: *const u8) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminServerSetCredentials(::core::mem::transmute(hmprserver), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lpbbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn MprAdminServerSetInfo(hmprserver: isize, dwlevel: u32, lpbbuffer: *const u8) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminServerSetInfo(hmprserver: isize, dwlevel: u32, lpbbuffer: *const u8) -> u32;
-        }
-        ::core::mem::transmute(MprAdminServerSetInfo(::core::mem::transmute(hmprserver), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lpbbuffer)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminServerSetInfo(hmprserver: isize, dwlevel: u32, lpbbuffer: *const u8) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminServerSetInfo(::core::mem::transmute(hmprserver), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lpbbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[inline]
 pub unsafe fn MprAdminServerSetInfoEx(hmprserver: isize, pserverinfo: *const MPR_SERVER_SET_CONFIG_EX1) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminServerSetInfoEx(hmprserver: isize, pserverinfo: *const MPR_SERVER_SET_CONFIG_EX1) -> u32;
-        }
-        ::core::mem::transmute(MprAdminServerSetInfoEx(::core::mem::transmute(hmprserver), ::core::mem::transmute(pserverinfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminServerSetInfoEx(hmprserver: isize, pserverinfo: *const MPR_SERVER_SET_CONFIG_EX1) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminServerSetInfoEx(::core::mem::transmute(hmprserver), ::core::mem::transmute(pserverinfo)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn MprAdminTransportCreate<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param7: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hmprserver: isize, dwtransportid: u32, lpwstransportname: Param2, pglobalinfo: *const u8, dwglobalinfosize: u32, pclientinterfaceinfo: *const u8, dwclientinterfaceinfosize: u32, lpwsdllpath: Param7) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminTransportCreate(hmprserver: isize, dwtransportid: u32, lpwstransportname: ::windows::core::PCWSTR, pglobalinfo: *const u8, dwglobalinfosize: u32, pclientinterfaceinfo: *const u8, dwclientinterfaceinfosize: u32, lpwsdllpath: ::windows::core::PCWSTR) -> u32;
-        }
-        ::core::mem::transmute(MprAdminTransportCreate(::core::mem::transmute(hmprserver), ::core::mem::transmute(dwtransportid), lpwstransportname.into_param().abi(), ::core::mem::transmute(pglobalinfo), ::core::mem::transmute(dwglobalinfosize), ::core::mem::transmute(pclientinterfaceinfo), ::core::mem::transmute(dwclientinterfaceinfosize), lpwsdllpath.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminTransportCreate(hmprserver: isize, dwtransportid: u32, lpwstransportname: ::windows::core::PCWSTR, pglobalinfo: *const u8, dwglobalinfosize: u32, pclientinterfaceinfo: *const u8, dwclientinterfaceinfosize: u32, lpwsdllpath: ::windows::core::PCWSTR) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminTransportCreate(::core::mem::transmute(hmprserver), ::core::mem::transmute(dwtransportid), lpwstransportname.into_param().abi(), ::core::mem::transmute(pglobalinfo), ::core::mem::transmute(dwglobalinfosize), ::core::mem::transmute(pclientinterfaceinfo), ::core::mem::transmute(dwclientinterfaceinfosize), lpwsdllpath.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn MprAdminTransportGetInfo(hmprserver: isize, dwtransportid: u32, ppglobalinfo: *mut *mut u8, lpdwglobalinfosize: *mut u32, ppclientinterfaceinfo: *mut *mut u8, lpdwclientinterfaceinfosize: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminTransportGetInfo(hmprserver: isize, dwtransportid: u32, ppglobalinfo: *mut *mut u8, lpdwglobalinfosize: *mut u32, ppclientinterfaceinfo: *mut *mut u8, lpdwclientinterfaceinfosize: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(MprAdminTransportGetInfo(::core::mem::transmute(hmprserver), ::core::mem::transmute(dwtransportid), ::core::mem::transmute(ppglobalinfo), ::core::mem::transmute(lpdwglobalinfosize), ::core::mem::transmute(ppclientinterfaceinfo), ::core::mem::transmute(lpdwclientinterfaceinfosize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminTransportGetInfo(hmprserver: isize, dwtransportid: u32, ppglobalinfo: *mut *mut u8, lpdwglobalinfosize: *mut u32, ppclientinterfaceinfo: *mut *mut u8, lpdwclientinterfaceinfosize: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminTransportGetInfo(::core::mem::transmute(hmprserver), ::core::mem::transmute(dwtransportid), ::core::mem::transmute(ppglobalinfo), ::core::mem::transmute(lpdwglobalinfosize), ::core::mem::transmute(ppclientinterfaceinfo), ::core::mem::transmute(lpdwclientinterfaceinfosize)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn MprAdminTransportSetInfo(hmprserver: isize, dwtransportid: u32, pglobalinfo: *const u8, dwglobalinfosize: u32, pclientinterfaceinfo: *const u8, dwclientinterfaceinfosize: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminTransportSetInfo(hmprserver: isize, dwtransportid: u32, pglobalinfo: *const u8, dwglobalinfosize: u32, pclientinterfaceinfo: *const u8, dwclientinterfaceinfosize: u32) -> u32;
-        }
-        ::core::mem::transmute(MprAdminTransportSetInfo(::core::mem::transmute(hmprserver), ::core::mem::transmute(dwtransportid), ::core::mem::transmute(pglobalinfo), ::core::mem::transmute(dwglobalinfosize), ::core::mem::transmute(pclientinterfaceinfo), ::core::mem::transmute(dwclientinterfaceinfosize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminTransportSetInfo(hmprserver: isize, dwtransportid: u32, pglobalinfo: *const u8, dwglobalinfosize: u32, pclientinterfaceinfo: *const u8, dwclientinterfaceinfosize: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminTransportSetInfo(::core::mem::transmute(hmprserver), ::core::mem::transmute(dwtransportid), ::core::mem::transmute(pglobalinfo), ::core::mem::transmute(dwglobalinfosize), ::core::mem::transmute(pclientinterfaceinfo), ::core::mem::transmute(dwclientinterfaceinfosize)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprAdminUpdateConnection<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hrasserver: isize, hrasconnection: Param1, prasupdateconnection: *const RAS_UPDATE_CONNECTION) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminUpdateConnection(hrasserver: isize, hrasconnection: super::super::Foundation::HANDLE, prasupdateconnection: *const RAS_UPDATE_CONNECTION) -> u32;
-        }
-        ::core::mem::transmute(MprAdminUpdateConnection(::core::mem::transmute(hrasserver), hrasconnection.into_param().abi(), ::core::mem::transmute(prasupdateconnection)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminUpdateConnection(hrasserver: isize, hrasconnection: super::super::Foundation::HANDLE, prasupdateconnection: *const RAS_UPDATE_CONNECTION) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminUpdateConnection(::core::mem::transmute(hrasserver), hrasconnection.into_param().abi(), ::core::mem::transmute(prasupdateconnection)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn MprAdminUserGetInfo<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpszserver: Param0, lpszuser: Param1, dwlevel: u32, lpbbuffer: *mut u8) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminUserGetInfo(lpszserver: ::windows::core::PCWSTR, lpszuser: ::windows::core::PCWSTR, dwlevel: u32, lpbbuffer: *mut u8) -> u32;
-        }
-        ::core::mem::transmute(MprAdminUserGetInfo(lpszserver.into_param().abi(), lpszuser.into_param().abi(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lpbbuffer)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminUserGetInfo(lpszserver: ::windows::core::PCWSTR, lpszuser: ::windows::core::PCWSTR, dwlevel: u32, lpbbuffer: *mut u8) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminUserGetInfo(lpszserver.into_param().abi(), lpszuser.into_param().abi(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lpbbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn MprAdminUserSetInfo<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpszserver: Param0, lpszuser: Param1, dwlevel: u32, lpbbuffer: *const u8) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprAdminUserSetInfo(lpszserver: ::windows::core::PCWSTR, lpszuser: ::windows::core::PCWSTR, dwlevel: u32, lpbbuffer: *const u8) -> u32;
-        }
-        ::core::mem::transmute(MprAdminUserSetInfo(lpszserver.into_param().abi(), lpszuser.into_param().abi(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lpbbuffer)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprAdminUserSetInfo(lpszserver: ::windows::core::PCWSTR, lpszuser: ::windows::core::PCWSTR, dwlevel: u32, lpbbuffer: *const u8) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprAdminUserSetInfo(lpszserver.into_param().abi(), lpszuser.into_param().abi(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lpbbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn MprConfigBufferFree(pbuffer: *const ::core::ffi::c_void) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprConfigBufferFree(pbuffer: *const ::core::ffi::c_void) -> u32;
-        }
-        ::core::mem::transmute(MprConfigBufferFree(::core::mem::transmute(pbuffer)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprConfigBufferFree(pbuffer: *const ::core::ffi::c_void) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprConfigBufferFree(::core::mem::transmute(pbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprConfigFilterGetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, dwlevel: u32, dwtransportid: u32, lpbuffer: *mut u8) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprConfigFilterGetInfo(hmprconfig: super::super::Foundation::HANDLE, dwlevel: u32, dwtransportid: u32, lpbuffer: *mut u8) -> u32;
-        }
-        ::core::mem::transmute(MprConfigFilterGetInfo(hmprconfig.into_param().abi(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(dwtransportid), ::core::mem::transmute(lpbuffer)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprConfigFilterGetInfo(hmprconfig: super::super::Foundation::HANDLE, dwlevel: u32, dwtransportid: u32, lpbuffer: *mut u8) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprConfigFilterGetInfo(hmprconfig.into_param().abi(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(dwtransportid), ::core::mem::transmute(lpbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprConfigFilterSetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, dwlevel: u32, dwtransportid: u32, lpbuffer: *const u8) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprConfigFilterSetInfo(hmprconfig: super::super::Foundation::HANDLE, dwlevel: u32, dwtransportid: u32, lpbuffer: *const u8) -> u32;
-        }
-        ::core::mem::transmute(MprConfigFilterSetInfo(hmprconfig.into_param().abi(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(dwtransportid), ::core::mem::transmute(lpbuffer)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprConfigFilterSetInfo(hmprconfig: super::super::Foundation::HANDLE, dwlevel: u32, dwtransportid: u32, lpbuffer: *const u8) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprConfigFilterSetInfo(hmprconfig.into_param().abi(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(dwtransportid), ::core::mem::transmute(lpbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprConfigGetFriendlyName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hmprconfig: Param0, pszguidname: Param1, pszbuffer: ::windows::core::PWSTR, dwbuffersize: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprConfigGetFriendlyName(hmprconfig: super::super::Foundation::HANDLE, pszguidname: ::windows::core::PCWSTR, pszbuffer: ::windows::core::PWSTR, dwbuffersize: u32) -> u32;
-        }
-        ::core::mem::transmute(MprConfigGetFriendlyName(hmprconfig.into_param().abi(), pszguidname.into_param().abi(), ::core::mem::transmute(pszbuffer), ::core::mem::transmute(dwbuffersize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprConfigGetFriendlyName(hmprconfig: super::super::Foundation::HANDLE, pszguidname: ::windows::core::PCWSTR, pszbuffer: ::windows::core::PWSTR, dwbuffersize: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprConfigGetFriendlyName(hmprconfig.into_param().abi(), pszguidname.into_param().abi(), ::core::mem::transmute(pszbuffer), ::core::mem::transmute(dwbuffersize)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprConfigGetGuidName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hmprconfig: Param0, pszfriendlyname: Param1, pszbuffer: ::windows::core::PWSTR, dwbuffersize: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprConfigGetGuidName(hmprconfig: super::super::Foundation::HANDLE, pszfriendlyname: ::windows::core::PCWSTR, pszbuffer: ::windows::core::PWSTR, dwbuffersize: u32) -> u32;
-        }
-        ::core::mem::transmute(MprConfigGetGuidName(hmprconfig.into_param().abi(), pszfriendlyname.into_param().abi(), ::core::mem::transmute(pszbuffer), ::core::mem::transmute(dwbuffersize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprConfigGetGuidName(hmprconfig: super::super::Foundation::HANDLE, pszfriendlyname: ::windows::core::PCWSTR, pszbuffer: ::windows::core::PWSTR, dwbuffersize: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprConfigGetGuidName(hmprconfig.into_param().abi(), pszfriendlyname.into_param().abi(), ::core::mem::transmute(pszbuffer), ::core::mem::transmute(dwbuffersize)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprConfigInterfaceCreate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, dwlevel: u32, lpbbuffer: *const u8, phrouterinterface: *mut super::super::Foundation::HANDLE) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprConfigInterfaceCreate(hmprconfig: super::super::Foundation::HANDLE, dwlevel: u32, lpbbuffer: *const u8, phrouterinterface: *mut super::super::Foundation::HANDLE) -> u32;
-        }
-        ::core::mem::transmute(MprConfigInterfaceCreate(hmprconfig.into_param().abi(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lpbbuffer), ::core::mem::transmute(phrouterinterface)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprConfigInterfaceCreate(hmprconfig: super::super::Foundation::HANDLE, dwlevel: u32, lpbbuffer: *const u8, phrouterinterface: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprConfigInterfaceCreate(hmprconfig.into_param().abi(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lpbbuffer), ::core::mem::transmute(phrouterinterface)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprConfigInterfaceDelete<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, hrouterinterface: Param1) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprConfigInterfaceDelete(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE) -> u32;
-        }
-        ::core::mem::transmute(MprConfigInterfaceDelete(hmprconfig.into_param().abi(), hrouterinterface.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprConfigInterfaceDelete(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprConfigInterfaceDelete(hmprconfig.into_param().abi(), hrouterinterface.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprConfigInterfaceEnum<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, dwlevel: u32, lplpbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprConfigInterfaceEnum(hmprconfig: super::super::Foundation::HANDLE, dwlevel: u32, lplpbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(MprConfigInterfaceEnum(hmprconfig.into_param().abi(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lplpbuffer), ::core::mem::transmute(dwprefmaxlen), ::core::mem::transmute(lpdwentriesread), ::core::mem::transmute(lpdwtotalentries), ::core::mem::transmute(lpdwresumehandle)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprConfigInterfaceEnum(hmprconfig: super::super::Foundation::HANDLE, dwlevel: u32, lplpbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprConfigInterfaceEnum(hmprconfig.into_param().abi(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lplpbuffer), ::core::mem::transmute(dwprefmaxlen), ::core::mem::transmute(lpdwentriesread), ::core::mem::transmute(lpdwtotalentries), ::core::mem::transmute(lpdwresumehandle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`, `\"Win32_Security_Cryptography\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
 #[inline]
 pub unsafe fn MprConfigInterfaceGetCustomInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, hrouterinterface: Param1, pcustominfo: *mut MPR_IF_CUSTOMINFOEX2) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprConfigInterfaceGetCustomInfoEx(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE, pcustominfo: *mut MPR_IF_CUSTOMINFOEX2) -> u32;
-        }
-        ::core::mem::transmute(MprConfigInterfaceGetCustomInfoEx(hmprconfig.into_param().abi(), hrouterinterface.into_param().abi(), ::core::mem::transmute(pcustominfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprConfigInterfaceGetCustomInfoEx(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE, pcustominfo: *mut MPR_IF_CUSTOMINFOEX2) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprConfigInterfaceGetCustomInfoEx(hmprconfig.into_param().abi(), hrouterinterface.into_param().abi(), ::core::mem::transmute(pcustominfo)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprConfigInterfaceGetHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hmprconfig: Param0, lpwsinterfacename: Param1, phrouterinterface: *mut super::super::Foundation::HANDLE) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprConfigInterfaceGetHandle(hmprconfig: super::super::Foundation::HANDLE, lpwsinterfacename: ::windows::core::PCWSTR, phrouterinterface: *mut super::super::Foundation::HANDLE) -> u32;
-        }
-        ::core::mem::transmute(MprConfigInterfaceGetHandle(hmprconfig.into_param().abi(), lpwsinterfacename.into_param().abi(), ::core::mem::transmute(phrouterinterface)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprConfigInterfaceGetHandle(hmprconfig: super::super::Foundation::HANDLE, lpwsinterfacename: ::windows::core::PCWSTR, phrouterinterface: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprConfigInterfaceGetHandle(hmprconfig.into_param().abi(), lpwsinterfacename.into_param().abi(), ::core::mem::transmute(phrouterinterface)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprConfigInterfaceGetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, hrouterinterface: Param1, dwlevel: u32, lplpbuffer: *mut *mut u8, lpdwbuffersize: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprConfigInterfaceGetInfo(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE, dwlevel: u32, lplpbuffer: *mut *mut u8, lpdwbuffersize: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(MprConfigInterfaceGetInfo(hmprconfig.into_param().abi(), hrouterinterface.into_param().abi(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lplpbuffer), ::core::mem::transmute(lpdwbuffersize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprConfigInterfaceGetInfo(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE, dwlevel: u32, lplpbuffer: *mut *mut u8, lpdwbuffersize: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprConfigInterfaceGetInfo(hmprconfig.into_param().abi(), hrouterinterface.into_param().abi(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lplpbuffer), ::core::mem::transmute(lpdwbuffersize)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`, `\"Win32_Security_Cryptography\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
 #[inline]
 pub unsafe fn MprConfigInterfaceSetCustomInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, hrouterinterface: Param1, pcustominfo: *const MPR_IF_CUSTOMINFOEX2) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprConfigInterfaceSetCustomInfoEx(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE, pcustominfo: *const MPR_IF_CUSTOMINFOEX2) -> u32;
-        }
-        ::core::mem::transmute(MprConfigInterfaceSetCustomInfoEx(hmprconfig.into_param().abi(), hrouterinterface.into_param().abi(), ::core::mem::transmute(pcustominfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprConfigInterfaceSetCustomInfoEx(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE, pcustominfo: *const MPR_IF_CUSTOMINFOEX2) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprConfigInterfaceSetCustomInfoEx(hmprconfig.into_param().abi(), hrouterinterface.into_param().abi(), ::core::mem::transmute(pcustominfo)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprConfigInterfaceSetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, hrouterinterface: Param1, dwlevel: u32, lpbbuffer: *const u8) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprConfigInterfaceSetInfo(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE, dwlevel: u32, lpbbuffer: *const u8) -> u32;
-        }
-        ::core::mem::transmute(MprConfigInterfaceSetInfo(hmprconfig.into_param().abi(), hrouterinterface.into_param().abi(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lpbbuffer)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprConfigInterfaceSetInfo(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE, dwlevel: u32, lpbbuffer: *const u8) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprConfigInterfaceSetInfo(hmprconfig.into_param().abi(), hrouterinterface.into_param().abi(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lpbbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprConfigInterfaceTransportAdd<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hmprconfig: Param0, hrouterinterface: Param1, dwtransportid: u32, lpwstransportname: Param3, pinterfaceinfo: *const u8, dwinterfaceinfosize: u32, phrouteriftransport: *mut super::super::Foundation::HANDLE) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprConfigInterfaceTransportAdd(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE, dwtransportid: u32, lpwstransportname: ::windows::core::PCWSTR, pinterfaceinfo: *const u8, dwinterfaceinfosize: u32, phrouteriftransport: *mut super::super::Foundation::HANDLE) -> u32;
-        }
-        ::core::mem::transmute(MprConfigInterfaceTransportAdd(hmprconfig.into_param().abi(), hrouterinterface.into_param().abi(), ::core::mem::transmute(dwtransportid), lpwstransportname.into_param().abi(), ::core::mem::transmute(pinterfaceinfo), ::core::mem::transmute(dwinterfaceinfosize), ::core::mem::transmute(phrouteriftransport)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprConfigInterfaceTransportAdd(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE, dwtransportid: u32, lpwstransportname: ::windows::core::PCWSTR, pinterfaceinfo: *const u8, dwinterfaceinfosize: u32, phrouteriftransport: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprConfigInterfaceTransportAdd(hmprconfig.into_param().abi(), hrouterinterface.into_param().abi(), ::core::mem::transmute(dwtransportid), lpwstransportname.into_param().abi(), ::core::mem::transmute(pinterfaceinfo), ::core::mem::transmute(dwinterfaceinfosize), ::core::mem::transmute(phrouteriftransport)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprConfigInterfaceTransportEnum<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, hrouterinterface: Param1, dwlevel: u32, lplpbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprConfigInterfaceTransportEnum(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE, dwlevel: u32, lplpbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(MprConfigInterfaceTransportEnum(hmprconfig.into_param().abi(), hrouterinterface.into_param().abi(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lplpbuffer), ::core::mem::transmute(dwprefmaxlen), ::core::mem::transmute(lpdwentriesread), ::core::mem::transmute(lpdwtotalentries), ::core::mem::transmute(lpdwresumehandle)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprConfigInterfaceTransportEnum(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE, dwlevel: u32, lplpbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprConfigInterfaceTransportEnum(hmprconfig.into_param().abi(), hrouterinterface.into_param().abi(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lplpbuffer), ::core::mem::transmute(dwprefmaxlen), ::core::mem::transmute(lpdwentriesread), ::core::mem::transmute(lpdwtotalentries), ::core::mem::transmute(lpdwresumehandle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprConfigInterfaceTransportGetHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, hrouterinterface: Param1, dwtransportid: u32, phrouteriftransport: *mut super::super::Foundation::HANDLE) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprConfigInterfaceTransportGetHandle(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE, dwtransportid: u32, phrouteriftransport: *mut super::super::Foundation::HANDLE) -> u32;
-        }
-        ::core::mem::transmute(MprConfigInterfaceTransportGetHandle(hmprconfig.into_param().abi(), hrouterinterface.into_param().abi(), ::core::mem::transmute(dwtransportid), ::core::mem::transmute(phrouteriftransport)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprConfigInterfaceTransportGetHandle(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE, dwtransportid: u32, phrouteriftransport: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprConfigInterfaceTransportGetHandle(hmprconfig.into_param().abi(), hrouterinterface.into_param().abi(), ::core::mem::transmute(dwtransportid), ::core::mem::transmute(phrouteriftransport)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprConfigInterfaceTransportGetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, hrouterinterface: Param1, hrouteriftransport: Param2, ppinterfaceinfo: *mut *mut u8, lpdwinterfaceinfosize: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprConfigInterfaceTransportGetInfo(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE, hrouteriftransport: super::super::Foundation::HANDLE, ppinterfaceinfo: *mut *mut u8, lpdwinterfaceinfosize: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(MprConfigInterfaceTransportGetInfo(hmprconfig.into_param().abi(), hrouterinterface.into_param().abi(), hrouteriftransport.into_param().abi(), ::core::mem::transmute(ppinterfaceinfo), ::core::mem::transmute(lpdwinterfaceinfosize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprConfigInterfaceTransportGetInfo(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE, hrouteriftransport: super::super::Foundation::HANDLE, ppinterfaceinfo: *mut *mut u8, lpdwinterfaceinfosize: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprConfigInterfaceTransportGetInfo(hmprconfig.into_param().abi(), hrouterinterface.into_param().abi(), hrouteriftransport.into_param().abi(), ::core::mem::transmute(ppinterfaceinfo), ::core::mem::transmute(lpdwinterfaceinfosize)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprConfigInterfaceTransportRemove<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, hrouterinterface: Param1, hrouteriftransport: Param2) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprConfigInterfaceTransportRemove(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE, hrouteriftransport: super::super::Foundation::HANDLE) -> u32;
-        }
-        ::core::mem::transmute(MprConfigInterfaceTransportRemove(hmprconfig.into_param().abi(), hrouterinterface.into_param().abi(), hrouteriftransport.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprConfigInterfaceTransportRemove(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE, hrouteriftransport: super::super::Foundation::HANDLE) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprConfigInterfaceTransportRemove(hmprconfig.into_param().abi(), hrouterinterface.into_param().abi(), hrouteriftransport.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprConfigInterfaceTransportSetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, hrouterinterface: Param1, hrouteriftransport: Param2, pinterfaceinfo: *const u8, dwinterfaceinfosize: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprConfigInterfaceTransportSetInfo(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE, hrouteriftransport: super::super::Foundation::HANDLE, pinterfaceinfo: *const u8, dwinterfaceinfosize: u32) -> u32;
-        }
-        ::core::mem::transmute(MprConfigInterfaceTransportSetInfo(hmprconfig.into_param().abi(), hrouterinterface.into_param().abi(), hrouteriftransport.into_param().abi(), ::core::mem::transmute(pinterfaceinfo), ::core::mem::transmute(dwinterfaceinfosize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprConfigInterfaceTransportSetInfo(hmprconfig: super::super::Foundation::HANDLE, hrouterinterface: super::super::Foundation::HANDLE, hrouteriftransport: super::super::Foundation::HANDLE, pinterfaceinfo: *const u8, dwinterfaceinfosize: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprConfigInterfaceTransportSetInfo(hmprconfig.into_param().abi(), hrouterinterface.into_param().abi(), hrouteriftransport.into_param().abi(), ::core::mem::transmute(pinterfaceinfo), ::core::mem::transmute(dwinterfaceinfosize)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprConfigServerBackup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hmprconfig: Param0, lpwspath: Param1) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprConfigServerBackup(hmprconfig: super::super::Foundation::HANDLE, lpwspath: ::windows::core::PCWSTR) -> u32;
-        }
-        ::core::mem::transmute(MprConfigServerBackup(hmprconfig.into_param().abi(), lpwspath.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprConfigServerBackup(hmprconfig: super::super::Foundation::HANDLE, lpwspath: ::windows::core::PCWSTR) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprConfigServerBackup(hmprconfig.into_param().abi(), lpwspath.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprConfigServerConnect<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpwsservername: Param0, phmprconfig: *mut super::super::Foundation::HANDLE) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprConfigServerConnect(lpwsservername: ::windows::core::PCWSTR, phmprconfig: *mut super::super::Foundation::HANDLE) -> u32;
-        }
-        ::core::mem::transmute(MprConfigServerConnect(lpwsservername.into_param().abi(), ::core::mem::transmute(phmprconfig)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprConfigServerConnect(lpwsservername: ::windows::core::PCWSTR, phmprconfig: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprConfigServerConnect(lpwsservername.into_param().abi(), ::core::mem::transmute(phmprconfig)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprConfigServerDisconnect<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprConfigServerDisconnect(hmprconfig: super::super::Foundation::HANDLE);
-        }
-        MprConfigServerDisconnect(hmprconfig.into_param().abi())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprConfigServerDisconnect(hmprconfig: super::super::Foundation::HANDLE);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MprConfigServerDisconnect(hmprconfig.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprConfigServerGetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, dwlevel: u32, lplpbbuffer: *mut *mut u8) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprConfigServerGetInfo(hmprconfig: super::super::Foundation::HANDLE, dwlevel: u32, lplpbbuffer: *mut *mut u8) -> u32;
-        }
-        ::core::mem::transmute(MprConfigServerGetInfo(hmprconfig.into_param().abi(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lplpbbuffer)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprConfigServerGetInfo(hmprconfig: super::super::Foundation::HANDLE, dwlevel: u32, lplpbbuffer: *mut *mut u8) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprConfigServerGetInfo(hmprconfig.into_param().abi(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lplpbbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[inline]
 pub unsafe fn MprConfigServerGetInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, pserverinfo: *mut MPR_SERVER_EX1) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprConfigServerGetInfoEx(hmprconfig: super::super::Foundation::HANDLE, pserverinfo: *mut MPR_SERVER_EX1) -> u32;
-        }
-        ::core::mem::transmute(MprConfigServerGetInfoEx(hmprconfig.into_param().abi(), ::core::mem::transmute(pserverinfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprConfigServerGetInfoEx(hmprconfig: super::super::Foundation::HANDLE, pserverinfo: *mut MPR_SERVER_EX1) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprConfigServerGetInfoEx(hmprconfig.into_param().abi(), ::core::mem::transmute(pserverinfo)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn MprConfigServerInstall(dwlevel: u32, pbuffer: *const ::core::ffi::c_void) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprConfigServerInstall(dwlevel: u32, pbuffer: *const ::core::ffi::c_void) -> u32;
-        }
-        ::core::mem::transmute(MprConfigServerInstall(::core::mem::transmute(dwlevel), ::core::mem::transmute(pbuffer)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprConfigServerInstall(dwlevel: u32, pbuffer: *const ::core::ffi::c_void) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprConfigServerInstall(::core::mem::transmute(dwlevel), ::core::mem::transmute(pbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprConfigServerRefresh<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprConfigServerRefresh(hmprconfig: super::super::Foundation::HANDLE) -> u32;
-        }
-        ::core::mem::transmute(MprConfigServerRefresh(hmprconfig.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprConfigServerRefresh(hmprconfig: super::super::Foundation::HANDLE) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprConfigServerRefresh(hmprconfig.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprConfigServerRestore<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hmprconfig: Param0, lpwspath: Param1) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprConfigServerRestore(hmprconfig: super::super::Foundation::HANDLE, lpwspath: ::windows::core::PCWSTR) -> u32;
-        }
-        ::core::mem::transmute(MprConfigServerRestore(hmprconfig.into_param().abi(), lpwspath.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprConfigServerRestore(hmprconfig: super::super::Foundation::HANDLE, lpwspath: ::windows::core::PCWSTR) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprConfigServerRestore(hmprconfig.into_param().abi(), lpwspath.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn MprConfigServerSetInfo(hmprserver: isize, dwlevel: u32, lpbbuffer: *const u8) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprConfigServerSetInfo(hmprserver: isize, dwlevel: u32, lpbbuffer: *const u8) -> u32;
-        }
-        ::core::mem::transmute(MprConfigServerSetInfo(::core::mem::transmute(hmprserver), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lpbbuffer)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprConfigServerSetInfo(hmprserver: isize, dwlevel: u32, lpbbuffer: *const u8) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprConfigServerSetInfo(::core::mem::transmute(hmprserver), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lpbbuffer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[inline]
 pub unsafe fn MprConfigServerSetInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, psetserverconfig: *const MPR_SERVER_SET_CONFIG_EX1) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprConfigServerSetInfoEx(hmprconfig: super::super::Foundation::HANDLE, psetserverconfig: *const MPR_SERVER_SET_CONFIG_EX1) -> u32;
-        }
-        ::core::mem::transmute(MprConfigServerSetInfoEx(hmprconfig.into_param().abi(), ::core::mem::transmute(psetserverconfig)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprConfigServerSetInfoEx(hmprconfig: super::super::Foundation::HANDLE, psetserverconfig: *const MPR_SERVER_SET_CONFIG_EX1) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprConfigServerSetInfoEx(hmprconfig.into_param().abi(), ::core::mem::transmute(psetserverconfig)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprConfigTransportCreate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param7: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hmprconfig: Param0, dwtransportid: u32, lpwstransportname: Param2, pglobalinfo: *const u8, dwglobalinfosize: u32, pclientinterfaceinfo: *const u8, dwclientinterfaceinfosize: u32, lpwsdllpath: Param7, phroutertransport: *mut super::super::Foundation::HANDLE) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprConfigTransportCreate(hmprconfig: super::super::Foundation::HANDLE, dwtransportid: u32, lpwstransportname: ::windows::core::PCWSTR, pglobalinfo: *const u8, dwglobalinfosize: u32, pclientinterfaceinfo: *const u8, dwclientinterfaceinfosize: u32, lpwsdllpath: ::windows::core::PCWSTR, phroutertransport: *mut super::super::Foundation::HANDLE) -> u32;
-        }
-        ::core::mem::transmute(MprConfigTransportCreate(hmprconfig.into_param().abi(), ::core::mem::transmute(dwtransportid), lpwstransportname.into_param().abi(), ::core::mem::transmute(pglobalinfo), ::core::mem::transmute(dwglobalinfosize), ::core::mem::transmute(pclientinterfaceinfo), ::core::mem::transmute(dwclientinterfaceinfosize), lpwsdllpath.into_param().abi(), ::core::mem::transmute(phroutertransport)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprConfigTransportCreate(hmprconfig: super::super::Foundation::HANDLE, dwtransportid: u32, lpwstransportname: ::windows::core::PCWSTR, pglobalinfo: *const u8, dwglobalinfosize: u32, pclientinterfaceinfo: *const u8, dwclientinterfaceinfosize: u32, lpwsdllpath: ::windows::core::PCWSTR, phroutertransport: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprConfigTransportCreate(hmprconfig.into_param().abi(), ::core::mem::transmute(dwtransportid), lpwstransportname.into_param().abi(), ::core::mem::transmute(pglobalinfo), ::core::mem::transmute(dwglobalinfosize), ::core::mem::transmute(pclientinterfaceinfo), ::core::mem::transmute(dwclientinterfaceinfosize), lpwsdllpath.into_param().abi(), ::core::mem::transmute(phroutertransport)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprConfigTransportDelete<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, hroutertransport: Param1) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprConfigTransportDelete(hmprconfig: super::super::Foundation::HANDLE, hroutertransport: super::super::Foundation::HANDLE) -> u32;
-        }
-        ::core::mem::transmute(MprConfigTransportDelete(hmprconfig.into_param().abi(), hroutertransport.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprConfigTransportDelete(hmprconfig: super::super::Foundation::HANDLE, hroutertransport: super::super::Foundation::HANDLE) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprConfigTransportDelete(hmprconfig.into_param().abi(), hroutertransport.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprConfigTransportEnum<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, dwlevel: u32, lplpbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprConfigTransportEnum(hmprconfig: super::super::Foundation::HANDLE, dwlevel: u32, lplpbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(MprConfigTransportEnum(hmprconfig.into_param().abi(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lplpbuffer), ::core::mem::transmute(dwprefmaxlen), ::core::mem::transmute(lpdwentriesread), ::core::mem::transmute(lpdwtotalentries), ::core::mem::transmute(lpdwresumehandle)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprConfigTransportEnum(hmprconfig: super::super::Foundation::HANDLE, dwlevel: u32, lplpbuffer: *mut *mut u8, dwprefmaxlen: u32, lpdwentriesread: *mut u32, lpdwtotalentries: *mut u32, lpdwresumehandle: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprConfigTransportEnum(hmprconfig.into_param().abi(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lplpbuffer), ::core::mem::transmute(dwprefmaxlen), ::core::mem::transmute(lpdwentriesread), ::core::mem::transmute(lpdwtotalentries), ::core::mem::transmute(lpdwresumehandle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprConfigTransportGetHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, dwtransportid: u32, phroutertransport: *mut super::super::Foundation::HANDLE) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprConfigTransportGetHandle(hmprconfig: super::super::Foundation::HANDLE, dwtransportid: u32, phroutertransport: *mut super::super::Foundation::HANDLE) -> u32;
-        }
-        ::core::mem::transmute(MprConfigTransportGetHandle(hmprconfig.into_param().abi(), ::core::mem::transmute(dwtransportid), ::core::mem::transmute(phroutertransport)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprConfigTransportGetHandle(hmprconfig: super::super::Foundation::HANDLE, dwtransportid: u32, phroutertransport: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprConfigTransportGetHandle(hmprconfig.into_param().abi(), ::core::mem::transmute(dwtransportid), ::core::mem::transmute(phroutertransport)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprConfigTransportGetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmprconfig: Param0, hroutertransport: Param1, ppglobalinfo: *mut *mut u8, lpdwglobalinfosize: *mut u32, ppclientinterfaceinfo: *mut *mut u8, lpdwclientinterfaceinfosize: *mut u32, lplpwsdllpath: *mut ::windows::core::PWSTR) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprConfigTransportGetInfo(hmprconfig: super::super::Foundation::HANDLE, hroutertransport: super::super::Foundation::HANDLE, ppglobalinfo: *mut *mut u8, lpdwglobalinfosize: *mut u32, ppclientinterfaceinfo: *mut *mut u8, lpdwclientinterfaceinfosize: *mut u32, lplpwsdllpath: *mut ::windows::core::PWSTR) -> u32;
-        }
-        ::core::mem::transmute(MprConfigTransportGetInfo(hmprconfig.into_param().abi(), hroutertransport.into_param().abi(), ::core::mem::transmute(ppglobalinfo), ::core::mem::transmute(lpdwglobalinfosize), ::core::mem::transmute(ppclientinterfaceinfo), ::core::mem::transmute(lpdwclientinterfaceinfosize), ::core::mem::transmute(lplpwsdllpath)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprConfigTransportGetInfo(hmprconfig: super::super::Foundation::HANDLE, hroutertransport: super::super::Foundation::HANDLE, ppglobalinfo: *mut *mut u8, lpdwglobalinfosize: *mut u32, ppclientinterfaceinfo: *mut *mut u8, lpdwclientinterfaceinfosize: *mut u32, lplpwsdllpath: *mut ::windows::core::PWSTR) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprConfigTransportGetInfo(hmprconfig.into_param().abi(), hroutertransport.into_param().abi(), ::core::mem::transmute(ppglobalinfo), ::core::mem::transmute(lpdwglobalinfosize), ::core::mem::transmute(ppclientinterfaceinfo), ::core::mem::transmute(lpdwclientinterfaceinfosize), ::core::mem::transmute(lplpwsdllpath)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MprConfigTransportSetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param6: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hmprconfig: Param0, hroutertransport: Param1, pglobalinfo: *const u8, dwglobalinfosize: u32, pclientinterfaceinfo: *const u8, dwclientinterfaceinfosize: u32, lpwsdllpath: Param6) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprConfigTransportSetInfo(hmprconfig: super::super::Foundation::HANDLE, hroutertransport: super::super::Foundation::HANDLE, pglobalinfo: *const u8, dwglobalinfosize: u32, pclientinterfaceinfo: *const u8, dwclientinterfaceinfosize: u32, lpwsdllpath: ::windows::core::PCWSTR) -> u32;
-        }
-        ::core::mem::transmute(MprConfigTransportSetInfo(hmprconfig.into_param().abi(), hroutertransport.into_param().abi(), ::core::mem::transmute(pglobalinfo), ::core::mem::transmute(dwglobalinfosize), ::core::mem::transmute(pclientinterfaceinfo), ::core::mem::transmute(dwclientinterfaceinfosize), lpwsdllpath.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprConfigTransportSetInfo(hmprconfig: super::super::Foundation::HANDLE, hroutertransport: super::super::Foundation::HANDLE, pglobalinfo: *const u8, dwglobalinfosize: u32, pclientinterfaceinfo: *const u8, dwclientinterfaceinfosize: u32, lpwsdllpath: ::windows::core::PCWSTR) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprConfigTransportSetInfo(hmprconfig.into_param().abi(), hroutertransport.into_param().abi(), ::core::mem::transmute(pglobalinfo), ::core::mem::transmute(dwglobalinfosize), ::core::mem::transmute(pclientinterfaceinfo), ::core::mem::transmute(dwclientinterfaceinfosize), lpwsdllpath.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn MprInfoBlockAdd(lpheader: *const ::core::ffi::c_void, dwinfotype: u32, dwitemsize: u32, dwitemcount: u32, lpitemdata: *const u8, lplpnewheader: *mut *mut ::core::ffi::c_void) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprInfoBlockAdd(lpheader: *const ::core::ffi::c_void, dwinfotype: u32, dwitemsize: u32, dwitemcount: u32, lpitemdata: *const u8, lplpnewheader: *mut *mut ::core::ffi::c_void) -> u32;
-        }
-        ::core::mem::transmute(MprInfoBlockAdd(::core::mem::transmute(lpheader), ::core::mem::transmute(dwinfotype), ::core::mem::transmute(dwitemsize), ::core::mem::transmute(dwitemcount), ::core::mem::transmute(lpitemdata), ::core::mem::transmute(lplpnewheader)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprInfoBlockAdd(lpheader: *const ::core::ffi::c_void, dwinfotype: u32, dwitemsize: u32, dwitemcount: u32, lpitemdata: *const u8, lplpnewheader: *mut *mut ::core::ffi::c_void) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprInfoBlockAdd(::core::mem::transmute(lpheader), ::core::mem::transmute(dwinfotype), ::core::mem::transmute(dwitemsize), ::core::mem::transmute(dwitemcount), ::core::mem::transmute(lpitemdata), ::core::mem::transmute(lplpnewheader)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn MprInfoBlockFind(lpheader: *const ::core::ffi::c_void, dwinfotype: u32, lpdwitemsize: *mut u32, lpdwitemcount: *mut u32, lplpitemdata: *mut *mut u8) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprInfoBlockFind(lpheader: *const ::core::ffi::c_void, dwinfotype: u32, lpdwitemsize: *mut u32, lpdwitemcount: *mut u32, lplpitemdata: *mut *mut u8) -> u32;
-        }
-        ::core::mem::transmute(MprInfoBlockFind(::core::mem::transmute(lpheader), ::core::mem::transmute(dwinfotype), ::core::mem::transmute(lpdwitemsize), ::core::mem::transmute(lpdwitemcount), ::core::mem::transmute(lplpitemdata)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprInfoBlockFind(lpheader: *const ::core::ffi::c_void, dwinfotype: u32, lpdwitemsize: *mut u32, lpdwitemcount: *mut u32, lplpitemdata: *mut *mut u8) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprInfoBlockFind(::core::mem::transmute(lpheader), ::core::mem::transmute(dwinfotype), ::core::mem::transmute(lpdwitemsize), ::core::mem::transmute(lpdwitemcount), ::core::mem::transmute(lplpitemdata)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn MprInfoBlockQuerySize(lpheader: *const ::core::ffi::c_void) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprInfoBlockQuerySize(lpheader: *const ::core::ffi::c_void) -> u32;
-        }
-        ::core::mem::transmute(MprInfoBlockQuerySize(::core::mem::transmute(lpheader)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprInfoBlockQuerySize(lpheader: *const ::core::ffi::c_void) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprInfoBlockQuerySize(::core::mem::transmute(lpheader)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn MprInfoBlockRemove(lpheader: *const ::core::ffi::c_void, dwinfotype: u32, lplpnewheader: *mut *mut ::core::ffi::c_void) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprInfoBlockRemove(lpheader: *const ::core::ffi::c_void, dwinfotype: u32, lplpnewheader: *mut *mut ::core::ffi::c_void) -> u32;
-        }
-        ::core::mem::transmute(MprInfoBlockRemove(::core::mem::transmute(lpheader), ::core::mem::transmute(dwinfotype), ::core::mem::transmute(lplpnewheader)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprInfoBlockRemove(lpheader: *const ::core::ffi::c_void, dwinfotype: u32, lplpnewheader: *mut *mut ::core::ffi::c_void) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprInfoBlockRemove(::core::mem::transmute(lpheader), ::core::mem::transmute(dwinfotype), ::core::mem::transmute(lplpnewheader)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn MprInfoBlockSet(lpheader: *const ::core::ffi::c_void, dwinfotype: u32, dwitemsize: u32, dwitemcount: u32, lpitemdata: *const u8, lplpnewheader: *mut *mut ::core::ffi::c_void) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprInfoBlockSet(lpheader: *const ::core::ffi::c_void, dwinfotype: u32, dwitemsize: u32, dwitemcount: u32, lpitemdata: *const u8, lplpnewheader: *mut *mut ::core::ffi::c_void) -> u32;
-        }
-        ::core::mem::transmute(MprInfoBlockSet(::core::mem::transmute(lpheader), ::core::mem::transmute(dwinfotype), ::core::mem::transmute(dwitemsize), ::core::mem::transmute(dwitemcount), ::core::mem::transmute(lpitemdata), ::core::mem::transmute(lplpnewheader)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprInfoBlockSet(lpheader: *const ::core::ffi::c_void, dwinfotype: u32, dwitemsize: u32, dwitemcount: u32, lpitemdata: *const u8, lplpnewheader: *mut *mut ::core::ffi::c_void) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprInfoBlockSet(::core::mem::transmute(lpheader), ::core::mem::transmute(dwinfotype), ::core::mem::transmute(dwitemsize), ::core::mem::transmute(dwitemcount), ::core::mem::transmute(lpitemdata), ::core::mem::transmute(lplpnewheader)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn MprInfoCreate(dwversion: u32, lplpnewheader: *mut *mut ::core::ffi::c_void) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprInfoCreate(dwversion: u32, lplpnewheader: *mut *mut ::core::ffi::c_void) -> u32;
-        }
-        ::core::mem::transmute(MprInfoCreate(::core::mem::transmute(dwversion), ::core::mem::transmute(lplpnewheader)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprInfoCreate(dwversion: u32, lplpnewheader: *mut *mut ::core::ffi::c_void) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprInfoCreate(::core::mem::transmute(dwversion), ::core::mem::transmute(lplpnewheader)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn MprInfoDelete(lpheader: *const ::core::ffi::c_void) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprInfoDelete(lpheader: *const ::core::ffi::c_void) -> u32;
-        }
-        ::core::mem::transmute(MprInfoDelete(::core::mem::transmute(lpheader)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprInfoDelete(lpheader: *const ::core::ffi::c_void) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprInfoDelete(::core::mem::transmute(lpheader)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn MprInfoDuplicate(lpheader: *const ::core::ffi::c_void, lplpnewheader: *mut *mut ::core::ffi::c_void) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprInfoDuplicate(lpheader: *const ::core::ffi::c_void, lplpnewheader: *mut *mut ::core::ffi::c_void) -> u32;
-        }
-        ::core::mem::transmute(MprInfoDuplicate(::core::mem::transmute(lpheader), ::core::mem::transmute(lplpnewheader)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprInfoDuplicate(lpheader: *const ::core::ffi::c_void, lplpnewheader: *mut *mut ::core::ffi::c_void) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprInfoDuplicate(::core::mem::transmute(lpheader), ::core::mem::transmute(lplpnewheader)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn MprInfoRemoveAll(lpheader: *const ::core::ffi::c_void, lplpnewheader: *mut *mut ::core::ffi::c_void) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MprInfoRemoveAll(lpheader: *const ::core::ffi::c_void, lplpnewheader: *mut *mut ::core::ffi::c_void) -> u32;
-        }
-        ::core::mem::transmute(MprInfoRemoveAll(::core::mem::transmute(lpheader), ::core::mem::transmute(lplpnewheader)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MprInfoRemoveAll(lpheader: *const ::core::ffi::c_void, lplpnewheader: *mut *mut ::core::ffi::c_void) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MprInfoRemoveAll(::core::mem::transmute(lpheader), ::core::mem::transmute(lplpnewheader)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10439,90 +9799,60 @@ pub const RTM_VIEW_MASK_UCAST: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasClearConnectionStatistics<'a, Param0: ::windows::core::IntoParam<'a, HRASCONN>>(hrasconn: Param0) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasClearConnectionStatistics(hrasconn: HRASCONN) -> u32;
-        }
-        ::core::mem::transmute(RasClearConnectionStatistics(hrasconn.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasClearConnectionStatistics(hrasconn: HRASCONN) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasClearConnectionStatistics(hrasconn.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasClearLinkStatistics<'a, Param0: ::windows::core::IntoParam<'a, HRASCONN>>(hrasconn: Param0, dwsubentry: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasClearLinkStatistics(hrasconn: HRASCONN, dwsubentry: u32) -> u32;
-        }
-        ::core::mem::transmute(RasClearLinkStatistics(hrasconn.into_param().abi(), ::core::mem::transmute(dwsubentry)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasClearLinkStatistics(hrasconn: HRASCONN, dwsubentry: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasClearLinkStatistics(hrasconn.into_param().abi(), ::core::mem::transmute(dwsubentry)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RasConnectionNotificationA<'a, Param0: ::windows::core::IntoParam<'a, HRASCONN>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(param0: Param0, param1: Param1, param2: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasConnectionNotificationA(param0: HRASCONN, param1: super::super::Foundation::HANDLE, param2: u32) -> u32;
-        }
-        ::core::mem::transmute(RasConnectionNotificationA(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasConnectionNotificationA(param0: HRASCONN, param1: super::super::Foundation::HANDLE, param2: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasConnectionNotificationA(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RasConnectionNotificationW<'a, Param0: ::windows::core::IntoParam<'a, HRASCONN>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(param0: Param0, param1: Param1, param2: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasConnectionNotificationW(param0: HRASCONN, param1: super::super::Foundation::HANDLE, param2: u32) -> u32;
-        }
-        ::core::mem::transmute(RasConnectionNotificationW(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasConnectionNotificationW(param0: HRASCONN, param1: super::super::Foundation::HANDLE, param2: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasConnectionNotificationW(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RasCreatePhonebookEntryA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: Param0, param1: Param1) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasCreatePhonebookEntryA(param0: super::super::Foundation::HWND, param1: ::windows::core::PCSTR) -> u32;
-        }
-        ::core::mem::transmute(RasCreatePhonebookEntryA(param0.into_param().abi(), param1.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasCreatePhonebookEntryA(param0: super::super::Foundation::HWND, param1: ::windows::core::PCSTR) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasCreatePhonebookEntryA(param0.into_param().abi(), param1.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RasCreatePhonebookEntryW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(param0: Param0, param1: Param1) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasCreatePhonebookEntryW(param0: super::super::Foundation::HWND, param1: ::windows::core::PCWSTR) -> u32;
-        }
-        ::core::mem::transmute(RasCreatePhonebookEntryW(param0.into_param().abi(), param1.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasCreatePhonebookEntryW(param0: super::super::Foundation::HWND, param1: ::windows::core::PCWSTR) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasCreatePhonebookEntryW(param0.into_param().abi(), param1.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub type RasCustomDeleteEntryNotifyFn = ::core::option::Option<unsafe extern "system" fn(lpszphonebook: ::windows::core::PCWSTR, lpszentry: ::windows::core::PCWSTR, dwflags: u32) -> u32>;
@@ -10543,2066 +9873,1351 @@ pub type RasCustomScriptExecuteFn = ::core::option::Option<unsafe extern "system
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasDeleteEntryA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: Param0, param1: Param1) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasDeleteEntryA(param0: ::windows::core::PCSTR, param1: ::windows::core::PCSTR) -> u32;
-        }
-        ::core::mem::transmute(RasDeleteEntryA(param0.into_param().abi(), param1.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasDeleteEntryA(param0: ::windows::core::PCSTR, param1: ::windows::core::PCSTR) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasDeleteEntryA(param0.into_param().abi(), param1.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasDeleteEntryW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(param0: Param0, param1: Param1) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasDeleteEntryW(param0: ::windows::core::PCWSTR, param1: ::windows::core::PCWSTR) -> u32;
-        }
-        ::core::mem::transmute(RasDeleteEntryW(param0.into_param().abi(), param1.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasDeleteEntryW(param0: ::windows::core::PCWSTR, param1: ::windows::core::PCWSTR) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasDeleteEntryW(param0.into_param().abi(), param1.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasDeleteSubEntryA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(pszphonebook: Param0, pszentry: Param1, dwsubentryid: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasDeleteSubEntryA(pszphonebook: ::windows::core::PCSTR, pszentry: ::windows::core::PCSTR, dwsubentryid: u32) -> u32;
-        }
-        ::core::mem::transmute(RasDeleteSubEntryA(pszphonebook.into_param().abi(), pszentry.into_param().abi(), ::core::mem::transmute(dwsubentryid)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasDeleteSubEntryA(pszphonebook: ::windows::core::PCSTR, pszentry: ::windows::core::PCSTR, dwsubentryid: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasDeleteSubEntryA(pszphonebook.into_param().abi(), pszentry.into_param().abi(), ::core::mem::transmute(dwsubentryid)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasDeleteSubEntryW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pszphonebook: Param0, pszentry: Param1, dwsubentryid: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasDeleteSubEntryW(pszphonebook: ::windows::core::PCWSTR, pszentry: ::windows::core::PCWSTR, dwsubentryid: u32) -> u32;
-        }
-        ::core::mem::transmute(RasDeleteSubEntryW(pszphonebook.into_param().abi(), pszentry.into_param().abi(), ::core::mem::transmute(dwsubentryid)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasDeleteSubEntryW(pszphonebook: ::windows::core::PCWSTR, pszentry: ::windows::core::PCWSTR, dwsubentryid: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasDeleteSubEntryW(pszphonebook.into_param().abi(), pszentry.into_param().abi(), ::core::mem::transmute(dwsubentryid)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RasDialA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: *const RASDIALEXTENSIONS, param1: Param1, param2: *const RASDIALPARAMSA, param3: u32, param4: *const ::core::ffi::c_void, param5: *mut HRASCONN) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasDialA(param0: *const RASDIALEXTENSIONS, param1: ::windows::core::PCSTR, param2: *const RASDIALPARAMSA, param3: u32, param4: *const ::core::ffi::c_void, param5: *mut HRASCONN) -> u32;
-        }
-        ::core::mem::transmute(RasDialA(::core::mem::transmute(param0), param1.into_param().abi(), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasDialA(param0: *const RASDIALEXTENSIONS, param1: ::windows::core::PCSTR, param2: *const RASDIALPARAMSA, param3: u32, param4: *const ::core::ffi::c_void, param5: *mut HRASCONN) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasDialA(::core::mem::transmute(param0), param1.into_param().abi(), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RasDialDlgA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lpszphonebook: Param0, lpszentry: Param1, lpszphonenumber: Param2, lpinfo: *mut RASDIALDLG) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasDialDlgA(lpszphonebook: ::windows::core::PCSTR, lpszentry: ::windows::core::PCSTR, lpszphonenumber: ::windows::core::PCSTR, lpinfo: *mut RASDIALDLG) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(RasDialDlgA(lpszphonebook.into_param().abi(), lpszentry.into_param().abi(), lpszphonenumber.into_param().abi(), ::core::mem::transmute(lpinfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasDialDlgA(lpszphonebook: ::windows::core::PCSTR, lpszentry: ::windows::core::PCSTR, lpszphonenumber: ::windows::core::PCSTR, lpinfo: *mut RASDIALDLG) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasDialDlgA(lpszphonebook.into_param().abi(), lpszentry.into_param().abi(), lpszphonenumber.into_param().abi(), ::core::mem::transmute(lpinfo)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RasDialDlgW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpszphonebook: Param0, lpszentry: Param1, lpszphonenumber: Param2, lpinfo: *mut RASDIALDLG) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasDialDlgW(lpszphonebook: ::windows::core::PCWSTR, lpszentry: ::windows::core::PCWSTR, lpszphonenumber: ::windows::core::PCWSTR, lpinfo: *mut RASDIALDLG) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(RasDialDlgW(lpszphonebook.into_param().abi(), lpszentry.into_param().abi(), lpszphonenumber.into_param().abi(), ::core::mem::transmute(lpinfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasDialDlgW(lpszphonebook: ::windows::core::PCWSTR, lpszentry: ::windows::core::PCWSTR, lpszphonenumber: ::windows::core::PCWSTR, lpinfo: *mut RASDIALDLG) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasDialDlgW(lpszphonebook.into_param().abi(), lpszentry.into_param().abi(), lpszphonenumber.into_param().abi(), ::core::mem::transmute(lpinfo)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RasDialW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(param0: *const RASDIALEXTENSIONS, param1: Param1, param2: *const RASDIALPARAMSW, param3: u32, param4: *const ::core::ffi::c_void, param5: *mut HRASCONN) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasDialW(param0: *const RASDIALEXTENSIONS, param1: ::windows::core::PCWSTR, param2: *const RASDIALPARAMSW, param3: u32, param4: *const ::core::ffi::c_void, param5: *mut HRASCONN) -> u32;
-        }
-        ::core::mem::transmute(RasDialW(::core::mem::transmute(param0), param1.into_param().abi(), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasDialW(param0: *const RASDIALEXTENSIONS, param1: ::windows::core::PCWSTR, param2: *const RASDIALPARAMSW, param3: u32, param4: *const ::core::ffi::c_void, param5: *mut HRASCONN) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasDialW(::core::mem::transmute(param0), param1.into_param().abi(), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RasEditPhonebookEntryA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: Param0, param1: Param1, param2: Param2) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasEditPhonebookEntryA(param0: super::super::Foundation::HWND, param1: ::windows::core::PCSTR, param2: ::windows::core::PCSTR) -> u32;
-        }
-        ::core::mem::transmute(RasEditPhonebookEntryA(param0.into_param().abi(), param1.into_param().abi(), param2.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasEditPhonebookEntryA(param0: super::super::Foundation::HWND, param1: ::windows::core::PCSTR, param2: ::windows::core::PCSTR) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasEditPhonebookEntryA(param0.into_param().abi(), param1.into_param().abi(), param2.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RasEditPhonebookEntryW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(param0: Param0, param1: Param1, param2: Param2) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasEditPhonebookEntryW(param0: super::super::Foundation::HWND, param1: ::windows::core::PCWSTR, param2: ::windows::core::PCWSTR) -> u32;
-        }
-        ::core::mem::transmute(RasEditPhonebookEntryW(param0.into_param().abi(), param1.into_param().abi(), param2.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasEditPhonebookEntryW(param0: super::super::Foundation::HWND, param1: ::windows::core::PCWSTR, param2: ::windows::core::PCWSTR) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasEditPhonebookEntryW(param0.into_param().abi(), param1.into_param().abi(), param2.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RasEntryDlgA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lpszphonebook: Param0, lpszentry: Param1, lpinfo: *mut RASENTRYDLGA) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasEntryDlgA(lpszphonebook: ::windows::core::PCSTR, lpszentry: ::windows::core::PCSTR, lpinfo: *mut RASENTRYDLGA) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(RasEntryDlgA(lpszphonebook.into_param().abi(), lpszentry.into_param().abi(), ::core::mem::transmute(lpinfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasEntryDlgA(lpszphonebook: ::windows::core::PCSTR, lpszentry: ::windows::core::PCSTR, lpinfo: *mut RASENTRYDLGA) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasEntryDlgA(lpszphonebook.into_param().abi(), lpszentry.into_param().abi(), ::core::mem::transmute(lpinfo)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RasEntryDlgW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpszphonebook: Param0, lpszentry: Param1, lpinfo: *mut RASENTRYDLGW) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasEntryDlgW(lpszphonebook: ::windows::core::PCWSTR, lpszentry: ::windows::core::PCWSTR, lpinfo: *mut RASENTRYDLGW) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(RasEntryDlgW(lpszphonebook.into_param().abi(), lpszentry.into_param().abi(), ::core::mem::transmute(lpinfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasEntryDlgW(lpszphonebook: ::windows::core::PCWSTR, lpszentry: ::windows::core::PCWSTR, lpinfo: *mut RASENTRYDLGW) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasEntryDlgW(lpszphonebook.into_param().abi(), lpszentry.into_param().abi(), ::core::mem::transmute(lpinfo)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasEnumAutodialAddressesA(lpprasautodialaddresses: *mut ::windows::core::PSTR, lpdwcbrasautodialaddresses: *mut u32, lpdwcrasautodialaddresses: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasEnumAutodialAddressesA(lpprasautodialaddresses: *mut ::windows::core::PSTR, lpdwcbrasautodialaddresses: *mut u32, lpdwcrasautodialaddresses: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(RasEnumAutodialAddressesA(::core::mem::transmute(lpprasautodialaddresses), ::core::mem::transmute(lpdwcbrasautodialaddresses), ::core::mem::transmute(lpdwcrasautodialaddresses)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasEnumAutodialAddressesA(lpprasautodialaddresses: *mut ::windows::core::PSTR, lpdwcbrasautodialaddresses: *mut u32, lpdwcrasautodialaddresses: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasEnumAutodialAddressesA(::core::mem::transmute(lpprasautodialaddresses), ::core::mem::transmute(lpdwcbrasautodialaddresses), ::core::mem::transmute(lpdwcrasautodialaddresses)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasEnumAutodialAddressesW(lpprasautodialaddresses: *mut ::windows::core::PWSTR, lpdwcbrasautodialaddresses: *mut u32, lpdwcrasautodialaddresses: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasEnumAutodialAddressesW(lpprasautodialaddresses: *mut ::windows::core::PWSTR, lpdwcbrasautodialaddresses: *mut u32, lpdwcrasautodialaddresses: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(RasEnumAutodialAddressesW(::core::mem::transmute(lpprasautodialaddresses), ::core::mem::transmute(lpdwcbrasautodialaddresses), ::core::mem::transmute(lpdwcrasautodialaddresses)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasEnumAutodialAddressesW(lpprasautodialaddresses: *mut ::windows::core::PWSTR, lpdwcbrasautodialaddresses: *mut u32, lpdwcrasautodialaddresses: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasEnumAutodialAddressesW(::core::mem::transmute(lpprasautodialaddresses), ::core::mem::transmute(lpdwcbrasautodialaddresses), ::core::mem::transmute(lpdwcrasautodialaddresses)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RasEnumConnectionsA(param0: *mut RASCONNA, param1: *mut u32, param2: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasEnumConnectionsA(param0: *mut RASCONNA, param1: *mut u32, param2: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(RasEnumConnectionsA(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasEnumConnectionsA(param0: *mut RASCONNA, param1: *mut u32, param2: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasEnumConnectionsA(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RasEnumConnectionsW(param0: *mut RASCONNW, param1: *mut u32, param2: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasEnumConnectionsW(param0: *mut RASCONNW, param1: *mut u32, param2: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(RasEnumConnectionsW(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasEnumConnectionsW(param0: *mut RASCONNW, param1: *mut u32, param2: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasEnumConnectionsW(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RasEnumDevicesA(param0: *mut RASDEVINFOA, param1: *mut u32, param2: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasEnumDevicesA(param0: *mut RASDEVINFOA, param1: *mut u32, param2: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(RasEnumDevicesA(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasEnumDevicesA(param0: *mut RASDEVINFOA, param1: *mut u32, param2: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasEnumDevicesA(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasEnumDevicesW(param0: *mut RASDEVINFOW, param1: *mut u32, param2: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasEnumDevicesW(param0: *mut RASDEVINFOW, param1: *mut u32, param2: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(RasEnumDevicesW(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasEnumDevicesW(param0: *mut RASDEVINFOW, param1: *mut u32, param2: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasEnumDevicesW(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RasEnumEntriesA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: Param0, param1: Param1, param2: *mut RASENTRYNAMEA, param3: *mut u32, param4: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasEnumEntriesA(param0: ::windows::core::PCSTR, param1: ::windows::core::PCSTR, param2: *mut RASENTRYNAMEA, param3: *mut u32, param4: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(RasEnumEntriesA(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasEnumEntriesA(param0: ::windows::core::PCSTR, param1: ::windows::core::PCSTR, param2: *mut RASENTRYNAMEA, param3: *mut u32, param4: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasEnumEntriesA(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasEnumEntriesW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(param0: Param0, param1: Param1, param2: *mut RASENTRYNAMEW, param3: *mut u32, param4: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasEnumEntriesW(param0: ::windows::core::PCWSTR, param1: ::windows::core::PCWSTR, param2: *mut RASENTRYNAMEW, param3: *mut u32, param4: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(RasEnumEntriesW(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasEnumEntriesW(param0: ::windows::core::PCWSTR, param1: ::windows::core::PCWSTR, param2: *mut RASENTRYNAMEW, param3: *mut u32, param4: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasEnumEntriesW(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RasFreeEapUserIdentityA(praseapuseridentity: *const RASEAPUSERIDENTITYA) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasFreeEapUserIdentityA(praseapuseridentity: *const RASEAPUSERIDENTITYA);
-        }
-        RasFreeEapUserIdentityA(::core::mem::transmute(praseapuseridentity))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasFreeEapUserIdentityA(praseapuseridentity: *const RASEAPUSERIDENTITYA);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    RasFreeEapUserIdentityA(::core::mem::transmute(praseapuseridentity))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasFreeEapUserIdentityW(praseapuseridentity: *const RASEAPUSERIDENTITYW) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasFreeEapUserIdentityW(praseapuseridentity: *const RASEAPUSERIDENTITYW);
-        }
-        RasFreeEapUserIdentityW(::core::mem::transmute(praseapuseridentity))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasFreeEapUserIdentityW(praseapuseridentity: *const RASEAPUSERIDENTITYW);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    RasFreeEapUserIdentityW(::core::mem::transmute(praseapuseridentity))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RasGetAutodialAddressA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: Param0, param1: *const u32, param2: *mut RASAUTODIALENTRYA, param3: *mut u32, param4: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasGetAutodialAddressA(param0: ::windows::core::PCSTR, param1: *const u32, param2: *mut RASAUTODIALENTRYA, param3: *mut u32, param4: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(RasGetAutodialAddressA(param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasGetAutodialAddressA(param0: ::windows::core::PCSTR, param1: *const u32, param2: *mut RASAUTODIALENTRYA, param3: *mut u32, param4: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasGetAutodialAddressA(param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasGetAutodialAddressW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(param0: Param0, param1: *const u32, param2: *mut RASAUTODIALENTRYW, param3: *mut u32, param4: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasGetAutodialAddressW(param0: ::windows::core::PCWSTR, param1: *const u32, param2: *mut RASAUTODIALENTRYW, param3: *mut u32, param4: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(RasGetAutodialAddressW(param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasGetAutodialAddressW(param0: ::windows::core::PCWSTR, param1: *const u32, param2: *mut RASAUTODIALENTRYW, param3: *mut u32, param4: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasGetAutodialAddressW(param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasGetAutodialEnableA(param0: u32, param1: *mut i32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasGetAutodialEnableA(param0: u32, param1: *mut i32) -> u32;
-        }
-        ::core::mem::transmute(RasGetAutodialEnableA(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasGetAutodialEnableA(param0: u32, param1: *mut i32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasGetAutodialEnableA(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasGetAutodialEnableW(param0: u32, param1: *mut i32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasGetAutodialEnableW(param0: u32, param1: *mut i32) -> u32;
-        }
-        ::core::mem::transmute(RasGetAutodialEnableW(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasGetAutodialEnableW(param0: u32, param1: *mut i32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasGetAutodialEnableW(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasGetAutodialParamA(param0: u32, param1: *mut ::core::ffi::c_void, param2: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasGetAutodialParamA(param0: u32, param1: *mut ::core::ffi::c_void, param2: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(RasGetAutodialParamA(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasGetAutodialParamA(param0: u32, param1: *mut ::core::ffi::c_void, param2: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasGetAutodialParamA(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasGetAutodialParamW(param0: u32, param1: *mut ::core::ffi::c_void, param2: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasGetAutodialParamW(param0: u32, param1: *mut ::core::ffi::c_void, param2: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(RasGetAutodialParamW(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasGetAutodialParamW(param0: u32, param1: *mut ::core::ffi::c_void, param2: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasGetAutodialParamW(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn RasGetConnectStatusA<'a, Param0: ::windows::core::IntoParam<'a, HRASCONN>>(param0: Param0, param1: *mut RASCONNSTATUSA) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasGetConnectStatusA(param0: HRASCONN, param1: *mut RASCONNSTATUSA) -> u32;
-        }
-        ::core::mem::transmute(RasGetConnectStatusA(param0.into_param().abi(), ::core::mem::transmute(param1)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasGetConnectStatusA(param0: HRASCONN, param1: *mut RASCONNSTATUSA) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasGetConnectStatusA(param0.into_param().abi(), ::core::mem::transmute(param1)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
 pub unsafe fn RasGetConnectStatusW<'a, Param0: ::windows::core::IntoParam<'a, HRASCONN>>(param0: Param0, param1: *mut RASCONNSTATUSW) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasGetConnectStatusW(param0: HRASCONN, param1: *mut RASCONNSTATUSW) -> u32;
-        }
-        ::core::mem::transmute(RasGetConnectStatusW(param0.into_param().abi(), ::core::mem::transmute(param1)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasGetConnectStatusW(param0: HRASCONN, param1: *mut RASCONNSTATUSW) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasGetConnectStatusW(param0.into_param().abi(), ::core::mem::transmute(param1)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasGetConnectionStatistics<'a, Param0: ::windows::core::IntoParam<'a, HRASCONN>>(hrasconn: Param0, lpstatistics: *mut RAS_STATS) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasGetConnectionStatistics(hrasconn: HRASCONN, lpstatistics: *mut RAS_STATS) -> u32;
-        }
-        ::core::mem::transmute(RasGetConnectionStatistics(hrasconn.into_param().abi(), ::core::mem::transmute(lpstatistics)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasGetConnectionStatistics(hrasconn: HRASCONN, lpstatistics: *mut RAS_STATS) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasGetConnectionStatistics(hrasconn.into_param().abi(), ::core::mem::transmute(lpstatistics)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasGetCountryInfoA(param0: *mut RASCTRYINFO, param1: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasGetCountryInfoA(param0: *mut RASCTRYINFO, param1: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(RasGetCountryInfoA(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasGetCountryInfoA(param0: *mut RASCTRYINFO, param1: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasGetCountryInfoA(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasGetCountryInfoW(param0: *mut RASCTRYINFO, param1: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasGetCountryInfoW(param0: *mut RASCTRYINFO, param1: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(RasGetCountryInfoW(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasGetCountryInfoW(param0: *mut RASCTRYINFO, param1: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasGetCountryInfoW(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RasGetCredentialsA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: Param0, param1: Param1, param2: *mut RASCREDENTIALSA) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasGetCredentialsA(param0: ::windows::core::PCSTR, param1: ::windows::core::PCSTR, param2: *mut RASCREDENTIALSA) -> u32;
-        }
-        ::core::mem::transmute(RasGetCredentialsA(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasGetCredentialsA(param0: ::windows::core::PCSTR, param1: ::windows::core::PCSTR, param2: *mut RASCREDENTIALSA) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasGetCredentialsA(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasGetCredentialsW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(param0: Param0, param1: Param1, param2: *mut RASCREDENTIALSW) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasGetCredentialsW(param0: ::windows::core::PCWSTR, param1: ::windows::core::PCWSTR, param2: *mut RASCREDENTIALSW) -> u32;
-        }
-        ::core::mem::transmute(RasGetCredentialsW(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasGetCredentialsW(param0: ::windows::core::PCWSTR, param1: ::windows::core::PCWSTR, param2: *mut RASCREDENTIALSW) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasGetCredentialsW(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasGetCustomAuthDataA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(pszphonebook: Param0, pszentry: Param1, pbcustomauthdata: *mut u8, pdwsizeofcustomauthdata: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasGetCustomAuthDataA(pszphonebook: ::windows::core::PCSTR, pszentry: ::windows::core::PCSTR, pbcustomauthdata: *mut u8, pdwsizeofcustomauthdata: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(RasGetCustomAuthDataA(pszphonebook.into_param().abi(), pszentry.into_param().abi(), ::core::mem::transmute(pbcustomauthdata), ::core::mem::transmute(pdwsizeofcustomauthdata)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasGetCustomAuthDataA(pszphonebook: ::windows::core::PCSTR, pszentry: ::windows::core::PCSTR, pbcustomauthdata: *mut u8, pdwsizeofcustomauthdata: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasGetCustomAuthDataA(pszphonebook.into_param().abi(), pszentry.into_param().abi(), ::core::mem::transmute(pbcustomauthdata), ::core::mem::transmute(pdwsizeofcustomauthdata)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasGetCustomAuthDataW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pszphonebook: Param0, pszentry: Param1, pbcustomauthdata: *mut u8, pdwsizeofcustomauthdata: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasGetCustomAuthDataW(pszphonebook: ::windows::core::PCWSTR, pszentry: ::windows::core::PCWSTR, pbcustomauthdata: *mut u8, pdwsizeofcustomauthdata: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(RasGetCustomAuthDataW(pszphonebook.into_param().abi(), pszentry.into_param().abi(), ::core::mem::transmute(pbcustomauthdata), ::core::mem::transmute(pdwsizeofcustomauthdata)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasGetCustomAuthDataW(pszphonebook: ::windows::core::PCWSTR, pszentry: ::windows::core::PCWSTR, pbcustomauthdata: *mut u8, pdwsizeofcustomauthdata: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasGetCustomAuthDataW(pszphonebook.into_param().abi(), pszentry.into_param().abi(), ::core::mem::transmute(pbcustomauthdata), ::core::mem::transmute(pdwsizeofcustomauthdata)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RasGetEapUserDataA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(htoken: Param0, pszphonebook: Param1, pszentry: Param2, pbeapdata: *mut u8, pdwsizeofeapdata: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasGetEapUserDataA(htoken: super::super::Foundation::HANDLE, pszphonebook: ::windows::core::PCSTR, pszentry: ::windows::core::PCSTR, pbeapdata: *mut u8, pdwsizeofeapdata: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(RasGetEapUserDataA(htoken.into_param().abi(), pszphonebook.into_param().abi(), pszentry.into_param().abi(), ::core::mem::transmute(pbeapdata), ::core::mem::transmute(pdwsizeofeapdata)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasGetEapUserDataA(htoken: super::super::Foundation::HANDLE, pszphonebook: ::windows::core::PCSTR, pszentry: ::windows::core::PCSTR, pbeapdata: *mut u8, pdwsizeofeapdata: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasGetEapUserDataA(htoken.into_param().abi(), pszphonebook.into_param().abi(), pszentry.into_param().abi(), ::core::mem::transmute(pbeapdata), ::core::mem::transmute(pdwsizeofeapdata)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RasGetEapUserDataW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(htoken: Param0, pszphonebook: Param1, pszentry: Param2, pbeapdata: *mut u8, pdwsizeofeapdata: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasGetEapUserDataW(htoken: super::super::Foundation::HANDLE, pszphonebook: ::windows::core::PCWSTR, pszentry: ::windows::core::PCWSTR, pbeapdata: *mut u8, pdwsizeofeapdata: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(RasGetEapUserDataW(htoken.into_param().abi(), pszphonebook.into_param().abi(), pszentry.into_param().abi(), ::core::mem::transmute(pbeapdata), ::core::mem::transmute(pdwsizeofeapdata)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasGetEapUserDataW(htoken: super::super::Foundation::HANDLE, pszphonebook: ::windows::core::PCWSTR, pszentry: ::windows::core::PCWSTR, pbeapdata: *mut u8, pdwsizeofeapdata: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasGetEapUserDataW(htoken.into_param().abi(), pszphonebook.into_param().abi(), pszentry.into_param().abi(), ::core::mem::transmute(pbeapdata), ::core::mem::transmute(pdwsizeofeapdata)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RasGetEapUserIdentityA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(pszphonebook: Param0, pszentry: Param1, dwflags: u32, hwnd: Param3, ppraseapuseridentity: *mut *mut RASEAPUSERIDENTITYA) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasGetEapUserIdentityA(pszphonebook: ::windows::core::PCSTR, pszentry: ::windows::core::PCSTR, dwflags: u32, hwnd: super::super::Foundation::HWND, ppraseapuseridentity: *mut *mut RASEAPUSERIDENTITYA) -> u32;
-        }
-        ::core::mem::transmute(RasGetEapUserIdentityA(pszphonebook.into_param().abi(), pszentry.into_param().abi(), ::core::mem::transmute(dwflags), hwnd.into_param().abi(), ::core::mem::transmute(ppraseapuseridentity)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasGetEapUserIdentityA(pszphonebook: ::windows::core::PCSTR, pszentry: ::windows::core::PCSTR, dwflags: u32, hwnd: super::super::Foundation::HWND, ppraseapuseridentity: *mut *mut RASEAPUSERIDENTITYA) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasGetEapUserIdentityA(pszphonebook.into_param().abi(), pszentry.into_param().abi(), ::core::mem::transmute(dwflags), hwnd.into_param().abi(), ::core::mem::transmute(ppraseapuseridentity)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RasGetEapUserIdentityW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(pszphonebook: Param0, pszentry: Param1, dwflags: u32, hwnd: Param3, ppraseapuseridentity: *mut *mut RASEAPUSERIDENTITYW) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasGetEapUserIdentityW(pszphonebook: ::windows::core::PCWSTR, pszentry: ::windows::core::PCWSTR, dwflags: u32, hwnd: super::super::Foundation::HWND, ppraseapuseridentity: *mut *mut RASEAPUSERIDENTITYW) -> u32;
-        }
-        ::core::mem::transmute(RasGetEapUserIdentityW(pszphonebook.into_param().abi(), pszentry.into_param().abi(), ::core::mem::transmute(dwflags), hwnd.into_param().abi(), ::core::mem::transmute(ppraseapuseridentity)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasGetEapUserIdentityW(pszphonebook: ::windows::core::PCWSTR, pszentry: ::windows::core::PCWSTR, dwflags: u32, hwnd: super::super::Foundation::HWND, ppraseapuseridentity: *mut *mut RASEAPUSERIDENTITYW) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasGetEapUserIdentityW(pszphonebook.into_param().abi(), pszentry.into_param().abi(), ::core::mem::transmute(dwflags), hwnd.into_param().abi(), ::core::mem::transmute(ppraseapuseridentity)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RasGetEntryDialParamsA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: Param0, param1: *mut RASDIALPARAMSA, param2: *mut i32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasGetEntryDialParamsA(param0: ::windows::core::PCSTR, param1: *mut RASDIALPARAMSA, param2: *mut i32) -> u32;
-        }
-        ::core::mem::transmute(RasGetEntryDialParamsA(param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasGetEntryDialParamsA(param0: ::windows::core::PCSTR, param1: *mut RASDIALPARAMSA, param2: *mut i32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasGetEntryDialParamsA(param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasGetEntryDialParamsW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(param0: Param0, param1: *mut RASDIALPARAMSW, param2: *mut i32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasGetEntryDialParamsW(param0: ::windows::core::PCWSTR, param1: *mut RASDIALPARAMSW, param2: *mut i32) -> u32;
-        }
-        ::core::mem::transmute(RasGetEntryDialParamsW(param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasGetEntryDialParamsW(param0: ::windows::core::PCWSTR, param1: *mut RASDIALPARAMSW, param2: *mut i32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasGetEntryDialParamsW(param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn RasGetEntryPropertiesA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: Param0, param1: Param1, param2: *mut RASENTRYA, param3: *mut u32, param4: *mut u8, param5: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasGetEntryPropertiesA(param0: ::windows::core::PCSTR, param1: ::windows::core::PCSTR, param2: *mut RASENTRYA, param3: *mut u32, param4: *mut u8, param5: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(RasGetEntryPropertiesA(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasGetEntryPropertiesA(param0: ::windows::core::PCSTR, param1: ::windows::core::PCSTR, param2: *mut RASENTRYA, param3: *mut u32, param4: *mut u8, param5: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasGetEntryPropertiesA(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn RasGetEntryPropertiesW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(param0: Param0, param1: Param1, param2: *mut RASENTRYW, param3: *mut u32, param4: *mut u8, param5: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasGetEntryPropertiesW(param0: ::windows::core::PCWSTR, param1: ::windows::core::PCWSTR, param2: *mut RASENTRYW, param3: *mut u32, param4: *mut u8, param5: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(RasGetEntryPropertiesW(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasGetEntryPropertiesW(param0: ::windows::core::PCWSTR, param1: ::windows::core::PCWSTR, param2: *mut RASENTRYW, param3: *mut u32, param4: *mut u8, param5: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasGetEntryPropertiesW(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasGetErrorStringA(resourceid: u32, lpszstring: &mut [u8]) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasGetErrorStringA(resourceid: u32, lpszstring: ::windows::core::PSTR, inbufsize: u32) -> u32;
-        }
-        ::core::mem::transmute(RasGetErrorStringA(::core::mem::transmute(resourceid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszstring)), lpszstring.len() as _))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasGetErrorStringA(resourceid: u32, lpszstring: ::windows::core::PSTR, inbufsize: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasGetErrorStringA(::core::mem::transmute(resourceid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszstring)), lpszstring.len() as _))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasGetErrorStringW(resourceid: u32, lpszstring: &mut [u16]) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasGetErrorStringW(resourceid: u32, lpszstring: ::windows::core::PWSTR, inbufsize: u32) -> u32;
-        }
-        ::core::mem::transmute(RasGetErrorStringW(::core::mem::transmute(resourceid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszstring)), lpszstring.len() as _))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasGetErrorStringW(resourceid: u32, lpszstring: ::windows::core::PWSTR, inbufsize: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasGetErrorStringW(::core::mem::transmute(resourceid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszstring)), lpszstring.len() as _))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasGetLinkStatistics<'a, Param0: ::windows::core::IntoParam<'a, HRASCONN>>(hrasconn: Param0, dwsubentry: u32, lpstatistics: *mut RAS_STATS) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasGetLinkStatistics(hrasconn: HRASCONN, dwsubentry: u32, lpstatistics: *mut RAS_STATS) -> u32;
-        }
-        ::core::mem::transmute(RasGetLinkStatistics(hrasconn.into_param().abi(), ::core::mem::transmute(dwsubentry), ::core::mem::transmute(lpstatistics)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasGetLinkStatistics(hrasconn: HRASCONN, dwsubentry: u32, lpstatistics: *mut RAS_STATS) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasGetLinkStatistics(hrasconn.into_param().abi(), ::core::mem::transmute(dwsubentry), ::core::mem::transmute(lpstatistics)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasGetPCscf(lpszpcscf: ::windows::core::PWSTR) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasGetPCscf(lpszpcscf: ::windows::core::PWSTR) -> u32;
-        }
-        ::core::mem::transmute(RasGetPCscf(::core::mem::transmute(lpszpcscf)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasGetPCscf(lpszpcscf: ::windows::core::PWSTR) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasGetPCscf(::core::mem::transmute(lpszpcscf)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasGetProjectionInfoA<'a, Param0: ::windows::core::IntoParam<'a, HRASCONN>>(param0: Param0, param1: RASPROJECTION, param2: *mut ::core::ffi::c_void, param3: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasGetProjectionInfoA(param0: HRASCONN, param1: RASPROJECTION, param2: *mut ::core::ffi::c_void, param3: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(RasGetProjectionInfoA(param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasGetProjectionInfoA(param0: HRASCONN, param1: RASPROJECTION, param2: *mut ::core::ffi::c_void, param3: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasGetProjectionInfoA(param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn RasGetProjectionInfoEx<'a, Param0: ::windows::core::IntoParam<'a, HRASCONN>>(hrasconn: Param0, prasprojection: *mut RAS_PROJECTION_INFO, lpdwsize: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasGetProjectionInfoEx(hrasconn: HRASCONN, prasprojection: *mut RAS_PROJECTION_INFO, lpdwsize: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(RasGetProjectionInfoEx(hrasconn.into_param().abi(), ::core::mem::transmute(prasprojection), ::core::mem::transmute(lpdwsize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasGetProjectionInfoEx(hrasconn: HRASCONN, prasprojection: *mut RAS_PROJECTION_INFO, lpdwsize: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasGetProjectionInfoEx(hrasconn.into_param().abi(), ::core::mem::transmute(prasprojection), ::core::mem::transmute(lpdwsize)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasGetProjectionInfoW<'a, Param0: ::windows::core::IntoParam<'a, HRASCONN>>(param0: Param0, param1: RASPROJECTION, param2: *mut ::core::ffi::c_void, param3: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasGetProjectionInfoW(param0: HRASCONN, param1: RASPROJECTION, param2: *mut ::core::ffi::c_void, param3: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(RasGetProjectionInfoW(param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasGetProjectionInfoW(param0: HRASCONN, param1: RASPROJECTION, param2: *mut ::core::ffi::c_void, param3: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasGetProjectionInfoW(param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasGetSubEntryHandleA<'a, Param0: ::windows::core::IntoParam<'a, HRASCONN>>(param0: Param0, param1: u32, param2: *mut HRASCONN) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasGetSubEntryHandleA(param0: HRASCONN, param1: u32, param2: *mut HRASCONN) -> u32;
-        }
-        ::core::mem::transmute(RasGetSubEntryHandleA(param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasGetSubEntryHandleA(param0: HRASCONN, param1: u32, param2: *mut HRASCONN) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasGetSubEntryHandleA(param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasGetSubEntryHandleW<'a, Param0: ::windows::core::IntoParam<'a, HRASCONN>>(param0: Param0, param1: u32, param2: *mut HRASCONN) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasGetSubEntryHandleW(param0: HRASCONN, param1: u32, param2: *mut HRASCONN) -> u32;
-        }
-        ::core::mem::transmute(RasGetSubEntryHandleW(param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasGetSubEntryHandleW(param0: HRASCONN, param1: u32, param2: *mut HRASCONN) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasGetSubEntryHandleW(param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RasGetSubEntryPropertiesA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: Param0, param1: Param1, param2: u32, param3: *mut RASSUBENTRYA, param4: *mut u32, param5: *mut u8, param6: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasGetSubEntryPropertiesA(param0: ::windows::core::PCSTR, param1: ::windows::core::PCSTR, param2: u32, param3: *mut RASSUBENTRYA, param4: *mut u32, param5: *mut u8, param6: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(RasGetSubEntryPropertiesA(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5), ::core::mem::transmute(param6)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasGetSubEntryPropertiesA(param0: ::windows::core::PCSTR, param1: ::windows::core::PCSTR, param2: u32, param3: *mut RASSUBENTRYA, param4: *mut u32, param5: *mut u8, param6: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasGetSubEntryPropertiesA(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5), ::core::mem::transmute(param6)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasGetSubEntryPropertiesW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(param0: Param0, param1: Param1, param2: u32, param3: *mut RASSUBENTRYW, param4: *mut u32, param5: *mut u8, param6: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasGetSubEntryPropertiesW(param0: ::windows::core::PCWSTR, param1: ::windows::core::PCWSTR, param2: u32, param3: *mut RASSUBENTRYW, param4: *mut u32, param5: *mut u8, param6: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(RasGetSubEntryPropertiesW(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5), ::core::mem::transmute(param6)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasGetSubEntryPropertiesW(param0: ::windows::core::PCWSTR, param1: ::windows::core::PCWSTR, param2: u32, param3: *mut RASSUBENTRYW, param4: *mut u32, param5: *mut u8, param6: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasGetSubEntryPropertiesW(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5), ::core::mem::transmute(param6)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasHangUpA<'a, Param0: ::windows::core::IntoParam<'a, HRASCONN>>(param0: Param0) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasHangUpA(param0: HRASCONN) -> u32;
-        }
-        ::core::mem::transmute(RasHangUpA(param0.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasHangUpA(param0: HRASCONN) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasHangUpA(param0.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasHangUpW<'a, Param0: ::windows::core::IntoParam<'a, HRASCONN>>(param0: Param0) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasHangUpW(param0: HRASCONN) -> u32;
-        }
-        ::core::mem::transmute(RasHangUpW(param0.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasHangUpW(param0: HRASCONN) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasHangUpW(param0.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RasInvokeEapUI<'a, Param0: ::windows::core::IntoParam<'a, HRASCONN>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(param0: Param0, param1: u32, param2: *const RASDIALEXTENSIONS, param3: Param3) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasInvokeEapUI(param0: HRASCONN, param1: u32, param2: *const RASDIALEXTENSIONS, param3: super::super::Foundation::HWND) -> u32;
-        }
-        ::core::mem::transmute(RasInvokeEapUI(param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), param3.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasInvokeEapUI(param0: HRASCONN, param1: u32, param2: *const RASDIALEXTENSIONS, param3: super::super::Foundation::HWND) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasInvokeEapUI(param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), param3.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RasPhonebookDlgA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lpszphonebook: Param0, lpszentry: Param1, lpinfo: *mut RASPBDLGA) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasPhonebookDlgA(lpszphonebook: ::windows::core::PCSTR, lpszentry: ::windows::core::PCSTR, lpinfo: *mut RASPBDLGA) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(RasPhonebookDlgA(lpszphonebook.into_param().abi(), lpszentry.into_param().abi(), ::core::mem::transmute(lpinfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasPhonebookDlgA(lpszphonebook: ::windows::core::PCSTR, lpszentry: ::windows::core::PCSTR, lpinfo: *mut RASPBDLGA) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasPhonebookDlgA(lpszphonebook.into_param().abi(), lpszentry.into_param().abi(), ::core::mem::transmute(lpinfo)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RasPhonebookDlgW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpszphonebook: Param0, lpszentry: Param1, lpinfo: *mut RASPBDLGW) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasPhonebookDlgW(lpszphonebook: ::windows::core::PCWSTR, lpszentry: ::windows::core::PCWSTR, lpinfo: *mut RASPBDLGW) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(RasPhonebookDlgW(lpszphonebook.into_param().abi(), lpszentry.into_param().abi(), ::core::mem::transmute(lpinfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasPhonebookDlgW(lpszphonebook: ::windows::core::PCWSTR, lpszentry: ::windows::core::PCWSTR, lpinfo: *mut RASPBDLGW) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasPhonebookDlgW(lpszphonebook.into_param().abi(), lpszentry.into_param().abi(), ::core::mem::transmute(lpinfo)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasRenameEntryA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: Param0, param1: Param1, param2: Param2) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasRenameEntryA(param0: ::windows::core::PCSTR, param1: ::windows::core::PCSTR, param2: ::windows::core::PCSTR) -> u32;
-        }
-        ::core::mem::transmute(RasRenameEntryA(param0.into_param().abi(), param1.into_param().abi(), param2.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasRenameEntryA(param0: ::windows::core::PCSTR, param1: ::windows::core::PCSTR, param2: ::windows::core::PCSTR) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasRenameEntryA(param0.into_param().abi(), param1.into_param().abi(), param2.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasRenameEntryW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(param0: Param0, param1: Param1, param2: Param2) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasRenameEntryW(param0: ::windows::core::PCWSTR, param1: ::windows::core::PCWSTR, param2: ::windows::core::PCWSTR) -> u32;
-        }
-        ::core::mem::transmute(RasRenameEntryW(param0.into_param().abi(), param1.into_param().abi(), param2.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasRenameEntryW(param0: ::windows::core::PCWSTR, param1: ::windows::core::PCWSTR, param2: ::windows::core::PCWSTR) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasRenameEntryW(param0.into_param().abi(), param1.into_param().abi(), param2.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RasSetAutodialAddressA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: Param0, param1: u32, param2: *const RASAUTODIALENTRYA, param3: u32, param4: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasSetAutodialAddressA(param0: ::windows::core::PCSTR, param1: u32, param2: *const RASAUTODIALENTRYA, param3: u32, param4: u32) -> u32;
-        }
-        ::core::mem::transmute(RasSetAutodialAddressA(param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasSetAutodialAddressA(param0: ::windows::core::PCSTR, param1: u32, param2: *const RASAUTODIALENTRYA, param3: u32, param4: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasSetAutodialAddressA(param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasSetAutodialAddressW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(param0: Param0, param1: u32, param2: *const RASAUTODIALENTRYW, param3: u32, param4: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasSetAutodialAddressW(param0: ::windows::core::PCWSTR, param1: u32, param2: *const RASAUTODIALENTRYW, param3: u32, param4: u32) -> u32;
-        }
-        ::core::mem::transmute(RasSetAutodialAddressW(param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasSetAutodialAddressW(param0: ::windows::core::PCWSTR, param1: u32, param2: *const RASAUTODIALENTRYW, param3: u32, param4: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasSetAutodialAddressW(param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RasSetAutodialEnableA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(param0: u32, param1: Param1) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasSetAutodialEnableA(param0: u32, param1: super::super::Foundation::BOOL) -> u32;
-        }
-        ::core::mem::transmute(RasSetAutodialEnableA(::core::mem::transmute(param0), param1.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasSetAutodialEnableA(param0: u32, param1: super::super::Foundation::BOOL) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasSetAutodialEnableA(::core::mem::transmute(param0), param1.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RasSetAutodialEnableW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(param0: u32, param1: Param1) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasSetAutodialEnableW(param0: u32, param1: super::super::Foundation::BOOL) -> u32;
-        }
-        ::core::mem::transmute(RasSetAutodialEnableW(::core::mem::transmute(param0), param1.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasSetAutodialEnableW(param0: u32, param1: super::super::Foundation::BOOL) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasSetAutodialEnableW(::core::mem::transmute(param0), param1.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasSetAutodialParamA(param0: u32, param1: *const ::core::ffi::c_void, param2: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasSetAutodialParamA(param0: u32, param1: *const ::core::ffi::c_void, param2: u32) -> u32;
-        }
-        ::core::mem::transmute(RasSetAutodialParamA(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasSetAutodialParamA(param0: u32, param1: *const ::core::ffi::c_void, param2: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasSetAutodialParamA(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasSetAutodialParamW(param0: u32, param1: *const ::core::ffi::c_void, param2: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasSetAutodialParamW(param0: u32, param1: *const ::core::ffi::c_void, param2: u32) -> u32;
-        }
-        ::core::mem::transmute(RasSetAutodialParamW(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasSetAutodialParamW(param0: u32, param1: *const ::core::ffi::c_void, param2: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasSetAutodialParamW(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RasSetCredentialsA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(param0: Param0, param1: Param1, param2: *const RASCREDENTIALSA, param3: Param3) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasSetCredentialsA(param0: ::windows::core::PCSTR, param1: ::windows::core::PCSTR, param2: *const RASCREDENTIALSA, param3: super::super::Foundation::BOOL) -> u32;
-        }
-        ::core::mem::transmute(RasSetCredentialsA(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2), param3.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasSetCredentialsA(param0: ::windows::core::PCSTR, param1: ::windows::core::PCSTR, param2: *const RASCREDENTIALSA, param3: super::super::Foundation::BOOL) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasSetCredentialsA(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2), param3.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RasSetCredentialsW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(param0: Param0, param1: Param1, param2: *const RASCREDENTIALSW, param3: Param3) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasSetCredentialsW(param0: ::windows::core::PCWSTR, param1: ::windows::core::PCWSTR, param2: *const RASCREDENTIALSW, param3: super::super::Foundation::BOOL) -> u32;
-        }
-        ::core::mem::transmute(RasSetCredentialsW(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2), param3.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasSetCredentialsW(param0: ::windows::core::PCWSTR, param1: ::windows::core::PCWSTR, param2: *const RASCREDENTIALSW, param3: super::super::Foundation::BOOL) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasSetCredentialsW(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2), param3.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasSetCustomAuthDataA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(pszphonebook: Param0, pszentry: Param1, pbcustomauthdata: *const u8, dwsizeofcustomauthdata: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasSetCustomAuthDataA(pszphonebook: ::windows::core::PCSTR, pszentry: ::windows::core::PCSTR, pbcustomauthdata: *const u8, dwsizeofcustomauthdata: u32) -> u32;
-        }
-        ::core::mem::transmute(RasSetCustomAuthDataA(pszphonebook.into_param().abi(), pszentry.into_param().abi(), ::core::mem::transmute(pbcustomauthdata), ::core::mem::transmute(dwsizeofcustomauthdata)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasSetCustomAuthDataA(pszphonebook: ::windows::core::PCSTR, pszentry: ::windows::core::PCSTR, pbcustomauthdata: *const u8, dwsizeofcustomauthdata: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasSetCustomAuthDataA(pszphonebook.into_param().abi(), pszentry.into_param().abi(), ::core::mem::transmute(pbcustomauthdata), ::core::mem::transmute(dwsizeofcustomauthdata)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasSetCustomAuthDataW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pszphonebook: Param0, pszentry: Param1, pbcustomauthdata: *const u8, dwsizeofcustomauthdata: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasSetCustomAuthDataW(pszphonebook: ::windows::core::PCWSTR, pszentry: ::windows::core::PCWSTR, pbcustomauthdata: *const u8, dwsizeofcustomauthdata: u32) -> u32;
-        }
-        ::core::mem::transmute(RasSetCustomAuthDataW(pszphonebook.into_param().abi(), pszentry.into_param().abi(), ::core::mem::transmute(pbcustomauthdata), ::core::mem::transmute(dwsizeofcustomauthdata)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasSetCustomAuthDataW(pszphonebook: ::windows::core::PCWSTR, pszentry: ::windows::core::PCWSTR, pbcustomauthdata: *const u8, dwsizeofcustomauthdata: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasSetCustomAuthDataW(pszphonebook.into_param().abi(), pszentry.into_param().abi(), ::core::mem::transmute(pbcustomauthdata), ::core::mem::transmute(dwsizeofcustomauthdata)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RasSetEapUserDataA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(htoken: Param0, pszphonebook: Param1, pszentry: Param2, pbeapdata: *const u8, dwsizeofeapdata: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasSetEapUserDataA(htoken: super::super::Foundation::HANDLE, pszphonebook: ::windows::core::PCSTR, pszentry: ::windows::core::PCSTR, pbeapdata: *const u8, dwsizeofeapdata: u32) -> u32;
-        }
-        ::core::mem::transmute(RasSetEapUserDataA(htoken.into_param().abi(), pszphonebook.into_param().abi(), pszentry.into_param().abi(), ::core::mem::transmute(pbeapdata), ::core::mem::transmute(dwsizeofeapdata)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasSetEapUserDataA(htoken: super::super::Foundation::HANDLE, pszphonebook: ::windows::core::PCSTR, pszentry: ::windows::core::PCSTR, pbeapdata: *const u8, dwsizeofeapdata: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasSetEapUserDataA(htoken.into_param().abi(), pszphonebook.into_param().abi(), pszentry.into_param().abi(), ::core::mem::transmute(pbeapdata), ::core::mem::transmute(dwsizeofeapdata)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RasSetEapUserDataW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(htoken: Param0, pszphonebook: Param1, pszentry: Param2, pbeapdata: *const u8, dwsizeofeapdata: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasSetEapUserDataW(htoken: super::super::Foundation::HANDLE, pszphonebook: ::windows::core::PCWSTR, pszentry: ::windows::core::PCWSTR, pbeapdata: *const u8, dwsizeofeapdata: u32) -> u32;
-        }
-        ::core::mem::transmute(RasSetEapUserDataW(htoken.into_param().abi(), pszphonebook.into_param().abi(), pszentry.into_param().abi(), ::core::mem::transmute(pbeapdata), ::core::mem::transmute(dwsizeofeapdata)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasSetEapUserDataW(htoken: super::super::Foundation::HANDLE, pszphonebook: ::windows::core::PCWSTR, pszentry: ::windows::core::PCWSTR, pbeapdata: *const u8, dwsizeofeapdata: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasSetEapUserDataW(htoken.into_param().abi(), pszphonebook.into_param().abi(), pszentry.into_param().abi(), ::core::mem::transmute(pbeapdata), ::core::mem::transmute(dwsizeofeapdata)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RasSetEntryDialParamsA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(param0: Param0, param1: *const RASDIALPARAMSA, param2: Param2) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasSetEntryDialParamsA(param0: ::windows::core::PCSTR, param1: *const RASDIALPARAMSA, param2: super::super::Foundation::BOOL) -> u32;
-        }
-        ::core::mem::transmute(RasSetEntryDialParamsA(param0.into_param().abi(), ::core::mem::transmute(param1), param2.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasSetEntryDialParamsA(param0: ::windows::core::PCSTR, param1: *const RASDIALPARAMSA, param2: super::super::Foundation::BOOL) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasSetEntryDialParamsA(param0.into_param().abi(), ::core::mem::transmute(param1), param2.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RasSetEntryDialParamsW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(param0: Param0, param1: *const RASDIALPARAMSW, param2: Param2) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasSetEntryDialParamsW(param0: ::windows::core::PCWSTR, param1: *const RASDIALPARAMSW, param2: super::super::Foundation::BOOL) -> u32;
-        }
-        ::core::mem::transmute(RasSetEntryDialParamsW(param0.into_param().abi(), ::core::mem::transmute(param1), param2.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasSetEntryDialParamsW(param0: ::windows::core::PCWSTR, param1: *const RASDIALPARAMSW, param2: super::super::Foundation::BOOL) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasSetEntryDialParamsW(param0.into_param().abi(), ::core::mem::transmute(param1), param2.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn RasSetEntryPropertiesA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: Param0, param1: Param1, param2: *const RASENTRYA, param3: u32, param4: *const u8, param5: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasSetEntryPropertiesA(param0: ::windows::core::PCSTR, param1: ::windows::core::PCSTR, param2: *const RASENTRYA, param3: u32, param4: *const u8, param5: u32) -> u32;
-        }
-        ::core::mem::transmute(RasSetEntryPropertiesA(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasSetEntryPropertiesA(param0: ::windows::core::PCSTR, param1: ::windows::core::PCSTR, param2: *const RASENTRYA, param3: u32, param4: *const u8, param5: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasSetEntryPropertiesA(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn RasSetEntryPropertiesW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(param0: Param0, param1: Param1, param2: *const RASENTRYW, param3: u32, param4: *const u8, param5: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasSetEntryPropertiesW(param0: ::windows::core::PCWSTR, param1: ::windows::core::PCWSTR, param2: *const RASENTRYW, param3: u32, param4: *const u8, param5: u32) -> u32;
-        }
-        ::core::mem::transmute(RasSetEntryPropertiesW(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasSetEntryPropertiesW(param0: ::windows::core::PCWSTR, param1: ::windows::core::PCWSTR, param2: *const RASENTRYW, param3: u32, param4: *const u8, param5: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasSetEntryPropertiesW(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RasSetSubEntryPropertiesA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: Param0, param1: Param1, param2: u32, param3: *const RASSUBENTRYA, param4: u32, param5: *const u8, param6: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasSetSubEntryPropertiesA(param0: ::windows::core::PCSTR, param1: ::windows::core::PCSTR, param2: u32, param3: *const RASSUBENTRYA, param4: u32, param5: *const u8, param6: u32) -> u32;
-        }
-        ::core::mem::transmute(RasSetSubEntryPropertiesA(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5), ::core::mem::transmute(param6)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasSetSubEntryPropertiesA(param0: ::windows::core::PCSTR, param1: ::windows::core::PCSTR, param2: u32, param3: *const RASSUBENTRYA, param4: u32, param5: *const u8, param6: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasSetSubEntryPropertiesA(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5), ::core::mem::transmute(param6)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasSetSubEntryPropertiesW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(param0: Param0, param1: Param1, param2: u32, param3: *const RASSUBENTRYW, param4: u32, param5: *const u8, param6: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasSetSubEntryPropertiesW(param0: ::windows::core::PCWSTR, param1: ::windows::core::PCWSTR, param2: u32, param3: *const RASSUBENTRYW, param4: u32, param5: *const u8, param6: u32) -> u32;
-        }
-        ::core::mem::transmute(RasSetSubEntryPropertiesW(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5), ::core::mem::transmute(param6)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasSetSubEntryPropertiesW(param0: ::windows::core::PCWSTR, param1: ::windows::core::PCWSTR, param2: u32, param3: *const RASSUBENTRYW, param4: u32, param5: *const u8, param6: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasSetSubEntryPropertiesW(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5), ::core::mem::transmute(param6)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
 pub unsafe fn RasUpdateConnection<'a, Param0: ::windows::core::IntoParam<'a, HRASCONN>>(hrasconn: Param0, lprasupdateconn: *const RASUPDATECONN) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasUpdateConnection(hrasconn: HRASCONN, lprasupdateconn: *const RASUPDATECONN) -> u32;
-        }
-        ::core::mem::transmute(RasUpdateConnection(hrasconn.into_param().abi(), ::core::mem::transmute(lprasupdateconn)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasUpdateConnection(hrasconn: HRASCONN, lprasupdateconn: *const RASUPDATECONN) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasUpdateConnection(hrasconn.into_param().abi(), ::core::mem::transmute(lprasupdateconn)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasValidateEntryNameA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: Param0, param1: Param1) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasValidateEntryNameA(param0: ::windows::core::PCSTR, param1: ::windows::core::PCSTR) -> u32;
-        }
-        ::core::mem::transmute(RasValidateEntryNameA(param0.into_param().abi(), param1.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasValidateEntryNameA(param0: ::windows::core::PCSTR, param1: ::windows::core::PCSTR) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasValidateEntryNameA(param0.into_param().abi(), param1.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RasValidateEntryNameW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(param0: Param0, param1: Param1) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RasValidateEntryNameW(param0: ::windows::core::PCWSTR, param1: ::windows::core::PCWSTR) -> u32;
-        }
-        ::core::mem::transmute(RasValidateEntryNameW(param0.into_param().abi(), param1.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RasValidateEntryNameW(param0: ::windows::core::PCWSTR, param1: ::windows::core::PCWSTR) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RasValidateEntryNameW(param0.into_param().abi(), param1.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RtmAddNextHop(rtmreghandle: isize, nexthopinfo: *mut RTM_NEXTHOP_INFO, nexthophandle: *mut isize, changeflags: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtmAddNextHop(rtmreghandle: isize, nexthopinfo: *mut RTM_NEXTHOP_INFO, nexthophandle: *mut isize, changeflags: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(RtmAddNextHop(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(nexthopinfo), ::core::mem::transmute(nexthophandle), ::core::mem::transmute(changeflags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmAddNextHop(rtmreghandle: isize, nexthopinfo: *mut RTM_NEXTHOP_INFO, nexthophandle: *mut isize, changeflags: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtmAddNextHop(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(nexthopinfo), ::core::mem::transmute(nexthophandle), ::core::mem::transmute(changeflags)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RtmAddRouteToDest(rtmreghandle: isize, routehandle: *mut isize, destaddress: *mut RTM_NET_ADDRESS, routeinfo: *mut RTM_ROUTE_INFO, timetolive: u32, routelisthandle: isize, notifytype: u32, notifyhandle: isize, changeflags: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtmAddRouteToDest(rtmreghandle: isize, routehandle: *mut isize, destaddress: *mut RTM_NET_ADDRESS, routeinfo: *mut RTM_ROUTE_INFO, timetolive: u32, routelisthandle: isize, notifytype: u32, notifyhandle: isize, changeflags: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(RtmAddRouteToDest(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(routehandle), ::core::mem::transmute(destaddress), ::core::mem::transmute(routeinfo), ::core::mem::transmute(timetolive), ::core::mem::transmute(routelisthandle), ::core::mem::transmute(notifytype), ::core::mem::transmute(notifyhandle), ::core::mem::transmute(changeflags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmAddRouteToDest(rtmreghandle: isize, routehandle: *mut isize, destaddress: *mut RTM_NET_ADDRESS, routeinfo: *mut RTM_ROUTE_INFO, timetolive: u32, routelisthandle: isize, notifytype: u32, notifyhandle: isize, changeflags: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtmAddRouteToDest(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(routehandle), ::core::mem::transmute(destaddress), ::core::mem::transmute(routeinfo), ::core::mem::transmute(timetolive), ::core::mem::transmute(routelisthandle), ::core::mem::transmute(notifytype), ::core::mem::transmute(notifyhandle), ::core::mem::transmute(changeflags)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtmBlockMethods<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(rtmreghandle: isize, targethandle: Param1, targettype: u8, blockingflag: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtmBlockMethods(rtmreghandle: isize, targethandle: super::super::Foundation::HANDLE, targettype: u8, blockingflag: u32) -> u32;
-        }
-        ::core::mem::transmute(RtmBlockMethods(::core::mem::transmute(rtmreghandle), targethandle.into_param().abi(), ::core::mem::transmute(targettype), ::core::mem::transmute(blockingflag)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmBlockMethods(rtmreghandle: isize, targethandle: super::super::Foundation::HANDLE, targettype: u8, blockingflag: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtmBlockMethods(::core::mem::transmute(rtmreghandle), targethandle.into_param().abi(), ::core::mem::transmute(targettype), ::core::mem::transmute(blockingflag)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
 pub unsafe fn RtmConvertIpv6AddressAndLengthToNetAddress<'a, Param1: ::windows::core::IntoParam<'a, super::super::Networking::WinSock::IN6_ADDR>>(pnetaddress: *mut RTM_NET_ADDRESS, address: Param1, dwlength: u32, dwaddresssize: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtmConvertIpv6AddressAndLengthToNetAddress(pnetaddress: *mut RTM_NET_ADDRESS, address: super::super::Networking::WinSock::IN6_ADDR, dwlength: u32, dwaddresssize: u32) -> u32;
-        }
-        ::core::mem::transmute(RtmConvertIpv6AddressAndLengthToNetAddress(::core::mem::transmute(pnetaddress), address.into_param().abi(), ::core::mem::transmute(dwlength), ::core::mem::transmute(dwaddresssize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmConvertIpv6AddressAndLengthToNetAddress(pnetaddress: *mut RTM_NET_ADDRESS, address: super::super::Networking::WinSock::IN6_ADDR, dwlength: u32, dwaddresssize: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtmConvertIpv6AddressAndLengthToNetAddress(::core::mem::transmute(pnetaddress), address.into_param().abi(), ::core::mem::transmute(dwlength), ::core::mem::transmute(dwaddresssize)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
 pub unsafe fn RtmConvertNetAddressToIpv6AddressAndLength(pnetaddress: *mut RTM_NET_ADDRESS, paddress: *mut super::super::Networking::WinSock::IN6_ADDR, plength: *mut u32, dwaddresssize: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtmConvertNetAddressToIpv6AddressAndLength(pnetaddress: *mut RTM_NET_ADDRESS, paddress: *mut super::super::Networking::WinSock::IN6_ADDR, plength: *mut u32, dwaddresssize: u32) -> u32;
-        }
-        ::core::mem::transmute(RtmConvertNetAddressToIpv6AddressAndLength(::core::mem::transmute(pnetaddress), ::core::mem::transmute(paddress), ::core::mem::transmute(plength), ::core::mem::transmute(dwaddresssize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmConvertNetAddressToIpv6AddressAndLength(pnetaddress: *mut RTM_NET_ADDRESS, paddress: *mut super::super::Networking::WinSock::IN6_ADDR, plength: *mut u32, dwaddresssize: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtmConvertNetAddressToIpv6AddressAndLength(::core::mem::transmute(pnetaddress), ::core::mem::transmute(paddress), ::core::mem::transmute(plength), ::core::mem::transmute(dwaddresssize)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RtmCreateDestEnum(rtmreghandle: isize, targetviews: u32, enumflags: u32, netaddress: *mut RTM_NET_ADDRESS, protocolid: u32, rtmenumhandle: *mut isize) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtmCreateDestEnum(rtmreghandle: isize, targetviews: u32, enumflags: u32, netaddress: *mut RTM_NET_ADDRESS, protocolid: u32, rtmenumhandle: *mut isize) -> u32;
-        }
-        ::core::mem::transmute(RtmCreateDestEnum(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(targetviews), ::core::mem::transmute(enumflags), ::core::mem::transmute(netaddress), ::core::mem::transmute(protocolid), ::core::mem::transmute(rtmenumhandle)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmCreateDestEnum(rtmreghandle: isize, targetviews: u32, enumflags: u32, netaddress: *mut RTM_NET_ADDRESS, protocolid: u32, rtmenumhandle: *mut isize) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtmCreateDestEnum(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(targetviews), ::core::mem::transmute(enumflags), ::core::mem::transmute(netaddress), ::core::mem::transmute(protocolid), ::core::mem::transmute(rtmenumhandle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RtmCreateNextHopEnum(rtmreghandle: isize, enumflags: u32, netaddress: *mut RTM_NET_ADDRESS, rtmenumhandle: *mut isize) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtmCreateNextHopEnum(rtmreghandle: isize, enumflags: u32, netaddress: *mut RTM_NET_ADDRESS, rtmenumhandle: *mut isize) -> u32;
-        }
-        ::core::mem::transmute(RtmCreateNextHopEnum(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(enumflags), ::core::mem::transmute(netaddress), ::core::mem::transmute(rtmenumhandle)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmCreateNextHopEnum(rtmreghandle: isize, enumflags: u32, netaddress: *mut RTM_NET_ADDRESS, rtmenumhandle: *mut isize) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtmCreateNextHopEnum(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(enumflags), ::core::mem::transmute(netaddress), ::core::mem::transmute(rtmenumhandle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RtmCreateRouteEnum(rtmreghandle: isize, desthandle: isize, targetviews: u32, enumflags: u32, startdest: *mut RTM_NET_ADDRESS, matchingflags: u32, criteriaroute: *mut RTM_ROUTE_INFO, criteriainterface: u32, rtmenumhandle: *mut isize) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtmCreateRouteEnum(rtmreghandle: isize, desthandle: isize, targetviews: u32, enumflags: u32, startdest: *mut RTM_NET_ADDRESS, matchingflags: u32, criteriaroute: *mut RTM_ROUTE_INFO, criteriainterface: u32, rtmenumhandle: *mut isize) -> u32;
-        }
-        ::core::mem::transmute(RtmCreateRouteEnum(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(desthandle), ::core::mem::transmute(targetviews), ::core::mem::transmute(enumflags), ::core::mem::transmute(startdest), ::core::mem::transmute(matchingflags), ::core::mem::transmute(criteriaroute), ::core::mem::transmute(criteriainterface), ::core::mem::transmute(rtmenumhandle)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmCreateRouteEnum(rtmreghandle: isize, desthandle: isize, targetviews: u32, enumflags: u32, startdest: *mut RTM_NET_ADDRESS, matchingflags: u32, criteriaroute: *mut RTM_ROUTE_INFO, criteriainterface: u32, rtmenumhandle: *mut isize) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtmCreateRouteEnum(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(desthandle), ::core::mem::transmute(targetviews), ::core::mem::transmute(enumflags), ::core::mem::transmute(startdest), ::core::mem::transmute(matchingflags), ::core::mem::transmute(criteriaroute), ::core::mem::transmute(criteriainterface), ::core::mem::transmute(rtmenumhandle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RtmCreateRouteList(rtmreghandle: isize, routelisthandle: *mut isize) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtmCreateRouteList(rtmreghandle: isize, routelisthandle: *mut isize) -> u32;
-        }
-        ::core::mem::transmute(RtmCreateRouteList(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(routelisthandle)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmCreateRouteList(rtmreghandle: isize, routelisthandle: *mut isize) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtmCreateRouteList(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(routelisthandle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RtmCreateRouteListEnum(rtmreghandle: isize, routelisthandle: isize, rtmenumhandle: *mut isize) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtmCreateRouteListEnum(rtmreghandle: isize, routelisthandle: isize, rtmenumhandle: *mut isize) -> u32;
-        }
-        ::core::mem::transmute(RtmCreateRouteListEnum(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(routelisthandle), ::core::mem::transmute(rtmenumhandle)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmCreateRouteListEnum(rtmreghandle: isize, routelisthandle: isize, rtmenumhandle: *mut isize) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtmCreateRouteListEnum(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(routelisthandle), ::core::mem::transmute(rtmenumhandle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RtmDeleteEnumHandle(rtmreghandle: isize, enumhandle: isize) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtmDeleteEnumHandle(rtmreghandle: isize, enumhandle: isize) -> u32;
-        }
-        ::core::mem::transmute(RtmDeleteEnumHandle(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(enumhandle)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmDeleteEnumHandle(rtmreghandle: isize, enumhandle: isize) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtmDeleteEnumHandle(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(enumhandle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RtmDeleteNextHop(rtmreghandle: isize, nexthophandle: isize, nexthopinfo: *mut RTM_NEXTHOP_INFO) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtmDeleteNextHop(rtmreghandle: isize, nexthophandle: isize, nexthopinfo: *mut RTM_NEXTHOP_INFO) -> u32;
-        }
-        ::core::mem::transmute(RtmDeleteNextHop(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(nexthophandle), ::core::mem::transmute(nexthopinfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmDeleteNextHop(rtmreghandle: isize, nexthophandle: isize, nexthopinfo: *mut RTM_NEXTHOP_INFO) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtmDeleteNextHop(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(nexthophandle), ::core::mem::transmute(nexthopinfo)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RtmDeleteRouteList(rtmreghandle: isize, routelisthandle: isize) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtmDeleteRouteList(rtmreghandle: isize, routelisthandle: isize) -> u32;
-        }
-        ::core::mem::transmute(RtmDeleteRouteList(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(routelisthandle)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmDeleteRouteList(rtmreghandle: isize, routelisthandle: isize) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtmDeleteRouteList(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(routelisthandle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RtmDeleteRouteToDest(rtmreghandle: isize, routehandle: isize, changeflags: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtmDeleteRouteToDest(rtmreghandle: isize, routehandle: isize, changeflags: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(RtmDeleteRouteToDest(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(routehandle), ::core::mem::transmute(changeflags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmDeleteRouteToDest(rtmreghandle: isize, routehandle: isize, changeflags: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtmDeleteRouteToDest(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(routehandle), ::core::mem::transmute(changeflags)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RtmDeregisterEntity(rtmreghandle: isize) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtmDeregisterEntity(rtmreghandle: isize) -> u32;
-        }
-        ::core::mem::transmute(RtmDeregisterEntity(::core::mem::transmute(rtmreghandle)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmDeregisterEntity(rtmreghandle: isize) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtmDeregisterEntity(::core::mem::transmute(rtmreghandle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RtmDeregisterFromChangeNotification(rtmreghandle: isize, notifyhandle: isize) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtmDeregisterFromChangeNotification(rtmreghandle: isize, notifyhandle: isize) -> u32;
-        }
-        ::core::mem::transmute(RtmDeregisterFromChangeNotification(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(notifyhandle)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmDeregisterFromChangeNotification(rtmreghandle: isize, notifyhandle: isize) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtmDeregisterFromChangeNotification(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(notifyhandle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RtmFindNextHop(rtmreghandle: isize, nexthopinfo: *mut RTM_NEXTHOP_INFO, nexthophandle: *mut isize, nexthoppointer: *mut *mut RTM_NEXTHOP_INFO) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtmFindNextHop(rtmreghandle: isize, nexthopinfo: *mut RTM_NEXTHOP_INFO, nexthophandle: *mut isize, nexthoppointer: *mut *mut RTM_NEXTHOP_INFO) -> u32;
-        }
-        ::core::mem::transmute(RtmFindNextHop(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(nexthopinfo), ::core::mem::transmute(nexthophandle), ::core::mem::transmute(nexthoppointer)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmFindNextHop(rtmreghandle: isize, nexthopinfo: *mut RTM_NEXTHOP_INFO, nexthophandle: *mut isize, nexthoppointer: *mut *mut RTM_NEXTHOP_INFO) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtmFindNextHop(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(nexthopinfo), ::core::mem::transmute(nexthophandle), ::core::mem::transmute(nexthoppointer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtmGetChangeStatus(rtmreghandle: isize, notifyhandle: isize, desthandle: isize, changestatus: *mut super::super::Foundation::BOOL) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtmGetChangeStatus(rtmreghandle: isize, notifyhandle: isize, desthandle: isize, changestatus: *mut super::super::Foundation::BOOL) -> u32;
-        }
-        ::core::mem::transmute(RtmGetChangeStatus(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(notifyhandle), ::core::mem::transmute(desthandle), ::core::mem::transmute(changestatus)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmGetChangeStatus(rtmreghandle: isize, notifyhandle: isize, desthandle: isize, changestatus: *mut super::super::Foundation::BOOL) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtmGetChangeStatus(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(notifyhandle), ::core::mem::transmute(desthandle), ::core::mem::transmute(changestatus)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtmGetChangedDests(rtmreghandle: isize, notifyhandle: isize, numdests: *mut u32, changeddests: *mut RTM_DEST_INFO) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtmGetChangedDests(rtmreghandle: isize, notifyhandle: isize, numdests: *mut u32, changeddests: *mut RTM_DEST_INFO) -> u32;
-        }
-        ::core::mem::transmute(RtmGetChangedDests(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(notifyhandle), ::core::mem::transmute(numdests), ::core::mem::transmute(changeddests)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmGetChangedDests(rtmreghandle: isize, notifyhandle: isize, numdests: *mut u32, changeddests: *mut RTM_DEST_INFO) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtmGetChangedDests(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(notifyhandle), ::core::mem::transmute(numdests), ::core::mem::transmute(changeddests)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtmGetDestInfo(rtmreghandle: isize, desthandle: isize, protocolid: u32, targetviews: u32, destinfo: *mut RTM_DEST_INFO) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtmGetDestInfo(rtmreghandle: isize, desthandle: isize, protocolid: u32, targetviews: u32, destinfo: *mut RTM_DEST_INFO) -> u32;
-        }
-        ::core::mem::transmute(RtmGetDestInfo(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(desthandle), ::core::mem::transmute(protocolid), ::core::mem::transmute(targetviews), ::core::mem::transmute(destinfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmGetDestInfo(rtmreghandle: isize, desthandle: isize, protocolid: u32, targetviews: u32, destinfo: *mut RTM_DEST_INFO) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtmGetDestInfo(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(desthandle), ::core::mem::transmute(protocolid), ::core::mem::transmute(targetviews), ::core::mem::transmute(destinfo)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RtmGetEntityInfo(rtmreghandle: isize, entityhandle: isize, entityinfo: *mut RTM_ENTITY_INFO) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtmGetEntityInfo(rtmreghandle: isize, entityhandle: isize, entityinfo: *mut RTM_ENTITY_INFO) -> u32;
-        }
-        ::core::mem::transmute(RtmGetEntityInfo(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(entityhandle), ::core::mem::transmute(entityinfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmGetEntityInfo(rtmreghandle: isize, entityhandle: isize, entityinfo: *mut RTM_ENTITY_INFO) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtmGetEntityInfo(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(entityhandle), ::core::mem::transmute(entityinfo)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RtmGetEntityMethods(rtmreghandle: isize, entityhandle: isize, nummethods: *mut u32, exptmethods: *mut RTM_ENTITY_EXPORT_METHOD) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtmGetEntityMethods(rtmreghandle: isize, entityhandle: isize, nummethods: *mut u32, exptmethods: *mut *mut ::core::ffi::c_void) -> u32;
-        }
-        ::core::mem::transmute(RtmGetEntityMethods(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(entityhandle), ::core::mem::transmute(nummethods), ::core::mem::transmute(exptmethods)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmGetEntityMethods(rtmreghandle: isize, entityhandle: isize, nummethods: *mut u32, exptmethods: *mut *mut ::core::ffi::c_void) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtmGetEntityMethods(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(entityhandle), ::core::mem::transmute(nummethods), ::core::mem::transmute(exptmethods)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtmGetEnumDests(rtmreghandle: isize, enumhandle: isize, numdests: *mut u32, destinfos: *mut RTM_DEST_INFO) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtmGetEnumDests(rtmreghandle: isize, enumhandle: isize, numdests: *mut u32, destinfos: *mut RTM_DEST_INFO) -> u32;
-        }
-        ::core::mem::transmute(RtmGetEnumDests(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(enumhandle), ::core::mem::transmute(numdests), ::core::mem::transmute(destinfos)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmGetEnumDests(rtmreghandle: isize, enumhandle: isize, numdests: *mut u32, destinfos: *mut RTM_DEST_INFO) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtmGetEnumDests(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(enumhandle), ::core::mem::transmute(numdests), ::core::mem::transmute(destinfos)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RtmGetEnumNextHops(rtmreghandle: isize, enumhandle: isize, numnexthops: *mut u32, nexthophandles: *mut isize) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtmGetEnumNextHops(rtmreghandle: isize, enumhandle: isize, numnexthops: *mut u32, nexthophandles: *mut isize) -> u32;
-        }
-        ::core::mem::transmute(RtmGetEnumNextHops(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(enumhandle), ::core::mem::transmute(numnexthops), ::core::mem::transmute(nexthophandles)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmGetEnumNextHops(rtmreghandle: isize, enumhandle: isize, numnexthops: *mut u32, nexthophandles: *mut isize) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtmGetEnumNextHops(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(enumhandle), ::core::mem::transmute(numnexthops), ::core::mem::transmute(nexthophandles)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RtmGetEnumRoutes(rtmreghandle: isize, enumhandle: isize, numroutes: *mut u32, routehandles: *mut isize) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtmGetEnumRoutes(rtmreghandle: isize, enumhandle: isize, numroutes: *mut u32, routehandles: *mut isize) -> u32;
-        }
-        ::core::mem::transmute(RtmGetEnumRoutes(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(enumhandle), ::core::mem::transmute(numroutes), ::core::mem::transmute(routehandles)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmGetEnumRoutes(rtmreghandle: isize, enumhandle: isize, numroutes: *mut u32, routehandles: *mut isize) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtmGetEnumRoutes(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(enumhandle), ::core::mem::transmute(numroutes), ::core::mem::transmute(routehandles)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtmGetExactMatchDestination(rtmreghandle: isize, destaddress: *mut RTM_NET_ADDRESS, protocolid: u32, targetviews: u32, destinfo: *mut RTM_DEST_INFO) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtmGetExactMatchDestination(rtmreghandle: isize, destaddress: *mut RTM_NET_ADDRESS, protocolid: u32, targetviews: u32, destinfo: *mut RTM_DEST_INFO) -> u32;
-        }
-        ::core::mem::transmute(RtmGetExactMatchDestination(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(destaddress), ::core::mem::transmute(protocolid), ::core::mem::transmute(targetviews), ::core::mem::transmute(destinfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmGetExactMatchDestination(rtmreghandle: isize, destaddress: *mut RTM_NET_ADDRESS, protocolid: u32, targetviews: u32, destinfo: *mut RTM_DEST_INFO) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtmGetExactMatchDestination(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(destaddress), ::core::mem::transmute(protocolid), ::core::mem::transmute(targetviews), ::core::mem::transmute(destinfo)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RtmGetExactMatchRoute(rtmreghandle: isize, destaddress: *mut RTM_NET_ADDRESS, matchingflags: u32, routeinfo: *mut RTM_ROUTE_INFO, interfaceindex: u32, targetviews: u32, routehandle: *mut isize) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtmGetExactMatchRoute(rtmreghandle: isize, destaddress: *mut RTM_NET_ADDRESS, matchingflags: u32, routeinfo: *mut RTM_ROUTE_INFO, interfaceindex: u32, targetviews: u32, routehandle: *mut isize) -> u32;
-        }
-        ::core::mem::transmute(RtmGetExactMatchRoute(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(destaddress), ::core::mem::transmute(matchingflags), ::core::mem::transmute(routeinfo), ::core::mem::transmute(interfaceindex), ::core::mem::transmute(targetviews), ::core::mem::transmute(routehandle)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmGetExactMatchRoute(rtmreghandle: isize, destaddress: *mut RTM_NET_ADDRESS, matchingflags: u32, routeinfo: *mut RTM_ROUTE_INFO, interfaceindex: u32, targetviews: u32, routehandle: *mut isize) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtmGetExactMatchRoute(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(destaddress), ::core::mem::transmute(matchingflags), ::core::mem::transmute(routeinfo), ::core::mem::transmute(interfaceindex), ::core::mem::transmute(targetviews), ::core::mem::transmute(routehandle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtmGetLessSpecificDestination(rtmreghandle: isize, desthandle: isize, protocolid: u32, targetviews: u32, destinfo: *mut RTM_DEST_INFO) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtmGetLessSpecificDestination(rtmreghandle: isize, desthandle: isize, protocolid: u32, targetviews: u32, destinfo: *mut RTM_DEST_INFO) -> u32;
-        }
-        ::core::mem::transmute(RtmGetLessSpecificDestination(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(desthandle), ::core::mem::transmute(protocolid), ::core::mem::transmute(targetviews), ::core::mem::transmute(destinfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmGetLessSpecificDestination(rtmreghandle: isize, desthandle: isize, protocolid: u32, targetviews: u32, destinfo: *mut RTM_DEST_INFO) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtmGetLessSpecificDestination(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(desthandle), ::core::mem::transmute(protocolid), ::core::mem::transmute(targetviews), ::core::mem::transmute(destinfo)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RtmGetListEnumRoutes(rtmreghandle: isize, enumhandle: isize, numroutes: *mut u32, routehandles: *mut isize) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtmGetListEnumRoutes(rtmreghandle: isize, enumhandle: isize, numroutes: *mut u32, routehandles: *mut isize) -> u32;
-        }
-        ::core::mem::transmute(RtmGetListEnumRoutes(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(enumhandle), ::core::mem::transmute(numroutes), ::core::mem::transmute(routehandles)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmGetListEnumRoutes(rtmreghandle: isize, enumhandle: isize, numroutes: *mut u32, routehandles: *mut isize) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtmGetListEnumRoutes(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(enumhandle), ::core::mem::transmute(numroutes), ::core::mem::transmute(routehandles)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtmGetMostSpecificDestination(rtmreghandle: isize, destaddress: *mut RTM_NET_ADDRESS, protocolid: u32, targetviews: u32, destinfo: *mut RTM_DEST_INFO) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtmGetMostSpecificDestination(rtmreghandle: isize, destaddress: *mut RTM_NET_ADDRESS, protocolid: u32, targetviews: u32, destinfo: *mut RTM_DEST_INFO) -> u32;
-        }
-        ::core::mem::transmute(RtmGetMostSpecificDestination(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(destaddress), ::core::mem::transmute(protocolid), ::core::mem::transmute(targetviews), ::core::mem::transmute(destinfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmGetMostSpecificDestination(rtmreghandle: isize, destaddress: *mut RTM_NET_ADDRESS, protocolid: u32, targetviews: u32, destinfo: *mut RTM_DEST_INFO) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtmGetMostSpecificDestination(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(destaddress), ::core::mem::transmute(protocolid), ::core::mem::transmute(targetviews), ::core::mem::transmute(destinfo)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RtmGetNextHopInfo(rtmreghandle: isize, nexthophandle: isize, nexthopinfo: *mut RTM_NEXTHOP_INFO) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtmGetNextHopInfo(rtmreghandle: isize, nexthophandle: isize, nexthopinfo: *mut RTM_NEXTHOP_INFO) -> u32;
-        }
-        ::core::mem::transmute(RtmGetNextHopInfo(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(nexthophandle), ::core::mem::transmute(nexthopinfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmGetNextHopInfo(rtmreghandle: isize, nexthophandle: isize, nexthopinfo: *mut RTM_NEXTHOP_INFO) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtmGetNextHopInfo(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(nexthophandle), ::core::mem::transmute(nexthopinfo)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RtmGetNextHopPointer(rtmreghandle: isize, nexthophandle: isize, nexthoppointer: *mut *mut RTM_NEXTHOP_INFO) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtmGetNextHopPointer(rtmreghandle: isize, nexthophandle: isize, nexthoppointer: *mut *mut RTM_NEXTHOP_INFO) -> u32;
-        }
-        ::core::mem::transmute(RtmGetNextHopPointer(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(nexthophandle), ::core::mem::transmute(nexthoppointer)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmGetNextHopPointer(rtmreghandle: isize, nexthophandle: isize, nexthoppointer: *mut *mut RTM_NEXTHOP_INFO) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtmGetNextHopPointer(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(nexthophandle), ::core::mem::transmute(nexthoppointer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RtmGetOpaqueInformationPointer(rtmreghandle: isize, desthandle: isize, opaqueinfopointer: *mut *mut ::core::ffi::c_void) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtmGetOpaqueInformationPointer(rtmreghandle: isize, desthandle: isize, opaqueinfopointer: *mut *mut ::core::ffi::c_void) -> u32;
-        }
-        ::core::mem::transmute(RtmGetOpaqueInformationPointer(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(desthandle), ::core::mem::transmute(opaqueinfopointer)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmGetOpaqueInformationPointer(rtmreghandle: isize, desthandle: isize, opaqueinfopointer: *mut *mut ::core::ffi::c_void) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtmGetOpaqueInformationPointer(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(desthandle), ::core::mem::transmute(opaqueinfopointer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RtmGetRegisteredEntities(rtmreghandle: isize, numentities: *mut u32, entityhandles: *mut isize, entityinfos: *mut RTM_ENTITY_INFO) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtmGetRegisteredEntities(rtmreghandle: isize, numentities: *mut u32, entityhandles: *mut isize, entityinfos: *mut RTM_ENTITY_INFO) -> u32;
-        }
-        ::core::mem::transmute(RtmGetRegisteredEntities(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(numentities), ::core::mem::transmute(entityhandles), ::core::mem::transmute(entityinfos)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmGetRegisteredEntities(rtmreghandle: isize, numentities: *mut u32, entityhandles: *mut isize, entityinfos: *mut RTM_ENTITY_INFO) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtmGetRegisteredEntities(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(numentities), ::core::mem::transmute(entityhandles), ::core::mem::transmute(entityinfos)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RtmGetRouteInfo(rtmreghandle: isize, routehandle: isize, routeinfo: *mut RTM_ROUTE_INFO, destaddress: *mut RTM_NET_ADDRESS) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtmGetRouteInfo(rtmreghandle: isize, routehandle: isize, routeinfo: *mut RTM_ROUTE_INFO, destaddress: *mut RTM_NET_ADDRESS) -> u32;
-        }
-        ::core::mem::transmute(RtmGetRouteInfo(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(routehandle), ::core::mem::transmute(routeinfo), ::core::mem::transmute(destaddress)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmGetRouteInfo(rtmreghandle: isize, routehandle: isize, routeinfo: *mut RTM_ROUTE_INFO, destaddress: *mut RTM_NET_ADDRESS) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtmGetRouteInfo(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(routehandle), ::core::mem::transmute(routeinfo), ::core::mem::transmute(destaddress)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RtmGetRoutePointer(rtmreghandle: isize, routehandle: isize, routepointer: *mut *mut RTM_ROUTE_INFO) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtmGetRoutePointer(rtmreghandle: isize, routehandle: isize, routepointer: *mut *mut RTM_ROUTE_INFO) -> u32;
-        }
-        ::core::mem::transmute(RtmGetRoutePointer(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(routehandle), ::core::mem::transmute(routepointer)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmGetRoutePointer(rtmreghandle: isize, routehandle: isize, routepointer: *mut *mut RTM_ROUTE_INFO) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtmGetRoutePointer(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(routehandle), ::core::mem::transmute(routepointer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RtmHoldDestination(rtmreghandle: isize, desthandle: isize, targetviews: u32, holdtime: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtmHoldDestination(rtmreghandle: isize, desthandle: isize, targetviews: u32, holdtime: u32) -> u32;
-        }
-        ::core::mem::transmute(RtmHoldDestination(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(desthandle), ::core::mem::transmute(targetviews), ::core::mem::transmute(holdtime)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmHoldDestination(rtmreghandle: isize, desthandle: isize, targetviews: u32, holdtime: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtmHoldDestination(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(desthandle), ::core::mem::transmute(targetviews), ::core::mem::transmute(holdtime)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RtmIgnoreChangedDests(rtmreghandle: isize, notifyhandle: isize, numdests: u32, changeddests: *mut isize) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtmIgnoreChangedDests(rtmreghandle: isize, notifyhandle: isize, numdests: u32, changeddests: *mut isize) -> u32;
-        }
-        ::core::mem::transmute(RtmIgnoreChangedDests(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(notifyhandle), ::core::mem::transmute(numdests), ::core::mem::transmute(changeddests)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmIgnoreChangedDests(rtmreghandle: isize, notifyhandle: isize, numdests: u32, changeddests: *mut isize) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtmIgnoreChangedDests(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(notifyhandle), ::core::mem::transmute(numdests), ::core::mem::transmute(changeddests)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RtmInsertInRouteList(rtmreghandle: isize, routelisthandle: isize, numroutes: u32, routehandles: *mut isize) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtmInsertInRouteList(rtmreghandle: isize, routelisthandle: isize, numroutes: u32, routehandles: *mut isize) -> u32;
-        }
-        ::core::mem::transmute(RtmInsertInRouteList(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(routelisthandle), ::core::mem::transmute(numroutes), ::core::mem::transmute(routehandles)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmInsertInRouteList(rtmreghandle: isize, routelisthandle: isize, numroutes: u32, routehandles: *mut isize) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtmInsertInRouteList(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(routelisthandle), ::core::mem::transmute(numroutes), ::core::mem::transmute(routehandles)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RtmInvokeMethod(rtmreghandle: isize, entityhandle: isize, input: *mut RTM_ENTITY_METHOD_INPUT, outputsize: *mut u32, output: *mut RTM_ENTITY_METHOD_OUTPUT) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtmInvokeMethod(rtmreghandle: isize, entityhandle: isize, input: *mut RTM_ENTITY_METHOD_INPUT, outputsize: *mut u32, output: *mut RTM_ENTITY_METHOD_OUTPUT) -> u32;
-        }
-        ::core::mem::transmute(RtmInvokeMethod(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(entityhandle), ::core::mem::transmute(input), ::core::mem::transmute(outputsize), ::core::mem::transmute(output)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmInvokeMethod(rtmreghandle: isize, entityhandle: isize, input: *mut RTM_ENTITY_METHOD_INPUT, outputsize: *mut u32, output: *mut RTM_ENTITY_METHOD_OUTPUT) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtmInvokeMethod(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(entityhandle), ::core::mem::transmute(input), ::core::mem::transmute(outputsize), ::core::mem::transmute(output)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RtmIsBestRoute(rtmreghandle: isize, routehandle: isize, bestinviews: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtmIsBestRoute(rtmreghandle: isize, routehandle: isize, bestinviews: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(RtmIsBestRoute(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(routehandle), ::core::mem::transmute(bestinviews)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmIsBestRoute(rtmreghandle: isize, routehandle: isize, bestinviews: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtmIsBestRoute(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(routehandle), ::core::mem::transmute(bestinviews)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtmIsMarkedForChangeNotification(rtmreghandle: isize, notifyhandle: isize, desthandle: isize, destmarked: *mut super::super::Foundation::BOOL) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtmIsMarkedForChangeNotification(rtmreghandle: isize, notifyhandle: isize, desthandle: isize, destmarked: *mut super::super::Foundation::BOOL) -> u32;
-        }
-        ::core::mem::transmute(RtmIsMarkedForChangeNotification(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(notifyhandle), ::core::mem::transmute(desthandle), ::core::mem::transmute(destmarked)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmIsMarkedForChangeNotification(rtmreghandle: isize, notifyhandle: isize, desthandle: isize, destmarked: *mut super::super::Foundation::BOOL) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtmIsMarkedForChangeNotification(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(notifyhandle), ::core::mem::transmute(desthandle), ::core::mem::transmute(destmarked)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtmLockDestination<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(rtmreghandle: isize, desthandle: isize, exclusive: Param2, lockdest: Param3) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtmLockDestination(rtmreghandle: isize, desthandle: isize, exclusive: super::super::Foundation::BOOL, lockdest: super::super::Foundation::BOOL) -> u32;
-        }
-        ::core::mem::transmute(RtmLockDestination(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(desthandle), exclusive.into_param().abi(), lockdest.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmLockDestination(rtmreghandle: isize, desthandle: isize, exclusive: super::super::Foundation::BOOL, lockdest: super::super::Foundation::BOOL) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtmLockDestination(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(desthandle), exclusive.into_param().abi(), lockdest.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtmLockNextHop<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(rtmreghandle: isize, nexthophandle: isize, exclusive: Param2, locknexthop: Param3, nexthoppointer: *mut *mut RTM_NEXTHOP_INFO) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtmLockNextHop(rtmreghandle: isize, nexthophandle: isize, exclusive: super::super::Foundation::BOOL, locknexthop: super::super::Foundation::BOOL, nexthoppointer: *mut *mut RTM_NEXTHOP_INFO) -> u32;
-        }
-        ::core::mem::transmute(RtmLockNextHop(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(nexthophandle), exclusive.into_param().abi(), locknexthop.into_param().abi(), ::core::mem::transmute(nexthoppointer)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmLockNextHop(rtmreghandle: isize, nexthophandle: isize, exclusive: super::super::Foundation::BOOL, locknexthop: super::super::Foundation::BOOL, nexthoppointer: *mut *mut RTM_NEXTHOP_INFO) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtmLockNextHop(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(nexthophandle), exclusive.into_param().abi(), locknexthop.into_param().abi(), ::core::mem::transmute(nexthoppointer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtmLockRoute<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(rtmreghandle: isize, routehandle: isize, exclusive: Param2, lockroute: Param3, routepointer: *mut *mut RTM_ROUTE_INFO) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtmLockRoute(rtmreghandle: isize, routehandle: isize, exclusive: super::super::Foundation::BOOL, lockroute: super::super::Foundation::BOOL, routepointer: *mut *mut RTM_ROUTE_INFO) -> u32;
-        }
-        ::core::mem::transmute(RtmLockRoute(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(routehandle), exclusive.into_param().abi(), lockroute.into_param().abi(), ::core::mem::transmute(routepointer)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmLockRoute(rtmreghandle: isize, routehandle: isize, exclusive: super::super::Foundation::BOOL, lockroute: super::super::Foundation::BOOL, routepointer: *mut *mut RTM_ROUTE_INFO) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtmLockRoute(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(routehandle), exclusive.into_param().abi(), lockroute.into_param().abi(), ::core::mem::transmute(routepointer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtmMarkDestForChangeNotification<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(rtmreghandle: isize, notifyhandle: isize, desthandle: isize, markdest: Param3) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtmMarkDestForChangeNotification(rtmreghandle: isize, notifyhandle: isize, desthandle: isize, markdest: super::super::Foundation::BOOL) -> u32;
-        }
-        ::core::mem::transmute(RtmMarkDestForChangeNotification(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(notifyhandle), ::core::mem::transmute(desthandle), markdest.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmMarkDestForChangeNotification(rtmreghandle: isize, notifyhandle: isize, desthandle: isize, markdest: super::super::Foundation::BOOL) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtmMarkDestForChangeNotification(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(notifyhandle), ::core::mem::transmute(desthandle), markdest.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtmReferenceHandles(rtmreghandle: isize, numhandles: u32, rtmhandles: *mut super::super::Foundation::HANDLE) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtmReferenceHandles(rtmreghandle: isize, numhandles: u32, rtmhandles: *mut super::super::Foundation::HANDLE) -> u32;
-        }
-        ::core::mem::transmute(RtmReferenceHandles(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(numhandles), ::core::mem::transmute(rtmhandles)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmReferenceHandles(rtmreghandle: isize, numhandles: u32, rtmhandles: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtmReferenceHandles(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(numhandles), ::core::mem::transmute(rtmhandles)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtmRegisterEntity<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(rtmentityinfo: *mut RTM_ENTITY_INFO, exportmethods: *mut RTM_ENTITY_EXPORT_METHODS, eventcallback: RTM_EVENT_CALLBACK, reserveopaquepointer: Param3, rtmregprofile: *mut RTM_REGN_PROFILE, rtmreghandle: *mut isize) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtmRegisterEntity(rtmentityinfo: *mut RTM_ENTITY_INFO, exportmethods: *mut RTM_ENTITY_EXPORT_METHODS, eventcallback: *mut ::core::ffi::c_void, reserveopaquepointer: super::super::Foundation::BOOL, rtmregprofile: *mut RTM_REGN_PROFILE, rtmreghandle: *mut isize) -> u32;
-        }
-        ::core::mem::transmute(RtmRegisterEntity(::core::mem::transmute(rtmentityinfo), ::core::mem::transmute(exportmethods), ::core::mem::transmute(eventcallback), reserveopaquepointer.into_param().abi(), ::core::mem::transmute(rtmregprofile), ::core::mem::transmute(rtmreghandle)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmRegisterEntity(rtmentityinfo: *mut RTM_ENTITY_INFO, exportmethods: *mut RTM_ENTITY_EXPORT_METHODS, eventcallback: *mut ::core::ffi::c_void, reserveopaquepointer: super::super::Foundation::BOOL, rtmregprofile: *mut RTM_REGN_PROFILE, rtmreghandle: *mut isize) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtmRegisterEntity(::core::mem::transmute(rtmentityinfo), ::core::mem::transmute(exportmethods), ::core::mem::transmute(eventcallback), reserveopaquepointer.into_param().abi(), ::core::mem::transmute(rtmregprofile), ::core::mem::transmute(rtmreghandle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RtmRegisterForChangeNotification(rtmreghandle: isize, targetviews: u32, notifyflags: u32, notifycontext: *mut ::core::ffi::c_void, notifyhandle: *mut isize) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtmRegisterForChangeNotification(rtmreghandle: isize, targetviews: u32, notifyflags: u32, notifycontext: *mut ::core::ffi::c_void, notifyhandle: *mut isize) -> u32;
-        }
-        ::core::mem::transmute(RtmRegisterForChangeNotification(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(targetviews), ::core::mem::transmute(notifyflags), ::core::mem::transmute(notifycontext), ::core::mem::transmute(notifyhandle)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmRegisterForChangeNotification(rtmreghandle: isize, targetviews: u32, notifyflags: u32, notifycontext: *mut ::core::ffi::c_void, notifyhandle: *mut isize) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtmRegisterForChangeNotification(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(targetviews), ::core::mem::transmute(notifyflags), ::core::mem::transmute(notifycontext), ::core::mem::transmute(notifyhandle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtmReleaseChangedDests(rtmreghandle: isize, notifyhandle: isize, numdests: u32, changeddests: *mut RTM_DEST_INFO) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtmReleaseChangedDests(rtmreghandle: isize, notifyhandle: isize, numdests: u32, changeddests: *mut RTM_DEST_INFO) -> u32;
-        }
-        ::core::mem::transmute(RtmReleaseChangedDests(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(notifyhandle), ::core::mem::transmute(numdests), ::core::mem::transmute(changeddests)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmReleaseChangedDests(rtmreghandle: isize, notifyhandle: isize, numdests: u32, changeddests: *mut RTM_DEST_INFO) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtmReleaseChangedDests(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(notifyhandle), ::core::mem::transmute(numdests), ::core::mem::transmute(changeddests)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtmReleaseDestInfo(rtmreghandle: isize, destinfo: *mut RTM_DEST_INFO) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtmReleaseDestInfo(rtmreghandle: isize, destinfo: *mut RTM_DEST_INFO) -> u32;
-        }
-        ::core::mem::transmute(RtmReleaseDestInfo(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(destinfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmReleaseDestInfo(rtmreghandle: isize, destinfo: *mut RTM_DEST_INFO) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtmReleaseDestInfo(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(destinfo)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtmReleaseDests(rtmreghandle: isize, numdests: u32, destinfos: *mut RTM_DEST_INFO) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtmReleaseDests(rtmreghandle: isize, numdests: u32, destinfos: *mut RTM_DEST_INFO) -> u32;
-        }
-        ::core::mem::transmute(RtmReleaseDests(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(numdests), ::core::mem::transmute(destinfos)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmReleaseDests(rtmreghandle: isize, numdests: u32, destinfos: *mut RTM_DEST_INFO) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtmReleaseDests(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(numdests), ::core::mem::transmute(destinfos)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RtmReleaseEntities(rtmreghandle: isize, numentities: u32, entityhandles: *mut isize) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtmReleaseEntities(rtmreghandle: isize, numentities: u32, entityhandles: *mut isize) -> u32;
-        }
-        ::core::mem::transmute(RtmReleaseEntities(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(numentities), ::core::mem::transmute(entityhandles)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmReleaseEntities(rtmreghandle: isize, numentities: u32, entityhandles: *mut isize) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtmReleaseEntities(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(numentities), ::core::mem::transmute(entityhandles)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RtmReleaseEntityInfo(rtmreghandle: isize, entityinfo: *mut RTM_ENTITY_INFO) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtmReleaseEntityInfo(rtmreghandle: isize, entityinfo: *mut RTM_ENTITY_INFO) -> u32;
-        }
-        ::core::mem::transmute(RtmReleaseEntityInfo(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(entityinfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmReleaseEntityInfo(rtmreghandle: isize, entityinfo: *mut RTM_ENTITY_INFO) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtmReleaseEntityInfo(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(entityinfo)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RtmReleaseNextHopInfo(rtmreghandle: isize, nexthopinfo: *mut RTM_NEXTHOP_INFO) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtmReleaseNextHopInfo(rtmreghandle: isize, nexthopinfo: *mut RTM_NEXTHOP_INFO) -> u32;
-        }
-        ::core::mem::transmute(RtmReleaseNextHopInfo(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(nexthopinfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmReleaseNextHopInfo(rtmreghandle: isize, nexthopinfo: *mut RTM_NEXTHOP_INFO) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtmReleaseNextHopInfo(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(nexthopinfo)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RtmReleaseNextHops(rtmreghandle: isize, numnexthops: u32, nexthophandles: *mut isize) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtmReleaseNextHops(rtmreghandle: isize, numnexthops: u32, nexthophandles: *mut isize) -> u32;
-        }
-        ::core::mem::transmute(RtmReleaseNextHops(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(numnexthops), ::core::mem::transmute(nexthophandles)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmReleaseNextHops(rtmreghandle: isize, numnexthops: u32, nexthophandles: *mut isize) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtmReleaseNextHops(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(numnexthops), ::core::mem::transmute(nexthophandles)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RtmReleaseRouteInfo(rtmreghandle: isize, routeinfo: *mut RTM_ROUTE_INFO) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtmReleaseRouteInfo(rtmreghandle: isize, routeinfo: *mut RTM_ROUTE_INFO) -> u32;
-        }
-        ::core::mem::transmute(RtmReleaseRouteInfo(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(routeinfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmReleaseRouteInfo(rtmreghandle: isize, routeinfo: *mut RTM_ROUTE_INFO) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtmReleaseRouteInfo(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(routeinfo)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RtmReleaseRoutes(rtmreghandle: isize, numroutes: u32, routehandles: *mut isize) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtmReleaseRoutes(rtmreghandle: isize, numroutes: u32, routehandles: *mut isize) -> u32;
-        }
-        ::core::mem::transmute(RtmReleaseRoutes(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(numroutes), ::core::mem::transmute(routehandles)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmReleaseRoutes(rtmreghandle: isize, numroutes: u32, routehandles: *mut isize) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtmReleaseRoutes(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(numroutes), ::core::mem::transmute(routehandles)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[inline]
 pub unsafe fn RtmUpdateAndUnlockRoute(rtmreghandle: isize, routehandle: isize, timetolive: u32, routelisthandle: isize, notifytype: u32, notifyhandle: isize, changeflags: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtmUpdateAndUnlockRoute(rtmreghandle: isize, routehandle: isize, timetolive: u32, routelisthandle: isize, notifytype: u32, notifyhandle: isize, changeflags: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(RtmUpdateAndUnlockRoute(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(routehandle), ::core::mem::transmute(timetolive), ::core::mem::transmute(routelisthandle), ::core::mem::transmute(notifytype), ::core::mem::transmute(notifyhandle), ::core::mem::transmute(changeflags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtmUpdateAndUnlockRoute(rtmreghandle: isize, routehandle: isize, timetolive: u32, routelisthandle: isize, notifytype: u32, notifyhandle: isize, changeflags: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtmUpdateAndUnlockRoute(::core::mem::transmute(rtmreghandle), ::core::mem::transmute(routehandle), ::core::mem::transmute(timetolive), ::core::mem::transmute(routelisthandle), ::core::mem::transmute(notifytype), ::core::mem::transmute(notifyhandle), ::core::mem::transmute(changeflags)))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]

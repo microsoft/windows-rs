@@ -920,33 +920,23 @@ impl ::core::default::Default for CodecAPIEventData {
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[inline]
 pub unsafe fn CreateNamedPropertyStore() -> ::windows::core::Result<super::super::UI::Shell::PropertiesSystem::INamedPropertyStore> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateNamedPropertyStore(ppstore: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        CreateNamedPropertyStore(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::UI::Shell::PropertiesSystem::INamedPropertyStore>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateNamedPropertyStore(ppstore: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    CreateNamedPropertyStore(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::UI::Shell::PropertiesSystem::INamedPropertyStore>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[inline]
 pub unsafe fn CreatePropertyStore() -> ::windows::core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreatePropertyStore(ppstore: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        CreatePropertyStore(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::UI::Shell::PropertiesSystem::IPropertyStore>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreatePropertyStore(ppstore: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    CreatePropertyStore(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::UI::Shell::PropertiesSystem::IPropertyStore>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
@@ -9290,31 +9280,21 @@ impl ::core::default::Default for DIRTYRECT_INFO {
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn DXVA2CreateDirect3DDeviceManager9(presettoken: *mut u32, ppdevicemanager: *mut ::core::option::Option<IDirect3DDeviceManager9>) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DXVA2CreateDirect3DDeviceManager9(presettoken: *mut u32, ppdevicemanager: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        DXVA2CreateDirect3DDeviceManager9(::core::mem::transmute(presettoken), ::core::mem::transmute(ppdevicemanager)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DXVA2CreateDirect3DDeviceManager9(presettoken: *mut u32, ppdevicemanager: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DXVA2CreateDirect3DDeviceManager9(::core::mem::transmute(presettoken), ::core::mem::transmute(ppdevicemanager)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Graphics_Direct3D9\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 #[inline]
 pub unsafe fn DXVA2CreateVideoService<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D9::IDirect3DDevice9>>(pdd: Param0, riid: *const ::windows::core::GUID, ppservice: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DXVA2CreateVideoService(pdd: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppservice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        DXVA2CreateVideoService(pdd.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppservice)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DXVA2CreateVideoService(pdd: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppservice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DXVA2CreateVideoService(pdd.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppservice)).ok()
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -11718,17 +11698,12 @@ impl ::core::default::Default for DXVAHD_CUSTOM_RATE_DATA {
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 #[inline]
 pub unsafe fn DXVAHD_CreateDevice<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D9::IDirect3DDevice9Ex>>(pd3ddevice: Param0, pcontentdesc: *const DXVAHD_CONTENT_DESC, usage: DXVAHD_DEVICE_USAGE, pplugin: PDXVAHDSW_Plugin) -> ::windows::core::Result<IDXVAHD_Device> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DXVAHD_CreateDevice(pd3ddevice: *mut ::core::ffi::c_void, pcontentdesc: *const DXVAHD_CONTENT_DESC, usage: DXVAHD_DEVICE_USAGE, pplugin: *mut ::core::ffi::c_void, ppdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        DXVAHD_CreateDevice(pd3ddevice.into_param().abi(), ::core::mem::transmute(pcontentdesc), ::core::mem::transmute(usage), ::core::mem::transmute(pplugin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDXVAHD_Device>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DXVAHD_CreateDevice(pd3ddevice: *mut ::core::ffi::c_void, pcontentdesc: *const DXVAHD_CONTENT_DESC, usage: DXVAHD_DEVICE_USAGE, pplugin: *mut ::core::ffi::c_void, ppdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    DXVAHD_CreateDevice(pd3ddevice.into_param().abi(), ::core::mem::transmute(pcontentdesc), ::core::mem::transmute(usage), ::core::mem::transmute(pplugin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDXVAHD_Device>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
@@ -51492,62 +51467,42 @@ impl ::core::default::Default for MFAYUVSample {
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFAddPeriodicCallback<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(callback: MFPERIODICCALLBACK, pcontext: Param1) -> ::windows::core::Result<u32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFAddPeriodicCallback(callback: *mut ::core::ffi::c_void, pcontext: *mut ::core::ffi::c_void, pdwkey: *mut u32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        MFAddPeriodicCallback(::core::mem::transmute(callback), pcontext.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFAddPeriodicCallback(callback: *mut ::core::ffi::c_void, pcontext: *mut ::core::ffi::c_void, pdwkey: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+    MFAddPeriodicCallback(::core::mem::transmute(callback), pcontext.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFAllocateSerialWorkQueue(dwworkqueue: u32) -> ::windows::core::Result<u32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFAllocateSerialWorkQueue(dwworkqueue: u32, pdwworkqueue: *mut u32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        MFAllocateSerialWorkQueue(::core::mem::transmute(dwworkqueue), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFAllocateSerialWorkQueue(dwworkqueue: u32, pdwworkqueue: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+    MFAllocateSerialWorkQueue(::core::mem::transmute(dwworkqueue), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFAllocateWorkQueue() -> ::windows::core::Result<u32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFAllocateWorkQueue(pdwworkqueue: *mut u32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        MFAllocateWorkQueue(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFAllocateWorkQueue(pdwworkqueue: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+    MFAllocateWorkQueue(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFAllocateWorkQueueEx(workqueuetype: MFASYNC_WORKQUEUE_TYPE) -> ::windows::core::Result<u32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFAllocateWorkQueueEx(workqueuetype: MFASYNC_WORKQUEUE_TYPE, pdwworkqueue: *mut u32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        MFAllocateWorkQueueEx(::core::mem::transmute(workqueuetype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFAllocateWorkQueueEx(workqueuetype: MFASYNC_WORKQUEUE_TYPE, pdwworkqueue: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+    MFAllocateWorkQueueEx(::core::mem::transmute(workqueuetype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
@@ -51658,16 +51613,11 @@ pub const MFAudioFormat_WMAudio_Lossless: ::windows::core::GUID = ::windows::cor
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFAverageTimePerFrameToFrameRate(unaveragetimeperframe: u64, punnumerator: *mut u32, pundenominator: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFAverageTimePerFrameToFrameRate(unaveragetimeperframe: u64, punnumerator: *mut u32, pundenominator: *mut u32) -> ::windows::core::HRESULT;
-        }
-        MFAverageTimePerFrameToFrameRate(::core::mem::transmute(unaveragetimeperframe), ::core::mem::transmute(punnumerator), ::core::mem::transmute(pundenominator)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFAverageTimePerFrameToFrameRate(unaveragetimeperframe: u64, punnumerator: *mut u32, pundenominator: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFAverageTimePerFrameToFrameRate(::core::mem::transmute(unaveragetimeperframe), ::core::mem::transmute(punnumerator), ::core::mem::transmute(pundenominator)).ok()
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -51756,59 +51706,39 @@ pub const MFBYTESTREAM_SHARE_WRITE: u32 = 1024u32;
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFBeginCreateFile<'a, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, IMFAsyncCallback>, Param5: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(accessmode: MF_FILE_ACCESSMODE, openmode: MF_FILE_OPENMODE, fflags: MF_FILE_FLAGS, pwszfilepath: Param3, pcallback: Param4, pstate: Param5) -> ::windows::core::Result<::windows::core::IUnknown> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFBeginCreateFile(accessmode: MF_FILE_ACCESSMODE, openmode: MF_FILE_OPENMODE, fflags: MF_FILE_FLAGS, pwszfilepath: ::windows::core::PCWSTR, pcallback: *mut ::core::ffi::c_void, pstate: *mut ::core::ffi::c_void, ppcancelcookie: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFBeginCreateFile(::core::mem::transmute(accessmode), ::core::mem::transmute(openmode), ::core::mem::transmute(fflags), pwszfilepath.into_param().abi(), pcallback.into_param().abi(), pstate.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFBeginCreateFile(accessmode: MF_FILE_ACCESSMODE, openmode: MF_FILE_OPENMODE, fflags: MF_FILE_FLAGS, pwszfilepath: ::windows::core::PCWSTR, pcallback: *mut ::core::ffi::c_void, pstate: *mut ::core::ffi::c_void, ppcancelcookie: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFBeginCreateFile(::core::mem::transmute(accessmode), ::core::mem::transmute(openmode), ::core::mem::transmute(fflags), pwszfilepath.into_param().abi(), pcallback.into_param().abi(), pstate.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFBeginRegisterWorkQueueWithMMCSS<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, IMFAsyncCallback>, Param4: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(dwworkqueueid: u32, wszclass: Param1, dwtaskid: u32, pdonecallback: Param3, pdonestate: Param4) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFBeginRegisterWorkQueueWithMMCSS(dwworkqueueid: u32, wszclass: ::windows::core::PCWSTR, dwtaskid: u32, pdonecallback: *mut ::core::ffi::c_void, pdonestate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        MFBeginRegisterWorkQueueWithMMCSS(::core::mem::transmute(dwworkqueueid), wszclass.into_param().abi(), ::core::mem::transmute(dwtaskid), pdonecallback.into_param().abi(), pdonestate.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFBeginRegisterWorkQueueWithMMCSS(dwworkqueueid: u32, wszclass: ::windows::core::PCWSTR, dwtaskid: u32, pdonecallback: *mut ::core::ffi::c_void, pdonestate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFBeginRegisterWorkQueueWithMMCSS(::core::mem::transmute(dwworkqueueid), wszclass.into_param().abi(), ::core::mem::transmute(dwtaskid), pdonecallback.into_param().abi(), pdonestate.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFBeginRegisterWorkQueueWithMMCSSEx<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, IMFAsyncCallback>, Param5: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(dwworkqueueid: u32, wszclass: Param1, dwtaskid: u32, lpriority: i32, pdonecallback: Param4, pdonestate: Param5) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFBeginRegisterWorkQueueWithMMCSSEx(dwworkqueueid: u32, wszclass: ::windows::core::PCWSTR, dwtaskid: u32, lpriority: i32, pdonecallback: *mut ::core::ffi::c_void, pdonestate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        MFBeginRegisterWorkQueueWithMMCSSEx(::core::mem::transmute(dwworkqueueid), wszclass.into_param().abi(), ::core::mem::transmute(dwtaskid), ::core::mem::transmute(lpriority), pdonecallback.into_param().abi(), pdonestate.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFBeginRegisterWorkQueueWithMMCSSEx(dwworkqueueid: u32, wszclass: ::windows::core::PCWSTR, dwtaskid: u32, lpriority: i32, pdonecallback: *mut ::core::ffi::c_void, pdonestate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFBeginRegisterWorkQueueWithMMCSSEx(::core::mem::transmute(dwworkqueueid), wszclass.into_param().abi(), ::core::mem::transmute(dwtaskid), ::core::mem::transmute(lpriority), pdonecallback.into_param().abi(), pdonestate.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFBeginUnregisterWorkQueueWithMMCSS<'a, Param1: ::windows::core::IntoParam<'a, IMFAsyncCallback>, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(dwworkqueueid: u32, pdonecallback: Param1, pdonestate: Param2) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFBeginUnregisterWorkQueueWithMMCSS(dwworkqueueid: u32, pdonecallback: *mut ::core::ffi::c_void, pdonestate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        MFBeginUnregisterWorkQueueWithMMCSS(::core::mem::transmute(dwworkqueueid), pdonecallback.into_param().abi(), pdonestate.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFBeginUnregisterWorkQueueWithMMCSS(dwworkqueueid: u32, pdonecallback: *mut ::core::ffi::c_void, pdonestate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFBeginUnregisterWorkQueueWithMMCSS(::core::mem::transmute(dwworkqueueid), pdonecallback.into_param().abi(), pdonestate.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFCAPTURE_METADATA_SCANLINE_VERTICAL: u32 = 4u32;
@@ -52086,31 +52016,21 @@ pub const MFCONTENTPROTECTIONDEVICE_REALTIMECLIENT_DATA_FUNCTIONID: u32 = 671088
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn MFCalculateBitmapImageSize(pbmih: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, cbbufsize: u32, pcbimagesize: *mut u32, pbknown: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCalculateBitmapImageSize(pbmih: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, cbbufsize: u32, pcbimagesize: *mut u32, pbknown: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
-        }
-        MFCalculateBitmapImageSize(::core::mem::transmute(pbmih), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(pcbimagesize), ::core::mem::transmute(pbknown)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCalculateBitmapImageSize(pbmih: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, cbbufsize: u32, pcbimagesize: *mut u32, pbknown: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFCalculateBitmapImageSize(::core::mem::transmute(pbmih), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(pcbimagesize), ::core::mem::transmute(pbknown)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCalculateImageSize(guidsubtype: *const ::windows::core::GUID, unwidth: u32, unheight: u32) -> ::windows::core::Result<u32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCalculateImageSize(guidsubtype: *const ::windows::core::GUID, unwidth: u32, unheight: u32, pcbimagesize: *mut u32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        MFCalculateImageSize(::core::mem::transmute(guidsubtype), ::core::mem::transmute(unwidth), ::core::mem::transmute(unheight), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCalculateImageSize(guidsubtype: *const ::windows::core::GUID, unwidth: u32, unheight: u32, pcbimagesize: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+    MFCalculateImageSize(::core::mem::transmute(guidsubtype), ::core::mem::transmute(unwidth), ::core::mem::transmute(unheight), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -52403,1982 +52323,1322 @@ impl ::core::fmt::Debug for MFCameraOcclusionState {
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCancelCreateFile<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(pcancelcookie: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCancelCreateFile(pcancelcookie: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        MFCancelCreateFile(pcancelcookie.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCancelCreateFile(pcancelcookie: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFCancelCreateFile(pcancelcookie.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCancelWorkItem(key: u64) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCancelWorkItem(key: u64) -> ::windows::core::HRESULT;
-        }
-        MFCancelWorkItem(::core::mem::transmute(key)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCancelWorkItem(key: u64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFCancelWorkItem(::core::mem::transmute(key)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFCombineSamples<'a, Param0: ::windows::core::IntoParam<'a, IMFSample>, Param1: ::windows::core::IntoParam<'a, IMFSample>>(psample: Param0, psampletoadd: Param1, dwmaxmergeddurationinms: u32) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCombineSamples(psample: *mut ::core::ffi::c_void, psampletoadd: *mut ::core::ffi::c_void, dwmaxmergeddurationinms: u32, pmerged: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
-        MFCombineSamples(psample.into_param().abi(), psampletoadd.into_param().abi(), ::core::mem::transmute(dwmaxmergeddurationinms), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCombineSamples(psample: *mut ::core::ffi::c_void, psampletoadd: *mut ::core::ffi::c_void, dwmaxmergeddurationinms: u32, pmerged: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
+    MFCombineSamples(psample.into_param().abi(), psampletoadd.into_param().abi(), ::core::mem::transmute(dwmaxmergeddurationinms), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFCompareFullToPartialMediaType<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>, Param1: ::windows::core::IntoParam<'a, IMFMediaType>>(pmftypefull: Param0, pmftypepartial: Param1) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCompareFullToPartialMediaType(pmftypefull: *mut ::core::ffi::c_void, pmftypepartial: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(MFCompareFullToPartialMediaType(pmftypefull.into_param().abi(), pmftypepartial.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCompareFullToPartialMediaType(pmftypefull: *mut ::core::ffi::c_void, pmftypepartial: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MFCompareFullToPartialMediaType(pmftypefull.into_param().abi(), pmftypepartial.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFConvertColorInfoFromDXVA(ptoformat: *mut MFVIDEOFORMAT, dwfromdxva: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFConvertColorInfoFromDXVA(ptoformat: *mut MFVIDEOFORMAT, dwfromdxva: u32) -> ::windows::core::HRESULT;
-        }
-        MFConvertColorInfoFromDXVA(::core::mem::transmute(ptoformat), ::core::mem::transmute(dwfromdxva)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFConvertColorInfoFromDXVA(ptoformat: *mut MFVIDEOFORMAT, dwfromdxva: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFConvertColorInfoFromDXVA(::core::mem::transmute(ptoformat), ::core::mem::transmute(dwfromdxva)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFConvertColorInfoToDXVA(pdwtodxva: *mut u32, pfromformat: *const MFVIDEOFORMAT) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFConvertColorInfoToDXVA(pdwtodxva: *mut u32, pfromformat: *const MFVIDEOFORMAT) -> ::windows::core::HRESULT;
-        }
-        MFConvertColorInfoToDXVA(::core::mem::transmute(pdwtodxva), ::core::mem::transmute(pfromformat)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFConvertColorInfoToDXVA(pdwtodxva: *mut u32, pfromformat: *const MFVIDEOFORMAT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFConvertColorInfoToDXVA(::core::mem::transmute(pdwtodxva), ::core::mem::transmute(pfromformat)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFConvertFromFP16Array(pdest: *mut f32, psrc: *const u16, dwcount: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFConvertFromFP16Array(pdest: *mut f32, psrc: *const u16, dwcount: u32) -> ::windows::core::HRESULT;
-        }
-        MFConvertFromFP16Array(::core::mem::transmute(pdest), ::core::mem::transmute(psrc), ::core::mem::transmute(dwcount)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFConvertFromFP16Array(pdest: *mut f32, psrc: *const u16, dwcount: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFConvertFromFP16Array(::core::mem::transmute(pdest), ::core::mem::transmute(psrc), ::core::mem::transmute(dwcount)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFConvertToFP16Array(pdest: *mut u16, psrc: *const f32, dwcount: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFConvertToFP16Array(pdest: *mut u16, psrc: *const f32, dwcount: u32) -> ::windows::core::HRESULT;
-        }
-        MFConvertToFP16Array(::core::mem::transmute(pdest), ::core::mem::transmute(psrc), ::core::mem::transmute(dwcount)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFConvertToFP16Array(pdest: *mut u16, psrc: *const f32, dwcount: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFConvertToFP16Array(::core::mem::transmute(pdest), ::core::mem::transmute(psrc), ::core::mem::transmute(dwcount)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCopyImage(pdest: *mut u8, ldeststride: i32, psrc: *const u8, lsrcstride: i32, dwwidthinbytes: u32, dwlines: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCopyImage(pdest: *mut u8, ldeststride: i32, psrc: *const u8, lsrcstride: i32, dwwidthinbytes: u32, dwlines: u32) -> ::windows::core::HRESULT;
-        }
-        MFCopyImage(::core::mem::transmute(pdest), ::core::mem::transmute(ldeststride), ::core::mem::transmute(psrc), ::core::mem::transmute(lsrcstride), ::core::mem::transmute(dwwidthinbytes), ::core::mem::transmute(dwlines)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCopyImage(pdest: *mut u8, ldeststride: i32, psrc: *const u8, lsrcstride: i32, dwwidthinbytes: u32, dwlines: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFCopyImage(::core::mem::transmute(pdest), ::core::mem::transmute(ldeststride), ::core::mem::transmute(psrc), ::core::mem::transmute(lsrcstride), ::core::mem::transmute(dwwidthinbytes), ::core::mem::transmute(dwlines)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFCreate2DMediaBuffer<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(dwwidth: u32, dwheight: u32, dwfourcc: u32, fbottomup: Param3) -> ::windows::core::Result<IMFMediaBuffer> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreate2DMediaBuffer(dwwidth: u32, dwheight: u32, dwfourcc: u32, fbottomup: super::super::Foundation::BOOL, ppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreate2DMediaBuffer(::core::mem::transmute(dwwidth), ::core::mem::transmute(dwheight), ::core::mem::transmute(dwfourcc), fbottomup.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaBuffer>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreate2DMediaBuffer(dwwidth: u32, dwheight: u32, dwfourcc: u32, fbottomup: super::super::Foundation::BOOL, ppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreate2DMediaBuffer(::core::mem::transmute(dwwidth), ::core::mem::transmute(dwheight), ::core::mem::transmute(dwfourcc), fbottomup.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaBuffer>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreate3GPMediaSink<'a, Param0: ::windows::core::IntoParam<'a, IMFByteStream>, Param1: ::windows::core::IntoParam<'a, IMFMediaType>, Param2: ::windows::core::IntoParam<'a, IMFMediaType>>(pibytestream: Param0, pvideomediatype: Param1, paudiomediatype: Param2) -> ::windows::core::Result<IMFMediaSink> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreate3GPMediaSink(pibytestream: *mut ::core::ffi::c_void, pvideomediatype: *mut ::core::ffi::c_void, paudiomediatype: *mut ::core::ffi::c_void, ppimediasink: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreate3GPMediaSink(pibytestream.into_param().abi(), pvideomediatype.into_param().abi(), paudiomediatype.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaSink>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreate3GPMediaSink(pibytestream: *mut ::core::ffi::c_void, pvideomediatype: *mut ::core::ffi::c_void, paudiomediatype: *mut ::core::ffi::c_void, ppimediasink: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreate3GPMediaSink(pibytestream.into_param().abi(), pvideomediatype.into_param().abi(), paudiomediatype.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaSink>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateAC3MediaSink<'a, Param0: ::windows::core::IntoParam<'a, IMFByteStream>, Param1: ::windows::core::IntoParam<'a, IMFMediaType>>(ptargetbytestream: Param0, paudiomediatype: Param1) -> ::windows::core::Result<IMFMediaSink> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateAC3MediaSink(ptargetbytestream: *mut ::core::ffi::c_void, paudiomediatype: *mut ::core::ffi::c_void, ppmediasink: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateAC3MediaSink(ptargetbytestream.into_param().abi(), paudiomediatype.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaSink>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateAC3MediaSink(ptargetbytestream: *mut ::core::ffi::c_void, paudiomediatype: *mut ::core::ffi::c_void, ppmediasink: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateAC3MediaSink(ptargetbytestream.into_param().abi(), paudiomediatype.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaSink>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateADTSMediaSink<'a, Param0: ::windows::core::IntoParam<'a, IMFByteStream>, Param1: ::windows::core::IntoParam<'a, IMFMediaType>>(ptargetbytestream: Param0, paudiomediatype: Param1) -> ::windows::core::Result<IMFMediaSink> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateADTSMediaSink(ptargetbytestream: *mut ::core::ffi::c_void, paudiomediatype: *mut ::core::ffi::c_void, ppmediasink: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateADTSMediaSink(ptargetbytestream.into_param().abi(), paudiomediatype.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaSink>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateADTSMediaSink(ptargetbytestream: *mut ::core::ffi::c_void, paudiomediatype: *mut ::core::ffi::c_void, ppmediasink: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateADTSMediaSink(ptargetbytestream.into_param().abi(), paudiomediatype.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaSink>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFCreateAMMediaTypeFromMFMediaType<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(pmftype: Param0, guidformatblocktype: Param1, ppamtype: *mut *mut AM_MEDIA_TYPE) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateAMMediaTypeFromMFMediaType(pmftype: *mut ::core::ffi::c_void, guidformatblocktype: ::windows::core::GUID, ppamtype: *mut *mut AM_MEDIA_TYPE) -> ::windows::core::HRESULT;
-        }
-        MFCreateAMMediaTypeFromMFMediaType(pmftype.into_param().abi(), guidformatblocktype.into_param().abi(), ::core::mem::transmute(ppamtype)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateAMMediaTypeFromMFMediaType(pmftype: *mut ::core::ffi::c_void, guidformatblocktype: ::windows::core::GUID, ppamtype: *mut *mut AM_MEDIA_TYPE) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFCreateAMMediaTypeFromMFMediaType(pmftype.into_param().abi(), guidformatblocktype.into_param().abi(), ::core::mem::transmute(ppamtype)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateASFContentInfo() -> ::windows::core::Result<IMFASFContentInfo> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateASFContentInfo(ppicontentinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateASFContentInfo(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFASFContentInfo>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateASFContentInfo(ppicontentinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateASFContentInfo(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFASFContentInfo>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateASFIndexer() -> ::windows::core::Result<IMFASFIndexer> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateASFIndexer(ppiindexer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateASFIndexer(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFASFIndexer>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateASFIndexer(ppiindexer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateASFIndexer(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFASFIndexer>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateASFIndexerByteStream<'a, Param0: ::windows::core::IntoParam<'a, IMFByteStream>>(picontentbytestream: Param0, cbindexstartoffset: u64) -> ::windows::core::Result<IMFByteStream> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateASFIndexerByteStream(picontentbytestream: *mut ::core::ffi::c_void, cbindexstartoffset: u64, piindexbytestream: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateASFIndexerByteStream(picontentbytestream.into_param().abi(), ::core::mem::transmute(cbindexstartoffset), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFByteStream>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateASFIndexerByteStream(picontentbytestream: *mut ::core::ffi::c_void, cbindexstartoffset: u64, piindexbytestream: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateASFIndexerByteStream(picontentbytestream.into_param().abi(), ::core::mem::transmute(cbindexstartoffset), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFByteStream>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateASFMediaSink<'a, Param0: ::windows::core::IntoParam<'a, IMFByteStream>>(pibytestream: Param0) -> ::windows::core::Result<IMFMediaSink> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateASFMediaSink(pibytestream: *mut ::core::ffi::c_void, ppimediasink: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateASFMediaSink(pibytestream.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaSink>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateASFMediaSink(pibytestream: *mut ::core::ffi::c_void, ppimediasink: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateASFMediaSink(pibytestream.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaSink>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateASFMediaSinkActivate<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, IMFASFContentInfo>>(pwszfilename: Param0, pcontentinfo: Param1) -> ::windows::core::Result<IMFActivate> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateASFMediaSinkActivate(pwszfilename: ::windows::core::PCWSTR, pcontentinfo: *mut ::core::ffi::c_void, ppiactivate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateASFMediaSinkActivate(pwszfilename.into_param().abi(), pcontentinfo.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFActivate>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateASFMediaSinkActivate(pwszfilename: ::windows::core::PCWSTR, pcontentinfo: *mut ::core::ffi::c_void, ppiactivate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateASFMediaSinkActivate(pwszfilename.into_param().abi(), pcontentinfo.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFActivate>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateASFMultiplexer() -> ::windows::core::Result<IMFASFMultiplexer> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateASFMultiplexer(ppimultiplexer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateASFMultiplexer(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFASFMultiplexer>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateASFMultiplexer(ppimultiplexer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateASFMultiplexer(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFASFMultiplexer>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateASFProfile() -> ::windows::core::Result<IMFASFProfile> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateASFProfile(ppiprofile: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateASFProfile(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFASFProfile>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateASFProfile(ppiprofile: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateASFProfile(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFASFProfile>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateASFProfileFromPresentationDescriptor<'a, Param0: ::windows::core::IntoParam<'a, IMFPresentationDescriptor>>(pipd: Param0) -> ::windows::core::Result<IMFASFProfile> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateASFProfileFromPresentationDescriptor(pipd: *mut ::core::ffi::c_void, ppiprofile: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateASFProfileFromPresentationDescriptor(pipd.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFASFProfile>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateASFProfileFromPresentationDescriptor(pipd: *mut ::core::ffi::c_void, ppiprofile: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateASFProfileFromPresentationDescriptor(pipd.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFASFProfile>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateASFSplitter() -> ::windows::core::Result<IMFASFSplitter> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateASFSplitter(ppisplitter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateASFSplitter(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFASFSplitter>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateASFSplitter(ppisplitter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateASFSplitter(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFASFSplitter>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateASFStreamSelector<'a, Param0: ::windows::core::IntoParam<'a, IMFASFProfile>>(piasfprofile: Param0) -> ::windows::core::Result<IMFASFStreamSelector> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateASFStreamSelector(piasfprofile: *mut ::core::ffi::c_void, ppselector: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateASFStreamSelector(piasfprofile.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFASFStreamSelector>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateASFStreamSelector(piasfprofile: *mut ::core::ffi::c_void, ppselector: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateASFStreamSelector(piasfprofile.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFASFStreamSelector>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateASFStreamingMediaSink<'a, Param0: ::windows::core::IntoParam<'a, IMFByteStream>>(pibytestream: Param0) -> ::windows::core::Result<IMFMediaSink> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateASFStreamingMediaSink(pibytestream: *mut ::core::ffi::c_void, ppimediasink: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateASFStreamingMediaSink(pibytestream.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaSink>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateASFStreamingMediaSink(pibytestream: *mut ::core::ffi::c_void, ppimediasink: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateASFStreamingMediaSink(pibytestream.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaSink>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateASFStreamingMediaSinkActivate<'a, Param0: ::windows::core::IntoParam<'a, IMFActivate>, Param1: ::windows::core::IntoParam<'a, IMFASFContentInfo>>(pbytestreamactivate: Param0, pcontentinfo: Param1) -> ::windows::core::Result<IMFActivate> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateASFStreamingMediaSinkActivate(pbytestreamactivate: *mut ::core::ffi::c_void, pcontentinfo: *mut ::core::ffi::c_void, ppiactivate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateASFStreamingMediaSinkActivate(pbytestreamactivate.into_param().abi(), pcontentinfo.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFActivate>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateASFStreamingMediaSinkActivate(pbytestreamactivate: *mut ::core::ffi::c_void, pcontentinfo: *mut ::core::ffi::c_void, ppiactivate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateASFStreamingMediaSinkActivate(pbytestreamactivate.into_param().abi(), pcontentinfo.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFActivate>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateAVIMediaSink<'a, Param0: ::windows::core::IntoParam<'a, IMFByteStream>, Param1: ::windows::core::IntoParam<'a, IMFMediaType>, Param2: ::windows::core::IntoParam<'a, IMFMediaType>>(pibytestream: Param0, pvideomediatype: Param1, paudiomediatype: Param2) -> ::windows::core::Result<IMFMediaSink> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateAVIMediaSink(pibytestream: *mut ::core::ffi::c_void, pvideomediatype: *mut ::core::ffi::c_void, paudiomediatype: *mut ::core::ffi::c_void, ppimediasink: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateAVIMediaSink(pibytestream.into_param().abi(), pvideomediatype.into_param().abi(), paudiomediatype.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaSink>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateAVIMediaSink(pibytestream: *mut ::core::ffi::c_void, pvideomediatype: *mut ::core::ffi::c_void, paudiomediatype: *mut ::core::ffi::c_void, ppimediasink: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateAVIMediaSink(pibytestream.into_param().abi(), pvideomediatype.into_param().abi(), paudiomediatype.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaSink>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateAggregateSource<'a, Param0: ::windows::core::IntoParam<'a, IMFCollection>>(psourcecollection: Param0) -> ::windows::core::Result<IMFMediaSource> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateAggregateSource(psourcecollection: *mut ::core::ffi::c_void, ppaggsource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateAggregateSource(psourcecollection.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaSource>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateAggregateSource(psourcecollection: *mut ::core::ffi::c_void, ppaggsource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateAggregateSource(psourcecollection.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaSource>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateAlignedMemoryBuffer(cbmaxlength: u32, cbaligment: u32) -> ::windows::core::Result<IMFMediaBuffer> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateAlignedMemoryBuffer(cbmaxlength: u32, cbaligment: u32, ppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateAlignedMemoryBuffer(::core::mem::transmute(cbmaxlength), ::core::mem::transmute(cbaligment), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaBuffer>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateAlignedMemoryBuffer(cbmaxlength: u32, cbaligment: u32, ppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateAlignedMemoryBuffer(::core::mem::transmute(cbmaxlength), ::core::mem::transmute(cbaligment), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaBuffer>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateAsyncResult<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, IMFAsyncCallback>, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(punkobject: Param0, pcallback: Param1, punkstate: Param2) -> ::windows::core::Result<IMFAsyncResult> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateAsyncResult(punkobject: *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void, punkstate: *mut ::core::ffi::c_void, ppasyncresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateAsyncResult(punkobject.into_param().abi(), pcallback.into_param().abi(), punkstate.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFAsyncResult>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateAsyncResult(punkobject: *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void, punkstate: *mut ::core::ffi::c_void, ppasyncresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateAsyncResult(punkobject.into_param().abi(), pcallback.into_param().abi(), punkstate.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFAsyncResult>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateAttributes(ppmfattributes: *mut ::core::option::Option<IMFAttributes>, cinitialsize: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateAttributes(ppmfattributes: *mut *mut ::core::ffi::c_void, cinitialsize: u32) -> ::windows::core::HRESULT;
-        }
-        MFCreateAttributes(::core::mem::transmute(ppmfattributes), ::core::mem::transmute(cinitialsize)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateAttributes(ppmfattributes: *mut *mut ::core::ffi::c_void, cinitialsize: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFCreateAttributes(::core::mem::transmute(ppmfattributes), ::core::mem::transmute(cinitialsize)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Media_Audio\"`*"]
 #[cfg(feature = "Win32_Media_Audio")]
 #[inline]
 pub unsafe fn MFCreateAudioMediaType(paudioformat: *const super::Audio::WAVEFORMATEX) -> ::windows::core::Result<IMFAudioMediaType> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateAudioMediaType(paudioformat: *const super::Audio::WAVEFORMATEX, ppiaudiomediatype: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateAudioMediaType(::core::mem::transmute(paudioformat), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFAudioMediaType>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateAudioMediaType(paudioformat: *const super::Audio::WAVEFORMATEX, ppiaudiomediatype: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateAudioMediaType(::core::mem::transmute(paudioformat), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFAudioMediaType>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateAudioRenderer<'a, Param0: ::windows::core::IntoParam<'a, IMFAttributes>>(paudioattributes: Param0) -> ::windows::core::Result<IMFMediaSink> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateAudioRenderer(paudioattributes: *mut ::core::ffi::c_void, ppsink: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateAudioRenderer(paudioattributes.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaSink>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateAudioRenderer(paudioattributes: *mut ::core::ffi::c_void, ppsink: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateAudioRenderer(paudioattributes.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaSink>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateAudioRendererActivate() -> ::windows::core::Result<IMFActivate> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateAudioRendererActivate(ppactivate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateAudioRendererActivate(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFActivate>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateAudioRendererActivate(ppactivate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateAudioRendererActivate(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFActivate>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateCameraOcclusionStateMonitor<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, IMFCameraOcclusionStateReportCallback>>(symboliclink: Param0, callback: Param1) -> ::windows::core::Result<IMFCameraOcclusionStateMonitor> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateCameraOcclusionStateMonitor(symboliclink: ::windows::core::PCWSTR, callback: *mut ::core::ffi::c_void, occlusionstatemonitor: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateCameraOcclusionStateMonitor(symboliclink.into_param().abi(), callback.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFCameraOcclusionStateMonitor>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateCameraOcclusionStateMonitor(symboliclink: ::windows::core::PCWSTR, callback: *mut ::core::ffi::c_void, occlusionstatemonitor: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateCameraOcclusionStateMonitor(symboliclink.into_param().abi(), callback.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFCameraOcclusionStateMonitor>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateCollection() -> ::windows::core::Result<IMFCollection> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateCollection(ppimfcollection: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateCollection(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFCollection>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateCollection(ppimfcollection: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateCollection(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFCollection>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateContentDecryptorContext<'a, Param1: ::windows::core::IntoParam<'a, IMFDXGIDeviceManager>, Param2: ::windows::core::IntoParam<'a, IMFContentProtectionDevice>>(guidmediaprotectionsystemid: *const ::windows::core::GUID, pd3dmanager: Param1, pcontentprotectiondevice: Param2) -> ::windows::core::Result<IMFContentDecryptorContext> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateContentDecryptorContext(guidmediaprotectionsystemid: *const ::windows::core::GUID, pd3dmanager: *mut ::core::ffi::c_void, pcontentprotectiondevice: *mut ::core::ffi::c_void, ppcontentdecryptorcontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateContentDecryptorContext(::core::mem::transmute(guidmediaprotectionsystemid), pd3dmanager.into_param().abi(), pcontentprotectiondevice.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFContentDecryptorContext>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateContentDecryptorContext(guidmediaprotectionsystemid: *const ::windows::core::GUID, pd3dmanager: *mut ::core::ffi::c_void, pcontentprotectiondevice: *mut ::core::ffi::c_void, ppcontentdecryptorcontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateContentDecryptorContext(::core::mem::transmute(guidmediaprotectionsystemid), pd3dmanager.into_param().abi(), pcontentprotectiondevice.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFContentDecryptorContext>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateContentProtectionDevice(protectionsystemid: *const ::windows::core::GUID) -> ::windows::core::Result<IMFContentProtectionDevice> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateContentProtectionDevice(protectionsystemid: *const ::windows::core::GUID, contentprotectiondevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateContentProtectionDevice(::core::mem::transmute(protectionsystemid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFContentProtectionDevice>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateContentProtectionDevice(protectionsystemid: *const ::windows::core::GUID, contentprotectiondevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateContentProtectionDevice(::core::mem::transmute(protectionsystemid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFContentProtectionDevice>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateCredentialCache() -> ::windows::core::Result<IMFNetCredentialCache> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateCredentialCache(ppcache: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateCredentialCache(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFNetCredentialCache>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateCredentialCache(ppcache: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateCredentialCache(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFNetCredentialCache>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Graphics_Direct3D12\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[inline]
 pub unsafe fn MFCreateD3D12SynchronizationObject<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Device>>(pdevice: Param0, riid: *const ::windows::core::GUID, ppvsyncobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateD3D12SynchronizationObject(pdevice: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvsyncobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        MFCreateD3D12SynchronizationObject(pdevice.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppvsyncobject)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateD3D12SynchronizationObject(pdevice: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvsyncobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFCreateD3D12SynchronizationObject(pdevice.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppvsyncobject)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateDXGIDeviceManager(resettoken: *mut u32, ppdevicemanager: *mut ::core::option::Option<IMFDXGIDeviceManager>) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateDXGIDeviceManager(resettoken: *mut u32, ppdevicemanager: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        MFCreateDXGIDeviceManager(::core::mem::transmute(resettoken), ::core::mem::transmute(ppdevicemanager)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateDXGIDeviceManager(resettoken: *mut u32, ppdevicemanager: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFCreateDXGIDeviceManager(::core::mem::transmute(resettoken), ::core::mem::transmute(ppdevicemanager)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFCreateDXGISurfaceBuffer<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(riid: *const ::windows::core::GUID, punksurface: Param1, usubresourceindex: u32, fbottomupwhenlinear: Param3) -> ::windows::core::Result<IMFMediaBuffer> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateDXGISurfaceBuffer(riid: *const ::windows::core::GUID, punksurface: *mut ::core::ffi::c_void, usubresourceindex: u32, fbottomupwhenlinear: super::super::Foundation::BOOL, ppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateDXGISurfaceBuffer(::core::mem::transmute(riid), punksurface.into_param().abi(), ::core::mem::transmute(usubresourceindex), fbottomupwhenlinear.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaBuffer>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateDXGISurfaceBuffer(riid: *const ::windows::core::GUID, punksurface: *mut ::core::ffi::c_void, usubresourceindex: u32, fbottomupwhenlinear: super::super::Foundation::BOOL, ppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateDXGISurfaceBuffer(::core::mem::transmute(riid), punksurface.into_param().abi(), ::core::mem::transmute(usubresourceindex), fbottomupwhenlinear.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaBuffer>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFCreateDXSurfaceBuffer<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(riid: *const ::windows::core::GUID, punksurface: Param1, fbottomupwhenlinear: Param2) -> ::windows::core::Result<IMFMediaBuffer> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateDXSurfaceBuffer(riid: *const ::windows::core::GUID, punksurface: *mut ::core::ffi::c_void, fbottomupwhenlinear: super::super::Foundation::BOOL, ppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateDXSurfaceBuffer(::core::mem::transmute(riid), punksurface.into_param().abi(), fbottomupwhenlinear.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaBuffer>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateDXSurfaceBuffer(riid: *const ::windows::core::GUID, punksurface: *mut ::core::ffi::c_void, fbottomupwhenlinear: super::super::Foundation::BOOL, ppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateDXSurfaceBuffer(::core::mem::transmute(riid), punksurface.into_param().abi(), fbottomupwhenlinear.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaBuffer>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateDeviceSource<'a, Param0: ::windows::core::IntoParam<'a, IMFAttributes>>(pattributes: Param0) -> ::windows::core::Result<IMFMediaSource> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateDeviceSource(pattributes: *mut ::core::ffi::c_void, ppsource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateDeviceSource(pattributes.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaSource>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateDeviceSource(pattributes: *mut ::core::ffi::c_void, ppsource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateDeviceSource(pattributes.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaSource>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateDeviceSourceActivate<'a, Param0: ::windows::core::IntoParam<'a, IMFAttributes>>(pattributes: Param0) -> ::windows::core::Result<IMFActivate> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateDeviceSourceActivate(pattributes: *mut ::core::ffi::c_void, ppactivate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateDeviceSourceActivate(pattributes.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFActivate>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateDeviceSourceActivate(pattributes: *mut ::core::ffi::c_void, ppactivate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateDeviceSourceActivate(pattributes.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFActivate>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn MFCreateEncryptedMediaExtensionsStoreActivate<'a, Param0: ::windows::core::IntoParam<'a, IMFPMPHostApp>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pmphost: Param0, objectstream: Param1, classid: Param2) -> ::windows::core::Result<IMFActivate> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateEncryptedMediaExtensionsStoreActivate(pmphost: *mut ::core::ffi::c_void, objectstream: *mut ::core::ffi::c_void, classid: ::windows::core::PCWSTR, activate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateEncryptedMediaExtensionsStoreActivate(pmphost.into_param().abi(), objectstream.into_param().abi(), classid.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFActivate>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateEncryptedMediaExtensionsStoreActivate(pmphost: *mut ::core::ffi::c_void, objectstream: *mut ::core::ffi::c_void, classid: ::windows::core::PCWSTR, activate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateEncryptedMediaExtensionsStoreActivate(pmphost.into_param().abi(), objectstream.into_param().abi(), classid.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFActivate>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateEventQueue() -> ::windows::core::Result<IMFMediaEventQueue> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateEventQueue(ppmediaeventqueue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateEventQueue(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaEventQueue>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateEventQueue(ppmediaeventqueue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateEventQueue(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaEventQueue>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateExtendedCameraIntrinsicModel(distortionmodeltype: MFCameraIntrinsic_DistortionModelType) -> ::windows::core::Result<IMFExtendedCameraIntrinsicModel> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateExtendedCameraIntrinsicModel(distortionmodeltype: MFCameraIntrinsic_DistortionModelType, ppextendedcameraintrinsicmodel: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateExtendedCameraIntrinsicModel(::core::mem::transmute(distortionmodeltype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFExtendedCameraIntrinsicModel>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateExtendedCameraIntrinsicModel(distortionmodeltype: MFCameraIntrinsic_DistortionModelType, ppextendedcameraintrinsicmodel: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateExtendedCameraIntrinsicModel(::core::mem::transmute(distortionmodeltype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFExtendedCameraIntrinsicModel>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateExtendedCameraIntrinsics() -> ::windows::core::Result<IMFExtendedCameraIntrinsics> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateExtendedCameraIntrinsics(ppextendedcameraintrinsics: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateExtendedCameraIntrinsics(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFExtendedCameraIntrinsics>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateExtendedCameraIntrinsics(ppextendedcameraintrinsics: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateExtendedCameraIntrinsics(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFExtendedCameraIntrinsics>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateFMPEG4MediaSink<'a, Param0: ::windows::core::IntoParam<'a, IMFByteStream>, Param1: ::windows::core::IntoParam<'a, IMFMediaType>, Param2: ::windows::core::IntoParam<'a, IMFMediaType>>(pibytestream: Param0, pvideomediatype: Param1, paudiomediatype: Param2) -> ::windows::core::Result<IMFMediaSink> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateFMPEG4MediaSink(pibytestream: *mut ::core::ffi::c_void, pvideomediatype: *mut ::core::ffi::c_void, paudiomediatype: *mut ::core::ffi::c_void, ppimediasink: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateFMPEG4MediaSink(pibytestream.into_param().abi(), pvideomediatype.into_param().abi(), paudiomediatype.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaSink>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateFMPEG4MediaSink(pibytestream: *mut ::core::ffi::c_void, pvideomediatype: *mut ::core::ffi::c_void, paudiomediatype: *mut ::core::ffi::c_void, ppimediasink: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateFMPEG4MediaSink(pibytestream.into_param().abi(), pvideomediatype.into_param().abi(), paudiomediatype.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaSink>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateFile<'a, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(accessmode: MF_FILE_ACCESSMODE, openmode: MF_FILE_OPENMODE, fflags: MF_FILE_FLAGS, pwszfileurl: Param3) -> ::windows::core::Result<IMFByteStream> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateFile(accessmode: MF_FILE_ACCESSMODE, openmode: MF_FILE_OPENMODE, fflags: MF_FILE_FLAGS, pwszfileurl: ::windows::core::PCWSTR, ppibytestream: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateFile(::core::mem::transmute(accessmode), ::core::mem::transmute(openmode), ::core::mem::transmute(fflags), pwszfileurl.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFByteStream>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateFile(accessmode: MF_FILE_ACCESSMODE, openmode: MF_FILE_OPENMODE, fflags: MF_FILE_FLAGS, pwszfileurl: ::windows::core::PCWSTR, ppibytestream: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateFile(::core::mem::transmute(accessmode), ::core::mem::transmute(openmode), ::core::mem::transmute(fflags), pwszfileurl.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFByteStream>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Media_DxMediaObjects\"`*"]
 #[cfg(feature = "Win32_Media_DxMediaObjects")]
 #[inline]
 pub unsafe fn MFCreateLegacyMediaBufferOnMFMediaBuffer<'a, Param0: ::windows::core::IntoParam<'a, IMFSample>, Param1: ::windows::core::IntoParam<'a, IMFMediaBuffer>>(psample: Param0, pmfmediabuffer: Param1, cboffset: u32) -> ::windows::core::Result<super::DxMediaObjects::IMediaBuffer> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateLegacyMediaBufferOnMFMediaBuffer(psample: *mut ::core::ffi::c_void, pmfmediabuffer: *mut ::core::ffi::c_void, cboffset: u32, ppmediabuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateLegacyMediaBufferOnMFMediaBuffer(psample.into_param().abi(), pmfmediabuffer.into_param().abi(), ::core::mem::transmute(cboffset), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::DxMediaObjects::IMediaBuffer>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateLegacyMediaBufferOnMFMediaBuffer(psample: *mut ::core::ffi::c_void, pmfmediabuffer: *mut ::core::ffi::c_void, cboffset: u32, ppmediabuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateLegacyMediaBufferOnMFMediaBuffer(psample.into_param().abi(), pmfmediabuffer.into_param().abi(), ::core::mem::transmute(cboffset), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::DxMediaObjects::IMediaBuffer>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn MFCreateMFByteStreamOnStream<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(pstream: Param0) -> ::windows::core::Result<IMFByteStream> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateMFByteStreamOnStream(pstream: *mut ::core::ffi::c_void, ppbytestream: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateMFByteStreamOnStream(pstream.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFByteStream>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateMFByteStreamOnStream(pstream: *mut ::core::ffi::c_void, ppbytestream: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateMFByteStreamOnStream(pstream.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFByteStream>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateMFByteStreamOnStreamEx<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(punkstream: Param0) -> ::windows::core::Result<IMFByteStream> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateMFByteStreamOnStreamEx(punkstream: *mut ::core::ffi::c_void, ppbytestream: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateMFByteStreamOnStreamEx(punkstream.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFByteStream>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateMFByteStreamOnStreamEx(punkstream: *mut ::core::ffi::c_void, ppbytestream: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateMFByteStreamOnStreamEx(punkstream.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFByteStream>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateMFByteStreamWrapper<'a, Param0: ::windows::core::IntoParam<'a, IMFByteStream>>(pstream: Param0) -> ::windows::core::Result<IMFByteStream> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateMFByteStreamWrapper(pstream: *mut ::core::ffi::c_void, ppstreamwrapper: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateMFByteStreamWrapper(pstream.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFByteStream>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateMFByteStreamWrapper(pstream: *mut ::core::ffi::c_void, ppstreamwrapper: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateMFByteStreamWrapper(pstream.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFByteStream>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFCreateMFVideoFormatFromMFMediaType<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(pmftype: Param0, ppmfvf: *mut *mut MFVIDEOFORMAT, pcbsize: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateMFVideoFormatFromMFMediaType(pmftype: *mut ::core::ffi::c_void, ppmfvf: *mut *mut MFVIDEOFORMAT, pcbsize: *mut u32) -> ::windows::core::HRESULT;
-        }
-        MFCreateMFVideoFormatFromMFMediaType(pmftype.into_param().abi(), ::core::mem::transmute(ppmfvf), ::core::mem::transmute(pcbsize)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateMFVideoFormatFromMFMediaType(pmftype: *mut ::core::ffi::c_void, ppmfvf: *mut *mut MFVIDEOFORMAT, pcbsize: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFCreateMFVideoFormatFromMFMediaType(pmftype.into_param().abi(), ::core::mem::transmute(ppmfvf), ::core::mem::transmute(pcbsize)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateMP3MediaSink<'a, Param0: ::windows::core::IntoParam<'a, IMFByteStream>>(ptargetbytestream: Param0) -> ::windows::core::Result<IMFMediaSink> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateMP3MediaSink(ptargetbytestream: *mut ::core::ffi::c_void, ppmediasink: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateMP3MediaSink(ptargetbytestream.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaSink>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateMP3MediaSink(ptargetbytestream: *mut ::core::ffi::c_void, ppmediasink: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateMP3MediaSink(ptargetbytestream.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaSink>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateMPEG4MediaSink<'a, Param0: ::windows::core::IntoParam<'a, IMFByteStream>, Param1: ::windows::core::IntoParam<'a, IMFMediaType>, Param2: ::windows::core::IntoParam<'a, IMFMediaType>>(pibytestream: Param0, pvideomediatype: Param1, paudiomediatype: Param2) -> ::windows::core::Result<IMFMediaSink> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateMPEG4MediaSink(pibytestream: *mut ::core::ffi::c_void, pvideomediatype: *mut ::core::ffi::c_void, paudiomediatype: *mut ::core::ffi::c_void, ppimediasink: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateMPEG4MediaSink(pibytestream.into_param().abi(), pvideomediatype.into_param().abi(), paudiomediatype.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaSink>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateMPEG4MediaSink(pibytestream: *mut ::core::ffi::c_void, pvideomediatype: *mut ::core::ffi::c_void, paudiomediatype: *mut ::core::ffi::c_void, ppimediasink: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateMPEG4MediaSink(pibytestream.into_param().abi(), pvideomediatype.into_param().abi(), paudiomediatype.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaSink>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateMediaBufferFromMediaType<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(pmediatype: Param0, llduration: i64, dwminlength: u32, dwminalignment: u32) -> ::windows::core::Result<IMFMediaBuffer> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateMediaBufferFromMediaType(pmediatype: *mut ::core::ffi::c_void, llduration: i64, dwminlength: u32, dwminalignment: u32, ppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateMediaBufferFromMediaType(pmediatype.into_param().abi(), ::core::mem::transmute(llduration), ::core::mem::transmute(dwminlength), ::core::mem::transmute(dwminalignment), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaBuffer>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateMediaBufferFromMediaType(pmediatype: *mut ::core::ffi::c_void, llduration: i64, dwminlength: u32, dwminalignment: u32, ppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateMediaBufferFromMediaType(pmediatype.into_param().abi(), ::core::mem::transmute(llduration), ::core::mem::transmute(dwminlength), ::core::mem::transmute(dwminalignment), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaBuffer>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateMediaBufferWrapper<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaBuffer>>(pbuffer: Param0, cboffset: u32, dwlength: u32) -> ::windows::core::Result<IMFMediaBuffer> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateMediaBufferWrapper(pbuffer: *mut ::core::ffi::c_void, cboffset: u32, dwlength: u32, ppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateMediaBufferWrapper(pbuffer.into_param().abi(), ::core::mem::transmute(cboffset), ::core::mem::transmute(dwlength), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaBuffer>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateMediaBufferWrapper(pbuffer: *mut ::core::ffi::c_void, cboffset: u32, dwlength: u32, ppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateMediaBufferWrapper(pbuffer.into_param().abi(), ::core::mem::transmute(cboffset), ::core::mem::transmute(dwlength), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaBuffer>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn MFCreateMediaEvent(met: u32, guidextendedtype: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<IMFMediaEvent> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateMediaEvent(met: u32, guidextendedtype: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT, ppevent: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateMediaEvent(::core::mem::transmute(met), ::core::mem::transmute(guidextendedtype), ::core::mem::transmute(hrstatus), ::core::mem::transmute(pvvalue), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaEvent>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateMediaEvent(met: u32, guidextendedtype: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT, ppevent: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateMediaEvent(::core::mem::transmute(met), ::core::mem::transmute(guidextendedtype), ::core::mem::transmute(hrstatus), ::core::mem::transmute(pvvalue), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaEvent>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateMediaExtensionActivate<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(szactivatableclassid: Param0, pconfiguration: Param1, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateMediaExtensionActivate(szactivatableclassid: ::windows::core::PCWSTR, pconfiguration: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        MFCreateMediaExtensionActivate(szactivatableclassid.into_param().abi(), pconfiguration.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateMediaExtensionActivate(szactivatableclassid: ::windows::core::PCWSTR, pconfiguration: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFCreateMediaExtensionActivate(szactivatableclassid.into_param().abi(), pconfiguration.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateMediaSession<'a, Param0: ::windows::core::IntoParam<'a, IMFAttributes>>(pconfiguration: Param0) -> ::windows::core::Result<IMFMediaSession> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateMediaSession(pconfiguration: *mut ::core::ffi::c_void, ppmediasession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateMediaSession(pconfiguration.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaSession>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateMediaSession(pconfiguration: *mut ::core::ffi::c_void, ppmediasession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateMediaSession(pconfiguration.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaSession>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateMediaType() -> ::windows::core::Result<IMFMediaType> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateMediaType(ppmftype: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateMediaType(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaType>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateMediaType(ppmftype: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateMediaType(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaType>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateMediaTypeFromProperties<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(punkstream: Param0) -> ::windows::core::Result<IMFMediaType> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateMediaTypeFromProperties(punkstream: *mut ::core::ffi::c_void, ppmediatype: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateMediaTypeFromProperties(punkstream.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaType>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateMediaTypeFromProperties(punkstream: *mut ::core::ffi::c_void, ppmediatype: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateMediaTypeFromProperties(punkstream.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaType>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateMediaTypeFromRepresentation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(guidrepresentation: Param0, pvrepresentation: *const ::core::ffi::c_void) -> ::windows::core::Result<IMFMediaType> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateMediaTypeFromRepresentation(guidrepresentation: ::windows::core::GUID, pvrepresentation: *const ::core::ffi::c_void, ppimediatype: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateMediaTypeFromRepresentation(guidrepresentation.into_param().abi(), ::core::mem::transmute(pvrepresentation), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaType>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateMediaTypeFromRepresentation(guidrepresentation: ::windows::core::GUID, pvrepresentation: *const ::core::ffi::c_void, ppimediatype: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateMediaTypeFromRepresentation(guidrepresentation.into_param().abi(), ::core::mem::transmute(pvrepresentation), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaType>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateMemoryBuffer(cbmaxlength: u32) -> ::windows::core::Result<IMFMediaBuffer> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateMemoryBuffer(cbmaxlength: u32, ppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateMemoryBuffer(::core::mem::transmute(cbmaxlength), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaBuffer>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateMemoryBuffer(cbmaxlength: u32, ppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateMemoryBuffer(::core::mem::transmute(cbmaxlength), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaBuffer>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateMuxSink<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, IMFAttributes>, Param2: ::windows::core::IntoParam<'a, IMFByteStream>>(guidoutputsubtype: Param0, poutputattributes: Param1, poutputbytestream: Param2) -> ::windows::core::Result<IMFMediaSink> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateMuxSink(guidoutputsubtype: ::windows::core::GUID, poutputattributes: *mut ::core::ffi::c_void, poutputbytestream: *mut ::core::ffi::c_void, ppmuxsink: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateMuxSink(guidoutputsubtype.into_param().abi(), poutputattributes.into_param().abi(), poutputbytestream.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaSink>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateMuxSink(guidoutputsubtype: ::windows::core::GUID, poutputattributes: *mut ::core::ffi::c_void, poutputbytestream: *mut ::core::ffi::c_void, ppmuxsink: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateMuxSink(guidoutputsubtype.into_param().abi(), poutputattributes.into_param().abi(), poutputbytestream.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaSink>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateMuxStreamAttributes<'a, Param0: ::windows::core::IntoParam<'a, IMFCollection>>(pattributestomux: Param0) -> ::windows::core::Result<IMFAttributes> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateMuxStreamAttributes(pattributestomux: *mut ::core::ffi::c_void, ppmuxattribs: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateMuxStreamAttributes(pattributestomux.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFAttributes>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateMuxStreamAttributes(pattributestomux: *mut ::core::ffi::c_void, ppmuxattribs: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateMuxStreamAttributes(pattributestomux.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFAttributes>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateMuxStreamMediaType<'a, Param0: ::windows::core::IntoParam<'a, IMFCollection>>(pmediatypestomux: Param0) -> ::windows::core::Result<IMFMediaType> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateMuxStreamMediaType(pmediatypestomux: *mut ::core::ffi::c_void, ppmuxmediatype: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateMuxStreamMediaType(pmediatypestomux.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaType>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateMuxStreamMediaType(pmediatypestomux: *mut ::core::ffi::c_void, ppmuxmediatype: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateMuxStreamMediaType(pmediatypestomux.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaType>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateMuxStreamSample<'a, Param0: ::windows::core::IntoParam<'a, IMFCollection>>(psamplestomux: Param0) -> ::windows::core::Result<IMFSample> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateMuxStreamSample(psamplestomux: *mut ::core::ffi::c_void, ppmuxsample: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateMuxStreamSample(psamplestomux.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFSample>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateMuxStreamSample(psamplestomux: *mut ::core::ffi::c_void, ppmuxsample: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateMuxStreamSample(psamplestomux.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFSample>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateNetSchemePlugin(riid: *const ::windows::core::GUID, ppvhandler: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateNetSchemePlugin(riid: *const ::windows::core::GUID, ppvhandler: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        MFCreateNetSchemePlugin(::core::mem::transmute(riid), ::core::mem::transmute(ppvhandler)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateNetSchemePlugin(riid: *const ::windows::core::GUID, ppvhandler: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFCreateNetSchemePlugin(::core::mem::transmute(riid), ::core::mem::transmute(ppvhandler)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreatePMPMediaSession<'a, Param1: ::windows::core::IntoParam<'a, IMFAttributes>>(dwcreationflags: u32, pconfiguration: Param1, ppmediasession: *mut ::core::option::Option<IMFMediaSession>, ppenableractivate: *mut ::core::option::Option<IMFActivate>) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreatePMPMediaSession(dwcreationflags: u32, pconfiguration: *mut ::core::ffi::c_void, ppmediasession: *mut *mut ::core::ffi::c_void, ppenableractivate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        MFCreatePMPMediaSession(::core::mem::transmute(dwcreationflags), pconfiguration.into_param().abi(), ::core::mem::transmute(ppmediasession), ::core::mem::transmute(ppenableractivate)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreatePMPMediaSession(dwcreationflags: u32, pconfiguration: *mut ::core::ffi::c_void, ppmediasession: *mut *mut ::core::ffi::c_void, ppenableractivate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFCreatePMPMediaSession(::core::mem::transmute(dwcreationflags), pconfiguration.into_param().abi(), ::core::mem::transmute(ppmediasession), ::core::mem::transmute(ppenableractivate)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreatePMPServer(dwcreationflags: u32) -> ::windows::core::Result<IMFPMPServer> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreatePMPServer(dwcreationflags: u32, pppmpserver: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreatePMPServer(::core::mem::transmute(dwcreationflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFPMPServer>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreatePMPServer(dwcreationflags: u32, pppmpserver: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreatePMPServer(::core::mem::transmute(dwcreationflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFPMPServer>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreatePresentationClock() -> ::windows::core::Result<IMFPresentationClock> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreatePresentationClock(pppresentationclock: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreatePresentationClock(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFPresentationClock>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreatePresentationClock(pppresentationclock: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreatePresentationClock(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFPresentationClock>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreatePresentationDescriptor(apstreamdescriptors: &[::core::option::Option<IMFStreamDescriptor>]) -> ::windows::core::Result<IMFPresentationDescriptor> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreatePresentationDescriptor(cstreamdescriptors: u32, apstreamdescriptors: *const *mut ::core::ffi::c_void, pppresentationdescriptor: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreatePresentationDescriptor(apstreamdescriptors.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(apstreamdescriptors)), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFPresentationDescriptor>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreatePresentationDescriptor(cstreamdescriptors: u32, apstreamdescriptors: *const *mut ::core::ffi::c_void, pppresentationdescriptor: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreatePresentationDescriptor(apstreamdescriptors.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(apstreamdescriptors)), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFPresentationDescriptor>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreatePresentationDescriptorFromASFProfile<'a, Param0: ::windows::core::IntoParam<'a, IMFASFProfile>>(piprofile: Param0) -> ::windows::core::Result<IMFPresentationDescriptor> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreatePresentationDescriptorFromASFProfile(piprofile: *mut ::core::ffi::c_void, ppipd: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreatePresentationDescriptorFromASFProfile(piprofile.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFPresentationDescriptor>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreatePresentationDescriptorFromASFProfile(piprofile: *mut ::core::ffi::c_void, ppipd: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreatePresentationDescriptorFromASFProfile(piprofile.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFPresentationDescriptor>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreatePropertiesFromMediaType<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(pmediatype: Param0, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreatePropertiesFromMediaType(pmediatype: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        MFCreatePropertiesFromMediaType(pmediatype.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreatePropertiesFromMediaType(pmediatype: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFCreatePropertiesFromMediaType(pmediatype.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateProtectedEnvironmentAccess() -> ::windows::core::Result<IMFProtectedEnvironmentAccess> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateProtectedEnvironmentAccess(ppaccess: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateProtectedEnvironmentAccess(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFProtectedEnvironmentAccess>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateProtectedEnvironmentAccess(ppaccess: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateProtectedEnvironmentAccess(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFProtectedEnvironmentAccess>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[inline]
 pub unsafe fn MFCreateProxyLocator<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::UI::Shell::PropertiesSystem::IPropertyStore>>(pszprotocol: Param0, pproxyconfig: Param1) -> ::windows::core::Result<IMFNetProxyLocator> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateProxyLocator(pszprotocol: ::windows::core::PCWSTR, pproxyconfig: *mut ::core::ffi::c_void, ppproxylocator: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateProxyLocator(pszprotocol.into_param().abi(), pproxyconfig.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFNetProxyLocator>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateProxyLocator(pszprotocol: ::windows::core::PCWSTR, pproxyconfig: *mut ::core::ffi::c_void, ppproxylocator: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateProxyLocator(pszprotocol.into_param().abi(), pproxyconfig.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFNetProxyLocator>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateRelativePanelWatcher<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(videodeviceid: Param0, displaymonitordeviceid: Param1) -> ::windows::core::Result<IMFRelativePanelWatcher> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateRelativePanelWatcher(videodeviceid: ::windows::core::PCWSTR, displaymonitordeviceid: ::windows::core::PCWSTR, pprelativepanelwatcher: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateRelativePanelWatcher(videodeviceid.into_param().abi(), displaymonitordeviceid.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFRelativePanelWatcher>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateRelativePanelWatcher(videodeviceid: ::windows::core::PCWSTR, displaymonitordeviceid: ::windows::core::PCWSTR, pprelativepanelwatcher: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateRelativePanelWatcher(videodeviceid.into_param().abi(), displaymonitordeviceid.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFRelativePanelWatcher>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateRemoteDesktopPlugin() -> ::windows::core::Result<IMFRemoteDesktopPlugin> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateRemoteDesktopPlugin(ppplugin: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateRemoteDesktopPlugin(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFRemoteDesktopPlugin>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateRemoteDesktopPlugin(ppplugin: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateRemoteDesktopPlugin(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFRemoteDesktopPlugin>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateSample() -> ::windows::core::Result<IMFSample> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateSample(ppimfsample: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateSample(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFSample>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateSample(ppimfsample: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateSample(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFSample>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateSampleCopierMFT() -> ::windows::core::Result<IMFTransform> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateSampleCopierMFT(ppcopiermft: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateSampleCopierMFT(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFTransform>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateSampleCopierMFT(ppcopiermft: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateSampleCopierMFT(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFTransform>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateSampleGrabberSinkActivate<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>, Param1: ::windows::core::IntoParam<'a, IMFSampleGrabberSinkCallback>>(pimfmediatype: Param0, pimfsamplegrabbersinkcallback: Param1) -> ::windows::core::Result<IMFActivate> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateSampleGrabberSinkActivate(pimfmediatype: *mut ::core::ffi::c_void, pimfsamplegrabbersinkcallback: *mut ::core::ffi::c_void, ppiactivate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateSampleGrabberSinkActivate(pimfmediatype.into_param().abi(), pimfsamplegrabbersinkcallback.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFActivate>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateSampleGrabberSinkActivate(pimfmediatype: *mut ::core::ffi::c_void, pimfsamplegrabbersinkcallback: *mut ::core::ffi::c_void, ppiactivate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateSampleGrabberSinkActivate(pimfmediatype.into_param().abi(), pimfsamplegrabbersinkcallback.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFActivate>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateSensorActivityMonitor<'a, Param0: ::windows::core::IntoParam<'a, IMFSensorActivitiesReportCallback>>(pcallback: Param0) -> ::windows::core::Result<IMFSensorActivityMonitor> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateSensorActivityMonitor(pcallback: *mut ::core::ffi::c_void, ppactivitymonitor: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateSensorActivityMonitor(pcallback.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFSensorActivityMonitor>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateSensorActivityMonitor(pcallback: *mut ::core::ffi::c_void, ppactivitymonitor: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateSensorActivityMonitor(pcallback.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFSensorActivityMonitor>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateSensorGroup<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(sensorgroupsymboliclink: Param0) -> ::windows::core::Result<IMFSensorGroup> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateSensorGroup(sensorgroupsymboliclink: ::windows::core::PCWSTR, ppsensorgroup: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateSensorGroup(sensorgroupsymboliclink.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFSensorGroup>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateSensorGroup(sensorgroupsymboliclink: ::windows::core::PCWSTR, ppsensorgroup: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateSensorGroup(sensorgroupsymboliclink.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFSensorGroup>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateSensorProfile<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(profiletype: *const ::windows::core::GUID, profileindex: u32, constraints: Param2) -> ::windows::core::Result<IMFSensorProfile> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateSensorProfile(profiletype: *const ::windows::core::GUID, profileindex: u32, constraints: ::windows::core::PCWSTR, ppprofile: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateSensorProfile(::core::mem::transmute(profiletype), ::core::mem::transmute(profileindex), constraints.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFSensorProfile>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateSensorProfile(profiletype: *const ::windows::core::GUID, profileindex: u32, constraints: ::windows::core::PCWSTR, ppprofile: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateSensorProfile(::core::mem::transmute(profiletype), ::core::mem::transmute(profileindex), constraints.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFSensorProfile>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateSensorProfileCollection() -> ::windows::core::Result<IMFSensorProfileCollection> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateSensorProfileCollection(ppsensorprofile: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateSensorProfileCollection(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFSensorProfileCollection>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateSensorProfileCollection(ppsensorprofile: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateSensorProfileCollection(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFSensorProfileCollection>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateSensorStream<'a, Param1: ::windows::core::IntoParam<'a, IMFAttributes>, Param2: ::windows::core::IntoParam<'a, IMFCollection>>(streamid: u32, pattributes: Param1, pmediatypecollection: Param2) -> ::windows::core::Result<IMFSensorStream> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateSensorStream(streamid: u32, pattributes: *mut ::core::ffi::c_void, pmediatypecollection: *mut ::core::ffi::c_void, ppstream: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateSensorStream(::core::mem::transmute(streamid), pattributes.into_param().abi(), pmediatypecollection.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFSensorStream>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateSensorStream(streamid: u32, pattributes: *mut ::core::ffi::c_void, pmediatypecollection: *mut ::core::ffi::c_void, ppstream: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateSensorStream(::core::mem::transmute(streamid), pattributes.into_param().abi(), pmediatypecollection.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFSensorStream>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn MFCreateSequencerSegmentOffset(dwid: u32, hnsoffset: i64) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateSequencerSegmentOffset(dwid: u32, hnsoffset: i64, pvarsegmentoffset: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>>::zeroed();
-        MFCreateSequencerSegmentOffset(::core::mem::transmute(dwid), ::core::mem::transmute(hnsoffset), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateSequencerSegmentOffset(dwid: u32, hnsoffset: i64, pvarsegmentoffset: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>>::zeroed();
+    MFCreateSequencerSegmentOffset(::core::mem::transmute(dwid), ::core::mem::transmute(hnsoffset), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateSequencerSource<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(preserved: Param0) -> ::windows::core::Result<IMFSequencerSource> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateSequencerSource(preserved: *mut ::core::ffi::c_void, ppsequencersource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateSequencerSource(preserved.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFSequencerSource>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateSequencerSource(preserved: *mut ::core::ffi::c_void, ppsequencersource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateSequencerSource(preserved.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFSequencerSource>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateSimpleTypeHandler() -> ::windows::core::Result<IMFMediaTypeHandler> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateSimpleTypeHandler(pphandler: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateSimpleTypeHandler(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaTypeHandler>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateSimpleTypeHandler(pphandler: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateSimpleTypeHandler(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaTypeHandler>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateSinkWriterFromMediaSink<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaSink>, Param1: ::windows::core::IntoParam<'a, IMFAttributes>>(pmediasink: Param0, pattributes: Param1) -> ::windows::core::Result<IMFSinkWriter> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateSinkWriterFromMediaSink(pmediasink: *mut ::core::ffi::c_void, pattributes: *mut ::core::ffi::c_void, ppsinkwriter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateSinkWriterFromMediaSink(pmediasink.into_param().abi(), pattributes.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFSinkWriter>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateSinkWriterFromMediaSink(pmediasink: *mut ::core::ffi::c_void, pattributes: *mut ::core::ffi::c_void, ppsinkwriter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateSinkWriterFromMediaSink(pmediasink.into_param().abi(), pattributes.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFSinkWriter>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateSinkWriterFromURL<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, IMFByteStream>, Param2: ::windows::core::IntoParam<'a, IMFAttributes>>(pwszoutputurl: Param0, pbytestream: Param1, pattributes: Param2) -> ::windows::core::Result<IMFSinkWriter> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateSinkWriterFromURL(pwszoutputurl: ::windows::core::PCWSTR, pbytestream: *mut ::core::ffi::c_void, pattributes: *mut ::core::ffi::c_void, ppsinkwriter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateSinkWriterFromURL(pwszoutputurl.into_param().abi(), pbytestream.into_param().abi(), pattributes.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFSinkWriter>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateSinkWriterFromURL(pwszoutputurl: ::windows::core::PCWSTR, pbytestream: *mut ::core::ffi::c_void, pattributes: *mut ::core::ffi::c_void, ppsinkwriter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateSinkWriterFromURL(pwszoutputurl.into_param().abi(), pbytestream.into_param().abi(), pattributes.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFSinkWriter>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateSourceReaderFromByteStream<'a, Param0: ::windows::core::IntoParam<'a, IMFByteStream>, Param1: ::windows::core::IntoParam<'a, IMFAttributes>>(pbytestream: Param0, pattributes: Param1) -> ::windows::core::Result<IMFSourceReader> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateSourceReaderFromByteStream(pbytestream: *mut ::core::ffi::c_void, pattributes: *mut ::core::ffi::c_void, ppsourcereader: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateSourceReaderFromByteStream(pbytestream.into_param().abi(), pattributes.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFSourceReader>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateSourceReaderFromByteStream(pbytestream: *mut ::core::ffi::c_void, pattributes: *mut ::core::ffi::c_void, ppsourcereader: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateSourceReaderFromByteStream(pbytestream.into_param().abi(), pattributes.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFSourceReader>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateSourceReaderFromMediaSource<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaSource>, Param1: ::windows::core::IntoParam<'a, IMFAttributes>>(pmediasource: Param0, pattributes: Param1) -> ::windows::core::Result<IMFSourceReader> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateSourceReaderFromMediaSource(pmediasource: *mut ::core::ffi::c_void, pattributes: *mut ::core::ffi::c_void, ppsourcereader: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateSourceReaderFromMediaSource(pmediasource.into_param().abi(), pattributes.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFSourceReader>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateSourceReaderFromMediaSource(pmediasource: *mut ::core::ffi::c_void, pattributes: *mut ::core::ffi::c_void, ppsourcereader: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateSourceReaderFromMediaSource(pmediasource.into_param().abi(), pattributes.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFSourceReader>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateSourceReaderFromURL<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, IMFAttributes>>(pwszurl: Param0, pattributes: Param1) -> ::windows::core::Result<IMFSourceReader> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateSourceReaderFromURL(pwszurl: ::windows::core::PCWSTR, pattributes: *mut ::core::ffi::c_void, ppsourcereader: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateSourceReaderFromURL(pwszurl.into_param().abi(), pattributes.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFSourceReader>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateSourceReaderFromURL(pwszurl: ::windows::core::PCWSTR, pattributes: *mut ::core::ffi::c_void, ppsourcereader: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateSourceReaderFromURL(pwszurl.into_param().abi(), pattributes.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFSourceReader>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateSourceResolver() -> ::windows::core::Result<IMFSourceResolver> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateSourceResolver(ppisourceresolver: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateSourceResolver(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFSourceResolver>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateSourceResolver(ppisourceresolver: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateSourceResolver(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFSourceResolver>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateStandardQualityManager() -> ::windows::core::Result<IMFQualityManager> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateStandardQualityManager(ppqualitymanager: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateStandardQualityManager(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFQualityManager>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateStandardQualityManager(ppqualitymanager: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateStandardQualityManager(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFQualityManager>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateStreamDescriptor(dwstreamidentifier: u32, apmediatypes: &[::core::option::Option<IMFMediaType>]) -> ::windows::core::Result<IMFStreamDescriptor> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateStreamDescriptor(dwstreamidentifier: u32, cmediatypes: u32, apmediatypes: *const *mut ::core::ffi::c_void, ppdescriptor: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateStreamDescriptor(::core::mem::transmute(dwstreamidentifier), apmediatypes.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(apmediatypes)), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFStreamDescriptor>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateStreamDescriptor(dwstreamidentifier: u32, cmediatypes: u32, apmediatypes: *const *mut ::core::ffi::c_void, ppdescriptor: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateStreamDescriptor(::core::mem::transmute(dwstreamidentifier), apmediatypes.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(apmediatypes)), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFStreamDescriptor>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn MFCreateStreamOnMFByteStream<'a, Param0: ::windows::core::IntoParam<'a, IMFByteStream>>(pbytestream: Param0) -> ::windows::core::Result<super::super::System::Com::IStream> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateStreamOnMFByteStream(pbytestream: *mut ::core::ffi::c_void, ppstream: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateStreamOnMFByteStream(pbytestream.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IStream>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateStreamOnMFByteStream(pbytestream: *mut ::core::ffi::c_void, ppstream: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateStreamOnMFByteStream(pbytestream.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IStream>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateStreamOnMFByteStreamEx<'a, Param0: ::windows::core::IntoParam<'a, IMFByteStream>>(pbytestream: Param0, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateStreamOnMFByteStreamEx(pbytestream: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        MFCreateStreamOnMFByteStreamEx(pbytestream.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateStreamOnMFByteStreamEx(pbytestream: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFCreateStreamOnMFByteStreamEx(pbytestream.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateSystemTimeSource() -> ::windows::core::Result<IMFPresentationTimeSource> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateSystemTimeSource(ppsystemtimesource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateSystemTimeSource(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFPresentationTimeSource>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateSystemTimeSource(ppsystemtimesource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateSystemTimeSource(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFPresentationTimeSource>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateTempFile(accessmode: MF_FILE_ACCESSMODE, openmode: MF_FILE_OPENMODE, fflags: MF_FILE_FLAGS) -> ::windows::core::Result<IMFByteStream> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateTempFile(accessmode: MF_FILE_ACCESSMODE, openmode: MF_FILE_OPENMODE, fflags: MF_FILE_FLAGS, ppibytestream: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateTempFile(::core::mem::transmute(accessmode), ::core::mem::transmute(openmode), ::core::mem::transmute(fflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFByteStream>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateTempFile(accessmode: MF_FILE_ACCESSMODE, openmode: MF_FILE_OPENMODE, fflags: MF_FILE_FLAGS, ppibytestream: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateTempFile(::core::mem::transmute(accessmode), ::core::mem::transmute(openmode), ::core::mem::transmute(fflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFByteStream>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateTopoLoader() -> ::windows::core::Result<IMFTopoLoader> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateTopoLoader(ppobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateTopoLoader(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFTopoLoader>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateTopoLoader(ppobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateTopoLoader(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFTopoLoader>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateTopology() -> ::windows::core::Result<IMFTopology> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateTopology(pptopo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateTopology(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFTopology>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateTopology(pptopo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateTopology(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFTopology>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateTopologyNode(nodetype: MF_TOPOLOGY_TYPE) -> ::windows::core::Result<IMFTopologyNode> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateTopologyNode(nodetype: MF_TOPOLOGY_TYPE, ppnode: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateTopologyNode(::core::mem::transmute(nodetype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFTopologyNode>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateTopologyNode(nodetype: MF_TOPOLOGY_TYPE, ppnode: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateTopologyNode(::core::mem::transmute(nodetype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFTopologyNode>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateTrackedSample() -> ::windows::core::Result<IMFTrackedSample> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateTrackedSample(ppmfsample: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateTrackedSample(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFTrackedSample>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateTrackedSample(ppmfsample: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateTrackedSample(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFTrackedSample>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateTranscodeProfile() -> ::windows::core::Result<IMFTranscodeProfile> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateTranscodeProfile(pptranscodeprofile: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateTranscodeProfile(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFTranscodeProfile>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateTranscodeProfile(pptranscodeprofile: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateTranscodeProfile(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFTranscodeProfile>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateTranscodeSinkActivate() -> ::windows::core::Result<IMFActivate> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateTranscodeSinkActivate(ppactivate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateTranscodeSinkActivate(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFActivate>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateTranscodeSinkActivate(ppactivate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateTranscodeSinkActivate(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFActivate>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateTranscodeTopology<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaSource>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, IMFTranscodeProfile>>(psrc: Param0, pwszoutputfilepath: Param1, pprofile: Param2) -> ::windows::core::Result<IMFTopology> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateTranscodeTopology(psrc: *mut ::core::ffi::c_void, pwszoutputfilepath: ::windows::core::PCWSTR, pprofile: *mut ::core::ffi::c_void, pptranscodetopo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateTranscodeTopology(psrc.into_param().abi(), pwszoutputfilepath.into_param().abi(), pprofile.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFTopology>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateTranscodeTopology(psrc: *mut ::core::ffi::c_void, pwszoutputfilepath: ::windows::core::PCWSTR, pprofile: *mut ::core::ffi::c_void, pptranscodetopo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateTranscodeTopology(psrc.into_param().abi(), pwszoutputfilepath.into_param().abi(), pprofile.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFTopology>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateTranscodeTopologyFromByteStream<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaSource>, Param1: ::windows::core::IntoParam<'a, IMFByteStream>, Param2: ::windows::core::IntoParam<'a, IMFTranscodeProfile>>(psrc: Param0, poutputstream: Param1, pprofile: Param2) -> ::windows::core::Result<IMFTopology> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateTranscodeTopologyFromByteStream(psrc: *mut ::core::ffi::c_void, poutputstream: *mut ::core::ffi::c_void, pprofile: *mut ::core::ffi::c_void, pptranscodetopo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateTranscodeTopologyFromByteStream(psrc.into_param().abi(), poutputstream.into_param().abi(), pprofile.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFTopology>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateTranscodeTopologyFromByteStream(psrc: *mut ::core::ffi::c_void, poutputstream: *mut ::core::ffi::c_void, pprofile: *mut ::core::ffi::c_void, pptranscodetopo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateTranscodeTopologyFromByteStream(psrc.into_param().abi(), poutputstream.into_param().abi(), pprofile.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFTopology>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateTransformActivate() -> ::windows::core::Result<IMFActivate> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateTransformActivate(ppactivate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateTransformActivate(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFActivate>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateTransformActivate(ppactivate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateTransformActivate(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFActivate>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFCreateVideoMediaType(pvideoformat: *const MFVIDEOFORMAT) -> ::windows::core::Result<IMFVideoMediaType> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateVideoMediaType(pvideoformat: *const MFVIDEOFORMAT, ppivideomediatype: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateVideoMediaType(::core::mem::transmute(pvideoformat), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFVideoMediaType>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateVideoMediaType(pvideoformat: *const MFVIDEOFORMAT, ppivideomediatype: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateVideoMediaType(::core::mem::transmute(pvideoformat), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFVideoMediaType>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn MFCreateVideoMediaTypeFromBitMapInfoHeader(pbmihbitmapinfoheader: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, dwpixelaspectratiox: u32, dwpixelaspectratioy: u32, interlacemode: MFVideoInterlaceMode, videoflags: u64, qwframespersecondnumerator: u64, qwframesperseconddenominator: u64, dwmaxbitrate: u32) -> ::windows::core::Result<IMFVideoMediaType> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateVideoMediaTypeFromBitMapInfoHeader(pbmihbitmapinfoheader: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, dwpixelaspectratiox: u32, dwpixelaspectratioy: u32, interlacemode: MFVideoInterlaceMode, videoflags: u64, qwframespersecondnumerator: u64, qwframesperseconddenominator: u64, dwmaxbitrate: u32, ppivideomediatype: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateVideoMediaTypeFromBitMapInfoHeader(::core::mem::transmute(pbmihbitmapinfoheader), ::core::mem::transmute(dwpixelaspectratiox), ::core::mem::transmute(dwpixelaspectratioy), ::core::mem::transmute(interlacemode), ::core::mem::transmute(videoflags), ::core::mem::transmute(qwframespersecondnumerator), ::core::mem::transmute(qwframesperseconddenominator), ::core::mem::transmute(dwmaxbitrate), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFVideoMediaType>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateVideoMediaTypeFromBitMapInfoHeader(pbmihbitmapinfoheader: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, dwpixelaspectratiox: u32, dwpixelaspectratioy: u32, interlacemode: MFVideoInterlaceMode, videoflags: u64, qwframespersecondnumerator: u64, qwframesperseconddenominator: u64, dwmaxbitrate: u32, ppivideomediatype: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateVideoMediaTypeFromBitMapInfoHeader(::core::mem::transmute(pbmihbitmapinfoheader), ::core::mem::transmute(dwpixelaspectratiox), ::core::mem::transmute(dwpixelaspectratioy), ::core::mem::transmute(interlacemode), ::core::mem::transmute(videoflags), ::core::mem::transmute(qwframespersecondnumerator), ::core::mem::transmute(qwframesperseconddenominator), ::core::mem::transmute(dwmaxbitrate), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFVideoMediaType>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn MFCreateVideoMediaTypeFromBitMapInfoHeaderEx(pbmihbitmapinfoheader: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, cbbitmapinfoheader: u32, dwpixelaspectratiox: u32, dwpixelaspectratioy: u32, interlacemode: MFVideoInterlaceMode, videoflags: u64, dwframespersecondnumerator: u32, dwframesperseconddenominator: u32, dwmaxbitrate: u32) -> ::windows::core::Result<IMFVideoMediaType> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateVideoMediaTypeFromBitMapInfoHeaderEx(pbmihbitmapinfoheader: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, cbbitmapinfoheader: u32, dwpixelaspectratiox: u32, dwpixelaspectratioy: u32, interlacemode: MFVideoInterlaceMode, videoflags: u64, dwframespersecondnumerator: u32, dwframesperseconddenominator: u32, dwmaxbitrate: u32, ppivideomediatype: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateVideoMediaTypeFromBitMapInfoHeaderEx(::core::mem::transmute(pbmihbitmapinfoheader), ::core::mem::transmute(cbbitmapinfoheader), ::core::mem::transmute(dwpixelaspectratiox), ::core::mem::transmute(dwpixelaspectratioy), ::core::mem::transmute(interlacemode), ::core::mem::transmute(videoflags), ::core::mem::transmute(dwframespersecondnumerator), ::core::mem::transmute(dwframesperseconddenominator), ::core::mem::transmute(dwmaxbitrate), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFVideoMediaType>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateVideoMediaTypeFromBitMapInfoHeaderEx(pbmihbitmapinfoheader: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, cbbitmapinfoheader: u32, dwpixelaspectratiox: u32, dwpixelaspectratioy: u32, interlacemode: MFVideoInterlaceMode, videoflags: u64, dwframespersecondnumerator: u32, dwframesperseconddenominator: u32, dwmaxbitrate: u32, ppivideomediatype: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateVideoMediaTypeFromBitMapInfoHeaderEx(::core::mem::transmute(pbmihbitmapinfoheader), ::core::mem::transmute(cbbitmapinfoheader), ::core::mem::transmute(dwpixelaspectratiox), ::core::mem::transmute(dwpixelaspectratioy), ::core::mem::transmute(interlacemode), ::core::mem::transmute(videoflags), ::core::mem::transmute(dwframespersecondnumerator), ::core::mem::transmute(dwframesperseconddenominator), ::core::mem::transmute(dwmaxbitrate), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFVideoMediaType>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateVideoMediaTypeFromSubtype(pamsubtype: *const ::windows::core::GUID) -> ::windows::core::Result<IMFVideoMediaType> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateVideoMediaTypeFromSubtype(pamsubtype: *const ::windows::core::GUID, ppivideomediatype: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateVideoMediaTypeFromSubtype(::core::mem::transmute(pamsubtype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFVideoMediaType>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateVideoMediaTypeFromSubtype(pamsubtype: *const ::windows::core::GUID, ppivideomediatype: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateVideoMediaTypeFromSubtype(::core::mem::transmute(pamsubtype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFVideoMediaType>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateVideoMixer<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(powner: Param0, riiddevice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateVideoMixer(powner: *mut ::core::ffi::c_void, riiddevice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        MFCreateVideoMixer(powner.into_param().abi(), ::core::mem::transmute(riiddevice), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateVideoMixer(powner: *mut ::core::ffi::c_void, riiddevice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFCreateVideoMixer(powner.into_param().abi(), ::core::mem::transmute(riiddevice), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateVideoMixerAndPresenter<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(pmixerowner: Param0, ppresenterowner: Param1, riidmixer: *const ::windows::core::GUID, ppvvideomixer: *mut *mut ::core::ffi::c_void, riidpresenter: *const ::windows::core::GUID, ppvvideopresenter: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateVideoMixerAndPresenter(pmixerowner: *mut ::core::ffi::c_void, ppresenterowner: *mut ::core::ffi::c_void, riidmixer: *const ::windows::core::GUID, ppvvideomixer: *mut *mut ::core::ffi::c_void, riidpresenter: *const ::windows::core::GUID, ppvvideopresenter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        MFCreateVideoMixerAndPresenter(pmixerowner.into_param().abi(), ppresenterowner.into_param().abi(), ::core::mem::transmute(riidmixer), ::core::mem::transmute(ppvvideomixer), ::core::mem::transmute(riidpresenter), ::core::mem::transmute(ppvvideopresenter)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateVideoMixerAndPresenter(pmixerowner: *mut ::core::ffi::c_void, ppresenterowner: *mut ::core::ffi::c_void, riidmixer: *const ::windows::core::GUID, ppvvideomixer: *mut *mut ::core::ffi::c_void, riidpresenter: *const ::windows::core::GUID, ppvvideopresenter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFCreateVideoMixerAndPresenter(pmixerowner.into_param().abi(), ppresenterowner.into_param().abi(), ::core::mem::transmute(riidmixer), ::core::mem::transmute(ppvvideomixer), ::core::mem::transmute(riidpresenter), ::core::mem::transmute(ppvvideopresenter)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateVideoPresenter<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(powner: Param0, riiddevice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvideopresenter: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateVideoPresenter(powner: *mut ::core::ffi::c_void, riiddevice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvideopresenter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        MFCreateVideoPresenter(powner.into_param().abi(), ::core::mem::transmute(riiddevice), ::core::mem::transmute(riid), ::core::mem::transmute(ppvideopresenter)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateVideoPresenter(powner: *mut ::core::ffi::c_void, riiddevice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvideopresenter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFCreateVideoPresenter(powner.into_param().abi(), ::core::mem::transmute(riiddevice), ::core::mem::transmute(riid), ::core::mem::transmute(ppvideopresenter)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateVideoRenderer(riidrenderer: *const ::windows::core::GUID, ppvideorenderer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateVideoRenderer(riidrenderer: *const ::windows::core::GUID, ppvideorenderer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        MFCreateVideoRenderer(::core::mem::transmute(riidrenderer), ::core::mem::transmute(ppvideorenderer)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateVideoRenderer(riidrenderer: *const ::windows::core::GUID, ppvideorenderer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFCreateVideoRenderer(::core::mem::transmute(riidrenderer), ::core::mem::transmute(ppvideorenderer)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFCreateVideoRendererActivate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwndvideo: Param0) -> ::windows::core::Result<IMFActivate> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateVideoRendererActivate(hwndvideo: super::super::Foundation::HWND, ppactivate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateVideoRendererActivate(hwndvideo.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFActivate>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateVideoRendererActivate(hwndvideo: super::super::Foundation::HWND, ppactivate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateVideoRendererActivate(hwndvideo.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFActivate>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateVideoSampleAllocator(riid: *const ::windows::core::GUID, ppsampleallocator: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateVideoSampleAllocator(riid: *const ::windows::core::GUID, ppsampleallocator: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        MFCreateVideoSampleAllocator(::core::mem::transmute(riid), ::core::mem::transmute(ppsampleallocator)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateVideoSampleAllocator(riid: *const ::windows::core::GUID, ppsampleallocator: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFCreateVideoSampleAllocator(::core::mem::transmute(riid), ::core::mem::transmute(ppsampleallocator)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateVideoSampleAllocatorEx(riid: *const ::windows::core::GUID, ppsampleallocator: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateVideoSampleAllocatorEx(riid: *const ::windows::core::GUID, ppsampleallocator: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        MFCreateVideoSampleAllocatorEx(::core::mem::transmute(riid), ::core::mem::transmute(ppsampleallocator)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateVideoSampleAllocatorEx(riid: *const ::windows::core::GUID, ppsampleallocator: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFCreateVideoSampleAllocatorEx(::core::mem::transmute(riid), ::core::mem::transmute(ppsampleallocator)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateVideoSampleFromSurface<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(punksurface: Param0) -> ::windows::core::Result<IMFSample> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateVideoSampleFromSurface(punksurface: *mut ::core::ffi::c_void, ppsample: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateVideoSampleFromSurface(punksurface.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFSample>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateVideoSampleFromSurface(punksurface: *mut ::core::ffi::c_void, ppsample: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateVideoSampleFromSurface(punksurface.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFSample>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateVirtualCamera<'a, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(r#type: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001, lifetime: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0002, access: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0003, friendlyname: Param3, sourceid: Param4, categories: &[::windows::core::GUID]) -> ::windows::core::Result<IMFVirtualCamera> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateVirtualCamera(r#type: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001, lifetime: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0002, access: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0003, friendlyname: ::windows::core::PCWSTR, sourceid: ::windows::core::PCWSTR, categories: *const ::windows::core::GUID, categorycount: u32, virtualcamera: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateVirtualCamera(::core::mem::transmute(r#type), ::core::mem::transmute(lifetime), ::core::mem::transmute(access), friendlyname.into_param().abi(), sourceid.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(categories)), categories.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFVirtualCamera>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateVirtualCamera(r#type: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001, lifetime: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0002, access: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0003, friendlyname: ::windows::core::PCWSTR, sourceid: ::windows::core::PCWSTR, categories: *const ::windows::core::GUID, categorycount: u32, virtualcamera: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateVirtualCamera(::core::mem::transmute(r#type), ::core::mem::transmute(lifetime), ::core::mem::transmute(access), friendlyname.into_param().abi(), sourceid.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(categories)), categories.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFVirtualCamera>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateWAVEMediaSink<'a, Param0: ::windows::core::IntoParam<'a, IMFByteStream>, Param1: ::windows::core::IntoParam<'a, IMFMediaType>>(ptargetbytestream: Param0, paudiomediatype: Param1) -> ::windows::core::Result<IMFMediaSink> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateWAVEMediaSink(ptargetbytestream: *mut ::core::ffi::c_void, paudiomediatype: *mut ::core::ffi::c_void, ppmediasink: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateWAVEMediaSink(ptargetbytestream.into_param().abi(), paudiomediatype.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaSink>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateWAVEMediaSink(ptargetbytestream: *mut ::core::ffi::c_void, paudiomediatype: *mut ::core::ffi::c_void, ppmediasink: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateWAVEMediaSink(ptargetbytestream.into_param().abi(), paudiomediatype.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaSink>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFCreateWICBitmapBuffer<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(riid: *const ::windows::core::GUID, punksurface: Param1) -> ::windows::core::Result<IMFMediaBuffer> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateWICBitmapBuffer(riid: *const ::windows::core::GUID, punksurface: *mut ::core::ffi::c_void, ppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateWICBitmapBuffer(::core::mem::transmute(riid), punksurface.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaBuffer>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateWICBitmapBuffer(riid: *const ::windows::core::GUID, punksurface: *mut ::core::ffi::c_void, ppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateWICBitmapBuffer(::core::mem::transmute(riid), punksurface.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaBuffer>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[inline]
 pub unsafe fn MFCreateWMAEncoderActivate<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>, Param1: ::windows::core::IntoParam<'a, super::super::UI::Shell::PropertiesSystem::IPropertyStore>>(pmediatype: Param0, pencodingconfigurationproperties: Param1) -> ::windows::core::Result<IMFActivate> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateWMAEncoderActivate(pmediatype: *mut ::core::ffi::c_void, pencodingconfigurationproperties: *mut ::core::ffi::c_void, ppactivate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateWMAEncoderActivate(pmediatype.into_param().abi(), pencodingconfigurationproperties.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFActivate>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateWMAEncoderActivate(pmediatype: *mut ::core::ffi::c_void, pencodingconfigurationproperties: *mut ::core::ffi::c_void, ppactivate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateWMAEncoderActivate(pmediatype.into_param().abi(), pencodingconfigurationproperties.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFActivate>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[inline]
 pub unsafe fn MFCreateWMVEncoderActivate<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>, Param1: ::windows::core::IntoParam<'a, super::super::UI::Shell::PropertiesSystem::IPropertyStore>>(pmediatype: Param0, pencodingconfigurationproperties: Param1) -> ::windows::core::Result<IMFActivate> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateWMVEncoderActivate(pmediatype: *mut ::core::ffi::c_void, pencodingconfigurationproperties: *mut ::core::ffi::c_void, ppactivate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFCreateWMVEncoderActivate(pmediatype.into_param().abi(), pencodingconfigurationproperties.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFActivate>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateWMVEncoderActivate(pmediatype: *mut ::core::ffi::c_void, pencodingconfigurationproperties: *mut ::core::ffi::c_void, ppactivate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFCreateWMVEncoderActivate(pmediatype.into_param().abi(), pencodingconfigurationproperties.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFActivate>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Media_Audio\"`*"]
 #[cfg(feature = "Win32_Media_Audio")]
 #[inline]
 pub unsafe fn MFCreateWaveFormatExFromMFMediaType<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(pmftype: Param0, ppwf: *mut *mut super::Audio::WAVEFORMATEX, pcbsize: *mut u32, flags: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFCreateWaveFormatExFromMFMediaType(pmftype: *mut ::core::ffi::c_void, ppwf: *mut *mut super::Audio::WAVEFORMATEX, pcbsize: *mut u32, flags: u32) -> ::windows::core::HRESULT;
-        }
-        MFCreateWaveFormatExFromMFMediaType(pmftype.into_param().abi(), ::core::mem::transmute(ppwf), ::core::mem::transmute(pcbsize), ::core::mem::transmute(flags)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFCreateWaveFormatExFromMFMediaType(pmftype: *mut ::core::ffi::c_void, ppwf: *mut *mut super::Audio::WAVEFORMATEX, pcbsize: *mut u32, flags: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFCreateWaveFormatExFromMFMediaType(pmftype.into_param().abi(), ::core::mem::transmute(ppwf), ::core::mem::transmute(pcbsize), ::core::mem::transmute(flags)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
@@ -54411,31 +53671,21 @@ impl ::core::fmt::Debug for MFDepthMeasurement {
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn MFDeserializeAttributesFromStream<'a, Param0: ::windows::core::IntoParam<'a, IMFAttributes>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(pattr: Param0, dwoptions: u32, pstm: Param2) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFDeserializeAttributesFromStream(pattr: *mut ::core::ffi::c_void, dwoptions: u32, pstm: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        MFDeserializeAttributesFromStream(pattr.into_param().abi(), ::core::mem::transmute(dwoptions), pstm.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFDeserializeAttributesFromStream(pattr: *mut ::core::ffi::c_void, dwoptions: u32, pstm: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFDeserializeAttributesFromStream(pattr.into_param().abi(), ::core::mem::transmute(dwoptions), pstm.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFDeserializePresentationDescriptor(pbdata: &[u8]) -> ::windows::core::Result<IMFPresentationDescriptor> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFDeserializePresentationDescriptor(cbdata: u32, pbdata: *const u8, pppd: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFDeserializePresentationDescriptor(pbdata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbdata)), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFPresentationDescriptor>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFDeserializePresentationDescriptor(cbdata: u32, pbdata: *const u8, pppd: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFDeserializePresentationDescriptor(pbdata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbdata)), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFPresentationDescriptor>(result__)
 }
 pub const MFENABLETYPE_MF_RebootRequired: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d4d3d4b_0ece_4652_8b3a_f2d24260d887);
 pub const MFENABLETYPE_MF_UpdateRevocationInformation: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe558b0b5_b3c4_44a0_924c_50d178932385);
@@ -54448,60 +53698,40 @@ pub const MFEVRDLL: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFEndCreateFile<'a, Param0: ::windows::core::IntoParam<'a, IMFAsyncResult>>(presult: Param0) -> ::windows::core::Result<IMFByteStream> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFEndCreateFile(presult: *mut ::core::ffi::c_void, ppfile: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFEndCreateFile(presult.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFByteStream>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFEndCreateFile(presult: *mut ::core::ffi::c_void, ppfile: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFEndCreateFile(presult.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFByteStream>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFEndRegisterWorkQueueWithMMCSS<'a, Param0: ::windows::core::IntoParam<'a, IMFAsyncResult>>(presult: Param0) -> ::windows::core::Result<u32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFEndRegisterWorkQueueWithMMCSS(presult: *mut ::core::ffi::c_void, pdwtaskid: *mut u32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        MFEndRegisterWorkQueueWithMMCSS(presult.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFEndRegisterWorkQueueWithMMCSS(presult: *mut ::core::ffi::c_void, pdwtaskid: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+    MFEndRegisterWorkQueueWithMMCSS(presult.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFEndUnregisterWorkQueueWithMMCSS<'a, Param0: ::windows::core::IntoParam<'a, IMFAsyncResult>>(presult: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFEndUnregisterWorkQueueWithMMCSS(presult: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        MFEndUnregisterWorkQueueWithMMCSS(presult.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFEndUnregisterWorkQueueWithMMCSS(presult: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFEndUnregisterWorkQueueWithMMCSS(presult.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFEnumDeviceSources<'a, Param0: ::windows::core::IntoParam<'a, IMFAttributes>>(pattributes: Param0, pppsourceactivate: *mut *mut ::core::option::Option<IMFActivate>, pcsourceactivate: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFEnumDeviceSources(pattributes: *mut ::core::ffi::c_void, pppsourceactivate: *mut *mut *mut ::core::ffi::c_void, pcsourceactivate: *mut u32) -> ::windows::core::HRESULT;
-        }
-        MFEnumDeviceSources(pattributes.into_param().abi(), ::core::mem::transmute(pppsourceactivate), ::core::mem::transmute(pcsourceactivate)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFEnumDeviceSources(pattributes: *mut ::core::ffi::c_void, pppsourceactivate: *mut *mut *mut ::core::ffi::c_void, pcsourceactivate: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFEnumDeviceSources(pattributes.into_param().abi(), ::core::mem::transmute(pppsourceactivate), ::core::mem::transmute(pcsourceactivate)).ok()
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -54575,17 +53805,12 @@ impl ::core::default::Default for MFFOLDDOWN_MATRIX {
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFFrameRateToAverageTimePerFrame(unnumerator: u32, undenominator: u32) -> ::windows::core::Result<u64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFFrameRateToAverageTimePerFrame(unnumerator: u32, undenominator: u32, punaveragetimeperframe: *mut u64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-        MFFrameRateToAverageTimePerFrame(::core::mem::transmute(unnumerator), ::core::mem::transmute(undenominator), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFFrameRateToAverageTimePerFrame(unnumerator: u32, undenominator: u32, punaveragetimeperframe: *mut u64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
+    MFFrameRateToAverageTimePerFrame(::core::mem::transmute(unnumerator), ::core::mem::transmute(undenominator), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
@@ -54623,314 +53848,209 @@ impl ::core::fmt::Debug for MFFrameSourceTypes {
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFGetAttributesAsBlob<'a, Param0: ::windows::core::IntoParam<'a, IMFAttributes>>(pattributes: Param0, pbuf: *mut u8, cbbufsize: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFGetAttributesAsBlob(pattributes: *mut ::core::ffi::c_void, pbuf: *mut u8, cbbufsize: u32) -> ::windows::core::HRESULT;
-        }
-        MFGetAttributesAsBlob(pattributes.into_param().abi(), ::core::mem::transmute(pbuf), ::core::mem::transmute(cbbufsize)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFGetAttributesAsBlob(pattributes: *mut ::core::ffi::c_void, pbuf: *mut u8, cbbufsize: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFGetAttributesAsBlob(pattributes.into_param().abi(), ::core::mem::transmute(pbuf), ::core::mem::transmute(cbbufsize)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFGetAttributesAsBlobSize<'a, Param0: ::windows::core::IntoParam<'a, IMFAttributes>>(pattributes: Param0) -> ::windows::core::Result<u32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFGetAttributesAsBlobSize(pattributes: *mut ::core::ffi::c_void, pcbbufsize: *mut u32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        MFGetAttributesAsBlobSize(pattributes.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFGetAttributesAsBlobSize(pattributes: *mut ::core::ffi::c_void, pcbbufsize: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+    MFGetAttributesAsBlobSize(pattributes.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFGetContentProtectionSystemCLSID(guidprotectionsystemid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFGetContentProtectionSystemCLSID(guidprotectionsystemid: *const ::windows::core::GUID, pclsid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
-        MFGetContentProtectionSystemCLSID(::core::mem::transmute(guidprotectionsystemid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFGetContentProtectionSystemCLSID(guidprotectionsystemid: *const ::windows::core::GUID, pclsid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+    MFGetContentProtectionSystemCLSID(::core::mem::transmute(guidprotectionsystemid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFGetLocalId(verifier: *const u8, size: u32) -> ::windows::core::Result<::windows::core::PWSTR> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFGetLocalId(verifier: *const u8, size: u32, id: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-        MFGetLocalId(::core::mem::transmute(verifier), ::core::mem::transmute(size), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFGetLocalId(verifier: *const u8, size: u32, id: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
+    MFGetLocalId(::core::mem::transmute(verifier), ::core::mem::transmute(size), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFGetMFTMerit<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(pmft: Param0, cbverifier: u32, verifier: *const u8) -> ::windows::core::Result<u32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFGetMFTMerit(pmft: *mut ::core::ffi::c_void, cbverifier: u32, verifier: *const u8, merit: *mut u32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        MFGetMFTMerit(pmft.into_param().abi(), ::core::mem::transmute(cbverifier), ::core::mem::transmute(verifier), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFGetMFTMerit(pmft: *mut ::core::ffi::c_void, cbverifier: u32, verifier: *const u8, merit: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+    MFGetMFTMerit(pmft.into_param().abi(), ::core::mem::transmute(cbverifier), ::core::mem::transmute(verifier), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFGetPlaneSize(format: u32, dwwidth: u32, dwheight: u32) -> ::windows::core::Result<u32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFGetPlaneSize(format: u32, dwwidth: u32, dwheight: u32, pdwplanesize: *mut u32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        MFGetPlaneSize(::core::mem::transmute(format), ::core::mem::transmute(dwwidth), ::core::mem::transmute(dwheight), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFGetPlaneSize(format: u32, dwwidth: u32, dwheight: u32, pdwplanesize: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+    MFGetPlaneSize(::core::mem::transmute(format), ::core::mem::transmute(dwwidth), ::core::mem::transmute(dwheight), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFGetPluginControl() -> ::windows::core::Result<IMFPluginControl> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFGetPluginControl(ppplugincontrol: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFGetPluginControl(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFPluginControl>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFGetPluginControl(ppplugincontrol: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFGetPluginControl(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFPluginControl>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFGetService<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(punkobject: Param0, guidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFGetService(punkobject: *mut ::core::ffi::c_void, guidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        MFGetService(punkobject.into_param().abi(), ::core::mem::transmute(guidservice), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFGetService(punkobject: *mut ::core::ffi::c_void, guidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFGetService(punkobject.into_param().abi(), ::core::mem::transmute(guidservice), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFGetStrideForBitmapInfoHeader(format: u32, dwwidth: u32) -> ::windows::core::Result<i32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFGetStrideForBitmapInfoHeader(format: u32, dwwidth: u32, pstride: *mut i32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        MFGetStrideForBitmapInfoHeader(::core::mem::transmute(format), ::core::mem::transmute(dwwidth), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFGetStrideForBitmapInfoHeader(format: u32, dwwidth: u32, pstride: *mut i32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+    MFGetStrideForBitmapInfoHeader(::core::mem::transmute(format), ::core::mem::transmute(dwwidth), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn MFGetSupportedMimeTypes() -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFGetSupportedMimeTypes(ppropvarmimetypearray: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>>::zeroed();
-        MFGetSupportedMimeTypes(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFGetSupportedMimeTypes(ppropvarmimetypearray: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>>::zeroed();
+    MFGetSupportedMimeTypes(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn MFGetSupportedSchemes() -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFGetSupportedSchemes(ppropvarschemearray: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>>::zeroed();
-        MFGetSupportedSchemes(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFGetSupportedSchemes(ppropvarschemearray: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>>::zeroed();
+    MFGetSupportedSchemes(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFGetSystemId() -> ::windows::core::Result<IMFSystemId> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFGetSystemId(ppid: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFGetSystemId(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFSystemId>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFGetSystemId(ppid: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFGetSystemId(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFSystemId>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFGetSystemTime() -> i64 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFGetSystemTime() -> i64;
-        }
-        ::core::mem::transmute(MFGetSystemTime())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFGetSystemTime() -> i64;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MFGetSystemTime())
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFGetTimerPeriodicity() -> ::windows::core::Result<u32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFGetTimerPeriodicity(periodicity: *mut u32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        MFGetTimerPeriodicity(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFGetTimerPeriodicity(periodicity: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+    MFGetTimerPeriodicity(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFGetTopoNodeCurrentType<'a, Param0: ::windows::core::IntoParam<'a, IMFTopologyNode>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(pnode: Param0, dwstreamindex: u32, foutput: Param2) -> ::windows::core::Result<IMFMediaType> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFGetTopoNodeCurrentType(pnode: *mut ::core::ffi::c_void, dwstreamindex: u32, foutput: super::super::Foundation::BOOL, pptype: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFGetTopoNodeCurrentType(pnode.into_param().abi(), ::core::mem::transmute(dwstreamindex), foutput.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaType>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFGetTopoNodeCurrentType(pnode: *mut ::core::ffi::c_void, dwstreamindex: u32, foutput: super::super::Foundation::BOOL, pptype: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFGetTopoNodeCurrentType(pnode.into_param().abi(), ::core::mem::transmute(dwstreamindex), foutput.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaType>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFGetUncompressedVideoFormat(pvideoformat: *const MFVIDEOFORMAT) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFGetUncompressedVideoFormat(pvideoformat: *const MFVIDEOFORMAT) -> u32;
-        }
-        ::core::mem::transmute(MFGetUncompressedVideoFormat(::core::mem::transmute(pvideoformat)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFGetUncompressedVideoFormat(pvideoformat: *const MFVIDEOFORMAT) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MFGetUncompressedVideoFormat(::core::mem::transmute(pvideoformat)))
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFGetWorkQueueMMCSSClass(dwworkqueueid: u32, pwszclass: ::windows::core::PWSTR, pcchclass: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFGetWorkQueueMMCSSClass(dwworkqueueid: u32, pwszclass: ::windows::core::PWSTR, pcchclass: *mut u32) -> ::windows::core::HRESULT;
-        }
-        MFGetWorkQueueMMCSSClass(::core::mem::transmute(dwworkqueueid), ::core::mem::transmute(pwszclass), ::core::mem::transmute(pcchclass)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFGetWorkQueueMMCSSClass(dwworkqueueid: u32, pwszclass: ::windows::core::PWSTR, pcchclass: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFGetWorkQueueMMCSSClass(::core::mem::transmute(dwworkqueueid), ::core::mem::transmute(pwszclass), ::core::mem::transmute(pcchclass)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFGetWorkQueueMMCSSPriority(dwworkqueueid: u32) -> ::windows::core::Result<i32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFGetWorkQueueMMCSSPriority(dwworkqueueid: u32, lpriority: *mut i32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        MFGetWorkQueueMMCSSPriority(::core::mem::transmute(dwworkqueueid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFGetWorkQueueMMCSSPriority(dwworkqueueid: u32, lpriority: *mut i32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+    MFGetWorkQueueMMCSSPriority(::core::mem::transmute(dwworkqueueid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFGetWorkQueueMMCSSTaskId(dwworkqueueid: u32) -> ::windows::core::Result<u32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFGetWorkQueueMMCSSTaskId(dwworkqueueid: u32, pdwtaskid: *mut u32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        MFGetWorkQueueMMCSSTaskId(::core::mem::transmute(dwworkqueueid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFGetWorkQueueMMCSSTaskId(dwworkqueueid: u32, pdwtaskid: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+    MFGetWorkQueueMMCSSTaskId(::core::mem::transmute(dwworkqueueid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFHeapAlloc<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(nsize: usize, dwflags: u32, pszfile: Param2, line: i32, eat: EAllocationType) -> *mut ::core::ffi::c_void {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFHeapAlloc(nsize: usize, dwflags: u32, pszfile: ::windows::core::PCSTR, line: i32, eat: EAllocationType) -> *mut ::core::ffi::c_void;
-        }
-        ::core::mem::transmute(MFHeapAlloc(::core::mem::transmute(nsize), ::core::mem::transmute(dwflags), pszfile.into_param().abi(), ::core::mem::transmute(line), ::core::mem::transmute(eat)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFHeapAlloc(nsize: usize, dwflags: u32, pszfile: ::windows::core::PCSTR, line: i32, eat: EAllocationType) -> *mut ::core::ffi::c_void;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MFHeapAlloc(::core::mem::transmute(nsize), ::core::mem::transmute(dwflags), pszfile.into_param().abi(), ::core::mem::transmute(line), ::core::mem::transmute(eat)))
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFHeapFree(pv: *mut ::core::ffi::c_void) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFHeapFree(pv: *mut ::core::ffi::c_void);
-        }
-        MFHeapFree(::core::mem::transmute(pv))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFHeapFree(pv: *mut ::core::ffi::c_void);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFHeapFree(::core::mem::transmute(pv))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -55007,297 +54127,197 @@ pub const MFImageFormat_RGB32: ::windows::core::GUID = ::windows::core::GUID::fr
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFInitAMMediaTypeFromMFMediaType<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(pmftype: Param0, guidformatblocktype: Param1, pamtype: *mut AM_MEDIA_TYPE) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFInitAMMediaTypeFromMFMediaType(pmftype: *mut ::core::ffi::c_void, guidformatblocktype: ::windows::core::GUID, pamtype: *mut AM_MEDIA_TYPE) -> ::windows::core::HRESULT;
-        }
-        MFInitAMMediaTypeFromMFMediaType(pmftype.into_param().abi(), guidformatblocktype.into_param().abi(), ::core::mem::transmute(pamtype)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFInitAMMediaTypeFromMFMediaType(pmftype: *mut ::core::ffi::c_void, guidformatblocktype: ::windows::core::GUID, pamtype: *mut AM_MEDIA_TYPE) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFInitAMMediaTypeFromMFMediaType(pmftype.into_param().abi(), guidformatblocktype.into_param().abi(), ::core::mem::transmute(pamtype)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFInitAttributesFromBlob<'a, Param0: ::windows::core::IntoParam<'a, IMFAttributes>>(pattributes: Param0, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFInitAttributesFromBlob(pattributes: *mut ::core::ffi::c_void, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::HRESULT;
-        }
-        MFInitAttributesFromBlob(pattributes.into_param().abi(), ::core::mem::transmute(pbuf), ::core::mem::transmute(cbbufsize)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFInitAttributesFromBlob(pattributes: *mut ::core::ffi::c_void, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFInitAttributesFromBlob(pattributes.into_param().abi(), ::core::mem::transmute(pbuf), ::core::mem::transmute(cbbufsize)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFInitMediaTypeFromAMMediaType<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(pmftype: Param0, pamtype: *const AM_MEDIA_TYPE) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFInitMediaTypeFromAMMediaType(pmftype: *mut ::core::ffi::c_void, pamtype: *const AM_MEDIA_TYPE) -> ::windows::core::HRESULT;
-        }
-        MFInitMediaTypeFromAMMediaType(pmftype.into_param().abi(), ::core::mem::transmute(pamtype)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFInitMediaTypeFromAMMediaType(pmftype: *mut ::core::ffi::c_void, pamtype: *const AM_MEDIA_TYPE) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFInitMediaTypeFromAMMediaType(pmftype.into_param().abi(), ::core::mem::transmute(pamtype)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFInitMediaTypeFromMFVideoFormat<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(pmftype: Param0, pmfvf: *const MFVIDEOFORMAT, cbbufsize: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFInitMediaTypeFromMFVideoFormat(pmftype: *mut ::core::ffi::c_void, pmfvf: *const MFVIDEOFORMAT, cbbufsize: u32) -> ::windows::core::HRESULT;
-        }
-        MFInitMediaTypeFromMFVideoFormat(pmftype.into_param().abi(), ::core::mem::transmute(pmfvf), ::core::mem::transmute(cbbufsize)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFInitMediaTypeFromMFVideoFormat(pmftype: *mut ::core::ffi::c_void, pmfvf: *const MFVIDEOFORMAT, cbbufsize: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFInitMediaTypeFromMFVideoFormat(pmftype.into_param().abi(), ::core::mem::transmute(pmfvf), ::core::mem::transmute(cbbufsize)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn MFInitMediaTypeFromMPEG1VideoInfo<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(pmftype: Param0, pmp1vi: *const MPEG1VIDEOINFO, cbbufsize: u32, psubtype: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFInitMediaTypeFromMPEG1VideoInfo(pmftype: *mut ::core::ffi::c_void, pmp1vi: *const MPEG1VIDEOINFO, cbbufsize: u32, psubtype: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
-        }
-        MFInitMediaTypeFromMPEG1VideoInfo(pmftype.into_param().abi(), ::core::mem::transmute(pmp1vi), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(psubtype)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFInitMediaTypeFromMPEG1VideoInfo(pmftype: *mut ::core::ffi::c_void, pmp1vi: *const MPEG1VIDEOINFO, cbbufsize: u32, psubtype: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFInitMediaTypeFromMPEG1VideoInfo(pmftype.into_param().abi(), ::core::mem::transmute(pmp1vi), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(psubtype)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn MFInitMediaTypeFromMPEG2VideoInfo<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(pmftype: Param0, pmp2vi: *const MPEG2VIDEOINFO, cbbufsize: u32, psubtype: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFInitMediaTypeFromMPEG2VideoInfo(pmftype: *mut ::core::ffi::c_void, pmp2vi: *const MPEG2VIDEOINFO, cbbufsize: u32, psubtype: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
-        }
-        MFInitMediaTypeFromMPEG2VideoInfo(pmftype.into_param().abi(), ::core::mem::transmute(pmp2vi), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(psubtype)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFInitMediaTypeFromMPEG2VideoInfo(pmftype: *mut ::core::ffi::c_void, pmp2vi: *const MPEG2VIDEOINFO, cbbufsize: u32, psubtype: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFInitMediaTypeFromMPEG2VideoInfo(pmftype.into_param().abi(), ::core::mem::transmute(pmp2vi), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(psubtype)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn MFInitMediaTypeFromVideoInfoHeader<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(pmftype: Param0, pvih: *const VIDEOINFOHEADER, cbbufsize: u32, psubtype: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFInitMediaTypeFromVideoInfoHeader(pmftype: *mut ::core::ffi::c_void, pvih: *const VIDEOINFOHEADER, cbbufsize: u32, psubtype: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
-        }
-        MFInitMediaTypeFromVideoInfoHeader(pmftype.into_param().abi(), ::core::mem::transmute(pvih), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(psubtype)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFInitMediaTypeFromVideoInfoHeader(pmftype: *mut ::core::ffi::c_void, pvih: *const VIDEOINFOHEADER, cbbufsize: u32, psubtype: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFInitMediaTypeFromVideoInfoHeader(pmftype.into_param().abi(), ::core::mem::transmute(pvih), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(psubtype)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn MFInitMediaTypeFromVideoInfoHeader2<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(pmftype: Param0, pvih2: *const VIDEOINFOHEADER2, cbbufsize: u32, psubtype: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFInitMediaTypeFromVideoInfoHeader2(pmftype: *mut ::core::ffi::c_void, pvih2: *const VIDEOINFOHEADER2, cbbufsize: u32, psubtype: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
-        }
-        MFInitMediaTypeFromVideoInfoHeader2(pmftype.into_param().abi(), ::core::mem::transmute(pvih2), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(psubtype)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFInitMediaTypeFromVideoInfoHeader2(pmftype: *mut ::core::ffi::c_void, pvih2: *const VIDEOINFOHEADER2, cbbufsize: u32, psubtype: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFInitMediaTypeFromVideoInfoHeader2(pmftype.into_param().abi(), ::core::mem::transmute(pvih2), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(psubtype)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Media_Audio\"`*"]
 #[cfg(feature = "Win32_Media_Audio")]
 #[inline]
 pub unsafe fn MFInitMediaTypeFromWaveFormatEx<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(pmftype: Param0, pwaveformat: *const super::Audio::WAVEFORMATEX, cbbufsize: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFInitMediaTypeFromWaveFormatEx(pmftype: *mut ::core::ffi::c_void, pwaveformat: *const super::Audio::WAVEFORMATEX, cbbufsize: u32) -> ::windows::core::HRESULT;
-        }
-        MFInitMediaTypeFromWaveFormatEx(pmftype.into_param().abi(), ::core::mem::transmute(pwaveformat), ::core::mem::transmute(cbbufsize)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFInitMediaTypeFromWaveFormatEx(pmftype: *mut ::core::ffi::c_void, pwaveformat: *const super::Audio::WAVEFORMATEX, cbbufsize: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFInitMediaTypeFromWaveFormatEx(pmftype.into_param().abi(), ::core::mem::transmute(pwaveformat), ::core::mem::transmute(cbbufsize)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFInitVideoFormat(pvideoformat: *const MFVIDEOFORMAT, r#type: MFStandardVideoFormat) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFInitVideoFormat(pvideoformat: *const MFVIDEOFORMAT, r#type: MFStandardVideoFormat) -> ::windows::core::HRESULT;
-        }
-        MFInitVideoFormat(::core::mem::transmute(pvideoformat), ::core::mem::transmute(r#type)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFInitVideoFormat(pvideoformat: *const MFVIDEOFORMAT, r#type: MFStandardVideoFormat) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFInitVideoFormat(::core::mem::transmute(pvideoformat), ::core::mem::transmute(r#type)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFInitVideoFormat_RGB(pvideoformat: *const MFVIDEOFORMAT, dwwidth: u32, dwheight: u32, d3dfmt: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFInitVideoFormat_RGB(pvideoformat: *const MFVIDEOFORMAT, dwwidth: u32, dwheight: u32, d3dfmt: u32) -> ::windows::core::HRESULT;
-        }
-        MFInitVideoFormat_RGB(::core::mem::transmute(pvideoformat), ::core::mem::transmute(dwwidth), ::core::mem::transmute(dwheight), ::core::mem::transmute(d3dfmt)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFInitVideoFormat_RGB(pvideoformat: *const MFVIDEOFORMAT, dwwidth: u32, dwheight: u32, d3dfmt: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFInitVideoFormat_RGB(::core::mem::transmute(pvideoformat), ::core::mem::transmute(dwwidth), ::core::mem::transmute(dwheight), ::core::mem::transmute(d3dfmt)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFInvokeCallback<'a, Param0: ::windows::core::IntoParam<'a, IMFAsyncResult>>(pasyncresult: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFInvokeCallback(pasyncresult: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        MFInvokeCallback(pasyncresult.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFInvokeCallback(pasyncresult: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFInvokeCallback(pasyncresult.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFIsContentProtectionDeviceSupported(protectionsystemid: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFIsContentProtectionDeviceSupported(protectionsystemid: *const ::windows::core::GUID, issupported: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
-        MFIsContentProtectionDeviceSupported(::core::mem::transmute(protectionsystemid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFIsContentProtectionDeviceSupported(protectionsystemid: *const ::windows::core::GUID, issupported: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
+    MFIsContentProtectionDeviceSupported(::core::mem::transmute(protectionsystemid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFIsFormatYUV(format: u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFIsFormatYUV(format: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(MFIsFormatYUV(::core::mem::transmute(format)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFIsFormatYUV(format: u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MFIsFormatYUV(::core::mem::transmute(format)))
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFIsVirtualCameraTypeSupported(r#type: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFIsVirtualCameraTypeSupported(r#type: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001, supported: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
-        MFIsVirtualCameraTypeSupported(::core::mem::transmute(r#type), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFIsVirtualCameraTypeSupported(r#type: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001, supported: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
+    MFIsVirtualCameraTypeSupported(::core::mem::transmute(r#type), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFLoadSignedLibrary<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pszname: Param0) -> ::windows::core::Result<IMFSignedLibrary> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFLoadSignedLibrary(pszname: ::windows::core::PCWSTR, pplib: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFLoadSignedLibrary(pszname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFSignedLibrary>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFLoadSignedLibrary(pszname: ::windows::core::PCWSTR, pplib: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFLoadSignedLibrary(pszname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFSignedLibrary>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFLockDXGIDeviceManager(presettoken: *mut u32, ppmanager: *mut ::core::option::Option<IMFDXGIDeviceManager>) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFLockDXGIDeviceManager(presettoken: *mut u32, ppmanager: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        MFLockDXGIDeviceManager(::core::mem::transmute(presettoken), ::core::mem::transmute(ppmanager)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFLockDXGIDeviceManager(presettoken: *mut u32, ppmanager: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFLockDXGIDeviceManager(::core::mem::transmute(presettoken), ::core::mem::transmute(ppmanager)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFLockPlatform() -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFLockPlatform() -> ::windows::core::HRESULT;
-        }
-        MFLockPlatform().ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFLockPlatform() -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFLockPlatform().ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFLockSharedWorkQueue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(wszclass: Param0, basepriority: i32, pdwtaskid: *mut u32, pid: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFLockSharedWorkQueue(wszclass: ::windows::core::PCWSTR, basepriority: i32, pdwtaskid: *mut u32, pid: *mut u32) -> ::windows::core::HRESULT;
-        }
-        MFLockSharedWorkQueue(wszclass.into_param().abi(), ::core::mem::transmute(basepriority), ::core::mem::transmute(pdwtaskid), ::core::mem::transmute(pid)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFLockSharedWorkQueue(wszclass: ::windows::core::PCWSTR, basepriority: i32, pdwtaskid: *mut u32, pid: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFLockSharedWorkQueue(wszclass.into_param().abi(), ::core::mem::transmute(basepriority), ::core::mem::transmute(pdwtaskid), ::core::mem::transmute(pid)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFLockWorkQueue(dwworkqueue: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFLockWorkQueue(dwworkqueue: u32) -> ::windows::core::HRESULT;
-        }
-        MFLockWorkQueue(::core::mem::transmute(dwworkqueue)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFLockWorkQueue(dwworkqueue: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFLockWorkQueue(::core::mem::transmute(dwworkqueue)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
@@ -55409,31 +54429,21 @@ pub const MFMPEG4Format_Base: ::windows::core::GUID = ::windows::core::GUID::fro
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 #[inline]
 pub unsafe fn MFMapDX9FormatToDXGIFormat(dx9: u32) -> super::super::Graphics::Dxgi::Common::DXGI_FORMAT {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFMapDX9FormatToDXGIFormat(dx9: u32) -> super::super::Graphics::Dxgi::Common::DXGI_FORMAT;
-        }
-        ::core::mem::transmute(MFMapDX9FormatToDXGIFormat(::core::mem::transmute(dx9)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFMapDX9FormatToDXGIFormat(dx9: u32) -> super::super::Graphics::Dxgi::Common::DXGI_FORMAT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MFMapDX9FormatToDXGIFormat(::core::mem::transmute(dx9)))
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 #[inline]
 pub unsafe fn MFMapDXGIFormatToDX9Format(dx11: super::super::Graphics::Dxgi::Common::DXGI_FORMAT) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFMapDXGIFormatToDX9Format(dx11: super::super::Graphics::Dxgi::Common::DXGI_FORMAT) -> u32;
-        }
-        ::core::mem::transmute(MFMapDXGIFormatToDX9Format(::core::mem::transmute(dx11)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFMapDXGIFormatToDX9Format(dx11: super::super::Graphics::Dxgi::Common::DXGI_FORMAT) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MFMapDXGIFormatToDX9Format(::core::mem::transmute(dx11)))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -55944,17 +54954,12 @@ impl ::core::default::Default for MFOffset {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFPCreateMediaPlayer<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, IMFPMediaPlayerCallback>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(pwszurl: Param0, fstartplayback: Param1, creationoptions: MFP_CREATION_OPTIONS, pcallback: Param3, hwnd: Param4) -> ::windows::core::Result<IMFPMediaPlayer> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFPCreateMediaPlayer(pwszurl: ::windows::core::PCWSTR, fstartplayback: super::super::Foundation::BOOL, creationoptions: MFP_CREATION_OPTIONS, pcallback: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, ppmediaplayer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFPCreateMediaPlayer(pwszurl.into_param().abi(), fstartplayback.into_param().abi(), ::core::mem::transmute(creationoptions), pcallback.into_param().abi(), hwnd.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFPMediaPlayer>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFPCreateMediaPlayer(pwszurl: ::windows::core::PCWSTR, fstartplayback: super::super::Foundation::BOOL, creationoptions: MFP_CREATION_OPTIONS, pcallback: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, ppmediaplayer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFPCreateMediaPlayer(pwszurl.into_param().abi(), fstartplayback.into_param().abi(), ::core::mem::transmute(creationoptions), pcallback.into_param().abi(), hwnd.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFPMediaPlayer>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub type MFPERIODICCALLBACK = ::core::option::Option<unsafe extern "system" fn(pcontext: ::core::option::Option<::windows::core::IUnknown>)>;
@@ -56817,73 +55822,48 @@ impl ::core::default::Default for MFPinholeCameraIntrinsics {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFPutWaitingWorkItem<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, IMFAsyncResult>>(hevent: Param0, priority: i32, presult: Param2) -> ::windows::core::Result<u64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFPutWaitingWorkItem(hevent: super::super::Foundation::HANDLE, priority: i32, presult: *mut ::core::ffi::c_void, pkey: *mut u64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-        MFPutWaitingWorkItem(hevent.into_param().abi(), ::core::mem::transmute(priority), presult.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFPutWaitingWorkItem(hevent: super::super::Foundation::HANDLE, priority: i32, presult: *mut ::core::ffi::c_void, pkey: *mut u64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
+    MFPutWaitingWorkItem(hevent.into_param().abi(), ::core::mem::transmute(priority), presult.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFPutWorkItem<'a, Param1: ::windows::core::IntoParam<'a, IMFAsyncCallback>, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(dwqueue: u32, pcallback: Param1, pstate: Param2) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFPutWorkItem(dwqueue: u32, pcallback: *mut ::core::ffi::c_void, pstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        MFPutWorkItem(::core::mem::transmute(dwqueue), pcallback.into_param().abi(), pstate.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFPutWorkItem(dwqueue: u32, pcallback: *mut ::core::ffi::c_void, pstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFPutWorkItem(::core::mem::transmute(dwqueue), pcallback.into_param().abi(), pstate.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFPutWorkItem2<'a, Param2: ::windows::core::IntoParam<'a, IMFAsyncCallback>, Param3: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(dwqueue: u32, priority: i32, pcallback: Param2, pstate: Param3) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFPutWorkItem2(dwqueue: u32, priority: i32, pcallback: *mut ::core::ffi::c_void, pstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        MFPutWorkItem2(::core::mem::transmute(dwqueue), ::core::mem::transmute(priority), pcallback.into_param().abi(), pstate.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFPutWorkItem2(dwqueue: u32, priority: i32, pcallback: *mut ::core::ffi::c_void, pstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFPutWorkItem2(::core::mem::transmute(dwqueue), ::core::mem::transmute(priority), pcallback.into_param().abi(), pstate.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFPutWorkItemEx<'a, Param1: ::windows::core::IntoParam<'a, IMFAsyncResult>>(dwqueue: u32, presult: Param1) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFPutWorkItemEx(dwqueue: u32, presult: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        MFPutWorkItemEx(::core::mem::transmute(dwqueue), presult.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFPutWorkItemEx(dwqueue: u32, presult: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFPutWorkItemEx(::core::mem::transmute(dwqueue), presult.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFPutWorkItemEx2<'a, Param2: ::windows::core::IntoParam<'a, IMFAsyncResult>>(dwqueue: u32, priority: i32, presult: Param2) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFPutWorkItemEx2(dwqueue: u32, priority: i32, presult: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        MFPutWorkItemEx2(::core::mem::transmute(dwqueue), ::core::mem::transmute(priority), presult.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFPutWorkItemEx2(dwqueue: u32, priority: i32, presult: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFPutWorkItemEx2(::core::mem::transmute(dwqueue), ::core::mem::transmute(priority), presult.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
@@ -57013,72 +55993,47 @@ impl ::core::default::Default for MFRatio {
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFRegisterLocalByteStreamHandler<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, IMFActivate>>(szfileextension: Param0, szmimetype: Param1, pactivate: Param2) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFRegisterLocalByteStreamHandler(szfileextension: ::windows::core::PCWSTR, szmimetype: ::windows::core::PCWSTR, pactivate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        MFRegisterLocalByteStreamHandler(szfileextension.into_param().abi(), szmimetype.into_param().abi(), pactivate.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFRegisterLocalByteStreamHandler(szfileextension: ::windows::core::PCWSTR, szmimetype: ::windows::core::PCWSTR, pactivate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFRegisterLocalByteStreamHandler(szfileextension.into_param().abi(), szmimetype.into_param().abi(), pactivate.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFRegisterLocalSchemeHandler<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, IMFActivate>>(szscheme: Param0, pactivate: Param1) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFRegisterLocalSchemeHandler(szscheme: ::windows::core::PCWSTR, pactivate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        MFRegisterLocalSchemeHandler(szscheme.into_param().abi(), pactivate.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFRegisterLocalSchemeHandler(szscheme: ::windows::core::PCWSTR, pactivate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFRegisterLocalSchemeHandler(szscheme.into_param().abi(), pactivate.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFRegisterPlatformWithMMCSS<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(wszclass: Param0, pdwtaskid: *mut u32, lpriority: i32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFRegisterPlatformWithMMCSS(wszclass: ::windows::core::PCWSTR, pdwtaskid: *mut u32, lpriority: i32) -> ::windows::core::HRESULT;
-        }
-        MFRegisterPlatformWithMMCSS(wszclass.into_param().abi(), ::core::mem::transmute(pdwtaskid), ::core::mem::transmute(lpriority)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFRegisterPlatformWithMMCSS(wszclass: ::windows::core::PCWSTR, pdwtaskid: *mut u32, lpriority: i32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFRegisterPlatformWithMMCSS(wszclass.into_param().abi(), ::core::mem::transmute(pdwtaskid), ::core::mem::transmute(lpriority)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFRemovePeriodicCallback(dwkey: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFRemovePeriodicCallback(dwkey: u32) -> ::windows::core::HRESULT;
-        }
-        MFRemovePeriodicCallback(::core::mem::transmute(dwkey)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFRemovePeriodicCallback(dwkey: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFRemovePeriodicCallback(::core::mem::transmute(dwkey)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFRequireProtectedEnvironment<'a, Param0: ::windows::core::IntoParam<'a, IMFPresentationDescriptor>>(ppresentationdescriptor: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFRequireProtectedEnvironment(ppresentationdescriptor: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        MFRequireProtectedEnvironment(ppresentationdescriptor.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFRequireProtectedEnvironment(ppresentationdescriptor: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFRequireProtectedEnvironment(ppresentationdescriptor.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFSEQUENCER_INVALID_ELEMENT_ID: u32 = 4294967295u32;
@@ -57381,32 +56336,22 @@ pub const MFSampleExtension_VideoEncodeQP: ::windows::core::GUID = ::windows::co
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFScheduleWorkItem<'a, Param0: ::windows::core::IntoParam<'a, IMFAsyncCallback>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(pcallback: Param0, pstate: Param1, timeout: i64) -> ::windows::core::Result<u64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFScheduleWorkItem(pcallback: *mut ::core::ffi::c_void, pstate: *mut ::core::ffi::c_void, timeout: i64, pkey: *mut u64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-        MFScheduleWorkItem(pcallback.into_param().abi(), pstate.into_param().abi(), ::core::mem::transmute(timeout), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFScheduleWorkItem(pcallback: *mut ::core::ffi::c_void, pstate: *mut ::core::ffi::c_void, timeout: i64, pkey: *mut u64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
+    MFScheduleWorkItem(pcallback.into_param().abi(), pstate.into_param().abi(), ::core::mem::transmute(timeout), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFScheduleWorkItemEx<'a, Param0: ::windows::core::IntoParam<'a, IMFAsyncResult>>(presult: Param0, timeout: i64) -> ::windows::core::Result<u64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFScheduleWorkItemEx(presult: *mut ::core::ffi::c_void, timeout: i64, pkey: *mut u64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-        MFScheduleWorkItemEx(presult.into_param().abi(), ::core::mem::transmute(timeout), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFScheduleWorkItemEx(presult: *mut ::core::ffi::c_void, timeout: i64, pkey: *mut u64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
+    MFScheduleWorkItemEx(presult.into_param().abi(), ::core::mem::transmute(timeout), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
@@ -57526,72 +56471,47 @@ impl ::core::fmt::Debug for MFSequencerTopologyFlags {
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn MFSerializeAttributesToStream<'a, Param0: ::windows::core::IntoParam<'a, IMFAttributes>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(pattr: Param0, dwoptions: u32, pstm: Param2) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFSerializeAttributesToStream(pattr: *mut ::core::ffi::c_void, dwoptions: u32, pstm: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        MFSerializeAttributesToStream(pattr.into_param().abi(), ::core::mem::transmute(dwoptions), pstm.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFSerializeAttributesToStream(pattr: *mut ::core::ffi::c_void, dwoptions: u32, pstm: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFSerializeAttributesToStream(pattr.into_param().abi(), ::core::mem::transmute(dwoptions), pstm.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFSerializePresentationDescriptor<'a, Param0: ::windows::core::IntoParam<'a, IMFPresentationDescriptor>>(ppd: Param0, pcbdata: *mut u32, ppbdata: *mut *mut u8) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFSerializePresentationDescriptor(ppd: *mut ::core::ffi::c_void, pcbdata: *mut u32, ppbdata: *mut *mut u8) -> ::windows::core::HRESULT;
-        }
-        MFSerializePresentationDescriptor(ppd.into_param().abi(), ::core::mem::transmute(pcbdata), ::core::mem::transmute(ppbdata)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFSerializePresentationDescriptor(ppd: *mut ::core::ffi::c_void, pcbdata: *mut u32, ppbdata: *mut *mut u8) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFSerializePresentationDescriptor(ppd.into_param().abi(), ::core::mem::transmute(pcbdata), ::core::mem::transmute(ppbdata)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFShutdown() -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFShutdown() -> ::windows::core::HRESULT;
-        }
-        MFShutdown().ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFShutdown() -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFShutdown().ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFShutdownObject<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(punk: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFShutdownObject(punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        MFShutdownObject(punk.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFShutdownObject(punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFShutdownObject(punk.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFSplitSample<'a, Param0: ::windows::core::IntoParam<'a, IMFSample>>(psample: Param0, poutputsamples: &mut [::core::option::Option<IMFSample>], pdwoutputsamplecount: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFSplitSample(psample: *mut ::core::ffi::c_void, poutputsamples: *mut *mut ::core::ffi::c_void, dwoutputsamplemaxcount: u32, pdwoutputsamplecount: *mut u32) -> ::windows::core::HRESULT;
-        }
-        MFSplitSample(psample.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(poutputsamples)), poutputsamples.len() as _, ::core::mem::transmute(pdwoutputsamplecount)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFSplitSample(psample: *mut ::core::ffi::c_void, poutputsamples: *mut *mut ::core::ffi::c_void, dwoutputsamplemaxcount: u32, pdwoutputsamplecount: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFSplitSample(psample.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(poutputsamples)), poutputsamples.len() as _, ::core::mem::transmute(pdwoutputsamplecount)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
@@ -57639,16 +56559,11 @@ impl ::core::fmt::Debug for MFStandardVideoFormat {
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFStartup(version: u32, dwflags: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFStartup(version: u32, dwflags: u32) -> ::windows::core::HRESULT;
-        }
-        MFStartup(::core::mem::transmute(version), ::core::mem::transmute(dwflags)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFStartup(version: u32, dwflags: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFStartup(::core::mem::transmute(version), ::core::mem::transmute(dwflags)).ok()
 }
 pub const MFStreamExtension_CameraExtrinsics: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x686196d0_13e2_41d9_9638_ef032c272a52);
 pub const MFStreamExtension_ExtendedCameraIntrinsics: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa74b3df_9a2c_48d6_8393_5bd1c1a81e6e);
@@ -57667,58 +56582,38 @@ pub const MFSubtitleFormat_XML: ::windows::core::GUID = ::windows::core::GUID::f
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFTEnum<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param4: ::windows::core::IntoParam<'a, IMFAttributes>>(guidcategory: Param0, flags: u32, pinputtype: *const MFT_REGISTER_TYPE_INFO, poutputtype: *const MFT_REGISTER_TYPE_INFO, pattributes: Param4, ppclsidmft: *mut *mut ::windows::core::GUID, pcmfts: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFTEnum(guidcategory: ::windows::core::GUID, flags: u32, pinputtype: *const MFT_REGISTER_TYPE_INFO, poutputtype: *const MFT_REGISTER_TYPE_INFO, pattributes: *mut ::core::ffi::c_void, ppclsidmft: *mut *mut ::windows::core::GUID, pcmfts: *mut u32) -> ::windows::core::HRESULT;
-        }
-        MFTEnum(guidcategory.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(pinputtype), ::core::mem::transmute(poutputtype), pattributes.into_param().abi(), ::core::mem::transmute(ppclsidmft), ::core::mem::transmute(pcmfts)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFTEnum(guidcategory: ::windows::core::GUID, flags: u32, pinputtype: *const MFT_REGISTER_TYPE_INFO, poutputtype: *const MFT_REGISTER_TYPE_INFO, pattributes: *mut ::core::ffi::c_void, ppclsidmft: *mut *mut ::windows::core::GUID, pcmfts: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFTEnum(guidcategory.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(pinputtype), ::core::mem::transmute(poutputtype), pattributes.into_param().abi(), ::core::mem::transmute(ppclsidmft), ::core::mem::transmute(pcmfts)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFTEnum2<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param4: ::windows::core::IntoParam<'a, IMFAttributes>>(guidcategory: Param0, flags: MFT_ENUM_FLAG, pinputtype: *const MFT_REGISTER_TYPE_INFO, poutputtype: *const MFT_REGISTER_TYPE_INFO, pattributes: Param4, pppmftactivate: *mut *mut ::core::option::Option<IMFActivate>, pnummftactivate: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFTEnum2(guidcategory: ::windows::core::GUID, flags: MFT_ENUM_FLAG, pinputtype: *const MFT_REGISTER_TYPE_INFO, poutputtype: *const MFT_REGISTER_TYPE_INFO, pattributes: *mut ::core::ffi::c_void, pppmftactivate: *mut *mut *mut ::core::ffi::c_void, pnummftactivate: *mut u32) -> ::windows::core::HRESULT;
-        }
-        MFTEnum2(guidcategory.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(pinputtype), ::core::mem::transmute(poutputtype), pattributes.into_param().abi(), ::core::mem::transmute(pppmftactivate), ::core::mem::transmute(pnummftactivate)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFTEnum2(guidcategory: ::windows::core::GUID, flags: MFT_ENUM_FLAG, pinputtype: *const MFT_REGISTER_TYPE_INFO, poutputtype: *const MFT_REGISTER_TYPE_INFO, pattributes: *mut ::core::ffi::c_void, pppmftactivate: *mut *mut *mut ::core::ffi::c_void, pnummftactivate: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFTEnum2(guidcategory.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(pinputtype), ::core::mem::transmute(poutputtype), pattributes.into_param().abi(), ::core::mem::transmute(pppmftactivate), ::core::mem::transmute(pnummftactivate)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFTEnumEx<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(guidcategory: Param0, flags: MFT_ENUM_FLAG, pinputtype: *const MFT_REGISTER_TYPE_INFO, poutputtype: *const MFT_REGISTER_TYPE_INFO, pppmftactivate: *mut *mut ::core::option::Option<IMFActivate>, pnummftactivate: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFTEnumEx(guidcategory: ::windows::core::GUID, flags: MFT_ENUM_FLAG, pinputtype: *const MFT_REGISTER_TYPE_INFO, poutputtype: *const MFT_REGISTER_TYPE_INFO, pppmftactivate: *mut *mut *mut ::core::ffi::c_void, pnummftactivate: *mut u32) -> ::windows::core::HRESULT;
-        }
-        MFTEnumEx(guidcategory.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(pinputtype), ::core::mem::transmute(poutputtype), ::core::mem::transmute(pppmftactivate), ::core::mem::transmute(pnummftactivate)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFTEnumEx(guidcategory: ::windows::core::GUID, flags: MFT_ENUM_FLAG, pinputtype: *const MFT_REGISTER_TYPE_INFO, poutputtype: *const MFT_REGISTER_TYPE_INFO, pppmftactivate: *mut *mut *mut ::core::ffi::c_void, pnummftactivate: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFTEnumEx(guidcategory.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(pinputtype), ::core::mem::transmute(poutputtype), ::core::mem::transmute(pppmftactivate), ::core::mem::transmute(pnummftactivate)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFTGetInfo<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(clsidmft: Param0, pszname: *mut ::windows::core::PWSTR, ppinputtypes: *mut *mut MFT_REGISTER_TYPE_INFO, pcinputtypes: *mut u32, ppoutputtypes: *mut *mut MFT_REGISTER_TYPE_INFO, pcoutputtypes: *mut u32, ppattributes: *mut ::core::option::Option<IMFAttributes>) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFTGetInfo(clsidmft: ::windows::core::GUID, pszname: *mut ::windows::core::PWSTR, ppinputtypes: *mut *mut MFT_REGISTER_TYPE_INFO, pcinputtypes: *mut u32, ppoutputtypes: *mut *mut MFT_REGISTER_TYPE_INFO, pcoutputtypes: *mut u32, ppattributes: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        MFTGetInfo(clsidmft.into_param().abi(), ::core::mem::transmute(pszname), ::core::mem::transmute(ppinputtypes), ::core::mem::transmute(pcinputtypes), ::core::mem::transmute(ppoutputtypes), ::core::mem::transmute(pcoutputtypes), ::core::mem::transmute(ppattributes)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFTGetInfo(clsidmft: ::windows::core::GUID, pszname: *mut ::windows::core::PWSTR, ppinputtypes: *mut *mut MFT_REGISTER_TYPE_INFO, pcinputtypes: *mut u32, ppoutputtypes: *mut *mut MFT_REGISTER_TYPE_INFO, pcoutputtypes: *mut u32, ppattributes: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFTGetInfo(clsidmft.into_param().abi(), ::core::mem::transmute(pszname), ::core::mem::transmute(ppinputtypes), ::core::mem::transmute(pcinputtypes), ::core::mem::transmute(ppoutputtypes), ::core::mem::transmute(pcoutputtypes), ::core::mem::transmute(ppattributes)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
@@ -57861,88 +56756,58 @@ impl ::core::default::Default for MFTOPONODE_ATTRIBUTE_UPDATE_0 {
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFTRegister<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param8: ::windows::core::IntoParam<'a, IMFAttributes>>(clsidmft: Param0, guidcategory: Param1, pszname: Param2, flags: u32, pinputtypes: &[MFT_REGISTER_TYPE_INFO], poutputtypes: &[MFT_REGISTER_TYPE_INFO], pattributes: Param8) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFTRegister(clsidmft: ::windows::core::GUID, guidcategory: ::windows::core::GUID, pszname: ::windows::core::PCWSTR, flags: u32, cinputtypes: u32, pinputtypes: *const MFT_REGISTER_TYPE_INFO, coutputtypes: u32, poutputtypes: *const MFT_REGISTER_TYPE_INFO, pattributes: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        MFTRegister(clsidmft.into_param().abi(), guidcategory.into_param().abi(), pszname.into_param().abi(), ::core::mem::transmute(flags), pinputtypes.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pinputtypes)), poutputtypes.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(poutputtypes)), pattributes.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFTRegister(clsidmft: ::windows::core::GUID, guidcategory: ::windows::core::GUID, pszname: ::windows::core::PCWSTR, flags: u32, cinputtypes: u32, pinputtypes: *const MFT_REGISTER_TYPE_INFO, coutputtypes: u32, poutputtypes: *const MFT_REGISTER_TYPE_INFO, pattributes: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFTRegister(clsidmft.into_param().abi(), guidcategory.into_param().abi(), pszname.into_param().abi(), ::core::mem::transmute(flags), pinputtypes.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pinputtypes)), poutputtypes.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(poutputtypes)), pattributes.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn MFTRegisterLocal<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IClassFactory>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pclassfactory: Param0, guidcategory: *const ::windows::core::GUID, pszname: Param2, flags: u32, pinputtypes: &[MFT_REGISTER_TYPE_INFO], poutputtypes: &[MFT_REGISTER_TYPE_INFO]) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFTRegisterLocal(pclassfactory: *mut ::core::ffi::c_void, guidcategory: *const ::windows::core::GUID, pszname: ::windows::core::PCWSTR, flags: u32, cinputtypes: u32, pinputtypes: *const MFT_REGISTER_TYPE_INFO, coutputtypes: u32, poutputtypes: *const MFT_REGISTER_TYPE_INFO) -> ::windows::core::HRESULT;
-        }
-        MFTRegisterLocal(pclassfactory.into_param().abi(), ::core::mem::transmute(guidcategory), pszname.into_param().abi(), ::core::mem::transmute(flags), pinputtypes.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pinputtypes)), poutputtypes.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(poutputtypes))).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFTRegisterLocal(pclassfactory: *mut ::core::ffi::c_void, guidcategory: *const ::windows::core::GUID, pszname: ::windows::core::PCWSTR, flags: u32, cinputtypes: u32, pinputtypes: *const MFT_REGISTER_TYPE_INFO, coutputtypes: u32, poutputtypes: *const MFT_REGISTER_TYPE_INFO) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFTRegisterLocal(pclassfactory.into_param().abi(), ::core::mem::transmute(guidcategory), pszname.into_param().abi(), ::core::mem::transmute(flags), pinputtypes.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pinputtypes)), poutputtypes.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(poutputtypes))).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFTRegisterLocalByCLSID<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(clisdmft: *const ::windows::core::GUID, guidcategory: *const ::windows::core::GUID, pszname: Param2, flags: u32, pinputtypes: &[MFT_REGISTER_TYPE_INFO], poutputtypes: &[MFT_REGISTER_TYPE_INFO]) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFTRegisterLocalByCLSID(clisdmft: *const ::windows::core::GUID, guidcategory: *const ::windows::core::GUID, pszname: ::windows::core::PCWSTR, flags: u32, cinputtypes: u32, pinputtypes: *const MFT_REGISTER_TYPE_INFO, coutputtypes: u32, poutputtypes: *const MFT_REGISTER_TYPE_INFO) -> ::windows::core::HRESULT;
-        }
-        MFTRegisterLocalByCLSID(::core::mem::transmute(clisdmft), ::core::mem::transmute(guidcategory), pszname.into_param().abi(), ::core::mem::transmute(flags), pinputtypes.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pinputtypes)), poutputtypes.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(poutputtypes))).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFTRegisterLocalByCLSID(clisdmft: *const ::windows::core::GUID, guidcategory: *const ::windows::core::GUID, pszname: ::windows::core::PCWSTR, flags: u32, cinputtypes: u32, pinputtypes: *const MFT_REGISTER_TYPE_INFO, coutputtypes: u32, poutputtypes: *const MFT_REGISTER_TYPE_INFO) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFTRegisterLocalByCLSID(::core::mem::transmute(clisdmft), ::core::mem::transmute(guidcategory), pszname.into_param().abi(), ::core::mem::transmute(flags), pinputtypes.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pinputtypes)), poutputtypes.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(poutputtypes))).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFTUnregister<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(clsidmft: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFTUnregister(clsidmft: ::windows::core::GUID) -> ::windows::core::HRESULT;
-        }
-        MFTUnregister(clsidmft.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFTUnregister(clsidmft: ::windows::core::GUID) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFTUnregister(clsidmft.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn MFTUnregisterLocal<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IClassFactory>>(pclassfactory: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFTUnregisterLocal(pclassfactory: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        MFTUnregisterLocal(pclassfactory.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFTUnregisterLocal(pclassfactory: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFTUnregisterLocal(pclassfactory.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFTUnregisterLocalByCLSID<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(clsidmft: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFTUnregisterLocalByCLSID(clsidmft: ::windows::core::GUID) -> ::windows::core::HRESULT;
-        }
-        MFTUnregisterLocalByCLSID(clsidmft.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFTUnregisterLocalByCLSID(clsidmft: ::windows::core::GUID) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFTUnregisterLocalByCLSID(clsidmft.into_param().abi()).ok()
 }
 pub const MFT_AUDIO_DECODER_AUDIO_ENDPOINT_ID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc7ccdd6e_5398_4695_8be7_51b3e95111bd);
 pub const MFT_AUDIO_DECODER_DEGRADATION_INFO_ATTRIBUTE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c3386ad_ec20_430d_b2a5_505c7178d9c4);
@@ -58418,88 +57283,58 @@ pub const MFTranscodeContainerType_WAVE: ::windows::core::GUID = ::windows::core
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFTranscodeGetAudioOutputAvailableTypes<'a, Param2: ::windows::core::IntoParam<'a, IMFAttributes>>(guidsubtype: *const ::windows::core::GUID, dwmftflags: u32, pcodecconfig: Param2) -> ::windows::core::Result<IMFCollection> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFTranscodeGetAudioOutputAvailableTypes(guidsubtype: *const ::windows::core::GUID, dwmftflags: u32, pcodecconfig: *mut ::core::ffi::c_void, ppavailabletypes: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFTranscodeGetAudioOutputAvailableTypes(::core::mem::transmute(guidsubtype), ::core::mem::transmute(dwmftflags), pcodecconfig.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFCollection>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFTranscodeGetAudioOutputAvailableTypes(guidsubtype: *const ::windows::core::GUID, dwmftflags: u32, pcodecconfig: *mut ::core::ffi::c_void, ppavailabletypes: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFTranscodeGetAudioOutputAvailableTypes(::core::mem::transmute(guidsubtype), ::core::mem::transmute(dwmftflags), pcodecconfig.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFCollection>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFUnlockDXGIDeviceManager() -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFUnlockDXGIDeviceManager() -> ::windows::core::HRESULT;
-        }
-        MFUnlockDXGIDeviceManager().ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFUnlockDXGIDeviceManager() -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFUnlockDXGIDeviceManager().ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFUnlockPlatform() -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFUnlockPlatform() -> ::windows::core::HRESULT;
-        }
-        MFUnlockPlatform().ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFUnlockPlatform() -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFUnlockPlatform().ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFUnlockWorkQueue(dwworkqueue: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFUnlockWorkQueue(dwworkqueue: u32) -> ::windows::core::HRESULT;
-        }
-        MFUnlockWorkQueue(::core::mem::transmute(dwworkqueue)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFUnlockWorkQueue(dwworkqueue: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFUnlockWorkQueue(::core::mem::transmute(dwworkqueue)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFUnregisterPlatformFromMMCSS() -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFUnregisterPlatformFromMMCSS() -> ::windows::core::HRESULT;
-        }
-        MFUnregisterPlatformFromMMCSS().ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFUnregisterPlatformFromMMCSS() -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFUnregisterPlatformFromMMCSS().ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFUnwrapMediaType<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(pwrap: Param0) -> ::windows::core::Result<IMFMediaType> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFUnwrapMediaType(pwrap: *mut ::core::ffi::c_void, pporig: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFUnwrapMediaType(pwrap.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaType>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFUnwrapMediaType(pwrap: *mut ::core::ffi::c_void, pporig: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFUnwrapMediaType(pwrap.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaType>(result__)
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
@@ -58579,16 +57414,11 @@ impl ::core::fmt::Debug for MFVP_MESSAGE_TYPE {
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFValidateMediaTypeSize<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(formattype: Param0, pblock: *const u8, cbsize: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFValidateMediaTypeSize(formattype: ::windows::core::GUID, pblock: *const u8, cbsize: u32) -> ::windows::core::HRESULT;
-        }
-        MFValidateMediaTypeSize(formattype.into_param().abi(), ::core::mem::transmute(pblock), ::core::mem::transmute(cbsize)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFValidateMediaTypeSize(formattype: ::windows::core::GUID, pblock: *const u8, cbsize: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MFValidateMediaTypeSize(formattype.into_param().abi(), ::core::mem::transmute(pblock), ::core::mem::transmute(cbsize)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
@@ -59749,17 +58579,12 @@ impl ::core::fmt::Debug for MFWaveFormatExConvertFlags {
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFWrapMediaType<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(porig: Param0, majortype: *const ::windows::core::GUID, subtype: *const ::windows::core::GUID) -> ::windows::core::Result<IMFMediaType> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFWrapMediaType(porig: *mut ::core::ffi::c_void, majortype: *const ::windows::core::GUID, subtype: *const ::windows::core::GUID, ppwrap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        MFWrapMediaType(porig.into_param().abi(), ::core::mem::transmute(majortype), ::core::mem::transmute(subtype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaType>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFWrapMediaType(porig: *mut ::core::ffi::c_void, majortype: *const ::windows::core::GUID, subtype: *const ::windows::core::GUID, ppwrap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    MFWrapMediaType(porig.into_param().abi(), ::core::mem::transmute(majortype), ::core::mem::transmute(subtype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaType>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_1024_BYTE_ALIGNMENT: u32 = 1023u32;
@@ -64590,16 +63415,11 @@ pub const MF_XVP_SAMPLE_LOCK_TIMEOUT: ::windows::core::GUID = ::windows::core::G
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn MFllMulDiv(a: i64, b: i64, c: i64, d: i64) -> i64 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MFllMulDiv(a: i64, b: i64, c: i64, d: i64) -> i64;
-        }
-        ::core::mem::transmute(MFllMulDiv(::core::mem::transmute(a), ::core::mem::transmute(b), ::core::mem::transmute(c), ::core::mem::transmute(d)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MFllMulDiv(a: i64, b: i64, c: i64, d: i64) -> i64;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MFllMulDiv(::core::mem::transmute(a), ::core::mem::transmute(b), ::core::mem::transmute(c), ::core::mem::transmute(d)))
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
@@ -64959,89 +63779,59 @@ pub const MULawCodecWrapper: ::windows::core::GUID = ::windows::core::GUID::from
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OPMGetVideoOutputForTarget(padapterluid: *const super::super::Foundation::LUID, vidpntarget: u32, vos: OPM_VIDEO_OUTPUT_SEMANTICS) -> ::windows::core::Result<IOPMVideoOutput> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OPMGetVideoOutputForTarget(padapterluid: *const super::super::Foundation::LUID, vidpntarget: u32, vos: OPM_VIDEO_OUTPUT_SEMANTICS, ppopmvideooutput: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        OPMGetVideoOutputForTarget(::core::mem::transmute(padapterluid), ::core::mem::transmute(vidpntarget), ::core::mem::transmute(vos), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOPMVideoOutput>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OPMGetVideoOutputForTarget(padapterluid: *const super::super::Foundation::LUID, vidpntarget: u32, vos: OPM_VIDEO_OUTPUT_SEMANTICS, ppopmvideooutput: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    OPMGetVideoOutputForTarget(::core::mem::transmute(padapterluid), ::core::mem::transmute(vidpntarget), ::core::mem::transmute(vos), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOPMVideoOutput>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn OPMGetVideoOutputsFromHMONITOR<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HMONITOR>>(hmonitor: Param0, vos: OPM_VIDEO_OUTPUT_SEMANTICS, pulnumvideooutputs: *mut u32, pppopmvideooutputarray: *mut *mut ::core::option::Option<IOPMVideoOutput>) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OPMGetVideoOutputsFromHMONITOR(hmonitor: super::super::Graphics::Gdi::HMONITOR, vos: OPM_VIDEO_OUTPUT_SEMANTICS, pulnumvideooutputs: *mut u32, pppopmvideooutputarray: *mut *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        OPMGetVideoOutputsFromHMONITOR(hmonitor.into_param().abi(), ::core::mem::transmute(vos), ::core::mem::transmute(pulnumvideooutputs), ::core::mem::transmute(pppopmvideooutputarray)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OPMGetVideoOutputsFromHMONITOR(hmonitor: super::super::Graphics::Gdi::HMONITOR, vos: OPM_VIDEO_OUTPUT_SEMANTICS, pulnumvideooutputs: *mut u32, pppopmvideooutputarray: *mut *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    OPMGetVideoOutputsFromHMONITOR(hmonitor.into_param().abi(), ::core::mem::transmute(vos), ::core::mem::transmute(pulnumvideooutputs), ::core::mem::transmute(pppopmvideooutputarray)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Graphics_Direct3D9\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 #[inline]
 pub unsafe fn OPMGetVideoOutputsFromIDirect3DDevice9Object<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D9::IDirect3DDevice9>>(pdirect3ddevice9: Param0, vos: OPM_VIDEO_OUTPUT_SEMANTICS, pulnumvideooutputs: *mut u32, pppopmvideooutputarray: *mut *mut ::core::option::Option<IOPMVideoOutput>) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OPMGetVideoOutputsFromIDirect3DDevice9Object(pdirect3ddevice9: *mut ::core::ffi::c_void, vos: OPM_VIDEO_OUTPUT_SEMANTICS, pulnumvideooutputs: *mut u32, pppopmvideooutputarray: *mut *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        OPMGetVideoOutputsFromIDirect3DDevice9Object(pdirect3ddevice9.into_param().abi(), ::core::mem::transmute(vos), ::core::mem::transmute(pulnumvideooutputs), ::core::mem::transmute(pppopmvideooutputarray)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OPMGetVideoOutputsFromIDirect3DDevice9Object(pdirect3ddevice9: *mut ::core::ffi::c_void, vos: OPM_VIDEO_OUTPUT_SEMANTICS, pulnumvideooutputs: *mut u32, pppopmvideooutputarray: *mut *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    OPMGetVideoOutputsFromIDirect3DDevice9Object(pdirect3ddevice9.into_param().abi(), ::core::mem::transmute(vos), ::core::mem::transmute(pulnumvideooutputs), ::core::mem::transmute(pppopmvideooutputarray)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn OPMXboxEnableHDCP(hdcptype: OPM_HDCP_TYPE) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OPMXboxEnableHDCP(hdcptype: OPM_HDCP_TYPE) -> ::windows::core::HRESULT;
-        }
-        OPMXboxEnableHDCP(::core::mem::transmute(hdcptype)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OPMXboxEnableHDCP(hdcptype: OPM_HDCP_TYPE) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    OPMXboxEnableHDCP(::core::mem::transmute(hdcptype)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn OPMXboxGetHDCPStatus(phdcpstatus: *mut OPM_HDCP_STATUS) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OPMXboxGetHDCPStatus(phdcpstatus: *mut OPM_HDCP_STATUS) -> ::windows::core::HRESULT;
-        }
-        OPMXboxGetHDCPStatus(::core::mem::transmute(phdcpstatus)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OPMXboxGetHDCPStatus(phdcpstatus: *mut OPM_HDCP_STATUS) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    OPMXboxGetHDCPStatus(::core::mem::transmute(phdcpstatus)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn OPMXboxGetHDCPStatusAndType(phdcpstatus: *mut OPM_HDCP_STATUS, phdcptype: *mut OPM_HDCP_TYPE) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OPMXboxGetHDCPStatusAndType(phdcpstatus: *mut OPM_HDCP_STATUS, phdcptype: *mut OPM_HDCP_TYPE) -> ::windows::core::HRESULT;
-        }
-        OPMXboxGetHDCPStatusAndType(::core::mem::transmute(phdcpstatus), ::core::mem::transmute(phdcptype)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OPMXboxGetHDCPStatusAndType(phdcpstatus: *mut OPM_HDCP_STATUS, phdcptype: *mut OPM_HDCP_TYPE) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    OPMXboxGetHDCPStatusAndType(::core::mem::transmute(phdcpstatus), ::core::mem::transmute(phdcptype)).ok()
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]

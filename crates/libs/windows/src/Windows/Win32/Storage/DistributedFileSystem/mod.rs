@@ -1289,316 +1289,206 @@ pub const NET_DFS_SETDC_TIMEOUT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 #[inline]
 pub unsafe fn NetDfsAdd<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(dfsentrypath: Param0, servername: Param1, sharename: Param2, comment: Param3, flags: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn NetDfsAdd(dfsentrypath: ::windows::core::PCWSTR, servername: ::windows::core::PCWSTR, sharename: ::windows::core::PCWSTR, comment: ::windows::core::PCWSTR, flags: u32) -> u32;
-        }
-        ::core::mem::transmute(NetDfsAdd(dfsentrypath.into_param().abi(), servername.into_param().abi(), sharename.into_param().abi(), comment.into_param().abi(), ::core::mem::transmute(flags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetDfsAdd(dfsentrypath: ::windows::core::PCWSTR, servername: ::windows::core::PCWSTR, sharename: ::windows::core::PCWSTR, comment: ::windows::core::PCWSTR, flags: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(NetDfsAdd(dfsentrypath.into_param().abi(), servername.into_param().abi(), sharename.into_param().abi(), comment.into_param().abi(), ::core::mem::transmute(flags)))
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 #[inline]
 pub unsafe fn NetDfsAddFtRoot<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(servername: Param0, rootshare: Param1, ftdfsname: Param2, comment: Param3, flags: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn NetDfsAddFtRoot(servername: ::windows::core::PCWSTR, rootshare: ::windows::core::PCWSTR, ftdfsname: ::windows::core::PCWSTR, comment: ::windows::core::PCWSTR, flags: u32) -> u32;
-        }
-        ::core::mem::transmute(NetDfsAddFtRoot(servername.into_param().abi(), rootshare.into_param().abi(), ftdfsname.into_param().abi(), comment.into_param().abi(), ::core::mem::transmute(flags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetDfsAddFtRoot(servername: ::windows::core::PCWSTR, rootshare: ::windows::core::PCWSTR, ftdfsname: ::windows::core::PCWSTR, comment: ::windows::core::PCWSTR, flags: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(NetDfsAddFtRoot(servername.into_param().abi(), rootshare.into_param().abi(), ftdfsname.into_param().abi(), comment.into_param().abi(), ::core::mem::transmute(flags)))
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 #[inline]
 pub unsafe fn NetDfsAddRootTarget<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pdfspath: Param0, ptargetpath: Param1, majorversion: u32, pcomment: Param3, flags: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn NetDfsAddRootTarget(pdfspath: ::windows::core::PCWSTR, ptargetpath: ::windows::core::PCWSTR, majorversion: u32, pcomment: ::windows::core::PCWSTR, flags: u32) -> u32;
-        }
-        ::core::mem::transmute(NetDfsAddRootTarget(pdfspath.into_param().abi(), ptargetpath.into_param().abi(), ::core::mem::transmute(majorversion), pcomment.into_param().abi(), ::core::mem::transmute(flags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetDfsAddRootTarget(pdfspath: ::windows::core::PCWSTR, ptargetpath: ::windows::core::PCWSTR, majorversion: u32, pcomment: ::windows::core::PCWSTR, flags: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(NetDfsAddRootTarget(pdfspath.into_param().abi(), ptargetpath.into_param().abi(), ::core::mem::transmute(majorversion), pcomment.into_param().abi(), ::core::mem::transmute(flags)))
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 #[inline]
 pub unsafe fn NetDfsAddStdRoot<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(servername: Param0, rootshare: Param1, comment: Param2, flags: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn NetDfsAddStdRoot(servername: ::windows::core::PCWSTR, rootshare: ::windows::core::PCWSTR, comment: ::windows::core::PCWSTR, flags: u32) -> u32;
-        }
-        ::core::mem::transmute(NetDfsAddStdRoot(servername.into_param().abi(), rootshare.into_param().abi(), comment.into_param().abi(), ::core::mem::transmute(flags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetDfsAddStdRoot(servername: ::windows::core::PCWSTR, rootshare: ::windows::core::PCWSTR, comment: ::windows::core::PCWSTR, flags: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(NetDfsAddStdRoot(servername.into_param().abi(), rootshare.into_param().abi(), comment.into_param().abi(), ::core::mem::transmute(flags)))
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 #[inline]
 pub unsafe fn NetDfsEnum<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(dfsname: Param0, level: u32, prefmaxlen: u32, buffer: *mut *mut u8, entriesread: *mut u32, resumehandle: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn NetDfsEnum(dfsname: ::windows::core::PCWSTR, level: u32, prefmaxlen: u32, buffer: *mut *mut u8, entriesread: *mut u32, resumehandle: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(NetDfsEnum(dfsname.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(prefmaxlen), ::core::mem::transmute(buffer), ::core::mem::transmute(entriesread), ::core::mem::transmute(resumehandle)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetDfsEnum(dfsname: ::windows::core::PCWSTR, level: u32, prefmaxlen: u32, buffer: *mut *mut u8, entriesread: *mut u32, resumehandle: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(NetDfsEnum(dfsname.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(prefmaxlen), ::core::mem::transmute(buffer), ::core::mem::transmute(entriesread), ::core::mem::transmute(resumehandle)))
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 #[inline]
 pub unsafe fn NetDfsGetClientInfo<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(dfsentrypath: Param0, servername: Param1, sharename: Param2, level: u32, buffer: *mut *mut u8) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn NetDfsGetClientInfo(dfsentrypath: ::windows::core::PCWSTR, servername: ::windows::core::PCWSTR, sharename: ::windows::core::PCWSTR, level: u32, buffer: *mut *mut u8) -> u32;
-        }
-        ::core::mem::transmute(NetDfsGetClientInfo(dfsentrypath.into_param().abi(), servername.into_param().abi(), sharename.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(buffer)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetDfsGetClientInfo(dfsentrypath: ::windows::core::PCWSTR, servername: ::windows::core::PCWSTR, sharename: ::windows::core::PCWSTR, level: u32, buffer: *mut *mut u8) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(NetDfsGetClientInfo(dfsentrypath.into_param().abi(), servername.into_param().abi(), sharename.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(buffer)))
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn NetDfsGetFtContainerSecurity<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(domainname: Param0, securityinformation: u32, ppsecuritydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn NetDfsGetFtContainerSecurity(domainname: ::windows::core::PCWSTR, securityinformation: u32, ppsecuritydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(NetDfsGetFtContainerSecurity(domainname.into_param().abi(), ::core::mem::transmute(securityinformation), ::core::mem::transmute(ppsecuritydescriptor), ::core::mem::transmute(lpcbsecuritydescriptor)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetDfsGetFtContainerSecurity(domainname: ::windows::core::PCWSTR, securityinformation: u32, ppsecuritydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(NetDfsGetFtContainerSecurity(domainname.into_param().abi(), ::core::mem::transmute(securityinformation), ::core::mem::transmute(ppsecuritydescriptor), ::core::mem::transmute(lpcbsecuritydescriptor)))
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 #[inline]
 pub unsafe fn NetDfsGetInfo<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(dfsentrypath: Param0, servername: Param1, sharename: Param2, level: u32, buffer: *mut *mut u8) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn NetDfsGetInfo(dfsentrypath: ::windows::core::PCWSTR, servername: ::windows::core::PCWSTR, sharename: ::windows::core::PCWSTR, level: u32, buffer: *mut *mut u8) -> u32;
-        }
-        ::core::mem::transmute(NetDfsGetInfo(dfsentrypath.into_param().abi(), servername.into_param().abi(), sharename.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(buffer)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetDfsGetInfo(dfsentrypath: ::windows::core::PCWSTR, servername: ::windows::core::PCWSTR, sharename: ::windows::core::PCWSTR, level: u32, buffer: *mut *mut u8) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(NetDfsGetInfo(dfsentrypath.into_param().abi(), servername.into_param().abi(), sharename.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(buffer)))
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn NetDfsGetSecurity<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(dfsentrypath: Param0, securityinformation: u32, ppsecuritydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn NetDfsGetSecurity(dfsentrypath: ::windows::core::PCWSTR, securityinformation: u32, ppsecuritydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(NetDfsGetSecurity(dfsentrypath.into_param().abi(), ::core::mem::transmute(securityinformation), ::core::mem::transmute(ppsecuritydescriptor), ::core::mem::transmute(lpcbsecuritydescriptor)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetDfsGetSecurity(dfsentrypath: ::windows::core::PCWSTR, securityinformation: u32, ppsecuritydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(NetDfsGetSecurity(dfsentrypath.into_param().abi(), ::core::mem::transmute(securityinformation), ::core::mem::transmute(ppsecuritydescriptor), ::core::mem::transmute(lpcbsecuritydescriptor)))
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn NetDfsGetStdContainerSecurity<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(machinename: Param0, securityinformation: u32, ppsecuritydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn NetDfsGetStdContainerSecurity(machinename: ::windows::core::PCWSTR, securityinformation: u32, ppsecuritydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(NetDfsGetStdContainerSecurity(machinename.into_param().abi(), ::core::mem::transmute(securityinformation), ::core::mem::transmute(ppsecuritydescriptor), ::core::mem::transmute(lpcbsecuritydescriptor)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetDfsGetStdContainerSecurity(machinename: ::windows::core::PCWSTR, securityinformation: u32, ppsecuritydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(NetDfsGetStdContainerSecurity(machinename.into_param().abi(), ::core::mem::transmute(securityinformation), ::core::mem::transmute(ppsecuritydescriptor), ::core::mem::transmute(lpcbsecuritydescriptor)))
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 #[inline]
 pub unsafe fn NetDfsGetSupportedNamespaceVersion<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(origin: DFS_NAMESPACE_VERSION_ORIGIN, pname: Param1, ppversioninfo: *mut *mut DFS_SUPPORTED_NAMESPACE_VERSION_INFO) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn NetDfsGetSupportedNamespaceVersion(origin: DFS_NAMESPACE_VERSION_ORIGIN, pname: ::windows::core::PCWSTR, ppversioninfo: *mut *mut DFS_SUPPORTED_NAMESPACE_VERSION_INFO) -> u32;
-        }
-        ::core::mem::transmute(NetDfsGetSupportedNamespaceVersion(::core::mem::transmute(origin), pname.into_param().abi(), ::core::mem::transmute(ppversioninfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetDfsGetSupportedNamespaceVersion(origin: DFS_NAMESPACE_VERSION_ORIGIN, pname: ::windows::core::PCWSTR, ppversioninfo: *mut *mut DFS_SUPPORTED_NAMESPACE_VERSION_INFO) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(NetDfsGetSupportedNamespaceVersion(::core::mem::transmute(origin), pname.into_param().abi(), ::core::mem::transmute(ppversioninfo)))
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 #[inline]
 pub unsafe fn NetDfsMove<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(olddfsentrypath: Param0, newdfsentrypath: Param1, flags: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn NetDfsMove(olddfsentrypath: ::windows::core::PCWSTR, newdfsentrypath: ::windows::core::PCWSTR, flags: u32) -> u32;
-        }
-        ::core::mem::transmute(NetDfsMove(olddfsentrypath.into_param().abi(), newdfsentrypath.into_param().abi(), ::core::mem::transmute(flags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetDfsMove(olddfsentrypath: ::windows::core::PCWSTR, newdfsentrypath: ::windows::core::PCWSTR, flags: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(NetDfsMove(olddfsentrypath.into_param().abi(), newdfsentrypath.into_param().abi(), ::core::mem::transmute(flags)))
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 #[inline]
 pub unsafe fn NetDfsRemove<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(dfsentrypath: Param0, servername: Param1, sharename: Param2) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn NetDfsRemove(dfsentrypath: ::windows::core::PCWSTR, servername: ::windows::core::PCWSTR, sharename: ::windows::core::PCWSTR) -> u32;
-        }
-        ::core::mem::transmute(NetDfsRemove(dfsentrypath.into_param().abi(), servername.into_param().abi(), sharename.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetDfsRemove(dfsentrypath: ::windows::core::PCWSTR, servername: ::windows::core::PCWSTR, sharename: ::windows::core::PCWSTR) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(NetDfsRemove(dfsentrypath.into_param().abi(), servername.into_param().abi(), sharename.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 #[inline]
 pub unsafe fn NetDfsRemoveFtRoot<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(servername: Param0, rootshare: Param1, ftdfsname: Param2, flags: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn NetDfsRemoveFtRoot(servername: ::windows::core::PCWSTR, rootshare: ::windows::core::PCWSTR, ftdfsname: ::windows::core::PCWSTR, flags: u32) -> u32;
-        }
-        ::core::mem::transmute(NetDfsRemoveFtRoot(servername.into_param().abi(), rootshare.into_param().abi(), ftdfsname.into_param().abi(), ::core::mem::transmute(flags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetDfsRemoveFtRoot(servername: ::windows::core::PCWSTR, rootshare: ::windows::core::PCWSTR, ftdfsname: ::windows::core::PCWSTR, flags: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(NetDfsRemoveFtRoot(servername.into_param().abi(), rootshare.into_param().abi(), ftdfsname.into_param().abi(), ::core::mem::transmute(flags)))
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 #[inline]
 pub unsafe fn NetDfsRemoveFtRootForced<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(domainname: Param0, servername: Param1, rootshare: Param2, ftdfsname: Param3, flags: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn NetDfsRemoveFtRootForced(domainname: ::windows::core::PCWSTR, servername: ::windows::core::PCWSTR, rootshare: ::windows::core::PCWSTR, ftdfsname: ::windows::core::PCWSTR, flags: u32) -> u32;
-        }
-        ::core::mem::transmute(NetDfsRemoveFtRootForced(domainname.into_param().abi(), servername.into_param().abi(), rootshare.into_param().abi(), ftdfsname.into_param().abi(), ::core::mem::transmute(flags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetDfsRemoveFtRootForced(domainname: ::windows::core::PCWSTR, servername: ::windows::core::PCWSTR, rootshare: ::windows::core::PCWSTR, ftdfsname: ::windows::core::PCWSTR, flags: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(NetDfsRemoveFtRootForced(domainname.into_param().abi(), servername.into_param().abi(), rootshare.into_param().abi(), ftdfsname.into_param().abi(), ::core::mem::transmute(flags)))
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 #[inline]
 pub unsafe fn NetDfsRemoveRootTarget<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pdfspath: Param0, ptargetpath: Param1, flags: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn NetDfsRemoveRootTarget(pdfspath: ::windows::core::PCWSTR, ptargetpath: ::windows::core::PCWSTR, flags: u32) -> u32;
-        }
-        ::core::mem::transmute(NetDfsRemoveRootTarget(pdfspath.into_param().abi(), ptargetpath.into_param().abi(), ::core::mem::transmute(flags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetDfsRemoveRootTarget(pdfspath: ::windows::core::PCWSTR, ptargetpath: ::windows::core::PCWSTR, flags: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(NetDfsRemoveRootTarget(pdfspath.into_param().abi(), ptargetpath.into_param().abi(), ::core::mem::transmute(flags)))
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 #[inline]
 pub unsafe fn NetDfsRemoveStdRoot<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(servername: Param0, rootshare: Param1, flags: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn NetDfsRemoveStdRoot(servername: ::windows::core::PCWSTR, rootshare: ::windows::core::PCWSTR, flags: u32) -> u32;
-        }
-        ::core::mem::transmute(NetDfsRemoveStdRoot(servername.into_param().abi(), rootshare.into_param().abi(), ::core::mem::transmute(flags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetDfsRemoveStdRoot(servername: ::windows::core::PCWSTR, rootshare: ::windows::core::PCWSTR, flags: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(NetDfsRemoveStdRoot(servername.into_param().abi(), rootshare.into_param().abi(), ::core::mem::transmute(flags)))
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 #[inline]
 pub unsafe fn NetDfsSetClientInfo<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(dfsentrypath: Param0, servername: Param1, sharename: Param2, level: u32, buffer: *const u8) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn NetDfsSetClientInfo(dfsentrypath: ::windows::core::PCWSTR, servername: ::windows::core::PCWSTR, sharename: ::windows::core::PCWSTR, level: u32, buffer: *const u8) -> u32;
-        }
-        ::core::mem::transmute(NetDfsSetClientInfo(dfsentrypath.into_param().abi(), servername.into_param().abi(), sharename.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(buffer)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetDfsSetClientInfo(dfsentrypath: ::windows::core::PCWSTR, servername: ::windows::core::PCWSTR, sharename: ::windows::core::PCWSTR, level: u32, buffer: *const u8) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(NetDfsSetClientInfo(dfsentrypath.into_param().abi(), servername.into_param().abi(), sharename.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(buffer)))
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn NetDfsSetFtContainerSecurity<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Security::PSECURITY_DESCRIPTOR>>(domainname: Param0, securityinformation: u32, psecuritydescriptor: Param2) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn NetDfsSetFtContainerSecurity(domainname: ::windows::core::PCWSTR, securityinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR) -> u32;
-        }
-        ::core::mem::transmute(NetDfsSetFtContainerSecurity(domainname.into_param().abi(), ::core::mem::transmute(securityinformation), psecuritydescriptor.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetDfsSetFtContainerSecurity(domainname: ::windows::core::PCWSTR, securityinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(NetDfsSetFtContainerSecurity(domainname.into_param().abi(), ::core::mem::transmute(securityinformation), psecuritydescriptor.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 #[inline]
 pub unsafe fn NetDfsSetInfo<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(dfsentrypath: Param0, servername: Param1, sharename: Param2, level: u32, buffer: *const u8) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn NetDfsSetInfo(dfsentrypath: ::windows::core::PCWSTR, servername: ::windows::core::PCWSTR, sharename: ::windows::core::PCWSTR, level: u32, buffer: *const u8) -> u32;
-        }
-        ::core::mem::transmute(NetDfsSetInfo(dfsentrypath.into_param().abi(), servername.into_param().abi(), sharename.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(buffer)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetDfsSetInfo(dfsentrypath: ::windows::core::PCWSTR, servername: ::windows::core::PCWSTR, sharename: ::windows::core::PCWSTR, level: u32, buffer: *const u8) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(NetDfsSetInfo(dfsentrypath.into_param().abi(), servername.into_param().abi(), sharename.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(buffer)))
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn NetDfsSetSecurity<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Security::PSECURITY_DESCRIPTOR>>(dfsentrypath: Param0, securityinformation: u32, psecuritydescriptor: Param2) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn NetDfsSetSecurity(dfsentrypath: ::windows::core::PCWSTR, securityinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR) -> u32;
-        }
-        ::core::mem::transmute(NetDfsSetSecurity(dfsentrypath.into_param().abi(), ::core::mem::transmute(securityinformation), psecuritydescriptor.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetDfsSetSecurity(dfsentrypath: ::windows::core::PCWSTR, securityinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(NetDfsSetSecurity(dfsentrypath.into_param().abi(), ::core::mem::transmute(securityinformation), psecuritydescriptor.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn NetDfsSetStdContainerSecurity<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Security::PSECURITY_DESCRIPTOR>>(machinename: Param0, securityinformation: u32, psecuritydescriptor: Param2) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn NetDfsSetStdContainerSecurity(machinename: ::windows::core::PCWSTR, securityinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR) -> u32;
-        }
-        ::core::mem::transmute(NetDfsSetStdContainerSecurity(machinename.into_param().abi(), ::core::mem::transmute(securityinformation), psecuritydescriptor.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetDfsSetStdContainerSecurity(machinename: ::windows::core::PCWSTR, securityinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(NetDfsSetStdContainerSecurity(machinename.into_param().abi(), ::core::mem::transmute(securityinformation), psecuritydescriptor.into_param().abi()))
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

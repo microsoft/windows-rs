@@ -1,4 +1,4 @@
-#[link(name = "windows")]
+#[cfg_attr(windows, link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
     pub fn D3DPERF_BeginEvent(col: u32, wszname: ::windows_sys::core::PCWSTR) -> i32;

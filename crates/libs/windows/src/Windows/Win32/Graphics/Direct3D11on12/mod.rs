@@ -2,16 +2,11 @@
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Direct3D11"))]
 #[inline]
 pub unsafe fn D3D11On12CreateDevice<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(pdevice: Param0, flags: u32, pfeaturelevels: &[super::Direct3D::D3D_FEATURE_LEVEL], ppcommandqueues: &[::core::option::Option<::windows::core::IUnknown>], nodemask: u32, ppdevice: *mut ::core::option::Option<super::Direct3D11::ID3D11Device>, ppimmediatecontext: *mut ::core::option::Option<super::Direct3D11::ID3D11DeviceContext>, pchosenfeaturelevel: *mut super::Direct3D::D3D_FEATURE_LEVEL) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn D3D11On12CreateDevice(pdevice: *mut ::core::ffi::c_void, flags: u32, pfeaturelevels: *const super::Direct3D::D3D_FEATURE_LEVEL, featurelevels: u32, ppcommandqueues: *const *mut ::core::ffi::c_void, numqueues: u32, nodemask: u32, ppdevice: *mut *mut ::core::ffi::c_void, ppimmediatecontext: *mut *mut ::core::ffi::c_void, pchosenfeaturelevel: *mut super::Direct3D::D3D_FEATURE_LEVEL) -> ::windows::core::HRESULT;
-        }
-        D3D11On12CreateDevice(pdevice.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(::windows::core::as_ptr_or_null(pfeaturelevels)), pfeaturelevels.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppcommandqueues)), ppcommandqueues.len() as _, ::core::mem::transmute(nodemask), ::core::mem::transmute(ppdevice), ::core::mem::transmute(ppimmediatecontext), ::core::mem::transmute(pchosenfeaturelevel)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn D3D11On12CreateDevice(pdevice: *mut ::core::ffi::c_void, flags: u32, pfeaturelevels: *const super::Direct3D::D3D_FEATURE_LEVEL, featurelevels: u32, ppcommandqueues: *const *mut ::core::ffi::c_void, numqueues: u32, nodemask: u32, ppdevice: *mut *mut ::core::ffi::c_void, ppimmediatecontext: *mut *mut ::core::ffi::c_void, pchosenfeaturelevel: *mut super::Direct3D::D3D_FEATURE_LEVEL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    D3D11On12CreateDevice(pdevice.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(::windows::core::as_ptr_or_null(pfeaturelevels)), pfeaturelevels.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppcommandqueues)), ppcommandqueues.len() as _, ::core::mem::transmute(nodemask), ::core::mem::transmute(ppdevice), ::core::mem::transmute(ppimmediatecontext), ::core::mem::transmute(pchosenfeaturelevel)).ok()
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11on12\"`*"]

@@ -230,31 +230,21 @@ pub const AUXM_INIT_EX: u32 = 104u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AVIBuildFilterA<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(lpszfilter: &mut [u8], fsaving: Param2) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AVIBuildFilterA(lpszfilter: ::windows::core::PSTR, cbfilter: i32, fsaving: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
-        }
-        AVIBuildFilterA(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszfilter)), lpszfilter.len() as _, fsaving.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AVIBuildFilterA(lpszfilter: ::windows::core::PSTR, cbfilter: i32, fsaving: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    AVIBuildFilterA(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszfilter)), lpszfilter.len() as _, fsaving.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AVIBuildFilterW<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(lpszfilter: &mut [u16], fsaving: Param2) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AVIBuildFilterW(lpszfilter: ::windows::core::PWSTR, cbfilter: i32, fsaving: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
-        }
-        AVIBuildFilterW(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszfilter)), lpszfilter.len() as _, fsaving.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AVIBuildFilterW(lpszfilter: ::windows::core::PWSTR, cbfilter: i32, fsaving: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    AVIBuildFilterW(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszfilter)), lpszfilter.len() as _, fsaving.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const AVICOMPRESSF_DATARATE: u32 = 2u32;
@@ -307,16 +297,11 @@ impl ::core::default::Default for AVICOMPRESSOPTIONS {
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn AVIClearClipboard() -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AVIClearClipboard() -> ::windows::core::HRESULT;
-        }
-        AVIClearClipboard().ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AVIClearClipboard() -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    AVIClearClipboard().ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const AVIERR_OK: i32 = 0i32;
@@ -463,218 +448,143 @@ pub const AVIFILEINFO_WASCAPTUREFILE: u32 = 65536u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn AVIFileAddRef<'a, Param0: ::windows::core::IntoParam<'a, IAVIFile>>(pfile: Param0) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AVIFileAddRef(pfile: *mut ::core::ffi::c_void) -> u32;
-        }
-        ::core::mem::transmute(AVIFileAddRef(pfile.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AVIFileAddRef(pfile: *mut ::core::ffi::c_void) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AVIFileAddRef(pfile.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AVIFileCreateStreamA<'a, Param0: ::windows::core::IntoParam<'a, IAVIFile>>(pfile: Param0, ppavi: *mut ::core::option::Option<IAVIStream>, psi: *const AVISTREAMINFOA) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AVIFileCreateStreamA(pfile: *mut ::core::ffi::c_void, ppavi: *mut *mut ::core::ffi::c_void, psi: *const AVISTREAMINFOA) -> ::windows::core::HRESULT;
-        }
-        AVIFileCreateStreamA(pfile.into_param().abi(), ::core::mem::transmute(ppavi), ::core::mem::transmute(psi)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AVIFileCreateStreamA(pfile: *mut ::core::ffi::c_void, ppavi: *mut *mut ::core::ffi::c_void, psi: *const AVISTREAMINFOA) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    AVIFileCreateStreamA(pfile.into_param().abi(), ::core::mem::transmute(ppavi), ::core::mem::transmute(psi)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AVIFileCreateStreamW<'a, Param0: ::windows::core::IntoParam<'a, IAVIFile>>(pfile: Param0, ppavi: *mut ::core::option::Option<IAVIStream>, psi: *const AVISTREAMINFOW) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AVIFileCreateStreamW(pfile: *mut ::core::ffi::c_void, ppavi: *mut *mut ::core::ffi::c_void, psi: *const AVISTREAMINFOW) -> ::windows::core::HRESULT;
-        }
-        AVIFileCreateStreamW(pfile.into_param().abi(), ::core::mem::transmute(ppavi), ::core::mem::transmute(psi)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AVIFileCreateStreamW(pfile: *mut ::core::ffi::c_void, ppavi: *mut *mut ::core::ffi::c_void, psi: *const AVISTREAMINFOW) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    AVIFileCreateStreamW(pfile.into_param().abi(), ::core::mem::transmute(ppavi), ::core::mem::transmute(psi)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn AVIFileEndRecord<'a, Param0: ::windows::core::IntoParam<'a, IAVIFile>>(pfile: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AVIFileEndRecord(pfile: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        AVIFileEndRecord(pfile.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AVIFileEndRecord(pfile: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    AVIFileEndRecord(pfile.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn AVIFileExit() {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AVIFileExit();
-        }
-        AVIFileExit()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AVIFileExit();
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    AVIFileExit()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn AVIFileGetStream<'a, Param0: ::windows::core::IntoParam<'a, IAVIFile>>(pfile: Param0, ppavi: *mut ::core::option::Option<IAVIStream>, fcctype: u32, lparam: i32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AVIFileGetStream(pfile: *mut ::core::ffi::c_void, ppavi: *mut *mut ::core::ffi::c_void, fcctype: u32, lparam: i32) -> ::windows::core::HRESULT;
-        }
-        AVIFileGetStream(pfile.into_param().abi(), ::core::mem::transmute(ppavi), ::core::mem::transmute(fcctype), ::core::mem::transmute(lparam)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AVIFileGetStream(pfile: *mut ::core::ffi::c_void, ppavi: *mut *mut ::core::ffi::c_void, fcctype: u32, lparam: i32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    AVIFileGetStream(pfile.into_param().abi(), ::core::mem::transmute(ppavi), ::core::mem::transmute(fcctype), ::core::mem::transmute(lparam)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AVIFileInfoA<'a, Param0: ::windows::core::IntoParam<'a, IAVIFile>>(pfile: Param0, pfi: *mut AVIFILEINFOA, lsize: i32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AVIFileInfoA(pfile: *mut ::core::ffi::c_void, pfi: *mut AVIFILEINFOA, lsize: i32) -> ::windows::core::HRESULT;
-        }
-        AVIFileInfoA(pfile.into_param().abi(), ::core::mem::transmute(pfi), ::core::mem::transmute(lsize)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AVIFileInfoA(pfile: *mut ::core::ffi::c_void, pfi: *mut AVIFILEINFOA, lsize: i32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    AVIFileInfoA(pfile.into_param().abi(), ::core::mem::transmute(pfi), ::core::mem::transmute(lsize)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn AVIFileInfoW<'a, Param0: ::windows::core::IntoParam<'a, IAVIFile>>(pfile: Param0, pfi: *mut AVIFILEINFOW, lsize: i32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AVIFileInfoW(pfile: *mut ::core::ffi::c_void, pfi: *mut AVIFILEINFOW, lsize: i32) -> ::windows::core::HRESULT;
-        }
-        AVIFileInfoW(pfile.into_param().abi(), ::core::mem::transmute(pfi), ::core::mem::transmute(lsize)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AVIFileInfoW(pfile: *mut ::core::ffi::c_void, pfi: *mut AVIFILEINFOW, lsize: i32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    AVIFileInfoW(pfile.into_param().abi(), ::core::mem::transmute(pfi), ::core::mem::transmute(lsize)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn AVIFileInit() {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AVIFileInit();
-        }
-        AVIFileInit()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AVIFileInit();
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    AVIFileInit()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn AVIFileOpenA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ppfile: *mut ::core::option::Option<IAVIFile>, szfile: Param1, umode: u32, lphandler: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AVIFileOpenA(ppfile: *mut *mut ::core::ffi::c_void, szfile: ::windows::core::PCSTR, umode: u32, lphandler: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
-        }
-        AVIFileOpenA(::core::mem::transmute(ppfile), szfile.into_param().abi(), ::core::mem::transmute(umode), ::core::mem::transmute(lphandler)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AVIFileOpenA(ppfile: *mut *mut ::core::ffi::c_void, szfile: ::windows::core::PCSTR, umode: u32, lphandler: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    AVIFileOpenA(::core::mem::transmute(ppfile), szfile.into_param().abi(), ::core::mem::transmute(umode), ::core::mem::transmute(lphandler)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn AVIFileOpenW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(ppfile: *mut ::core::option::Option<IAVIFile>, szfile: Param1, umode: u32, lphandler: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AVIFileOpenW(ppfile: *mut *mut ::core::ffi::c_void, szfile: ::windows::core::PCWSTR, umode: u32, lphandler: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
-        }
-        AVIFileOpenW(::core::mem::transmute(ppfile), szfile.into_param().abi(), ::core::mem::transmute(umode), ::core::mem::transmute(lphandler)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AVIFileOpenW(ppfile: *mut *mut ::core::ffi::c_void, szfile: ::windows::core::PCWSTR, umode: u32, lphandler: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    AVIFileOpenW(::core::mem::transmute(ppfile), szfile.into_param().abi(), ::core::mem::transmute(umode), ::core::mem::transmute(lphandler)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn AVIFileReadData<'a, Param0: ::windows::core::IntoParam<'a, IAVIFile>>(pfile: Param0, ckid: u32, lpdata: *mut ::core::ffi::c_void, lpcbdata: *mut i32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AVIFileReadData(pfile: *mut ::core::ffi::c_void, ckid: u32, lpdata: *mut ::core::ffi::c_void, lpcbdata: *mut i32) -> ::windows::core::HRESULT;
-        }
-        AVIFileReadData(pfile.into_param().abi(), ::core::mem::transmute(ckid), ::core::mem::transmute(lpdata), ::core::mem::transmute(lpcbdata)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AVIFileReadData(pfile: *mut ::core::ffi::c_void, ckid: u32, lpdata: *mut ::core::ffi::c_void, lpcbdata: *mut i32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    AVIFileReadData(pfile.into_param().abi(), ::core::mem::transmute(ckid), ::core::mem::transmute(lpdata), ::core::mem::transmute(lpcbdata)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn AVIFileRelease<'a, Param0: ::windows::core::IntoParam<'a, IAVIFile>>(pfile: Param0) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AVIFileRelease(pfile: *mut ::core::ffi::c_void) -> u32;
-        }
-        ::core::mem::transmute(AVIFileRelease(pfile.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AVIFileRelease(pfile: *mut ::core::ffi::c_void) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AVIFileRelease(pfile.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn AVIFileWriteData<'a, Param0: ::windows::core::IntoParam<'a, IAVIFile>>(pfile: Param0, ckid: u32, lpdata: *const ::core::ffi::c_void, cbdata: i32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AVIFileWriteData(pfile: *mut ::core::ffi::c_void, ckid: u32, lpdata: *const ::core::ffi::c_void, cbdata: i32) -> ::windows::core::HRESULT;
-        }
-        AVIFileWriteData(pfile.into_param().abi(), ::core::mem::transmute(ckid), ::core::mem::transmute(lpdata), ::core::mem::transmute(cbdata)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AVIFileWriteData(pfile: *mut ::core::ffi::c_void, ckid: u32, lpdata: *const ::core::ffi::c_void, cbdata: i32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    AVIFileWriteData(pfile.into_param().abi(), ::core::mem::transmute(ckid), ::core::mem::transmute(lpdata), ::core::mem::transmute(cbdata)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const AVIGETFRAMEF_BESTDISPLAYFMT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn AVIGetFromClipboard() -> ::windows::core::Result<IAVIFile> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AVIGetFromClipboard(lppf: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        AVIGetFromClipboard(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAVIFile>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AVIGetFromClipboard(lppf: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    AVIGetFromClipboard(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAVIFile>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const AVIIF_CONTROLFRAME: i32 = 512i32;
@@ -683,60 +593,40 @@ pub const AVIIF_TWOCC: i32 = 2i32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn AVIMakeCompressedStream<'a, Param1: ::windows::core::IntoParam<'a, IAVIStream>>(ppscompressed: *mut ::core::option::Option<IAVIStream>, ppssource: Param1, lpoptions: *const AVICOMPRESSOPTIONS, pclsidhandler: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AVIMakeCompressedStream(ppscompressed: *mut *mut ::core::ffi::c_void, ppssource: *mut ::core::ffi::c_void, lpoptions: *const AVICOMPRESSOPTIONS, pclsidhandler: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
-        }
-        AVIMakeCompressedStream(::core::mem::transmute(ppscompressed), ppssource.into_param().abi(), ::core::mem::transmute(lpoptions), ::core::mem::transmute(pclsidhandler)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AVIMakeCompressedStream(ppscompressed: *mut *mut ::core::ffi::c_void, ppssource: *mut ::core::ffi::c_void, lpoptions: *const AVICOMPRESSOPTIONS, pclsidhandler: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    AVIMakeCompressedStream(::core::mem::transmute(ppscompressed), ppssource.into_param().abi(), ::core::mem::transmute(lpoptions), ::core::mem::transmute(pclsidhandler)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn AVIMakeFileFromStreams(ppfile: *mut ::core::option::Option<IAVIFile>, papstreams: &[::core::option::Option<IAVIStream>]) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AVIMakeFileFromStreams(ppfile: *mut *mut ::core::ffi::c_void, nstreams: i32, papstreams: *const *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        AVIMakeFileFromStreams(::core::mem::transmute(ppfile), papstreams.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(papstreams))).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AVIMakeFileFromStreams(ppfile: *mut *mut ::core::ffi::c_void, nstreams: i32, papstreams: *const *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    AVIMakeFileFromStreams(::core::mem::transmute(ppfile), papstreams.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(papstreams))).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AVIMakeStreamFromClipboard<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(cfformat: u32, hglobal: Param1) -> ::windows::core::Result<IAVIStream> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AVIMakeStreamFromClipboard(cfformat: u32, hglobal: super::super::Foundation::HANDLE, ppstream: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        AVIMakeStreamFromClipboard(::core::mem::transmute(cfformat), hglobal.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAVIStream>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AVIMakeStreamFromClipboard(cfformat: u32, hglobal: super::super::Foundation::HANDLE, ppstream: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    AVIMakeStreamFromClipboard(::core::mem::transmute(cfformat), hglobal.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAVIStream>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn AVIPutFileOnClipboard<'a, Param0: ::windows::core::IntoParam<'a, IAVIFile>>(pf: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AVIPutFileOnClipboard(pf: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        AVIPutFileOnClipboard(pf.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AVIPutFileOnClipboard(pf: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    AVIPutFileOnClipboard(pf.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -899,415 +789,270 @@ pub const AVISTREAMREAD_CONVENIENT: i32 = -1i32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AVISaveA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param4: ::windows::core::IntoParam<'a, IAVIStream>>(szfile: Param0, pclsidhandler: *const ::windows::core::GUID, lpfncallback: AVISAVECALLBACK, nstreams: i32, pfile: Param4, lpoptions: *const AVICOMPRESSOPTIONS) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AVISaveA(szfile: ::windows::core::PCSTR, pclsidhandler: *const ::windows::core::GUID, lpfncallback: *mut ::core::ffi::c_void, nstreams: i32, pfile: *mut ::core::ffi::c_void, lpoptions: *const AVICOMPRESSOPTIONS) -> ::windows::core::HRESULT;
-        }
-        AVISaveA(szfile.into_param().abi(), ::core::mem::transmute(pclsidhandler), ::core::mem::transmute(lpfncallback), ::core::mem::transmute(nstreams), pfile.into_param().abi(), ::core::mem::transmute(lpoptions)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AVISaveA(szfile: ::windows::core::PCSTR, pclsidhandler: *const ::windows::core::GUID, lpfncallback: *mut ::core::ffi::c_void, nstreams: i32, pfile: *mut ::core::ffi::c_void, lpoptions: *const AVICOMPRESSOPTIONS) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    AVISaveA(szfile.into_param().abi(), ::core::mem::transmute(pclsidhandler), ::core::mem::transmute(lpfncallback), ::core::mem::transmute(nstreams), pfile.into_param().abi(), ::core::mem::transmute(lpoptions)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AVISaveOptions<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, uiflags: u32, nstreams: i32, ppavi: *const ::core::option::Option<IAVIStream>, plpoptions: *mut *mut AVICOMPRESSOPTIONS) -> isize {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AVISaveOptions(hwnd: super::super::Foundation::HWND, uiflags: u32, nstreams: i32, ppavi: *const *mut ::core::ffi::c_void, plpoptions: *mut *mut AVICOMPRESSOPTIONS) -> isize;
-        }
-        ::core::mem::transmute(AVISaveOptions(hwnd.into_param().abi(), ::core::mem::transmute(uiflags), ::core::mem::transmute(nstreams), ::core::mem::transmute(ppavi), ::core::mem::transmute(plpoptions)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AVISaveOptions(hwnd: super::super::Foundation::HWND, uiflags: u32, nstreams: i32, ppavi: *const *mut ::core::ffi::c_void, plpoptions: *mut *mut AVICOMPRESSOPTIONS) -> isize;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AVISaveOptions(hwnd.into_param().abi(), ::core::mem::transmute(uiflags), ::core::mem::transmute(nstreams), ::core::mem::transmute(ppavi), ::core::mem::transmute(plpoptions)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn AVISaveOptionsFree(plpoptions: &[*const AVICOMPRESSOPTIONS]) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AVISaveOptionsFree(nstreams: i32, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows::core::HRESULT;
-        }
-        AVISaveOptionsFree(plpoptions.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(plpoptions))).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AVISaveOptionsFree(nstreams: i32, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    AVISaveOptionsFree(plpoptions.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(plpoptions))).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AVISaveVA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(szfile: Param0, pclsidhandler: *const ::windows::core::GUID, lpfncallback: AVISAVECALLBACK, nstreams: i32, ppavi: *const ::core::option::Option<IAVIStream>, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AVISaveVA(szfile: ::windows::core::PCSTR, pclsidhandler: *const ::windows::core::GUID, lpfncallback: *mut ::core::ffi::c_void, nstreams: i32, ppavi: *const *mut ::core::ffi::c_void, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows::core::HRESULT;
-        }
-        AVISaveVA(szfile.into_param().abi(), ::core::mem::transmute(pclsidhandler), ::core::mem::transmute(lpfncallback), ::core::mem::transmute(nstreams), ::core::mem::transmute(ppavi), ::core::mem::transmute(plpoptions)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AVISaveVA(szfile: ::windows::core::PCSTR, pclsidhandler: *const ::windows::core::GUID, lpfncallback: *mut ::core::ffi::c_void, nstreams: i32, ppavi: *const *mut ::core::ffi::c_void, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    AVISaveVA(szfile.into_param().abi(), ::core::mem::transmute(pclsidhandler), ::core::mem::transmute(lpfncallback), ::core::mem::transmute(nstreams), ::core::mem::transmute(ppavi), ::core::mem::transmute(plpoptions)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AVISaveVW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(szfile: Param0, pclsidhandler: *const ::windows::core::GUID, lpfncallback: AVISAVECALLBACK, nstreams: i32, ppavi: *const ::core::option::Option<IAVIStream>, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AVISaveVW(szfile: ::windows::core::PCWSTR, pclsidhandler: *const ::windows::core::GUID, lpfncallback: *mut ::core::ffi::c_void, nstreams: i32, ppavi: *const *mut ::core::ffi::c_void, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows::core::HRESULT;
-        }
-        AVISaveVW(szfile.into_param().abi(), ::core::mem::transmute(pclsidhandler), ::core::mem::transmute(lpfncallback), ::core::mem::transmute(nstreams), ::core::mem::transmute(ppavi), ::core::mem::transmute(plpoptions)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AVISaveVW(szfile: ::windows::core::PCWSTR, pclsidhandler: *const ::windows::core::GUID, lpfncallback: *mut ::core::ffi::c_void, nstreams: i32, ppavi: *const *mut ::core::ffi::c_void, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    AVISaveVW(szfile.into_param().abi(), ::core::mem::transmute(pclsidhandler), ::core::mem::transmute(lpfncallback), ::core::mem::transmute(nstreams), ::core::mem::transmute(ppavi), ::core::mem::transmute(plpoptions)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AVISaveW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, IAVIStream>>(szfile: Param0, pclsidhandler: *const ::windows::core::GUID, lpfncallback: AVISAVECALLBACK, nstreams: i32, pfile: Param4, lpoptions: *const AVICOMPRESSOPTIONS) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AVISaveW(szfile: ::windows::core::PCWSTR, pclsidhandler: *const ::windows::core::GUID, lpfncallback: *mut ::core::ffi::c_void, nstreams: i32, pfile: *mut ::core::ffi::c_void, lpoptions: *const AVICOMPRESSOPTIONS) -> ::windows::core::HRESULT;
-        }
-        AVISaveW(szfile.into_param().abi(), ::core::mem::transmute(pclsidhandler), ::core::mem::transmute(lpfncallback), ::core::mem::transmute(nstreams), pfile.into_param().abi(), ::core::mem::transmute(lpoptions)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AVISaveW(szfile: ::windows::core::PCWSTR, pclsidhandler: *const ::windows::core::GUID, lpfncallback: *mut ::core::ffi::c_void, nstreams: i32, pfile: *mut ::core::ffi::c_void, lpoptions: *const AVICOMPRESSOPTIONS) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    AVISaveW(szfile.into_param().abi(), ::core::mem::transmute(pclsidhandler), ::core::mem::transmute(lpfncallback), ::core::mem::transmute(nstreams), pfile.into_param().abi(), ::core::mem::transmute(lpoptions)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn AVIStreamAddRef<'a, Param0: ::windows::core::IntoParam<'a, IAVIStream>>(pavi: Param0) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AVIStreamAddRef(pavi: *mut ::core::ffi::c_void) -> u32;
-        }
-        ::core::mem::transmute(AVIStreamAddRef(pavi.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AVIStreamAddRef(pavi: *mut ::core::ffi::c_void) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AVIStreamAddRef(pavi.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn AVIStreamBeginStreaming<'a, Param0: ::windows::core::IntoParam<'a, IAVIStream>>(pavi: Param0, lstart: i32, lend: i32, lrate: i32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AVIStreamBeginStreaming(pavi: *mut ::core::ffi::c_void, lstart: i32, lend: i32, lrate: i32) -> ::windows::core::HRESULT;
-        }
-        AVIStreamBeginStreaming(pavi.into_param().abi(), ::core::mem::transmute(lstart), ::core::mem::transmute(lend), ::core::mem::transmute(lrate)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AVIStreamBeginStreaming(pavi: *mut ::core::ffi::c_void, lstart: i32, lend: i32, lrate: i32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    AVIStreamBeginStreaming(pavi.into_param().abi(), ::core::mem::transmute(lstart), ::core::mem::transmute(lend), ::core::mem::transmute(lrate)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn AVIStreamCreate(ppavi: *mut ::core::option::Option<IAVIStream>, lparam1: i32, lparam2: i32, pclsidhandler: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AVIStreamCreate(ppavi: *mut *mut ::core::ffi::c_void, lparam1: i32, lparam2: i32, pclsidhandler: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
-        }
-        AVIStreamCreate(::core::mem::transmute(ppavi), ::core::mem::transmute(lparam1), ::core::mem::transmute(lparam2), ::core::mem::transmute(pclsidhandler)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AVIStreamCreate(ppavi: *mut *mut ::core::ffi::c_void, lparam1: i32, lparam2: i32, pclsidhandler: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    AVIStreamCreate(::core::mem::transmute(ppavi), ::core::mem::transmute(lparam1), ::core::mem::transmute(lparam2), ::core::mem::transmute(pclsidhandler)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn AVIStreamEndStreaming<'a, Param0: ::windows::core::IntoParam<'a, IAVIStream>>(pavi: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AVIStreamEndStreaming(pavi: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        AVIStreamEndStreaming(pavi.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AVIStreamEndStreaming(pavi: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    AVIStreamEndStreaming(pavi.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn AVIStreamFindSample<'a, Param0: ::windows::core::IntoParam<'a, IAVIStream>>(pavi: Param0, lpos: i32, lflags: i32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AVIStreamFindSample(pavi: *mut ::core::ffi::c_void, lpos: i32, lflags: i32) -> i32;
-        }
-        ::core::mem::transmute(AVIStreamFindSample(pavi.into_param().abi(), ::core::mem::transmute(lpos), ::core::mem::transmute(lflags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AVIStreamFindSample(pavi: *mut ::core::ffi::c_void, lpos: i32, lflags: i32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AVIStreamFindSample(pavi.into_param().abi(), ::core::mem::transmute(lpos), ::core::mem::transmute(lflags)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn AVIStreamGetFrame<'a, Param0: ::windows::core::IntoParam<'a, IGetFrame>>(pg: Param0, lpos: i32) -> *mut ::core::ffi::c_void {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AVIStreamGetFrame(pg: *mut ::core::ffi::c_void, lpos: i32) -> *mut ::core::ffi::c_void;
-        }
-        ::core::mem::transmute(AVIStreamGetFrame(pg.into_param().abi(), ::core::mem::transmute(lpos)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AVIStreamGetFrame(pg: *mut ::core::ffi::c_void, lpos: i32) -> *mut ::core::ffi::c_void;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AVIStreamGetFrame(pg.into_param().abi(), ::core::mem::transmute(lpos)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn AVIStreamGetFrameClose<'a, Param0: ::windows::core::IntoParam<'a, IGetFrame>>(pg: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AVIStreamGetFrameClose(pg: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        AVIStreamGetFrameClose(pg.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AVIStreamGetFrameClose(pg: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    AVIStreamGetFrameClose(pg.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn AVIStreamGetFrameOpen<'a, Param0: ::windows::core::IntoParam<'a, IAVIStream>>(pavi: Param0, lpbiwanted: *const super::super::Graphics::Gdi::BITMAPINFOHEADER) -> ::core::option::Option<IGetFrame> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AVIStreamGetFrameOpen(pavi: *mut ::core::ffi::c_void, lpbiwanted: *const super::super::Graphics::Gdi::BITMAPINFOHEADER) -> ::core::option::Option<IGetFrame>;
-        }
-        ::core::mem::transmute(AVIStreamGetFrameOpen(pavi.into_param().abi(), ::core::mem::transmute(lpbiwanted)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AVIStreamGetFrameOpen(pavi: *mut ::core::ffi::c_void, lpbiwanted: *const super::super::Graphics::Gdi::BITMAPINFOHEADER) -> ::core::option::Option<IGetFrame>;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AVIStreamGetFrameOpen(pavi.into_param().abi(), ::core::mem::transmute(lpbiwanted)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AVIStreamInfoA<'a, Param0: ::windows::core::IntoParam<'a, IAVIStream>>(pavi: Param0, psi: *mut AVISTREAMINFOA, lsize: i32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AVIStreamInfoA(pavi: *mut ::core::ffi::c_void, psi: *mut AVISTREAMINFOA, lsize: i32) -> ::windows::core::HRESULT;
-        }
-        AVIStreamInfoA(pavi.into_param().abi(), ::core::mem::transmute(psi), ::core::mem::transmute(lsize)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AVIStreamInfoA(pavi: *mut ::core::ffi::c_void, psi: *mut AVISTREAMINFOA, lsize: i32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    AVIStreamInfoA(pavi.into_param().abi(), ::core::mem::transmute(psi), ::core::mem::transmute(lsize)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AVIStreamInfoW<'a, Param0: ::windows::core::IntoParam<'a, IAVIStream>>(pavi: Param0, psi: *mut AVISTREAMINFOW, lsize: i32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AVIStreamInfoW(pavi: *mut ::core::ffi::c_void, psi: *mut AVISTREAMINFOW, lsize: i32) -> ::windows::core::HRESULT;
-        }
-        AVIStreamInfoW(pavi.into_param().abi(), ::core::mem::transmute(psi), ::core::mem::transmute(lsize)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AVIStreamInfoW(pavi: *mut ::core::ffi::c_void, psi: *mut AVISTREAMINFOW, lsize: i32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    AVIStreamInfoW(pavi.into_param().abi(), ::core::mem::transmute(psi), ::core::mem::transmute(lsize)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn AVIStreamLength<'a, Param0: ::windows::core::IntoParam<'a, IAVIStream>>(pavi: Param0) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AVIStreamLength(pavi: *mut ::core::ffi::c_void) -> i32;
-        }
-        ::core::mem::transmute(AVIStreamLength(pavi.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AVIStreamLength(pavi: *mut ::core::ffi::c_void) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AVIStreamLength(pavi.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn AVIStreamOpenFromFileA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(ppavi: *mut ::core::option::Option<IAVIStream>, szfile: Param1, fcctype: u32, lparam: i32, mode: u32, pclsidhandler: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AVIStreamOpenFromFileA(ppavi: *mut *mut ::core::ffi::c_void, szfile: ::windows::core::PCSTR, fcctype: u32, lparam: i32, mode: u32, pclsidhandler: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
-        }
-        AVIStreamOpenFromFileA(::core::mem::transmute(ppavi), szfile.into_param().abi(), ::core::mem::transmute(fcctype), ::core::mem::transmute(lparam), ::core::mem::transmute(mode), ::core::mem::transmute(pclsidhandler)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AVIStreamOpenFromFileA(ppavi: *mut *mut ::core::ffi::c_void, szfile: ::windows::core::PCSTR, fcctype: u32, lparam: i32, mode: u32, pclsidhandler: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    AVIStreamOpenFromFileA(::core::mem::transmute(ppavi), szfile.into_param().abi(), ::core::mem::transmute(fcctype), ::core::mem::transmute(lparam), ::core::mem::transmute(mode), ::core::mem::transmute(pclsidhandler)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn AVIStreamOpenFromFileW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(ppavi: *mut ::core::option::Option<IAVIStream>, szfile: Param1, fcctype: u32, lparam: i32, mode: u32, pclsidhandler: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AVIStreamOpenFromFileW(ppavi: *mut *mut ::core::ffi::c_void, szfile: ::windows::core::PCWSTR, fcctype: u32, lparam: i32, mode: u32, pclsidhandler: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
-        }
-        AVIStreamOpenFromFileW(::core::mem::transmute(ppavi), szfile.into_param().abi(), ::core::mem::transmute(fcctype), ::core::mem::transmute(lparam), ::core::mem::transmute(mode), ::core::mem::transmute(pclsidhandler)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AVIStreamOpenFromFileW(ppavi: *mut *mut ::core::ffi::c_void, szfile: ::windows::core::PCWSTR, fcctype: u32, lparam: i32, mode: u32, pclsidhandler: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    AVIStreamOpenFromFileW(::core::mem::transmute(ppavi), szfile.into_param().abi(), ::core::mem::transmute(fcctype), ::core::mem::transmute(lparam), ::core::mem::transmute(mode), ::core::mem::transmute(pclsidhandler)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn AVIStreamRead<'a, Param0: ::windows::core::IntoParam<'a, IAVIStream>>(pavi: Param0, lstart: i32, lsamples: i32, lpbuffer: *mut ::core::ffi::c_void, cbbuffer: i32, plbytes: *mut i32, plsamples: *mut i32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AVIStreamRead(pavi: *mut ::core::ffi::c_void, lstart: i32, lsamples: i32, lpbuffer: *mut ::core::ffi::c_void, cbbuffer: i32, plbytes: *mut i32, plsamples: *mut i32) -> ::windows::core::HRESULT;
-        }
-        AVIStreamRead(pavi.into_param().abi(), ::core::mem::transmute(lstart), ::core::mem::transmute(lsamples), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(cbbuffer), ::core::mem::transmute(plbytes), ::core::mem::transmute(plsamples)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AVIStreamRead(pavi: *mut ::core::ffi::c_void, lstart: i32, lsamples: i32, lpbuffer: *mut ::core::ffi::c_void, cbbuffer: i32, plbytes: *mut i32, plsamples: *mut i32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    AVIStreamRead(pavi.into_param().abi(), ::core::mem::transmute(lstart), ::core::mem::transmute(lsamples), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(cbbuffer), ::core::mem::transmute(plbytes), ::core::mem::transmute(plsamples)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn AVIStreamReadData<'a, Param0: ::windows::core::IntoParam<'a, IAVIStream>>(pavi: Param0, fcc: u32, lp: *mut ::core::ffi::c_void, lpcb: *mut i32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AVIStreamReadData(pavi: *mut ::core::ffi::c_void, fcc: u32, lp: *mut ::core::ffi::c_void, lpcb: *mut i32) -> ::windows::core::HRESULT;
-        }
-        AVIStreamReadData(pavi.into_param().abi(), ::core::mem::transmute(fcc), ::core::mem::transmute(lp), ::core::mem::transmute(lpcb)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AVIStreamReadData(pavi: *mut ::core::ffi::c_void, fcc: u32, lp: *mut ::core::ffi::c_void, lpcb: *mut i32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    AVIStreamReadData(pavi.into_param().abi(), ::core::mem::transmute(fcc), ::core::mem::transmute(lp), ::core::mem::transmute(lpcb)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn AVIStreamReadFormat<'a, Param0: ::windows::core::IntoParam<'a, IAVIStream>>(pavi: Param0, lpos: i32, lpformat: *mut ::core::ffi::c_void, lpcbformat: *mut i32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AVIStreamReadFormat(pavi: *mut ::core::ffi::c_void, lpos: i32, lpformat: *mut ::core::ffi::c_void, lpcbformat: *mut i32) -> ::windows::core::HRESULT;
-        }
-        AVIStreamReadFormat(pavi.into_param().abi(), ::core::mem::transmute(lpos), ::core::mem::transmute(lpformat), ::core::mem::transmute(lpcbformat)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AVIStreamReadFormat(pavi: *mut ::core::ffi::c_void, lpos: i32, lpformat: *mut ::core::ffi::c_void, lpcbformat: *mut i32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    AVIStreamReadFormat(pavi.into_param().abi(), ::core::mem::transmute(lpos), ::core::mem::transmute(lpformat), ::core::mem::transmute(lpcbformat)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn AVIStreamRelease<'a, Param0: ::windows::core::IntoParam<'a, IAVIStream>>(pavi: Param0) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AVIStreamRelease(pavi: *mut ::core::ffi::c_void) -> u32;
-        }
-        ::core::mem::transmute(AVIStreamRelease(pavi.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AVIStreamRelease(pavi: *mut ::core::ffi::c_void) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AVIStreamRelease(pavi.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn AVIStreamSampleToTime<'a, Param0: ::windows::core::IntoParam<'a, IAVIStream>>(pavi: Param0, lsample: i32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AVIStreamSampleToTime(pavi: *mut ::core::ffi::c_void, lsample: i32) -> i32;
-        }
-        ::core::mem::transmute(AVIStreamSampleToTime(pavi.into_param().abi(), ::core::mem::transmute(lsample)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AVIStreamSampleToTime(pavi: *mut ::core::ffi::c_void, lsample: i32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AVIStreamSampleToTime(pavi.into_param().abi(), ::core::mem::transmute(lsample)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn AVIStreamSetFormat<'a, Param0: ::windows::core::IntoParam<'a, IAVIStream>>(pavi: Param0, lpos: i32, lpformat: *const ::core::ffi::c_void, cbformat: i32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AVIStreamSetFormat(pavi: *mut ::core::ffi::c_void, lpos: i32, lpformat: *const ::core::ffi::c_void, cbformat: i32) -> ::windows::core::HRESULT;
-        }
-        AVIStreamSetFormat(pavi.into_param().abi(), ::core::mem::transmute(lpos), ::core::mem::transmute(lpformat), ::core::mem::transmute(cbformat)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AVIStreamSetFormat(pavi: *mut ::core::ffi::c_void, lpos: i32, lpformat: *const ::core::ffi::c_void, cbformat: i32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    AVIStreamSetFormat(pavi.into_param().abi(), ::core::mem::transmute(lpos), ::core::mem::transmute(lpformat), ::core::mem::transmute(cbformat)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn AVIStreamStart<'a, Param0: ::windows::core::IntoParam<'a, IAVIStream>>(pavi: Param0) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AVIStreamStart(pavi: *mut ::core::ffi::c_void) -> i32;
-        }
-        ::core::mem::transmute(AVIStreamStart(pavi.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AVIStreamStart(pavi: *mut ::core::ffi::c_void) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AVIStreamStart(pavi.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn AVIStreamTimeToSample<'a, Param0: ::windows::core::IntoParam<'a, IAVIStream>>(pavi: Param0, ltime: i32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AVIStreamTimeToSample(pavi: *mut ::core::ffi::c_void, ltime: i32) -> i32;
-        }
-        ::core::mem::transmute(AVIStreamTimeToSample(pavi.into_param().abi(), ::core::mem::transmute(ltime)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AVIStreamTimeToSample(pavi: *mut ::core::ffi::c_void, ltime: i32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AVIStreamTimeToSample(pavi.into_param().abi(), ::core::mem::transmute(ltime)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn AVIStreamWrite<'a, Param0: ::windows::core::IntoParam<'a, IAVIStream>>(pavi: Param0, lstart: i32, lsamples: i32, lpbuffer: *const ::core::ffi::c_void, cbbuffer: i32, dwflags: u32, plsampwritten: *mut i32, plbyteswritten: *mut i32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AVIStreamWrite(pavi: *mut ::core::ffi::c_void, lstart: i32, lsamples: i32, lpbuffer: *const ::core::ffi::c_void, cbbuffer: i32, dwflags: u32, plsampwritten: *mut i32, plbyteswritten: *mut i32) -> ::windows::core::HRESULT;
-        }
-        AVIStreamWrite(pavi.into_param().abi(), ::core::mem::transmute(lstart), ::core::mem::transmute(lsamples), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(cbbuffer), ::core::mem::transmute(dwflags), ::core::mem::transmute(plsampwritten), ::core::mem::transmute(plbyteswritten)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AVIStreamWrite(pavi: *mut ::core::ffi::c_void, lstart: i32, lsamples: i32, lpbuffer: *const ::core::ffi::c_void, cbbuffer: i32, dwflags: u32, plsampwritten: *mut i32, plbyteswritten: *mut i32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    AVIStreamWrite(pavi.into_param().abi(), ::core::mem::transmute(lstart), ::core::mem::transmute(lsamples), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(cbbuffer), ::core::mem::transmute(dwflags), ::core::mem::transmute(plsampwritten), ::core::mem::transmute(plbyteswritten)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn AVIStreamWriteData<'a, Param0: ::windows::core::IntoParam<'a, IAVIStream>>(pavi: Param0, fcc: u32, lp: *const ::core::ffi::c_void, cb: i32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AVIStreamWriteData(pavi: *mut ::core::ffi::c_void, fcc: u32, lp: *const ::core::ffi::c_void, cb: i32) -> ::windows::core::HRESULT;
-        }
-        AVIStreamWriteData(pavi.into_param().abi(), ::core::mem::transmute(fcc), ::core::mem::transmute(lp), ::core::mem::transmute(cb)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AVIStreamWriteData(pavi: *mut ::core::ffi::c_void, fcc: u32, lp: *const ::core::ffi::c_void, cb: i32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    AVIStreamWriteData(pavi.into_param().abi(), ::core::mem::transmute(fcc), ::core::mem::transmute(lp), ::core::mem::transmute(cb)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const AVSTREAMMASTER_AUDIO: u32 = 0u32;
@@ -1908,30 +1653,20 @@ impl ::core::default::Default for CSIMAADPCMWAVEFORMAT {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CloseDriver<'a, Param0: ::windows::core::IntoParam<'a, HDRVR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hdriver: Param0, lparam1: Param1, lparam2: Param2) -> super::super::Foundation::LRESULT {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CloseDriver(hdriver: HDRVR, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
-        }
-        ::core::mem::transmute(CloseDriver(hdriver.into_param().abi(), lparam1.into_param().abi(), lparam2.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CloseDriver(hdriver: HDRVR, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CloseDriver(hdriver.into_param().abi(), lparam1.into_param().abi(), lparam2.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn CreateEditableStream<'a, Param1: ::windows::core::IntoParam<'a, IAVIStream>>(ppseditable: *mut ::core::option::Option<IAVIStream>, pssource: Param1) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateEditableStream(ppseditable: *mut *mut ::core::ffi::c_void, pssource: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        CreateEditableStream(::core::mem::transmute(ppseditable), pssource.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateEditableStream(ppseditable: *mut *mut ::core::ffi::c_void, pssource: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CreateEditableStream(::core::mem::transmute(ppseditable), pssource.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const DCB_EVENT: u32 = 5u32;
@@ -2562,255 +2297,170 @@ pub const DV_VM_OPEN: u32 = 976u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DefDriverProc<'a, Param1: ::windows::core::IntoParam<'a, HDRVR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(dwdriveridentifier: usize, hdrvr: Param1, umsg: u32, lparam1: Param3, lparam2: Param4) -> super::super::Foundation::LRESULT {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DefDriverProc(dwdriveridentifier: usize, hdrvr: HDRVR, umsg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
-        }
-        ::core::mem::transmute(DefDriverProc(::core::mem::transmute(dwdriveridentifier), hdrvr.into_param().abi(), ::core::mem::transmute(umsg), lparam1.into_param().abi(), lparam2.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DefDriverProc(dwdriveridentifier: usize, hdrvr: HDRVR, umsg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(DefDriverProc(::core::mem::transmute(dwdriveridentifier), hdrvr.into_param().abi(), ::core::mem::transmute(umsg), lparam1.into_param().abi(), lparam2.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn DrawDibBegin<'a, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hdd: isize, hdc: Param1, dxdst: i32, dydst: i32, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, dxsrc: i32, dysrc: i32, wflags: u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DrawDibBegin(hdd: isize, hdc: super::super::Graphics::Gdi::HDC, dxdst: i32, dydst: i32, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, dxsrc: i32, dysrc: i32, wflags: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(DrawDibBegin(::core::mem::transmute(hdd), hdc.into_param().abi(), ::core::mem::transmute(dxdst), ::core::mem::transmute(dydst), ::core::mem::transmute(lpbi), ::core::mem::transmute(dxsrc), ::core::mem::transmute(dysrc), ::core::mem::transmute(wflags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DrawDibBegin(hdd: isize, hdc: super::super::Graphics::Gdi::HDC, dxdst: i32, dydst: i32, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, dxsrc: i32, dysrc: i32, wflags: u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(DrawDibBegin(::core::mem::transmute(hdd), hdc.into_param().abi(), ::core::mem::transmute(dxdst), ::core::mem::transmute(dydst), ::core::mem::transmute(lpbi), ::core::mem::transmute(dxsrc), ::core::mem::transmute(dysrc), ::core::mem::transmute(wflags)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn DrawDibChangePalette(hdd: isize, istart: i32, lppe: &[super::super::Graphics::Gdi::PALETTEENTRY]) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DrawDibChangePalette(hdd: isize, istart: i32, ilen: i32, lppe: *const super::super::Graphics::Gdi::PALETTEENTRY) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(DrawDibChangePalette(::core::mem::transmute(hdd), ::core::mem::transmute(istart), lppe.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lppe))))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DrawDibChangePalette(hdd: isize, istart: i32, ilen: i32, lppe: *const super::super::Graphics::Gdi::PALETTEENTRY) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(DrawDibChangePalette(::core::mem::transmute(hdd), ::core::mem::transmute(istart), lppe.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lppe))))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DrawDibClose(hdd: isize) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DrawDibClose(hdd: isize) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(DrawDibClose(::core::mem::transmute(hdd)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DrawDibClose(hdd: isize) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(DrawDibClose(::core::mem::transmute(hdd)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn DrawDibDraw<'a, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hdd: isize, hdc: Param1, xdst: i32, ydst: i32, dxdst: i32, dydst: i32, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *const ::core::ffi::c_void, xsrc: i32, ysrc: i32, dxsrc: i32, dysrc: i32, wflags: u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DrawDibDraw(hdd: isize, hdc: super::super::Graphics::Gdi::HDC, xdst: i32, ydst: i32, dxdst: i32, dydst: i32, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *const ::core::ffi::c_void, xsrc: i32, ysrc: i32, dxsrc: i32, dysrc: i32, wflags: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(DrawDibDraw(::core::mem::transmute(hdd), hdc.into_param().abi(), ::core::mem::transmute(xdst), ::core::mem::transmute(ydst), ::core::mem::transmute(dxdst), ::core::mem::transmute(dydst), ::core::mem::transmute(lpbi), ::core::mem::transmute(lpbits), ::core::mem::transmute(xsrc), ::core::mem::transmute(ysrc), ::core::mem::transmute(dxsrc), ::core::mem::transmute(dysrc), ::core::mem::transmute(wflags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DrawDibDraw(hdd: isize, hdc: super::super::Graphics::Gdi::HDC, xdst: i32, ydst: i32, dxdst: i32, dydst: i32, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *const ::core::ffi::c_void, xsrc: i32, ysrc: i32, dxsrc: i32, dysrc: i32, wflags: u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(DrawDibDraw(::core::mem::transmute(hdd), hdc.into_param().abi(), ::core::mem::transmute(xdst), ::core::mem::transmute(ydst), ::core::mem::transmute(dxdst), ::core::mem::transmute(dydst), ::core::mem::transmute(lpbi), ::core::mem::transmute(lpbits), ::core::mem::transmute(xsrc), ::core::mem::transmute(ysrc), ::core::mem::transmute(dxsrc), ::core::mem::transmute(dysrc), ::core::mem::transmute(wflags)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DrawDibEnd(hdd: isize) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DrawDibEnd(hdd: isize) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(DrawDibEnd(::core::mem::transmute(hdd)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DrawDibEnd(hdd: isize) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(DrawDibEnd(::core::mem::transmute(hdd)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn DrawDibGetBuffer(hdd: isize, lpbi: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER, dwsize: u32, dwflags: u32) -> *mut ::core::ffi::c_void {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DrawDibGetBuffer(hdd: isize, lpbi: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER, dwsize: u32, dwflags: u32) -> *mut ::core::ffi::c_void;
-        }
-        ::core::mem::transmute(DrawDibGetBuffer(::core::mem::transmute(hdd), ::core::mem::transmute(lpbi), ::core::mem::transmute(dwsize), ::core::mem::transmute(dwflags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DrawDibGetBuffer(hdd: isize, lpbi: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER, dwsize: u32, dwflags: u32) -> *mut ::core::ffi::c_void;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(DrawDibGetBuffer(::core::mem::transmute(hdd), ::core::mem::transmute(lpbi), ::core::mem::transmute(dwsize), ::core::mem::transmute(dwflags)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn DrawDibGetPalette(hdd: isize) -> super::super::Graphics::Gdi::HPALETTE {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DrawDibGetPalette(hdd: isize) -> super::super::Graphics::Gdi::HPALETTE;
-        }
-        ::core::mem::transmute(DrawDibGetPalette(::core::mem::transmute(hdd)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DrawDibGetPalette(hdd: isize) -> super::super::Graphics::Gdi::HPALETTE;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(DrawDibGetPalette(::core::mem::transmute(hdd)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn DrawDibOpen() -> isize {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DrawDibOpen() -> isize;
-        }
-        ::core::mem::transmute(DrawDibOpen())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DrawDibOpen() -> isize;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(DrawDibOpen())
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn DrawDibProfileDisplay(lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER) -> super::super::Foundation::LRESULT {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DrawDibProfileDisplay(lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER) -> super::super::Foundation::LRESULT;
-        }
-        ::core::mem::transmute(DrawDibProfileDisplay(::core::mem::transmute(lpbi)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DrawDibProfileDisplay(lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER) -> super::super::Foundation::LRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(DrawDibProfileDisplay(::core::mem::transmute(lpbi)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn DrawDibRealize<'a, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hdd: isize, hdc: Param1, fbackground: Param2) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DrawDibRealize(hdd: isize, hdc: super::super::Graphics::Gdi::HDC, fbackground: super::super::Foundation::BOOL) -> u32;
-        }
-        ::core::mem::transmute(DrawDibRealize(::core::mem::transmute(hdd), hdc.into_param().abi(), fbackground.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DrawDibRealize(hdd: isize, hdc: super::super::Graphics::Gdi::HDC, fbackground: super::super::Foundation::BOOL) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(DrawDibRealize(::core::mem::transmute(hdd), hdc.into_param().abi(), fbackground.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn DrawDibSetPalette<'a, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HPALETTE>>(hdd: isize, hpal: Param1) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DrawDibSetPalette(hdd: isize, hpal: super::super::Graphics::Gdi::HPALETTE) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(DrawDibSetPalette(::core::mem::transmute(hdd), hpal.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DrawDibSetPalette(hdd: isize, hpal: super::super::Graphics::Gdi::HPALETTE) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(DrawDibSetPalette(::core::mem::transmute(hdd), hpal.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DrawDibStart(hdd: isize, rate: u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DrawDibStart(hdd: isize, rate: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(DrawDibStart(::core::mem::transmute(hdd), ::core::mem::transmute(rate)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DrawDibStart(hdd: isize, rate: u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(DrawDibStart(::core::mem::transmute(hdd), ::core::mem::transmute(rate)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DrawDibStop(hdd: isize) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DrawDibStop(hdd: isize) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(DrawDibStop(::core::mem::transmute(hdd)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DrawDibStop(hdd: isize) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(DrawDibStop(::core::mem::transmute(hdd)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DrawDibTime(hdd: isize, lpddtime: *mut DRAWDIBTIME) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DrawDibTime(hdd: isize, lpddtime: *mut DRAWDIBTIME) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(DrawDibTime(::core::mem::transmute(hdd), ::core::mem::transmute(lpddtime)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DrawDibTime(hdd: isize, lpddtime: *mut DRAWDIBTIME) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(DrawDibTime(::core::mem::transmute(hdd), ::core::mem::transmute(lpddtime)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DriverCallback<'a, Param2: ::windows::core::IntoParam<'a, HDRVR>>(dwcallback: usize, dwflags: u32, hdevice: Param2, dwmsg: u32, dwuser: usize, dwparam1: usize, dwparam2: usize) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DriverCallback(dwcallback: usize, dwflags: u32, hdevice: HDRVR, dwmsg: u32, dwuser: usize, dwparam1: usize, dwparam2: usize) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(DriverCallback(::core::mem::transmute(dwcallback), ::core::mem::transmute(dwflags), hdevice.into_param().abi(), ::core::mem::transmute(dwmsg), ::core::mem::transmute(dwuser), ::core::mem::transmute(dwparam1), ::core::mem::transmute(dwparam2)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DriverCallback(dwcallback: usize, dwflags: u32, hdevice: HDRVR, dwmsg: u32, dwuser: usize, dwparam1: usize, dwparam2: usize) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(DriverCallback(::core::mem::transmute(dwcallback), ::core::mem::transmute(dwflags), hdevice.into_param().abi(), ::core::mem::transmute(dwmsg), ::core::mem::transmute(dwuser), ::core::mem::transmute(dwparam1), ::core::mem::transmute(dwparam2)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DrvGetModuleHandle<'a, Param0: ::windows::core::IntoParam<'a, HDRVR>>(hdriver: Param0) -> super::super::Foundation::HINSTANCE {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DrvGetModuleHandle(hdriver: HDRVR) -> super::super::Foundation::HINSTANCE;
-        }
-        ::core::mem::transmute(DrvGetModuleHandle(hdriver.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DrvGetModuleHandle(hdriver: HDRVR) -> super::super::Foundation::HINSTANCE;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(DrvGetModuleHandle(hdriver.into_param().abi()))
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
@@ -2880,117 +2530,77 @@ impl ::core::default::Default for EXBMINFOHEADER {
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn EditStreamClone<'a, Param0: ::windows::core::IntoParam<'a, IAVIStream>>(pavi: Param0) -> ::windows::core::Result<IAVIStream> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn EditStreamClone(pavi: *mut ::core::ffi::c_void, ppresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        EditStreamClone(pavi.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAVIStream>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn EditStreamClone(pavi: *mut ::core::ffi::c_void, ppresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    EditStreamClone(pavi.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAVIStream>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn EditStreamCopy<'a, Param0: ::windows::core::IntoParam<'a, IAVIStream>>(pavi: Param0, plstart: *mut i32, pllength: *mut i32, ppresult: *mut ::core::option::Option<IAVIStream>) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn EditStreamCopy(pavi: *mut ::core::ffi::c_void, plstart: *mut i32, pllength: *mut i32, ppresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        EditStreamCopy(pavi.into_param().abi(), ::core::mem::transmute(plstart), ::core::mem::transmute(pllength), ::core::mem::transmute(ppresult)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn EditStreamCopy(pavi: *mut ::core::ffi::c_void, plstart: *mut i32, pllength: *mut i32, ppresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    EditStreamCopy(pavi.into_param().abi(), ::core::mem::transmute(plstart), ::core::mem::transmute(pllength), ::core::mem::transmute(ppresult)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn EditStreamCut<'a, Param0: ::windows::core::IntoParam<'a, IAVIStream>>(pavi: Param0, plstart: *mut i32, pllength: *mut i32, ppresult: *mut ::core::option::Option<IAVIStream>) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn EditStreamCut(pavi: *mut ::core::ffi::c_void, plstart: *mut i32, pllength: *mut i32, ppresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        EditStreamCut(pavi.into_param().abi(), ::core::mem::transmute(plstart), ::core::mem::transmute(pllength), ::core::mem::transmute(ppresult)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn EditStreamCut(pavi: *mut ::core::ffi::c_void, plstart: *mut i32, pllength: *mut i32, ppresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    EditStreamCut(pavi.into_param().abi(), ::core::mem::transmute(plstart), ::core::mem::transmute(pllength), ::core::mem::transmute(ppresult)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn EditStreamPaste<'a, Param0: ::windows::core::IntoParam<'a, IAVIStream>, Param3: ::windows::core::IntoParam<'a, IAVIStream>>(pavi: Param0, plpos: *mut i32, pllength: *mut i32, pstream: Param3, lstart: i32, lend: i32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn EditStreamPaste(pavi: *mut ::core::ffi::c_void, plpos: *mut i32, pllength: *mut i32, pstream: *mut ::core::ffi::c_void, lstart: i32, lend: i32) -> ::windows::core::HRESULT;
-        }
-        EditStreamPaste(pavi.into_param().abi(), ::core::mem::transmute(plpos), ::core::mem::transmute(pllength), pstream.into_param().abi(), ::core::mem::transmute(lstart), ::core::mem::transmute(lend)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn EditStreamPaste(pavi: *mut ::core::ffi::c_void, plpos: *mut i32, pllength: *mut i32, pstream: *mut ::core::ffi::c_void, lstart: i32, lend: i32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    EditStreamPaste(pavi.into_param().abi(), ::core::mem::transmute(plpos), ::core::mem::transmute(pllength), pstream.into_param().abi(), ::core::mem::transmute(lstart), ::core::mem::transmute(lend)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EditStreamSetInfoA<'a, Param0: ::windows::core::IntoParam<'a, IAVIStream>>(pavi: Param0, lpinfo: *const AVISTREAMINFOA, cbinfo: i32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn EditStreamSetInfoA(pavi: *mut ::core::ffi::c_void, lpinfo: *const AVISTREAMINFOA, cbinfo: i32) -> ::windows::core::HRESULT;
-        }
-        EditStreamSetInfoA(pavi.into_param().abi(), ::core::mem::transmute(lpinfo), ::core::mem::transmute(cbinfo)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn EditStreamSetInfoA(pavi: *mut ::core::ffi::c_void, lpinfo: *const AVISTREAMINFOA, cbinfo: i32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    EditStreamSetInfoA(pavi.into_param().abi(), ::core::mem::transmute(lpinfo), ::core::mem::transmute(cbinfo)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EditStreamSetInfoW<'a, Param0: ::windows::core::IntoParam<'a, IAVIStream>>(pavi: Param0, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn EditStreamSetInfoW(pavi: *mut ::core::ffi::c_void, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> ::windows::core::HRESULT;
-        }
-        EditStreamSetInfoW(pavi.into_param().abi(), ::core::mem::transmute(lpinfo), ::core::mem::transmute(cbinfo)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn EditStreamSetInfoW(pavi: *mut ::core::ffi::c_void, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    EditStreamSetInfoW(pavi.into_param().abi(), ::core::mem::transmute(lpinfo), ::core::mem::transmute(cbinfo)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn EditStreamSetNameA<'a, Param0: ::windows::core::IntoParam<'a, IAVIStream>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(pavi: Param0, lpszname: Param1) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn EditStreamSetNameA(pavi: *mut ::core::ffi::c_void, lpszname: ::windows::core::PCSTR) -> ::windows::core::HRESULT;
-        }
-        EditStreamSetNameA(pavi.into_param().abi(), lpszname.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn EditStreamSetNameA(pavi: *mut ::core::ffi::c_void, lpszname: ::windows::core::PCSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    EditStreamSetNameA(pavi.into_param().abi(), lpszname.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn EditStreamSetNameW<'a, Param0: ::windows::core::IntoParam<'a, IAVIStream>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pavi: Param0, lpszname: Param1) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn EditStreamSetNameW(pavi: *mut ::core::ffi::c_void, lpszname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
-        }
-        EditStreamSetNameW(pavi.into_param().abi(), lpszname.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn EditStreamSetNameW(pavi: *mut ::core::ffi::c_void, lpszname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    EditStreamSetNameW(pavi.into_param().abi(), lpszname.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const FACILITY_NS: u32 = 13u32;
@@ -3161,76 +2771,51 @@ impl ::core::default::Default for GSM610WAVEFORMAT {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDriverModuleHandle<'a, Param0: ::windows::core::IntoParam<'a, HDRVR>>(hdriver: Param0) -> super::super::Foundation::HINSTANCE {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetDriverModuleHandle(hdriver: HDRVR) -> super::super::Foundation::HINSTANCE;
-        }
-        ::core::mem::transmute(GetDriverModuleHandle(hdriver.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetDriverModuleHandle(hdriver: HDRVR) -> super::super::Foundation::HINSTANCE;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetDriverModuleHandle(hdriver.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Controls_Dialogs\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls_Dialogs"))]
 #[inline]
 pub unsafe fn GetOpenFileNamePreviewA(lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEA) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetOpenFileNamePreviewA(lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEA) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetOpenFileNamePreviewA(::core::mem::transmute(lpofn)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetOpenFileNamePreviewA(lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEA) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetOpenFileNamePreviewA(::core::mem::transmute(lpofn)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Controls_Dialogs\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls_Dialogs"))]
 #[inline]
 pub unsafe fn GetOpenFileNamePreviewW(lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEW) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetOpenFileNamePreviewW(lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEW) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetOpenFileNamePreviewW(::core::mem::transmute(lpofn)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetOpenFileNamePreviewW(lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEW) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetOpenFileNamePreviewW(::core::mem::transmute(lpofn)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Controls_Dialogs\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls_Dialogs"))]
 #[inline]
 pub unsafe fn GetSaveFileNamePreviewA(lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEA) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetSaveFileNamePreviewA(lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEA) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetSaveFileNamePreviewA(::core::mem::transmute(lpofn)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetSaveFileNamePreviewA(lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEA) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetSaveFileNamePreviewA(::core::mem::transmute(lpofn)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Controls_Dialogs\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls_Dialogs"))]
 #[inline]
 pub unsafe fn GetSaveFileNamePreviewW(lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEW) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetSaveFileNamePreviewW(lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEW) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetSaveFileNamePreviewW(::core::mem::transmute(lpofn)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetSaveFileNamePreviewW(lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEW) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetSaveFileNamePreviewW(::core::mem::transmute(lpofn)))
 }
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -3960,61 +3545,41 @@ pub const ICCOMPRESS_KEYFRAME: i32 = 1i32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ICClose<'a, Param0: ::windows::core::IntoParam<'a, HIC>>(hic: Param0) -> super::super::Foundation::LRESULT {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ICClose(hic: HIC) -> super::super::Foundation::LRESULT;
-        }
-        ::core::mem::transmute(ICClose(hic.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ICClose(hic: HIC) -> super::super::Foundation::LRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(ICClose(hic.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ICCompress<'a, Param0: ::windows::core::IntoParam<'a, HIC>>(hic: Param0, dwflags: u32, lpbioutput: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpdata: *mut ::core::ffi::c_void, lpbiinput: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *const ::core::ffi::c_void, lpckid: *mut u32, lpdwflags: *mut u32, lframenum: i32, dwframesize: u32, dwquality: u32, lpbiprev: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpprev: *const ::core::ffi::c_void) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ICCompress(hic: HIC, dwflags: u32, lpbioutput: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpdata: *mut ::core::ffi::c_void, lpbiinput: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *const ::core::ffi::c_void, lpckid: *mut u32, lpdwflags: *mut u32, lframenum: i32, dwframesize: u32, dwquality: u32, lpbiprev: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpprev: *const ::core::ffi::c_void) -> u32;
-        }
-        ::core::mem::transmute(ICCompress(hic.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpbioutput), ::core::mem::transmute(lpdata), ::core::mem::transmute(lpbiinput), ::core::mem::transmute(lpbits), ::core::mem::transmute(lpckid), ::core::mem::transmute(lpdwflags), ::core::mem::transmute(lframenum), ::core::mem::transmute(dwframesize), ::core::mem::transmute(dwquality), ::core::mem::transmute(lpbiprev), ::core::mem::transmute(lpprev)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ICCompress(hic: HIC, dwflags: u32, lpbioutput: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpdata: *mut ::core::ffi::c_void, lpbiinput: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *const ::core::ffi::c_void, lpckid: *mut u32, lpdwflags: *mut u32, lframenum: i32, dwframesize: u32, dwquality: u32, lpbiprev: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpprev: *const ::core::ffi::c_void) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(ICCompress(hic.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpbioutput), ::core::mem::transmute(lpdata), ::core::mem::transmute(lpbiinput), ::core::mem::transmute(lpbits), ::core::mem::transmute(lpckid), ::core::mem::transmute(lpdwflags), ::core::mem::transmute(lframenum), ::core::mem::transmute(dwframesize), ::core::mem::transmute(dwquality), ::core::mem::transmute(lpbiprev), ::core::mem::transmute(lpprev)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn ICCompressorChoose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param5: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hwnd: Param0, uiflags: u32, pvin: *const ::core::ffi::c_void, lpdata: *const ::core::ffi::c_void, pc: *mut COMPVARS, lpsztitle: Param5) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ICCompressorChoose(hwnd: super::super::Foundation::HWND, uiflags: u32, pvin: *const ::core::ffi::c_void, lpdata: *const ::core::ffi::c_void, pc: *mut COMPVARS, lpsztitle: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(ICCompressorChoose(hwnd.into_param().abi(), ::core::mem::transmute(uiflags), ::core::mem::transmute(pvin), ::core::mem::transmute(lpdata), ::core::mem::transmute(pc), lpsztitle.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ICCompressorChoose(hwnd: super::super::Foundation::HWND, uiflags: u32, pvin: *const ::core::ffi::c_void, lpdata: *const ::core::ffi::c_void, pc: *mut COMPVARS, lpsztitle: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(ICCompressorChoose(hwnd.into_param().abi(), ::core::mem::transmute(uiflags), ::core::mem::transmute(pvin), ::core::mem::transmute(lpdata), ::core::mem::transmute(pc), lpsztitle.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ICCompressorFree(pc: *const COMPVARS) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ICCompressorFree(pc: *const COMPVARS);
-        }
-        ICCompressorFree(::core::mem::transmute(pc))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ICCompressorFree(pc: *const COMPVARS);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ICCompressorFree(::core::mem::transmute(pc))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -4281,62 +3846,47 @@ pub const ICDRAW_UPDATING: i32 = 64i32;
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ICDecompress<'a, Param0: ::windows::core::IntoParam<'a, HIC>>(hic: Param0, dwflags: u32, lpbiformat: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpdata: *const ::core::ffi::c_void, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *mut ::core::ffi::c_void) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ICDecompress(hic: HIC, dwflags: u32, lpbiformat: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpdata: *const ::core::ffi::c_void, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *mut ::core::ffi::c_void) -> u32;
-        }
-        ::core::mem::transmute(ICDecompress(hic.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpbiformat), ::core::mem::transmute(lpdata), ::core::mem::transmute(lpbi), ::core::mem::transmute(lpbits)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ICDecompress(hic: HIC, dwflags: u32, lpbiformat: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpdata: *const ::core::ffi::c_void, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *mut ::core::ffi::c_void) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(ICDecompress(hic.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpbiformat), ::core::mem::transmute(lpdata), ::core::mem::transmute(lpbi), ::core::mem::transmute(lpbits)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn ICDraw<'a, Param0: ::windows::core::IntoParam<'a, HIC>>(hic: Param0, dwflags: u32, lpformat: *const ::core::ffi::c_void, lpdata: *const ::core::ffi::c_void, cbdata: u32, ltime: i32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ICDraw(hic: HIC, dwflags: u32, lpformat: *const ::core::ffi::c_void, lpdata: *const ::core::ffi::c_void, cbdata: u32, ltime: i32) -> u32;
-        }
-        ::core::mem::transmute(ICDraw(hic.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpformat), ::core::mem::transmute(lpdata), ::core::mem::transmute(cbdata), ::core::mem::transmute(ltime)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ICDraw(hic: HIC, dwflags: u32, lpformat: *const ::core::ffi::c_void, lpdata: *const ::core::ffi::c_void, cbdata: u32, ltime: i32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(ICDraw(hic.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpformat), ::core::mem::transmute(lpdata), ::core::mem::transmute(cbdata), ::core::mem::transmute(ltime)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn ICDrawBegin<'a, Param0: ::windows::core::IntoParam<'a, HIC>, Param2: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HPALETTE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hic: Param0, dwflags: u32, hpal: Param2, hwnd: Param3, hdc: Param4, xdst: i32, ydst: i32, dxdst: i32, dydst: i32, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, xsrc: i32, ysrc: i32, dxsrc: i32, dysrc: i32, dwrate: u32, dwscale: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ICDrawBegin(hic: HIC, dwflags: u32, hpal: super::super::Graphics::Gdi::HPALETTE, hwnd: super::super::Foundation::HWND, hdc: super::super::Graphics::Gdi::HDC, xdst: i32, ydst: i32, dxdst: i32, dydst: i32, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, xsrc: i32, ysrc: i32, dxsrc: i32, dysrc: i32, dwrate: u32, dwscale: u32) -> u32;
-        }
-        ::core::mem::transmute(ICDrawBegin(
-            hic.into_param().abi(),
-            ::core::mem::transmute(dwflags),
-            hpal.into_param().abi(),
-            hwnd.into_param().abi(),
-            hdc.into_param().abi(),
-            ::core::mem::transmute(xdst),
-            ::core::mem::transmute(ydst),
-            ::core::mem::transmute(dxdst),
-            ::core::mem::transmute(dydst),
-            ::core::mem::transmute(lpbi),
-            ::core::mem::transmute(xsrc),
-            ::core::mem::transmute(ysrc),
-            ::core::mem::transmute(dxsrc),
-            ::core::mem::transmute(dysrc),
-            ::core::mem::transmute(dwrate),
-            ::core::mem::transmute(dwscale),
-        ))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ICDrawBegin(hic: HIC, dwflags: u32, hpal: super::super::Graphics::Gdi::HPALETTE, hwnd: super::super::Foundation::HWND, hdc: super::super::Graphics::Gdi::HDC, xdst: i32, ydst: i32, dxdst: i32, dydst: i32, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, xsrc: i32, ysrc: i32, dxsrc: i32, dysrc: i32, dwrate: u32, dwscale: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(ICDrawBegin(
+        hic.into_param().abi(),
+        ::core::mem::transmute(dwflags),
+        hpal.into_param().abi(),
+        hwnd.into_param().abi(),
+        hdc.into_param().abi(),
+        ::core::mem::transmute(xdst),
+        ::core::mem::transmute(ydst),
+        ::core::mem::transmute(dxdst),
+        ::core::mem::transmute(dydst),
+        ::core::mem::transmute(lpbi),
+        ::core::mem::transmute(xsrc),
+        ::core::mem::transmute(ysrc),
+        ::core::mem::transmute(dxsrc),
+        ::core::mem::transmute(dysrc),
+        ::core::mem::transmute(dwrate),
+        ::core::mem::transmute(dwscale),
+    ))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const ICERR_ABORT: i32 = -10i32;
@@ -4380,31 +3930,21 @@ pub const ICERR_UNSUPPORTED: i32 = -1i32;
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ICGetDisplayFormat<'a, Param0: ::windows::core::IntoParam<'a, HIC>>(hic: Param0, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbiout: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER, bitdepth: i32, dx: i32, dy: i32) -> HIC {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ICGetDisplayFormat(hic: HIC, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbiout: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER, bitdepth: i32, dx: i32, dy: i32) -> HIC;
-        }
-        ::core::mem::transmute(ICGetDisplayFormat(hic.into_param().abi(), ::core::mem::transmute(lpbiin), ::core::mem::transmute(lpbiout), ::core::mem::transmute(bitdepth), ::core::mem::transmute(dx), ::core::mem::transmute(dy)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ICGetDisplayFormat(hic: HIC, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbiout: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER, bitdepth: i32, dx: i32, dy: i32) -> HIC;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(ICGetDisplayFormat(hic.into_param().abi(), ::core::mem::transmute(lpbiin), ::core::mem::transmute(lpbiout), ::core::mem::transmute(bitdepth), ::core::mem::transmute(dx), ::core::mem::transmute(dy)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ICGetInfo<'a, Param0: ::windows::core::IntoParam<'a, HIC>>(hic: Param0, picinfo: *mut ICINFO, cb: u32) -> super::super::Foundation::LRESULT {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ICGetInfo(hic: HIC, picinfo: *mut ICINFO, cb: u32) -> super::super::Foundation::LRESULT;
-        }
-        ::core::mem::transmute(ICGetInfo(hic.into_param().abi(), ::core::mem::transmute(picinfo), ::core::mem::transmute(cb)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ICGetInfo(hic: HIC, picinfo: *mut ICINFO, cb: u32) -> super::super::Foundation::LRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(ICGetInfo(hic.into_param().abi(), ::core::mem::transmute(picinfo), ::core::mem::transmute(cb)))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
@@ -4458,76 +3998,51 @@ pub const ICINSTALL_UNICODE: u32 = 32768u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn ICImageCompress<'a, Param0: ::windows::core::IntoParam<'a, HIC>>(hic: Param0, uiflags: u32, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFO, lpbits: *const ::core::ffi::c_void, lpbiout: *const super::super::Graphics::Gdi::BITMAPINFO, lquality: i32, plsize: *mut i32) -> super::super::Foundation::HANDLE {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ICImageCompress(hic: HIC, uiflags: u32, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFO, lpbits: *const ::core::ffi::c_void, lpbiout: *const super::super::Graphics::Gdi::BITMAPINFO, lquality: i32, plsize: *mut i32) -> super::super::Foundation::HANDLE;
-        }
-        ::core::mem::transmute(ICImageCompress(hic.into_param().abi(), ::core::mem::transmute(uiflags), ::core::mem::transmute(lpbiin), ::core::mem::transmute(lpbits), ::core::mem::transmute(lpbiout), ::core::mem::transmute(lquality), ::core::mem::transmute(plsize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ICImageCompress(hic: HIC, uiflags: u32, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFO, lpbits: *const ::core::ffi::c_void, lpbiout: *const super::super::Graphics::Gdi::BITMAPINFO, lquality: i32, plsize: *mut i32) -> super::super::Foundation::HANDLE;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(ICImageCompress(hic.into_param().abi(), ::core::mem::transmute(uiflags), ::core::mem::transmute(lpbiin), ::core::mem::transmute(lpbits), ::core::mem::transmute(lpbiout), ::core::mem::transmute(lquality), ::core::mem::transmute(plsize)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn ICImageDecompress<'a, Param0: ::windows::core::IntoParam<'a, HIC>>(hic: Param0, uiflags: u32, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFO, lpbits: *const ::core::ffi::c_void, lpbiout: *const super::super::Graphics::Gdi::BITMAPINFO) -> super::super::Foundation::HANDLE {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ICImageDecompress(hic: HIC, uiflags: u32, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFO, lpbits: *const ::core::ffi::c_void, lpbiout: *const super::super::Graphics::Gdi::BITMAPINFO) -> super::super::Foundation::HANDLE;
-        }
-        ::core::mem::transmute(ICImageDecompress(hic.into_param().abi(), ::core::mem::transmute(uiflags), ::core::mem::transmute(lpbiin), ::core::mem::transmute(lpbits), ::core::mem::transmute(lpbiout)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ICImageDecompress(hic: HIC, uiflags: u32, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFO, lpbits: *const ::core::ffi::c_void, lpbiout: *const super::super::Graphics::Gdi::BITMAPINFO) -> super::super::Foundation::HANDLE;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(ICImageDecompress(hic.into_param().abi(), ::core::mem::transmute(uiflags), ::core::mem::transmute(lpbiin), ::core::mem::transmute(lpbits), ::core::mem::transmute(lpbiout)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ICInfo(fcctype: u32, fcchandler: u32, lpicinfo: *mut ICINFO) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ICInfo(fcctype: u32, fcchandler: u32, lpicinfo: *mut ICINFO) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(ICInfo(::core::mem::transmute(fcctype), ::core::mem::transmute(fcchandler), ::core::mem::transmute(lpicinfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ICInfo(fcctype: u32, fcchandler: u32, lpicinfo: *mut ICINFO) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(ICInfo(::core::mem::transmute(fcctype), ::core::mem::transmute(fcchandler), ::core::mem::transmute(lpicinfo)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ICInstall<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(fcctype: u32, fcchandler: u32, lparam: Param2, szdesc: Param3, wflags: u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ICInstall(fcctype: u32, fcchandler: u32, lparam: super::super::Foundation::LPARAM, szdesc: ::windows::core::PCSTR, wflags: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(ICInstall(::core::mem::transmute(fcctype), ::core::mem::transmute(fcchandler), lparam.into_param().abi(), szdesc.into_param().abi(), ::core::mem::transmute(wflags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ICInstall(fcctype: u32, fcchandler: u32, lparam: super::super::Foundation::LPARAM, szdesc: ::windows::core::PCSTR, wflags: u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(ICInstall(::core::mem::transmute(fcctype), ::core::mem::transmute(fcchandler), lparam.into_param().abi(), szdesc.into_param().abi(), ::core::mem::transmute(wflags)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ICLocate(fcctype: u32, fcchandler: u32, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbiout: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, wflags: u16) -> HIC {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ICLocate(fcctype: u32, fcchandler: u32, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbiout: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, wflags: u16) -> HIC;
-        }
-        ::core::mem::transmute(ICLocate(::core::mem::transmute(fcctype), ::core::mem::transmute(fcchandler), ::core::mem::transmute(lpbiin), ::core::mem::transmute(lpbiout), ::core::mem::transmute(wflags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ICLocate(fcctype: u32, fcchandler: u32, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbiout: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, wflags: u16) -> HIC;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(ICLocate(::core::mem::transmute(fcctype), ::core::mem::transmute(fcchandler), ::core::mem::transmute(lpbiin), ::core::mem::transmute(lpbiout), ::core::mem::transmute(wflags)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const ICMF_ABOUT_QUERY: u32 = 1u32;
@@ -4726,31 +4241,21 @@ impl ::core::default::Default for ICOPEN {
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn ICOpen(fcctype: u32, fcchandler: u32, wmode: u32) -> HIC {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ICOpen(fcctype: u32, fcchandler: u32, wmode: u32) -> HIC;
-        }
-        ::core::mem::transmute(ICOpen(::core::mem::transmute(fcctype), ::core::mem::transmute(fcchandler), ::core::mem::transmute(wmode)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ICOpen(fcctype: u32, fcchandler: u32, wmode: u32) -> HIC;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(ICOpen(::core::mem::transmute(fcctype), ::core::mem::transmute(fcchandler), ::core::mem::transmute(wmode)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ICOpenFunction(fcctype: u32, fcchandler: u32, wmode: u32, lpfnhandler: super::super::Foundation::FARPROC) -> HIC {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ICOpenFunction(fcctype: u32, fcchandler: u32, wmode: u32, lpfnhandler: *mut ::core::ffi::c_void) -> HIC;
-        }
-        ::core::mem::transmute(ICOpenFunction(::core::mem::transmute(fcctype), ::core::mem::transmute(fcchandler), ::core::mem::transmute(wmode), ::core::mem::transmute(lpfnhandler)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ICOpenFunction(fcctype: u32, fcchandler: u32, wmode: u32, lpfnhandler: *mut ::core::ffi::c_void) -> HIC;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(ICOpenFunction(::core::mem::transmute(fcctype), ::core::mem::transmute(fcchandler), ::core::mem::transmute(wmode), ::core::mem::transmute(lpfnhandler)))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -4803,16 +4308,11 @@ pub const ICQUALITY_LOW: u32 = 0u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ICRemove(fcctype: u32, fcchandler: u32, wflags: u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ICRemove(fcctype: u32, fcchandler: u32, wflags: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(ICRemove(::core::mem::transmute(fcctype), ::core::mem::transmute(fcchandler), ::core::mem::transmute(wflags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ICRemove(fcctype: u32, fcchandler: u32, wflags: u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(ICRemove(::core::mem::transmute(fcctype), ::core::mem::transmute(fcchandler), ::core::mem::transmute(wflags)))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
@@ -4868,61 +4368,41 @@ pub const ICSTATUS_YIELD: u32 = 4u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ICSendMessage<'a, Param0: ::windows::core::IntoParam<'a, HIC>>(hic: Param0, msg: u32, dw1: usize, dw2: usize) -> super::super::Foundation::LRESULT {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ICSendMessage(hic: HIC, msg: u32, dw1: usize, dw2: usize) -> super::super::Foundation::LRESULT;
-        }
-        ::core::mem::transmute(ICSendMessage(hic.into_param().abi(), ::core::mem::transmute(msg), ::core::mem::transmute(dw1), ::core::mem::transmute(dw2)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ICSendMessage(hic: HIC, msg: u32, dw1: usize, dw2: usize) -> super::super::Foundation::LRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(ICSendMessage(hic.into_param().abi(), ::core::mem::transmute(msg), ::core::mem::transmute(dw1), ::core::mem::transmute(dw2)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn ICSeqCompressFrame(pc: *const COMPVARS, uiflags: u32, lpbits: *const ::core::ffi::c_void, pfkey: *mut super::super::Foundation::BOOL, plsize: *mut i32) -> *mut ::core::ffi::c_void {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ICSeqCompressFrame(pc: *const COMPVARS, uiflags: u32, lpbits: *const ::core::ffi::c_void, pfkey: *mut super::super::Foundation::BOOL, plsize: *mut i32) -> *mut ::core::ffi::c_void;
-        }
-        ::core::mem::transmute(ICSeqCompressFrame(::core::mem::transmute(pc), ::core::mem::transmute(uiflags), ::core::mem::transmute(lpbits), ::core::mem::transmute(pfkey), ::core::mem::transmute(plsize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ICSeqCompressFrame(pc: *const COMPVARS, uiflags: u32, lpbits: *const ::core::ffi::c_void, pfkey: *mut super::super::Foundation::BOOL, plsize: *mut i32) -> *mut ::core::ffi::c_void;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(ICSeqCompressFrame(::core::mem::transmute(pc), ::core::mem::transmute(uiflags), ::core::mem::transmute(lpbits), ::core::mem::transmute(pfkey), ::core::mem::transmute(plsize)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ICSeqCompressFrameEnd(pc: *const COMPVARS) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ICSeqCompressFrameEnd(pc: *const COMPVARS);
-        }
-        ICSeqCompressFrameEnd(::core::mem::transmute(pc))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ICSeqCompressFrameEnd(pc: *const COMPVARS);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ICSeqCompressFrameEnd(::core::mem::transmute(pc))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn ICSeqCompressFrameStart(pc: *const COMPVARS, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFO) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ICSeqCompressFrameStart(pc: *const COMPVARS, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFO) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(ICSeqCompressFrameStart(::core::mem::transmute(pc), ::core::mem::transmute(lpbiin)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ICSeqCompressFrameStart(pc: *const COMPVARS, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFO) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(ICSeqCompressFrameStart(::core::mem::transmute(pc), ::core::mem::transmute(lpbiin)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const ICVERSION: u32 = 260u32;
@@ -6175,46 +5655,31 @@ pub const MCIWND_WINDOW_CLASS: &str = "MCIWndClass";
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MCIWndCreateA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hwndparent: Param0, hinstance: Param1, dwstyle: u32, szfile: Param3) -> super::super::Foundation::HWND {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MCIWndCreateA(hwndparent: super::super::Foundation::HWND, hinstance: super::super::Foundation::HINSTANCE, dwstyle: u32, szfile: ::windows::core::PCSTR) -> super::super::Foundation::HWND;
-        }
-        ::core::mem::transmute(MCIWndCreateA(hwndparent.into_param().abi(), hinstance.into_param().abi(), ::core::mem::transmute(dwstyle), szfile.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MCIWndCreateA(hwndparent: super::super::Foundation::HWND, hinstance: super::super::Foundation::HINSTANCE, dwstyle: u32, szfile: ::windows::core::PCSTR) -> super::super::Foundation::HWND;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MCIWndCreateA(hwndparent.into_param().abi(), hinstance.into_param().abi(), ::core::mem::transmute(dwstyle), szfile.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MCIWndCreateW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hwndparent: Param0, hinstance: Param1, dwstyle: u32, szfile: Param3) -> super::super::Foundation::HWND {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MCIWndCreateW(hwndparent: super::super::Foundation::HWND, hinstance: super::super::Foundation::HINSTANCE, dwstyle: u32, szfile: ::windows::core::PCWSTR) -> super::super::Foundation::HWND;
-        }
-        ::core::mem::transmute(MCIWndCreateW(hwndparent.into_param().abi(), hinstance.into_param().abi(), ::core::mem::transmute(dwstyle), szfile.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MCIWndCreateW(hwndparent: super::super::Foundation::HWND, hinstance: super::super::Foundation::HINSTANCE, dwstyle: u32, szfile: ::windows::core::PCWSTR) -> super::super::Foundation::HWND;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MCIWndCreateW(hwndparent.into_param().abi(), hinstance.into_param().abi(), ::core::mem::transmute(dwstyle), szfile.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MCIWndRegisterClass() -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MCIWndRegisterClass() -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(MCIWndRegisterClass())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MCIWndRegisterClass() -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MCIWndRegisterClass())
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const MCI_ANIM_GETDEVCAPS_CAN_REVERSE: i32 = 16385i32;
@@ -15970,16 +15435,11 @@ impl ::core::default::Default for OLISBCWAVEFORMAT {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenDriver<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(szdrivername: Param0, szsectionname: Param1, lparam2: Param2) -> HDRVR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OpenDriver(szdrivername: ::windows::core::PCWSTR, szsectionname: ::windows::core::PCWSTR, lparam2: super::super::Foundation::LPARAM) -> HDRVR;
-        }
-        ::core::mem::transmute(OpenDriver(szdrivername.into_param().abi(), szsectionname.into_param().abi(), lparam2.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OpenDriver(szdrivername: ::windows::core::PCWSTR, szsectionname: ::windows::core::PCWSTR, lparam2: super::super::Foundation::LPARAM) -> HDRVR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(OpenDriver(szdrivername.into_param().abi(), szsectionname.into_param().abi(), lparam2.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const PD_CAN_DRAW_DIB: u32 = 1u32;
@@ -16101,16 +15561,11 @@ impl ::core::default::Default for SONARCWAVEFORMAT {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SendDriverMessage<'a, Param0: ::windows::core::IntoParam<'a, HDRVR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hdriver: Param0, message: u32, lparam1: Param2, lparam2: Param3) -> super::super::Foundation::LRESULT {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SendDriverMessage(hdriver: HDRVR, message: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
-        }
-        ::core::mem::transmute(SendDriverMessage(hdriver.into_param().abi(), ::core::mem::transmute(message), lparam1.into_param().abi(), lparam2.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SendDriverMessage(hdriver: HDRVR, message: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SendDriverMessage(hdriver.into_param().abi(), ::core::mem::transmute(message), lparam1.into_param().abi(), lparam2.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 pub const TARGET_DEVICE_FRIENDLY_NAME: &str = "TargetDeviceFriendlyName";
@@ -16389,16 +15844,11 @@ pub const VP_TV_STANDARD_WIN_VGA: u32 = 32768u32;
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn VideoForWindowsVersion() -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VideoForWindowsVersion() -> u32;
-        }
-        ::core::mem::transmute(VideoForWindowsVersion())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VideoForWindowsVersion() -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(VideoForWindowsVersion())
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Media_Audio\"`*"]
@@ -17338,854 +16788,559 @@ pub type YIELDPROC = ::core::option::Option<unsafe extern "system" fn(mciid: u32
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn capCreateCaptureWindowA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(lpszwindowname: Param0, dwstyle: u32, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: Param6, nid: i32) -> super::super::Foundation::HWND {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn capCreateCaptureWindowA(lpszwindowname: ::windows::core::PCSTR, dwstyle: u32, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: super::super::Foundation::HWND, nid: i32) -> super::super::Foundation::HWND;
-        }
-        ::core::mem::transmute(capCreateCaptureWindowA(lpszwindowname.into_param().abi(), ::core::mem::transmute(dwstyle), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(nwidth), ::core::mem::transmute(nheight), hwndparent.into_param().abi(), ::core::mem::transmute(nid)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn capCreateCaptureWindowA(lpszwindowname: ::windows::core::PCSTR, dwstyle: u32, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: super::super::Foundation::HWND, nid: i32) -> super::super::Foundation::HWND;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(capCreateCaptureWindowA(lpszwindowname.into_param().abi(), ::core::mem::transmute(dwstyle), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(nwidth), ::core::mem::transmute(nheight), hwndparent.into_param().abi(), ::core::mem::transmute(nid)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn capCreateCaptureWindowW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(lpszwindowname: Param0, dwstyle: u32, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: Param6, nid: i32) -> super::super::Foundation::HWND {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn capCreateCaptureWindowW(lpszwindowname: ::windows::core::PCWSTR, dwstyle: u32, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: super::super::Foundation::HWND, nid: i32) -> super::super::Foundation::HWND;
-        }
-        ::core::mem::transmute(capCreateCaptureWindowW(lpszwindowname.into_param().abi(), ::core::mem::transmute(dwstyle), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(nwidth), ::core::mem::transmute(nheight), hwndparent.into_param().abi(), ::core::mem::transmute(nid)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn capCreateCaptureWindowW(lpszwindowname: ::windows::core::PCWSTR, dwstyle: u32, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: super::super::Foundation::HWND, nid: i32) -> super::super::Foundation::HWND;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(capCreateCaptureWindowW(lpszwindowname.into_param().abi(), ::core::mem::transmute(dwstyle), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(nwidth), ::core::mem::transmute(nheight), hwndparent.into_param().abi(), ::core::mem::transmute(nid)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn capGetDriverDescriptionA(wdriverindex: u32, lpszname: &mut [u8], lpszver: &mut [u8]) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn capGetDriverDescriptionA(wdriverindex: u32, lpszname: ::windows::core::PSTR, cbname: i32, lpszver: ::windows::core::PSTR, cbver: i32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(capGetDriverDescriptionA(::core::mem::transmute(wdriverindex), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszname)), lpszname.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszver)), lpszver.len() as _))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn capGetDriverDescriptionA(wdriverindex: u32, lpszname: ::windows::core::PSTR, cbname: i32, lpszver: ::windows::core::PSTR, cbver: i32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(capGetDriverDescriptionA(::core::mem::transmute(wdriverindex), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszname)), lpszname.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszver)), lpszver.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn capGetDriverDescriptionW(wdriverindex: u32, lpszname: &mut [u16], lpszver: &mut [u16]) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn capGetDriverDescriptionW(wdriverindex: u32, lpszname: ::windows::core::PWSTR, cbname: i32, lpszver: ::windows::core::PWSTR, cbver: i32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(capGetDriverDescriptionW(::core::mem::transmute(wdriverindex), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszname)), lpszname.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszver)), lpszver.len() as _))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn capGetDriverDescriptionW(wdriverindex: u32, lpszname: ::windows::core::PWSTR, cbname: i32, lpszver: ::windows::core::PWSTR, cbver: i32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(capGetDriverDescriptionW(::core::mem::transmute(wdriverindex), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszname)), lpszname.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszver)), lpszver.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn joyGetDevCapsA(ujoyid: usize, pjc: *mut JOYCAPSA, cbjc: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn joyGetDevCapsA(ujoyid: usize, pjc: *mut JOYCAPSA, cbjc: u32) -> u32;
-        }
-        ::core::mem::transmute(joyGetDevCapsA(::core::mem::transmute(ujoyid), ::core::mem::transmute(pjc), ::core::mem::transmute(cbjc)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn joyGetDevCapsA(ujoyid: usize, pjc: *mut JOYCAPSA, cbjc: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(joyGetDevCapsA(::core::mem::transmute(ujoyid), ::core::mem::transmute(pjc), ::core::mem::transmute(cbjc)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn joyGetDevCapsW(ujoyid: usize, pjc: *mut JOYCAPSW, cbjc: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn joyGetDevCapsW(ujoyid: usize, pjc: *mut JOYCAPSW, cbjc: u32) -> u32;
-        }
-        ::core::mem::transmute(joyGetDevCapsW(::core::mem::transmute(ujoyid), ::core::mem::transmute(pjc), ::core::mem::transmute(cbjc)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn joyGetDevCapsW(ujoyid: usize, pjc: *mut JOYCAPSW, cbjc: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(joyGetDevCapsW(::core::mem::transmute(ujoyid), ::core::mem::transmute(pjc), ::core::mem::transmute(cbjc)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn joyGetNumDevs() -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn joyGetNumDevs() -> u32;
-        }
-        ::core::mem::transmute(joyGetNumDevs())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn joyGetNumDevs() -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(joyGetNumDevs())
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn joyGetPos(ujoyid: u32, pji: *mut JOYINFO) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn joyGetPos(ujoyid: u32, pji: *mut JOYINFO) -> u32;
-        }
-        ::core::mem::transmute(joyGetPos(::core::mem::transmute(ujoyid), ::core::mem::transmute(pji)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn joyGetPos(ujoyid: u32, pji: *mut JOYINFO) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(joyGetPos(::core::mem::transmute(ujoyid), ::core::mem::transmute(pji)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn joyGetPosEx(ujoyid: u32, pji: *mut JOYINFOEX) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn joyGetPosEx(ujoyid: u32, pji: *mut JOYINFOEX) -> u32;
-        }
-        ::core::mem::transmute(joyGetPosEx(::core::mem::transmute(ujoyid), ::core::mem::transmute(pji)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn joyGetPosEx(ujoyid: u32, pji: *mut JOYINFOEX) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(joyGetPosEx(::core::mem::transmute(ujoyid), ::core::mem::transmute(pji)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn joyGetThreshold(ujoyid: u32, puthreshold: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn joyGetThreshold(ujoyid: u32, puthreshold: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(joyGetThreshold(::core::mem::transmute(ujoyid), ::core::mem::transmute(puthreshold)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn joyGetThreshold(ujoyid: u32, puthreshold: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(joyGetThreshold(::core::mem::transmute(ujoyid), ::core::mem::transmute(puthreshold)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn joyReleaseCapture(ujoyid: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn joyReleaseCapture(ujoyid: u32) -> u32;
-        }
-        ::core::mem::transmute(joyReleaseCapture(::core::mem::transmute(ujoyid)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn joyReleaseCapture(ujoyid: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(joyReleaseCapture(::core::mem::transmute(ujoyid)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn joySetCapture<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hwnd: Param0, ujoyid: u32, uperiod: u32, fchanged: Param3) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn joySetCapture(hwnd: super::super::Foundation::HWND, ujoyid: u32, uperiod: u32, fchanged: super::super::Foundation::BOOL) -> u32;
-        }
-        ::core::mem::transmute(joySetCapture(hwnd.into_param().abi(), ::core::mem::transmute(ujoyid), ::core::mem::transmute(uperiod), fchanged.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn joySetCapture(hwnd: super::super::Foundation::HWND, ujoyid: u32, uperiod: u32, fchanged: super::super::Foundation::BOOL) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(joySetCapture(hwnd.into_param().abi(), ::core::mem::transmute(ujoyid), ::core::mem::transmute(uperiod), fchanged.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn joySetThreshold(ujoyid: u32, uthreshold: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn joySetThreshold(ujoyid: u32, uthreshold: u32) -> u32;
-        }
-        ::core::mem::transmute(joySetThreshold(::core::mem::transmute(ujoyid), ::core::mem::transmute(uthreshold)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn joySetThreshold(ujoyid: u32, uthreshold: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(joySetThreshold(::core::mem::transmute(ujoyid), ::core::mem::transmute(uthreshold)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mciDriverNotify<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hwndcallback: Param0, wdeviceid: u32, ustatus: u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mciDriverNotify(hwndcallback: super::super::Foundation::HANDLE, wdeviceid: u32, ustatus: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(mciDriverNotify(hwndcallback.into_param().abi(), ::core::mem::transmute(wdeviceid), ::core::mem::transmute(ustatus)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mciDriverNotify(hwndcallback: super::super::Foundation::HANDLE, wdeviceid: u32, ustatus: u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(mciDriverNotify(hwndcallback.into_param().abi(), ::core::mem::transmute(wdeviceid), ::core::mem::transmute(ustatus)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn mciDriverYield(wdeviceid: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mciDriverYield(wdeviceid: u32) -> u32;
-        }
-        ::core::mem::transmute(mciDriverYield(::core::mem::transmute(wdeviceid)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mciDriverYield(wdeviceid: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(mciDriverYield(::core::mem::transmute(wdeviceid)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mciFreeCommandResource(wtable: u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mciFreeCommandResource(wtable: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(mciFreeCommandResource(::core::mem::transmute(wtable)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mciFreeCommandResource(wtable: u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(mciFreeCommandResource(::core::mem::transmute(wtable)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn mciGetCreatorTask(mciid: u32) -> super::HTASK {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mciGetCreatorTask(mciid: u32) -> super::HTASK;
-        }
-        ::core::mem::transmute(mciGetCreatorTask(::core::mem::transmute(mciid)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mciGetCreatorTask(mciid: u32) -> super::HTASK;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(mciGetCreatorTask(::core::mem::transmute(mciid)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn mciGetDeviceIDA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(pszdevice: Param0) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mciGetDeviceIDA(pszdevice: ::windows::core::PCSTR) -> u32;
-        }
-        ::core::mem::transmute(mciGetDeviceIDA(pszdevice.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mciGetDeviceIDA(pszdevice: ::windows::core::PCSTR) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(mciGetDeviceIDA(pszdevice.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn mciGetDeviceIDFromElementIDA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(dwelementid: u32, lpstrtype: Param1) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mciGetDeviceIDFromElementIDA(dwelementid: u32, lpstrtype: ::windows::core::PCSTR) -> u32;
-        }
-        ::core::mem::transmute(mciGetDeviceIDFromElementIDA(::core::mem::transmute(dwelementid), lpstrtype.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mciGetDeviceIDFromElementIDA(dwelementid: u32, lpstrtype: ::windows::core::PCSTR) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(mciGetDeviceIDFromElementIDA(::core::mem::transmute(dwelementid), lpstrtype.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn mciGetDeviceIDFromElementIDW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(dwelementid: u32, lpstrtype: Param1) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mciGetDeviceIDFromElementIDW(dwelementid: u32, lpstrtype: ::windows::core::PCWSTR) -> u32;
-        }
-        ::core::mem::transmute(mciGetDeviceIDFromElementIDW(::core::mem::transmute(dwelementid), lpstrtype.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mciGetDeviceIDFromElementIDW(dwelementid: u32, lpstrtype: ::windows::core::PCWSTR) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(mciGetDeviceIDFromElementIDW(::core::mem::transmute(dwelementid), lpstrtype.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn mciGetDeviceIDW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pszdevice: Param0) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mciGetDeviceIDW(pszdevice: ::windows::core::PCWSTR) -> u32;
-        }
-        ::core::mem::transmute(mciGetDeviceIDW(pszdevice.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mciGetDeviceIDW(pszdevice: ::windows::core::PCWSTR) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(mciGetDeviceIDW(pszdevice.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn mciGetDriverData(wdeviceid: u32) -> usize {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mciGetDriverData(wdeviceid: u32) -> usize;
-        }
-        ::core::mem::transmute(mciGetDriverData(::core::mem::transmute(wdeviceid)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mciGetDriverData(wdeviceid: u32) -> usize;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(mciGetDriverData(::core::mem::transmute(wdeviceid)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mciGetErrorStringA(mcierr: u32, psztext: &mut [u8]) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mciGetErrorStringA(mcierr: u32, psztext: ::windows::core::PSTR, cchtext: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(mciGetErrorStringA(::core::mem::transmute(mcierr), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(psztext)), psztext.len() as _))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mciGetErrorStringA(mcierr: u32, psztext: ::windows::core::PSTR, cchtext: u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(mciGetErrorStringA(::core::mem::transmute(mcierr), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(psztext)), psztext.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mciGetErrorStringW(mcierr: u32, psztext: &mut [u16]) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mciGetErrorStringW(mcierr: u32, psztext: ::windows::core::PWSTR, cchtext: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(mciGetErrorStringW(::core::mem::transmute(mcierr), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(psztext)), psztext.len() as _))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mciGetErrorStringW(mcierr: u32, psztext: ::windows::core::PWSTR, cchtext: u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(mciGetErrorStringW(::core::mem::transmute(mcierr), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(psztext)), psztext.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn mciGetYieldProc(mciid: u32, pdwyielddata: *const u32) -> YIELDPROC {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mciGetYieldProc(mciid: u32, pdwyielddata: *const u32) -> YIELDPROC;
-        }
-        ::core::mem::transmute(mciGetYieldProc(::core::mem::transmute(mciid), ::core::mem::transmute(pdwyielddata)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mciGetYieldProc(mciid: u32, pdwyielddata: *const u32) -> YIELDPROC;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(mciGetYieldProc(::core::mem::transmute(mciid), ::core::mem::transmute(pdwyielddata)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mciLoadCommandResource<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hinstance: Param0, lpresname: Param1, wtype: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mciLoadCommandResource(hinstance: super::super::Foundation::HANDLE, lpresname: ::windows::core::PCWSTR, wtype: u32) -> u32;
-        }
-        ::core::mem::transmute(mciLoadCommandResource(hinstance.into_param().abi(), lpresname.into_param().abi(), ::core::mem::transmute(wtype)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mciLoadCommandResource(hinstance: super::super::Foundation::HANDLE, lpresname: ::windows::core::PCWSTR, wtype: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(mciLoadCommandResource(hinstance.into_param().abi(), lpresname.into_param().abi(), ::core::mem::transmute(wtype)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn mciSendCommandA(mciid: u32, umsg: u32, dwparam1: usize, dwparam2: usize) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mciSendCommandA(mciid: u32, umsg: u32, dwparam1: usize, dwparam2: usize) -> u32;
-        }
-        ::core::mem::transmute(mciSendCommandA(::core::mem::transmute(mciid), ::core::mem::transmute(umsg), ::core::mem::transmute(dwparam1), ::core::mem::transmute(dwparam2)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mciSendCommandA(mciid: u32, umsg: u32, dwparam1: usize, dwparam2: usize) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(mciSendCommandA(::core::mem::transmute(mciid), ::core::mem::transmute(umsg), ::core::mem::transmute(dwparam1), ::core::mem::transmute(dwparam2)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn mciSendCommandW(mciid: u32, umsg: u32, dwparam1: usize, dwparam2: usize) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mciSendCommandW(mciid: u32, umsg: u32, dwparam1: usize, dwparam2: usize) -> u32;
-        }
-        ::core::mem::transmute(mciSendCommandW(::core::mem::transmute(mciid), ::core::mem::transmute(umsg), ::core::mem::transmute(dwparam1), ::core::mem::transmute(dwparam2)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mciSendCommandW(mciid: u32, umsg: u32, dwparam1: usize, dwparam2: usize) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(mciSendCommandW(::core::mem::transmute(mciid), ::core::mem::transmute(umsg), ::core::mem::transmute(dwparam1), ::core::mem::transmute(dwparam2)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mciSendStringA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(lpstrcommand: Param0, lpstrreturnstring: &mut [u8], hwndcallback: Param3) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mciSendStringA(lpstrcommand: ::windows::core::PCSTR, lpstrreturnstring: ::windows::core::PSTR, ureturnlength: u32, hwndcallback: super::super::Foundation::HWND) -> u32;
-        }
-        ::core::mem::transmute(mciSendStringA(lpstrcommand.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpstrreturnstring)), lpstrreturnstring.len() as _, hwndcallback.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mciSendStringA(lpstrcommand: ::windows::core::PCSTR, lpstrreturnstring: ::windows::core::PSTR, ureturnlength: u32, hwndcallback: super::super::Foundation::HWND) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(mciSendStringA(lpstrcommand.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpstrreturnstring)), lpstrreturnstring.len() as _, hwndcallback.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mciSendStringW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(lpstrcommand: Param0, lpstrreturnstring: &mut [u16], hwndcallback: Param3) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mciSendStringW(lpstrcommand: ::windows::core::PCWSTR, lpstrreturnstring: ::windows::core::PWSTR, ureturnlength: u32, hwndcallback: super::super::Foundation::HWND) -> u32;
-        }
-        ::core::mem::transmute(mciSendStringW(lpstrcommand.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpstrreturnstring)), lpstrreturnstring.len() as _, hwndcallback.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mciSendStringW(lpstrcommand: ::windows::core::PCWSTR, lpstrreturnstring: ::windows::core::PWSTR, ureturnlength: u32, hwndcallback: super::super::Foundation::HWND) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(mciSendStringW(lpstrcommand.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpstrreturnstring)), lpstrreturnstring.len() as _, hwndcallback.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mciSetDriverData(wdeviceid: u32, dwdata: usize) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mciSetDriverData(wdeviceid: u32, dwdata: usize) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(mciSetDriverData(::core::mem::transmute(wdeviceid), ::core::mem::transmute(dwdata)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mciSetDriverData(wdeviceid: u32, dwdata: usize) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(mciSetDriverData(::core::mem::transmute(wdeviceid), ::core::mem::transmute(dwdata)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mciSetYieldProc(mciid: u32, fpyieldproc: YIELDPROC, dwyielddata: u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mciSetYieldProc(mciid: u32, fpyieldproc: *mut ::core::ffi::c_void, dwyielddata: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(mciSetYieldProc(::core::mem::transmute(mciid), ::core::mem::transmute(fpyieldproc), ::core::mem::transmute(dwyielddata)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mciSetYieldProc(mciid: u32, fpyieldproc: *mut ::core::ffi::c_void, dwyielddata: u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(mciSetYieldProc(::core::mem::transmute(mciid), ::core::mem::transmute(fpyieldproc), ::core::mem::transmute(dwyielddata)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn mmDrvInstall<'a, Param0: ::windows::core::IntoParam<'a, HDRVR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hdriver: Param0, wszdrventry: Param1, drvmessage: DRIVERMSGPROC, wflags: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mmDrvInstall(hdriver: HDRVR, wszdrventry: ::windows::core::PCWSTR, drvmessage: *mut ::core::ffi::c_void, wflags: u32) -> u32;
-        }
-        ::core::mem::transmute(mmDrvInstall(hdriver.into_param().abi(), wszdrventry.into_param().abi(), ::core::mem::transmute(drvmessage), ::core::mem::transmute(wflags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mmDrvInstall(hdriver: HDRVR, wszdrventry: ::windows::core::PCWSTR, drvmessage: *mut ::core::ffi::c_void, wflags: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(mmDrvInstall(hdriver.into_param().abi(), wszdrventry.into_param().abi(), ::core::mem::transmute(drvmessage), ::core::mem::transmute(wflags)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn mmGetCurrentTask() -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mmGetCurrentTask() -> u32;
-        }
-        ::core::mem::transmute(mmGetCurrentTask())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mmGetCurrentTask() -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(mmGetCurrentTask())
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn mmTaskBlock(h: u32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mmTaskBlock(h: u32);
-        }
-        mmTaskBlock(::core::mem::transmute(h))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mmTaskBlock(h: u32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    mmTaskBlock(::core::mem::transmute(h))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mmTaskCreate(lpfn: LPTASKCALLBACK, lph: *mut super::super::Foundation::HANDLE, dwinst: usize) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mmTaskCreate(lpfn: *mut ::core::ffi::c_void, lph: *mut super::super::Foundation::HANDLE, dwinst: usize) -> u32;
-        }
-        ::core::mem::transmute(mmTaskCreate(::core::mem::transmute(lpfn), ::core::mem::transmute(lph), ::core::mem::transmute(dwinst)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mmTaskCreate(lpfn: *mut ::core::ffi::c_void, lph: *mut super::super::Foundation::HANDLE, dwinst: usize) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(mmTaskCreate(::core::mem::transmute(lpfn), ::core::mem::transmute(lph), ::core::mem::transmute(dwinst)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mmTaskSignal(h: u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mmTaskSignal(h: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(mmTaskSignal(::core::mem::transmute(h)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mmTaskSignal(h: u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(mmTaskSignal(::core::mem::transmute(h)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn mmTaskYield() {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mmTaskYield();
-        }
-        mmTaskYield()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mmTaskYield();
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    mmTaskYield()
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mmioAdvance<'a, Param0: ::windows::core::IntoParam<'a, HMMIO>>(hmmio: Param0, pmmioinfo: *const MMIOINFO, fuadvance: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mmioAdvance(hmmio: HMMIO, pmmioinfo: *const MMIOINFO, fuadvance: u32) -> u32;
-        }
-        ::core::mem::transmute(mmioAdvance(hmmio.into_param().abi(), ::core::mem::transmute(pmmioinfo), ::core::mem::transmute(fuadvance)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mmioAdvance(hmmio: HMMIO, pmmioinfo: *const MMIOINFO, fuadvance: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(mmioAdvance(hmmio.into_param().abi(), ::core::mem::transmute(pmmioinfo), ::core::mem::transmute(fuadvance)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn mmioAscend<'a, Param0: ::windows::core::IntoParam<'a, HMMIO>>(hmmio: Param0, pmmcki: *const MMCKINFO, fuascend: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mmioAscend(hmmio: HMMIO, pmmcki: *const MMCKINFO, fuascend: u32) -> u32;
-        }
-        ::core::mem::transmute(mmioAscend(hmmio.into_param().abi(), ::core::mem::transmute(pmmcki), ::core::mem::transmute(fuascend)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mmioAscend(hmmio: HMMIO, pmmcki: *const MMCKINFO, fuascend: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(mmioAscend(hmmio.into_param().abi(), ::core::mem::transmute(pmmcki), ::core::mem::transmute(fuascend)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn mmioClose<'a, Param0: ::windows::core::IntoParam<'a, HMMIO>>(hmmio: Param0, fuclose: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mmioClose(hmmio: HMMIO, fuclose: u32) -> u32;
-        }
-        ::core::mem::transmute(mmioClose(hmmio.into_param().abi(), ::core::mem::transmute(fuclose)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mmioClose(hmmio: HMMIO, fuclose: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(mmioClose(hmmio.into_param().abi(), ::core::mem::transmute(fuclose)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn mmioCreateChunk<'a, Param0: ::windows::core::IntoParam<'a, HMMIO>>(hmmio: Param0, pmmcki: *const MMCKINFO, fucreate: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mmioCreateChunk(hmmio: HMMIO, pmmcki: *const MMCKINFO, fucreate: u32) -> u32;
-        }
-        ::core::mem::transmute(mmioCreateChunk(hmmio.into_param().abi(), ::core::mem::transmute(pmmcki), ::core::mem::transmute(fucreate)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mmioCreateChunk(hmmio: HMMIO, pmmcki: *const MMCKINFO, fucreate: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(mmioCreateChunk(hmmio.into_param().abi(), ::core::mem::transmute(pmmcki), ::core::mem::transmute(fucreate)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn mmioDescend<'a, Param0: ::windows::core::IntoParam<'a, HMMIO>>(hmmio: Param0, pmmcki: *mut MMCKINFO, pmmckiparent: *const MMCKINFO, fudescend: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mmioDescend(hmmio: HMMIO, pmmcki: *mut MMCKINFO, pmmckiparent: *const MMCKINFO, fudescend: u32) -> u32;
-        }
-        ::core::mem::transmute(mmioDescend(hmmio.into_param().abi(), ::core::mem::transmute(pmmcki), ::core::mem::transmute(pmmckiparent), ::core::mem::transmute(fudescend)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mmioDescend(hmmio: HMMIO, pmmcki: *mut MMCKINFO, pmmckiparent: *const MMCKINFO, fudescend: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(mmioDescend(hmmio.into_param().abi(), ::core::mem::transmute(pmmcki), ::core::mem::transmute(pmmckiparent), ::core::mem::transmute(fudescend)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn mmioFlush<'a, Param0: ::windows::core::IntoParam<'a, HMMIO>>(hmmio: Param0, fuflush: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mmioFlush(hmmio: HMMIO, fuflush: u32) -> u32;
-        }
-        ::core::mem::transmute(mmioFlush(hmmio.into_param().abi(), ::core::mem::transmute(fuflush)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mmioFlush(hmmio: HMMIO, fuflush: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(mmioFlush(hmmio.into_param().abi(), ::core::mem::transmute(fuflush)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mmioGetInfo<'a, Param0: ::windows::core::IntoParam<'a, HMMIO>>(hmmio: Param0, pmmioinfo: *mut MMIOINFO, fuinfo: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mmioGetInfo(hmmio: HMMIO, pmmioinfo: *mut MMIOINFO, fuinfo: u32) -> u32;
-        }
-        ::core::mem::transmute(mmioGetInfo(hmmio.into_param().abi(), ::core::mem::transmute(pmmioinfo), ::core::mem::transmute(fuinfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mmioGetInfo(hmmio: HMMIO, pmmioinfo: *mut MMIOINFO, fuinfo: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(mmioGetInfo(hmmio.into_param().abi(), ::core::mem::transmute(pmmioinfo), ::core::mem::transmute(fuinfo)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mmioInstallIOProcA(fccioproc: u32, pioproc: LPMMIOPROC, dwflags: u32) -> LPMMIOPROC {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mmioInstallIOProcA(fccioproc: u32, pioproc: *mut ::core::ffi::c_void, dwflags: u32) -> LPMMIOPROC;
-        }
-        ::core::mem::transmute(mmioInstallIOProcA(::core::mem::transmute(fccioproc), ::core::mem::transmute(pioproc), ::core::mem::transmute(dwflags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mmioInstallIOProcA(fccioproc: u32, pioproc: *mut ::core::ffi::c_void, dwflags: u32) -> LPMMIOPROC;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(mmioInstallIOProcA(::core::mem::transmute(fccioproc), ::core::mem::transmute(pioproc), ::core::mem::transmute(dwflags)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mmioInstallIOProcW(fccioproc: u32, pioproc: LPMMIOPROC, dwflags: u32) -> LPMMIOPROC {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mmioInstallIOProcW(fccioproc: u32, pioproc: *mut ::core::ffi::c_void, dwflags: u32) -> LPMMIOPROC;
-        }
-        ::core::mem::transmute(mmioInstallIOProcW(::core::mem::transmute(fccioproc), ::core::mem::transmute(pioproc), ::core::mem::transmute(dwflags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mmioInstallIOProcW(fccioproc: u32, pioproc: *mut ::core::ffi::c_void, dwflags: u32) -> LPMMIOPROC;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(mmioInstallIOProcW(::core::mem::transmute(fccioproc), ::core::mem::transmute(pioproc), ::core::mem::transmute(dwflags)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mmioOpenA(pszfilename: &mut [u8; 128], pmmioinfo: *mut MMIOINFO, fdwopen: u32) -> HMMIO {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mmioOpenA(pszfilename: ::windows::core::PSTR, pmmioinfo: *mut MMIOINFO, fdwopen: u32) -> HMMIO;
-        }
-        ::core::mem::transmute(mmioOpenA(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszfilename)), ::core::mem::transmute(pmmioinfo), ::core::mem::transmute(fdwopen)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mmioOpenA(pszfilename: ::windows::core::PSTR, pmmioinfo: *mut MMIOINFO, fdwopen: u32) -> HMMIO;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(mmioOpenA(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszfilename)), ::core::mem::transmute(pmmioinfo), ::core::mem::transmute(fdwopen)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mmioOpenW(pszfilename: &mut [u16; 128], pmmioinfo: *mut MMIOINFO, fdwopen: u32) -> HMMIO {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mmioOpenW(pszfilename: ::windows::core::PWSTR, pmmioinfo: *mut MMIOINFO, fdwopen: u32) -> HMMIO;
-        }
-        ::core::mem::transmute(mmioOpenW(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszfilename)), ::core::mem::transmute(pmmioinfo), ::core::mem::transmute(fdwopen)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mmioOpenW(pszfilename: ::windows::core::PWSTR, pmmioinfo: *mut MMIOINFO, fdwopen: u32) -> HMMIO;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(mmioOpenW(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszfilename)), ::core::mem::transmute(pmmioinfo), ::core::mem::transmute(fdwopen)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn mmioRead<'a, Param0: ::windows::core::IntoParam<'a, HMMIO>>(hmmio: Param0, pch: *mut i8, cch: i32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mmioRead(hmmio: HMMIO, pch: *mut i8, cch: i32) -> i32;
-        }
-        ::core::mem::transmute(mmioRead(hmmio.into_param().abi(), ::core::mem::transmute(pch), ::core::mem::transmute(cch)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mmioRead(hmmio: HMMIO, pch: *mut i8, cch: i32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(mmioRead(hmmio.into_param().abi(), ::core::mem::transmute(pch), ::core::mem::transmute(cch)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mmioRenameA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(pszfilename: Param0, psznewfilename: Param1, pmmioinfo: *const MMIOINFO, fdwrename: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mmioRenameA(pszfilename: ::windows::core::PCSTR, psznewfilename: ::windows::core::PCSTR, pmmioinfo: *const MMIOINFO, fdwrename: u32) -> u32;
-        }
-        ::core::mem::transmute(mmioRenameA(pszfilename.into_param().abi(), psznewfilename.into_param().abi(), ::core::mem::transmute(pmmioinfo), ::core::mem::transmute(fdwrename)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mmioRenameA(pszfilename: ::windows::core::PCSTR, psznewfilename: ::windows::core::PCSTR, pmmioinfo: *const MMIOINFO, fdwrename: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(mmioRenameA(pszfilename.into_param().abi(), psznewfilename.into_param().abi(), ::core::mem::transmute(pmmioinfo), ::core::mem::transmute(fdwrename)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mmioRenameW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pszfilename: Param0, psznewfilename: Param1, pmmioinfo: *const MMIOINFO, fdwrename: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mmioRenameW(pszfilename: ::windows::core::PCWSTR, psznewfilename: ::windows::core::PCWSTR, pmmioinfo: *const MMIOINFO, fdwrename: u32) -> u32;
-        }
-        ::core::mem::transmute(mmioRenameW(pszfilename.into_param().abi(), psznewfilename.into_param().abi(), ::core::mem::transmute(pmmioinfo), ::core::mem::transmute(fdwrename)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mmioRenameW(pszfilename: ::windows::core::PCWSTR, psznewfilename: ::windows::core::PCWSTR, pmmioinfo: *const MMIOINFO, fdwrename: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(mmioRenameW(pszfilename.into_param().abi(), psznewfilename.into_param().abi(), ::core::mem::transmute(pmmioinfo), ::core::mem::transmute(fdwrename)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn mmioSeek<'a, Param0: ::windows::core::IntoParam<'a, HMMIO>>(hmmio: Param0, loffset: i32, iorigin: i32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mmioSeek(hmmio: HMMIO, loffset: i32, iorigin: i32) -> i32;
-        }
-        ::core::mem::transmute(mmioSeek(hmmio.into_param().abi(), ::core::mem::transmute(loffset), ::core::mem::transmute(iorigin)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mmioSeek(hmmio: HMMIO, loffset: i32, iorigin: i32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(mmioSeek(hmmio.into_param().abi(), ::core::mem::transmute(loffset), ::core::mem::transmute(iorigin)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mmioSendMessage<'a, Param0: ::windows::core::IntoParam<'a, HMMIO>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hmmio: Param0, umsg: u32, lparam1: Param2, lparam2: Param3) -> super::super::Foundation::LRESULT {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mmioSendMessage(hmmio: HMMIO, umsg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
-        }
-        ::core::mem::transmute(mmioSendMessage(hmmio.into_param().abi(), ::core::mem::transmute(umsg), lparam1.into_param().abi(), lparam2.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mmioSendMessage(hmmio: HMMIO, umsg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(mmioSendMessage(hmmio.into_param().abi(), ::core::mem::transmute(umsg), lparam1.into_param().abi(), lparam2.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn mmioSetBuffer<'a, Param0: ::windows::core::IntoParam<'a, HMMIO>>(hmmio: Param0, pchbuffer: &mut [u8], fubuffer: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mmioSetBuffer(hmmio: HMMIO, pchbuffer: ::windows::core::PSTR, cchbuffer: i32, fubuffer: u32) -> u32;
-        }
-        ::core::mem::transmute(mmioSetBuffer(hmmio.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pchbuffer)), pchbuffer.len() as _, ::core::mem::transmute(fubuffer)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mmioSetBuffer(hmmio: HMMIO, pchbuffer: ::windows::core::PSTR, cchbuffer: i32, fubuffer: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(mmioSetBuffer(hmmio.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pchbuffer)), pchbuffer.len() as _, ::core::mem::transmute(fubuffer)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mmioSetInfo<'a, Param0: ::windows::core::IntoParam<'a, HMMIO>>(hmmio: Param0, pmmioinfo: *const MMIOINFO, fuinfo: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mmioSetInfo(hmmio: HMMIO, pmmioinfo: *const MMIOINFO, fuinfo: u32) -> u32;
-        }
-        ::core::mem::transmute(mmioSetInfo(hmmio.into_param().abi(), ::core::mem::transmute(pmmioinfo), ::core::mem::transmute(fuinfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mmioSetInfo(hmmio: HMMIO, pmmioinfo: *const MMIOINFO, fuinfo: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(mmioSetInfo(hmmio.into_param().abi(), ::core::mem::transmute(pmmioinfo), ::core::mem::transmute(fuinfo)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn mmioStringToFOURCCA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(sz: Param0, uflags: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mmioStringToFOURCCA(sz: ::windows::core::PCSTR, uflags: u32) -> u32;
-        }
-        ::core::mem::transmute(mmioStringToFOURCCA(sz.into_param().abi(), ::core::mem::transmute(uflags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mmioStringToFOURCCA(sz: ::windows::core::PCSTR, uflags: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(mmioStringToFOURCCA(sz.into_param().abi(), ::core::mem::transmute(uflags)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn mmioStringToFOURCCW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(sz: Param0, uflags: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mmioStringToFOURCCW(sz: ::windows::core::PCWSTR, uflags: u32) -> u32;
-        }
-        ::core::mem::transmute(mmioStringToFOURCCW(sz.into_param().abi(), ::core::mem::transmute(uflags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mmioStringToFOURCCW(sz: ::windows::core::PCWSTR, uflags: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(mmioStringToFOURCCW(sz.into_param().abi(), ::core::mem::transmute(uflags)))
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
 pub unsafe fn mmioWrite<'a, Param0: ::windows::core::IntoParam<'a, HMMIO>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hmmio: Param0, pch: Param1, cch: i32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn mmioWrite(hmmio: HMMIO, pch: ::windows::core::PCSTR, cch: i32) -> i32;
-        }
-        ::core::mem::transmute(mmioWrite(hmmio.into_param().abi(), pch.into_param().abi(), ::core::mem::transmute(cch)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn mmioWrite(hmmio: HMMIO, pch: ::windows::core::PCSTR, cch: i32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(mmioWrite(hmmio.into_param().abi(), pch.into_param().abi(), ::core::mem::transmute(cch)))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
@@ -18235,16 +17390,11 @@ impl ::core::default::Default for s_RIFFWAVE_inst {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn sndOpenSound<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(eventname: Param0, appname: Param1, flags: i32, filehandle: *mut super::super::Foundation::HANDLE) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn sndOpenSound(eventname: ::windows::core::PCWSTR, appname: ::windows::core::PCWSTR, flags: i32, filehandle: *mut super::super::Foundation::HANDLE) -> i32;
-        }
-        ::core::mem::transmute(sndOpenSound(eventname.into_param().abi(), appname.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(filehandle)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn sndOpenSound(eventname: ::windows::core::PCWSTR, appname: ::windows::core::PCWSTR, flags: i32, filehandle: *mut super::super::Foundation::HANDLE) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(sndOpenSound(eventname.into_param().abi(), appname.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(filehandle)))
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

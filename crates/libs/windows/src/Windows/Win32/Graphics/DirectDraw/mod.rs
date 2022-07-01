@@ -14026,104 +14026,69 @@ pub const DX_OK: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[inline]
 pub unsafe fn DirectDrawCreate<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(lpguid: *mut ::windows::core::GUID, lplpdd: *mut ::core::option::Option<IDirectDraw>, punkouter: Param2) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DirectDrawCreate(lpguid: *mut ::windows::core::GUID, lplpdd: *mut *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        DirectDrawCreate(::core::mem::transmute(lpguid), ::core::mem::transmute(lplpdd), punkouter.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DirectDrawCreate(lpguid: *mut ::windows::core::GUID, lplpdd: *mut *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DirectDrawCreate(::core::mem::transmute(lpguid), ::core::mem::transmute(lplpdd), punkouter.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[inline]
 pub unsafe fn DirectDrawCreateClipper<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(dwflags: u32, lplpddclipper: *mut ::core::option::Option<IDirectDrawClipper>, punkouter: Param2) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DirectDrawCreateClipper(dwflags: u32, lplpddclipper: *mut *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        DirectDrawCreateClipper(::core::mem::transmute(dwflags), ::core::mem::transmute(lplpddclipper), punkouter.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DirectDrawCreateClipper(dwflags: u32, lplpddclipper: *mut *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DirectDrawCreateClipper(::core::mem::transmute(dwflags), ::core::mem::transmute(lplpddclipper), punkouter.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[inline]
 pub unsafe fn DirectDrawCreateEx<'a, Param3: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(lpguid: *mut ::windows::core::GUID, lplpdd: *mut *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, punkouter: Param3) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DirectDrawCreateEx(lpguid: *mut ::windows::core::GUID, lplpdd: *mut *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, punkouter: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        DirectDrawCreateEx(::core::mem::transmute(lpguid), ::core::mem::transmute(lplpdd), ::core::mem::transmute(iid), punkouter.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DirectDrawCreateEx(lpguid: *mut ::windows::core::GUID, lplpdd: *mut *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, punkouter: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DirectDrawCreateEx(::core::mem::transmute(lpguid), ::core::mem::transmute(lplpdd), ::core::mem::transmute(iid), punkouter.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DirectDrawEnumerateA(lpcallback: LPDDENUMCALLBACKA, lpcontext: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DirectDrawEnumerateA(lpcallback: *mut ::core::ffi::c_void, lpcontext: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        DirectDrawEnumerateA(::core::mem::transmute(lpcallback), ::core::mem::transmute(lpcontext)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DirectDrawEnumerateA(lpcallback: *mut ::core::ffi::c_void, lpcontext: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DirectDrawEnumerateA(::core::mem::transmute(lpcallback), ::core::mem::transmute(lpcontext)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn DirectDrawEnumerateExA(lpcallback: LPDDENUMCALLBACKEXA, lpcontext: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DirectDrawEnumerateExA(lpcallback: *mut ::core::ffi::c_void, lpcontext: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT;
-        }
-        DirectDrawEnumerateExA(::core::mem::transmute(lpcallback), ::core::mem::transmute(lpcontext), ::core::mem::transmute(dwflags)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DirectDrawEnumerateExA(lpcallback: *mut ::core::ffi::c_void, lpcontext: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DirectDrawEnumerateExA(::core::mem::transmute(lpcallback), ::core::mem::transmute(lpcontext), ::core::mem::transmute(dwflags)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn DirectDrawEnumerateExW(lpcallback: LPDDENUMCALLBACKEXW, lpcontext: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DirectDrawEnumerateExW(lpcallback: *mut ::core::ffi::c_void, lpcontext: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT;
-        }
-        DirectDrawEnumerateExW(::core::mem::transmute(lpcallback), ::core::mem::transmute(lpcontext), ::core::mem::transmute(dwflags)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DirectDrawEnumerateExW(lpcallback: *mut ::core::ffi::c_void, lpcontext: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DirectDrawEnumerateExW(::core::mem::transmute(lpcallback), ::core::mem::transmute(lpcontext), ::core::mem::transmute(dwflags)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DirectDrawEnumerateW(lpcallback: LPDDENUMCALLBACKW, lpcontext: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DirectDrawEnumerateW(lpcallback: *mut ::core::ffi::c_void, lpcontext: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        DirectDrawEnumerateW(::core::mem::transmute(lpcallback), ::core::mem::transmute(lpcontext)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DirectDrawEnumerateW(lpcallback: *mut ::core::ffi::c_void, lpcontext: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DirectDrawEnumerateW(::core::mem::transmute(lpcallback), ::core::mem::transmute(lpcontext)).ok()
 }
 pub const GUID_ColorControlCallbacks: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefd60cc2_49e7_11d0_889d_00aa00bbb76a);
 pub const GUID_D3DCallbacks: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7bf06990_8794_11d0_9139_080036d2ef02);

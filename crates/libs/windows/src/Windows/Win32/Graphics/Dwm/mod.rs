@@ -569,467 +569,312 @@ impl ::core::fmt::Debug for DWM_WINDOW_CORNER_PREFERENCE {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DwmAttachMilContent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DwmAttachMilContent(hwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT;
-        }
-        DwmAttachMilContent(hwnd.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DwmAttachMilContent(hwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DwmAttachMilContent(hwnd.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DwmDefWindowProc<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hwnd: Param0, msg: u32, wparam: Param2, lparam: Param3, plresult: *mut super::super::Foundation::LRESULT) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DwmDefWindowProc(hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, plresult: *mut super::super::Foundation::LRESULT) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(DwmDefWindowProc(hwnd.into_param().abi(), ::core::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi(), ::core::mem::transmute(plresult)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DwmDefWindowProc(hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, plresult: *mut super::super::Foundation::LRESULT) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(DwmDefWindowProc(hwnd.into_param().abi(), ::core::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi(), ::core::mem::transmute(plresult)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DwmDetachMilContent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DwmDetachMilContent(hwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT;
-        }
-        DwmDetachMilContent(hwnd.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DwmDetachMilContent(hwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DwmDetachMilContent(hwnd.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn DwmEnableBlurBehindWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, pblurbehind: *const DWM_BLURBEHIND) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DwmEnableBlurBehindWindow(hwnd: super::super::Foundation::HWND, pblurbehind: *const DWM_BLURBEHIND) -> ::windows::core::HRESULT;
-        }
-        DwmEnableBlurBehindWindow(hwnd.into_param().abi(), ::core::mem::transmute(pblurbehind)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DwmEnableBlurBehindWindow(hwnd: super::super::Foundation::HWND, pblurbehind: *const DWM_BLURBEHIND) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DwmEnableBlurBehindWindow(hwnd.into_param().abi(), ::core::mem::transmute(pblurbehind)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 #[inline]
 pub unsafe fn DwmEnableComposition(ucompositionaction: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DwmEnableComposition(ucompositionaction: u32) -> ::windows::core::HRESULT;
-        }
-        DwmEnableComposition(::core::mem::transmute(ucompositionaction)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DwmEnableComposition(ucompositionaction: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DwmEnableComposition(::core::mem::transmute(ucompositionaction)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DwmEnableMMCSS<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(fenablemmcss: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DwmEnableMMCSS(fenablemmcss: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
-        }
-        DwmEnableMMCSS(fenablemmcss.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DwmEnableMMCSS(fenablemmcss: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DwmEnableMMCSS(fenablemmcss.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 #[inline]
 pub unsafe fn DwmExtendFrameIntoClientArea<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, pmarinset: *const super::super::UI::Controls::MARGINS) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DwmExtendFrameIntoClientArea(hwnd: super::super::Foundation::HWND, pmarinset: *const super::super::UI::Controls::MARGINS) -> ::windows::core::HRESULT;
-        }
-        DwmExtendFrameIntoClientArea(hwnd.into_param().abi(), ::core::mem::transmute(pmarinset)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DwmExtendFrameIntoClientArea(hwnd: super::super::Foundation::HWND, pmarinset: *const super::super::UI::Controls::MARGINS) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DwmExtendFrameIntoClientArea(hwnd.into_param().abi(), ::core::mem::transmute(pmarinset)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 #[inline]
 pub unsafe fn DwmFlush() -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DwmFlush() -> ::windows::core::HRESULT;
-        }
-        DwmFlush().ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DwmFlush() -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DwmFlush().ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DwmGetColorizationColor(pcrcolorization: *mut u32, pfopaqueblend: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DwmGetColorizationColor(pcrcolorization: *mut u32, pfopaqueblend: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
-        }
-        DwmGetColorizationColor(::core::mem::transmute(pcrcolorization), ::core::mem::transmute(pfopaqueblend)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DwmGetColorizationColor(pcrcolorization: *mut u32, pfopaqueblend: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DwmGetColorizationColor(::core::mem::transmute(pcrcolorization), ::core::mem::transmute(pfopaqueblend)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DwmGetCompositionTimingInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> ::windows::core::Result<DWM_TIMING_INFO> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DwmGetCompositionTimingInfo(hwnd: super::super::Foundation::HWND, ptiminginfo: *mut DWM_TIMING_INFO) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<DWM_TIMING_INFO>::zeroed();
-        DwmGetCompositionTimingInfo(hwnd.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DWM_TIMING_INFO>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DwmGetCompositionTimingInfo(hwnd: super::super::Foundation::HWND, ptiminginfo: *mut DWM_TIMING_INFO) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<DWM_TIMING_INFO>::zeroed();
+    DwmGetCompositionTimingInfo(hwnd.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DWM_TIMING_INFO>(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 #[inline]
 pub unsafe fn DwmGetGraphicsStreamClient(uindex: u32) -> ::windows::core::Result<::windows::core::GUID> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DwmGetGraphicsStreamClient(uindex: u32, pclientuuid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
-        DwmGetGraphicsStreamClient(::core::mem::transmute(uindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DwmGetGraphicsStreamClient(uindex: u32, pclientuuid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+    DwmGetGraphicsStreamClient(::core::mem::transmute(uindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 #[inline]
 pub unsafe fn DwmGetGraphicsStreamTransformHint(uindex: u32) -> ::windows::core::Result<MilMatrix3x2D> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DwmGetGraphicsStreamTransformHint(uindex: u32, ptransform: *mut MilMatrix3x2D) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<MilMatrix3x2D>::zeroed();
-        DwmGetGraphicsStreamTransformHint(::core::mem::transmute(uindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<MilMatrix3x2D>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DwmGetGraphicsStreamTransformHint(uindex: u32, ptransform: *mut MilMatrix3x2D) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<MilMatrix3x2D>::zeroed();
+    DwmGetGraphicsStreamTransformHint(::core::mem::transmute(uindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<MilMatrix3x2D>(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DwmGetTransportAttributes(pfisremoting: *mut super::super::Foundation::BOOL, pfisconnected: *mut super::super::Foundation::BOOL, pdwgeneration: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DwmGetTransportAttributes(pfisremoting: *mut super::super::Foundation::BOOL, pfisconnected: *mut super::super::Foundation::BOOL, pdwgeneration: *mut u32) -> ::windows::core::HRESULT;
-        }
-        DwmGetTransportAttributes(::core::mem::transmute(pfisremoting), ::core::mem::transmute(pfisconnected), ::core::mem::transmute(pdwgeneration)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DwmGetTransportAttributes(pfisremoting: *mut super::super::Foundation::BOOL, pfisconnected: *mut super::super::Foundation::BOOL, pdwgeneration: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DwmGetTransportAttributes(::core::mem::transmute(pfisremoting), ::core::mem::transmute(pfisconnected), ::core::mem::transmute(pdwgeneration)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DwmGetUnmetTabRequirements<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(appwindow: Param0) -> ::windows::core::Result<DWM_TAB_WINDOW_REQUIREMENTS> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DwmGetUnmetTabRequirements(appwindow: super::super::Foundation::HWND, value: *mut DWM_TAB_WINDOW_REQUIREMENTS) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<DWM_TAB_WINDOW_REQUIREMENTS>::zeroed();
-        DwmGetUnmetTabRequirements(appwindow.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DWM_TAB_WINDOW_REQUIREMENTS>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DwmGetUnmetTabRequirements(appwindow: super::super::Foundation::HWND, value: *mut DWM_TAB_WINDOW_REQUIREMENTS) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<DWM_TAB_WINDOW_REQUIREMENTS>::zeroed();
+    DwmGetUnmetTabRequirements(appwindow.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DWM_TAB_WINDOW_REQUIREMENTS>(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DwmGetWindowAttribute<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, dwattribute: DWMWINDOWATTRIBUTE, pvattribute: *mut ::core::ffi::c_void, cbattribute: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DwmGetWindowAttribute(hwnd: super::super::Foundation::HWND, dwattribute: DWMWINDOWATTRIBUTE, pvattribute: *mut ::core::ffi::c_void, cbattribute: u32) -> ::windows::core::HRESULT;
-        }
-        DwmGetWindowAttribute(hwnd.into_param().abi(), ::core::mem::transmute(dwattribute), ::core::mem::transmute(pvattribute), ::core::mem::transmute(cbattribute)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DwmGetWindowAttribute(hwnd: super::super::Foundation::HWND, dwattribute: DWMWINDOWATTRIBUTE, pvattribute: *mut ::core::ffi::c_void, cbattribute: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DwmGetWindowAttribute(hwnd.into_param().abi(), ::core::mem::transmute(dwattribute), ::core::mem::transmute(pvattribute), ::core::mem::transmute(cbattribute)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DwmInvalidateIconicBitmaps<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DwmInvalidateIconicBitmaps(hwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT;
-        }
-        DwmInvalidateIconicBitmaps(hwnd.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DwmInvalidateIconicBitmaps(hwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DwmInvalidateIconicBitmaps(hwnd.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DwmIsCompositionEnabled() -> ::windows::core::Result<super::super::Foundation::BOOL> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DwmIsCompositionEnabled(pfenabled: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
-        DwmIsCompositionEnabled(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DwmIsCompositionEnabled(pfenabled: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
+    DwmIsCompositionEnabled(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DwmModifyPreviousDxFrameDuration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hwnd: Param0, crefreshes: i32, frelative: Param2) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DwmModifyPreviousDxFrameDuration(hwnd: super::super::Foundation::HWND, crefreshes: i32, frelative: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
-        }
-        DwmModifyPreviousDxFrameDuration(hwnd.into_param().abi(), ::core::mem::transmute(crefreshes), frelative.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DwmModifyPreviousDxFrameDuration(hwnd: super::super::Foundation::HWND, crefreshes: i32, frelative: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DwmModifyPreviousDxFrameDuration(hwnd.into_param().abi(), ::core::mem::transmute(crefreshes), frelative.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DwmQueryThumbnailSourceSize(hthumbnail: isize) -> ::windows::core::Result<super::super::Foundation::SIZE> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DwmQueryThumbnailSourceSize(hthumbnail: isize, psize: *mut super::super::Foundation::SIZE) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::SIZE>::zeroed();
-        DwmQueryThumbnailSourceSize(::core::mem::transmute(hthumbnail), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::SIZE>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DwmQueryThumbnailSourceSize(hthumbnail: isize, psize: *mut super::super::Foundation::SIZE) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::SIZE>::zeroed();
+    DwmQueryThumbnailSourceSize(::core::mem::transmute(hthumbnail), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::SIZE>(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DwmRegisterThumbnail<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnddestination: Param0, hwndsource: Param1) -> ::windows::core::Result<isize> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DwmRegisterThumbnail(hwnddestination: super::super::Foundation::HWND, hwndsource: super::super::Foundation::HWND, phthumbnailid: *mut isize) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<isize>::zeroed();
-        DwmRegisterThumbnail(hwnddestination.into_param().abi(), hwndsource.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<isize>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DwmRegisterThumbnail(hwnddestination: super::super::Foundation::HWND, hwndsource: super::super::Foundation::HWND, phthumbnailid: *mut isize) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<isize>::zeroed();
+    DwmRegisterThumbnail(hwnddestination.into_param().abi(), hwndsource.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<isize>(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DwmRenderGesture(gt: GESTURE_TYPE, ccontacts: u32, pdwpointerid: *const u32, ppoints: *const super::super::Foundation::POINT) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DwmRenderGesture(gt: GESTURE_TYPE, ccontacts: u32, pdwpointerid: *const u32, ppoints: *const super::super::Foundation::POINT) -> ::windows::core::HRESULT;
-        }
-        DwmRenderGesture(::core::mem::transmute(gt), ::core::mem::transmute(ccontacts), ::core::mem::transmute(pdwpointerid), ::core::mem::transmute(ppoints)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DwmRenderGesture(gt: GESTURE_TYPE, ccontacts: u32, pdwpointerid: *const u32, ppoints: *const super::super::Foundation::POINT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DwmRenderGesture(::core::mem::transmute(gt), ::core::mem::transmute(ccontacts), ::core::mem::transmute(pdwpointerid), ::core::mem::transmute(ppoints)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DwmSetDxFrameDuration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, crefreshes: i32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DwmSetDxFrameDuration(hwnd: super::super::Foundation::HWND, crefreshes: i32) -> ::windows::core::HRESULT;
-        }
-        DwmSetDxFrameDuration(hwnd.into_param().abi(), ::core::mem::transmute(crefreshes)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DwmSetDxFrameDuration(hwnd: super::super::Foundation::HWND, crefreshes: i32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DwmSetDxFrameDuration(hwnd.into_param().abi(), ::core::mem::transmute(crefreshes)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn DwmSetIconicLivePreviewBitmap<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::Gdi::HBITMAP>>(hwnd: Param0, hbmp: Param1, pptclient: *const super::super::Foundation::POINT, dwsitflags: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DwmSetIconicLivePreviewBitmap(hwnd: super::super::Foundation::HWND, hbmp: super::Gdi::HBITMAP, pptclient: *const super::super::Foundation::POINT, dwsitflags: u32) -> ::windows::core::HRESULT;
-        }
-        DwmSetIconicLivePreviewBitmap(hwnd.into_param().abi(), hbmp.into_param().abi(), ::core::mem::transmute(pptclient), ::core::mem::transmute(dwsitflags)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DwmSetIconicLivePreviewBitmap(hwnd: super::super::Foundation::HWND, hbmp: super::Gdi::HBITMAP, pptclient: *const super::super::Foundation::POINT, dwsitflags: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DwmSetIconicLivePreviewBitmap(hwnd.into_param().abi(), hbmp.into_param().abi(), ::core::mem::transmute(pptclient), ::core::mem::transmute(dwsitflags)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn DwmSetIconicThumbnail<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::Gdi::HBITMAP>>(hwnd: Param0, hbmp: Param1, dwsitflags: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DwmSetIconicThumbnail(hwnd: super::super::Foundation::HWND, hbmp: super::Gdi::HBITMAP, dwsitflags: u32) -> ::windows::core::HRESULT;
-        }
-        DwmSetIconicThumbnail(hwnd.into_param().abi(), hbmp.into_param().abi(), ::core::mem::transmute(dwsitflags)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DwmSetIconicThumbnail(hwnd: super::super::Foundation::HWND, hbmp: super::Gdi::HBITMAP, dwsitflags: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DwmSetIconicThumbnail(hwnd.into_param().abi(), hbmp.into_param().abi(), ::core::mem::transmute(dwsitflags)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DwmSetPresentParameters<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, ppresentparams: *mut DWM_PRESENT_PARAMETERS) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DwmSetPresentParameters(hwnd: super::super::Foundation::HWND, ppresentparams: *mut DWM_PRESENT_PARAMETERS) -> ::windows::core::HRESULT;
-        }
-        DwmSetPresentParameters(hwnd.into_param().abi(), ::core::mem::transmute(ppresentparams)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DwmSetPresentParameters(hwnd: super::super::Foundation::HWND, ppresentparams: *mut DWM_PRESENT_PARAMETERS) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DwmSetPresentParameters(hwnd.into_param().abi(), ::core::mem::transmute(ppresentparams)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DwmSetWindowAttribute<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, dwattribute: DWMWINDOWATTRIBUTE, pvattribute: *const ::core::ffi::c_void, cbattribute: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DwmSetWindowAttribute(hwnd: super::super::Foundation::HWND, dwattribute: DWMWINDOWATTRIBUTE, pvattribute: *const ::core::ffi::c_void, cbattribute: u32) -> ::windows::core::HRESULT;
-        }
-        DwmSetWindowAttribute(hwnd.into_param().abi(), ::core::mem::transmute(dwattribute), ::core::mem::transmute(pvattribute), ::core::mem::transmute(cbattribute)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DwmSetWindowAttribute(hwnd: super::super::Foundation::HWND, dwattribute: DWMWINDOWATTRIBUTE, pvattribute: *const ::core::ffi::c_void, cbattribute: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DwmSetWindowAttribute(hwnd.into_param().abi(), ::core::mem::transmute(dwattribute), ::core::mem::transmute(pvattribute), ::core::mem::transmute(cbattribute)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 #[inline]
 pub unsafe fn DwmShowContact(dwpointerid: u32, eshowcontact: DWM_SHOWCONTACT) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DwmShowContact(dwpointerid: u32, eshowcontact: DWM_SHOWCONTACT) -> ::windows::core::HRESULT;
-        }
-        DwmShowContact(::core::mem::transmute(dwpointerid), ::core::mem::transmute(eshowcontact)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DwmShowContact(dwpointerid: u32, eshowcontact: DWM_SHOWCONTACT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DwmShowContact(::core::mem::transmute(dwpointerid), ::core::mem::transmute(eshowcontact)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DwmTetherContact<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::POINT>>(dwpointerid: u32, fenable: Param1, pttether: Param2) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DwmTetherContact(dwpointerid: u32, fenable: super::super::Foundation::BOOL, pttether: super::super::Foundation::POINT) -> ::windows::core::HRESULT;
-        }
-        DwmTetherContact(::core::mem::transmute(dwpointerid), fenable.into_param().abi(), pttether.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DwmTetherContact(dwpointerid: u32, fenable: super::super::Foundation::BOOL, pttether: super::super::Foundation::POINT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DwmTetherContact(::core::mem::transmute(dwpointerid), fenable.into_param().abi(), pttether.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DwmTransitionOwnedWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, target: DWMTRANSITION_OWNEDWINDOW_TARGET) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DwmTransitionOwnedWindow(hwnd: super::super::Foundation::HWND, target: DWMTRANSITION_OWNEDWINDOW_TARGET) -> ::windows::core::HRESULT;
-        }
-        DwmTransitionOwnedWindow(hwnd.into_param().abi(), ::core::mem::transmute(target)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DwmTransitionOwnedWindow(hwnd: super::super::Foundation::HWND, target: DWMTRANSITION_OWNEDWINDOW_TARGET) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DwmTransitionOwnedWindow(hwnd.into_param().abi(), ::core::mem::transmute(target)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 #[inline]
 pub unsafe fn DwmUnregisterThumbnail(hthumbnailid: isize) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DwmUnregisterThumbnail(hthumbnailid: isize) -> ::windows::core::HRESULT;
-        }
-        DwmUnregisterThumbnail(::core::mem::transmute(hthumbnailid)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DwmUnregisterThumbnail(hthumbnailid: isize) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DwmUnregisterThumbnail(::core::mem::transmute(hthumbnailid)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DwmUpdateThumbnailProperties(hthumbnailid: isize, ptnproperties: *const DWM_THUMBNAIL_PROPERTIES) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DwmUpdateThumbnailProperties(hthumbnailid: isize, ptnproperties: *const DWM_THUMBNAIL_PROPERTIES) -> ::windows::core::HRESULT;
-        }
-        DwmUpdateThumbnailProperties(::core::mem::transmute(hthumbnailid), ::core::mem::transmute(ptnproperties)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DwmUpdateThumbnailProperties(hthumbnailid: isize, ptnproperties: *const DWM_THUMBNAIL_PROPERTIES) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DwmUpdateThumbnailProperties(::core::mem::transmute(hthumbnailid), ::core::mem::transmute(ptnproperties)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 #[repr(transparent)]

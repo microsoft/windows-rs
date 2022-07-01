@@ -69,211 +69,146 @@ pub const CLSID_D2D1YCbCr: ::windows::core::GUID = ::windows::core::GUID::from_u
 #[cfg(feature = "Foundation_Numerics")]
 #[inline]
 pub unsafe fn D2D1ComputeMaximumScaleFactor(matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> f32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn D2D1ComputeMaximumScaleFactor(matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> f32;
-        }
-        ::core::mem::transmute(D2D1ComputeMaximumScaleFactor(::core::mem::transmute(matrix)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn D2D1ComputeMaximumScaleFactor(matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> f32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(D2D1ComputeMaximumScaleFactor(::core::mem::transmute(matrix)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Direct2D_Common\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 #[inline]
 pub unsafe fn D2D1ConvertColorSpace(sourcecolorspace: D2D1_COLOR_SPACE, destinationcolorspace: D2D1_COLOR_SPACE, color: *const Common::D2D1_COLOR_F) -> Common::D2D1_COLOR_F {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn D2D1ConvertColorSpace(sourcecolorspace: D2D1_COLOR_SPACE, destinationcolorspace: D2D1_COLOR_SPACE, color: *const Common::D2D1_COLOR_F) -> Common::D2D1_COLOR_F;
-        }
-        ::core::mem::transmute(D2D1ConvertColorSpace(::core::mem::transmute(sourcecolorspace), ::core::mem::transmute(destinationcolorspace), ::core::mem::transmute(color)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn D2D1ConvertColorSpace(sourcecolorspace: D2D1_COLOR_SPACE, destinationcolorspace: D2D1_COLOR_SPACE, color: *const Common::D2D1_COLOR_F) -> Common::D2D1_COLOR_F;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(D2D1ConvertColorSpace(::core::mem::transmute(sourcecolorspace), ::core::mem::transmute(destinationcolorspace), ::core::mem::transmute(color)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Dxgi\"`*"]
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 #[inline]
 pub unsafe fn D2D1CreateDevice<'a, Param0: ::windows::core::IntoParam<'a, super::Dxgi::IDXGIDevice>>(dxgidevice: Param0, creationproperties: *const D2D1_CREATION_PROPERTIES) -> ::windows::core::Result<ID2D1Device> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn D2D1CreateDevice(dxgidevice: *mut ::core::ffi::c_void, creationproperties: *const D2D1_CREATION_PROPERTIES, d2ddevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        D2D1CreateDevice(dxgidevice.into_param().abi(), ::core::mem::transmute(creationproperties), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1Device>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn D2D1CreateDevice(dxgidevice: *mut ::core::ffi::c_void, creationproperties: *const D2D1_CREATION_PROPERTIES, d2ddevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    D2D1CreateDevice(dxgidevice.into_param().abi(), ::core::mem::transmute(creationproperties), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1Device>(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Dxgi\"`*"]
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 #[inline]
 pub unsafe fn D2D1CreateDeviceContext<'a, Param0: ::windows::core::IntoParam<'a, super::Dxgi::IDXGISurface>>(dxgisurface: Param0, creationproperties: *const D2D1_CREATION_PROPERTIES) -> ::windows::core::Result<ID2D1DeviceContext> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn D2D1CreateDeviceContext(dxgisurface: *mut ::core::ffi::c_void, creationproperties: *const D2D1_CREATION_PROPERTIES, d2ddevicecontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        D2D1CreateDeviceContext(dxgisurface.into_param().abi(), ::core::mem::transmute(creationproperties), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1DeviceContext>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn D2D1CreateDeviceContext(dxgisurface: *mut ::core::ffi::c_void, creationproperties: *const D2D1_CREATION_PROPERTIES, d2ddevicecontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    D2D1CreateDeviceContext(dxgisurface.into_param().abi(), ::core::mem::transmute(creationproperties), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID2D1DeviceContext>(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[inline]
 pub unsafe fn D2D1CreateFactory(factorytype: D2D1_FACTORY_TYPE, riid: *const ::windows::core::GUID, pfactoryoptions: *const D2D1_FACTORY_OPTIONS, ppifactory: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn D2D1CreateFactory(factorytype: D2D1_FACTORY_TYPE, riid: *const ::windows::core::GUID, pfactoryoptions: *const D2D1_FACTORY_OPTIONS, ppifactory: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        D2D1CreateFactory(::core::mem::transmute(factorytype), ::core::mem::transmute(riid), ::core::mem::transmute(pfactoryoptions), ::core::mem::transmute(ppifactory)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn D2D1CreateFactory(factorytype: D2D1_FACTORY_TYPE, riid: *const ::windows::core::GUID, pfactoryoptions: *const D2D1_FACTORY_OPTIONS, ppifactory: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    D2D1CreateFactory(::core::mem::transmute(factorytype), ::core::mem::transmute(riid), ::core::mem::transmute(pfactoryoptions), ::core::mem::transmute(ppifactory)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Direct2D_Common\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 #[inline]
 pub unsafe fn D2D1GetGradientMeshInteriorPointsFromCoonsPatch(ppoint0: *const Common::D2D_POINT_2F, ppoint1: *const Common::D2D_POINT_2F, ppoint2: *const Common::D2D_POINT_2F, ppoint3: *const Common::D2D_POINT_2F, ppoint4: *const Common::D2D_POINT_2F, ppoint5: *const Common::D2D_POINT_2F, ppoint6: *const Common::D2D_POINT_2F, ppoint7: *const Common::D2D_POINT_2F, ppoint8: *const Common::D2D_POINT_2F, ppoint9: *const Common::D2D_POINT_2F, ppoint10: *const Common::D2D_POINT_2F, ppoint11: *const Common::D2D_POINT_2F, ptensorpoint11: *mut Common::D2D_POINT_2F, ptensorpoint12: *mut Common::D2D_POINT_2F, ptensorpoint21: *mut Common::D2D_POINT_2F, ptensorpoint22: *mut Common::D2D_POINT_2F) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn D2D1GetGradientMeshInteriorPointsFromCoonsPatch(ppoint0: *const Common::D2D_POINT_2F, ppoint1: *const Common::D2D_POINT_2F, ppoint2: *const Common::D2D_POINT_2F, ppoint3: *const Common::D2D_POINT_2F, ppoint4: *const Common::D2D_POINT_2F, ppoint5: *const Common::D2D_POINT_2F, ppoint6: *const Common::D2D_POINT_2F, ppoint7: *const Common::D2D_POINT_2F, ppoint8: *const Common::D2D_POINT_2F, ppoint9: *const Common::D2D_POINT_2F, ppoint10: *const Common::D2D_POINT_2F, ppoint11: *const Common::D2D_POINT_2F, ptensorpoint11: *mut Common::D2D_POINT_2F, ptensorpoint12: *mut Common::D2D_POINT_2F, ptensorpoint21: *mut Common::D2D_POINT_2F, ptensorpoint22: *mut Common::D2D_POINT_2F);
-        }
-        D2D1GetGradientMeshInteriorPointsFromCoonsPatch(
-            ::core::mem::transmute(ppoint0),
-            ::core::mem::transmute(ppoint1),
-            ::core::mem::transmute(ppoint2),
-            ::core::mem::transmute(ppoint3),
-            ::core::mem::transmute(ppoint4),
-            ::core::mem::transmute(ppoint5),
-            ::core::mem::transmute(ppoint6),
-            ::core::mem::transmute(ppoint7),
-            ::core::mem::transmute(ppoint8),
-            ::core::mem::transmute(ppoint9),
-            ::core::mem::transmute(ppoint10),
-            ::core::mem::transmute(ppoint11),
-            ::core::mem::transmute(ptensorpoint11),
-            ::core::mem::transmute(ptensorpoint12),
-            ::core::mem::transmute(ptensorpoint21),
-            ::core::mem::transmute(ptensorpoint22),
-        )
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn D2D1GetGradientMeshInteriorPointsFromCoonsPatch(ppoint0: *const Common::D2D_POINT_2F, ppoint1: *const Common::D2D_POINT_2F, ppoint2: *const Common::D2D_POINT_2F, ppoint3: *const Common::D2D_POINT_2F, ppoint4: *const Common::D2D_POINT_2F, ppoint5: *const Common::D2D_POINT_2F, ppoint6: *const Common::D2D_POINT_2F, ppoint7: *const Common::D2D_POINT_2F, ppoint8: *const Common::D2D_POINT_2F, ppoint9: *const Common::D2D_POINT_2F, ppoint10: *const Common::D2D_POINT_2F, ppoint11: *const Common::D2D_POINT_2F, ptensorpoint11: *mut Common::D2D_POINT_2F, ptensorpoint12: *mut Common::D2D_POINT_2F, ptensorpoint21: *mut Common::D2D_POINT_2F, ptensorpoint22: *mut Common::D2D_POINT_2F);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    D2D1GetGradientMeshInteriorPointsFromCoonsPatch(
+        ::core::mem::transmute(ppoint0),
+        ::core::mem::transmute(ppoint1),
+        ::core::mem::transmute(ppoint2),
+        ::core::mem::transmute(ppoint3),
+        ::core::mem::transmute(ppoint4),
+        ::core::mem::transmute(ppoint5),
+        ::core::mem::transmute(ppoint6),
+        ::core::mem::transmute(ppoint7),
+        ::core::mem::transmute(ppoint8),
+        ::core::mem::transmute(ppoint9),
+        ::core::mem::transmute(ppoint10),
+        ::core::mem::transmute(ppoint11),
+        ::core::mem::transmute(ptensorpoint11),
+        ::core::mem::transmute(ptensorpoint12),
+        ::core::mem::transmute(ptensorpoint21),
+        ::core::mem::transmute(ptensorpoint22),
+    )
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`*"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation"))]
 #[inline]
 pub unsafe fn D2D1InvertMatrix(matrix: *mut super::super::super::Foundation::Numerics::Matrix3x2) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn D2D1InvertMatrix(matrix: *mut super::super::super::Foundation::Numerics::Matrix3x2) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(D2D1InvertMatrix(::core::mem::transmute(matrix)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn D2D1InvertMatrix(matrix: *mut super::super::super::Foundation::Numerics::Matrix3x2) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(D2D1InvertMatrix(::core::mem::transmute(matrix)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`*"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation"))]
 #[inline]
 pub unsafe fn D2D1IsMatrixInvertible(matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn D2D1IsMatrixInvertible(matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(D2D1IsMatrixInvertible(::core::mem::transmute(matrix)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn D2D1IsMatrixInvertible(matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(D2D1IsMatrixInvertible(::core::mem::transmute(matrix)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Graphics_Direct2D_Common\"`*"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 #[inline]
 pub unsafe fn D2D1MakeRotateMatrix<'a, Param1: ::windows::core::IntoParam<'a, Common::D2D_POINT_2F>>(angle: f32, center: Param1, matrix: *mut super::super::super::Foundation::Numerics::Matrix3x2) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn D2D1MakeRotateMatrix(angle: f32, center: Common::D2D_POINT_2F, matrix: *mut super::super::super::Foundation::Numerics::Matrix3x2);
-        }
-        D2D1MakeRotateMatrix(::core::mem::transmute(angle), center.into_param().abi(), ::core::mem::transmute(matrix))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn D2D1MakeRotateMatrix(angle: f32, center: Common::D2D_POINT_2F, matrix: *mut super::super::super::Foundation::Numerics::Matrix3x2);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    D2D1MakeRotateMatrix(::core::mem::transmute(angle), center.into_param().abi(), ::core::mem::transmute(matrix))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Graphics_Direct2D_Common\"`*"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 #[inline]
 pub unsafe fn D2D1MakeSkewMatrix<'a, Param2: ::windows::core::IntoParam<'a, Common::D2D_POINT_2F>>(anglex: f32, angley: f32, center: Param2, matrix: *mut super::super::super::Foundation::Numerics::Matrix3x2) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn D2D1MakeSkewMatrix(anglex: f32, angley: f32, center: Common::D2D_POINT_2F, matrix: *mut super::super::super::Foundation::Numerics::Matrix3x2);
-        }
-        D2D1MakeSkewMatrix(::core::mem::transmute(anglex), ::core::mem::transmute(angley), center.into_param().abi(), ::core::mem::transmute(matrix))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn D2D1MakeSkewMatrix(anglex: f32, angley: f32, center: Common::D2D_POINT_2F, matrix: *mut super::super::super::Foundation::Numerics::Matrix3x2);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    D2D1MakeSkewMatrix(::core::mem::transmute(anglex), ::core::mem::transmute(angley), center.into_param().abi(), ::core::mem::transmute(matrix))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[inline]
 pub unsafe fn D2D1SinCos(angle: f32, s: *mut f32, c: *mut f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn D2D1SinCos(angle: f32, s: *mut f32, c: *mut f32);
-        }
-        D2D1SinCos(::core::mem::transmute(angle), ::core::mem::transmute(s), ::core::mem::transmute(c))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn D2D1SinCos(angle: f32, s: *mut f32, c: *mut f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    D2D1SinCos(::core::mem::transmute(angle), ::core::mem::transmute(s), ::core::mem::transmute(c))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[inline]
 pub unsafe fn D2D1Tan(angle: f32) -> f32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn D2D1Tan(angle: f32) -> f32;
-        }
-        ::core::mem::transmute(D2D1Tan(::core::mem::transmute(angle)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn D2D1Tan(angle: f32) -> f32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(D2D1Tan(::core::mem::transmute(angle)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[inline]
 pub unsafe fn D2D1Vec3Length(x: f32, y: f32, z: f32) -> f32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn D2D1Vec3Length(x: f32, y: f32, z: f32) -> f32;
-        }
-        ::core::mem::transmute(D2D1Vec3Length(::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn D2D1Vec3Length(x: f32, y: f32, z: f32) -> f32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(D2D1Vec3Length(::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]

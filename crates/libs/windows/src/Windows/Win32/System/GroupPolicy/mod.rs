@@ -31,16 +31,11 @@ impl ::core::fmt::Debug for APPSTATE {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BrowseForGPO(lpbrowseinfo: *mut GPOBROWSEINFO) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn BrowseForGPO(lpbrowseinfo: *mut GPOBROWSEINFO) -> ::windows::core::HRESULT;
-        }
-        BrowseForGPO(::core::mem::transmute(lpbrowseinfo)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn BrowseForGPO(lpbrowseinfo: *mut GPOBROWSEINFO) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    BrowseForGPO(::core::mem::transmute(lpbrowseinfo)).ok()
 }
 pub const CLSID_GPESnapIn: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fc0b734_a0e1_11d1_a7d3_0000f87571e3);
 pub const CLSID_GroupPolicyObject: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea502722_a23d_11d1_a7d3_0000f87571e3);
@@ -48,31 +43,21 @@ pub const CLSID_RSOPSnapIn: ::windows::core::GUID = ::windows::core::GUID::from_
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[inline]
 pub unsafe fn CommandLineFromMsiDescriptor<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(descriptor: Param0, commandline: ::windows::core::PWSTR, commandlinelength: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CommandLineFromMsiDescriptor(descriptor: ::windows::core::PCWSTR, commandline: ::windows::core::PWSTR, commandlinelength: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(CommandLineFromMsiDescriptor(descriptor.into_param().abi(), ::core::mem::transmute(commandline), ::core::mem::transmute(commandlinelength)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CommandLineFromMsiDescriptor(descriptor: ::windows::core::PCWSTR, commandline: ::windows::core::PWSTR, commandlinelength: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CommandLineFromMsiDescriptor(descriptor.into_param().abi(), ::core::mem::transmute(commandline), ::core::mem::transmute(commandlinelength)))
 }
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateGPOLink<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(lpgpo: Param0, lpcontainer: Param1, fhighpriority: Param2) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateGPOLink(lpgpo: ::windows::core::PCWSTR, lpcontainer: ::windows::core::PCWSTR, fhighpriority: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
-        }
-        CreateGPOLink(lpgpo.into_param().abi(), lpcontainer.into_param().abi(), fhighpriority.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateGPOLink(lpgpo: ::windows::core::PCWSTR, lpcontainer: ::windows::core::PCWSTR, fhighpriority: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CreateGPOLink(lpgpo.into_param().abi(), lpcontainer.into_param().abi(), fhighpriority.into_param().abi()).ok()
 }
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -104,60 +89,40 @@ unsafe impl ::windows::core::Abi for CriticalPolicySectionHandle {
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[inline]
 pub unsafe fn DeleteAllGPOLinks<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpcontainer: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DeleteAllGPOLinks(lpcontainer: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
-        }
-        DeleteAllGPOLinks(lpcontainer.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DeleteAllGPOLinks(lpcontainer: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DeleteAllGPOLinks(lpcontainer.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[inline]
 pub unsafe fn DeleteGPOLink<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpgpo: Param0, lpcontainer: Param1) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DeleteGPOLink(lpgpo: ::windows::core::PCWSTR, lpcontainer: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
-        }
-        DeleteGPOLink(lpgpo.into_param().abi(), lpcontainer.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DeleteGPOLink(lpgpo: ::windows::core::PCWSTR, lpcontainer: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DeleteGPOLink(lpgpo.into_param().abi(), lpcontainer.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnterCriticalPolicySection<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(bmachine: Param0) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn EnterCriticalPolicySection(bmachine: super::super::Foundation::BOOL) -> super::super::Foundation::HANDLE;
-        }
-        let result__ = EnterCriticalPolicySection(bmachine.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn EnterCriticalPolicySection(bmachine: super::super::Foundation::BOOL) -> super::super::Foundation::HANDLE;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let result__ = EnterCriticalPolicySection(bmachine.into_param().abi());
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[inline]
 pub unsafe fn ExportRSoPData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpnamespace: Param0, lpfilename: Param1) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ExportRSoPData(lpnamespace: ::windows::core::PCWSTR, lpfilename: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
-        }
-        ExportRSoPData(lpnamespace.into_param().abi(), lpfilename.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ExportRSoPData(lpnamespace: ::windows::core::PCWSTR, lpfilename: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ExportRSoPData(lpnamespace.into_param().abi(), lpfilename.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const FLAG_ASSUME_COMP_WQLFILTER_TRUE: u32 = 33554432u32;
@@ -185,31 +150,21 @@ pub const FLAG_PLANNING_MODE: u32 = 16777216u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FreeGPOListA(pgpolist: *const GROUP_POLICY_OBJECTA) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn FreeGPOListA(pgpolist: *const GROUP_POLICY_OBJECTA) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(FreeGPOListA(::core::mem::transmute(pgpolist)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn FreeGPOListA(pgpolist: *const GROUP_POLICY_OBJECTA) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(FreeGPOListA(::core::mem::transmute(pgpolist)))
 }
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FreeGPOListW(pgpolist: *const GROUP_POLICY_OBJECTW) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn FreeGPOListW(pgpolist: *const GROUP_POLICY_OBJECTW) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(FreeGPOListW(::core::mem::transmute(pgpolist)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn FreeGPOListW(pgpolist: *const GROUP_POLICY_OBJECTW) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(FreeGPOListW(::core::mem::transmute(pgpolist)))
 }
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPC_BLOCK_POLICY: u32 = 1u32;
@@ -1009,135 +964,90 @@ impl ::core::fmt::Debug for GROUP_POLICY_OBJECT_TYPE {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GenerateGPNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(bmachine: Param0, lpwszmgmtproduct: Param1, dwmgmtproductoptions: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GenerateGPNotification(bmachine: super::super::Foundation::BOOL, lpwszmgmtproduct: ::windows::core::PCWSTR, dwmgmtproductoptions: u32) -> u32;
-        }
-        ::core::mem::transmute(GenerateGPNotification(bmachine.into_param().abi(), lpwszmgmtproduct.into_param().abi(), ::core::mem::transmute(dwmgmtproductoptions)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GenerateGPNotification(bmachine: super::super::Foundation::BOOL, lpwszmgmtproduct: ::windows::core::PCWSTR, dwmgmtproductoptions: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GenerateGPNotification(bmachine.into_param().abi(), lpwszmgmtproduct.into_param().abi(), ::core::mem::transmute(dwmgmtproductoptions)))
 }
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetAppliedGPOListA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSID>>(dwflags: u32, pmachinename: Param1, psiduser: Param2, pguidextension: *const ::windows::core::GUID, ppgpolist: *mut *mut GROUP_POLICY_OBJECTA) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetAppliedGPOListA(dwflags: u32, pmachinename: ::windows::core::PCSTR, psiduser: super::super::Foundation::PSID, pguidextension: *const ::windows::core::GUID, ppgpolist: *mut *mut GROUP_POLICY_OBJECTA) -> u32;
-        }
-        ::core::mem::transmute(GetAppliedGPOListA(::core::mem::transmute(dwflags), pmachinename.into_param().abi(), psiduser.into_param().abi(), ::core::mem::transmute(pguidextension), ::core::mem::transmute(ppgpolist)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetAppliedGPOListA(dwflags: u32, pmachinename: ::windows::core::PCSTR, psiduser: super::super::Foundation::PSID, pguidextension: *const ::windows::core::GUID, ppgpolist: *mut *mut GROUP_POLICY_OBJECTA) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetAppliedGPOListA(::core::mem::transmute(dwflags), pmachinename.into_param().abi(), psiduser.into_param().abi(), ::core::mem::transmute(pguidextension), ::core::mem::transmute(ppgpolist)))
 }
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetAppliedGPOListW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSID>>(dwflags: u32, pmachinename: Param1, psiduser: Param2, pguidextension: *const ::windows::core::GUID, ppgpolist: *mut *mut GROUP_POLICY_OBJECTW) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetAppliedGPOListW(dwflags: u32, pmachinename: ::windows::core::PCWSTR, psiduser: super::super::Foundation::PSID, pguidextension: *const ::windows::core::GUID, ppgpolist: *mut *mut GROUP_POLICY_OBJECTW) -> u32;
-        }
-        ::core::mem::transmute(GetAppliedGPOListW(::core::mem::transmute(dwflags), pmachinename.into_param().abi(), psiduser.into_param().abi(), ::core::mem::transmute(pguidextension), ::core::mem::transmute(ppgpolist)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetAppliedGPOListW(dwflags: u32, pmachinename: ::windows::core::PCWSTR, psiduser: super::super::Foundation::PSID, pguidextension: *const ::windows::core::GUID, ppgpolist: *mut *mut GROUP_POLICY_OBJECTW) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetAppliedGPOListW(::core::mem::transmute(dwflags), pmachinename.into_param().abi(), psiduser.into_param().abi(), ::core::mem::transmute(pguidextension), ::core::mem::transmute(ppgpolist)))
 }
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetGPOListA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(htoken: Param0, lpname: Param1, lphostname: Param2, lpcomputername: Param3, dwflags: u32, pgpolist: *mut *mut GROUP_POLICY_OBJECTA) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetGPOListA(htoken: super::super::Foundation::HANDLE, lpname: ::windows::core::PCSTR, lphostname: ::windows::core::PCSTR, lpcomputername: ::windows::core::PCSTR, dwflags: u32, pgpolist: *mut *mut GROUP_POLICY_OBJECTA) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetGPOListA(htoken.into_param().abi(), lpname.into_param().abi(), lphostname.into_param().abi(), lpcomputername.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(pgpolist)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetGPOListA(htoken: super::super::Foundation::HANDLE, lpname: ::windows::core::PCSTR, lphostname: ::windows::core::PCSTR, lpcomputername: ::windows::core::PCSTR, dwflags: u32, pgpolist: *mut *mut GROUP_POLICY_OBJECTA) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetGPOListA(htoken.into_param().abi(), lpname.into_param().abi(), lphostname.into_param().abi(), lpcomputername.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(pgpolist)))
 }
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetGPOListW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(htoken: Param0, lpname: Param1, lphostname: Param2, lpcomputername: Param3, dwflags: u32, pgpolist: *mut *mut GROUP_POLICY_OBJECTW) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetGPOListW(htoken: super::super::Foundation::HANDLE, lpname: ::windows::core::PCWSTR, lphostname: ::windows::core::PCWSTR, lpcomputername: ::windows::core::PCWSTR, dwflags: u32, pgpolist: *mut *mut GROUP_POLICY_OBJECTW) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetGPOListW(htoken.into_param().abi(), lpname.into_param().abi(), lphostname.into_param().abi(), lpcomputername.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(pgpolist)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetGPOListW(htoken: super::super::Foundation::HANDLE, lpname: ::windows::core::PCWSTR, lphostname: ::windows::core::PCWSTR, lpcomputername: ::windows::core::PCWSTR, dwflags: u32, pgpolist: *mut *mut GROUP_POLICY_OBJECTW) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetGPOListW(htoken.into_param().abi(), lpname.into_param().abi(), lphostname.into_param().abi(), lpcomputername.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(pgpolist)))
 }
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[inline]
 pub unsafe fn GetLocalManagedApplicationData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(productcode: Param0, displayname: *mut ::windows::core::PWSTR, supporturl: *mut ::windows::core::PWSTR) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetLocalManagedApplicationData(productcode: ::windows::core::PCWSTR, displayname: *mut ::windows::core::PWSTR, supporturl: *mut ::windows::core::PWSTR);
-        }
-        GetLocalManagedApplicationData(productcode.into_param().abi(), ::core::mem::transmute(displayname), ::core::mem::transmute(supporturl))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetLocalManagedApplicationData(productcode: ::windows::core::PCWSTR, displayname: *mut ::windows::core::PWSTR, supporturl: *mut ::windows::core::PWSTR);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    GetLocalManagedApplicationData(productcode.into_param().abi(), ::core::mem::transmute(displayname), ::core::mem::transmute(supporturl))
 }
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetLocalManagedApplications<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(buserapps: Param0, pdwapps: *mut u32, prglocalapps: *mut *mut LOCALMANAGEDAPPLICATION) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetLocalManagedApplications(buserapps: super::super::Foundation::BOOL, pdwapps: *mut u32, prglocalapps: *mut *mut LOCALMANAGEDAPPLICATION) -> u32;
-        }
-        ::core::mem::transmute(GetLocalManagedApplications(buserapps.into_param().abi(), ::core::mem::transmute(pdwapps), ::core::mem::transmute(prglocalapps)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetLocalManagedApplications(buserapps: super::super::Foundation::BOOL, pdwapps: *mut u32, prglocalapps: *mut *mut LOCALMANAGEDAPPLICATION) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetLocalManagedApplications(buserapps.into_param().abi(), ::core::mem::transmute(pdwapps), ::core::mem::transmute(prglocalapps)))
 }
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_UI_Shell\"`*"]
 #[cfg(feature = "Win32_UI_Shell")]
 #[inline]
 pub unsafe fn GetManagedApplicationCategories(dwreserved: u32, pappcategory: *mut super::super::UI::Shell::APPCATEGORYINFOLIST) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetManagedApplicationCategories(dwreserved: u32, pappcategory: *mut super::super::UI::Shell::APPCATEGORYINFOLIST) -> u32;
-        }
-        ::core::mem::transmute(GetManagedApplicationCategories(::core::mem::transmute(dwreserved), ::core::mem::transmute(pappcategory)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetManagedApplicationCategories(dwreserved: u32, pappcategory: *mut super::super::UI::Shell::APPCATEGORYINFOLIST) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetManagedApplicationCategories(::core::mem::transmute(dwreserved), ::core::mem::transmute(pappcategory)))
 }
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetManagedApplications(pcategory: *const ::windows::core::GUID, dwqueryflags: u32, dwinfolevel: u32, pdwapps: *mut u32, prgmanagedapps: *mut *mut MANAGEDAPPLICATION) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetManagedApplications(pcategory: *const ::windows::core::GUID, dwqueryflags: u32, dwinfolevel: u32, pdwapps: *mut u32, prgmanagedapps: *mut *mut MANAGEDAPPLICATION) -> u32;
-        }
-        ::core::mem::transmute(GetManagedApplications(::core::mem::transmute(pcategory), ::core::mem::transmute(dwqueryflags), ::core::mem::transmute(dwinfolevel), ::core::mem::transmute(pdwapps), ::core::mem::transmute(prgmanagedapps)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetManagedApplications(pcategory: *const ::windows::core::GUID, dwqueryflags: u32, dwinfolevel: u32, pdwapps: *mut u32, prgmanagedapps: *mut *mut MANAGEDAPPLICATION) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetManagedApplications(::core::mem::transmute(pcategory), ::core::mem::transmute(dwqueryflags), ::core::mem::transmute(dwinfolevel), ::core::mem::transmute(pdwapps), ::core::mem::transmute(prgmanagedapps)))
 }
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[repr(transparent)]
@@ -8852,30 +8762,20 @@ pub struct IRSOPInformation_Vtbl {
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[inline]
 pub unsafe fn ImportRSoPData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpnamespace: Param0, lpfilename: Param1) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ImportRSoPData(lpnamespace: ::windows::core::PCWSTR, lpfilename: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
-        }
-        ImportRSoPData(lpnamespace.into_param().abi(), lpfilename.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ImportRSoPData(lpnamespace: ::windows::core::PCWSTR, lpfilename: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ImportRSoPData(lpnamespace.into_param().abi(), lpfilename.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[inline]
 pub unsafe fn InstallApplication(pinstallinfo: *const INSTALLDATA) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InstallApplication(pinstallinfo: *const INSTALLDATA) -> u32;
-        }
-        ::core::mem::transmute(InstallApplication(::core::mem::transmute(pinstallinfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InstallApplication(pinstallinfo: *const INSTALLDATA) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(InstallApplication(::core::mem::transmute(pinstallinfo)))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
@@ -8928,16 +8828,11 @@ pub const LOCALSTATE_UNINSTALL_UNMANAGED: u32 = 4u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LeaveCriticalPolicySection<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hsection: Param0) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LeaveCriticalPolicySection(hsection: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(LeaveCriticalPolicySection(hsection.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LeaveCriticalPolicySection(hsection: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(LeaveCriticalPolicySection(hsection.into_param().abi()))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`*"]
@@ -9100,30 +8995,20 @@ pub const PT_TEMPORARY: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[inline]
 pub unsafe fn ProcessGroupPolicyCompleted(extensionid: *const ::windows::core::GUID, pasynchandle: usize, dwstatus: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ProcessGroupPolicyCompleted(extensionid: *const ::windows::core::GUID, pasynchandle: usize, dwstatus: u32) -> u32;
-        }
-        ::core::mem::transmute(ProcessGroupPolicyCompleted(::core::mem::transmute(extensionid), ::core::mem::transmute(pasynchandle), ::core::mem::transmute(dwstatus)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ProcessGroupPolicyCompleted(extensionid: *const ::windows::core::GUID, pasynchandle: usize, dwstatus: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(ProcessGroupPolicyCompleted(::core::mem::transmute(extensionid), ::core::mem::transmute(pasynchandle), ::core::mem::transmute(dwstatus)))
 }
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[inline]
 pub unsafe fn ProcessGroupPolicyCompletedEx(extensionid: *const ::windows::core::GUID, pasynchandle: usize, dwstatus: u32, rsopstatus: ::windows::core::HRESULT) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ProcessGroupPolicyCompletedEx(extensionid: *const ::windows::core::GUID, pasynchandle: usize, dwstatus: u32, rsopstatus: ::windows::core::HRESULT) -> u32;
-        }
-        ::core::mem::transmute(ProcessGroupPolicyCompletedEx(::core::mem::transmute(extensionid), ::core::mem::transmute(pasynchandle), ::core::mem::transmute(dwstatus), ::core::mem::transmute(rsopstatus)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ProcessGroupPolicyCompletedEx(extensionid: *const ::windows::core::GUID, pasynchandle: usize, dwstatus: u32, rsopstatus: ::windows::core::HRESULT) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(ProcessGroupPolicyCompletedEx(::core::mem::transmute(extensionid), ::core::mem::transmute(pasynchandle), ::core::mem::transmute(dwstatus), ::core::mem::transmute(rsopstatus)))
 }
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const RP_FORCE: u32 = 1u32;
@@ -9203,105 +9088,70 @@ pub const RSOP_USER_ACCESS_DENIED: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RefreshPolicy<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(bmachine: Param0) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RefreshPolicy(bmachine: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(RefreshPolicy(bmachine.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RefreshPolicy(bmachine: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RefreshPolicy(bmachine.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RefreshPolicyEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(bmachine: Param0, dwoptions: u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RefreshPolicyEx(bmachine: super::super::Foundation::BOOL, dwoptions: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(RefreshPolicyEx(bmachine.into_param().abi(), ::core::mem::transmute(dwoptions)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RefreshPolicyEx(bmachine: super::super::Foundation::BOOL, dwoptions: u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RefreshPolicyEx(bmachine.into_param().abi(), ::core::mem::transmute(dwoptions)))
 }
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegisterGPNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hevent: Param0, bmachine: Param1) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RegisterGPNotification(hevent: super::super::Foundation::HANDLE, bmachine: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(RegisterGPNotification(hevent.into_param().abi(), bmachine.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RegisterGPNotification(hevent: super::super::Foundation::HANDLE, bmachine: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RegisterGPNotification(hevent.into_param().abi(), bmachine.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn RsopAccessCheckByType<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::PSECURITY_DESCRIPTOR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSID>>(psecuritydescriptor: Param0, pprincipalselfsid: Param1, prsoptoken: *const ::core::ffi::c_void, dwdesiredaccessmask: u32, pobjecttypelist: &[super::super::Security::OBJECT_TYPE_LIST], pgenericmapping: *const super::super::Security::GENERIC_MAPPING, pprivilegeset: *const super::super::Security::PRIVILEGE_SET, pdwprivilegesetlength: *const u32, pdwgrantedaccessmask: *mut u32, pbaccessstatus: *mut i32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RsopAccessCheckByType(psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, pprincipalselfsid: super::super::Foundation::PSID, prsoptoken: *const ::core::ffi::c_void, dwdesiredaccessmask: u32, pobjecttypelist: *const super::super::Security::OBJECT_TYPE_LIST, objecttypelistlength: u32, pgenericmapping: *const super::super::Security::GENERIC_MAPPING, pprivilegeset: *const super::super::Security::PRIVILEGE_SET, pdwprivilegesetlength: *const u32, pdwgrantedaccessmask: *mut u32, pbaccessstatus: *mut i32) -> ::windows::core::HRESULT;
-        }
-        RsopAccessCheckByType(psecuritydescriptor.into_param().abi(), pprincipalselfsid.into_param().abi(), ::core::mem::transmute(prsoptoken), ::core::mem::transmute(dwdesiredaccessmask), ::core::mem::transmute(::windows::core::as_ptr_or_null(pobjecttypelist)), pobjecttypelist.len() as _, ::core::mem::transmute(pgenericmapping), ::core::mem::transmute(pprivilegeset), ::core::mem::transmute(pdwprivilegesetlength), ::core::mem::transmute(pdwgrantedaccessmask), ::core::mem::transmute(pbaccessstatus)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RsopAccessCheckByType(psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, pprincipalselfsid: super::super::Foundation::PSID, prsoptoken: *const ::core::ffi::c_void, dwdesiredaccessmask: u32, pobjecttypelist: *const super::super::Security::OBJECT_TYPE_LIST, objecttypelistlength: u32, pgenericmapping: *const super::super::Security::GENERIC_MAPPING, pprivilegeset: *const super::super::Security::PRIVILEGE_SET, pdwprivilegesetlength: *const u32, pdwgrantedaccessmask: *mut u32, pbaccessstatus: *mut i32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    RsopAccessCheckByType(psecuritydescriptor.into_param().abi(), pprincipalselfsid.into_param().abi(), ::core::mem::transmute(prsoptoken), ::core::mem::transmute(dwdesiredaccessmask), ::core::mem::transmute(::windows::core::as_ptr_or_null(pobjecttypelist)), pobjecttypelist.len() as _, ::core::mem::transmute(pgenericmapping), ::core::mem::transmute(pprivilegeset), ::core::mem::transmute(pdwprivilegesetlength), ::core::mem::transmute(pdwgrantedaccessmask), ::core::mem::transmute(pbaccessstatus)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[inline]
 pub unsafe fn RsopFileAccessCheck<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pszfilename: Param0, prsoptoken: *const ::core::ffi::c_void, dwdesiredaccessmask: u32, pdwgrantedaccessmask: *mut u32, pbaccessstatus: *mut i32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RsopFileAccessCheck(pszfilename: ::windows::core::PCWSTR, prsoptoken: *const ::core::ffi::c_void, dwdesiredaccessmask: u32, pdwgrantedaccessmask: *mut u32, pbaccessstatus: *mut i32) -> ::windows::core::HRESULT;
-        }
-        RsopFileAccessCheck(pszfilename.into_param().abi(), ::core::mem::transmute(prsoptoken), ::core::mem::transmute(dwdesiredaccessmask), ::core::mem::transmute(pdwgrantedaccessmask), ::core::mem::transmute(pbaccessstatus)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RsopFileAccessCheck(pszfilename: ::windows::core::PCWSTR, prsoptoken: *const ::core::ffi::c_void, dwdesiredaccessmask: u32, pdwgrantedaccessmask: *mut u32, pbaccessstatus: *mut i32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    RsopFileAccessCheck(pszfilename.into_param().abi(), ::core::mem::transmute(prsoptoken), ::core::mem::transmute(dwdesiredaccessmask), ::core::mem::transmute(pdwgrantedaccessmask), ::core::mem::transmute(pbaccessstatus)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_System_Wmi\"`*"]
 #[cfg(feature = "Win32_System_Wmi")]
 #[inline]
 pub unsafe fn RsopResetPolicySettingStatus<'a, Param1: ::windows::core::IntoParam<'a, super::Wmi::IWbemServices>, Param2: ::windows::core::IntoParam<'a, super::Wmi::IWbemClassObject>>(dwflags: u32, pservices: Param1, psettinginstance: Param2) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RsopResetPolicySettingStatus(dwflags: u32, pservices: *mut ::core::ffi::c_void, psettinginstance: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        RsopResetPolicySettingStatus(::core::mem::transmute(dwflags), pservices.into_param().abi(), psettinginstance.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RsopResetPolicySettingStatus(dwflags: u32, pservices: *mut ::core::ffi::c_void, psettinginstance: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    RsopResetPolicySettingStatus(::core::mem::transmute(dwflags), pservices.into_param().abi(), psettinginstance.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`, `\"Win32_System_Wmi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Wmi"))]
 #[inline]
 pub unsafe fn RsopSetPolicySettingStatus<'a, Param1: ::windows::core::IntoParam<'a, super::Wmi::IWbemServices>, Param2: ::windows::core::IntoParam<'a, super::Wmi::IWbemClassObject>>(dwflags: u32, pservices: Param1, psettinginstance: Param2, pstatus: &[POLICYSETTINGSTATUSINFO]) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RsopSetPolicySettingStatus(dwflags: u32, pservices: *mut ::core::ffi::c_void, psettinginstance: *mut ::core::ffi::c_void, ninfo: u32, pstatus: *const POLICYSETTINGSTATUSINFO) -> ::windows::core::HRESULT;
-        }
-        RsopSetPolicySettingStatus(::core::mem::transmute(dwflags), pservices.into_param().abi(), psettinginstance.into_param().abi(), pstatus.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pstatus))).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RsopSetPolicySettingStatus(dwflags: u32, pservices: *mut ::core::ffi::c_void, psettinginstance: *mut ::core::ffi::c_void, ninfo: u32, pstatus: *const POLICYSETTINGSTATUSINFO) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    RsopSetPolicySettingStatus(::core::mem::transmute(dwflags), pservices.into_param().abi(), psettinginstance.into_param().abi(), pstatus.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pstatus))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[repr(transparent)]
@@ -9339,31 +9189,21 @@ impl ::core::fmt::Debug for SETTINGSTATUS {
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[inline]
 pub unsafe fn UninstallApplication<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(productcode: Param0, dwstatus: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UninstallApplication(productcode: ::windows::core::PCWSTR, dwstatus: u32) -> u32;
-        }
-        ::core::mem::transmute(UninstallApplication(productcode.into_param().abi(), ::core::mem::transmute(dwstatus)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UninstallApplication(productcode: ::windows::core::PCWSTR, dwstatus: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(UninstallApplication(productcode.into_param().abi(), ::core::mem::transmute(dwstatus)))
 }
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UnregisterGPNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hevent: Param0) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UnregisterGPNotification(hevent: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(UnregisterGPNotification(hevent.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UnregisterGPNotification(hevent: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(UnregisterGPNotification(hevent.into_param().abi()))
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -381,61 +381,41 @@ impl ::core::fmt::Debug for ATTACH_VIRTUAL_DISK_VERSION {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddVirtualDiskParent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(virtualdiskhandle: Param0, parentpath: Param1) -> super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AddVirtualDiskParent(virtualdiskhandle: super::super::Foundation::HANDLE, parentpath: ::windows::core::PCWSTR) -> super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(AddVirtualDiskParent(virtualdiskhandle.into_param().abi(), parentpath.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AddVirtualDiskParent(virtualdiskhandle: super::super::Foundation::HANDLE, parentpath: ::windows::core::PCWSTR) -> super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AddVirtualDiskParent(virtualdiskhandle.into_param().abi(), parentpath.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ApplySnapshotVhdSet<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, parameters: *const APPLY_SNAPSHOT_VHDSET_PARAMETERS, flags: APPLY_SNAPSHOT_VHDSET_FLAG) -> super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ApplySnapshotVhdSet(virtualdiskhandle: super::super::Foundation::HANDLE, parameters: *const APPLY_SNAPSHOT_VHDSET_PARAMETERS, flags: APPLY_SNAPSHOT_VHDSET_FLAG) -> super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(ApplySnapshotVhdSet(virtualdiskhandle.into_param().abi(), ::core::mem::transmute(parameters), ::core::mem::transmute(flags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ApplySnapshotVhdSet(virtualdiskhandle: super::super::Foundation::HANDLE, parameters: *const APPLY_SNAPSHOT_VHDSET_PARAMETERS, flags: APPLY_SNAPSHOT_VHDSET_FLAG) -> super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(ApplySnapshotVhdSet(virtualdiskhandle.into_param().abi(), ::core::mem::transmute(parameters), ::core::mem::transmute(flags)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn AttachVirtualDisk<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Security::PSECURITY_DESCRIPTOR>>(virtualdiskhandle: Param0, securitydescriptor: Param1, flags: ATTACH_VIRTUAL_DISK_FLAG, providerspecificflags: u32, parameters: *const ATTACH_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AttachVirtualDisk(virtualdiskhandle: super::super::Foundation::HANDLE, securitydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, flags: ATTACH_VIRTUAL_DISK_FLAG, providerspecificflags: u32, parameters: *const ATTACH_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(AttachVirtualDisk(virtualdiskhandle.into_param().abi(), securitydescriptor.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(providerspecificflags), ::core::mem::transmute(parameters), ::core::mem::transmute(overlapped)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AttachVirtualDisk(virtualdiskhandle: super::super::Foundation::HANDLE, securitydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, flags: ATTACH_VIRTUAL_DISK_FLAG, providerspecificflags: u32, parameters: *const ATTACH_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AttachVirtualDisk(virtualdiskhandle.into_param().abi(), securitydescriptor.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(providerspecificflags), ::core::mem::transmute(parameters), ::core::mem::transmute(overlapped)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BreakMirrorVirtualDisk<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0) -> super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn BreakMirrorVirtualDisk(virtualdiskhandle: super::super::Foundation::HANDLE) -> super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(BreakMirrorVirtualDisk(virtualdiskhandle.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn BreakMirrorVirtualDisk(virtualdiskhandle: super::super::Foundation::HANDLE) -> super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(BreakMirrorVirtualDisk(virtualdiskhandle.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
@@ -975,46 +955,31 @@ impl ::core::fmt::Debug for CREATE_VIRTUAL_DISK_VERSION {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn CompactVirtualDisk<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, flags: COMPACT_VIRTUAL_DISK_FLAG, parameters: *const COMPACT_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CompactVirtualDisk(virtualdiskhandle: super::super::Foundation::HANDLE, flags: COMPACT_VIRTUAL_DISK_FLAG, parameters: *const COMPACT_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(CompactVirtualDisk(virtualdiskhandle.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(parameters), ::core::mem::transmute(overlapped)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CompactVirtualDisk(virtualdiskhandle: super::super::Foundation::HANDLE, flags: COMPACT_VIRTUAL_DISK_FLAG, parameters: *const COMPACT_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CompactVirtualDisk(virtualdiskhandle.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(parameters), ::core::mem::transmute(overlapped)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CompleteForkVirtualDisk<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0) -> super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CompleteForkVirtualDisk(virtualdiskhandle: super::super::Foundation::HANDLE) -> super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(CompleteForkVirtualDisk(virtualdiskhandle.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CompleteForkVirtualDisk(virtualdiskhandle: super::super::Foundation::HANDLE) -> super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CompleteForkVirtualDisk(virtualdiskhandle.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn CreateVirtualDisk<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Security::PSECURITY_DESCRIPTOR>>(virtualstoragetype: *const VIRTUAL_STORAGE_TYPE, path: Param1, virtualdiskaccessmask: VIRTUAL_DISK_ACCESS_MASK, securitydescriptor: Param3, flags: CREATE_VIRTUAL_DISK_FLAG, providerspecificflags: u32, parameters: *const CREATE_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED, handle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateVirtualDisk(virtualstoragetype: *const VIRTUAL_STORAGE_TYPE, path: ::windows::core::PCWSTR, virtualdiskaccessmask: VIRTUAL_DISK_ACCESS_MASK, securitydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, flags: CREATE_VIRTUAL_DISK_FLAG, providerspecificflags: u32, parameters: *const CREATE_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED, handle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(CreateVirtualDisk(::core::mem::transmute(virtualstoragetype), path.into_param().abi(), ::core::mem::transmute(virtualdiskaccessmask), securitydescriptor.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(providerspecificflags), ::core::mem::transmute(parameters), ::core::mem::transmute(overlapped), ::core::mem::transmute(handle)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateVirtualDisk(virtualstoragetype: *const VIRTUAL_STORAGE_TYPE, path: ::windows::core::PCWSTR, virtualdiskaccessmask: VIRTUAL_DISK_ACCESS_MASK, securitydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, flags: CREATE_VIRTUAL_DISK_FLAG, providerspecificflags: u32, parameters: *const CREATE_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED, handle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CreateVirtualDisk(::core::mem::transmute(virtualstoragetype), path.into_param().abi(), ::core::mem::transmute(virtualdiskaccessmask), securitydescriptor.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(providerspecificflags), ::core::mem::transmute(parameters), ::core::mem::transmute(overlapped), ::core::mem::transmute(handle)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
@@ -1317,46 +1282,31 @@ impl ::core::ops::Not for DETACH_VIRTUAL_DISK_FLAG {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteSnapshotVhdSet<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, parameters: *const DELETE_SNAPSHOT_VHDSET_PARAMETERS, flags: DELETE_SNAPSHOT_VHDSET_FLAG) -> super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DeleteSnapshotVhdSet(virtualdiskhandle: super::super::Foundation::HANDLE, parameters: *const DELETE_SNAPSHOT_VHDSET_PARAMETERS, flags: DELETE_SNAPSHOT_VHDSET_FLAG) -> super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(DeleteSnapshotVhdSet(virtualdiskhandle.into_param().abi(), ::core::mem::transmute(parameters), ::core::mem::transmute(flags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DeleteSnapshotVhdSet(virtualdiskhandle: super::super::Foundation::HANDLE, parameters: *const DELETE_SNAPSHOT_VHDSET_PARAMETERS, flags: DELETE_SNAPSHOT_VHDSET_FLAG) -> super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(DeleteSnapshotVhdSet(virtualdiskhandle.into_param().abi(), ::core::mem::transmute(parameters), ::core::mem::transmute(flags)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteVirtualDiskMetadata<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, item: *const ::windows::core::GUID) -> super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DeleteVirtualDiskMetadata(virtualdiskhandle: super::super::Foundation::HANDLE, item: *const ::windows::core::GUID) -> super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(DeleteVirtualDiskMetadata(virtualdiskhandle.into_param().abi(), ::core::mem::transmute(item)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DeleteVirtualDiskMetadata(virtualdiskhandle: super::super::Foundation::HANDLE, item: *const ::windows::core::GUID) -> super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(DeleteVirtualDiskMetadata(virtualdiskhandle.into_param().abi(), ::core::mem::transmute(item)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DetachVirtualDisk<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, flags: DETACH_VIRTUAL_DISK_FLAG, providerspecificflags: u32) -> super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DetachVirtualDisk(virtualdiskhandle: super::super::Foundation::HANDLE, flags: DETACH_VIRTUAL_DISK_FLAG, providerspecificflags: u32) -> super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(DetachVirtualDisk(virtualdiskhandle.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(providerspecificflags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DetachVirtualDisk(virtualdiskhandle: super::super::Foundation::HANDLE, flags: DETACH_VIRTUAL_DISK_FLAG, providerspecificflags: u32) -> super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(DetachVirtualDisk(virtualdiskhandle.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(providerspecificflags)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
@@ -1525,31 +1475,21 @@ impl ::core::fmt::Debug for EXPAND_VIRTUAL_DISK_VERSION {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumerateVirtualDiskMetadata<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, numberofitems: *mut u32, items: *mut ::windows::core::GUID) -> super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn EnumerateVirtualDiskMetadata(virtualdiskhandle: super::super::Foundation::HANDLE, numberofitems: *mut u32, items: *mut ::windows::core::GUID) -> super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(EnumerateVirtualDiskMetadata(virtualdiskhandle.into_param().abi(), ::core::mem::transmute(numberofitems), ::core::mem::transmute(items)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn EnumerateVirtualDiskMetadata(virtualdiskhandle: super::super::Foundation::HANDLE, numberofitems: *mut u32, items: *mut ::windows::core::GUID) -> super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(EnumerateVirtualDiskMetadata(virtualdiskhandle.into_param().abi(), ::core::mem::transmute(numberofitems), ::core::mem::transmute(items)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn ExpandVirtualDisk<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, flags: EXPAND_VIRTUAL_DISK_FLAG, parameters: *const EXPAND_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ExpandVirtualDisk(virtualdiskhandle: super::super::Foundation::HANDLE, flags: EXPAND_VIRTUAL_DISK_FLAG, parameters: *const EXPAND_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(ExpandVirtualDisk(virtualdiskhandle.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(parameters), ::core::mem::transmute(overlapped)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ExpandVirtualDisk(virtualdiskhandle: super::super::Foundation::HANDLE, flags: EXPAND_VIRTUAL_DISK_FLAG, parameters: *const EXPAND_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(ExpandVirtualDisk(virtualdiskhandle.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(parameters), ::core::mem::transmute(overlapped)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
@@ -1718,16 +1658,11 @@ impl ::core::fmt::Debug for FORK_VIRTUAL_DISK_VERSION {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn ForkVirtualDisk<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, flags: FORK_VIRTUAL_DISK_FLAG, parameters: *const FORK_VIRTUAL_DISK_PARAMETERS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ForkVirtualDisk(virtualdiskhandle: super::super::Foundation::HANDLE, flags: FORK_VIRTUAL_DISK_FLAG, parameters: *const FORK_VIRTUAL_DISK_PARAMETERS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(ForkVirtualDisk(virtualdiskhandle.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(parameters), ::core::mem::transmute(overlapped)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ForkVirtualDisk(virtualdiskhandle: super::super::Foundation::HANDLE, flags: FORK_VIRTUAL_DISK_FLAG, parameters: *const FORK_VIRTUAL_DISK_PARAMETERS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(ForkVirtualDisk(virtualdiskhandle.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(parameters), ::core::mem::transmute(overlapped)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
@@ -2084,91 +2019,61 @@ impl ::core::fmt::Debug for GET_VIRTUAL_DISK_INFO_VERSION {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetAllAttachedVirtualDiskPhysicalPaths(pathsbuffersizeinbytes: *mut u32, pathsbuffer: ::windows::core::PWSTR) -> super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetAllAttachedVirtualDiskPhysicalPaths(pathsbuffersizeinbytes: *mut u32, pathsbuffer: ::windows::core::PWSTR) -> super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(GetAllAttachedVirtualDiskPhysicalPaths(::core::mem::transmute(pathsbuffersizeinbytes), ::core::mem::transmute(pathsbuffer)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetAllAttachedVirtualDiskPhysicalPaths(pathsbuffersizeinbytes: *mut u32, pathsbuffer: ::windows::core::PWSTR) -> super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetAllAttachedVirtualDiskPhysicalPaths(::core::mem::transmute(pathsbuffersizeinbytes), ::core::mem::transmute(pathsbuffer)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetStorageDependencyInformation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(objecthandle: Param0, flags: GET_STORAGE_DEPENDENCY_FLAG, storagedependencyinfosize: u32, storagedependencyinfo: *mut STORAGE_DEPENDENCY_INFO, sizeused: *mut u32) -> super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetStorageDependencyInformation(objecthandle: super::super::Foundation::HANDLE, flags: GET_STORAGE_DEPENDENCY_FLAG, storagedependencyinfosize: u32, storagedependencyinfo: *mut STORAGE_DEPENDENCY_INFO, sizeused: *mut u32) -> super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(GetStorageDependencyInformation(objecthandle.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(storagedependencyinfosize), ::core::mem::transmute(storagedependencyinfo), ::core::mem::transmute(sizeused)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetStorageDependencyInformation(objecthandle: super::super::Foundation::HANDLE, flags: GET_STORAGE_DEPENDENCY_FLAG, storagedependencyinfosize: u32, storagedependencyinfo: *mut STORAGE_DEPENDENCY_INFO, sizeused: *mut u32) -> super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetStorageDependencyInformation(objecthandle.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(storagedependencyinfosize), ::core::mem::transmute(storagedependencyinfo), ::core::mem::transmute(sizeused)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetVirtualDiskInformation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, virtualdiskinfosize: *mut u32, virtualdiskinfo: *mut GET_VIRTUAL_DISK_INFO, sizeused: *mut u32) -> super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetVirtualDiskInformation(virtualdiskhandle: super::super::Foundation::HANDLE, virtualdiskinfosize: *mut u32, virtualdiskinfo: *mut GET_VIRTUAL_DISK_INFO, sizeused: *mut u32) -> super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(GetVirtualDiskInformation(virtualdiskhandle.into_param().abi(), ::core::mem::transmute(virtualdiskinfosize), ::core::mem::transmute(virtualdiskinfo), ::core::mem::transmute(sizeused)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetVirtualDiskInformation(virtualdiskhandle: super::super::Foundation::HANDLE, virtualdiskinfosize: *mut u32, virtualdiskinfo: *mut GET_VIRTUAL_DISK_INFO, sizeused: *mut u32) -> super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetVirtualDiskInformation(virtualdiskhandle.into_param().abi(), ::core::mem::transmute(virtualdiskinfosize), ::core::mem::transmute(virtualdiskinfo), ::core::mem::transmute(sizeused)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetVirtualDiskMetadata<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, item: *const ::windows::core::GUID, metadatasize: *mut u32, metadata: *mut ::core::ffi::c_void) -> super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetVirtualDiskMetadata(virtualdiskhandle: super::super::Foundation::HANDLE, item: *const ::windows::core::GUID, metadatasize: *mut u32, metadata: *mut ::core::ffi::c_void) -> super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(GetVirtualDiskMetadata(virtualdiskhandle.into_param().abi(), ::core::mem::transmute(item), ::core::mem::transmute(metadatasize), ::core::mem::transmute(metadata)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetVirtualDiskMetadata(virtualdiskhandle: super::super::Foundation::HANDLE, item: *const ::windows::core::GUID, metadatasize: *mut u32, metadata: *mut ::core::ffi::c_void) -> super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetVirtualDiskMetadata(virtualdiskhandle.into_param().abi(), ::core::mem::transmute(item), ::core::mem::transmute(metadatasize), ::core::mem::transmute(metadata)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn GetVirtualDiskOperationProgress<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, overlapped: *const super::super::System::IO::OVERLAPPED, progress: *mut VIRTUAL_DISK_PROGRESS) -> super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetVirtualDiskOperationProgress(virtualdiskhandle: super::super::Foundation::HANDLE, overlapped: *const super::super::System::IO::OVERLAPPED, progress: *mut VIRTUAL_DISK_PROGRESS) -> super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(GetVirtualDiskOperationProgress(virtualdiskhandle.into_param().abi(), ::core::mem::transmute(overlapped), ::core::mem::transmute(progress)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetVirtualDiskOperationProgress(virtualdiskhandle: super::super::Foundation::HANDLE, overlapped: *const super::super::System::IO::OVERLAPPED, progress: *mut VIRTUAL_DISK_PROGRESS) -> super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetVirtualDiskOperationProgress(virtualdiskhandle.into_param().abi(), ::core::mem::transmute(overlapped), ::core::mem::transmute(progress)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetVirtualDiskPhysicalPath<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, diskpathsizeinbytes: *mut u32, diskpath: ::windows::core::PWSTR) -> super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetVirtualDiskPhysicalPath(virtualdiskhandle: super::super::Foundation::HANDLE, diskpathsizeinbytes: *mut u32, diskpath: ::windows::core::PWSTR) -> super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(GetVirtualDiskPhysicalPath(virtualdiskhandle.into_param().abi(), ::core::mem::transmute(diskpathsizeinbytes), ::core::mem::transmute(diskpath)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetVirtualDiskPhysicalPath(virtualdiskhandle: super::super::Foundation::HANDLE, diskpathsizeinbytes: *mut u32, diskpath: ::windows::core::PWSTR) -> super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetVirtualDiskPhysicalPath(virtualdiskhandle.into_param().abi(), ::core::mem::transmute(diskpathsizeinbytes), ::core::mem::transmute(diskpath)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub const MERGE_VIRTUAL_DISK_DEFAULT_MERGE_DEPTH: u32 = 1u32;
@@ -2710,46 +2615,31 @@ impl ::core::fmt::Debug for MODIFY_VHDSET_VERSION {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn MergeVirtualDisk<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, flags: MERGE_VIRTUAL_DISK_FLAG, parameters: *const MERGE_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MergeVirtualDisk(virtualdiskhandle: super::super::Foundation::HANDLE, flags: MERGE_VIRTUAL_DISK_FLAG, parameters: *const MERGE_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(MergeVirtualDisk(virtualdiskhandle.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(parameters), ::core::mem::transmute(overlapped)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MergeVirtualDisk(virtualdiskhandle: super::super::Foundation::HANDLE, flags: MERGE_VIRTUAL_DISK_FLAG, parameters: *const MERGE_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MergeVirtualDisk(virtualdiskhandle.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(parameters), ::core::mem::transmute(overlapped)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn MirrorVirtualDisk<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, flags: MIRROR_VIRTUAL_DISK_FLAG, parameters: *const MIRROR_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MirrorVirtualDisk(virtualdiskhandle: super::super::Foundation::HANDLE, flags: MIRROR_VIRTUAL_DISK_FLAG, parameters: *const MIRROR_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(MirrorVirtualDisk(virtualdiskhandle.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(parameters), ::core::mem::transmute(overlapped)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MirrorVirtualDisk(virtualdiskhandle: super::super::Foundation::HANDLE, flags: MIRROR_VIRTUAL_DISK_FLAG, parameters: *const MIRROR_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MirrorVirtualDisk(virtualdiskhandle.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(parameters), ::core::mem::transmute(overlapped)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ModifyVhdSet<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, parameters: *const MODIFY_VHDSET_PARAMETERS, flags: MODIFY_VHDSET_FLAG) -> super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ModifyVhdSet(virtualdiskhandle: super::super::Foundation::HANDLE, parameters: *const MODIFY_VHDSET_PARAMETERS, flags: MODIFY_VHDSET_FLAG) -> super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(ModifyVhdSet(virtualdiskhandle.into_param().abi(), ::core::mem::transmute(parameters), ::core::mem::transmute(flags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ModifyVhdSet(virtualdiskhandle: super::super::Foundation::HANDLE, parameters: *const MODIFY_VHDSET_PARAMETERS, flags: MODIFY_VHDSET_FLAG) -> super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(ModifyVhdSet(virtualdiskhandle.into_param().abi(), ::core::mem::transmute(parameters), ::core::mem::transmute(flags)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
@@ -3051,16 +2941,11 @@ impl ::core::fmt::Debug for OPEN_VIRTUAL_DISK_VERSION {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenVirtualDisk<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(virtualstoragetype: *const VIRTUAL_STORAGE_TYPE, path: Param1, virtualdiskaccessmask: VIRTUAL_DISK_ACCESS_MASK, flags: OPEN_VIRTUAL_DISK_FLAG, parameters: *const OPEN_VIRTUAL_DISK_PARAMETERS, handle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OpenVirtualDisk(virtualstoragetype: *const VIRTUAL_STORAGE_TYPE, path: ::windows::core::PCWSTR, virtualdiskaccessmask: VIRTUAL_DISK_ACCESS_MASK, flags: OPEN_VIRTUAL_DISK_FLAG, parameters: *const OPEN_VIRTUAL_DISK_PARAMETERS, handle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(OpenVirtualDisk(::core::mem::transmute(virtualstoragetype), path.into_param().abi(), ::core::mem::transmute(virtualdiskaccessmask), ::core::mem::transmute(flags), ::core::mem::transmute(parameters), ::core::mem::transmute(handle)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OpenVirtualDisk(virtualstoragetype: *const VIRTUAL_STORAGE_TYPE, path: ::windows::core::PCWSTR, virtualdiskaccessmask: VIRTUAL_DISK_ACCESS_MASK, flags: OPEN_VIRTUAL_DISK_FLAG, parameters: *const OPEN_VIRTUAL_DISK_PARAMETERS, handle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(OpenVirtualDisk(::core::mem::transmute(virtualstoragetype), path.into_param().abi(), ::core::mem::transmute(virtualdiskaccessmask), ::core::mem::transmute(flags), ::core::mem::transmute(parameters), ::core::mem::transmute(handle)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
@@ -3151,16 +3036,11 @@ impl ::core::default::Default for QUERY_CHANGES_VIRTUAL_DISK_RANGE {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn QueryChangesVirtualDisk<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(virtualdiskhandle: Param0, changetrackingid: Param1, byteoffset: u64, bytelength: u64, flags: QUERY_CHANGES_VIRTUAL_DISK_FLAG, ranges: *mut QUERY_CHANGES_VIRTUAL_DISK_RANGE, rangecount: *mut u32, processedlength: *mut u64) -> super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn QueryChangesVirtualDisk(virtualdiskhandle: super::super::Foundation::HANDLE, changetrackingid: ::windows::core::PCWSTR, byteoffset: u64, bytelength: u64, flags: QUERY_CHANGES_VIRTUAL_DISK_FLAG, ranges: *mut QUERY_CHANGES_VIRTUAL_DISK_RANGE, rangecount: *mut u32, processedlength: *mut u64) -> super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(QueryChangesVirtualDisk(virtualdiskhandle.into_param().abi(), changetrackingid.into_param().abi(), ::core::mem::transmute(byteoffset), ::core::mem::transmute(bytelength), ::core::mem::transmute(flags), ::core::mem::transmute(ranges), ::core::mem::transmute(rangecount), ::core::mem::transmute(processedlength)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn QueryChangesVirtualDisk(virtualdiskhandle: super::super::Foundation::HANDLE, changetrackingid: ::windows::core::PCWSTR, byteoffset: u64, bytelength: u64, flags: QUERY_CHANGES_VIRTUAL_DISK_FLAG, ranges: *mut QUERY_CHANGES_VIRTUAL_DISK_RANGE, rangecount: *mut u32, processedlength: *mut u64) -> super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(QueryChangesVirtualDisk(virtualdiskhandle.into_param().abi(), changetrackingid.into_param().abi(), ::core::mem::transmute(byteoffset), ::core::mem::transmute(bytelength), ::core::mem::transmute(flags), ::core::mem::transmute(ranges), ::core::mem::transmute(rangecount), ::core::mem::transmute(processedlength)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
@@ -3605,31 +3485,21 @@ impl ::core::fmt::Debug for RESIZE_VIRTUAL_DISK_VERSION {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RawSCSIVirtualDisk<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, parameters: *const RAW_SCSI_VIRTUAL_DISK_PARAMETERS, flags: RAW_SCSI_VIRTUAL_DISK_FLAG, response: *mut RAW_SCSI_VIRTUAL_DISK_RESPONSE) -> super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RawSCSIVirtualDisk(virtualdiskhandle: super::super::Foundation::HANDLE, parameters: *const RAW_SCSI_VIRTUAL_DISK_PARAMETERS, flags: RAW_SCSI_VIRTUAL_DISK_FLAG, response: *mut RAW_SCSI_VIRTUAL_DISK_RESPONSE) -> super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(RawSCSIVirtualDisk(virtualdiskhandle.into_param().abi(), ::core::mem::transmute(parameters), ::core::mem::transmute(flags), ::core::mem::transmute(response)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RawSCSIVirtualDisk(virtualdiskhandle: super::super::Foundation::HANDLE, parameters: *const RAW_SCSI_VIRTUAL_DISK_PARAMETERS, flags: RAW_SCSI_VIRTUAL_DISK_FLAG, response: *mut RAW_SCSI_VIRTUAL_DISK_RESPONSE) -> super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RawSCSIVirtualDisk(virtualdiskhandle.into_param().abi(), ::core::mem::transmute(parameters), ::core::mem::transmute(flags), ::core::mem::transmute(response)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn ResizeVirtualDisk<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, flags: RESIZE_VIRTUAL_DISK_FLAG, parameters: *const RESIZE_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ResizeVirtualDisk(virtualdiskhandle: super::super::Foundation::HANDLE, flags: RESIZE_VIRTUAL_DISK_FLAG, parameters: *const RESIZE_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(ResizeVirtualDisk(virtualdiskhandle.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(parameters), ::core::mem::transmute(overlapped)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ResizeVirtualDisk(virtualdiskhandle: super::super::Foundation::HANDLE, flags: RESIZE_VIRTUAL_DISK_FLAG, parameters: *const RESIZE_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(ResizeVirtualDisk(virtualdiskhandle.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(parameters), ::core::mem::transmute(overlapped)))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
@@ -3983,31 +3853,21 @@ impl ::core::fmt::Debug for STORAGE_DEPENDENCY_INFO_VERSION {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetVirtualDiskInformation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, virtualdiskinfo: *const SET_VIRTUAL_DISK_INFO) -> super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetVirtualDiskInformation(virtualdiskhandle: super::super::Foundation::HANDLE, virtualdiskinfo: *const SET_VIRTUAL_DISK_INFO) -> super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(SetVirtualDiskInformation(virtualdiskhandle.into_param().abi(), ::core::mem::transmute(virtualdiskinfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetVirtualDiskInformation(virtualdiskhandle: super::super::Foundation::HANDLE, virtualdiskinfo: *const SET_VIRTUAL_DISK_INFO) -> super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetVirtualDiskInformation(virtualdiskhandle.into_param().abi(), ::core::mem::transmute(virtualdiskinfo)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetVirtualDiskMetadata<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, item: *const ::windows::core::GUID, metadatasize: u32, metadata: *const ::core::ffi::c_void) -> super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetVirtualDiskMetadata(virtualdiskhandle: super::super::Foundation::HANDLE, item: *const ::windows::core::GUID, metadatasize: u32, metadata: *const ::core::ffi::c_void) -> super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(SetVirtualDiskMetadata(virtualdiskhandle.into_param().abi(), ::core::mem::transmute(item), ::core::mem::transmute(metadatasize), ::core::mem::transmute(metadata)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetVirtualDiskMetadata(virtualdiskhandle: super::super::Foundation::HANDLE, item: *const ::windows::core::GUID, metadatasize: u32, metadata: *const ::core::ffi::c_void) -> super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetVirtualDiskMetadata(virtualdiskhandle.into_param().abi(), ::core::mem::transmute(item), ::core::mem::transmute(metadatasize), ::core::mem::transmute(metadata)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
@@ -4176,16 +4036,11 @@ impl ::core::fmt::Debug for TAKE_SNAPSHOT_VHDSET_VERSION {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TakeSnapshotVhdSet<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, parameters: *const TAKE_SNAPSHOT_VHDSET_PARAMETERS, flags: TAKE_SNAPSHOT_VHDSET_FLAG) -> super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn TakeSnapshotVhdSet(virtualdiskhandle: super::super::Foundation::HANDLE, parameters: *const TAKE_SNAPSHOT_VHDSET_PARAMETERS, flags: TAKE_SNAPSHOT_VHDSET_FLAG) -> super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(TakeSnapshotVhdSet(virtualdiskhandle.into_param().abi(), ::core::mem::transmute(parameters), ::core::mem::transmute(flags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TakeSnapshotVhdSet(virtualdiskhandle: super::super::Foundation::HANDLE, parameters: *const TAKE_SNAPSHOT_VHDSET_PARAMETERS, flags: TAKE_SNAPSHOT_VHDSET_FLAG) -> super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(TakeSnapshotVhdSet(virtualdiskhandle.into_param().abi(), ::core::mem::transmute(parameters), ::core::mem::transmute(flags)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]

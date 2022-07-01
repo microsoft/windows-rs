@@ -2,17 +2,12 @@ pub const CLSID_DeviceIoControl: ::windows::core::GUID = ::windows::core::GUID::
 #[doc = "*Required features: `\"Win32_Devices_DeviceAccess\"`*"]
 #[inline]
 pub unsafe fn CreateDeviceAccessInstance<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(deviceinterfacepath: Param0, desiredaccess: u32) -> ::windows::core::Result<ICreateDeviceAccessAsync> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateDeviceAccessInstance(deviceinterfacepath: ::windows::core::PCWSTR, desiredaccess: u32, createasync: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        CreateDeviceAccessInstance(deviceinterfacepath.into_param().abi(), ::core::mem::transmute(desiredaccess), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICreateDeviceAccessAsync>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateDeviceAccessInstance(deviceinterfacepath: ::windows::core::PCWSTR, desiredaccess: u32, createasync: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    CreateDeviceAccessInstance(deviceinterfacepath.into_param().abi(), ::core::mem::transmute(desiredaccess), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICreateDeviceAccessAsync>(result__)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAccess\"`*"]
 pub const DEV_PORT_1394: u32 = 8u32;

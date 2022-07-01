@@ -4,31 +4,21 @@ pub struct CD3D11_VIDEO_DEFAULT(pub u8);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi"))]
 #[inline]
 pub unsafe fn D3D11CreateDevice<'a, Param0: ::windows::core::IntoParam<'a, super::Dxgi::IDXGIAdapter>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(padapter: Param0, drivertype: super::Direct3D::D3D_DRIVER_TYPE, software: Param2, flags: D3D11_CREATE_DEVICE_FLAG, pfeaturelevels: &[super::Direct3D::D3D_FEATURE_LEVEL], sdkversion: u32, ppdevice: *mut ::core::option::Option<ID3D11Device>, pfeaturelevel: *mut super::Direct3D::D3D_FEATURE_LEVEL, ppimmediatecontext: *mut ::core::option::Option<ID3D11DeviceContext>) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn D3D11CreateDevice(padapter: *mut ::core::ffi::c_void, drivertype: super::Direct3D::D3D_DRIVER_TYPE, software: super::super::Foundation::HINSTANCE, flags: D3D11_CREATE_DEVICE_FLAG, pfeaturelevels: *const super::Direct3D::D3D_FEATURE_LEVEL, featurelevels: u32, sdkversion: u32, ppdevice: *mut *mut ::core::ffi::c_void, pfeaturelevel: *mut super::Direct3D::D3D_FEATURE_LEVEL, ppimmediatecontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        D3D11CreateDevice(padapter.into_param().abi(), ::core::mem::transmute(drivertype), software.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(::windows::core::as_ptr_or_null(pfeaturelevels)), pfeaturelevels.len() as _, ::core::mem::transmute(sdkversion), ::core::mem::transmute(ppdevice), ::core::mem::transmute(pfeaturelevel), ::core::mem::transmute(ppimmediatecontext)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn D3D11CreateDevice(padapter: *mut ::core::ffi::c_void, drivertype: super::Direct3D::D3D_DRIVER_TYPE, software: super::super::Foundation::HINSTANCE, flags: D3D11_CREATE_DEVICE_FLAG, pfeaturelevels: *const super::Direct3D::D3D_FEATURE_LEVEL, featurelevels: u32, sdkversion: u32, ppdevice: *mut *mut ::core::ffi::c_void, pfeaturelevel: *mut super::Direct3D::D3D_FEATURE_LEVEL, ppimmediatecontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    D3D11CreateDevice(padapter.into_param().abi(), ::core::mem::transmute(drivertype), software.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(::windows::core::as_ptr_or_null(pfeaturelevels)), pfeaturelevels.len() as _, ::core::mem::transmute(sdkversion), ::core::mem::transmute(ppdevice), ::core::mem::transmute(pfeaturelevel), ::core::mem::transmute(ppimmediatecontext)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 #[inline]
 pub unsafe fn D3D11CreateDeviceAndSwapChain<'a, Param0: ::windows::core::IntoParam<'a, super::Dxgi::IDXGIAdapter>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(padapter: Param0, drivertype: super::Direct3D::D3D_DRIVER_TYPE, software: Param2, flags: D3D11_CREATE_DEVICE_FLAG, pfeaturelevels: &[super::Direct3D::D3D_FEATURE_LEVEL], sdkversion: u32, pswapchaindesc: *const super::Dxgi::DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut ::core::option::Option<super::Dxgi::IDXGISwapChain>, ppdevice: *mut ::core::option::Option<ID3D11Device>, pfeaturelevel: *mut super::Direct3D::D3D_FEATURE_LEVEL, ppimmediatecontext: *mut ::core::option::Option<ID3D11DeviceContext>) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn D3D11CreateDeviceAndSwapChain(padapter: *mut ::core::ffi::c_void, drivertype: super::Direct3D::D3D_DRIVER_TYPE, software: super::super::Foundation::HINSTANCE, flags: D3D11_CREATE_DEVICE_FLAG, pfeaturelevels: *const super::Direct3D::D3D_FEATURE_LEVEL, featurelevels: u32, sdkversion: u32, pswapchaindesc: *const super::Dxgi::DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut *mut ::core::ffi::c_void, ppdevice: *mut *mut ::core::ffi::c_void, pfeaturelevel: *mut super::Direct3D::D3D_FEATURE_LEVEL, ppimmediatecontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        D3D11CreateDeviceAndSwapChain(padapter.into_param().abi(), ::core::mem::transmute(drivertype), software.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(::windows::core::as_ptr_or_null(pfeaturelevels)), pfeaturelevels.len() as _, ::core::mem::transmute(sdkversion), ::core::mem::transmute(pswapchaindesc), ::core::mem::transmute(ppswapchain), ::core::mem::transmute(ppdevice), ::core::mem::transmute(pfeaturelevel), ::core::mem::transmute(ppimmediatecontext)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn D3D11CreateDeviceAndSwapChain(padapter: *mut ::core::ffi::c_void, drivertype: super::Direct3D::D3D_DRIVER_TYPE, software: super::super::Foundation::HINSTANCE, flags: D3D11_CREATE_DEVICE_FLAG, pfeaturelevels: *const super::Direct3D::D3D_FEATURE_LEVEL, featurelevels: u32, sdkversion: u32, pswapchaindesc: *const super::Dxgi::DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut *mut ::core::ffi::c_void, ppdevice: *mut *mut ::core::ffi::c_void, pfeaturelevel: *mut super::Direct3D::D3D_FEATURE_LEVEL, ppimmediatecontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    D3D11CreateDeviceAndSwapChain(padapter.into_param().abi(), ::core::mem::transmute(drivertype), software.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(::windows::core::as_ptr_or_null(pfeaturelevels)), pfeaturelevels.len() as _, ::core::mem::transmute(sdkversion), ::core::mem::transmute(pswapchaindesc), ::core::mem::transmute(ppswapchain), ::core::mem::transmute(ppdevice), ::core::mem::transmute(pfeaturelevel), ::core::mem::transmute(ppimmediatecontext)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub const D3D11_16BIT_INDEX_STRIP_CUT_VALUE: u32 = 65535u32;
@@ -14966,145 +14956,95 @@ pub const D3DCSX_DLL_W: &str = "d3dcsx_47.dll";
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 #[inline]
 pub unsafe fn D3DDisassemble11Trace<'a, Param2: ::windows::core::IntoParam<'a, ID3D11ShaderTrace>>(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, ptrace: Param2, startstep: u32, numsteps: u32, flags: u32) -> ::windows::core::Result<super::Direct3D::ID3DBlob> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn D3DDisassemble11Trace(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, ptrace: *mut ::core::ffi::c_void, startstep: u32, numsteps: u32, flags: u32, ppdisassembly: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        D3DDisassemble11Trace(::core::mem::transmute(psrcdata), ::core::mem::transmute(srcdatasize), ptrace.into_param().abi(), ::core::mem::transmute(startstep), ::core::mem::transmute(numsteps), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Direct3D::ID3DBlob>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn D3DDisassemble11Trace(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, ptrace: *mut ::core::ffi::c_void, startstep: u32, numsteps: u32, flags: u32, ppdisassembly: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    D3DDisassemble11Trace(::core::mem::transmute(psrcdata), ::core::mem::transmute(srcdatasize), ptrace.into_param().abi(), ::core::mem::transmute(startstep), ::core::mem::transmute(numsteps), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Direct3D::ID3DBlob>(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[inline]
 pub unsafe fn D3DX11CreateFFT<'a, Param0: ::windows::core::IntoParam<'a, ID3D11DeviceContext>>(pdevicecontext: Param0, pdesc: *const D3DX11_FFT_DESC, flags: u32, pbufferinfo: *mut D3DX11_FFT_BUFFER_INFO, ppfft: *mut ::core::option::Option<ID3DX11FFT>) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn D3DX11CreateFFT(pdevicecontext: *mut ::core::ffi::c_void, pdesc: *const D3DX11_FFT_DESC, flags: u32, pbufferinfo: *mut D3DX11_FFT_BUFFER_INFO, ppfft: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        D3DX11CreateFFT(pdevicecontext.into_param().abi(), ::core::mem::transmute(pdesc), ::core::mem::transmute(flags), ::core::mem::transmute(pbufferinfo), ::core::mem::transmute(ppfft)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn D3DX11CreateFFT(pdevicecontext: *mut ::core::ffi::c_void, pdesc: *const D3DX11_FFT_DESC, flags: u32, pbufferinfo: *mut D3DX11_FFT_BUFFER_INFO, ppfft: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    D3DX11CreateFFT(pdevicecontext.into_param().abi(), ::core::mem::transmute(pdesc), ::core::mem::transmute(flags), ::core::mem::transmute(pbufferinfo), ::core::mem::transmute(ppfft)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[inline]
 pub unsafe fn D3DX11CreateFFT1DComplex<'a, Param0: ::windows::core::IntoParam<'a, ID3D11DeviceContext>>(pdevicecontext: Param0, x: u32, flags: u32, pbufferinfo: *mut D3DX11_FFT_BUFFER_INFO, ppfft: *mut ::core::option::Option<ID3DX11FFT>) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn D3DX11CreateFFT1DComplex(pdevicecontext: *mut ::core::ffi::c_void, x: u32, flags: u32, pbufferinfo: *mut D3DX11_FFT_BUFFER_INFO, ppfft: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        D3DX11CreateFFT1DComplex(pdevicecontext.into_param().abi(), ::core::mem::transmute(x), ::core::mem::transmute(flags), ::core::mem::transmute(pbufferinfo), ::core::mem::transmute(ppfft)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn D3DX11CreateFFT1DComplex(pdevicecontext: *mut ::core::ffi::c_void, x: u32, flags: u32, pbufferinfo: *mut D3DX11_FFT_BUFFER_INFO, ppfft: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    D3DX11CreateFFT1DComplex(pdevicecontext.into_param().abi(), ::core::mem::transmute(x), ::core::mem::transmute(flags), ::core::mem::transmute(pbufferinfo), ::core::mem::transmute(ppfft)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[inline]
 pub unsafe fn D3DX11CreateFFT1DReal<'a, Param0: ::windows::core::IntoParam<'a, ID3D11DeviceContext>>(pdevicecontext: Param0, x: u32, flags: u32, pbufferinfo: *mut D3DX11_FFT_BUFFER_INFO, ppfft: *mut ::core::option::Option<ID3DX11FFT>) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn D3DX11CreateFFT1DReal(pdevicecontext: *mut ::core::ffi::c_void, x: u32, flags: u32, pbufferinfo: *mut D3DX11_FFT_BUFFER_INFO, ppfft: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        D3DX11CreateFFT1DReal(pdevicecontext.into_param().abi(), ::core::mem::transmute(x), ::core::mem::transmute(flags), ::core::mem::transmute(pbufferinfo), ::core::mem::transmute(ppfft)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn D3DX11CreateFFT1DReal(pdevicecontext: *mut ::core::ffi::c_void, x: u32, flags: u32, pbufferinfo: *mut D3DX11_FFT_BUFFER_INFO, ppfft: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    D3DX11CreateFFT1DReal(pdevicecontext.into_param().abi(), ::core::mem::transmute(x), ::core::mem::transmute(flags), ::core::mem::transmute(pbufferinfo), ::core::mem::transmute(ppfft)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[inline]
 pub unsafe fn D3DX11CreateFFT2DComplex<'a, Param0: ::windows::core::IntoParam<'a, ID3D11DeviceContext>>(pdevicecontext: Param0, x: u32, y: u32, flags: u32, pbufferinfo: *mut D3DX11_FFT_BUFFER_INFO, ppfft: *mut ::core::option::Option<ID3DX11FFT>) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn D3DX11CreateFFT2DComplex(pdevicecontext: *mut ::core::ffi::c_void, x: u32, y: u32, flags: u32, pbufferinfo: *mut D3DX11_FFT_BUFFER_INFO, ppfft: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        D3DX11CreateFFT2DComplex(pdevicecontext.into_param().abi(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(flags), ::core::mem::transmute(pbufferinfo), ::core::mem::transmute(ppfft)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn D3DX11CreateFFT2DComplex(pdevicecontext: *mut ::core::ffi::c_void, x: u32, y: u32, flags: u32, pbufferinfo: *mut D3DX11_FFT_BUFFER_INFO, ppfft: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    D3DX11CreateFFT2DComplex(pdevicecontext.into_param().abi(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(flags), ::core::mem::transmute(pbufferinfo), ::core::mem::transmute(ppfft)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[inline]
 pub unsafe fn D3DX11CreateFFT2DReal<'a, Param0: ::windows::core::IntoParam<'a, ID3D11DeviceContext>>(pdevicecontext: Param0, x: u32, y: u32, flags: u32, pbufferinfo: *mut D3DX11_FFT_BUFFER_INFO, ppfft: *mut ::core::option::Option<ID3DX11FFT>) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn D3DX11CreateFFT2DReal(pdevicecontext: *mut ::core::ffi::c_void, x: u32, y: u32, flags: u32, pbufferinfo: *mut D3DX11_FFT_BUFFER_INFO, ppfft: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        D3DX11CreateFFT2DReal(pdevicecontext.into_param().abi(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(flags), ::core::mem::transmute(pbufferinfo), ::core::mem::transmute(ppfft)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn D3DX11CreateFFT2DReal(pdevicecontext: *mut ::core::ffi::c_void, x: u32, y: u32, flags: u32, pbufferinfo: *mut D3DX11_FFT_BUFFER_INFO, ppfft: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    D3DX11CreateFFT2DReal(pdevicecontext.into_param().abi(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(flags), ::core::mem::transmute(pbufferinfo), ::core::mem::transmute(ppfft)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[inline]
 pub unsafe fn D3DX11CreateFFT3DComplex<'a, Param0: ::windows::core::IntoParam<'a, ID3D11DeviceContext>>(pdevicecontext: Param0, x: u32, y: u32, z: u32, flags: u32, pbufferinfo: *mut D3DX11_FFT_BUFFER_INFO, ppfft: *mut ::core::option::Option<ID3DX11FFT>) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn D3DX11CreateFFT3DComplex(pdevicecontext: *mut ::core::ffi::c_void, x: u32, y: u32, z: u32, flags: u32, pbufferinfo: *mut D3DX11_FFT_BUFFER_INFO, ppfft: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        D3DX11CreateFFT3DComplex(pdevicecontext.into_param().abi(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z), ::core::mem::transmute(flags), ::core::mem::transmute(pbufferinfo), ::core::mem::transmute(ppfft)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn D3DX11CreateFFT3DComplex(pdevicecontext: *mut ::core::ffi::c_void, x: u32, y: u32, z: u32, flags: u32, pbufferinfo: *mut D3DX11_FFT_BUFFER_INFO, ppfft: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    D3DX11CreateFFT3DComplex(pdevicecontext.into_param().abi(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z), ::core::mem::transmute(flags), ::core::mem::transmute(pbufferinfo), ::core::mem::transmute(ppfft)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[inline]
 pub unsafe fn D3DX11CreateFFT3DReal<'a, Param0: ::windows::core::IntoParam<'a, ID3D11DeviceContext>>(pdevicecontext: Param0, x: u32, y: u32, z: u32, flags: u32, pbufferinfo: *mut D3DX11_FFT_BUFFER_INFO, ppfft: *mut ::core::option::Option<ID3DX11FFT>) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn D3DX11CreateFFT3DReal(pdevicecontext: *mut ::core::ffi::c_void, x: u32, y: u32, z: u32, flags: u32, pbufferinfo: *mut D3DX11_FFT_BUFFER_INFO, ppfft: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        D3DX11CreateFFT3DReal(pdevicecontext.into_param().abi(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z), ::core::mem::transmute(flags), ::core::mem::transmute(pbufferinfo), ::core::mem::transmute(ppfft)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn D3DX11CreateFFT3DReal(pdevicecontext: *mut ::core::ffi::c_void, x: u32, y: u32, z: u32, flags: u32, pbufferinfo: *mut D3DX11_FFT_BUFFER_INFO, ppfft: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    D3DX11CreateFFT3DReal(pdevicecontext.into_param().abi(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z), ::core::mem::transmute(flags), ::core::mem::transmute(pbufferinfo), ::core::mem::transmute(ppfft)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[inline]
 pub unsafe fn D3DX11CreateScan<'a, Param0: ::windows::core::IntoParam<'a, ID3D11DeviceContext>>(pdevicecontext: Param0, maxelementscansize: u32, maxscancount: u32) -> ::windows::core::Result<ID3DX11Scan> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn D3DX11CreateScan(pdevicecontext: *mut ::core::ffi::c_void, maxelementscansize: u32, maxscancount: u32, ppscan: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        D3DX11CreateScan(pdevicecontext.into_param().abi(), ::core::mem::transmute(maxelementscansize), ::core::mem::transmute(maxscancount), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID3DX11Scan>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn D3DX11CreateScan(pdevicecontext: *mut ::core::ffi::c_void, maxelementscansize: u32, maxscancount: u32, ppscan: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    D3DX11CreateScan(pdevicecontext.into_param().abi(), ::core::mem::transmute(maxelementscansize), ::core::mem::transmute(maxscancount), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID3DX11Scan>(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[inline]
 pub unsafe fn D3DX11CreateSegmentedScan<'a, Param0: ::windows::core::IntoParam<'a, ID3D11DeviceContext>>(pdevicecontext: Param0, maxelementscansize: u32) -> ::windows::core::Result<ID3DX11SegmentedScan> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn D3DX11CreateSegmentedScan(pdevicecontext: *mut ::core::ffi::c_void, maxelementscansize: u32, ppscan: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        D3DX11CreateSegmentedScan(pdevicecontext.into_param().abi(), ::core::mem::transmute(maxelementscansize), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID3DX11SegmentedScan>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn D3DX11CreateSegmentedScan(pdevicecontext: *mut ::core::ffi::c_void, maxelementscansize: u32, ppscan: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    D3DX11CreateSegmentedScan(pdevicecontext.into_param().abi(), ::core::mem::transmute(maxelementscansize), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID3DX11SegmentedScan>(result__)
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]

@@ -4,31 +4,21 @@ pub const APPCRASH_EVENT: &str = "APPCRASH";
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddERExcludedApplicationA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(szapplication: Param0) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AddERExcludedApplicationA(szapplication: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(AddERExcludedApplicationA(szapplication.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AddERExcludedApplicationA(szapplication: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AddERExcludedApplicationA(szapplication.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddERExcludedApplicationW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(wszapplication: Param0) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AddERExcludedApplicationW(wszapplication: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(AddERExcludedApplicationW(wszapplication.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AddERExcludedApplicationW(wszapplication: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AddERExcludedApplicationW(wszapplication.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[repr(transparent)]
@@ -177,16 +167,11 @@ impl ::core::fmt::Debug for REPORT_STORE_TYPES {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn ReportFault(pep: *const super::Diagnostics::Debug::EXCEPTION_POINTERS, dwopt: u32) -> EFaultRepRetVal {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ReportFault(pep: *const super::Diagnostics::Debug::EXCEPTION_POINTERS, dwopt: u32) -> EFaultRepRetVal;
-        }
-        ::core::mem::transmute(ReportFault(::core::mem::transmute(pep), ::core::mem::transmute(dwopt)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ReportFault(pep: *const super::Diagnostics::Debug::EXCEPTION_POINTERS, dwopt: u32) -> EFaultRepRetVal;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(ReportFault(::core::mem::transmute(pep), ::core::mem::transmute(dwopt)))
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[repr(transparent)]
@@ -1483,554 +1468,364 @@ impl ::core::fmt::Debug for WER_SUBMIT_RESULT {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WerAddExcludedApplication<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(pwzexename: Param0, ballusers: Param1) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WerAddExcludedApplication(pwzexename: ::windows::core::PCWSTR, ballusers: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
-        }
-        WerAddExcludedApplication(pwzexename.into_param().abi(), ballusers.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WerAddExcludedApplication(pwzexename: ::windows::core::PCWSTR, ballusers: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    WerAddExcludedApplication(pwzexename.into_param().abi(), ballusers.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[inline]
 pub unsafe fn WerFreeString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pwszstr: Param0) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WerFreeString(pwszstr: ::windows::core::PCWSTR);
-        }
-        WerFreeString(pwszstr.into_param().abi())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WerFreeString(pwszstr: ::windows::core::PCWSTR);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    WerFreeString(pwszstr.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WerGetFlags<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0) -> ::windows::core::Result<WER_FAULT_REPORTING> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WerGetFlags(hprocess: super::super::Foundation::HANDLE, pdwflags: *mut WER_FAULT_REPORTING) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<WER_FAULT_REPORTING>::zeroed();
-        WerGetFlags(hprocess.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WER_FAULT_REPORTING>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WerGetFlags(hprocess: super::super::Foundation::HANDLE, pdwflags: *mut WER_FAULT_REPORTING) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<WER_FAULT_REPORTING>::zeroed();
+    WerGetFlags(hprocess.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WER_FAULT_REPORTING>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[inline]
 pub unsafe fn WerRegisterAdditionalProcess(processid: u32, captureextrainfoforthreadid: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WerRegisterAdditionalProcess(processid: u32, captureextrainfoforthreadid: u32) -> ::windows::core::HRESULT;
-        }
-        WerRegisterAdditionalProcess(::core::mem::transmute(processid), ::core::mem::transmute(captureextrainfoforthreadid)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WerRegisterAdditionalProcess(processid: u32, captureextrainfoforthreadid: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    WerRegisterAdditionalProcess(::core::mem::transmute(processid), ::core::mem::transmute(captureextrainfoforthreadid)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[inline]
 pub unsafe fn WerRegisterAppLocalDump<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(localappdatarelativepath: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WerRegisterAppLocalDump(localappdatarelativepath: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
-        }
-        WerRegisterAppLocalDump(localappdatarelativepath.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WerRegisterAppLocalDump(localappdatarelativepath: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    WerRegisterAppLocalDump(localappdatarelativepath.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[inline]
 pub unsafe fn WerRegisterCustomMetadata<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(key: Param0, value: Param1) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WerRegisterCustomMetadata(key: ::windows::core::PCWSTR, value: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
-        }
-        WerRegisterCustomMetadata(key.into_param().abi(), value.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WerRegisterCustomMetadata(key: ::windows::core::PCWSTR, value: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    WerRegisterCustomMetadata(key.into_param().abi(), value.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[inline]
 pub unsafe fn WerRegisterExcludedMemoryBlock(address: *const ::core::ffi::c_void, size: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WerRegisterExcludedMemoryBlock(address: *const ::core::ffi::c_void, size: u32) -> ::windows::core::HRESULT;
-        }
-        WerRegisterExcludedMemoryBlock(::core::mem::transmute(address), ::core::mem::transmute(size)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WerRegisterExcludedMemoryBlock(address: *const ::core::ffi::c_void, size: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    WerRegisterExcludedMemoryBlock(::core::mem::transmute(address), ::core::mem::transmute(size)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[inline]
 pub unsafe fn WerRegisterFile<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pwzfile: Param0, regfiletype: WER_REGISTER_FILE_TYPE, dwflags: WER_FILE) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WerRegisterFile(pwzfile: ::windows::core::PCWSTR, regfiletype: WER_REGISTER_FILE_TYPE, dwflags: WER_FILE) -> ::windows::core::HRESULT;
-        }
-        WerRegisterFile(pwzfile.into_param().abi(), ::core::mem::transmute(regfiletype), ::core::mem::transmute(dwflags)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WerRegisterFile(pwzfile: ::windows::core::PCWSTR, regfiletype: WER_REGISTER_FILE_TYPE, dwflags: WER_FILE) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    WerRegisterFile(pwzfile.into_param().abi(), ::core::mem::transmute(regfiletype), ::core::mem::transmute(dwflags)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[inline]
 pub unsafe fn WerRegisterMemoryBlock(pvaddress: *const ::core::ffi::c_void, dwsize: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WerRegisterMemoryBlock(pvaddress: *const ::core::ffi::c_void, dwsize: u32) -> ::windows::core::HRESULT;
-        }
-        WerRegisterMemoryBlock(::core::mem::transmute(pvaddress), ::core::mem::transmute(dwsize)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WerRegisterMemoryBlock(pvaddress: *const ::core::ffi::c_void, dwsize: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    WerRegisterMemoryBlock(::core::mem::transmute(pvaddress), ::core::mem::transmute(dwsize)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[inline]
 pub unsafe fn WerRegisterRuntimeExceptionModule<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pwszoutofprocesscallbackdll: Param0, pcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WerRegisterRuntimeExceptionModule(pwszoutofprocesscallbackdll: ::windows::core::PCWSTR, pcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        WerRegisterRuntimeExceptionModule(pwszoutofprocesscallbackdll.into_param().abi(), ::core::mem::transmute(pcontext)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WerRegisterRuntimeExceptionModule(pwszoutofprocesscallbackdll: ::windows::core::PCWSTR, pcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    WerRegisterRuntimeExceptionModule(pwszoutofprocesscallbackdll.into_param().abi(), ::core::mem::transmute(pcontext)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WerRemoveExcludedApplication<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(pwzexename: Param0, ballusers: Param1) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WerRemoveExcludedApplication(pwzexename: ::windows::core::PCWSTR, ballusers: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
-        }
-        WerRemoveExcludedApplication(pwzexename.into_param().abi(), ballusers.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WerRemoveExcludedApplication(pwzexename: ::windows::core::PCWSTR, ballusers: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    WerRemoveExcludedApplication(pwzexename.into_param().abi(), ballusers.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`, `\"Win32_Foundation\"`, `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn WerReportAddDump<'a, Param0: ::windows::core::IntoParam<'a, HREPORT>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hreporthandle: Param0, hprocess: Param1, hthread: Param2, dumptype: WER_DUMP_TYPE, pexceptionparam: *const WER_EXCEPTION_INFORMATION, pdumpcustomoptions: *const WER_DUMP_CUSTOM_OPTIONS, dwflags: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WerReportAddDump(hreporthandle: HREPORT, hprocess: super::super::Foundation::HANDLE, hthread: super::super::Foundation::HANDLE, dumptype: WER_DUMP_TYPE, pexceptionparam: *const WER_EXCEPTION_INFORMATION, pdumpcustomoptions: *const WER_DUMP_CUSTOM_OPTIONS, dwflags: u32) -> ::windows::core::HRESULT;
-        }
-        WerReportAddDump(hreporthandle.into_param().abi(), hprocess.into_param().abi(), hthread.into_param().abi(), ::core::mem::transmute(dumptype), ::core::mem::transmute(pexceptionparam), ::core::mem::transmute(pdumpcustomoptions), ::core::mem::transmute(dwflags)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WerReportAddDump(hreporthandle: HREPORT, hprocess: super::super::Foundation::HANDLE, hthread: super::super::Foundation::HANDLE, dumptype: WER_DUMP_TYPE, pexceptionparam: *const WER_EXCEPTION_INFORMATION, pdumpcustomoptions: *const WER_DUMP_CUSTOM_OPTIONS, dwflags: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    WerReportAddDump(hreporthandle.into_param().abi(), hprocess.into_param().abi(), hthread.into_param().abi(), ::core::mem::transmute(dumptype), ::core::mem::transmute(pexceptionparam), ::core::mem::transmute(pdumpcustomoptions), ::core::mem::transmute(dwflags)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[inline]
 pub unsafe fn WerReportAddFile<'a, Param0: ::windows::core::IntoParam<'a, HREPORT>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hreporthandle: Param0, pwzpath: Param1, repfiletype: WER_FILE_TYPE, dwfileflags: WER_FILE) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WerReportAddFile(hreporthandle: HREPORT, pwzpath: ::windows::core::PCWSTR, repfiletype: WER_FILE_TYPE, dwfileflags: WER_FILE) -> ::windows::core::HRESULT;
-        }
-        WerReportAddFile(hreporthandle.into_param().abi(), pwzpath.into_param().abi(), ::core::mem::transmute(repfiletype), ::core::mem::transmute(dwfileflags)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WerReportAddFile(hreporthandle: HREPORT, pwzpath: ::windows::core::PCWSTR, repfiletype: WER_FILE_TYPE, dwfileflags: WER_FILE) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    WerReportAddFile(hreporthandle.into_param().abi(), pwzpath.into_param().abi(), ::core::mem::transmute(repfiletype), ::core::mem::transmute(dwfileflags)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[inline]
 pub unsafe fn WerReportCloseHandle<'a, Param0: ::windows::core::IntoParam<'a, HREPORT>>(hreporthandle: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WerReportCloseHandle(hreporthandle: HREPORT) -> ::windows::core::HRESULT;
-        }
-        WerReportCloseHandle(hreporthandle.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WerReportCloseHandle(hreporthandle: HREPORT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    WerReportCloseHandle(hreporthandle.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WerReportCreate<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pwzeventtype: Param0, reptype: WER_REPORT_TYPE, preportinformation: *const WER_REPORT_INFORMATION) -> ::windows::core::Result<HREPORT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WerReportCreate(pwzeventtype: ::windows::core::PCWSTR, reptype: WER_REPORT_TYPE, preportinformation: *const WER_REPORT_INFORMATION, phreporthandle: *mut HREPORT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<HREPORT>::zeroed();
-        WerReportCreate(pwzeventtype.into_param().abi(), ::core::mem::transmute(reptype), ::core::mem::transmute(preportinformation), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<HREPORT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WerReportCreate(pwzeventtype: ::windows::core::PCWSTR, reptype: WER_REPORT_TYPE, preportinformation: *const WER_REPORT_INFORMATION, phreporthandle: *mut HREPORT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<HREPORT>::zeroed();
+    WerReportCreate(pwzeventtype.into_param().abi(), ::core::mem::transmute(reptype), ::core::mem::transmute(preportinformation), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<HREPORT>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WerReportHang<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hwndhungapp: Param0, pwzhungapplicationname: Param1) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WerReportHang(hwndhungapp: super::super::Foundation::HWND, pwzhungapplicationname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
-        }
-        WerReportHang(hwndhungapp.into_param().abi(), pwzhungapplicationname.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WerReportHang(hwndhungapp: super::super::Foundation::HWND, pwzhungapplicationname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    WerReportHang(hwndhungapp.into_param().abi(), pwzhungapplicationname.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[inline]
 pub unsafe fn WerReportSetParameter<'a, Param0: ::windows::core::IntoParam<'a, HREPORT>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hreporthandle: Param0, dwparamid: u32, pwzname: Param2, pwzvalue: Param3) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WerReportSetParameter(hreporthandle: HREPORT, dwparamid: u32, pwzname: ::windows::core::PCWSTR, pwzvalue: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
-        }
-        WerReportSetParameter(hreporthandle.into_param().abi(), ::core::mem::transmute(dwparamid), pwzname.into_param().abi(), pwzvalue.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WerReportSetParameter(hreporthandle: HREPORT, dwparamid: u32, pwzname: ::windows::core::PCWSTR, pwzvalue: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    WerReportSetParameter(hreporthandle.into_param().abi(), ::core::mem::transmute(dwparamid), pwzname.into_param().abi(), pwzvalue.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[inline]
 pub unsafe fn WerReportSetUIOption<'a, Param0: ::windows::core::IntoParam<'a, HREPORT>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hreporthandle: Param0, repuitypeid: WER_REPORT_UI, pwzvalue: Param2) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WerReportSetUIOption(hreporthandle: HREPORT, repuitypeid: WER_REPORT_UI, pwzvalue: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
-        }
-        WerReportSetUIOption(hreporthandle.into_param().abi(), ::core::mem::transmute(repuitypeid), pwzvalue.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WerReportSetUIOption(hreporthandle: HREPORT, repuitypeid: WER_REPORT_UI, pwzvalue: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    WerReportSetUIOption(hreporthandle.into_param().abi(), ::core::mem::transmute(repuitypeid), pwzvalue.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[inline]
 pub unsafe fn WerReportSubmit<'a, Param0: ::windows::core::IntoParam<'a, HREPORT>>(hreporthandle: Param0, consent: WER_CONSENT, dwflags: WER_SUBMIT_FLAGS) -> ::windows::core::Result<WER_SUBMIT_RESULT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WerReportSubmit(hreporthandle: HREPORT, consent: WER_CONSENT, dwflags: WER_SUBMIT_FLAGS, psubmitresult: *mut WER_SUBMIT_RESULT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<WER_SUBMIT_RESULT>::zeroed();
-        WerReportSubmit(hreporthandle.into_param().abi(), ::core::mem::transmute(consent), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WER_SUBMIT_RESULT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WerReportSubmit(hreporthandle: HREPORT, consent: WER_CONSENT, dwflags: WER_SUBMIT_FLAGS, psubmitresult: *mut WER_SUBMIT_RESULT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<WER_SUBMIT_RESULT>::zeroed();
+    WerReportSubmit(hreporthandle.into_param().abi(), ::core::mem::transmute(consent), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WER_SUBMIT_RESULT>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[inline]
 pub unsafe fn WerSetFlags(dwflags: WER_FAULT_REPORTING) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WerSetFlags(dwflags: WER_FAULT_REPORTING) -> ::windows::core::HRESULT;
-        }
-        WerSetFlags(::core::mem::transmute(dwflags)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WerSetFlags(dwflags: WER_FAULT_REPORTING) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    WerSetFlags(::core::mem::transmute(dwflags)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[inline]
 pub unsafe fn WerStoreClose<'a, Param0: ::windows::core::IntoParam<'a, HREPORTSTORE>>(hreportstore: Param0) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WerStoreClose(hreportstore: HREPORTSTORE);
-        }
-        WerStoreClose(hreportstore.into_param().abi())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WerStoreClose(hreportstore: HREPORTSTORE);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    WerStoreClose(hreportstore.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[inline]
 pub unsafe fn WerStoreGetFirstReportKey<'a, Param0: ::windows::core::IntoParam<'a, HREPORTSTORE>>(hreportstore: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WerStoreGetFirstReportKey(hreportstore: HREPORTSTORE, ppszreportkey: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-        WerStoreGetFirstReportKey(hreportstore.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WerStoreGetFirstReportKey(hreportstore: HREPORTSTORE, ppszreportkey: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
+    WerStoreGetFirstReportKey(hreportstore.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[inline]
 pub unsafe fn WerStoreGetNextReportKey<'a, Param0: ::windows::core::IntoParam<'a, HREPORTSTORE>>(hreportstore: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WerStoreGetNextReportKey(hreportstore: HREPORTSTORE, ppszreportkey: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-        WerStoreGetNextReportKey(hreportstore.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WerStoreGetNextReportKey(hreportstore: HREPORTSTORE, ppszreportkey: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
+    WerStoreGetNextReportKey(hreportstore.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[inline]
 pub unsafe fn WerStoreGetReportCount<'a, Param0: ::windows::core::IntoParam<'a, HREPORTSTORE>>(hreportstore: Param0) -> ::windows::core::Result<u32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WerStoreGetReportCount(hreportstore: HREPORTSTORE, pdwreportcount: *mut u32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        WerStoreGetReportCount(hreportstore.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WerStoreGetReportCount(hreportstore: HREPORTSTORE, pdwreportcount: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+    WerStoreGetReportCount(hreportstore.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[inline]
 pub unsafe fn WerStoreGetSizeOnDisk<'a, Param0: ::windows::core::IntoParam<'a, HREPORTSTORE>>(hreportstore: Param0) -> ::windows::core::Result<u64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WerStoreGetSizeOnDisk(hreportstore: HREPORTSTORE, pqwsizeinbytes: *mut u64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-        WerStoreGetSizeOnDisk(hreportstore.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WerStoreGetSizeOnDisk(hreportstore: HREPORTSTORE, pqwsizeinbytes: *mut u64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
+    WerStoreGetSizeOnDisk(hreportstore.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[inline]
 pub unsafe fn WerStoreOpen(repstoretype: REPORT_STORE_TYPES) -> ::windows::core::Result<HREPORTSTORE> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WerStoreOpen(repstoretype: REPORT_STORE_TYPES, phreportstore: *mut HREPORTSTORE) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<HREPORTSTORE>::zeroed();
-        WerStoreOpen(::core::mem::transmute(repstoretype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<HREPORTSTORE>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WerStoreOpen(repstoretype: REPORT_STORE_TYPES, phreportstore: *mut HREPORTSTORE) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<HREPORTSTORE>::zeroed();
+    WerStoreOpen(::core::mem::transmute(repstoretype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<HREPORTSTORE>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[inline]
 pub unsafe fn WerStorePurge() -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WerStorePurge() -> ::windows::core::HRESULT;
-        }
-        WerStorePurge().ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WerStorePurge() -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    WerStorePurge().ok()
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WerStoreQueryReportMetadataV1<'a, Param0: ::windows::core::IntoParam<'a, HREPORTSTORE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hreportstore: Param0, pszreportkey: Param1) -> ::windows::core::Result<WER_REPORT_METADATA_V1> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WerStoreQueryReportMetadataV1(hreportstore: HREPORTSTORE, pszreportkey: ::windows::core::PCWSTR, preportmetadata: *mut WER_REPORT_METADATA_V1) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<WER_REPORT_METADATA_V1>::zeroed();
-        WerStoreQueryReportMetadataV1(hreportstore.into_param().abi(), pszreportkey.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WER_REPORT_METADATA_V1>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WerStoreQueryReportMetadataV1(hreportstore: HREPORTSTORE, pszreportkey: ::windows::core::PCWSTR, preportmetadata: *mut WER_REPORT_METADATA_V1) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<WER_REPORT_METADATA_V1>::zeroed();
+    WerStoreQueryReportMetadataV1(hreportstore.into_param().abi(), pszreportkey.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WER_REPORT_METADATA_V1>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WerStoreQueryReportMetadataV2<'a, Param0: ::windows::core::IntoParam<'a, HREPORTSTORE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hreportstore: Param0, pszreportkey: Param1) -> ::windows::core::Result<WER_REPORT_METADATA_V2> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WerStoreQueryReportMetadataV2(hreportstore: HREPORTSTORE, pszreportkey: ::windows::core::PCWSTR, preportmetadata: *mut WER_REPORT_METADATA_V2) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<WER_REPORT_METADATA_V2>::zeroed();
-        WerStoreQueryReportMetadataV2(hreportstore.into_param().abi(), pszreportkey.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WER_REPORT_METADATA_V2>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WerStoreQueryReportMetadataV2(hreportstore: HREPORTSTORE, pszreportkey: ::windows::core::PCWSTR, preportmetadata: *mut WER_REPORT_METADATA_V2) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<WER_REPORT_METADATA_V2>::zeroed();
+    WerStoreQueryReportMetadataV2(hreportstore.into_param().abi(), pszreportkey.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WER_REPORT_METADATA_V2>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WerStoreQueryReportMetadataV3<'a, Param0: ::windows::core::IntoParam<'a, HREPORTSTORE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hreportstore: Param0, pszreportkey: Param1) -> ::windows::core::Result<WER_REPORT_METADATA_V3> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WerStoreQueryReportMetadataV3(hreportstore: HREPORTSTORE, pszreportkey: ::windows::core::PCWSTR, preportmetadata: *mut WER_REPORT_METADATA_V3) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<WER_REPORT_METADATA_V3>::zeroed();
-        WerStoreQueryReportMetadataV3(hreportstore.into_param().abi(), pszreportkey.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WER_REPORT_METADATA_V3>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WerStoreQueryReportMetadataV3(hreportstore: HREPORTSTORE, pszreportkey: ::windows::core::PCWSTR, preportmetadata: *mut WER_REPORT_METADATA_V3) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<WER_REPORT_METADATA_V3>::zeroed();
+    WerStoreQueryReportMetadataV3(hreportstore.into_param().abi(), pszreportkey.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WER_REPORT_METADATA_V3>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[inline]
 pub unsafe fn WerStoreUploadReport<'a, Param0: ::windows::core::IntoParam<'a, HREPORTSTORE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hreportstore: Param0, pszreportkey: Param1, dwflags: u32) -> ::windows::core::Result<WER_SUBMIT_RESULT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WerStoreUploadReport(hreportstore: HREPORTSTORE, pszreportkey: ::windows::core::PCWSTR, dwflags: u32, psubmitresult: *mut WER_SUBMIT_RESULT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<WER_SUBMIT_RESULT>::zeroed();
-        WerStoreUploadReport(hreportstore.into_param().abi(), pszreportkey.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WER_SUBMIT_RESULT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WerStoreUploadReport(hreportstore: HREPORTSTORE, pszreportkey: ::windows::core::PCWSTR, dwflags: u32, psubmitresult: *mut WER_SUBMIT_RESULT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<WER_SUBMIT_RESULT>::zeroed();
+    WerStoreUploadReport(hreportstore.into_param().abi(), pszreportkey.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WER_SUBMIT_RESULT>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[inline]
 pub unsafe fn WerUnregisterAdditionalProcess(processid: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WerUnregisterAdditionalProcess(processid: u32) -> ::windows::core::HRESULT;
-        }
-        WerUnregisterAdditionalProcess(::core::mem::transmute(processid)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WerUnregisterAdditionalProcess(processid: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    WerUnregisterAdditionalProcess(::core::mem::transmute(processid)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[inline]
 pub unsafe fn WerUnregisterAppLocalDump() -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WerUnregisterAppLocalDump() -> ::windows::core::HRESULT;
-        }
-        WerUnregisterAppLocalDump().ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WerUnregisterAppLocalDump() -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    WerUnregisterAppLocalDump().ok()
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[inline]
 pub unsafe fn WerUnregisterCustomMetadata<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(key: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WerUnregisterCustomMetadata(key: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
-        }
-        WerUnregisterCustomMetadata(key.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WerUnregisterCustomMetadata(key: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    WerUnregisterCustomMetadata(key.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[inline]
 pub unsafe fn WerUnregisterExcludedMemoryBlock(address: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WerUnregisterExcludedMemoryBlock(address: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        WerUnregisterExcludedMemoryBlock(::core::mem::transmute(address)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WerUnregisterExcludedMemoryBlock(address: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    WerUnregisterExcludedMemoryBlock(::core::mem::transmute(address)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[inline]
 pub unsafe fn WerUnregisterFile<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pwzfilepath: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WerUnregisterFile(pwzfilepath: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
-        }
-        WerUnregisterFile(pwzfilepath.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WerUnregisterFile(pwzfilepath: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    WerUnregisterFile(pwzfilepath.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[inline]
 pub unsafe fn WerUnregisterMemoryBlock(pvaddress: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WerUnregisterMemoryBlock(pvaddress: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        WerUnregisterMemoryBlock(::core::mem::transmute(pvaddress)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WerUnregisterMemoryBlock(pvaddress: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    WerUnregisterMemoryBlock(::core::mem::transmute(pvaddress)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[inline]
 pub unsafe fn WerUnregisterRuntimeExceptionModule<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pwszoutofprocesscallbackdll: Param0, pcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WerUnregisterRuntimeExceptionModule(pwszoutofprocesscallbackdll: ::windows::core::PCWSTR, pcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        WerUnregisterRuntimeExceptionModule(pwszoutofprocesscallbackdll.into_param().abi(), ::core::mem::transmute(pcontext)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WerUnregisterRuntimeExceptionModule(pwszoutofprocesscallbackdll: ::windows::core::PCWSTR, pcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    WerUnregisterRuntimeExceptionModule(pwszoutofprocesscallbackdll.into_param().abi(), ::core::mem::transmute(pcontext)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 pub type pfn_ADDEREXCLUDEDAPPLICATIONA = ::core::option::Option<unsafe extern "system" fn(param0: ::windows::core::PCSTR) -> EFaultRepRetVal>;

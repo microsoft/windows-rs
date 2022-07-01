@@ -1,6 +1,6 @@
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub mod Common;
-#[link(name = "windows")]
+#[cfg_attr(windows, link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]

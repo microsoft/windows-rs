@@ -67,289 +67,194 @@ impl ::core::fmt::Debug for AVRT_PRIORITY {
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn AcquireSRWLockExclusive(srwlock: *mut RTL_SRWLOCK) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AcquireSRWLockExclusive(srwlock: *mut RTL_SRWLOCK);
-        }
-        AcquireSRWLockExclusive(::core::mem::transmute(srwlock))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AcquireSRWLockExclusive(srwlock: *mut RTL_SRWLOCK);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    AcquireSRWLockExclusive(::core::mem::transmute(srwlock))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn AcquireSRWLockShared(srwlock: *mut RTL_SRWLOCK) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AcquireSRWLockShared(srwlock: *mut RTL_SRWLOCK);
-        }
-        AcquireSRWLockShared(::core::mem::transmute(srwlock))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AcquireSRWLockShared(srwlock: *mut RTL_SRWLOCK);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    AcquireSRWLockShared(::core::mem::transmute(srwlock))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddIntegrityLabelToBoundaryDescriptor<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSID>>(boundarydescriptor: *mut super::super::Foundation::HANDLE, integritylabel: Param1) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AddIntegrityLabelToBoundaryDescriptor(boundarydescriptor: *mut super::super::Foundation::HANDLE, integritylabel: super::super::Foundation::PSID) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(AddIntegrityLabelToBoundaryDescriptor(::core::mem::transmute(boundarydescriptor), integritylabel.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AddIntegrityLabelToBoundaryDescriptor(boundarydescriptor: *mut super::super::Foundation::HANDLE, integritylabel: super::super::Foundation::PSID) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AddIntegrityLabelToBoundaryDescriptor(::core::mem::transmute(boundarydescriptor), integritylabel.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddSIDToBoundaryDescriptor<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSID>>(boundarydescriptor: *mut super::super::Foundation::HANDLE, requiredsid: Param1) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AddSIDToBoundaryDescriptor(boundarydescriptor: *mut super::super::Foundation::HANDLE, requiredsid: super::super::Foundation::PSID) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(AddSIDToBoundaryDescriptor(::core::mem::transmute(boundarydescriptor), requiredsid.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AddSIDToBoundaryDescriptor(boundarydescriptor: *mut super::super::Foundation::HANDLE, requiredsid: super::super::Foundation::PSID) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AddSIDToBoundaryDescriptor(::core::mem::transmute(boundarydescriptor), requiredsid.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AttachThreadInput<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(idattach: u32, idattachto: u32, fattach: Param2) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AttachThreadInput(idattach: u32, idattachto: u32, fattach: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(AttachThreadInput(::core::mem::transmute(idattach), ::core::mem::transmute(idattachto), fattach.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AttachThreadInput(idattach: u32, idattachto: u32, fattach: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AttachThreadInput(::core::mem::transmute(idattach), ::core::mem::transmute(idattachto), fattach.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AvQuerySystemResponsiveness<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(avrthandle: Param0, systemresponsivenessvalue: *mut u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AvQuerySystemResponsiveness(avrthandle: super::super::Foundation::HANDLE, systemresponsivenessvalue: *mut u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(AvQuerySystemResponsiveness(avrthandle.into_param().abi(), ::core::mem::transmute(systemresponsivenessvalue)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AvQuerySystemResponsiveness(avrthandle: super::super::Foundation::HANDLE, systemresponsivenessvalue: *mut u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AvQuerySystemResponsiveness(avrthandle.into_param().abi(), ::core::mem::transmute(systemresponsivenessvalue)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AvRevertMmThreadCharacteristics<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(avrthandle: Param0) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AvRevertMmThreadCharacteristics(avrthandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(AvRevertMmThreadCharacteristics(avrthandle.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AvRevertMmThreadCharacteristics(avrthandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AvRevertMmThreadCharacteristics(avrthandle.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AvRtCreateThreadOrderingGroup(context: *mut super::super::Foundation::HANDLE, period: *const i64, threadorderingguid: *mut ::windows::core::GUID, timeout: *const i64) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AvRtCreateThreadOrderingGroup(context: *mut super::super::Foundation::HANDLE, period: *const i64, threadorderingguid: *mut ::windows::core::GUID, timeout: *const i64) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(AvRtCreateThreadOrderingGroup(::core::mem::transmute(context), ::core::mem::transmute(period), ::core::mem::transmute(threadorderingguid), ::core::mem::transmute(timeout)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AvRtCreateThreadOrderingGroup(context: *mut super::super::Foundation::HANDLE, period: *const i64, threadorderingguid: *mut ::windows::core::GUID, timeout: *const i64) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AvRtCreateThreadOrderingGroup(::core::mem::transmute(context), ::core::mem::transmute(period), ::core::mem::transmute(threadorderingguid), ::core::mem::transmute(timeout)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AvRtCreateThreadOrderingGroupExA<'a, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(context: *mut super::super::Foundation::HANDLE, period: *const i64, threadorderingguid: *mut ::windows::core::GUID, timeout: *const i64, taskname: Param4) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AvRtCreateThreadOrderingGroupExA(context: *mut super::super::Foundation::HANDLE, period: *const i64, threadorderingguid: *mut ::windows::core::GUID, timeout: *const i64, taskname: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(AvRtCreateThreadOrderingGroupExA(::core::mem::transmute(context), ::core::mem::transmute(period), ::core::mem::transmute(threadorderingguid), ::core::mem::transmute(timeout), taskname.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AvRtCreateThreadOrderingGroupExA(context: *mut super::super::Foundation::HANDLE, period: *const i64, threadorderingguid: *mut ::windows::core::GUID, timeout: *const i64, taskname: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AvRtCreateThreadOrderingGroupExA(::core::mem::transmute(context), ::core::mem::transmute(period), ::core::mem::transmute(threadorderingguid), ::core::mem::transmute(timeout), taskname.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AvRtCreateThreadOrderingGroupExW<'a, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(context: *mut super::super::Foundation::HANDLE, period: *const i64, threadorderingguid: *mut ::windows::core::GUID, timeout: *const i64, taskname: Param4) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AvRtCreateThreadOrderingGroupExW(context: *mut super::super::Foundation::HANDLE, period: *const i64, threadorderingguid: *mut ::windows::core::GUID, timeout: *const i64, taskname: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(AvRtCreateThreadOrderingGroupExW(::core::mem::transmute(context), ::core::mem::transmute(period), ::core::mem::transmute(threadorderingguid), ::core::mem::transmute(timeout), taskname.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AvRtCreateThreadOrderingGroupExW(context: *mut super::super::Foundation::HANDLE, period: *const i64, threadorderingguid: *mut ::windows::core::GUID, timeout: *const i64, taskname: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AvRtCreateThreadOrderingGroupExW(::core::mem::transmute(context), ::core::mem::transmute(period), ::core::mem::transmute(threadorderingguid), ::core::mem::transmute(timeout), taskname.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AvRtDeleteThreadOrderingGroup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(context: Param0) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AvRtDeleteThreadOrderingGroup(context: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(AvRtDeleteThreadOrderingGroup(context.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AvRtDeleteThreadOrderingGroup(context: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AvRtDeleteThreadOrderingGroup(context.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AvRtJoinThreadOrderingGroup<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(context: *mut super::super::Foundation::HANDLE, threadorderingguid: *const ::windows::core::GUID, before: Param2) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AvRtJoinThreadOrderingGroup(context: *mut super::super::Foundation::HANDLE, threadorderingguid: *const ::windows::core::GUID, before: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(AvRtJoinThreadOrderingGroup(::core::mem::transmute(context), ::core::mem::transmute(threadorderingguid), before.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AvRtJoinThreadOrderingGroup(context: *mut super::super::Foundation::HANDLE, threadorderingguid: *const ::windows::core::GUID, before: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AvRtJoinThreadOrderingGroup(::core::mem::transmute(context), ::core::mem::transmute(threadorderingguid), before.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AvRtLeaveThreadOrderingGroup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(context: Param0) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AvRtLeaveThreadOrderingGroup(context: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(AvRtLeaveThreadOrderingGroup(context.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AvRtLeaveThreadOrderingGroup(context: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AvRtLeaveThreadOrderingGroup(context.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AvRtWaitOnThreadOrderingGroup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(context: Param0) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AvRtWaitOnThreadOrderingGroup(context: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(AvRtWaitOnThreadOrderingGroup(context.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AvRtWaitOnThreadOrderingGroup(context: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AvRtWaitOnThreadOrderingGroup(context.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AvSetMmMaxThreadCharacteristicsA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(firsttask: Param0, secondtask: Param1, taskindex: *mut u32) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AvSetMmMaxThreadCharacteristicsA(firsttask: ::windows::core::PCSTR, secondtask: ::windows::core::PCSTR, taskindex: *mut u32) -> super::super::Foundation::HANDLE;
-        }
-        let result__ = AvSetMmMaxThreadCharacteristicsA(firsttask.into_param().abi(), secondtask.into_param().abi(), ::core::mem::transmute(taskindex));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AvSetMmMaxThreadCharacteristicsA(firsttask: ::windows::core::PCSTR, secondtask: ::windows::core::PCSTR, taskindex: *mut u32) -> super::super::Foundation::HANDLE;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let result__ = AvSetMmMaxThreadCharacteristicsA(firsttask.into_param().abi(), secondtask.into_param().abi(), ::core::mem::transmute(taskindex));
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AvSetMmMaxThreadCharacteristicsW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(firsttask: Param0, secondtask: Param1, taskindex: *mut u32) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AvSetMmMaxThreadCharacteristicsW(firsttask: ::windows::core::PCWSTR, secondtask: ::windows::core::PCWSTR, taskindex: *mut u32) -> super::super::Foundation::HANDLE;
-        }
-        let result__ = AvSetMmMaxThreadCharacteristicsW(firsttask.into_param().abi(), secondtask.into_param().abi(), ::core::mem::transmute(taskindex));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AvSetMmMaxThreadCharacteristicsW(firsttask: ::windows::core::PCWSTR, secondtask: ::windows::core::PCWSTR, taskindex: *mut u32) -> super::super::Foundation::HANDLE;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let result__ = AvSetMmMaxThreadCharacteristicsW(firsttask.into_param().abi(), secondtask.into_param().abi(), ::core::mem::transmute(taskindex));
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AvSetMmThreadCharacteristicsA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(taskname: Param0, taskindex: *mut u32) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AvSetMmThreadCharacteristicsA(taskname: ::windows::core::PCSTR, taskindex: *mut u32) -> super::super::Foundation::HANDLE;
-        }
-        let result__ = AvSetMmThreadCharacteristicsA(taskname.into_param().abi(), ::core::mem::transmute(taskindex));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AvSetMmThreadCharacteristicsA(taskname: ::windows::core::PCSTR, taskindex: *mut u32) -> super::super::Foundation::HANDLE;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let result__ = AvSetMmThreadCharacteristicsA(taskname.into_param().abi(), ::core::mem::transmute(taskindex));
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AvSetMmThreadCharacteristicsW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(taskname: Param0, taskindex: *mut u32) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AvSetMmThreadCharacteristicsW(taskname: ::windows::core::PCWSTR, taskindex: *mut u32) -> super::super::Foundation::HANDLE;
-        }
-        let result__ = AvSetMmThreadCharacteristicsW(taskname.into_param().abi(), ::core::mem::transmute(taskindex));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AvSetMmThreadCharacteristicsW(taskname: ::windows::core::PCWSTR, taskindex: *mut u32) -> super::super::Foundation::HANDLE;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let result__ = AvSetMmThreadCharacteristicsW(taskname.into_param().abi(), ::core::mem::transmute(taskindex));
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AvSetMmThreadPriority<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(avrthandle: Param0, priority: AVRT_PRIORITY) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AvSetMmThreadPriority(avrthandle: super::super::Foundation::HANDLE, priority: AVRT_PRIORITY) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(AvSetMmThreadPriority(avrthandle.into_param().abi(), ::core::mem::transmute(priority)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AvSetMmThreadPriority(avrthandle: super::super::Foundation::HANDLE, priority: AVRT_PRIORITY) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AvSetMmThreadPriority(avrthandle.into_param().abi(), ::core::mem::transmute(priority)))
 }
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -472,1164 +377,774 @@ pub const CREATE_WAITABLE_TIMER_MANUAL_RESET: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CallbackMayRunLong(pci: *mut TP_CALLBACK_INSTANCE) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CallbackMayRunLong(pci: *mut TP_CALLBACK_INSTANCE) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(CallbackMayRunLong(::core::mem::transmute(pci)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CallbackMayRunLong(pci: *mut TP_CALLBACK_INSTANCE) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CallbackMayRunLong(::core::mem::transmute(pci)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn CancelThreadpoolIo(pio: *mut TP_IO) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CancelThreadpoolIo(pio: *mut TP_IO);
-        }
-        CancelThreadpoolIo(::core::mem::transmute(pio))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CancelThreadpoolIo(pio: *mut TP_IO);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CancelThreadpoolIo(::core::mem::transmute(pio))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CancelWaitableTimer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(htimer: Param0) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CancelWaitableTimer(htimer: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(CancelWaitableTimer(htimer.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CancelWaitableTimer(htimer: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CancelWaitableTimer(htimer.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ChangeTimerQueueTimer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(timerqueue: Param0, timer: Param1, duetime: u32, period: u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ChangeTimerQueueTimer(timerqueue: super::super::Foundation::HANDLE, timer: super::super::Foundation::HANDLE, duetime: u32, period: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(ChangeTimerQueueTimer(timerqueue.into_param().abi(), timer.into_param().abi(), ::core::mem::transmute(duetime), ::core::mem::transmute(period)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ChangeTimerQueueTimer(timerqueue: super::super::Foundation::HANDLE, timer: super::super::Foundation::HANDLE, duetime: u32, period: u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(ChangeTimerQueueTimer(timerqueue.into_param().abi(), timer.into_param().abi(), ::core::mem::transmute(duetime), ::core::mem::transmute(period)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ClosePrivateNamespace<'a, Param0: ::windows::core::IntoParam<'a, NamespaceHandle>>(handle: Param0, flags: u32) -> super::super::Foundation::BOOLEAN {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ClosePrivateNamespace(handle: NamespaceHandle, flags: u32) -> super::super::Foundation::BOOLEAN;
-        }
-        ::core::mem::transmute(ClosePrivateNamespace(handle.into_param().abi(), ::core::mem::transmute(flags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ClosePrivateNamespace(handle: NamespaceHandle, flags: u32) -> super::super::Foundation::BOOLEAN;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(ClosePrivateNamespace(handle.into_param().abi(), ::core::mem::transmute(flags)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn CloseThreadpool<'a, Param0: ::windows::core::IntoParam<'a, PTP_POOL>>(ptpp: Param0) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CloseThreadpool(ptpp: PTP_POOL);
-        }
-        CloseThreadpool(ptpp.into_param().abi())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CloseThreadpool(ptpp: PTP_POOL);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CloseThreadpool(ptpp.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn CloseThreadpoolCleanupGroup(ptpcg: isize) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CloseThreadpoolCleanupGroup(ptpcg: isize);
-        }
-        CloseThreadpoolCleanupGroup(::core::mem::transmute(ptpcg))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CloseThreadpoolCleanupGroup(ptpcg: isize);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CloseThreadpoolCleanupGroup(::core::mem::transmute(ptpcg))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CloseThreadpoolCleanupGroupMembers<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(ptpcg: isize, fcancelpendingcallbacks: Param1, pvcleanupcontext: *mut ::core::ffi::c_void) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CloseThreadpoolCleanupGroupMembers(ptpcg: isize, fcancelpendingcallbacks: super::super::Foundation::BOOL, pvcleanupcontext: *mut ::core::ffi::c_void);
-        }
-        CloseThreadpoolCleanupGroupMembers(::core::mem::transmute(ptpcg), fcancelpendingcallbacks.into_param().abi(), ::core::mem::transmute(pvcleanupcontext))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CloseThreadpoolCleanupGroupMembers(ptpcg: isize, fcancelpendingcallbacks: super::super::Foundation::BOOL, pvcleanupcontext: *mut ::core::ffi::c_void);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CloseThreadpoolCleanupGroupMembers(::core::mem::transmute(ptpcg), fcancelpendingcallbacks.into_param().abi(), ::core::mem::transmute(pvcleanupcontext))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn CloseThreadpoolIo(pio: *mut TP_IO) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CloseThreadpoolIo(pio: *mut TP_IO);
-        }
-        CloseThreadpoolIo(::core::mem::transmute(pio))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CloseThreadpoolIo(pio: *mut TP_IO);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CloseThreadpoolIo(::core::mem::transmute(pio))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn CloseThreadpoolTimer(pti: *mut TP_TIMER) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CloseThreadpoolTimer(pti: *mut TP_TIMER);
-        }
-        CloseThreadpoolTimer(::core::mem::transmute(pti))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CloseThreadpoolTimer(pti: *mut TP_TIMER);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CloseThreadpoolTimer(::core::mem::transmute(pti))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn CloseThreadpoolWait(pwa: *mut TP_WAIT) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CloseThreadpoolWait(pwa: *mut TP_WAIT);
-        }
-        CloseThreadpoolWait(::core::mem::transmute(pwa))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CloseThreadpoolWait(pwa: *mut TP_WAIT);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CloseThreadpoolWait(::core::mem::transmute(pwa))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn CloseThreadpoolWork(pwk: *mut TP_WORK) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CloseThreadpoolWork(pwk: *mut TP_WORK);
-        }
-        CloseThreadpoolWork(::core::mem::transmute(pwk))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CloseThreadpoolWork(pwk: *mut TP_WORK);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CloseThreadpoolWork(::core::mem::transmute(pwk))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ConvertFiberToThread() -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ConvertFiberToThread() -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(ConvertFiberToThread())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ConvertFiberToThread() -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(ConvertFiberToThread())
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn ConvertThreadToFiber(lpparameter: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ConvertThreadToFiber(lpparameter: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
-        }
-        ::core::mem::transmute(ConvertThreadToFiber(::core::mem::transmute(lpparameter)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ConvertThreadToFiber(lpparameter: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(ConvertThreadToFiber(::core::mem::transmute(lpparameter)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn ConvertThreadToFiberEx(lpparameter: *const ::core::ffi::c_void, dwflags: u32) -> *mut ::core::ffi::c_void {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ConvertThreadToFiberEx(lpparameter: *const ::core::ffi::c_void, dwflags: u32) -> *mut ::core::ffi::c_void;
-        }
-        ::core::mem::transmute(ConvertThreadToFiberEx(::core::mem::transmute(lpparameter), ::core::mem::transmute(dwflags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ConvertThreadToFiberEx(lpparameter: *const ::core::ffi::c_void, dwflags: u32) -> *mut ::core::ffi::c_void;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(ConvertThreadToFiberEx(::core::mem::transmute(lpparameter), ::core::mem::transmute(dwflags)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn CreateBoundaryDescriptorA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(name: Param0, flags: u32) -> ::windows::core::Result<BoundaryDescriptorHandle> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateBoundaryDescriptorA(name: ::windows::core::PCSTR, flags: u32) -> BoundaryDescriptorHandle;
-        }
-        let result__ = CreateBoundaryDescriptorA(name.into_param().abi(), ::core::mem::transmute(flags));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateBoundaryDescriptorA(name: ::windows::core::PCSTR, flags: u32) -> BoundaryDescriptorHandle;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let result__ = CreateBoundaryDescriptorA(name.into_param().abi(), ::core::mem::transmute(flags));
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn CreateBoundaryDescriptorW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(name: Param0, flags: u32) -> BoundaryDescriptorHandle {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateBoundaryDescriptorW(name: ::windows::core::PCWSTR, flags: u32) -> BoundaryDescriptorHandle;
-        }
-        ::core::mem::transmute(CreateBoundaryDescriptorW(name.into_param().abi(), ::core::mem::transmute(flags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateBoundaryDescriptorW(name: ::windows::core::PCWSTR, flags: u32) -> BoundaryDescriptorHandle;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CreateBoundaryDescriptorW(name.into_param().abi(), ::core::mem::transmute(flags)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateEventA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lpeventattributes: *const super::super::Security::SECURITY_ATTRIBUTES, bmanualreset: Param1, binitialstate: Param2, lpname: Param3) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateEventA(lpeventattributes: *const super::super::Security::SECURITY_ATTRIBUTES, bmanualreset: super::super::Foundation::BOOL, binitialstate: super::super::Foundation::BOOL, lpname: ::windows::core::PCSTR) -> super::super::Foundation::HANDLE;
-        }
-        let result__ = CreateEventA(::core::mem::transmute(lpeventattributes), bmanualreset.into_param().abi(), binitialstate.into_param().abi(), lpname.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateEventA(lpeventattributes: *const super::super::Security::SECURITY_ATTRIBUTES, bmanualreset: super::super::Foundation::BOOL, binitialstate: super::super::Foundation::BOOL, lpname: ::windows::core::PCSTR) -> super::super::Foundation::HANDLE;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let result__ = CreateEventA(::core::mem::transmute(lpeventattributes), bmanualreset.into_param().abi(), binitialstate.into_param().abi(), lpname.into_param().abi());
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateEventExA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lpeventattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpname: Param1, dwflags: CREATE_EVENT, dwdesiredaccess: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateEventExA(lpeventattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpname: ::windows::core::PCSTR, dwflags: CREATE_EVENT, dwdesiredaccess: u32) -> super::super::Foundation::HANDLE;
-        }
-        let result__ = CreateEventExA(::core::mem::transmute(lpeventattributes), lpname.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwdesiredaccess));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateEventExA(lpeventattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpname: ::windows::core::PCSTR, dwflags: CREATE_EVENT, dwdesiredaccess: u32) -> super::super::Foundation::HANDLE;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let result__ = CreateEventExA(::core::mem::transmute(lpeventattributes), lpname.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwdesiredaccess));
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateEventExW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpeventattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpname: Param1, dwflags: CREATE_EVENT, dwdesiredaccess: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateEventExW(lpeventattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpname: ::windows::core::PCWSTR, dwflags: CREATE_EVENT, dwdesiredaccess: u32) -> super::super::Foundation::HANDLE;
-        }
-        let result__ = CreateEventExW(::core::mem::transmute(lpeventattributes), lpname.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwdesiredaccess));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateEventExW(lpeventattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpname: ::windows::core::PCWSTR, dwflags: CREATE_EVENT, dwdesiredaccess: u32) -> super::super::Foundation::HANDLE;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let result__ = CreateEventExW(::core::mem::transmute(lpeventattributes), lpname.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwdesiredaccess));
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateEventW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpeventattributes: *const super::super::Security::SECURITY_ATTRIBUTES, bmanualreset: Param1, binitialstate: Param2, lpname: Param3) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateEventW(lpeventattributes: *const super::super::Security::SECURITY_ATTRIBUTES, bmanualreset: super::super::Foundation::BOOL, binitialstate: super::super::Foundation::BOOL, lpname: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
-        }
-        let result__ = CreateEventW(::core::mem::transmute(lpeventattributes), bmanualreset.into_param().abi(), binitialstate.into_param().abi(), lpname.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateEventW(lpeventattributes: *const super::super::Security::SECURITY_ATTRIBUTES, bmanualreset: super::super::Foundation::BOOL, binitialstate: super::super::Foundation::BOOL, lpname: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let result__ = CreateEventW(::core::mem::transmute(lpeventattributes), bmanualreset.into_param().abi(), binitialstate.into_param().abi(), lpname.into_param().abi());
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn CreateFiber(dwstacksize: usize, lpstartaddress: LPFIBER_START_ROUTINE, lpparameter: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateFiber(dwstacksize: usize, lpstartaddress: *mut ::core::ffi::c_void, lpparameter: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
-        }
-        ::core::mem::transmute(CreateFiber(::core::mem::transmute(dwstacksize), ::core::mem::transmute(lpstartaddress), ::core::mem::transmute(lpparameter)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateFiber(dwstacksize: usize, lpstartaddress: *mut ::core::ffi::c_void, lpparameter: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CreateFiber(::core::mem::transmute(dwstacksize), ::core::mem::transmute(lpstartaddress), ::core::mem::transmute(lpparameter)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn CreateFiberEx(dwstackcommitsize: usize, dwstackreservesize: usize, dwflags: u32, lpstartaddress: LPFIBER_START_ROUTINE, lpparameter: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateFiberEx(dwstackcommitsize: usize, dwstackreservesize: usize, dwflags: u32, lpstartaddress: *mut ::core::ffi::c_void, lpparameter: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
-        }
-        ::core::mem::transmute(CreateFiberEx(::core::mem::transmute(dwstackcommitsize), ::core::mem::transmute(dwstackreservesize), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpstartaddress), ::core::mem::transmute(lpparameter)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateFiberEx(dwstackcommitsize: usize, dwstackreservesize: usize, dwflags: u32, lpstartaddress: *mut ::core::ffi::c_void, lpparameter: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CreateFiberEx(::core::mem::transmute(dwstackcommitsize), ::core::mem::transmute(dwstackreservesize), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpstartaddress), ::core::mem::transmute(lpparameter)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateMutexA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lpmutexattributes: *const super::super::Security::SECURITY_ATTRIBUTES, binitialowner: Param1, lpname: Param2) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateMutexA(lpmutexattributes: *const super::super::Security::SECURITY_ATTRIBUTES, binitialowner: super::super::Foundation::BOOL, lpname: ::windows::core::PCSTR) -> super::super::Foundation::HANDLE;
-        }
-        let result__ = CreateMutexA(::core::mem::transmute(lpmutexattributes), binitialowner.into_param().abi(), lpname.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateMutexA(lpmutexattributes: *const super::super::Security::SECURITY_ATTRIBUTES, binitialowner: super::super::Foundation::BOOL, lpname: ::windows::core::PCSTR) -> super::super::Foundation::HANDLE;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let result__ = CreateMutexA(::core::mem::transmute(lpmutexattributes), binitialowner.into_param().abi(), lpname.into_param().abi());
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateMutexExA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lpmutexattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpname: Param1, dwflags: u32, dwdesiredaccess: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateMutexExA(lpmutexattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpname: ::windows::core::PCSTR, dwflags: u32, dwdesiredaccess: u32) -> super::super::Foundation::HANDLE;
-        }
-        let result__ = CreateMutexExA(::core::mem::transmute(lpmutexattributes), lpname.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwdesiredaccess));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateMutexExA(lpmutexattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpname: ::windows::core::PCSTR, dwflags: u32, dwdesiredaccess: u32) -> super::super::Foundation::HANDLE;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let result__ = CreateMutexExA(::core::mem::transmute(lpmutexattributes), lpname.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwdesiredaccess));
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateMutexExW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpmutexattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpname: Param1, dwflags: u32, dwdesiredaccess: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateMutexExW(lpmutexattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpname: ::windows::core::PCWSTR, dwflags: u32, dwdesiredaccess: u32) -> super::super::Foundation::HANDLE;
-        }
-        let result__ = CreateMutexExW(::core::mem::transmute(lpmutexattributes), lpname.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwdesiredaccess));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateMutexExW(lpmutexattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpname: ::windows::core::PCWSTR, dwflags: u32, dwdesiredaccess: u32) -> super::super::Foundation::HANDLE;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let result__ = CreateMutexExW(::core::mem::transmute(lpmutexattributes), lpname.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwdesiredaccess));
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateMutexW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpmutexattributes: *const super::super::Security::SECURITY_ATTRIBUTES, binitialowner: Param1, lpname: Param2) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateMutexW(lpmutexattributes: *const super::super::Security::SECURITY_ATTRIBUTES, binitialowner: super::super::Foundation::BOOL, lpname: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
-        }
-        let result__ = CreateMutexW(::core::mem::transmute(lpmutexattributes), binitialowner.into_param().abi(), lpname.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateMutexW(lpmutexattributes: *const super::super::Security::SECURITY_ATTRIBUTES, binitialowner: super::super::Foundation::BOOL, lpname: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let result__ = CreateMutexW(::core::mem::transmute(lpmutexattributes), binitialowner.into_param().abi(), lpname.into_param().abi());
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreatePrivateNamespaceA<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lpprivatenamespaceattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpboundarydescriptor: *const ::core::ffi::c_void, lpaliasprefix: Param2) -> ::windows::core::Result<NamespaceHandle> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreatePrivateNamespaceA(lpprivatenamespaceattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpboundarydescriptor: *const ::core::ffi::c_void, lpaliasprefix: ::windows::core::PCSTR) -> NamespaceHandle;
-        }
-        let result__ = CreatePrivateNamespaceA(::core::mem::transmute(lpprivatenamespaceattributes), ::core::mem::transmute(lpboundarydescriptor), lpaliasprefix.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreatePrivateNamespaceA(lpprivatenamespaceattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpboundarydescriptor: *const ::core::ffi::c_void, lpaliasprefix: ::windows::core::PCSTR) -> NamespaceHandle;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let result__ = CreatePrivateNamespaceA(::core::mem::transmute(lpprivatenamespaceattributes), ::core::mem::transmute(lpboundarydescriptor), lpaliasprefix.into_param().abi());
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreatePrivateNamespaceW<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpprivatenamespaceattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpboundarydescriptor: *const ::core::ffi::c_void, lpaliasprefix: Param2) -> NamespaceHandle {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreatePrivateNamespaceW(lpprivatenamespaceattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpboundarydescriptor: *const ::core::ffi::c_void, lpaliasprefix: ::windows::core::PCWSTR) -> NamespaceHandle;
-        }
-        ::core::mem::transmute(CreatePrivateNamespaceW(::core::mem::transmute(lpprivatenamespaceattributes), ::core::mem::transmute(lpboundarydescriptor), lpaliasprefix.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreatePrivateNamespaceW(lpprivatenamespaceattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpboundarydescriptor: *const ::core::ffi::c_void, lpaliasprefix: ::windows::core::PCWSTR) -> NamespaceHandle;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CreatePrivateNamespaceW(::core::mem::transmute(lpprivatenamespaceattributes), ::core::mem::transmute(lpboundarydescriptor), lpaliasprefix.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateProcessA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param7: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lpapplicationname: Param0, lpcommandline: ::windows::core::PSTR, lpprocessattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES, binherithandles: Param4, dwcreationflags: PROCESS_CREATION_FLAGS, lpenvironment: *const ::core::ffi::c_void, lpcurrentdirectory: Param7, lpstartupinfo: *const STARTUPINFOA, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateProcessA(lpapplicationname: ::windows::core::PCSTR, lpcommandline: ::windows::core::PSTR, lpprocessattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES, binherithandles: super::super::Foundation::BOOL, dwcreationflags: PROCESS_CREATION_FLAGS, lpenvironment: *const ::core::ffi::c_void, lpcurrentdirectory: ::windows::core::PCSTR, lpstartupinfo: *const STARTUPINFOA, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(CreateProcessA(lpapplicationname.into_param().abi(), ::core::mem::transmute(lpcommandline), ::core::mem::transmute(lpprocessattributes), ::core::mem::transmute(lpthreadattributes), binherithandles.into_param().abi(), ::core::mem::transmute(dwcreationflags), ::core::mem::transmute(lpenvironment), lpcurrentdirectory.into_param().abi(), ::core::mem::transmute(lpstartupinfo), ::core::mem::transmute(lpprocessinformation)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateProcessA(lpapplicationname: ::windows::core::PCSTR, lpcommandline: ::windows::core::PSTR, lpprocessattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES, binherithandles: super::super::Foundation::BOOL, dwcreationflags: PROCESS_CREATION_FLAGS, lpenvironment: *const ::core::ffi::c_void, lpcurrentdirectory: ::windows::core::PCSTR, lpstartupinfo: *const STARTUPINFOA, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CreateProcessA(lpapplicationname.into_param().abi(), ::core::mem::transmute(lpcommandline), ::core::mem::transmute(lpprocessattributes), ::core::mem::transmute(lpthreadattributes), binherithandles.into_param().abi(), ::core::mem::transmute(dwcreationflags), ::core::mem::transmute(lpenvironment), lpcurrentdirectory.into_param().abi(), ::core::mem::transmute(lpstartupinfo), ::core::mem::transmute(lpprocessinformation)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateProcessAsUserA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param8: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(htoken: Param0, lpapplicationname: Param1, lpcommandline: ::windows::core::PSTR, lpprocessattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES, binherithandles: Param5, dwcreationflags: u32, lpenvironment: *const ::core::ffi::c_void, lpcurrentdirectory: Param8, lpstartupinfo: *const STARTUPINFOA, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateProcessAsUserA(htoken: super::super::Foundation::HANDLE, lpapplicationname: ::windows::core::PCSTR, lpcommandline: ::windows::core::PSTR, lpprocessattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES, binherithandles: super::super::Foundation::BOOL, dwcreationflags: u32, lpenvironment: *const ::core::ffi::c_void, lpcurrentdirectory: ::windows::core::PCSTR, lpstartupinfo: *const STARTUPINFOA, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(CreateProcessAsUserA(htoken.into_param().abi(), lpapplicationname.into_param().abi(), ::core::mem::transmute(lpcommandline), ::core::mem::transmute(lpprocessattributes), ::core::mem::transmute(lpthreadattributes), binherithandles.into_param().abi(), ::core::mem::transmute(dwcreationflags), ::core::mem::transmute(lpenvironment), lpcurrentdirectory.into_param().abi(), ::core::mem::transmute(lpstartupinfo), ::core::mem::transmute(lpprocessinformation)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateProcessAsUserA(htoken: super::super::Foundation::HANDLE, lpapplicationname: ::windows::core::PCSTR, lpcommandline: ::windows::core::PSTR, lpprocessattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES, binherithandles: super::super::Foundation::BOOL, dwcreationflags: u32, lpenvironment: *const ::core::ffi::c_void, lpcurrentdirectory: ::windows::core::PCSTR, lpstartupinfo: *const STARTUPINFOA, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CreateProcessAsUserA(htoken.into_param().abi(), lpapplicationname.into_param().abi(), ::core::mem::transmute(lpcommandline), ::core::mem::transmute(lpprocessattributes), ::core::mem::transmute(lpthreadattributes), binherithandles.into_param().abi(), ::core::mem::transmute(dwcreationflags), ::core::mem::transmute(lpenvironment), lpcurrentdirectory.into_param().abi(), ::core::mem::transmute(lpstartupinfo), ::core::mem::transmute(lpprocessinformation)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateProcessAsUserW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param8: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(htoken: Param0, lpapplicationname: Param1, lpcommandline: ::windows::core::PWSTR, lpprocessattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES, binherithandles: Param5, dwcreationflags: u32, lpenvironment: *const ::core::ffi::c_void, lpcurrentdirectory: Param8, lpstartupinfo: *const STARTUPINFOW, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateProcessAsUserW(htoken: super::super::Foundation::HANDLE, lpapplicationname: ::windows::core::PCWSTR, lpcommandline: ::windows::core::PWSTR, lpprocessattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES, binherithandles: super::super::Foundation::BOOL, dwcreationflags: u32, lpenvironment: *const ::core::ffi::c_void, lpcurrentdirectory: ::windows::core::PCWSTR, lpstartupinfo: *const STARTUPINFOW, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(CreateProcessAsUserW(htoken.into_param().abi(), lpapplicationname.into_param().abi(), ::core::mem::transmute(lpcommandline), ::core::mem::transmute(lpprocessattributes), ::core::mem::transmute(lpthreadattributes), binherithandles.into_param().abi(), ::core::mem::transmute(dwcreationflags), ::core::mem::transmute(lpenvironment), lpcurrentdirectory.into_param().abi(), ::core::mem::transmute(lpstartupinfo), ::core::mem::transmute(lpprocessinformation)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateProcessAsUserW(htoken: super::super::Foundation::HANDLE, lpapplicationname: ::windows::core::PCWSTR, lpcommandline: ::windows::core::PWSTR, lpprocessattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES, binherithandles: super::super::Foundation::BOOL, dwcreationflags: u32, lpenvironment: *const ::core::ffi::c_void, lpcurrentdirectory: ::windows::core::PCWSTR, lpstartupinfo: *const STARTUPINFOW, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CreateProcessAsUserW(htoken.into_param().abi(), lpapplicationname.into_param().abi(), ::core::mem::transmute(lpcommandline), ::core::mem::transmute(lpprocessattributes), ::core::mem::transmute(lpthreadattributes), binherithandles.into_param().abi(), ::core::mem::transmute(dwcreationflags), ::core::mem::transmute(lpenvironment), lpcurrentdirectory.into_param().abi(), ::core::mem::transmute(lpstartupinfo), ::core::mem::transmute(lpprocessinformation)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateProcessW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param7: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpapplicationname: Param0, lpcommandline: ::windows::core::PWSTR, lpprocessattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES, binherithandles: Param4, dwcreationflags: PROCESS_CREATION_FLAGS, lpenvironment: *const ::core::ffi::c_void, lpcurrentdirectory: Param7, lpstartupinfo: *const STARTUPINFOW, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateProcessW(lpapplicationname: ::windows::core::PCWSTR, lpcommandline: ::windows::core::PWSTR, lpprocessattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES, binherithandles: super::super::Foundation::BOOL, dwcreationflags: PROCESS_CREATION_FLAGS, lpenvironment: *const ::core::ffi::c_void, lpcurrentdirectory: ::windows::core::PCWSTR, lpstartupinfo: *const STARTUPINFOW, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(CreateProcessW(lpapplicationname.into_param().abi(), ::core::mem::transmute(lpcommandline), ::core::mem::transmute(lpprocessattributes), ::core::mem::transmute(lpthreadattributes), binherithandles.into_param().abi(), ::core::mem::transmute(dwcreationflags), ::core::mem::transmute(lpenvironment), lpcurrentdirectory.into_param().abi(), ::core::mem::transmute(lpstartupinfo), ::core::mem::transmute(lpprocessinformation)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateProcessW(lpapplicationname: ::windows::core::PCWSTR, lpcommandline: ::windows::core::PWSTR, lpprocessattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES, binherithandles: super::super::Foundation::BOOL, dwcreationflags: PROCESS_CREATION_FLAGS, lpenvironment: *const ::core::ffi::c_void, lpcurrentdirectory: ::windows::core::PCWSTR, lpstartupinfo: *const STARTUPINFOW, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CreateProcessW(lpapplicationname.into_param().abi(), ::core::mem::transmute(lpcommandline), ::core::mem::transmute(lpprocessattributes), ::core::mem::transmute(lpthreadattributes), binherithandles.into_param().abi(), ::core::mem::transmute(dwcreationflags), ::core::mem::transmute(lpenvironment), lpcurrentdirectory.into_param().abi(), ::core::mem::transmute(lpstartupinfo), ::core::mem::transmute(lpprocessinformation)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateProcessWithLogonW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param8: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpusername: Param0, lpdomain: Param1, lppassword: Param2, dwlogonflags: CREATE_PROCESS_LOGON_FLAGS, lpapplicationname: Param4, lpcommandline: ::windows::core::PWSTR, dwcreationflags: u32, lpenvironment: *const ::core::ffi::c_void, lpcurrentdirectory: Param8, lpstartupinfo: *const STARTUPINFOW, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateProcessWithLogonW(lpusername: ::windows::core::PCWSTR, lpdomain: ::windows::core::PCWSTR, lppassword: ::windows::core::PCWSTR, dwlogonflags: CREATE_PROCESS_LOGON_FLAGS, lpapplicationname: ::windows::core::PCWSTR, lpcommandline: ::windows::core::PWSTR, dwcreationflags: u32, lpenvironment: *const ::core::ffi::c_void, lpcurrentdirectory: ::windows::core::PCWSTR, lpstartupinfo: *const STARTUPINFOW, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(CreateProcessWithLogonW(lpusername.into_param().abi(), lpdomain.into_param().abi(), lppassword.into_param().abi(), ::core::mem::transmute(dwlogonflags), lpapplicationname.into_param().abi(), ::core::mem::transmute(lpcommandline), ::core::mem::transmute(dwcreationflags), ::core::mem::transmute(lpenvironment), lpcurrentdirectory.into_param().abi(), ::core::mem::transmute(lpstartupinfo), ::core::mem::transmute(lpprocessinformation)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateProcessWithLogonW(lpusername: ::windows::core::PCWSTR, lpdomain: ::windows::core::PCWSTR, lppassword: ::windows::core::PCWSTR, dwlogonflags: CREATE_PROCESS_LOGON_FLAGS, lpapplicationname: ::windows::core::PCWSTR, lpcommandline: ::windows::core::PWSTR, dwcreationflags: u32, lpenvironment: *const ::core::ffi::c_void, lpcurrentdirectory: ::windows::core::PCWSTR, lpstartupinfo: *const STARTUPINFOW, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CreateProcessWithLogonW(lpusername.into_param().abi(), lpdomain.into_param().abi(), lppassword.into_param().abi(), ::core::mem::transmute(dwlogonflags), lpapplicationname.into_param().abi(), ::core::mem::transmute(lpcommandline), ::core::mem::transmute(dwcreationflags), ::core::mem::transmute(lpenvironment), lpcurrentdirectory.into_param().abi(), ::core::mem::transmute(lpstartupinfo), ::core::mem::transmute(lpprocessinformation)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateProcessWithTokenW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param6: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(htoken: Param0, dwlogonflags: CREATE_PROCESS_LOGON_FLAGS, lpapplicationname: Param2, lpcommandline: ::windows::core::PWSTR, dwcreationflags: u32, lpenvironment: *const ::core::ffi::c_void, lpcurrentdirectory: Param6, lpstartupinfo: *const STARTUPINFOW, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateProcessWithTokenW(htoken: super::super::Foundation::HANDLE, dwlogonflags: CREATE_PROCESS_LOGON_FLAGS, lpapplicationname: ::windows::core::PCWSTR, lpcommandline: ::windows::core::PWSTR, dwcreationflags: u32, lpenvironment: *const ::core::ffi::c_void, lpcurrentdirectory: ::windows::core::PCWSTR, lpstartupinfo: *const STARTUPINFOW, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(CreateProcessWithTokenW(htoken.into_param().abi(), ::core::mem::transmute(dwlogonflags), lpapplicationname.into_param().abi(), ::core::mem::transmute(lpcommandline), ::core::mem::transmute(dwcreationflags), ::core::mem::transmute(lpenvironment), lpcurrentdirectory.into_param().abi(), ::core::mem::transmute(lpstartupinfo), ::core::mem::transmute(lpprocessinformation)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateProcessWithTokenW(htoken: super::super::Foundation::HANDLE, dwlogonflags: CREATE_PROCESS_LOGON_FLAGS, lpapplicationname: ::windows::core::PCWSTR, lpcommandline: ::windows::core::PWSTR, dwcreationflags: u32, lpenvironment: *const ::core::ffi::c_void, lpcurrentdirectory: ::windows::core::PCWSTR, lpstartupinfo: *const STARTUPINFOW, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CreateProcessWithTokenW(htoken.into_param().abi(), ::core::mem::transmute(dwlogonflags), lpapplicationname.into_param().abi(), ::core::mem::transmute(lpcommandline), ::core::mem::transmute(dwcreationflags), ::core::mem::transmute(lpenvironment), lpcurrentdirectory.into_param().abi(), ::core::mem::transmute(lpstartupinfo), ::core::mem::transmute(lpprocessinformation)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateRemoteThread<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwstacksize: usize, lpstartaddress: LPTHREAD_START_ROUTINE, lpparameter: *const ::core::ffi::c_void, dwcreationflags: u32, lpthreadid: *mut u32) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateRemoteThread(hprocess: super::super::Foundation::HANDLE, lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwstacksize: usize, lpstartaddress: *mut ::core::ffi::c_void, lpparameter: *const ::core::ffi::c_void, dwcreationflags: u32, lpthreadid: *mut u32) -> super::super::Foundation::HANDLE;
-        }
-        let result__ = CreateRemoteThread(hprocess.into_param().abi(), ::core::mem::transmute(lpthreadattributes), ::core::mem::transmute(dwstacksize), ::core::mem::transmute(lpstartaddress), ::core::mem::transmute(lpparameter), ::core::mem::transmute(dwcreationflags), ::core::mem::transmute(lpthreadid));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateRemoteThread(hprocess: super::super::Foundation::HANDLE, lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwstacksize: usize, lpstartaddress: *mut ::core::ffi::c_void, lpparameter: *const ::core::ffi::c_void, dwcreationflags: u32, lpthreadid: *mut u32) -> super::super::Foundation::HANDLE;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let result__ = CreateRemoteThread(hprocess.into_param().abi(), ::core::mem::transmute(lpthreadattributes), ::core::mem::transmute(dwstacksize), ::core::mem::transmute(lpstartaddress), ::core::mem::transmute(lpparameter), ::core::mem::transmute(dwcreationflags), ::core::mem::transmute(lpthreadid));
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateRemoteThreadEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param6: ::windows::core::IntoParam<'a, LPPROC_THREAD_ATTRIBUTE_LIST>>(hprocess: Param0, lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwstacksize: usize, lpstartaddress: LPTHREAD_START_ROUTINE, lpparameter: *const ::core::ffi::c_void, dwcreationflags: u32, lpattributelist: Param6, lpthreadid: *mut u32) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateRemoteThreadEx(hprocess: super::super::Foundation::HANDLE, lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwstacksize: usize, lpstartaddress: *mut ::core::ffi::c_void, lpparameter: *const ::core::ffi::c_void, dwcreationflags: u32, lpattributelist: LPPROC_THREAD_ATTRIBUTE_LIST, lpthreadid: *mut u32) -> super::super::Foundation::HANDLE;
-        }
-        let result__ = CreateRemoteThreadEx(hprocess.into_param().abi(), ::core::mem::transmute(lpthreadattributes), ::core::mem::transmute(dwstacksize), ::core::mem::transmute(lpstartaddress), ::core::mem::transmute(lpparameter), ::core::mem::transmute(dwcreationflags), lpattributelist.into_param().abi(), ::core::mem::transmute(lpthreadid));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateRemoteThreadEx(hprocess: super::super::Foundation::HANDLE, lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwstacksize: usize, lpstartaddress: *mut ::core::ffi::c_void, lpparameter: *const ::core::ffi::c_void, dwcreationflags: u32, lpattributelist: LPPROC_THREAD_ATTRIBUTE_LIST, lpthreadid: *mut u32) -> super::super::Foundation::HANDLE;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let result__ = CreateRemoteThreadEx(hprocess.into_param().abi(), ::core::mem::transmute(lpthreadattributes), ::core::mem::transmute(dwstacksize), ::core::mem::transmute(lpstartaddress), ::core::mem::transmute(lpparameter), ::core::mem::transmute(dwcreationflags), lpattributelist.into_param().abi(), ::core::mem::transmute(lpthreadid));
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateSemaphoreA<'a, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lpsemaphoreattributes: *const super::super::Security::SECURITY_ATTRIBUTES, linitialcount: i32, lmaximumcount: i32, lpname: Param3) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateSemaphoreA(lpsemaphoreattributes: *const super::super::Security::SECURITY_ATTRIBUTES, linitialcount: i32, lmaximumcount: i32, lpname: ::windows::core::PCSTR) -> super::super::Foundation::HANDLE;
-        }
-        let result__ = CreateSemaphoreA(::core::mem::transmute(lpsemaphoreattributes), ::core::mem::transmute(linitialcount), ::core::mem::transmute(lmaximumcount), lpname.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateSemaphoreA(lpsemaphoreattributes: *const super::super::Security::SECURITY_ATTRIBUTES, linitialcount: i32, lmaximumcount: i32, lpname: ::windows::core::PCSTR) -> super::super::Foundation::HANDLE;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let result__ = CreateSemaphoreA(::core::mem::transmute(lpsemaphoreattributes), ::core::mem::transmute(linitialcount), ::core::mem::transmute(lmaximumcount), lpname.into_param().abi());
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateSemaphoreExA<'a, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lpsemaphoreattributes: *const super::super::Security::SECURITY_ATTRIBUTES, linitialcount: i32, lmaximumcount: i32, lpname: Param3, dwflags: u32, dwdesiredaccess: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateSemaphoreExA(lpsemaphoreattributes: *const super::super::Security::SECURITY_ATTRIBUTES, linitialcount: i32, lmaximumcount: i32, lpname: ::windows::core::PCSTR, dwflags: u32, dwdesiredaccess: u32) -> super::super::Foundation::HANDLE;
-        }
-        let result__ = CreateSemaphoreExA(::core::mem::transmute(lpsemaphoreattributes), ::core::mem::transmute(linitialcount), ::core::mem::transmute(lmaximumcount), lpname.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwdesiredaccess));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateSemaphoreExA(lpsemaphoreattributes: *const super::super::Security::SECURITY_ATTRIBUTES, linitialcount: i32, lmaximumcount: i32, lpname: ::windows::core::PCSTR, dwflags: u32, dwdesiredaccess: u32) -> super::super::Foundation::HANDLE;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let result__ = CreateSemaphoreExA(::core::mem::transmute(lpsemaphoreattributes), ::core::mem::transmute(linitialcount), ::core::mem::transmute(lmaximumcount), lpname.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwdesiredaccess));
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateSemaphoreExW<'a, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpsemaphoreattributes: *const super::super::Security::SECURITY_ATTRIBUTES, linitialcount: i32, lmaximumcount: i32, lpname: Param3, dwflags: u32, dwdesiredaccess: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateSemaphoreExW(lpsemaphoreattributes: *const super::super::Security::SECURITY_ATTRIBUTES, linitialcount: i32, lmaximumcount: i32, lpname: ::windows::core::PCWSTR, dwflags: u32, dwdesiredaccess: u32) -> super::super::Foundation::HANDLE;
-        }
-        let result__ = CreateSemaphoreExW(::core::mem::transmute(lpsemaphoreattributes), ::core::mem::transmute(linitialcount), ::core::mem::transmute(lmaximumcount), lpname.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwdesiredaccess));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateSemaphoreExW(lpsemaphoreattributes: *const super::super::Security::SECURITY_ATTRIBUTES, linitialcount: i32, lmaximumcount: i32, lpname: ::windows::core::PCWSTR, dwflags: u32, dwdesiredaccess: u32) -> super::super::Foundation::HANDLE;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let result__ = CreateSemaphoreExW(::core::mem::transmute(lpsemaphoreattributes), ::core::mem::transmute(linitialcount), ::core::mem::transmute(lmaximumcount), lpname.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwdesiredaccess));
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateSemaphoreW<'a, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpsemaphoreattributes: *const super::super::Security::SECURITY_ATTRIBUTES, linitialcount: i32, lmaximumcount: i32, lpname: Param3) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateSemaphoreW(lpsemaphoreattributes: *const super::super::Security::SECURITY_ATTRIBUTES, linitialcount: i32, lmaximumcount: i32, lpname: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
-        }
-        let result__ = CreateSemaphoreW(::core::mem::transmute(lpsemaphoreattributes), ::core::mem::transmute(linitialcount), ::core::mem::transmute(lmaximumcount), lpname.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateSemaphoreW(lpsemaphoreattributes: *const super::super::Security::SECURITY_ATTRIBUTES, linitialcount: i32, lmaximumcount: i32, lpname: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let result__ = CreateSemaphoreW(::core::mem::transmute(lpsemaphoreattributes), ::core::mem::transmute(linitialcount), ::core::mem::transmute(lmaximumcount), lpname.into_param().abi());
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateThread(lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwstacksize: usize, lpstartaddress: LPTHREAD_START_ROUTINE, lpparameter: *const ::core::ffi::c_void, dwcreationflags: THREAD_CREATION_FLAGS, lpthreadid: *mut u32) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateThread(lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwstacksize: usize, lpstartaddress: *mut ::core::ffi::c_void, lpparameter: *const ::core::ffi::c_void, dwcreationflags: THREAD_CREATION_FLAGS, lpthreadid: *mut u32) -> super::super::Foundation::HANDLE;
-        }
-        let result__ = CreateThread(::core::mem::transmute(lpthreadattributes), ::core::mem::transmute(dwstacksize), ::core::mem::transmute(lpstartaddress), ::core::mem::transmute(lpparameter), ::core::mem::transmute(dwcreationflags), ::core::mem::transmute(lpthreadid));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateThread(lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwstacksize: usize, lpstartaddress: *mut ::core::ffi::c_void, lpparameter: *const ::core::ffi::c_void, dwcreationflags: THREAD_CREATION_FLAGS, lpthreadid: *mut u32) -> super::super::Foundation::HANDLE;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let result__ = CreateThread(::core::mem::transmute(lpthreadattributes), ::core::mem::transmute(dwstacksize), ::core::mem::transmute(lpstartaddress), ::core::mem::transmute(lpparameter), ::core::mem::transmute(dwcreationflags), ::core::mem::transmute(lpthreadid));
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn CreateThreadpool(reserved: *mut ::core::ffi::c_void) -> PTP_POOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateThreadpool(reserved: *mut ::core::ffi::c_void) -> PTP_POOL;
-        }
-        ::core::mem::transmute(CreateThreadpool(::core::mem::transmute(reserved)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateThreadpool(reserved: *mut ::core::ffi::c_void) -> PTP_POOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CreateThreadpool(::core::mem::transmute(reserved)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn CreateThreadpoolCleanupGroup() -> isize {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateThreadpoolCleanupGroup() -> isize;
-        }
-        ::core::mem::transmute(CreateThreadpoolCleanupGroup())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateThreadpoolCleanupGroup() -> isize;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CreateThreadpoolCleanupGroup())
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateThreadpoolIo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(fl: Param0, pfnio: PTP_WIN32_IO_CALLBACK, pv: *mut ::core::ffi::c_void, pcbe: *const TP_CALLBACK_ENVIRON_V3) -> *mut TP_IO {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateThreadpoolIo(fl: super::super::Foundation::HANDLE, pfnio: *mut ::core::ffi::c_void, pv: *mut ::core::ffi::c_void, pcbe: *const TP_CALLBACK_ENVIRON_V3) -> *mut TP_IO;
-        }
-        ::core::mem::transmute(CreateThreadpoolIo(fl.into_param().abi(), ::core::mem::transmute(pfnio), ::core::mem::transmute(pv), ::core::mem::transmute(pcbe)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateThreadpoolIo(fl: super::super::Foundation::HANDLE, pfnio: *mut ::core::ffi::c_void, pv: *mut ::core::ffi::c_void, pcbe: *const TP_CALLBACK_ENVIRON_V3) -> *mut TP_IO;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CreateThreadpoolIo(fl.into_param().abi(), ::core::mem::transmute(pfnio), ::core::mem::transmute(pv), ::core::mem::transmute(pcbe)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn CreateThreadpoolTimer(pfnti: PTP_TIMER_CALLBACK, pv: *mut ::core::ffi::c_void, pcbe: *const TP_CALLBACK_ENVIRON_V3) -> *mut TP_TIMER {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateThreadpoolTimer(pfnti: *mut ::core::ffi::c_void, pv: *mut ::core::ffi::c_void, pcbe: *const TP_CALLBACK_ENVIRON_V3) -> *mut TP_TIMER;
-        }
-        ::core::mem::transmute(CreateThreadpoolTimer(::core::mem::transmute(pfnti), ::core::mem::transmute(pv), ::core::mem::transmute(pcbe)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateThreadpoolTimer(pfnti: *mut ::core::ffi::c_void, pv: *mut ::core::ffi::c_void, pcbe: *const TP_CALLBACK_ENVIRON_V3) -> *mut TP_TIMER;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CreateThreadpoolTimer(::core::mem::transmute(pfnti), ::core::mem::transmute(pv), ::core::mem::transmute(pcbe)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn CreateThreadpoolWait(pfnwa: PTP_WAIT_CALLBACK, pv: *mut ::core::ffi::c_void, pcbe: *const TP_CALLBACK_ENVIRON_V3) -> *mut TP_WAIT {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateThreadpoolWait(pfnwa: *mut ::core::ffi::c_void, pv: *mut ::core::ffi::c_void, pcbe: *const TP_CALLBACK_ENVIRON_V3) -> *mut TP_WAIT;
-        }
-        ::core::mem::transmute(CreateThreadpoolWait(::core::mem::transmute(pfnwa), ::core::mem::transmute(pv), ::core::mem::transmute(pcbe)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateThreadpoolWait(pfnwa: *mut ::core::ffi::c_void, pv: *mut ::core::ffi::c_void, pcbe: *const TP_CALLBACK_ENVIRON_V3) -> *mut TP_WAIT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CreateThreadpoolWait(::core::mem::transmute(pfnwa), ::core::mem::transmute(pv), ::core::mem::transmute(pcbe)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn CreateThreadpoolWork(pfnwk: PTP_WORK_CALLBACK, pv: *mut ::core::ffi::c_void, pcbe: *const TP_CALLBACK_ENVIRON_V3) -> *mut TP_WORK {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateThreadpoolWork(pfnwk: *mut ::core::ffi::c_void, pv: *mut ::core::ffi::c_void, pcbe: *const TP_CALLBACK_ENVIRON_V3) -> *mut TP_WORK;
-        }
-        ::core::mem::transmute(CreateThreadpoolWork(::core::mem::transmute(pfnwk), ::core::mem::transmute(pv), ::core::mem::transmute(pcbe)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateThreadpoolWork(pfnwk: *mut ::core::ffi::c_void, pv: *mut ::core::ffi::c_void, pcbe: *const TP_CALLBACK_ENVIRON_V3) -> *mut TP_WORK;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CreateThreadpoolWork(::core::mem::transmute(pfnwk), ::core::mem::transmute(pv), ::core::mem::transmute(pcbe)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateTimerQueue() -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateTimerQueue() -> super::super::Foundation::HANDLE;
-        }
-        let result__ = CreateTimerQueue();
-        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateTimerQueue() -> super::super::Foundation::HANDLE;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let result__ = CreateTimerQueue();
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateTimerQueueTimer<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(phnewtimer: *mut super::super::Foundation::HANDLE, timerqueue: Param1, callback: WAITORTIMERCALLBACK, parameter: *const ::core::ffi::c_void, duetime: u32, period: u32, flags: WORKER_THREAD_FLAGS) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateTimerQueueTimer(phnewtimer: *mut super::super::Foundation::HANDLE, timerqueue: super::super::Foundation::HANDLE, callback: *mut ::core::ffi::c_void, parameter: *const ::core::ffi::c_void, duetime: u32, period: u32, flags: WORKER_THREAD_FLAGS) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(CreateTimerQueueTimer(::core::mem::transmute(phnewtimer), timerqueue.into_param().abi(), ::core::mem::transmute(callback), ::core::mem::transmute(parameter), ::core::mem::transmute(duetime), ::core::mem::transmute(period), ::core::mem::transmute(flags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateTimerQueueTimer(phnewtimer: *mut super::super::Foundation::HANDLE, timerqueue: super::super::Foundation::HANDLE, callback: *mut ::core::ffi::c_void, parameter: *const ::core::ffi::c_void, duetime: u32, period: u32, flags: WORKER_THREAD_FLAGS) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CreateTimerQueueTimer(::core::mem::transmute(phnewtimer), timerqueue.into_param().abi(), ::core::mem::transmute(callback), ::core::mem::transmute(parameter), ::core::mem::transmute(duetime), ::core::mem::transmute(period), ::core::mem::transmute(flags)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateUmsCompletionList(umscompletionlist: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateUmsCompletionList(umscompletionlist: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(CreateUmsCompletionList(::core::mem::transmute(umscompletionlist)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateUmsCompletionList(umscompletionlist: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CreateUmsCompletionList(::core::mem::transmute(umscompletionlist)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateUmsThreadContext(lpumsthread: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateUmsThreadContext(lpumsthread: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(CreateUmsThreadContext(::core::mem::transmute(lpumsthread)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateUmsThreadContext(lpumsthread: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CreateUmsThreadContext(::core::mem::transmute(lpumsthread)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateWaitableTimerExW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lptimerattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lptimername: Param1, dwflags: u32, dwdesiredaccess: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateWaitableTimerExW(lptimerattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lptimername: ::windows::core::PCWSTR, dwflags: u32, dwdesiredaccess: u32) -> super::super::Foundation::HANDLE;
-        }
-        let result__ = CreateWaitableTimerExW(::core::mem::transmute(lptimerattributes), lptimername.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwdesiredaccess));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateWaitableTimerExW(lptimerattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lptimername: ::windows::core::PCWSTR, dwflags: u32, dwdesiredaccess: u32) -> super::super::Foundation::HANDLE;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let result__ = CreateWaitableTimerExW(::core::mem::transmute(lptimerattributes), lptimername.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwdesiredaccess));
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateWaitableTimerW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lptimerattributes: *const super::super::Security::SECURITY_ATTRIBUTES, bmanualreset: Param1, lptimername: Param2) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateWaitableTimerW(lptimerattributes: *const super::super::Security::SECURITY_ATTRIBUTES, bmanualreset: super::super::Foundation::BOOL, lptimername: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
-        }
-        let result__ = CreateWaitableTimerW(::core::mem::transmute(lptimerattributes), bmanualreset.into_param().abi(), lptimername.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateWaitableTimerW(lptimerattributes: *const super::super::Security::SECURITY_ATTRIBUTES, bmanualreset: super::super::Foundation::BOOL, lptimername: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let result__ = CreateWaitableTimerW(::core::mem::transmute(lptimerattributes), bmanualreset.into_param().abi(), lptimername.into_param().abi());
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn DeleteBoundaryDescriptor<'a, Param0: ::windows::core::IntoParam<'a, BoundaryDescriptorHandle>>(boundarydescriptor: Param0) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DeleteBoundaryDescriptor(boundarydescriptor: BoundaryDescriptorHandle);
-        }
-        DeleteBoundaryDescriptor(boundarydescriptor.into_param().abi())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DeleteBoundaryDescriptor(boundarydescriptor: BoundaryDescriptorHandle);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DeleteBoundaryDescriptor(boundarydescriptor.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn DeleteCriticalSection(lpcriticalsection: *mut RTL_CRITICAL_SECTION) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DeleteCriticalSection(lpcriticalsection: *mut RTL_CRITICAL_SECTION);
-        }
-        DeleteCriticalSection(::core::mem::transmute(lpcriticalsection))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DeleteCriticalSection(lpcriticalsection: *mut RTL_CRITICAL_SECTION);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DeleteCriticalSection(::core::mem::transmute(lpcriticalsection))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn DeleteFiber(lpfiber: *const ::core::ffi::c_void) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DeleteFiber(lpfiber: *const ::core::ffi::c_void);
-        }
-        DeleteFiber(::core::mem::transmute(lpfiber))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DeleteFiber(lpfiber: *const ::core::ffi::c_void);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DeleteFiber(::core::mem::transmute(lpfiber))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn DeleteProcThreadAttributeList<'a, Param0: ::windows::core::IntoParam<'a, LPPROC_THREAD_ATTRIBUTE_LIST>>(lpattributelist: Param0) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DeleteProcThreadAttributeList(lpattributelist: LPPROC_THREAD_ATTRIBUTE_LIST);
-        }
-        DeleteProcThreadAttributeList(lpattributelist.into_param().abi())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DeleteProcThreadAttributeList(lpattributelist: LPPROC_THREAD_ATTRIBUTE_LIST);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DeleteProcThreadAttributeList(lpattributelist.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteSynchronizationBarrier(lpbarrier: *mut RTL_BARRIER) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DeleteSynchronizationBarrier(lpbarrier: *mut RTL_BARRIER) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(DeleteSynchronizationBarrier(::core::mem::transmute(lpbarrier)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DeleteSynchronizationBarrier(lpbarrier: *mut RTL_BARRIER) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(DeleteSynchronizationBarrier(::core::mem::transmute(lpbarrier)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteTimerQueue<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(timerqueue: Param0) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DeleteTimerQueue(timerqueue: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(DeleteTimerQueue(timerqueue.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DeleteTimerQueue(timerqueue: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(DeleteTimerQueue(timerqueue.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteTimerQueueEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(timerqueue: Param0, completionevent: Param1) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DeleteTimerQueueEx(timerqueue: super::super::Foundation::HANDLE, completionevent: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(DeleteTimerQueueEx(timerqueue.into_param().abi(), completionevent.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DeleteTimerQueueEx(timerqueue: super::super::Foundation::HANDLE, completionevent: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(DeleteTimerQueueEx(timerqueue.into_param().abi(), completionevent.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteTimerQueueTimer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(timerqueue: Param0, timer: Param1, completionevent: Param2) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DeleteTimerQueueTimer(timerqueue: super::super::Foundation::HANDLE, timer: super::super::Foundation::HANDLE, completionevent: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(DeleteTimerQueueTimer(timerqueue.into_param().abi(), timer.into_param().abi(), completionevent.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DeleteTimerQueueTimer(timerqueue: super::super::Foundation::HANDLE, timer: super::super::Foundation::HANDLE, completionevent: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(DeleteTimerQueueTimer(timerqueue.into_param().abi(), timer.into_param().abi(), completionevent.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteUmsCompletionList(umscompletionlist: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DeleteUmsCompletionList(umscompletionlist: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(DeleteUmsCompletionList(::core::mem::transmute(umscompletionlist)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DeleteUmsCompletionList(umscompletionlist: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(DeleteUmsCompletionList(::core::mem::transmute(umscompletionlist)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteUmsThreadContext(umsthread: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DeleteUmsThreadContext(umsthread: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(DeleteUmsThreadContext(::core::mem::transmute(umsthread)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DeleteUmsThreadContext(umsthread: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(DeleteUmsThreadContext(::core::mem::transmute(umsthread)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DequeueUmsCompletionListItems(umscompletionlist: *const ::core::ffi::c_void, waittimeout: u32, umsthreadlist: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DequeueUmsCompletionListItems(umscompletionlist: *const ::core::ffi::c_void, waittimeout: u32, umsthreadlist: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(DequeueUmsCompletionListItems(::core::mem::transmute(umscompletionlist), ::core::mem::transmute(waittimeout), ::core::mem::transmute(umsthreadlist)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DequeueUmsCompletionListItems(umscompletionlist: *const ::core::ffi::c_void, waittimeout: u32, umsthreadlist: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(DequeueUmsCompletionListItems(::core::mem::transmute(umscompletionlist), ::core::mem::transmute(waittimeout), ::core::mem::transmute(umsthreadlist)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn DisassociateCurrentThreadFromCallback(pci: *mut TP_CALLBACK_INSTANCE) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DisassociateCurrentThreadFromCallback(pci: *mut TP_CALLBACK_INSTANCE);
-        }
-        DisassociateCurrentThreadFromCallback(::core::mem::transmute(pci))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DisassociateCurrentThreadFromCallback(pci: *mut TP_CALLBACK_INSTANCE);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DisassociateCurrentThreadFromCallback(::core::mem::transmute(pci))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn EnterCriticalSection(lpcriticalsection: *mut RTL_CRITICAL_SECTION) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn EnterCriticalSection(lpcriticalsection: *mut RTL_CRITICAL_SECTION);
-        }
-        EnterCriticalSection(::core::mem::transmute(lpcriticalsection))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn EnterCriticalSection(lpcriticalsection: *mut RTL_CRITICAL_SECTION);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    EnterCriticalSection(::core::mem::transmute(lpcriticalsection))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnterSynchronizationBarrier(lpbarrier: *mut RTL_BARRIER, dwflags: u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn EnterSynchronizationBarrier(lpbarrier: *mut RTL_BARRIER, dwflags: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(EnterSynchronizationBarrier(::core::mem::transmute(lpbarrier), ::core::mem::transmute(dwflags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn EnterSynchronizationBarrier(lpbarrier: *mut RTL_BARRIER, dwflags: u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(EnterSynchronizationBarrier(::core::mem::transmute(lpbarrier), ::core::mem::transmute(dwflags)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemServices\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
 pub unsafe fn EnterUmsSchedulingMode(schedulerstartupinfo: *const UMS_SCHEDULER_STARTUP_INFO) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn EnterUmsSchedulingMode(schedulerstartupinfo: *const UMS_SCHEDULER_STARTUP_INFO) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(EnterUmsSchedulingMode(::core::mem::transmute(schedulerstartupinfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn EnterUmsSchedulingMode(schedulerstartupinfo: *const UMS_SCHEDULER_STARTUP_INFO) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(EnterUmsSchedulingMode(::core::mem::transmute(schedulerstartupinfo)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ExecuteUmsThread(umsthread: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ExecuteUmsThread(umsthread: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(ExecuteUmsThread(::core::mem::transmute(umsthread)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ExecuteUmsThread(umsthread: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(ExecuteUmsThread(::core::mem::transmute(umsthread)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn ExitProcess(uexitcode: u32) -> ! {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ExitProcess(uexitcode: u32) -> !;
-        }
-        ExitProcess(::core::mem::transmute(uexitcode))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ExitProcess(uexitcode: u32) -> !;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ExitProcess(::core::mem::transmute(uexitcode))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn ExitThread(dwexitcode: u32) -> ! {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ExitThread(dwexitcode: u32) -> !;
-        }
-        ExitThread(::core::mem::transmute(dwexitcode))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ExitThread(dwexitcode: u32) -> !;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ExitThread(::core::mem::transmute(dwexitcode))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn FlsAlloc(lpcallback: PFLS_CALLBACK_FUNCTION) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn FlsAlloc(lpcallback: *mut ::core::ffi::c_void) -> u32;
-        }
-        ::core::mem::transmute(FlsAlloc(::core::mem::transmute(lpcallback)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn FlsAlloc(lpcallback: *mut ::core::ffi::c_void) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(FlsAlloc(::core::mem::transmute(lpcallback)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FlsFree(dwflsindex: u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn FlsFree(dwflsindex: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(FlsFree(::core::mem::transmute(dwflsindex)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn FlsFree(dwflsindex: u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(FlsFree(::core::mem::transmute(dwflsindex)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn FlsGetValue(dwflsindex: u32) -> *mut ::core::ffi::c_void {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn FlsGetValue(dwflsindex: u32) -> *mut ::core::ffi::c_void;
-        }
-        ::core::mem::transmute(FlsGetValue(::core::mem::transmute(dwflsindex)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn FlsGetValue(dwflsindex: u32) -> *mut ::core::ffi::c_void;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(FlsGetValue(::core::mem::transmute(dwflsindex)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FlsSetValue(dwflsindex: u32, lpflsdata: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn FlsSetValue(dwflsindex: u32, lpflsdata: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(FlsSetValue(::core::mem::transmute(dwflsindex), ::core::mem::transmute(lpflsdata)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn FlsSetValue(dwflsindex: u32, lpflsdata: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(FlsSetValue(::core::mem::transmute(dwflsindex), ::core::mem::transmute(lpflsdata)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn FlushProcessWriteBuffers() {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn FlushProcessWriteBuffers();
-        }
-        FlushProcessWriteBuffers()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn FlushProcessWriteBuffers();
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    FlushProcessWriteBuffers()
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FreeLibraryWhenCallbackReturns<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(pci: *mut TP_CALLBACK_INSTANCE, r#mod: Param1) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn FreeLibraryWhenCallbackReturns(pci: *mut TP_CALLBACK_INSTANCE, r#mod: super::super::Foundation::HINSTANCE);
-        }
-        FreeLibraryWhenCallbackReturns(::core::mem::transmute(pci), r#mod.into_param().abi())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn FreeLibraryWhenCallbackReturns(pci: *mut TP_CALLBACK_INSTANCE, r#mod: super::super::Foundation::HINSTANCE);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    FreeLibraryWhenCallbackReturns(::core::mem::transmute(pci), r#mod.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[repr(transparent)]
@@ -1665,907 +1180,602 @@ impl ::core::fmt::Debug for GET_GUI_RESOURCES_FLAGS {
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn GetActiveProcessorCount(groupnumber: u16) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetActiveProcessorCount(groupnumber: u16) -> u32;
-        }
-        ::core::mem::transmute(GetActiveProcessorCount(::core::mem::transmute(groupnumber)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetActiveProcessorCount(groupnumber: u16) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetActiveProcessorCount(::core::mem::transmute(groupnumber)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn GetActiveProcessorGroupCount() -> u16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetActiveProcessorGroupCount() -> u16;
-        }
-        ::core::mem::transmute(GetActiveProcessorGroupCount())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetActiveProcessorGroupCount() -> u16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetActiveProcessorGroupCount())
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCurrentProcess() -> super::super::Foundation::HANDLE {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetCurrentProcess() -> super::super::Foundation::HANDLE;
-        }
-        ::core::mem::transmute(GetCurrentProcess())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetCurrentProcess() -> super::super::Foundation::HANDLE;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetCurrentProcess())
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn GetCurrentProcessId() -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetCurrentProcessId() -> u32;
-        }
-        ::core::mem::transmute(GetCurrentProcessId())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetCurrentProcessId() -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetCurrentProcessId())
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn GetCurrentProcessorNumber() -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetCurrentProcessorNumber() -> u32;
-        }
-        ::core::mem::transmute(GetCurrentProcessorNumber())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetCurrentProcessorNumber() -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetCurrentProcessorNumber())
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn GetCurrentProcessorNumberEx(procnumber: *mut super::Kernel::PROCESSOR_NUMBER) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetCurrentProcessorNumberEx(procnumber: *mut super::Kernel::PROCESSOR_NUMBER);
-        }
-        GetCurrentProcessorNumberEx(::core::mem::transmute(procnumber))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetCurrentProcessorNumberEx(procnumber: *mut super::Kernel::PROCESSOR_NUMBER);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    GetCurrentProcessorNumberEx(::core::mem::transmute(procnumber))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCurrentThread() -> super::super::Foundation::HANDLE {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetCurrentThread() -> super::super::Foundation::HANDLE;
-        }
-        ::core::mem::transmute(GetCurrentThread())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetCurrentThread() -> super::super::Foundation::HANDLE;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetCurrentThread())
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn GetCurrentThreadId() -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetCurrentThreadId() -> u32;
-        }
-        ::core::mem::transmute(GetCurrentThreadId())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetCurrentThreadId() -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetCurrentThreadId())
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn GetCurrentThreadStackLimits(lowlimit: *mut usize, highlimit: *mut usize) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetCurrentThreadStackLimits(lowlimit: *mut usize, highlimit: *mut usize);
-        }
-        GetCurrentThreadStackLimits(::core::mem::transmute(lowlimit), ::core::mem::transmute(highlimit))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetCurrentThreadStackLimits(lowlimit: *mut usize, highlimit: *mut usize);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    GetCurrentThreadStackLimits(::core::mem::transmute(lowlimit), ::core::mem::transmute(highlimit))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn GetCurrentUmsThread() -> *mut ::core::ffi::c_void {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetCurrentUmsThread() -> *mut ::core::ffi::c_void;
-        }
-        ::core::mem::transmute(GetCurrentUmsThread())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetCurrentUmsThread() -> *mut ::core::ffi::c_void;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetCurrentUmsThread())
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetExitCodeProcess<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, lpexitcode: *mut u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetExitCodeProcess(hprocess: super::super::Foundation::HANDLE, lpexitcode: *mut u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetExitCodeProcess(hprocess.into_param().abi(), ::core::mem::transmute(lpexitcode)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetExitCodeProcess(hprocess: super::super::Foundation::HANDLE, lpexitcode: *mut u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetExitCodeProcess(hprocess.into_param().abi(), ::core::mem::transmute(lpexitcode)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetExitCodeThread<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hthread: Param0, lpexitcode: *mut u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetExitCodeThread(hthread: super::super::Foundation::HANDLE, lpexitcode: *mut u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetExitCodeThread(hthread.into_param().abi(), ::core::mem::transmute(lpexitcode)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetExitCodeThread(hthread: super::super::Foundation::HANDLE, lpexitcode: *mut u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetExitCodeThread(hthread.into_param().abi(), ::core::mem::transmute(lpexitcode)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetGuiResources<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, uiflags: GET_GUI_RESOURCES_FLAGS) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetGuiResources(hprocess: super::super::Foundation::HANDLE, uiflags: GET_GUI_RESOURCES_FLAGS) -> u32;
-        }
-        ::core::mem::transmute(GetGuiResources(hprocess.into_param().abi(), ::core::mem::transmute(uiflags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetGuiResources(hprocess: super::super::Foundation::HANDLE, uiflags: GET_GUI_RESOURCES_FLAGS) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetGuiResources(hprocess.into_param().abi(), ::core::mem::transmute(uiflags)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn GetMachineTypeAttributes(machine: u16) -> ::windows::core::Result<MACHINE_ATTRIBUTES> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetMachineTypeAttributes(machine: u16, machinetypeattributes: *mut MACHINE_ATTRIBUTES) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<MACHINE_ATTRIBUTES>::zeroed();
-        GetMachineTypeAttributes(::core::mem::transmute(machine), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<MACHINE_ATTRIBUTES>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetMachineTypeAttributes(machine: u16, machinetypeattributes: *mut MACHINE_ATTRIBUTES) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<MACHINE_ATTRIBUTES>::zeroed();
+    GetMachineTypeAttributes(::core::mem::transmute(machine), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<MACHINE_ATTRIBUTES>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn GetMaximumProcessorCount(groupnumber: u16) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetMaximumProcessorCount(groupnumber: u16) -> u32;
-        }
-        ::core::mem::transmute(GetMaximumProcessorCount(::core::mem::transmute(groupnumber)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetMaximumProcessorCount(groupnumber: u16) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetMaximumProcessorCount(::core::mem::transmute(groupnumber)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn GetMaximumProcessorGroupCount() -> u16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetMaximumProcessorGroupCount() -> u16;
-        }
-        ::core::mem::transmute(GetMaximumProcessorGroupCount())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetMaximumProcessorGroupCount() -> u16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetMaximumProcessorGroupCount())
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn GetNextUmsListItem(umscontext: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetNextUmsListItem(umscontext: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
-        }
-        ::core::mem::transmute(GetNextUmsListItem(::core::mem::transmute(umscontext)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetNextUmsListItem(umscontext: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetNextUmsListItem(::core::mem::transmute(umscontext)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetNumaAvailableMemoryNode(node: u8, availablebytes: *mut u64) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetNumaAvailableMemoryNode(node: u8, availablebytes: *mut u64) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetNumaAvailableMemoryNode(::core::mem::transmute(node), ::core::mem::transmute(availablebytes)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetNumaAvailableMemoryNode(node: u8, availablebytes: *mut u64) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetNumaAvailableMemoryNode(::core::mem::transmute(node), ::core::mem::transmute(availablebytes)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetNumaAvailableMemoryNodeEx(node: u16, availablebytes: *mut u64) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetNumaAvailableMemoryNodeEx(node: u16, availablebytes: *mut u64) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetNumaAvailableMemoryNodeEx(::core::mem::transmute(node), ::core::mem::transmute(availablebytes)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetNumaAvailableMemoryNodeEx(node: u16, availablebytes: *mut u64) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetNumaAvailableMemoryNodeEx(::core::mem::transmute(node), ::core::mem::transmute(availablebytes)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetNumaHighestNodeNumber(highestnodenumber: *mut u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetNumaHighestNodeNumber(highestnodenumber: *mut u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetNumaHighestNodeNumber(::core::mem::transmute(highestnodenumber)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetNumaHighestNodeNumber(highestnodenumber: *mut u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetNumaHighestNodeNumber(::core::mem::transmute(highestnodenumber)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetNumaNodeNumberFromHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, nodenumber: *mut u16) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetNumaNodeNumberFromHandle(hfile: super::super::Foundation::HANDLE, nodenumber: *mut u16) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetNumaNodeNumberFromHandle(hfile.into_param().abi(), ::core::mem::transmute(nodenumber)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetNumaNodeNumberFromHandle(hfile: super::super::Foundation::HANDLE, nodenumber: *mut u16) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetNumaNodeNumberFromHandle(hfile.into_param().abi(), ::core::mem::transmute(nodenumber)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetNumaNodeProcessorMask(node: u8, processormask: *mut u64) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetNumaNodeProcessorMask(node: u8, processormask: *mut u64) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetNumaNodeProcessorMask(::core::mem::transmute(node), ::core::mem::transmute(processormask)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetNumaNodeProcessorMask(node: u8, processormask: *mut u64) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetNumaNodeProcessorMask(::core::mem::transmute(node), ::core::mem::transmute(processormask)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemInformation"))]
 #[inline]
 pub unsafe fn GetNumaNodeProcessorMask2(nodenumber: u16, processormasks: &mut [super::SystemInformation::GROUP_AFFINITY], requiredmaskcount: *mut u16) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetNumaNodeProcessorMask2(nodenumber: u16, processormasks: *mut super::SystemInformation::GROUP_AFFINITY, processormaskcount: u16, requiredmaskcount: *mut u16) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetNumaNodeProcessorMask2(::core::mem::transmute(nodenumber), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(processormasks)), processormasks.len() as _, ::core::mem::transmute(requiredmaskcount)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetNumaNodeProcessorMask2(nodenumber: u16, processormasks: *mut super::SystemInformation::GROUP_AFFINITY, processormaskcount: u16, requiredmaskcount: *mut u16) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetNumaNodeProcessorMask2(::core::mem::transmute(nodenumber), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(processormasks)), processormasks.len() as _, ::core::mem::transmute(requiredmaskcount)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemInformation"))]
 #[inline]
 pub unsafe fn GetNumaNodeProcessorMaskEx(node: u16, processormask: *mut super::SystemInformation::GROUP_AFFINITY) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetNumaNodeProcessorMaskEx(node: u16, processormask: *mut super::SystemInformation::GROUP_AFFINITY) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetNumaNodeProcessorMaskEx(::core::mem::transmute(node), ::core::mem::transmute(processormask)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetNumaNodeProcessorMaskEx(node: u16, processormask: *mut super::SystemInformation::GROUP_AFFINITY) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetNumaNodeProcessorMaskEx(::core::mem::transmute(node), ::core::mem::transmute(processormask)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetNumaProcessorNode(processor: u8, nodenumber: *mut u8) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetNumaProcessorNode(processor: u8, nodenumber: *mut u8) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetNumaProcessorNode(::core::mem::transmute(processor), ::core::mem::transmute(nodenumber)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetNumaProcessorNode(processor: u8, nodenumber: *mut u8) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetNumaProcessorNode(::core::mem::transmute(processor), ::core::mem::transmute(nodenumber)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn GetNumaProcessorNodeEx(processor: *const super::Kernel::PROCESSOR_NUMBER, nodenumber: *mut u16) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetNumaProcessorNodeEx(processor: *const super::Kernel::PROCESSOR_NUMBER, nodenumber: *mut u16) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetNumaProcessorNodeEx(::core::mem::transmute(processor), ::core::mem::transmute(nodenumber)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetNumaProcessorNodeEx(processor: *const super::Kernel::PROCESSOR_NUMBER, nodenumber: *mut u16) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetNumaProcessorNodeEx(::core::mem::transmute(processor), ::core::mem::transmute(nodenumber)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetNumaProximityNode(proximityid: u32, nodenumber: *mut u8) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetNumaProximityNode(proximityid: u32, nodenumber: *mut u8) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetNumaProximityNode(::core::mem::transmute(proximityid), ::core::mem::transmute(nodenumber)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetNumaProximityNode(proximityid: u32, nodenumber: *mut u8) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetNumaProximityNode(::core::mem::transmute(proximityid), ::core::mem::transmute(nodenumber)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetNumaProximityNodeEx(proximityid: u32, nodenumber: *mut u16) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetNumaProximityNodeEx(proximityid: u32, nodenumber: *mut u16) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetNumaProximityNodeEx(::core::mem::transmute(proximityid), ::core::mem::transmute(nodenumber)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetNumaProximityNodeEx(proximityid: u32, nodenumber: *mut u16) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetNumaProximityNodeEx(::core::mem::transmute(proximityid), ::core::mem::transmute(nodenumber)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPriorityClass<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetPriorityClass(hprocess: super::super::Foundation::HANDLE) -> u32;
-        }
-        ::core::mem::transmute(GetPriorityClass(hprocess.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetPriorityClass(hprocess: super::super::Foundation::HANDLE) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetPriorityClass(hprocess.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetProcessAffinityMask<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, lpprocessaffinitymask: *mut usize, lpsystemaffinitymask: *mut usize) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetProcessAffinityMask(hprocess: super::super::Foundation::HANDLE, lpprocessaffinitymask: *mut usize, lpsystemaffinitymask: *mut usize) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetProcessAffinityMask(hprocess.into_param().abi(), ::core::mem::transmute(lpprocessaffinitymask), ::core::mem::transmute(lpsystemaffinitymask)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetProcessAffinityMask(hprocess: super::super::Foundation::HANDLE, lpprocessaffinitymask: *mut usize, lpsystemaffinitymask: *mut usize) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetProcessAffinityMask(hprocess.into_param().abi(), ::core::mem::transmute(lpprocessaffinitymask), ::core::mem::transmute(lpsystemaffinitymask)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetProcessDEPPolicy<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, lpflags: *mut u32, lppermanent: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetProcessDEPPolicy(hprocess: super::super::Foundation::HANDLE, lpflags: *mut u32, lppermanent: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetProcessDEPPolicy(hprocess.into_param().abi(), ::core::mem::transmute(lpflags), ::core::mem::transmute(lppermanent)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetProcessDEPPolicy(hprocess: super::super::Foundation::HANDLE, lpflags: *mut u32, lppermanent: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetProcessDEPPolicy(hprocess.into_param().abi(), ::core::mem::transmute(lpflags), ::core::mem::transmute(lppermanent)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemInformation"))]
 #[inline]
 pub unsafe fn GetProcessDefaultCpuSetMasks<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(process: Param0, cpusetmasks: &mut [super::SystemInformation::GROUP_AFFINITY], requiredmaskcount: *mut u16) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetProcessDefaultCpuSetMasks(process: super::super::Foundation::HANDLE, cpusetmasks: *mut super::SystemInformation::GROUP_AFFINITY, cpusetmaskcount: u16, requiredmaskcount: *mut u16) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetProcessDefaultCpuSetMasks(process.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(cpusetmasks)), cpusetmasks.len() as _, ::core::mem::transmute(requiredmaskcount)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetProcessDefaultCpuSetMasks(process: super::super::Foundation::HANDLE, cpusetmasks: *mut super::SystemInformation::GROUP_AFFINITY, cpusetmaskcount: u16, requiredmaskcount: *mut u16) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetProcessDefaultCpuSetMasks(process.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(cpusetmasks)), cpusetmasks.len() as _, ::core::mem::transmute(requiredmaskcount)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetProcessDefaultCpuSets<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(process: Param0, cpusetids: &mut [u32], requiredidcount: *mut u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetProcessDefaultCpuSets(process: super::super::Foundation::HANDLE, cpusetids: *mut u32, cpusetidcount: u32, requiredidcount: *mut u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetProcessDefaultCpuSets(process.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(cpusetids)), cpusetids.len() as _, ::core::mem::transmute(requiredidcount)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetProcessDefaultCpuSets(process: super::super::Foundation::HANDLE, cpusetids: *mut u32, cpusetidcount: u32, requiredidcount: *mut u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetProcessDefaultCpuSets(process.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(cpusetids)), cpusetids.len() as _, ::core::mem::transmute(requiredidcount)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetProcessGroupAffinity<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, groupcount: *mut u16, grouparray: *mut u16) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetProcessGroupAffinity(hprocess: super::super::Foundation::HANDLE, groupcount: *mut u16, grouparray: *mut u16) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetProcessGroupAffinity(hprocess.into_param().abi(), ::core::mem::transmute(groupcount), ::core::mem::transmute(grouparray)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetProcessGroupAffinity(hprocess: super::super::Foundation::HANDLE, groupcount: *mut u16, grouparray: *mut u16) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetProcessGroupAffinity(hprocess.into_param().abi(), ::core::mem::transmute(groupcount), ::core::mem::transmute(grouparray)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetProcessHandleCount<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, pdwhandlecount: *mut u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetProcessHandleCount(hprocess: super::super::Foundation::HANDLE, pdwhandlecount: *mut u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetProcessHandleCount(hprocess.into_param().abi(), ::core::mem::transmute(pdwhandlecount)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetProcessHandleCount(hprocess: super::super::Foundation::HANDLE, pdwhandlecount: *mut u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetProcessHandleCount(hprocess.into_param().abi(), ::core::mem::transmute(pdwhandlecount)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetProcessId<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(process: Param0) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetProcessId(process: super::super::Foundation::HANDLE) -> u32;
-        }
-        ::core::mem::transmute(GetProcessId(process.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetProcessId(process: super::super::Foundation::HANDLE) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetProcessId(process.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetProcessIdOfThread<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(thread: Param0) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetProcessIdOfThread(thread: super::super::Foundation::HANDLE) -> u32;
-        }
-        ::core::mem::transmute(GetProcessIdOfThread(thread.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetProcessIdOfThread(thread: super::super::Foundation::HANDLE) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetProcessIdOfThread(thread.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetProcessInformation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, processinformationclass: PROCESS_INFORMATION_CLASS, processinformation: *mut ::core::ffi::c_void, processinformationsize: u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetProcessInformation(hprocess: super::super::Foundation::HANDLE, processinformationclass: PROCESS_INFORMATION_CLASS, processinformation: *mut ::core::ffi::c_void, processinformationsize: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetProcessInformation(hprocess.into_param().abi(), ::core::mem::transmute(processinformationclass), ::core::mem::transmute(processinformation), ::core::mem::transmute(processinformationsize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetProcessInformation(hprocess: super::super::Foundation::HANDLE, processinformationclass: PROCESS_INFORMATION_CLASS, processinformation: *mut ::core::ffi::c_void, processinformationsize: u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetProcessInformation(hprocess.into_param().abi(), ::core::mem::transmute(processinformationclass), ::core::mem::transmute(processinformation), ::core::mem::transmute(processinformationsize)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetProcessIoCounters<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, lpiocounters: *mut IO_COUNTERS) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetProcessIoCounters(hprocess: super::super::Foundation::HANDLE, lpiocounters: *mut IO_COUNTERS) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetProcessIoCounters(hprocess.into_param().abi(), ::core::mem::transmute(lpiocounters)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetProcessIoCounters(hprocess: super::super::Foundation::HANDLE, lpiocounters: *mut IO_COUNTERS) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetProcessIoCounters(hprocess.into_param().abi(), ::core::mem::transmute(lpiocounters)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetProcessMitigationPolicy<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, mitigationpolicy: PROCESS_MITIGATION_POLICY, lpbuffer: *mut ::core::ffi::c_void, dwlength: usize) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetProcessMitigationPolicy(hprocess: super::super::Foundation::HANDLE, mitigationpolicy: PROCESS_MITIGATION_POLICY, lpbuffer: *mut ::core::ffi::c_void, dwlength: usize) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetProcessMitigationPolicy(hprocess.into_param().abi(), ::core::mem::transmute(mitigationpolicy), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(dwlength)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetProcessMitigationPolicy(hprocess: super::super::Foundation::HANDLE, mitigationpolicy: PROCESS_MITIGATION_POLICY, lpbuffer: *mut ::core::ffi::c_void, dwlength: usize) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetProcessMitigationPolicy(hprocess.into_param().abi(), ::core::mem::transmute(mitigationpolicy), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(dwlength)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetProcessPriorityBoost<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, pdisablepriorityboost: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetProcessPriorityBoost(hprocess: super::super::Foundation::HANDLE, pdisablepriorityboost: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetProcessPriorityBoost(hprocess.into_param().abi(), ::core::mem::transmute(pdisablepriorityboost)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetProcessPriorityBoost(hprocess: super::super::Foundation::HANDLE, pdisablepriorityboost: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetProcessPriorityBoost(hprocess.into_param().abi(), ::core::mem::transmute(pdisablepriorityboost)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetProcessShutdownParameters(lpdwlevel: *mut u32, lpdwflags: *mut u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetProcessShutdownParameters(lpdwlevel: *mut u32, lpdwflags: *mut u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetProcessShutdownParameters(::core::mem::transmute(lpdwlevel), ::core::mem::transmute(lpdwflags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetProcessShutdownParameters(lpdwlevel: *mut u32, lpdwflags: *mut u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetProcessShutdownParameters(::core::mem::transmute(lpdwlevel), ::core::mem::transmute(lpdwflags)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetProcessTimes<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, lpcreationtime: *mut super::super::Foundation::FILETIME, lpexittime: *mut super::super::Foundation::FILETIME, lpkerneltime: *mut super::super::Foundation::FILETIME, lpusertime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetProcessTimes(hprocess: super::super::Foundation::HANDLE, lpcreationtime: *mut super::super::Foundation::FILETIME, lpexittime: *mut super::super::Foundation::FILETIME, lpkerneltime: *mut super::super::Foundation::FILETIME, lpusertime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetProcessTimes(hprocess.into_param().abi(), ::core::mem::transmute(lpcreationtime), ::core::mem::transmute(lpexittime), ::core::mem::transmute(lpkerneltime), ::core::mem::transmute(lpusertime)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetProcessTimes(hprocess: super::super::Foundation::HANDLE, lpcreationtime: *mut super::super::Foundation::FILETIME, lpexittime: *mut super::super::Foundation::FILETIME, lpkerneltime: *mut super::super::Foundation::FILETIME, lpusertime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetProcessTimes(hprocess.into_param().abi(), ::core::mem::transmute(lpcreationtime), ::core::mem::transmute(lpexittime), ::core::mem::transmute(lpkerneltime), ::core::mem::transmute(lpusertime)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn GetProcessVersion(processid: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetProcessVersion(processid: u32) -> u32;
-        }
-        ::core::mem::transmute(GetProcessVersion(::core::mem::transmute(processid)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetProcessVersion(processid: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetProcessVersion(::core::mem::transmute(processid)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetProcessWorkingSetSize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, lpminimumworkingsetsize: *mut usize, lpmaximumworkingsetsize: *mut usize) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetProcessWorkingSetSize(hprocess: super::super::Foundation::HANDLE, lpminimumworkingsetsize: *mut usize, lpmaximumworkingsetsize: *mut usize) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetProcessWorkingSetSize(hprocess.into_param().abi(), ::core::mem::transmute(lpminimumworkingsetsize), ::core::mem::transmute(lpmaximumworkingsetsize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetProcessWorkingSetSize(hprocess: super::super::Foundation::HANDLE, lpminimumworkingsetsize: *mut usize, lpmaximumworkingsetsize: *mut usize) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetProcessWorkingSetSize(hprocess.into_param().abi(), ::core::mem::transmute(lpminimumworkingsetsize), ::core::mem::transmute(lpmaximumworkingsetsize)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetStartupInfoA(lpstartupinfo: *mut STARTUPINFOA) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetStartupInfoA(lpstartupinfo: *mut STARTUPINFOA);
-        }
-        GetStartupInfoA(::core::mem::transmute(lpstartupinfo))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetStartupInfoA(lpstartupinfo: *mut STARTUPINFOA);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    GetStartupInfoA(::core::mem::transmute(lpstartupinfo))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetStartupInfoW(lpstartupinfo: *mut STARTUPINFOW) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetStartupInfoW(lpstartupinfo: *mut STARTUPINFOW);
-        }
-        GetStartupInfoW(::core::mem::transmute(lpstartupinfo))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetStartupInfoW(lpstartupinfo: *mut STARTUPINFOW);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    GetStartupInfoW(::core::mem::transmute(lpstartupinfo))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSystemTimes(lpidletime: *mut super::super::Foundation::FILETIME, lpkerneltime: *mut super::super::Foundation::FILETIME, lpusertime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetSystemTimes(lpidletime: *mut super::super::Foundation::FILETIME, lpkerneltime: *mut super::super::Foundation::FILETIME, lpusertime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetSystemTimes(::core::mem::transmute(lpidletime), ::core::mem::transmute(lpkerneltime), ::core::mem::transmute(lpusertime)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetSystemTimes(lpidletime: *mut super::super::Foundation::FILETIME, lpkerneltime: *mut super::super::Foundation::FILETIME, lpusertime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetSystemTimes(::core::mem::transmute(lpidletime), ::core::mem::transmute(lpkerneltime), ::core::mem::transmute(lpusertime)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetThreadDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hthread: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetThreadDescription(hthread: super::super::Foundation::HANDLE, ppszthreaddescription: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-        GetThreadDescription(hthread.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetThreadDescription(hthread: super::super::Foundation::HANDLE, ppszthreaddescription: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
+    GetThreadDescription(hthread.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemInformation"))]
 #[inline]
 pub unsafe fn GetThreadGroupAffinity<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hthread: Param0, groupaffinity: *mut super::SystemInformation::GROUP_AFFINITY) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetThreadGroupAffinity(hthread: super::super::Foundation::HANDLE, groupaffinity: *mut super::SystemInformation::GROUP_AFFINITY) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetThreadGroupAffinity(hthread.into_param().abi(), ::core::mem::transmute(groupaffinity)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetThreadGroupAffinity(hthread: super::super::Foundation::HANDLE, groupaffinity: *mut super::SystemInformation::GROUP_AFFINITY) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetThreadGroupAffinity(hthread.into_param().abi(), ::core::mem::transmute(groupaffinity)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetThreadIOPendingFlag<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hthread: Param0, lpioispending: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetThreadIOPendingFlag(hthread: super::super::Foundation::HANDLE, lpioispending: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetThreadIOPendingFlag(hthread.into_param().abi(), ::core::mem::transmute(lpioispending)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetThreadIOPendingFlag(hthread: super::super::Foundation::HANDLE, lpioispending: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetThreadIOPendingFlag(hthread.into_param().abi(), ::core::mem::transmute(lpioispending)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetThreadId<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(thread: Param0) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetThreadId(thread: super::super::Foundation::HANDLE) -> u32;
-        }
-        ::core::mem::transmute(GetThreadId(thread.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetThreadId(thread: super::super::Foundation::HANDLE) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetThreadId(thread.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn GetThreadIdealProcessorEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hthread: Param0, lpidealprocessor: *mut super::Kernel::PROCESSOR_NUMBER) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetThreadIdealProcessorEx(hthread: super::super::Foundation::HANDLE, lpidealprocessor: *mut super::Kernel::PROCESSOR_NUMBER) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetThreadIdealProcessorEx(hthread.into_param().abi(), ::core::mem::transmute(lpidealprocessor)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetThreadIdealProcessorEx(hthread: super::super::Foundation::HANDLE, lpidealprocessor: *mut super::Kernel::PROCESSOR_NUMBER) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetThreadIdealProcessorEx(hthread.into_param().abi(), ::core::mem::transmute(lpidealprocessor)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetThreadInformation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hthread: Param0, threadinformationclass: THREAD_INFORMATION_CLASS, threadinformation: *mut ::core::ffi::c_void, threadinformationsize: u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetThreadInformation(hthread: super::super::Foundation::HANDLE, threadinformationclass: THREAD_INFORMATION_CLASS, threadinformation: *mut ::core::ffi::c_void, threadinformationsize: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetThreadInformation(hthread.into_param().abi(), ::core::mem::transmute(threadinformationclass), ::core::mem::transmute(threadinformation), ::core::mem::transmute(threadinformationsize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetThreadInformation(hthread: super::super::Foundation::HANDLE, threadinformationclass: THREAD_INFORMATION_CLASS, threadinformation: *mut ::core::ffi::c_void, threadinformationsize: u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetThreadInformation(hthread.into_param().abi(), ::core::mem::transmute(threadinformationclass), ::core::mem::transmute(threadinformation), ::core::mem::transmute(threadinformationsize)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetThreadPriority<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hthread: Param0) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetThreadPriority(hthread: super::super::Foundation::HANDLE) -> i32;
-        }
-        ::core::mem::transmute(GetThreadPriority(hthread.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetThreadPriority(hthread: super::super::Foundation::HANDLE) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetThreadPriority(hthread.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetThreadPriorityBoost<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hthread: Param0, pdisablepriorityboost: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetThreadPriorityBoost(hthread: super::super::Foundation::HANDLE, pdisablepriorityboost: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetThreadPriorityBoost(hthread.into_param().abi(), ::core::mem::transmute(pdisablepriorityboost)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetThreadPriorityBoost(hthread: super::super::Foundation::HANDLE, pdisablepriorityboost: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetThreadPriorityBoost(hthread.into_param().abi(), ::core::mem::transmute(pdisablepriorityboost)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemInformation"))]
 #[inline]
 pub unsafe fn GetThreadSelectedCpuSetMasks<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(thread: Param0, cpusetmasks: &mut [super::SystemInformation::GROUP_AFFINITY], requiredmaskcount: *mut u16) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetThreadSelectedCpuSetMasks(thread: super::super::Foundation::HANDLE, cpusetmasks: *mut super::SystemInformation::GROUP_AFFINITY, cpusetmaskcount: u16, requiredmaskcount: *mut u16) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetThreadSelectedCpuSetMasks(thread.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(cpusetmasks)), cpusetmasks.len() as _, ::core::mem::transmute(requiredmaskcount)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetThreadSelectedCpuSetMasks(thread: super::super::Foundation::HANDLE, cpusetmasks: *mut super::SystemInformation::GROUP_AFFINITY, cpusetmaskcount: u16, requiredmaskcount: *mut u16) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetThreadSelectedCpuSetMasks(thread.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(cpusetmasks)), cpusetmasks.len() as _, ::core::mem::transmute(requiredmaskcount)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetThreadSelectedCpuSets<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(thread: Param0, cpusetids: &mut [u32], requiredidcount: *mut u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetThreadSelectedCpuSets(thread: super::super::Foundation::HANDLE, cpusetids: *mut u32, cpusetidcount: u32, requiredidcount: *mut u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetThreadSelectedCpuSets(thread.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(cpusetids)), cpusetids.len() as _, ::core::mem::transmute(requiredidcount)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetThreadSelectedCpuSets(thread: super::super::Foundation::HANDLE, cpusetids: *mut u32, cpusetidcount: u32, requiredidcount: *mut u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetThreadSelectedCpuSets(thread.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(cpusetids)), cpusetids.len() as _, ::core::mem::transmute(requiredidcount)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetThreadTimes<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hthread: Param0, lpcreationtime: *mut super::super::Foundation::FILETIME, lpexittime: *mut super::super::Foundation::FILETIME, lpkerneltime: *mut super::super::Foundation::FILETIME, lpusertime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetThreadTimes(hthread: super::super::Foundation::HANDLE, lpcreationtime: *mut super::super::Foundation::FILETIME, lpexittime: *mut super::super::Foundation::FILETIME, lpkerneltime: *mut super::super::Foundation::FILETIME, lpusertime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetThreadTimes(hthread.into_param().abi(), ::core::mem::transmute(lpcreationtime), ::core::mem::transmute(lpexittime), ::core::mem::transmute(lpkerneltime), ::core::mem::transmute(lpusertime)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetThreadTimes(hthread: super::super::Foundation::HANDLE, lpcreationtime: *mut super::super::Foundation::FILETIME, lpexittime: *mut super::super::Foundation::FILETIME, lpkerneltime: *mut super::super::Foundation::FILETIME, lpusertime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetThreadTimes(hthread.into_param().abi(), ::core::mem::transmute(lpcreationtime), ::core::mem::transmute(lpexittime), ::core::mem::transmute(lpkerneltime), ::core::mem::transmute(lpusertime)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetUmsCompletionListEvent(umscompletionlist: *const ::core::ffi::c_void, umscompletionevent: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetUmsCompletionListEvent(umscompletionlist: *const ::core::ffi::c_void, umscompletionevent: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetUmsCompletionListEvent(::core::mem::transmute(umscompletionlist), ::core::mem::transmute(umscompletionevent)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetUmsCompletionListEvent(umscompletionlist: *const ::core::ffi::c_void, umscompletionevent: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetUmsCompletionListEvent(::core::mem::transmute(umscompletionlist), ::core::mem::transmute(umscompletionevent)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetUmsSystemThreadInformation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(threadhandle: Param0, systemthreadinfo: *mut UMS_SYSTEM_THREAD_INFORMATION) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetUmsSystemThreadInformation(threadhandle: super::super::Foundation::HANDLE, systemthreadinfo: *mut UMS_SYSTEM_THREAD_INFORMATION) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetUmsSystemThreadInformation(threadhandle.into_param().abi(), ::core::mem::transmute(systemthreadinfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetUmsSystemThreadInformation(threadhandle: super::super::Foundation::HANDLE, systemthreadinfo: *mut UMS_SYSTEM_THREAD_INFORMATION) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetUmsSystemThreadInformation(threadhandle.into_param().abi(), ::core::mem::transmute(systemthreadinfo)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub const INIT_ONCE_ASYNC: u32 = 2u32;
@@ -2614,343 +1824,228 @@ impl ::core::default::Default for IO_COUNTERS {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn InitOnceBeginInitialize(lpinitonce: *mut RTL_RUN_ONCE, dwflags: u32, fpending: *mut super::super::Foundation::BOOL, lpcontext: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InitOnceBeginInitialize(lpinitonce: *mut RTL_RUN_ONCE, dwflags: u32, fpending: *mut super::super::Foundation::BOOL, lpcontext: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(InitOnceBeginInitialize(::core::mem::transmute(lpinitonce), ::core::mem::transmute(dwflags), ::core::mem::transmute(fpending), ::core::mem::transmute(lpcontext)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitOnceBeginInitialize(lpinitonce: *mut RTL_RUN_ONCE, dwflags: u32, fpending: *mut super::super::Foundation::BOOL, lpcontext: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(InitOnceBeginInitialize(::core::mem::transmute(lpinitonce), ::core::mem::transmute(dwflags), ::core::mem::transmute(fpending), ::core::mem::transmute(lpcontext)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn InitOnceComplete(lpinitonce: *mut RTL_RUN_ONCE, dwflags: u32, lpcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InitOnceComplete(lpinitonce: *mut RTL_RUN_ONCE, dwflags: u32, lpcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(InitOnceComplete(::core::mem::transmute(lpinitonce), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpcontext)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitOnceComplete(lpinitonce: *mut RTL_RUN_ONCE, dwflags: u32, lpcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(InitOnceComplete(::core::mem::transmute(lpinitonce), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpcontext)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn InitOnceExecuteOnce(initonce: *mut RTL_RUN_ONCE, initfn: PINIT_ONCE_FN, parameter: *mut ::core::ffi::c_void, context: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InitOnceExecuteOnce(initonce: *mut RTL_RUN_ONCE, initfn: *mut ::core::ffi::c_void, parameter: *mut ::core::ffi::c_void, context: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(InitOnceExecuteOnce(::core::mem::transmute(initonce), ::core::mem::transmute(initfn), ::core::mem::transmute(parameter), ::core::mem::transmute(context)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitOnceExecuteOnce(initonce: *mut RTL_RUN_ONCE, initfn: *mut ::core::ffi::c_void, parameter: *mut ::core::ffi::c_void, context: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(InitOnceExecuteOnce(::core::mem::transmute(initonce), ::core::mem::transmute(initfn), ::core::mem::transmute(parameter), ::core::mem::transmute(context)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn InitOnceInitialize(initonce: *mut RTL_RUN_ONCE) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InitOnceInitialize(initonce: *mut RTL_RUN_ONCE);
-        }
-        InitOnceInitialize(::core::mem::transmute(initonce))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitOnceInitialize(initonce: *mut RTL_RUN_ONCE);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    InitOnceInitialize(::core::mem::transmute(initonce))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn InitializeConditionVariable(conditionvariable: *mut RTL_CONDITION_VARIABLE) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InitializeConditionVariable(conditionvariable: *mut RTL_CONDITION_VARIABLE);
-        }
-        InitializeConditionVariable(::core::mem::transmute(conditionvariable))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitializeConditionVariable(conditionvariable: *mut RTL_CONDITION_VARIABLE);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    InitializeConditionVariable(::core::mem::transmute(conditionvariable))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn InitializeCriticalSection(lpcriticalsection: *mut RTL_CRITICAL_SECTION) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InitializeCriticalSection(lpcriticalsection: *mut RTL_CRITICAL_SECTION);
-        }
-        InitializeCriticalSection(::core::mem::transmute(lpcriticalsection))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitializeCriticalSection(lpcriticalsection: *mut RTL_CRITICAL_SECTION);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    InitializeCriticalSection(::core::mem::transmute(lpcriticalsection))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn InitializeCriticalSectionAndSpinCount(lpcriticalsection: *mut RTL_CRITICAL_SECTION, dwspincount: u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InitializeCriticalSectionAndSpinCount(lpcriticalsection: *mut RTL_CRITICAL_SECTION, dwspincount: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(InitializeCriticalSectionAndSpinCount(::core::mem::transmute(lpcriticalsection), ::core::mem::transmute(dwspincount)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitializeCriticalSectionAndSpinCount(lpcriticalsection: *mut RTL_CRITICAL_SECTION, dwspincount: u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(InitializeCriticalSectionAndSpinCount(::core::mem::transmute(lpcriticalsection), ::core::mem::transmute(dwspincount)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn InitializeCriticalSectionEx(lpcriticalsection: *mut RTL_CRITICAL_SECTION, dwspincount: u32, flags: u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InitializeCriticalSectionEx(lpcriticalsection: *mut RTL_CRITICAL_SECTION, dwspincount: u32, flags: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(InitializeCriticalSectionEx(::core::mem::transmute(lpcriticalsection), ::core::mem::transmute(dwspincount), ::core::mem::transmute(flags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitializeCriticalSectionEx(lpcriticalsection: *mut RTL_CRITICAL_SECTION, dwspincount: u32, flags: u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(InitializeCriticalSectionEx(::core::mem::transmute(lpcriticalsection), ::core::mem::transmute(dwspincount), ::core::mem::transmute(flags)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn InitializeProcThreadAttributeList(lpattributelist: LPPROC_THREAD_ATTRIBUTE_LIST, dwattributecount: u32, dwflags: u32, lpsize: *mut usize) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InitializeProcThreadAttributeList(lpattributelist: LPPROC_THREAD_ATTRIBUTE_LIST, dwattributecount: u32, dwflags: u32, lpsize: *mut usize) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(InitializeProcThreadAttributeList(::core::mem::transmute(lpattributelist), ::core::mem::transmute(dwattributecount), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpsize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitializeProcThreadAttributeList(lpattributelist: LPPROC_THREAD_ATTRIBUTE_LIST, dwattributecount: u32, dwflags: u32, lpsize: *mut usize) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(InitializeProcThreadAttributeList(::core::mem::transmute(lpattributelist), ::core::mem::transmute(dwattributecount), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpsize)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn InitializeSListHead(listhead: *mut super::Kernel::SLIST_HEADER) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InitializeSListHead(listhead: *mut super::Kernel::SLIST_HEADER);
-        }
-        InitializeSListHead(::core::mem::transmute(listhead))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitializeSListHead(listhead: *mut super::Kernel::SLIST_HEADER);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    InitializeSListHead(::core::mem::transmute(listhead))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn InitializeSRWLock(srwlock: *mut RTL_SRWLOCK) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InitializeSRWLock(srwlock: *mut RTL_SRWLOCK);
-        }
-        InitializeSRWLock(::core::mem::transmute(srwlock))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitializeSRWLock(srwlock: *mut RTL_SRWLOCK);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    InitializeSRWLock(::core::mem::transmute(srwlock))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn InitializeSynchronizationBarrier(lpbarrier: *mut RTL_BARRIER, ltotalthreads: i32, lspincount: i32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InitializeSynchronizationBarrier(lpbarrier: *mut RTL_BARRIER, ltotalthreads: i32, lspincount: i32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(InitializeSynchronizationBarrier(::core::mem::transmute(lpbarrier), ::core::mem::transmute(ltotalthreads), ::core::mem::transmute(lspincount)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitializeSynchronizationBarrier(lpbarrier: *mut RTL_BARRIER, ltotalthreads: i32, lspincount: i32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(InitializeSynchronizationBarrier(::core::mem::transmute(lpbarrier), ::core::mem::transmute(ltotalthreads), ::core::mem::transmute(lspincount)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn InterlockedFlushSList(listhead: *mut super::Kernel::SLIST_HEADER) -> *mut super::Kernel::SLIST_ENTRY {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InterlockedFlushSList(listhead: *mut super::Kernel::SLIST_HEADER) -> *mut super::Kernel::SLIST_ENTRY;
-        }
-        ::core::mem::transmute(InterlockedFlushSList(::core::mem::transmute(listhead)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InterlockedFlushSList(listhead: *mut super::Kernel::SLIST_HEADER) -> *mut super::Kernel::SLIST_ENTRY;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(InterlockedFlushSList(::core::mem::transmute(listhead)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn InterlockedPopEntrySList(listhead: *mut super::Kernel::SLIST_HEADER) -> *mut super::Kernel::SLIST_ENTRY {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InterlockedPopEntrySList(listhead: *mut super::Kernel::SLIST_HEADER) -> *mut super::Kernel::SLIST_ENTRY;
-        }
-        ::core::mem::transmute(InterlockedPopEntrySList(::core::mem::transmute(listhead)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InterlockedPopEntrySList(listhead: *mut super::Kernel::SLIST_HEADER) -> *mut super::Kernel::SLIST_ENTRY;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(InterlockedPopEntrySList(::core::mem::transmute(listhead)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn InterlockedPushEntrySList(listhead: *mut super::Kernel::SLIST_HEADER, listentry: *mut super::Kernel::SLIST_ENTRY) -> *mut super::Kernel::SLIST_ENTRY {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InterlockedPushEntrySList(listhead: *mut super::Kernel::SLIST_HEADER, listentry: *mut super::Kernel::SLIST_ENTRY) -> *mut super::Kernel::SLIST_ENTRY;
-        }
-        ::core::mem::transmute(InterlockedPushEntrySList(::core::mem::transmute(listhead), ::core::mem::transmute(listentry)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InterlockedPushEntrySList(listhead: *mut super::Kernel::SLIST_HEADER, listentry: *mut super::Kernel::SLIST_ENTRY) -> *mut super::Kernel::SLIST_ENTRY;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(InterlockedPushEntrySList(::core::mem::transmute(listhead), ::core::mem::transmute(listentry)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn InterlockedPushListSListEx(listhead: *mut super::Kernel::SLIST_HEADER, list: *mut super::Kernel::SLIST_ENTRY, listend: *mut super::Kernel::SLIST_ENTRY, count: u32) -> *mut super::Kernel::SLIST_ENTRY {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InterlockedPushListSListEx(listhead: *mut super::Kernel::SLIST_HEADER, list: *mut super::Kernel::SLIST_ENTRY, listend: *mut super::Kernel::SLIST_ENTRY, count: u32) -> *mut super::Kernel::SLIST_ENTRY;
-        }
-        ::core::mem::transmute(InterlockedPushListSListEx(::core::mem::transmute(listhead), ::core::mem::transmute(list), ::core::mem::transmute(listend), ::core::mem::transmute(count)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InterlockedPushListSListEx(listhead: *mut super::Kernel::SLIST_HEADER, list: *mut super::Kernel::SLIST_ENTRY, listend: *mut super::Kernel::SLIST_ENTRY, count: u32) -> *mut super::Kernel::SLIST_ENTRY;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(InterlockedPushListSListEx(::core::mem::transmute(listhead), ::core::mem::transmute(list), ::core::mem::transmute(listend), ::core::mem::transmute(count)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsImmersiveProcess<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn IsImmersiveProcess(hprocess: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(IsImmersiveProcess(hprocess.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn IsImmersiveProcess(hprocess: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(IsImmersiveProcess(hprocess.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsProcessCritical<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, critical: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn IsProcessCritical(hprocess: super::super::Foundation::HANDLE, critical: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(IsProcessCritical(hprocess.into_param().abi(), ::core::mem::transmute(critical)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn IsProcessCritical(hprocess: super::super::Foundation::HANDLE, critical: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(IsProcessCritical(hprocess.into_param().abi(), ::core::mem::transmute(critical)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsProcessorFeaturePresent(processorfeature: PROCESSOR_FEATURE_ID) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn IsProcessorFeaturePresent(processorfeature: PROCESSOR_FEATURE_ID) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(IsProcessorFeaturePresent(::core::mem::transmute(processorfeature)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn IsProcessorFeaturePresent(processorfeature: PROCESSOR_FEATURE_ID) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(IsProcessorFeaturePresent(::core::mem::transmute(processorfeature)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsThreadAFiber() -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn IsThreadAFiber() -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(IsThreadAFiber())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn IsThreadAFiber() -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(IsThreadAFiber())
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsThreadpoolTimerSet(pti: *mut TP_TIMER) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn IsThreadpoolTimerSet(pti: *mut TP_TIMER) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(IsThreadpoolTimerSet(::core::mem::transmute(pti)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn IsThreadpoolTimerSet(pti: *mut TP_TIMER) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(IsThreadpoolTimerSet(::core::mem::transmute(pti)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsWow64Process<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, wow64process: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn IsWow64Process(hprocess: super::super::Foundation::HANDLE, wow64process: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(IsWow64Process(hprocess.into_param().abi(), ::core::mem::transmute(wow64process)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn IsWow64Process(hprocess: super::super::Foundation::HANDLE, wow64process: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(IsWow64Process(hprocess.into_param().abi(), ::core::mem::transmute(wow64process)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsWow64Process2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, pprocessmachine: *mut u16, pnativemachine: *mut u16) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn IsWow64Process2(hprocess: super::super::Foundation::HANDLE, pprocessmachine: *mut u16, pnativemachine: *mut u16) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(IsWow64Process2(hprocess.into_param().abi(), ::core::mem::transmute(pprocessmachine), ::core::mem::transmute(pnativemachine)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn IsWow64Process2(hprocess: super::super::Foundation::HANDLE, pprocessmachine: *mut u16, pnativemachine: *mut u16) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(IsWow64Process2(hprocess.into_param().abi(), ::core::mem::transmute(pprocessmachine), ::core::mem::transmute(pnativemachine)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub type LPFIBER_START_ROUTINE = ::core::option::Option<unsafe extern "system" fn(lpfiberparameter: *mut ::core::ffi::c_void)>;
@@ -2987,31 +2082,21 @@ pub type LPTHREAD_START_ROUTINE = ::core::option::Option<unsafe extern "system" 
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn LeaveCriticalSection(lpcriticalsection: *mut RTL_CRITICAL_SECTION) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LeaveCriticalSection(lpcriticalsection: *mut RTL_CRITICAL_SECTION);
-        }
-        LeaveCriticalSection(::core::mem::transmute(lpcriticalsection))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LeaveCriticalSection(lpcriticalsection: *mut RTL_CRITICAL_SECTION);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    LeaveCriticalSection(::core::mem::transmute(lpcriticalsection))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn LeaveCriticalSectionWhenCallbackReturns(pci: *mut TP_CALLBACK_INSTANCE, pcs: *mut RTL_CRITICAL_SECTION) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LeaveCriticalSectionWhenCallbackReturns(pci: *mut TP_CALLBACK_INSTANCE, pcs: *mut RTL_CRITICAL_SECTION);
-        }
-        LeaveCriticalSectionWhenCallbackReturns(::core::mem::transmute(pci), ::core::mem::transmute(pcs))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LeaveCriticalSectionWhenCallbackReturns(pci: *mut TP_CALLBACK_INSTANCE, pcs: *mut RTL_CRITICAL_SECTION);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    LeaveCriticalSectionWhenCallbackReturns(::core::mem::transmute(pci), ::core::mem::transmute(pcs))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[repr(transparent)]
@@ -3166,216 +2251,146 @@ unsafe impl ::windows::core::Abi for NamespaceHandle {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NtQueryInformationProcess<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(processhandle: Param0, processinformationclass: PROCESSINFOCLASS, processinformation: *mut ::core::ffi::c_void, processinformationlength: u32, returnlength: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn NtQueryInformationProcess(processhandle: super::super::Foundation::HANDLE, processinformationclass: PROCESSINFOCLASS, processinformation: *mut ::core::ffi::c_void, processinformationlength: u32, returnlength: *mut u32) -> super::super::Foundation::NTSTATUS;
-        }
-        NtQueryInformationProcess(processhandle.into_param().abi(), ::core::mem::transmute(processinformationclass), ::core::mem::transmute(processinformation), ::core::mem::transmute(processinformationlength), ::core::mem::transmute(returnlength)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NtQueryInformationProcess(processhandle: super::super::Foundation::HANDLE, processinformationclass: PROCESSINFOCLASS, processinformation: *mut ::core::ffi::c_void, processinformationlength: u32, returnlength: *mut u32) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    NtQueryInformationProcess(processhandle.into_param().abi(), ::core::mem::transmute(processinformationclass), ::core::mem::transmute(processinformation), ::core::mem::transmute(processinformationlength), ::core::mem::transmute(returnlength)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NtQueryInformationThread<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(threadhandle: Param0, threadinformationclass: THREADINFOCLASS, threadinformation: *mut ::core::ffi::c_void, threadinformationlength: u32, returnlength: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn NtQueryInformationThread(threadhandle: super::super::Foundation::HANDLE, threadinformationclass: THREADINFOCLASS, threadinformation: *mut ::core::ffi::c_void, threadinformationlength: u32, returnlength: *mut u32) -> super::super::Foundation::NTSTATUS;
-        }
-        NtQueryInformationThread(threadhandle.into_param().abi(), ::core::mem::transmute(threadinformationclass), ::core::mem::transmute(threadinformation), ::core::mem::transmute(threadinformationlength), ::core::mem::transmute(returnlength)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NtQueryInformationThread(threadhandle: super::super::Foundation::HANDLE, threadinformationclass: THREADINFOCLASS, threadinformation: *mut ::core::ffi::c_void, threadinformationlength: u32, returnlength: *mut u32) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    NtQueryInformationThread(threadhandle.into_param().abi(), ::core::mem::transmute(threadinformationclass), ::core::mem::transmute(threadinformation), ::core::mem::transmute(threadinformationlength), ::core::mem::transmute(returnlength)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NtSetInformationThread<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(threadhandle: Param0, threadinformationclass: THREADINFOCLASS, threadinformation: *const ::core::ffi::c_void, threadinformationlength: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn NtSetInformationThread(threadhandle: super::super::Foundation::HANDLE, threadinformationclass: THREADINFOCLASS, threadinformation: *const ::core::ffi::c_void, threadinformationlength: u32) -> super::super::Foundation::NTSTATUS;
-        }
-        NtSetInformationThread(threadhandle.into_param().abi(), ::core::mem::transmute(threadinformationclass), ::core::mem::transmute(threadinformation), ::core::mem::transmute(threadinformationlength)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NtSetInformationThread(threadhandle: super::super::Foundation::HANDLE, threadinformationclass: THREADINFOCLASS, threadinformation: *const ::core::ffi::c_void, threadinformationlength: u32) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    NtSetInformationThread(threadhandle.into_param().abi(), ::core::mem::transmute(threadinformationclass), ::core::mem::transmute(threadinformation), ::core::mem::transmute(threadinformationlength)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenEventA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(dwdesiredaccess: u32, binherithandle: Param1, lpname: Param2) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OpenEventA(dwdesiredaccess: u32, binherithandle: super::super::Foundation::BOOL, lpname: ::windows::core::PCSTR) -> super::super::Foundation::HANDLE;
-        }
-        let result__ = OpenEventA(::core::mem::transmute(dwdesiredaccess), binherithandle.into_param().abi(), lpname.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OpenEventA(dwdesiredaccess: u32, binherithandle: super::super::Foundation::BOOL, lpname: ::windows::core::PCSTR) -> super::super::Foundation::HANDLE;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let result__ = OpenEventA(::core::mem::transmute(dwdesiredaccess), binherithandle.into_param().abi(), lpname.into_param().abi());
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenEventW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(dwdesiredaccess: u32, binherithandle: Param1, lpname: Param2) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OpenEventW(dwdesiredaccess: u32, binherithandle: super::super::Foundation::BOOL, lpname: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
-        }
-        let result__ = OpenEventW(::core::mem::transmute(dwdesiredaccess), binherithandle.into_param().abi(), lpname.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OpenEventW(dwdesiredaccess: u32, binherithandle: super::super::Foundation::BOOL, lpname: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let result__ = OpenEventW(::core::mem::transmute(dwdesiredaccess), binherithandle.into_param().abi(), lpname.into_param().abi());
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenMutexW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(dwdesiredaccess: u32, binherithandle: Param1, lpname: Param2) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OpenMutexW(dwdesiredaccess: u32, binherithandle: super::super::Foundation::BOOL, lpname: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
-        }
-        let result__ = OpenMutexW(::core::mem::transmute(dwdesiredaccess), binherithandle.into_param().abi(), lpname.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OpenMutexW(dwdesiredaccess: u32, binherithandle: super::super::Foundation::BOOL, lpname: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let result__ = OpenMutexW(::core::mem::transmute(dwdesiredaccess), binherithandle.into_param().abi(), lpname.into_param().abi());
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn OpenPrivateNamespaceA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lpboundarydescriptor: *const ::core::ffi::c_void, lpaliasprefix: Param1) -> NamespaceHandle {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OpenPrivateNamespaceA(lpboundarydescriptor: *const ::core::ffi::c_void, lpaliasprefix: ::windows::core::PCSTR) -> NamespaceHandle;
-        }
-        ::core::mem::transmute(OpenPrivateNamespaceA(::core::mem::transmute(lpboundarydescriptor), lpaliasprefix.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OpenPrivateNamespaceA(lpboundarydescriptor: *const ::core::ffi::c_void, lpaliasprefix: ::windows::core::PCSTR) -> NamespaceHandle;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(OpenPrivateNamespaceA(::core::mem::transmute(lpboundarydescriptor), lpaliasprefix.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn OpenPrivateNamespaceW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpboundarydescriptor: *const ::core::ffi::c_void, lpaliasprefix: Param1) -> NamespaceHandle {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OpenPrivateNamespaceW(lpboundarydescriptor: *const ::core::ffi::c_void, lpaliasprefix: ::windows::core::PCWSTR) -> NamespaceHandle;
-        }
-        ::core::mem::transmute(OpenPrivateNamespaceW(::core::mem::transmute(lpboundarydescriptor), lpaliasprefix.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OpenPrivateNamespaceW(lpboundarydescriptor: *const ::core::ffi::c_void, lpaliasprefix: ::windows::core::PCWSTR) -> NamespaceHandle;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(OpenPrivateNamespaceW(::core::mem::transmute(lpboundarydescriptor), lpaliasprefix.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenProcess<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(dwdesiredaccess: PROCESS_ACCESS_RIGHTS, binherithandle: Param1, dwprocessid: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OpenProcess(dwdesiredaccess: PROCESS_ACCESS_RIGHTS, binherithandle: super::super::Foundation::BOOL, dwprocessid: u32) -> super::super::Foundation::HANDLE;
-        }
-        let result__ = OpenProcess(::core::mem::transmute(dwdesiredaccess), binherithandle.into_param().abi(), ::core::mem::transmute(dwprocessid));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OpenProcess(dwdesiredaccess: PROCESS_ACCESS_RIGHTS, binherithandle: super::super::Foundation::BOOL, dwprocessid: u32) -> super::super::Foundation::HANDLE;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let result__ = OpenProcess(::core::mem::transmute(dwdesiredaccess), binherithandle.into_param().abi(), ::core::mem::transmute(dwprocessid));
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn OpenProcessToken<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(processhandle: Param0, desiredaccess: super::super::Security::TOKEN_ACCESS_MASK, tokenhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OpenProcessToken(processhandle: super::super::Foundation::HANDLE, desiredaccess: super::super::Security::TOKEN_ACCESS_MASK, tokenhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(OpenProcessToken(processhandle.into_param().abi(), ::core::mem::transmute(desiredaccess), ::core::mem::transmute(tokenhandle)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OpenProcessToken(processhandle: super::super::Foundation::HANDLE, desiredaccess: super::super::Security::TOKEN_ACCESS_MASK, tokenhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(OpenProcessToken(processhandle.into_param().abi(), ::core::mem::transmute(desiredaccess), ::core::mem::transmute(tokenhandle)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenSemaphoreW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(dwdesiredaccess: u32, binherithandle: Param1, lpname: Param2) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OpenSemaphoreW(dwdesiredaccess: u32, binherithandle: super::super::Foundation::BOOL, lpname: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
-        }
-        let result__ = OpenSemaphoreW(::core::mem::transmute(dwdesiredaccess), binherithandle.into_param().abi(), lpname.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OpenSemaphoreW(dwdesiredaccess: u32, binherithandle: super::super::Foundation::BOOL, lpname: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let result__ = OpenSemaphoreW(::core::mem::transmute(dwdesiredaccess), binherithandle.into_param().abi(), lpname.into_param().abi());
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenThread<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(dwdesiredaccess: THREAD_ACCESS_RIGHTS, binherithandle: Param1, dwthreadid: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OpenThread(dwdesiredaccess: THREAD_ACCESS_RIGHTS, binherithandle: super::super::Foundation::BOOL, dwthreadid: u32) -> super::super::Foundation::HANDLE;
-        }
-        let result__ = OpenThread(::core::mem::transmute(dwdesiredaccess), binherithandle.into_param().abi(), ::core::mem::transmute(dwthreadid));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OpenThread(dwdesiredaccess: THREAD_ACCESS_RIGHTS, binherithandle: super::super::Foundation::BOOL, dwthreadid: u32) -> super::super::Foundation::HANDLE;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let result__ = OpenThread(::core::mem::transmute(dwdesiredaccess), binherithandle.into_param().abi(), ::core::mem::transmute(dwthreadid));
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn OpenThreadToken<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(threadhandle: Param0, desiredaccess: super::super::Security::TOKEN_ACCESS_MASK, openasself: Param2, tokenhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OpenThreadToken(threadhandle: super::super::Foundation::HANDLE, desiredaccess: super::super::Security::TOKEN_ACCESS_MASK, openasself: super::super::Foundation::BOOL, tokenhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(OpenThreadToken(threadhandle.into_param().abi(), ::core::mem::transmute(desiredaccess), openasself.into_param().abi(), ::core::mem::transmute(tokenhandle)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OpenThreadToken(threadhandle: super::super::Foundation::HANDLE, desiredaccess: super::super::Security::TOKEN_ACCESS_MASK, openasself: super::super::Foundation::BOOL, tokenhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(OpenThreadToken(threadhandle.into_param().abi(), ::core::mem::transmute(desiredaccess), openasself.into_param().abi(), ::core::mem::transmute(tokenhandle)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenWaitableTimerW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(dwdesiredaccess: u32, binherithandle: Param1, lptimername: Param2) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OpenWaitableTimerW(dwdesiredaccess: u32, binherithandle: super::super::Foundation::BOOL, lptimername: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
-        }
-        let result__ = OpenWaitableTimerW(::core::mem::transmute(dwdesiredaccess), binherithandle.into_param().abi(), lptimername.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OpenWaitableTimerW(dwdesiredaccess: u32, binherithandle: super::super::Foundation::BOOL, lptimername: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let result__ = OpenWaitableTimerW(::core::mem::transmute(dwdesiredaccess), binherithandle.into_param().abi(), lptimername.into_param().abi());
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
@@ -4664,16 +3679,11 @@ pub type PTP_WORK_CALLBACK = ::core::option::Option<unsafe extern "system" fn(in
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PulseEvent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hevent: Param0) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PulseEvent(hevent: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(PulseEvent(hevent.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PulseEvent(hevent: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PulseEvent(hevent.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[repr(transparent)]
@@ -4706,151 +3716,101 @@ impl ::core::fmt::Debug for QUEUE_USER_APC_FLAGS {
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn QueryDepthSList(listhead: *const super::Kernel::SLIST_HEADER) -> u16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn QueryDepthSList(listhead: *const super::Kernel::SLIST_HEADER) -> u16;
-        }
-        ::core::mem::transmute(QueryDepthSList(::core::mem::transmute(listhead)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn QueryDepthSList(listhead: *const super::Kernel::SLIST_HEADER) -> u16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(QueryDepthSList(::core::mem::transmute(listhead)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn QueryFullProcessImageNameA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, dwflags: PROCESS_NAME_FORMAT, lpexename: ::windows::core::PSTR, lpdwsize: *mut u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn QueryFullProcessImageNameA(hprocess: super::super::Foundation::HANDLE, dwflags: PROCESS_NAME_FORMAT, lpexename: ::windows::core::PSTR, lpdwsize: *mut u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(QueryFullProcessImageNameA(hprocess.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpexename), ::core::mem::transmute(lpdwsize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn QueryFullProcessImageNameA(hprocess: super::super::Foundation::HANDLE, dwflags: PROCESS_NAME_FORMAT, lpexename: ::windows::core::PSTR, lpdwsize: *mut u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(QueryFullProcessImageNameA(hprocess.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpexename), ::core::mem::transmute(lpdwsize)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn QueryFullProcessImageNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, dwflags: PROCESS_NAME_FORMAT, lpexename: ::windows::core::PWSTR, lpdwsize: *mut u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn QueryFullProcessImageNameW(hprocess: super::super::Foundation::HANDLE, dwflags: PROCESS_NAME_FORMAT, lpexename: ::windows::core::PWSTR, lpdwsize: *mut u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(QueryFullProcessImageNameW(hprocess.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpexename), ::core::mem::transmute(lpdwsize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn QueryFullProcessImageNameW(hprocess: super::super::Foundation::HANDLE, dwflags: PROCESS_NAME_FORMAT, lpexename: ::windows::core::PWSTR, lpdwsize: *mut u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(QueryFullProcessImageNameW(hprocess.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpexename), ::core::mem::transmute(lpdwsize)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn QueryProcessAffinityUpdateMode<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, lpdwflags: *mut PROCESS_AFFINITY_AUTO_UPDATE_FLAGS) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn QueryProcessAffinityUpdateMode(hprocess: super::super::Foundation::HANDLE, lpdwflags: *mut PROCESS_AFFINITY_AUTO_UPDATE_FLAGS) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(QueryProcessAffinityUpdateMode(hprocess.into_param().abi(), ::core::mem::transmute(lpdwflags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn QueryProcessAffinityUpdateMode(hprocess: super::super::Foundation::HANDLE, lpdwflags: *mut PROCESS_AFFINITY_AUTO_UPDATE_FLAGS) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(QueryProcessAffinityUpdateMode(hprocess.into_param().abi(), ::core::mem::transmute(lpdwflags)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn QueryProtectedPolicy(policyguid: *const ::windows::core::GUID, policyvalue: *mut usize) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn QueryProtectedPolicy(policyguid: *const ::windows::core::GUID, policyvalue: *mut usize) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(QueryProtectedPolicy(::core::mem::transmute(policyguid), ::core::mem::transmute(policyvalue)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn QueryProtectedPolicy(policyguid: *const ::windows::core::GUID, policyvalue: *mut usize) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(QueryProtectedPolicy(::core::mem::transmute(policyguid), ::core::mem::transmute(policyvalue)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn QueryThreadpoolStackInformation<'a, Param0: ::windows::core::IntoParam<'a, PTP_POOL>>(ptpp: Param0, ptpsi: *mut TP_POOL_STACK_INFORMATION) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn QueryThreadpoolStackInformation(ptpp: PTP_POOL, ptpsi: *mut TP_POOL_STACK_INFORMATION) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(QueryThreadpoolStackInformation(ptpp.into_param().abi(), ::core::mem::transmute(ptpsi)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn QueryThreadpoolStackInformation(ptpp: PTP_POOL, ptpsi: *mut TP_POOL_STACK_INFORMATION) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(QueryThreadpoolStackInformation(ptpp.into_param().abi(), ::core::mem::transmute(ptpsi)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn QueryUmsThreadInformation(umsthread: *const ::core::ffi::c_void, umsthreadinfoclass: RTL_UMS_THREAD_INFO_CLASS, umsthreadinformation: *mut ::core::ffi::c_void, umsthreadinformationlength: u32, returnlength: *mut u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn QueryUmsThreadInformation(umsthread: *const ::core::ffi::c_void, umsthreadinfoclass: RTL_UMS_THREAD_INFO_CLASS, umsthreadinformation: *mut ::core::ffi::c_void, umsthreadinformationlength: u32, returnlength: *mut u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(QueryUmsThreadInformation(::core::mem::transmute(umsthread), ::core::mem::transmute(umsthreadinfoclass), ::core::mem::transmute(umsthreadinformation), ::core::mem::transmute(umsthreadinformationlength), ::core::mem::transmute(returnlength)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn QueryUmsThreadInformation(umsthread: *const ::core::ffi::c_void, umsthreadinfoclass: RTL_UMS_THREAD_INFO_CLASS, umsthreadinformation: *mut ::core::ffi::c_void, umsthreadinformationlength: u32, returnlength: *mut u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(QueryUmsThreadInformation(::core::mem::transmute(umsthread), ::core::mem::transmute(umsthreadinfoclass), ::core::mem::transmute(umsthreadinformation), ::core::mem::transmute(umsthreadinformationlength), ::core::mem::transmute(returnlength)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn QueueUserAPC<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(pfnapc: super::super::Foundation::PAPCFUNC, hthread: Param1, dwdata: usize) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn QueueUserAPC(pfnapc: *mut ::core::ffi::c_void, hthread: super::super::Foundation::HANDLE, dwdata: usize) -> u32;
-        }
-        ::core::mem::transmute(QueueUserAPC(::core::mem::transmute(pfnapc), hthread.into_param().abi(), ::core::mem::transmute(dwdata)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn QueueUserAPC(pfnapc: *mut ::core::ffi::c_void, hthread: super::super::Foundation::HANDLE, dwdata: usize) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(QueueUserAPC(::core::mem::transmute(pfnapc), hthread.into_param().abi(), ::core::mem::transmute(dwdata)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn QueueUserAPC2<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(apcroutine: super::super::Foundation::PAPCFUNC, thread: Param1, data: usize, flags: QUEUE_USER_APC_FLAGS) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn QueueUserAPC2(apcroutine: *mut ::core::ffi::c_void, thread: super::super::Foundation::HANDLE, data: usize, flags: QUEUE_USER_APC_FLAGS) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(QueueUserAPC2(::core::mem::transmute(apcroutine), thread.into_param().abi(), ::core::mem::transmute(data), ::core::mem::transmute(flags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn QueueUserAPC2(apcroutine: *mut ::core::ffi::c_void, thread: super::super::Foundation::HANDLE, data: usize, flags: QUEUE_USER_APC_FLAGS) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(QueueUserAPC2(::core::mem::transmute(apcroutine), thread.into_param().abi(), ::core::mem::transmute(data), ::core::mem::transmute(flags)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn QueueUserWorkItem(function: LPTHREAD_START_ROUTINE, context: *const ::core::ffi::c_void, flags: WORKER_THREAD_FLAGS) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn QueueUserWorkItem(function: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, flags: WORKER_THREAD_FLAGS) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(QueueUserWorkItem(::core::mem::transmute(function), ::core::mem::transmute(context), ::core::mem::transmute(flags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn QueueUserWorkItem(function: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, flags: WORKER_THREAD_FLAGS) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(QueueUserWorkItem(::core::mem::transmute(function), ::core::mem::transmute(context), ::core::mem::transmute(flags)))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
@@ -5252,134 +4212,89 @@ impl ::core::default::Default for RTL_USER_PROCESS_PARAMETERS {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegisterWaitForSingleObject<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(phnewwaitobject: *mut super::super::Foundation::HANDLE, hobject: Param1, callback: WAITORTIMERCALLBACK, context: *const ::core::ffi::c_void, dwmilliseconds: u32, dwflags: WORKER_THREAD_FLAGS) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RegisterWaitForSingleObject(phnewwaitobject: *mut super::super::Foundation::HANDLE, hobject: super::super::Foundation::HANDLE, callback: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, dwmilliseconds: u32, dwflags: WORKER_THREAD_FLAGS) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(RegisterWaitForSingleObject(::core::mem::transmute(phnewwaitobject), hobject.into_param().abi(), ::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(dwmilliseconds), ::core::mem::transmute(dwflags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RegisterWaitForSingleObject(phnewwaitobject: *mut super::super::Foundation::HANDLE, hobject: super::super::Foundation::HANDLE, callback: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, dwmilliseconds: u32, dwflags: WORKER_THREAD_FLAGS) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RegisterWaitForSingleObject(::core::mem::transmute(phnewwaitobject), hobject.into_param().abi(), ::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(dwmilliseconds), ::core::mem::transmute(dwflags)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReleaseMutex<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmutex: Param0) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ReleaseMutex(hmutex: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(ReleaseMutex(hmutex.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ReleaseMutex(hmutex: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(ReleaseMutex(hmutex.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReleaseMutexWhenCallbackReturns<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(pci: *mut TP_CALLBACK_INSTANCE, r#mut: Param1) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ReleaseMutexWhenCallbackReturns(pci: *mut TP_CALLBACK_INSTANCE, r#mut: super::super::Foundation::HANDLE);
-        }
-        ReleaseMutexWhenCallbackReturns(::core::mem::transmute(pci), r#mut.into_param().abi())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ReleaseMutexWhenCallbackReturns(pci: *mut TP_CALLBACK_INSTANCE, r#mut: super::super::Foundation::HANDLE);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ReleaseMutexWhenCallbackReturns(::core::mem::transmute(pci), r#mut.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn ReleaseSRWLockExclusive(srwlock: *mut RTL_SRWLOCK) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ReleaseSRWLockExclusive(srwlock: *mut RTL_SRWLOCK);
-        }
-        ReleaseSRWLockExclusive(::core::mem::transmute(srwlock))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ReleaseSRWLockExclusive(srwlock: *mut RTL_SRWLOCK);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ReleaseSRWLockExclusive(::core::mem::transmute(srwlock))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn ReleaseSRWLockShared(srwlock: *mut RTL_SRWLOCK) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ReleaseSRWLockShared(srwlock: *mut RTL_SRWLOCK);
-        }
-        ReleaseSRWLockShared(::core::mem::transmute(srwlock))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ReleaseSRWLockShared(srwlock: *mut RTL_SRWLOCK);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ReleaseSRWLockShared(::core::mem::transmute(srwlock))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReleaseSemaphore<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hsemaphore: Param0, lreleasecount: i32, lppreviouscount: *mut i32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ReleaseSemaphore(hsemaphore: super::super::Foundation::HANDLE, lreleasecount: i32, lppreviouscount: *mut i32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(ReleaseSemaphore(hsemaphore.into_param().abi(), ::core::mem::transmute(lreleasecount), ::core::mem::transmute(lppreviouscount)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ReleaseSemaphore(hsemaphore: super::super::Foundation::HANDLE, lreleasecount: i32, lppreviouscount: *mut i32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(ReleaseSemaphore(hsemaphore.into_param().abi(), ::core::mem::transmute(lreleasecount), ::core::mem::transmute(lppreviouscount)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReleaseSemaphoreWhenCallbackReturns<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(pci: *mut TP_CALLBACK_INSTANCE, sem: Param1, crel: u32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ReleaseSemaphoreWhenCallbackReturns(pci: *mut TP_CALLBACK_INSTANCE, sem: super::super::Foundation::HANDLE, crel: u32);
-        }
-        ReleaseSemaphoreWhenCallbackReturns(::core::mem::transmute(pci), sem.into_param().abi(), ::core::mem::transmute(crel))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ReleaseSemaphoreWhenCallbackReturns(pci: *mut TP_CALLBACK_INSTANCE, sem: super::super::Foundation::HANDLE, crel: u32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ReleaseSemaphoreWhenCallbackReturns(::core::mem::transmute(pci), sem.into_param().abi(), ::core::mem::transmute(crel))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResetEvent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hevent: Param0) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ResetEvent(hevent: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(ResetEvent(hevent.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ResetEvent(hevent: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(ResetEvent(hevent.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResumeThread<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hthread: Param0) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ResumeThread(hthread: super::super::Foundation::HANDLE) -> u32;
-        }
-        ::core::mem::transmute(ResumeThread(hthread.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ResumeThread(hthread: super::super::Foundation::HANDLE) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(ResumeThread(hthread.into_param().abi()))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
@@ -5696,746 +4611,496 @@ pub const SYNCHRONIZATION_BARRIER_FLAGS_SPIN_ONLY: u32 = 1u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn SetCriticalSectionSpinCount(lpcriticalsection: *mut RTL_CRITICAL_SECTION, dwspincount: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetCriticalSectionSpinCount(lpcriticalsection: *mut RTL_CRITICAL_SECTION, dwspincount: u32) -> u32;
-        }
-        ::core::mem::transmute(SetCriticalSectionSpinCount(::core::mem::transmute(lpcriticalsection), ::core::mem::transmute(dwspincount)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetCriticalSectionSpinCount(lpcriticalsection: *mut RTL_CRITICAL_SECTION, dwspincount: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetCriticalSectionSpinCount(::core::mem::transmute(lpcriticalsection), ::core::mem::transmute(dwspincount)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetEvent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hevent: Param0) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetEvent(hevent: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(SetEvent(hevent.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetEvent(hevent: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetEvent(hevent.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetEventWhenCallbackReturns<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(pci: *mut TP_CALLBACK_INSTANCE, evt: Param1) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetEventWhenCallbackReturns(pci: *mut TP_CALLBACK_INSTANCE, evt: super::super::Foundation::HANDLE);
-        }
-        SetEventWhenCallbackReturns(::core::mem::transmute(pci), evt.into_param().abi())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetEventWhenCallbackReturns(pci: *mut TP_CALLBACK_INSTANCE, evt: super::super::Foundation::HANDLE);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SetEventWhenCallbackReturns(::core::mem::transmute(pci), evt.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetPriorityClass<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, dwpriorityclass: PROCESS_CREATION_FLAGS) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetPriorityClass(hprocess: super::super::Foundation::HANDLE, dwpriorityclass: PROCESS_CREATION_FLAGS) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(SetPriorityClass(hprocess.into_param().abi(), ::core::mem::transmute(dwpriorityclass)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetPriorityClass(hprocess: super::super::Foundation::HANDLE, dwpriorityclass: PROCESS_CREATION_FLAGS) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetPriorityClass(hprocess.into_param().abi(), ::core::mem::transmute(dwpriorityclass)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetProcessAffinityMask<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, dwprocessaffinitymask: usize) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetProcessAffinityMask(hprocess: super::super::Foundation::HANDLE, dwprocessaffinitymask: usize) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(SetProcessAffinityMask(hprocess.into_param().abi(), ::core::mem::transmute(dwprocessaffinitymask)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetProcessAffinityMask(hprocess: super::super::Foundation::HANDLE, dwprocessaffinitymask: usize) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetProcessAffinityMask(hprocess.into_param().abi(), ::core::mem::transmute(dwprocessaffinitymask)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetProcessAffinityUpdateMode<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, dwflags: PROCESS_AFFINITY_AUTO_UPDATE_FLAGS) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetProcessAffinityUpdateMode(hprocess: super::super::Foundation::HANDLE, dwflags: PROCESS_AFFINITY_AUTO_UPDATE_FLAGS) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(SetProcessAffinityUpdateMode(hprocess.into_param().abi(), ::core::mem::transmute(dwflags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetProcessAffinityUpdateMode(hprocess: super::super::Foundation::HANDLE, dwflags: PROCESS_AFFINITY_AUTO_UPDATE_FLAGS) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetProcessAffinityUpdateMode(hprocess.into_param().abi(), ::core::mem::transmute(dwflags)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetProcessDEPPolicy(dwflags: PROCESS_DEP_FLAGS) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetProcessDEPPolicy(dwflags: PROCESS_DEP_FLAGS) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(SetProcessDEPPolicy(::core::mem::transmute(dwflags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetProcessDEPPolicy(dwflags: PROCESS_DEP_FLAGS) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetProcessDEPPolicy(::core::mem::transmute(dwflags)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemInformation"))]
 #[inline]
 pub unsafe fn SetProcessDefaultCpuSetMasks<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(process: Param0, cpusetmasks: &[super::SystemInformation::GROUP_AFFINITY]) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetProcessDefaultCpuSetMasks(process: super::super::Foundation::HANDLE, cpusetmasks: *const super::SystemInformation::GROUP_AFFINITY, cpusetmaskcount: u16) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(SetProcessDefaultCpuSetMasks(process.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(cpusetmasks)), cpusetmasks.len() as _))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetProcessDefaultCpuSetMasks(process: super::super::Foundation::HANDLE, cpusetmasks: *const super::SystemInformation::GROUP_AFFINITY, cpusetmaskcount: u16) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetProcessDefaultCpuSetMasks(process.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(cpusetmasks)), cpusetmasks.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetProcessDefaultCpuSets<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(process: Param0, cpusetids: &[u32]) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetProcessDefaultCpuSets(process: super::super::Foundation::HANDLE, cpusetids: *const u32, cpusetidcount: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(SetProcessDefaultCpuSets(process.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(cpusetids)), cpusetids.len() as _))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetProcessDefaultCpuSets(process: super::super::Foundation::HANDLE, cpusetids: *const u32, cpusetidcount: u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetProcessDefaultCpuSets(process.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(cpusetids)), cpusetids.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetProcessDynamicEHContinuationTargets<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(process: Param0, targets: &mut [PROCESS_DYNAMIC_EH_CONTINUATION_TARGET]) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetProcessDynamicEHContinuationTargets(process: super::super::Foundation::HANDLE, numberoftargets: u16, targets: *mut PROCESS_DYNAMIC_EH_CONTINUATION_TARGET) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(SetProcessDynamicEHContinuationTargets(process.into_param().abi(), targets.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(targets))))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetProcessDynamicEHContinuationTargets(process: super::super::Foundation::HANDLE, numberoftargets: u16, targets: *mut PROCESS_DYNAMIC_EH_CONTINUATION_TARGET) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetProcessDynamicEHContinuationTargets(process.into_param().abi(), targets.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(targets))))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetProcessDynamicEnforcedCetCompatibleRanges<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(process: Param0, ranges: &mut [PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE]) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetProcessDynamicEnforcedCetCompatibleRanges(process: super::super::Foundation::HANDLE, numberofranges: u16, ranges: *mut PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(SetProcessDynamicEnforcedCetCompatibleRanges(process.into_param().abi(), ranges.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ranges))))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetProcessDynamicEnforcedCetCompatibleRanges(process: super::super::Foundation::HANDLE, numberofranges: u16, ranges: *mut PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetProcessDynamicEnforcedCetCompatibleRanges(process.into_param().abi(), ranges.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ranges))))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetProcessInformation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, processinformationclass: PROCESS_INFORMATION_CLASS, processinformation: *const ::core::ffi::c_void, processinformationsize: u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetProcessInformation(hprocess: super::super::Foundation::HANDLE, processinformationclass: PROCESS_INFORMATION_CLASS, processinformation: *const ::core::ffi::c_void, processinformationsize: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(SetProcessInformation(hprocess.into_param().abi(), ::core::mem::transmute(processinformationclass), ::core::mem::transmute(processinformation), ::core::mem::transmute(processinformationsize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetProcessInformation(hprocess: super::super::Foundation::HANDLE, processinformationclass: PROCESS_INFORMATION_CLASS, processinformation: *const ::core::ffi::c_void, processinformationsize: u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetProcessInformation(hprocess.into_param().abi(), ::core::mem::transmute(processinformationclass), ::core::mem::transmute(processinformation), ::core::mem::transmute(processinformationsize)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetProcessMitigationPolicy(mitigationpolicy: PROCESS_MITIGATION_POLICY, lpbuffer: *const ::core::ffi::c_void, dwlength: usize) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetProcessMitigationPolicy(mitigationpolicy: PROCESS_MITIGATION_POLICY, lpbuffer: *const ::core::ffi::c_void, dwlength: usize) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(SetProcessMitigationPolicy(::core::mem::transmute(mitigationpolicy), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(dwlength)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetProcessMitigationPolicy(mitigationpolicy: PROCESS_MITIGATION_POLICY, lpbuffer: *const ::core::ffi::c_void, dwlength: usize) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetProcessMitigationPolicy(::core::mem::transmute(mitigationpolicy), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(dwlength)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetProcessPriorityBoost<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hprocess: Param0, bdisablepriorityboost: Param1) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetProcessPriorityBoost(hprocess: super::super::Foundation::HANDLE, bdisablepriorityboost: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(SetProcessPriorityBoost(hprocess.into_param().abi(), bdisablepriorityboost.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetProcessPriorityBoost(hprocess: super::super::Foundation::HANDLE, bdisablepriorityboost: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetProcessPriorityBoost(hprocess.into_param().abi(), bdisablepriorityboost.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetProcessRestrictionExemption<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(fenableexemption: Param0) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetProcessRestrictionExemption(fenableexemption: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(SetProcessRestrictionExemption(fenableexemption.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetProcessRestrictionExemption(fenableexemption: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetProcessRestrictionExemption(fenableexemption.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetProcessShutdownParameters(dwlevel: u32, dwflags: u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetProcessShutdownParameters(dwlevel: u32, dwflags: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(SetProcessShutdownParameters(::core::mem::transmute(dwlevel), ::core::mem::transmute(dwflags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetProcessShutdownParameters(dwlevel: u32, dwflags: u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetProcessShutdownParameters(::core::mem::transmute(dwlevel), ::core::mem::transmute(dwflags)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetProcessWorkingSetSize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, dwminimumworkingsetsize: usize, dwmaximumworkingsetsize: usize) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetProcessWorkingSetSize(hprocess: super::super::Foundation::HANDLE, dwminimumworkingsetsize: usize, dwmaximumworkingsetsize: usize) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(SetProcessWorkingSetSize(hprocess.into_param().abi(), ::core::mem::transmute(dwminimumworkingsetsize), ::core::mem::transmute(dwmaximumworkingsetsize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetProcessWorkingSetSize(hprocess: super::super::Foundation::HANDLE, dwminimumworkingsetsize: usize, dwmaximumworkingsetsize: usize) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetProcessWorkingSetSize(hprocess.into_param().abi(), ::core::mem::transmute(dwminimumworkingsetsize), ::core::mem::transmute(dwmaximumworkingsetsize)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetProtectedPolicy(policyguid: *const ::windows::core::GUID, policyvalue: usize, oldpolicyvalue: *mut usize) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetProtectedPolicy(policyguid: *const ::windows::core::GUID, policyvalue: usize, oldpolicyvalue: *mut usize) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(SetProtectedPolicy(::core::mem::transmute(policyguid), ::core::mem::transmute(policyvalue), ::core::mem::transmute(oldpolicyvalue)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetProtectedPolicy(policyguid: *const ::windows::core::GUID, policyvalue: usize, oldpolicyvalue: *mut usize) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetProtectedPolicy(::core::mem::transmute(policyguid), ::core::mem::transmute(policyvalue), ::core::mem::transmute(oldpolicyvalue)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetThreadAffinityMask<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hthread: Param0, dwthreadaffinitymask: usize) -> usize {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetThreadAffinityMask(hthread: super::super::Foundation::HANDLE, dwthreadaffinitymask: usize) -> usize;
-        }
-        ::core::mem::transmute(SetThreadAffinityMask(hthread.into_param().abi(), ::core::mem::transmute(dwthreadaffinitymask)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetThreadAffinityMask(hthread: super::super::Foundation::HANDLE, dwthreadaffinitymask: usize) -> usize;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetThreadAffinityMask(hthread.into_param().abi(), ::core::mem::transmute(dwthreadaffinitymask)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetThreadDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hthread: Param0, lpthreaddescription: Param1) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetThreadDescription(hthread: super::super::Foundation::HANDLE, lpthreaddescription: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
-        }
-        SetThreadDescription(hthread.into_param().abi(), lpthreaddescription.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetThreadDescription(hthread: super::super::Foundation::HANDLE, lpthreaddescription: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SetThreadDescription(hthread.into_param().abi(), lpthreaddescription.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemInformation"))]
 #[inline]
 pub unsafe fn SetThreadGroupAffinity<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hthread: Param0, groupaffinity: *const super::SystemInformation::GROUP_AFFINITY, previousgroupaffinity: *mut super::SystemInformation::GROUP_AFFINITY) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetThreadGroupAffinity(hthread: super::super::Foundation::HANDLE, groupaffinity: *const super::SystemInformation::GROUP_AFFINITY, previousgroupaffinity: *mut super::SystemInformation::GROUP_AFFINITY) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(SetThreadGroupAffinity(hthread.into_param().abi(), ::core::mem::transmute(groupaffinity), ::core::mem::transmute(previousgroupaffinity)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetThreadGroupAffinity(hthread: super::super::Foundation::HANDLE, groupaffinity: *const super::SystemInformation::GROUP_AFFINITY, previousgroupaffinity: *mut super::SystemInformation::GROUP_AFFINITY) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetThreadGroupAffinity(hthread.into_param().abi(), ::core::mem::transmute(groupaffinity), ::core::mem::transmute(previousgroupaffinity)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetThreadIdealProcessor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hthread: Param0, dwidealprocessor: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetThreadIdealProcessor(hthread: super::super::Foundation::HANDLE, dwidealprocessor: u32) -> u32;
-        }
-        ::core::mem::transmute(SetThreadIdealProcessor(hthread.into_param().abi(), ::core::mem::transmute(dwidealprocessor)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetThreadIdealProcessor(hthread: super::super::Foundation::HANDLE, dwidealprocessor: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetThreadIdealProcessor(hthread.into_param().abi(), ::core::mem::transmute(dwidealprocessor)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn SetThreadIdealProcessorEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hthread: Param0, lpidealprocessor: *const super::Kernel::PROCESSOR_NUMBER, lppreviousidealprocessor: *mut super::Kernel::PROCESSOR_NUMBER) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetThreadIdealProcessorEx(hthread: super::super::Foundation::HANDLE, lpidealprocessor: *const super::Kernel::PROCESSOR_NUMBER, lppreviousidealprocessor: *mut super::Kernel::PROCESSOR_NUMBER) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(SetThreadIdealProcessorEx(hthread.into_param().abi(), ::core::mem::transmute(lpidealprocessor), ::core::mem::transmute(lppreviousidealprocessor)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetThreadIdealProcessorEx(hthread: super::super::Foundation::HANDLE, lpidealprocessor: *const super::Kernel::PROCESSOR_NUMBER, lppreviousidealprocessor: *mut super::Kernel::PROCESSOR_NUMBER) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetThreadIdealProcessorEx(hthread.into_param().abi(), ::core::mem::transmute(lpidealprocessor), ::core::mem::transmute(lppreviousidealprocessor)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetThreadInformation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hthread: Param0, threadinformationclass: THREAD_INFORMATION_CLASS, threadinformation: *const ::core::ffi::c_void, threadinformationsize: u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetThreadInformation(hthread: super::super::Foundation::HANDLE, threadinformationclass: THREAD_INFORMATION_CLASS, threadinformation: *const ::core::ffi::c_void, threadinformationsize: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(SetThreadInformation(hthread.into_param().abi(), ::core::mem::transmute(threadinformationclass), ::core::mem::transmute(threadinformation), ::core::mem::transmute(threadinformationsize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetThreadInformation(hthread: super::super::Foundation::HANDLE, threadinformationclass: THREAD_INFORMATION_CLASS, threadinformation: *const ::core::ffi::c_void, threadinformationsize: u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetThreadInformation(hthread.into_param().abi(), ::core::mem::transmute(threadinformationclass), ::core::mem::transmute(threadinformation), ::core::mem::transmute(threadinformationsize)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetThreadPriority<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hthread: Param0, npriority: THREAD_PRIORITY) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetThreadPriority(hthread: super::super::Foundation::HANDLE, npriority: THREAD_PRIORITY) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(SetThreadPriority(hthread.into_param().abi(), ::core::mem::transmute(npriority)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetThreadPriority(hthread: super::super::Foundation::HANDLE, npriority: THREAD_PRIORITY) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetThreadPriority(hthread.into_param().abi(), ::core::mem::transmute(npriority)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetThreadPriorityBoost<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hthread: Param0, bdisablepriorityboost: Param1) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetThreadPriorityBoost(hthread: super::super::Foundation::HANDLE, bdisablepriorityboost: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(SetThreadPriorityBoost(hthread.into_param().abi(), bdisablepriorityboost.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetThreadPriorityBoost(hthread: super::super::Foundation::HANDLE, bdisablepriorityboost: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetThreadPriorityBoost(hthread.into_param().abi(), bdisablepriorityboost.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemInformation\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemInformation"))]
 #[inline]
 pub unsafe fn SetThreadSelectedCpuSetMasks<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(thread: Param0, cpusetmasks: &[super::SystemInformation::GROUP_AFFINITY]) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetThreadSelectedCpuSetMasks(thread: super::super::Foundation::HANDLE, cpusetmasks: *const super::SystemInformation::GROUP_AFFINITY, cpusetmaskcount: u16) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(SetThreadSelectedCpuSetMasks(thread.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(cpusetmasks)), cpusetmasks.len() as _))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetThreadSelectedCpuSetMasks(thread: super::super::Foundation::HANDLE, cpusetmasks: *const super::SystemInformation::GROUP_AFFINITY, cpusetmaskcount: u16) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetThreadSelectedCpuSetMasks(thread.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(cpusetmasks)), cpusetmasks.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetThreadSelectedCpuSets<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(thread: Param0, cpusetids: &[u32]) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetThreadSelectedCpuSets(thread: super::super::Foundation::HANDLE, cpusetids: *const u32, cpusetidcount: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(SetThreadSelectedCpuSets(thread.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(cpusetids)), cpusetids.len() as _))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetThreadSelectedCpuSets(thread: super::super::Foundation::HANDLE, cpusetids: *const u32, cpusetidcount: u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetThreadSelectedCpuSets(thread.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(cpusetids)), cpusetids.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetThreadStackGuarantee(stacksizeinbytes: *mut u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetThreadStackGuarantee(stacksizeinbytes: *mut u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(SetThreadStackGuarantee(::core::mem::transmute(stacksizeinbytes)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetThreadStackGuarantee(stacksizeinbytes: *mut u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetThreadStackGuarantee(::core::mem::transmute(stacksizeinbytes)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetThreadToken<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(thread: *const super::super::Foundation::HANDLE, token: Param1) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetThreadToken(thread: *const super::super::Foundation::HANDLE, token: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(SetThreadToken(::core::mem::transmute(thread), token.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetThreadToken(thread: *const super::super::Foundation::HANDLE, token: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetThreadToken(::core::mem::transmute(thread), token.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetThreadpoolStackInformation<'a, Param0: ::windows::core::IntoParam<'a, PTP_POOL>>(ptpp: Param0, ptpsi: *const TP_POOL_STACK_INFORMATION) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetThreadpoolStackInformation(ptpp: PTP_POOL, ptpsi: *const TP_POOL_STACK_INFORMATION) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(SetThreadpoolStackInformation(ptpp.into_param().abi(), ::core::mem::transmute(ptpsi)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetThreadpoolStackInformation(ptpp: PTP_POOL, ptpsi: *const TP_POOL_STACK_INFORMATION) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetThreadpoolStackInformation(ptpp.into_param().abi(), ::core::mem::transmute(ptpsi)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn SetThreadpoolThreadMaximum<'a, Param0: ::windows::core::IntoParam<'a, PTP_POOL>>(ptpp: Param0, cthrdmost: u32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetThreadpoolThreadMaximum(ptpp: PTP_POOL, cthrdmost: u32);
-        }
-        SetThreadpoolThreadMaximum(ptpp.into_param().abi(), ::core::mem::transmute(cthrdmost))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetThreadpoolThreadMaximum(ptpp: PTP_POOL, cthrdmost: u32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SetThreadpoolThreadMaximum(ptpp.into_param().abi(), ::core::mem::transmute(cthrdmost))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetThreadpoolThreadMinimum<'a, Param0: ::windows::core::IntoParam<'a, PTP_POOL>>(ptpp: Param0, cthrdmic: u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetThreadpoolThreadMinimum(ptpp: PTP_POOL, cthrdmic: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(SetThreadpoolThreadMinimum(ptpp.into_param().abi(), ::core::mem::transmute(cthrdmic)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetThreadpoolThreadMinimum(ptpp: PTP_POOL, cthrdmic: u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetThreadpoolThreadMinimum(ptpp.into_param().abi(), ::core::mem::transmute(cthrdmic)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetThreadpoolTimer(pti: *mut TP_TIMER, pftduetime: *const super::super::Foundation::FILETIME, msperiod: u32, mswindowlength: u32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetThreadpoolTimer(pti: *mut TP_TIMER, pftduetime: *const super::super::Foundation::FILETIME, msperiod: u32, mswindowlength: u32);
-        }
-        SetThreadpoolTimer(::core::mem::transmute(pti), ::core::mem::transmute(pftduetime), ::core::mem::transmute(msperiod), ::core::mem::transmute(mswindowlength))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetThreadpoolTimer(pti: *mut TP_TIMER, pftduetime: *const super::super::Foundation::FILETIME, msperiod: u32, mswindowlength: u32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SetThreadpoolTimer(::core::mem::transmute(pti), ::core::mem::transmute(pftduetime), ::core::mem::transmute(msperiod), ::core::mem::transmute(mswindowlength))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetThreadpoolTimerEx(pti: *mut TP_TIMER, pftduetime: *const super::super::Foundation::FILETIME, msperiod: u32, mswindowlength: u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetThreadpoolTimerEx(pti: *mut TP_TIMER, pftduetime: *const super::super::Foundation::FILETIME, msperiod: u32, mswindowlength: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(SetThreadpoolTimerEx(::core::mem::transmute(pti), ::core::mem::transmute(pftduetime), ::core::mem::transmute(msperiod), ::core::mem::transmute(mswindowlength)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetThreadpoolTimerEx(pti: *mut TP_TIMER, pftduetime: *const super::super::Foundation::FILETIME, msperiod: u32, mswindowlength: u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetThreadpoolTimerEx(::core::mem::transmute(pti), ::core::mem::transmute(pftduetime), ::core::mem::transmute(msperiod), ::core::mem::transmute(mswindowlength)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetThreadpoolWait<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(pwa: *mut TP_WAIT, h: Param1, pfttimeout: *const super::super::Foundation::FILETIME) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetThreadpoolWait(pwa: *mut TP_WAIT, h: super::super::Foundation::HANDLE, pfttimeout: *const super::super::Foundation::FILETIME);
-        }
-        SetThreadpoolWait(::core::mem::transmute(pwa), h.into_param().abi(), ::core::mem::transmute(pfttimeout))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetThreadpoolWait(pwa: *mut TP_WAIT, h: super::super::Foundation::HANDLE, pfttimeout: *const super::super::Foundation::FILETIME);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SetThreadpoolWait(::core::mem::transmute(pwa), h.into_param().abi(), ::core::mem::transmute(pfttimeout))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetThreadpoolWaitEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(pwa: *mut TP_WAIT, h: Param1, pfttimeout: *const super::super::Foundation::FILETIME, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetThreadpoolWaitEx(pwa: *mut TP_WAIT, h: super::super::Foundation::HANDLE, pfttimeout: *const super::super::Foundation::FILETIME, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(SetThreadpoolWaitEx(::core::mem::transmute(pwa), h.into_param().abi(), ::core::mem::transmute(pfttimeout), ::core::mem::transmute(reserved)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetThreadpoolWaitEx(pwa: *mut TP_WAIT, h: super::super::Foundation::HANDLE, pfttimeout: *const super::super::Foundation::FILETIME, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetThreadpoolWaitEx(::core::mem::transmute(pwa), h.into_param().abi(), ::core::mem::transmute(pfttimeout), ::core::mem::transmute(reserved)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetTimerQueueTimer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(timerqueue: Param0, callback: WAITORTIMERCALLBACK, parameter: *const ::core::ffi::c_void, duetime: u32, period: u32, preferio: Param5) -> super::super::Foundation::HANDLE {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetTimerQueueTimer(timerqueue: super::super::Foundation::HANDLE, callback: *mut ::core::ffi::c_void, parameter: *const ::core::ffi::c_void, duetime: u32, period: u32, preferio: super::super::Foundation::BOOL) -> super::super::Foundation::HANDLE;
-        }
-        ::core::mem::transmute(SetTimerQueueTimer(timerqueue.into_param().abi(), ::core::mem::transmute(callback), ::core::mem::transmute(parameter), ::core::mem::transmute(duetime), ::core::mem::transmute(period), preferio.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetTimerQueueTimer(timerqueue: super::super::Foundation::HANDLE, callback: *mut ::core::ffi::c_void, parameter: *const ::core::ffi::c_void, duetime: u32, period: u32, preferio: super::super::Foundation::BOOL) -> super::super::Foundation::HANDLE;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetTimerQueueTimer(timerqueue.into_param().abi(), ::core::mem::transmute(callback), ::core::mem::transmute(parameter), ::core::mem::transmute(duetime), ::core::mem::transmute(period), preferio.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetUmsThreadInformation(umsthread: *const ::core::ffi::c_void, umsthreadinfoclass: RTL_UMS_THREAD_INFO_CLASS, umsthreadinformation: *const ::core::ffi::c_void, umsthreadinformationlength: u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetUmsThreadInformation(umsthread: *const ::core::ffi::c_void, umsthreadinfoclass: RTL_UMS_THREAD_INFO_CLASS, umsthreadinformation: *const ::core::ffi::c_void, umsthreadinformationlength: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(SetUmsThreadInformation(::core::mem::transmute(umsthread), ::core::mem::transmute(umsthreadinfoclass), ::core::mem::transmute(umsthreadinformation), ::core::mem::transmute(umsthreadinformationlength)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetUmsThreadInformation(umsthread: *const ::core::ffi::c_void, umsthreadinfoclass: RTL_UMS_THREAD_INFO_CLASS, umsthreadinformation: *const ::core::ffi::c_void, umsthreadinformationlength: u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetUmsThreadInformation(::core::mem::transmute(umsthread), ::core::mem::transmute(umsthreadinfoclass), ::core::mem::transmute(umsthreadinformation), ::core::mem::transmute(umsthreadinformationlength)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetWaitableTimer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(htimer: Param0, lpduetime: *const i64, lperiod: i32, pfncompletionroutine: PTIMERAPCROUTINE, lpargtocompletionroutine: *const ::core::ffi::c_void, fresume: Param5) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetWaitableTimer(htimer: super::super::Foundation::HANDLE, lpduetime: *const i64, lperiod: i32, pfncompletionroutine: *mut ::core::ffi::c_void, lpargtocompletionroutine: *const ::core::ffi::c_void, fresume: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(SetWaitableTimer(htimer.into_param().abi(), ::core::mem::transmute(lpduetime), ::core::mem::transmute(lperiod), ::core::mem::transmute(pfncompletionroutine), ::core::mem::transmute(lpargtocompletionroutine), fresume.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetWaitableTimer(htimer: super::super::Foundation::HANDLE, lpduetime: *const i64, lperiod: i32, pfncompletionroutine: *mut ::core::ffi::c_void, lpargtocompletionroutine: *const ::core::ffi::c_void, fresume: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetWaitableTimer(htimer.into_param().abi(), ::core::mem::transmute(lpduetime), ::core::mem::transmute(lperiod), ::core::mem::transmute(pfncompletionroutine), ::core::mem::transmute(lpargtocompletionroutine), fresume.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetWaitableTimerEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(htimer: Param0, lpduetime: *const i64, lperiod: i32, pfncompletionroutine: PTIMERAPCROUTINE, lpargtocompletionroutine: *const ::core::ffi::c_void, wakecontext: *const REASON_CONTEXT, tolerabledelay: u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetWaitableTimerEx(htimer: super::super::Foundation::HANDLE, lpduetime: *const i64, lperiod: i32, pfncompletionroutine: *mut ::core::ffi::c_void, lpargtocompletionroutine: *const ::core::ffi::c_void, wakecontext: *const REASON_CONTEXT, tolerabledelay: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(SetWaitableTimerEx(htimer.into_param().abi(), ::core::mem::transmute(lpduetime), ::core::mem::transmute(lperiod), ::core::mem::transmute(pfncompletionroutine), ::core::mem::transmute(lpargtocompletionroutine), ::core::mem::transmute(wakecontext), ::core::mem::transmute(tolerabledelay)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetWaitableTimerEx(htimer: super::super::Foundation::HANDLE, lpduetime: *const i64, lperiod: i32, pfncompletionroutine: *mut ::core::ffi::c_void, lpargtocompletionroutine: *const ::core::ffi::c_void, wakecontext: *const REASON_CONTEXT, tolerabledelay: u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetWaitableTimerEx(htimer.into_param().abi(), ::core::mem::transmute(lpduetime), ::core::mem::transmute(lperiod), ::core::mem::transmute(pfncompletionroutine), ::core::mem::transmute(lpargtocompletionroutine), ::core::mem::transmute(wakecontext), ::core::mem::transmute(tolerabledelay)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn Sleep(dwmilliseconds: u32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn Sleep(dwmilliseconds: u32);
-        }
-        Sleep(::core::mem::transmute(dwmilliseconds))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn Sleep(dwmilliseconds: u32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    Sleep(::core::mem::transmute(dwmilliseconds))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn SleepConditionVariableCS(conditionvariable: *mut RTL_CONDITION_VARIABLE, criticalsection: *mut RTL_CRITICAL_SECTION, dwmilliseconds: u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SleepConditionVariableCS(conditionvariable: *mut RTL_CONDITION_VARIABLE, criticalsection: *mut RTL_CRITICAL_SECTION, dwmilliseconds: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(SleepConditionVariableCS(::core::mem::transmute(conditionvariable), ::core::mem::transmute(criticalsection), ::core::mem::transmute(dwmilliseconds)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SleepConditionVariableCS(conditionvariable: *mut RTL_CONDITION_VARIABLE, criticalsection: *mut RTL_CRITICAL_SECTION, dwmilliseconds: u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SleepConditionVariableCS(::core::mem::transmute(conditionvariable), ::core::mem::transmute(criticalsection), ::core::mem::transmute(dwmilliseconds)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SleepConditionVariableSRW(conditionvariable: *mut RTL_CONDITION_VARIABLE, srwlock: *mut RTL_SRWLOCK, dwmilliseconds: u32, flags: u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SleepConditionVariableSRW(conditionvariable: *mut RTL_CONDITION_VARIABLE, srwlock: *mut RTL_SRWLOCK, dwmilliseconds: u32, flags: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(SleepConditionVariableSRW(::core::mem::transmute(conditionvariable), ::core::mem::transmute(srwlock), ::core::mem::transmute(dwmilliseconds), ::core::mem::transmute(flags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SleepConditionVariableSRW(conditionvariable: *mut RTL_CONDITION_VARIABLE, srwlock: *mut RTL_SRWLOCK, dwmilliseconds: u32, flags: u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SleepConditionVariableSRW(::core::mem::transmute(conditionvariable), ::core::mem::transmute(srwlock), ::core::mem::transmute(dwmilliseconds), ::core::mem::transmute(flags)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SleepEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(dwmilliseconds: u32, balertable: Param1) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SleepEx(dwmilliseconds: u32, balertable: super::super::Foundation::BOOL) -> u32;
-        }
-        ::core::mem::transmute(SleepEx(::core::mem::transmute(dwmilliseconds), balertable.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SleepEx(dwmilliseconds: u32, balertable: super::super::Foundation::BOOL) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SleepEx(::core::mem::transmute(dwmilliseconds), balertable.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn StartThreadpoolIo(pio: *mut TP_IO) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn StartThreadpoolIo(pio: *mut TP_IO);
-        }
-        StartThreadpoolIo(::core::mem::transmute(pio))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn StartThreadpoolIo(pio: *mut TP_IO);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    StartThreadpoolIo(::core::mem::transmute(pio))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn SubmitThreadpoolWork(pwk: *mut TP_WORK) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SubmitThreadpoolWork(pwk: *mut TP_WORK);
-        }
-        SubmitThreadpoolWork(::core::mem::transmute(pwk))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SubmitThreadpoolWork(pwk: *mut TP_WORK);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SubmitThreadpoolWork(::core::mem::transmute(pwk))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SuspendThread<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hthread: Param0) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SuspendThread(hthread: super::super::Foundation::HANDLE) -> u32;
-        }
-        ::core::mem::transmute(SuspendThread(hthread.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SuspendThread(hthread: super::super::Foundation::HANDLE) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SuspendThread(hthread.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn SwitchToFiber(lpfiber: *const ::core::ffi::c_void) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SwitchToFiber(lpfiber: *const ::core::ffi::c_void);
-        }
-        SwitchToFiber(::core::mem::transmute(lpfiber))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SwitchToFiber(lpfiber: *const ::core::ffi::c_void);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SwitchToFiber(::core::mem::transmute(lpfiber))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SwitchToThread() -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SwitchToThread() -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(SwitchToThread())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SwitchToThread() -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SwitchToThread())
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[repr(transparent)]
@@ -6894,31 +5559,21 @@ pub struct TP_WORK(pub u8);
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TerminateProcess<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, uexitcode: u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn TerminateProcess(hprocess: super::super::Foundation::HANDLE, uexitcode: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(TerminateProcess(hprocess.into_param().abi(), ::core::mem::transmute(uexitcode)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TerminateProcess(hprocess: super::super::Foundation::HANDLE, uexitcode: u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(TerminateProcess(hprocess.into_param().abi(), ::core::mem::transmute(uexitcode)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TerminateThread<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hthread: Param0, dwexitcode: u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn TerminateThread(hthread: super::super::Foundation::HANDLE, dwexitcode: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(TerminateThread(hthread.into_param().abi(), ::core::mem::transmute(dwexitcode)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TerminateThread(hthread: super::super::Foundation::HANDLE, dwexitcode: u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(TerminateThread(hthread.into_param().abi(), ::core::mem::transmute(dwexitcode)))
 }
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -6950,120 +5605,80 @@ unsafe impl ::windows::core::Abi for TimerQueueHandle {
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn TlsAlloc() -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn TlsAlloc() -> u32;
-        }
-        ::core::mem::transmute(TlsAlloc())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TlsAlloc() -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(TlsAlloc())
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TlsFree(dwtlsindex: u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn TlsFree(dwtlsindex: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(TlsFree(::core::mem::transmute(dwtlsindex)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TlsFree(dwtlsindex: u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(TlsFree(::core::mem::transmute(dwtlsindex)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn TlsGetValue(dwtlsindex: u32) -> *mut ::core::ffi::c_void {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn TlsGetValue(dwtlsindex: u32) -> *mut ::core::ffi::c_void;
-        }
-        ::core::mem::transmute(TlsGetValue(::core::mem::transmute(dwtlsindex)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TlsGetValue(dwtlsindex: u32) -> *mut ::core::ffi::c_void;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(TlsGetValue(::core::mem::transmute(dwtlsindex)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TlsSetValue(dwtlsindex: u32, lptlsvalue: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn TlsSetValue(dwtlsindex: u32, lptlsvalue: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(TlsSetValue(::core::mem::transmute(dwtlsindex), ::core::mem::transmute(lptlsvalue)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TlsSetValue(dwtlsindex: u32, lptlsvalue: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(TlsSetValue(::core::mem::transmute(dwtlsindex), ::core::mem::transmute(lptlsvalue)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TryAcquireSRWLockExclusive(srwlock: *mut RTL_SRWLOCK) -> super::super::Foundation::BOOLEAN {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn TryAcquireSRWLockExclusive(srwlock: *mut RTL_SRWLOCK) -> super::super::Foundation::BOOLEAN;
-        }
-        ::core::mem::transmute(TryAcquireSRWLockExclusive(::core::mem::transmute(srwlock)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TryAcquireSRWLockExclusive(srwlock: *mut RTL_SRWLOCK) -> super::super::Foundation::BOOLEAN;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(TryAcquireSRWLockExclusive(::core::mem::transmute(srwlock)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TryAcquireSRWLockShared(srwlock: *mut RTL_SRWLOCK) -> super::super::Foundation::BOOLEAN {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn TryAcquireSRWLockShared(srwlock: *mut RTL_SRWLOCK) -> super::super::Foundation::BOOLEAN;
-        }
-        ::core::mem::transmute(TryAcquireSRWLockShared(::core::mem::transmute(srwlock)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TryAcquireSRWLockShared(srwlock: *mut RTL_SRWLOCK) -> super::super::Foundation::BOOLEAN;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(TryAcquireSRWLockShared(::core::mem::transmute(srwlock)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn TryEnterCriticalSection(lpcriticalsection: *mut RTL_CRITICAL_SECTION) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn TryEnterCriticalSection(lpcriticalsection: *mut RTL_CRITICAL_SECTION) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(TryEnterCriticalSection(::core::mem::transmute(lpcriticalsection)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TryEnterCriticalSection(lpcriticalsection: *mut RTL_CRITICAL_SECTION) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(TryEnterCriticalSection(::core::mem::transmute(lpcriticalsection)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TrySubmitThreadpoolCallback(pfns: PTP_SIMPLE_CALLBACK, pv: *mut ::core::ffi::c_void, pcbe: *const TP_CALLBACK_ENVIRON_V3) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn TrySubmitThreadpoolCallback(pfns: *mut ::core::ffi::c_void, pv: *mut ::core::ffi::c_void, pcbe: *const TP_CALLBACK_ENVIRON_V3) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(TrySubmitThreadpoolCallback(::core::mem::transmute(pfns), ::core::mem::transmute(pv), ::core::mem::transmute(pcbe)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TrySubmitThreadpoolCallback(pfns: *mut ::core::ffi::c_void, pv: *mut ::core::ffi::c_void, pcbe: *const TP_CALLBACK_ENVIRON_V3) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(TrySubmitThreadpoolCallback(::core::mem::transmute(pfns), ::core::mem::transmute(pv), ::core::mem::transmute(pcbe)))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_System_SystemServices\"`*"]
@@ -7192,61 +5807,41 @@ impl ::core::default::Default for UMS_SYSTEM_THREAD_INFORMATION_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UmsThreadYield(schedulerparam: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UmsThreadYield(schedulerparam: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(UmsThreadYield(::core::mem::transmute(schedulerparam)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UmsThreadYield(schedulerparam: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(UmsThreadYield(::core::mem::transmute(schedulerparam)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UnregisterWait<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(waithandle: Param0) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UnregisterWait(waithandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(UnregisterWait(waithandle.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UnregisterWait(waithandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(UnregisterWait(waithandle.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UnregisterWaitEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(waithandle: Param0, completionevent: Param1) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UnregisterWaitEx(waithandle: super::super::Foundation::HANDLE, completionevent: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(UnregisterWaitEx(waithandle.into_param().abi(), completionevent.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UnregisterWaitEx(waithandle: super::super::Foundation::HANDLE, completionevent: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(UnregisterWaitEx(waithandle.into_param().abi(), completionevent.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UpdateProcThreadAttribute<'a, Param0: ::windows::core::IntoParam<'a, LPPROC_THREAD_ATTRIBUTE_LIST>>(lpattributelist: Param0, dwflags: u32, attribute: usize, lpvalue: *const ::core::ffi::c_void, cbsize: usize, lppreviousvalue: *mut ::core::ffi::c_void, lpreturnsize: *const usize) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UpdateProcThreadAttribute(lpattributelist: LPPROC_THREAD_ATTRIBUTE_LIST, dwflags: u32, attribute: usize, lpvalue: *const ::core::ffi::c_void, cbsize: usize, lppreviousvalue: *mut ::core::ffi::c_void, lpreturnsize: *const usize) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(UpdateProcThreadAttribute(lpattributelist.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(attribute), ::core::mem::transmute(lpvalue), ::core::mem::transmute(cbsize), ::core::mem::transmute(lppreviousvalue), ::core::mem::transmute(lpreturnsize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UpdateProcThreadAttribute(lpattributelist: LPPROC_THREAD_ATTRIBUTE_LIST, dwflags: u32, attribute: usize, lpvalue: *const ::core::ffi::c_void, cbsize: usize, lppreviousvalue: *mut ::core::ffi::c_void, lpreturnsize: *const usize) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(UpdateProcThreadAttribute(lpattributelist.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(attribute), ::core::mem::transmute(lpvalue), ::core::mem::transmute(cbsize), ::core::mem::transmute(lppreviousvalue), ::core::mem::transmute(lpreturnsize)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7330,250 +5925,165 @@ impl ::core::ops::Not for WORKER_THREAD_FLAGS {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WaitForInputIdle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, dwmilliseconds: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WaitForInputIdle(hprocess: super::super::Foundation::HANDLE, dwmilliseconds: u32) -> u32;
-        }
-        ::core::mem::transmute(WaitForInputIdle(hprocess.into_param().abi(), ::core::mem::transmute(dwmilliseconds)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WaitForInputIdle(hprocess: super::super::Foundation::HANDLE, dwmilliseconds: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(WaitForInputIdle(hprocess.into_param().abi(), ::core::mem::transmute(dwmilliseconds)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WaitForMultipleObjects<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(lphandles: &[super::super::Foundation::HANDLE], bwaitall: Param2, dwmilliseconds: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WaitForMultipleObjects(ncount: u32, lphandles: *const super::super::Foundation::HANDLE, bwaitall: super::super::Foundation::BOOL, dwmilliseconds: u32) -> u32;
-        }
-        ::core::mem::transmute(WaitForMultipleObjects(lphandles.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lphandles)), bwaitall.into_param().abi(), ::core::mem::transmute(dwmilliseconds)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WaitForMultipleObjects(ncount: u32, lphandles: *const super::super::Foundation::HANDLE, bwaitall: super::super::Foundation::BOOL, dwmilliseconds: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(WaitForMultipleObjects(lphandles.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lphandles)), bwaitall.into_param().abi(), ::core::mem::transmute(dwmilliseconds)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WaitForMultipleObjectsEx<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(lphandles: &[super::super::Foundation::HANDLE], bwaitall: Param2, dwmilliseconds: u32, balertable: Param4) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WaitForMultipleObjectsEx(ncount: u32, lphandles: *const super::super::Foundation::HANDLE, bwaitall: super::super::Foundation::BOOL, dwmilliseconds: u32, balertable: super::super::Foundation::BOOL) -> u32;
-        }
-        ::core::mem::transmute(WaitForMultipleObjectsEx(lphandles.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lphandles)), bwaitall.into_param().abi(), ::core::mem::transmute(dwmilliseconds), balertable.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WaitForMultipleObjectsEx(ncount: u32, lphandles: *const super::super::Foundation::HANDLE, bwaitall: super::super::Foundation::BOOL, dwmilliseconds: u32, balertable: super::super::Foundation::BOOL) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(WaitForMultipleObjectsEx(lphandles.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(lphandles)), bwaitall.into_param().abi(), ::core::mem::transmute(dwmilliseconds), balertable.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WaitForSingleObject<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hhandle: Param0, dwmilliseconds: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WaitForSingleObject(hhandle: super::super::Foundation::HANDLE, dwmilliseconds: u32) -> u32;
-        }
-        ::core::mem::transmute(WaitForSingleObject(hhandle.into_param().abi(), ::core::mem::transmute(dwmilliseconds)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WaitForSingleObject(hhandle: super::super::Foundation::HANDLE, dwmilliseconds: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(WaitForSingleObject(hhandle.into_param().abi(), ::core::mem::transmute(dwmilliseconds)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WaitForSingleObjectEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hhandle: Param0, dwmilliseconds: u32, balertable: Param2) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WaitForSingleObjectEx(hhandle: super::super::Foundation::HANDLE, dwmilliseconds: u32, balertable: super::super::Foundation::BOOL) -> u32;
-        }
-        ::core::mem::transmute(WaitForSingleObjectEx(hhandle.into_param().abi(), ::core::mem::transmute(dwmilliseconds), balertable.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WaitForSingleObjectEx(hhandle: super::super::Foundation::HANDLE, dwmilliseconds: u32, balertable: super::super::Foundation::BOOL) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(WaitForSingleObjectEx(hhandle.into_param().abi(), ::core::mem::transmute(dwmilliseconds), balertable.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WaitForThreadpoolIoCallbacks<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(pio: *mut TP_IO, fcancelpendingcallbacks: Param1) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WaitForThreadpoolIoCallbacks(pio: *mut TP_IO, fcancelpendingcallbacks: super::super::Foundation::BOOL);
-        }
-        WaitForThreadpoolIoCallbacks(::core::mem::transmute(pio), fcancelpendingcallbacks.into_param().abi())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WaitForThreadpoolIoCallbacks(pio: *mut TP_IO, fcancelpendingcallbacks: super::super::Foundation::BOOL);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    WaitForThreadpoolIoCallbacks(::core::mem::transmute(pio), fcancelpendingcallbacks.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WaitForThreadpoolTimerCallbacks<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(pti: *mut TP_TIMER, fcancelpendingcallbacks: Param1) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WaitForThreadpoolTimerCallbacks(pti: *mut TP_TIMER, fcancelpendingcallbacks: super::super::Foundation::BOOL);
-        }
-        WaitForThreadpoolTimerCallbacks(::core::mem::transmute(pti), fcancelpendingcallbacks.into_param().abi())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WaitForThreadpoolTimerCallbacks(pti: *mut TP_TIMER, fcancelpendingcallbacks: super::super::Foundation::BOOL);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    WaitForThreadpoolTimerCallbacks(::core::mem::transmute(pti), fcancelpendingcallbacks.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WaitForThreadpoolWaitCallbacks<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(pwa: *mut TP_WAIT, fcancelpendingcallbacks: Param1) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WaitForThreadpoolWaitCallbacks(pwa: *mut TP_WAIT, fcancelpendingcallbacks: super::super::Foundation::BOOL);
-        }
-        WaitForThreadpoolWaitCallbacks(::core::mem::transmute(pwa), fcancelpendingcallbacks.into_param().abi())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WaitForThreadpoolWaitCallbacks(pwa: *mut TP_WAIT, fcancelpendingcallbacks: super::super::Foundation::BOOL);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    WaitForThreadpoolWaitCallbacks(::core::mem::transmute(pwa), fcancelpendingcallbacks.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WaitForThreadpoolWorkCallbacks<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(pwk: *mut TP_WORK, fcancelpendingcallbacks: Param1) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WaitForThreadpoolWorkCallbacks(pwk: *mut TP_WORK, fcancelpendingcallbacks: super::super::Foundation::BOOL);
-        }
-        WaitForThreadpoolWorkCallbacks(::core::mem::transmute(pwk), fcancelpendingcallbacks.into_param().abi())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WaitForThreadpoolWorkCallbacks(pwk: *mut TP_WORK, fcancelpendingcallbacks: super::super::Foundation::BOOL);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    WaitForThreadpoolWorkCallbacks(::core::mem::transmute(pwk), fcancelpendingcallbacks.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WaitOnAddress(address: *const ::core::ffi::c_void, compareaddress: *const ::core::ffi::c_void, addresssize: usize, dwmilliseconds: u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WaitOnAddress(address: *const ::core::ffi::c_void, compareaddress: *const ::core::ffi::c_void, addresssize: usize, dwmilliseconds: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(WaitOnAddress(::core::mem::transmute(address), ::core::mem::transmute(compareaddress), ::core::mem::transmute(addresssize), ::core::mem::transmute(dwmilliseconds)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WaitOnAddress(address: *const ::core::ffi::c_void, compareaddress: *const ::core::ffi::c_void, addresssize: usize, dwmilliseconds: u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(WaitOnAddress(::core::mem::transmute(address), ::core::mem::transmute(compareaddress), ::core::mem::transmute(addresssize), ::core::mem::transmute(dwmilliseconds)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn WakeAllConditionVariable(conditionvariable: *mut RTL_CONDITION_VARIABLE) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WakeAllConditionVariable(conditionvariable: *mut RTL_CONDITION_VARIABLE);
-        }
-        WakeAllConditionVariable(::core::mem::transmute(conditionvariable))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WakeAllConditionVariable(conditionvariable: *mut RTL_CONDITION_VARIABLE);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    WakeAllConditionVariable(::core::mem::transmute(conditionvariable))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn WakeByAddressAll(address: *const ::core::ffi::c_void) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WakeByAddressAll(address: *const ::core::ffi::c_void);
-        }
-        WakeByAddressAll(::core::mem::transmute(address))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WakeByAddressAll(address: *const ::core::ffi::c_void);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    WakeByAddressAll(::core::mem::transmute(address))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn WakeByAddressSingle(address: *const ::core::ffi::c_void) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WakeByAddressSingle(address: *const ::core::ffi::c_void);
-        }
-        WakeByAddressSingle(::core::mem::transmute(address))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WakeByAddressSingle(address: *const ::core::ffi::c_void);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    WakeByAddressSingle(::core::mem::transmute(address))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn WakeConditionVariable(conditionvariable: *mut RTL_CONDITION_VARIABLE) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WakeConditionVariable(conditionvariable: *mut RTL_CONDITION_VARIABLE);
-        }
-        WakeConditionVariable(::core::mem::transmute(conditionvariable))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WakeConditionVariable(conditionvariable: *mut RTL_CONDITION_VARIABLE);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    WakeConditionVariable(::core::mem::transmute(conditionvariable))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn WinExec<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lpcmdline: Param0, ucmdshow: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WinExec(lpcmdline: ::windows::core::PCSTR, ucmdshow: u32) -> u32;
-        }
-        ::core::mem::transmute(WinExec(lpcmdline.into_param().abi(), ::core::mem::transmute(ucmdshow)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WinExec(lpcmdline: ::windows::core::PCSTR, ucmdshow: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(WinExec(lpcmdline.into_param().abi(), ::core::mem::transmute(ucmdshow)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[inline]
 pub unsafe fn Wow64SetThreadDefaultGuestMachine(machine: u16) -> u16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn Wow64SetThreadDefaultGuestMachine(machine: u16) -> u16;
-        }
-        ::core::mem::transmute(Wow64SetThreadDefaultGuestMachine(::core::mem::transmute(machine)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn Wow64SetThreadDefaultGuestMachine(machine: u16) -> u16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(Wow64SetThreadDefaultGuestMachine(::core::mem::transmute(machine)))
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Wow64SuspendThread<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hthread: Param0) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn Wow64SuspendThread(hthread: super::super::Foundation::HANDLE) -> u32;
-        }
-        ::core::mem::transmute(Wow64SuspendThread(hthread.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn Wow64SuspendThread(hthread: super::super::Foundation::HANDLE) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(Wow64SuspendThread(hthread.into_param().abi()))
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

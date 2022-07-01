@@ -1,4 +1,4 @@
-#[link(name = "windows")]
+#[cfg_attr(windows, link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
     pub fn NetworkIsolationDiagnoseConnectFailureAndGetInfo(wszservername: ::windows_sys::core::PCWSTR, netisoerror: *mut NETISO_ERROR_TYPE) -> u32;

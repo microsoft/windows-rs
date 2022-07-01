@@ -3,16 +3,11 @@ pub const ANY_SIZE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn AddIPAddress(address: u32, ipmask: u32, ifindex: u32, ntecontext: *mut u32, nteinstance: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AddIPAddress(address: u32, ipmask: u32, ifindex: u32, ntecontext: *mut u32, nteinstance: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(AddIPAddress(::core::mem::transmute(address), ::core::mem::transmute(ipmask), ::core::mem::transmute(ifindex), ::core::mem::transmute(ntecontext), ::core::mem::transmute(nteinstance)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AddIPAddress(address: u32, ipmask: u32, ifindex: u32, ntecontext: *mut u32, nteinstance: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AddIPAddress(::core::mem::transmute(address), ::core::mem::transmute(ipmask), ::core::mem::transmute(ifindex), ::core::mem::transmute(ntecontext), ::core::mem::transmute(nteinstance)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const BEST_IF: u32 = 20u32;
@@ -24,402 +19,267 @@ pub const BROADCAST_NODETYPE: u32 = 1u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn CancelIPChangeNotify(notifyoverlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CancelIPChangeNotify(notifyoverlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(CancelIPChangeNotify(::core::mem::transmute(notifyoverlapped)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CancelIPChangeNotify(notifyoverlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CancelIPChangeNotify(::core::mem::transmute(notifyoverlapped)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CancelMibChangeNotify2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(notificationhandle: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CancelMibChangeNotify2(notificationhandle: super::super::Foundation::HANDLE) -> super::super::Foundation::NTSTATUS;
-        }
-        CancelMibChangeNotify2(notificationhandle.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CancelMibChangeNotify2(notificationhandle: super::super::Foundation::HANDLE) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CancelMibChangeNotify2(notificationhandle.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_NetworkManagement_Ndis\"`*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[inline]
 pub unsafe fn CaptureInterfaceHardwareCrossTimestamp(interfaceluid: *const super::Ndis::NET_LUID_LH, crosstimestamp: *mut INTERFACE_HARDWARE_CROSSTIMESTAMP) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CaptureInterfaceHardwareCrossTimestamp(interfaceluid: *const super::Ndis::NET_LUID_LH, crosstimestamp: *mut INTERFACE_HARDWARE_CROSSTIMESTAMP) -> u32;
-        }
-        ::core::mem::transmute(CaptureInterfaceHardwareCrossTimestamp(::core::mem::transmute(interfaceluid), ::core::mem::transmute(crosstimestamp)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CaptureInterfaceHardwareCrossTimestamp(interfaceluid: *const super::Ndis::NET_LUID_LH, crosstimestamp: *mut INTERFACE_HARDWARE_CROSSTIMESTAMP) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CaptureInterfaceHardwareCrossTimestamp(::core::mem::transmute(interfaceluid), ::core::mem::transmute(crosstimestamp)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ConvertCompartmentGuidToId(compartmentguid: *const ::windows::core::GUID, compartmentid: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ConvertCompartmentGuidToId(compartmentguid: *const ::windows::core::GUID, compartmentid: *mut u32) -> super::super::Foundation::NTSTATUS;
-        }
-        ConvertCompartmentGuidToId(::core::mem::transmute(compartmentguid), ::core::mem::transmute(compartmentid)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ConvertCompartmentGuidToId(compartmentguid: *const ::windows::core::GUID, compartmentid: *mut u32) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ConvertCompartmentGuidToId(::core::mem::transmute(compartmentguid), ::core::mem::transmute(compartmentid)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ConvertCompartmentIdToGuid(compartmentid: u32, compartmentguid: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ConvertCompartmentIdToGuid(compartmentid: u32, compartmentguid: *mut ::windows::core::GUID) -> super::super::Foundation::NTSTATUS;
-        }
-        ConvertCompartmentIdToGuid(::core::mem::transmute(compartmentid), ::core::mem::transmute(compartmentguid)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ConvertCompartmentIdToGuid(compartmentid: u32, compartmentguid: *mut ::windows::core::GUID) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ConvertCompartmentIdToGuid(::core::mem::transmute(compartmentid), ::core::mem::transmute(compartmentguid)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[inline]
 pub unsafe fn ConvertInterfaceAliasToLuid<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(interfacealias: Param0, interfaceluid: *mut super::Ndis::NET_LUID_LH) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ConvertInterfaceAliasToLuid(interfacealias: ::windows::core::PCWSTR, interfaceluid: *mut super::Ndis::NET_LUID_LH) -> super::super::Foundation::NTSTATUS;
-        }
-        ConvertInterfaceAliasToLuid(interfacealias.into_param().abi(), ::core::mem::transmute(interfaceluid)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ConvertInterfaceAliasToLuid(interfacealias: ::windows::core::PCWSTR, interfaceluid: *mut super::Ndis::NET_LUID_LH) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ConvertInterfaceAliasToLuid(interfacealias.into_param().abi(), ::core::mem::transmute(interfaceluid)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[inline]
 pub unsafe fn ConvertInterfaceGuidToLuid(interfaceguid: *const ::windows::core::GUID, interfaceluid: *mut super::Ndis::NET_LUID_LH) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ConvertInterfaceGuidToLuid(interfaceguid: *const ::windows::core::GUID, interfaceluid: *mut super::Ndis::NET_LUID_LH) -> super::super::Foundation::NTSTATUS;
-        }
-        ConvertInterfaceGuidToLuid(::core::mem::transmute(interfaceguid), ::core::mem::transmute(interfaceluid)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ConvertInterfaceGuidToLuid(interfaceguid: *const ::windows::core::GUID, interfaceluid: *mut super::Ndis::NET_LUID_LH) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ConvertInterfaceGuidToLuid(::core::mem::transmute(interfaceguid), ::core::mem::transmute(interfaceluid)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[inline]
 pub unsafe fn ConvertInterfaceIndexToLuid(interfaceindex: u32, interfaceluid: *mut super::Ndis::NET_LUID_LH) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ConvertInterfaceIndexToLuid(interfaceindex: u32, interfaceluid: *mut super::Ndis::NET_LUID_LH) -> super::super::Foundation::NTSTATUS;
-        }
-        ConvertInterfaceIndexToLuid(::core::mem::transmute(interfaceindex), ::core::mem::transmute(interfaceluid)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ConvertInterfaceIndexToLuid(interfaceindex: u32, interfaceluid: *mut super::Ndis::NET_LUID_LH) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ConvertInterfaceIndexToLuid(::core::mem::transmute(interfaceindex), ::core::mem::transmute(interfaceluid)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[inline]
 pub unsafe fn ConvertInterfaceLuidToAlias(interfaceluid: *const super::Ndis::NET_LUID_LH, interfacealias: &mut [u16]) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ConvertInterfaceLuidToAlias(interfaceluid: *const super::Ndis::NET_LUID_LH, interfacealias: ::windows::core::PWSTR, length: usize) -> super::super::Foundation::NTSTATUS;
-        }
-        ConvertInterfaceLuidToAlias(::core::mem::transmute(interfaceluid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(interfacealias)), interfacealias.len() as _).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ConvertInterfaceLuidToAlias(interfaceluid: *const super::Ndis::NET_LUID_LH, interfacealias: ::windows::core::PWSTR, length: usize) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ConvertInterfaceLuidToAlias(::core::mem::transmute(interfaceluid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(interfacealias)), interfacealias.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[inline]
 pub unsafe fn ConvertInterfaceLuidToGuid(interfaceluid: *const super::Ndis::NET_LUID_LH, interfaceguid: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ConvertInterfaceLuidToGuid(interfaceluid: *const super::Ndis::NET_LUID_LH, interfaceguid: *mut ::windows::core::GUID) -> super::super::Foundation::NTSTATUS;
-        }
-        ConvertInterfaceLuidToGuid(::core::mem::transmute(interfaceluid), ::core::mem::transmute(interfaceguid)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ConvertInterfaceLuidToGuid(interfaceluid: *const super::Ndis::NET_LUID_LH, interfaceguid: *mut ::windows::core::GUID) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ConvertInterfaceLuidToGuid(::core::mem::transmute(interfaceluid), ::core::mem::transmute(interfaceguid)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[inline]
 pub unsafe fn ConvertInterfaceLuidToIndex(interfaceluid: *const super::Ndis::NET_LUID_LH, interfaceindex: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ConvertInterfaceLuidToIndex(interfaceluid: *const super::Ndis::NET_LUID_LH, interfaceindex: *mut u32) -> super::super::Foundation::NTSTATUS;
-        }
-        ConvertInterfaceLuidToIndex(::core::mem::transmute(interfaceluid), ::core::mem::transmute(interfaceindex)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ConvertInterfaceLuidToIndex(interfaceluid: *const super::Ndis::NET_LUID_LH, interfaceindex: *mut u32) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ConvertInterfaceLuidToIndex(::core::mem::transmute(interfaceluid), ::core::mem::transmute(interfaceindex)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[inline]
 pub unsafe fn ConvertInterfaceLuidToNameA(interfaceluid: *const super::Ndis::NET_LUID_LH, interfacename: &mut [u8]) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ConvertInterfaceLuidToNameA(interfaceluid: *const super::Ndis::NET_LUID_LH, interfacename: ::windows::core::PSTR, length: usize) -> super::super::Foundation::NTSTATUS;
-        }
-        ConvertInterfaceLuidToNameA(::core::mem::transmute(interfaceluid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(interfacename)), interfacename.len() as _).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ConvertInterfaceLuidToNameA(interfaceluid: *const super::Ndis::NET_LUID_LH, interfacename: ::windows::core::PSTR, length: usize) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ConvertInterfaceLuidToNameA(::core::mem::transmute(interfaceluid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(interfacename)), interfacename.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[inline]
 pub unsafe fn ConvertInterfaceLuidToNameW(interfaceluid: *const super::Ndis::NET_LUID_LH, interfacename: &mut [u16]) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ConvertInterfaceLuidToNameW(interfaceluid: *const super::Ndis::NET_LUID_LH, interfacename: ::windows::core::PWSTR, length: usize) -> super::super::Foundation::NTSTATUS;
-        }
-        ConvertInterfaceLuidToNameW(::core::mem::transmute(interfaceluid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(interfacename)), interfacename.len() as _).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ConvertInterfaceLuidToNameW(interfaceluid: *const super::Ndis::NET_LUID_LH, interfacename: ::windows::core::PWSTR, length: usize) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ConvertInterfaceLuidToNameW(::core::mem::transmute(interfaceluid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(interfacename)), interfacename.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[inline]
 pub unsafe fn ConvertInterfaceNameToLuidA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(interfacename: Param0, interfaceluid: *mut super::Ndis::NET_LUID_LH) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ConvertInterfaceNameToLuidA(interfacename: ::windows::core::PCSTR, interfaceluid: *mut super::Ndis::NET_LUID_LH) -> super::super::Foundation::NTSTATUS;
-        }
-        ConvertInterfaceNameToLuidA(interfacename.into_param().abi(), ::core::mem::transmute(interfaceluid)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ConvertInterfaceNameToLuidA(interfacename: ::windows::core::PCSTR, interfaceluid: *mut super::Ndis::NET_LUID_LH) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ConvertInterfaceNameToLuidA(interfacename.into_param().abi(), ::core::mem::transmute(interfaceluid)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[inline]
 pub unsafe fn ConvertInterfaceNameToLuidW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(interfacename: Param0, interfaceluid: *mut super::Ndis::NET_LUID_LH) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ConvertInterfaceNameToLuidW(interfacename: ::windows::core::PCWSTR, interfaceluid: *mut super::Ndis::NET_LUID_LH) -> super::super::Foundation::NTSTATUS;
-        }
-        ConvertInterfaceNameToLuidW(interfacename.into_param().abi(), ::core::mem::transmute(interfaceluid)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ConvertInterfaceNameToLuidW(interfacename: ::windows::core::PCWSTR, interfaceluid: *mut super::Ndis::NET_LUID_LH) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ConvertInterfaceNameToLuidW(interfacename.into_param().abi(), ::core::mem::transmute(interfaceluid)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ConvertIpv4MaskToLength(mask: u32, masklength: *mut u8) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ConvertIpv4MaskToLength(mask: u32, masklength: *mut u8) -> super::super::Foundation::NTSTATUS;
-        }
-        ConvertIpv4MaskToLength(::core::mem::transmute(mask), ::core::mem::transmute(masklength)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ConvertIpv4MaskToLength(mask: u32, masklength: *mut u8) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ConvertIpv4MaskToLength(::core::mem::transmute(mask), ::core::mem::transmute(masklength)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ConvertLengthToIpv4Mask(masklength: u32, mask: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ConvertLengthToIpv4Mask(masklength: u32, mask: *mut u32) -> super::super::Foundation::NTSTATUS;
-        }
-        ConvertLengthToIpv4Mask(::core::mem::transmute(masklength), ::core::mem::transmute(mask)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ConvertLengthToIpv4Mask(masklength: u32, mask: *mut u32) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ConvertLengthToIpv4Mask(::core::mem::transmute(masklength), ::core::mem::transmute(mask)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn CreateAnycastIpAddressEntry(row: *const MIB_ANYCASTIPADDRESS_ROW) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateAnycastIpAddressEntry(row: *const MIB_ANYCASTIPADDRESS_ROW) -> super::super::Foundation::NTSTATUS;
-        }
-        CreateAnycastIpAddressEntry(::core::mem::transmute(row)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateAnycastIpAddressEntry(row: *const MIB_ANYCASTIPADDRESS_ROW) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CreateAnycastIpAddressEntry(::core::mem::transmute(row)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
 pub unsafe fn CreateIpForwardEntry(proute: *const MIB_IPFORWARDROW) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateIpForwardEntry(proute: *const MIB_IPFORWARDROW) -> u32;
-        }
-        ::core::mem::transmute(CreateIpForwardEntry(::core::mem::transmute(proute)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateIpForwardEntry(proute: *const MIB_IPFORWARDROW) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CreateIpForwardEntry(::core::mem::transmute(proute)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn CreateIpForwardEntry2(row: *const MIB_IPFORWARD_ROW2) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateIpForwardEntry2(row: *const MIB_IPFORWARD_ROW2) -> super::super::Foundation::NTSTATUS;
-        }
-        CreateIpForwardEntry2(::core::mem::transmute(row)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateIpForwardEntry2(row: *const MIB_IPFORWARD_ROW2) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CreateIpForwardEntry2(::core::mem::transmute(row)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn CreateIpNetEntry(parpentry: *const MIB_IPNETROW_LH) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateIpNetEntry(parpentry: *const MIB_IPNETROW_LH) -> u32;
-        }
-        ::core::mem::transmute(CreateIpNetEntry(::core::mem::transmute(parpentry)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateIpNetEntry(parpentry: *const MIB_IPNETROW_LH) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CreateIpNetEntry(::core::mem::transmute(parpentry)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn CreateIpNetEntry2(row: *const MIB_IPNET_ROW2) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateIpNetEntry2(row: *const MIB_IPNET_ROW2) -> super::super::Foundation::NTSTATUS;
-        }
-        CreateIpNetEntry2(::core::mem::transmute(row)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateIpNetEntry2(row: *const MIB_IPNET_ROW2) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CreateIpNetEntry2(::core::mem::transmute(row)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn CreatePersistentTcpPortReservation(startport: u16, numberofports: u16, token: *mut u64) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreatePersistentTcpPortReservation(startport: u16, numberofports: u16, token: *mut u64) -> u32;
-        }
-        ::core::mem::transmute(CreatePersistentTcpPortReservation(::core::mem::transmute(startport), ::core::mem::transmute(numberofports), ::core::mem::transmute(token)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreatePersistentTcpPortReservation(startport: u16, numberofports: u16, token: *mut u64) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CreatePersistentTcpPortReservation(::core::mem::transmute(startport), ::core::mem::transmute(numberofports), ::core::mem::transmute(token)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn CreatePersistentUdpPortReservation(startport: u16, numberofports: u16, token: *mut u64) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreatePersistentUdpPortReservation(startport: u16, numberofports: u16, token: *mut u64) -> u32;
-        }
-        ::core::mem::transmute(CreatePersistentUdpPortReservation(::core::mem::transmute(startport), ::core::mem::transmute(numberofports), ::core::mem::transmute(token)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreatePersistentUdpPortReservation(startport: u16, numberofports: u16, token: *mut u64) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CreatePersistentUdpPortReservation(::core::mem::transmute(startport), ::core::mem::transmute(numberofports), ::core::mem::transmute(token)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn CreateProxyArpEntry(dwaddress: u32, dwmask: u32, dwifindex: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateProxyArpEntry(dwaddress: u32, dwmask: u32, dwifindex: u32) -> u32;
-        }
-        ::core::mem::transmute(CreateProxyArpEntry(::core::mem::transmute(dwaddress), ::core::mem::transmute(dwmask), ::core::mem::transmute(dwifindex)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateProxyArpEntry(dwaddress: u32, dwmask: u32, dwifindex: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CreateProxyArpEntry(::core::mem::transmute(dwaddress), ::core::mem::transmute(dwmask), ::core::mem::transmute(dwifindex)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn CreateSortedAddressPairs(sourceaddresslist: *const super::super::Networking::WinSock::SOCKADDR_IN6, sourceaddresscount: u32, destinationaddresslist: *const super::super::Networking::WinSock::SOCKADDR_IN6, destinationaddresscount: u32, addresssortoptions: u32, sortedaddresspairlist: *mut *mut super::super::Networking::WinSock::SOCKADDR_IN6_PAIR, sortedaddresspaircount: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateSortedAddressPairs(sourceaddresslist: *const super::super::Networking::WinSock::SOCKADDR_IN6, sourceaddresscount: u32, destinationaddresslist: *const super::super::Networking::WinSock::SOCKADDR_IN6, destinationaddresscount: u32, addresssortoptions: u32, sortedaddresspairlist: *mut *mut super::super::Networking::WinSock::SOCKADDR_IN6_PAIR, sortedaddresspaircount: *mut u32) -> super::super::Foundation::NTSTATUS;
-        }
-        CreateSortedAddressPairs(::core::mem::transmute(sourceaddresslist), ::core::mem::transmute(sourceaddresscount), ::core::mem::transmute(destinationaddresslist), ::core::mem::transmute(destinationaddresscount), ::core::mem::transmute(addresssortoptions), ::core::mem::transmute(sortedaddresspairlist), ::core::mem::transmute(sortedaddresspaircount)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateSortedAddressPairs(sourceaddresslist: *const super::super::Networking::WinSock::SOCKADDR_IN6, sourceaddresscount: u32, destinationaddresslist: *const super::super::Networking::WinSock::SOCKADDR_IN6, destinationaddresscount: u32, addresssortoptions: u32, sortedaddresspairlist: *mut *mut super::super::Networking::WinSock::SOCKADDR_IN6_PAIR, sortedaddresspaircount: *mut u32) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CreateSortedAddressPairs(::core::mem::transmute(sourceaddresslist), ::core::mem::transmute(sourceaddresscount), ::core::mem::transmute(destinationaddresslist), ::core::mem::transmute(destinationaddresscount), ::core::mem::transmute(addresssortoptions), ::core::mem::transmute(sortedaddresspairlist), ::core::mem::transmute(sortedaddresspaircount)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn CreateUnicastIpAddressEntry(row: *const MIB_UNICASTIPADDRESS_ROW) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateUnicastIpAddressEntry(row: *const MIB_UNICASTIPADDRESS_ROW) -> super::super::Foundation::NTSTATUS;
-        }
-        CreateUnicastIpAddressEntry(::core::mem::transmute(row)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateUnicastIpAddressEntry(row: *const MIB_UNICASTIPADDRESS_ROW) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CreateUnicastIpAddressEntry(::core::mem::transmute(row)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const DEFAULT_MINIMUM_ENTITIES: u32 = 32u32;
@@ -804,161 +664,106 @@ pub const DNS_SETTING_SUPPLEMENTAL_SEARCH_LIST: u32 = 2048u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn DeleteAnycastIpAddressEntry(row: *const MIB_ANYCASTIPADDRESS_ROW) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DeleteAnycastIpAddressEntry(row: *const MIB_ANYCASTIPADDRESS_ROW) -> super::super::Foundation::NTSTATUS;
-        }
-        DeleteAnycastIpAddressEntry(::core::mem::transmute(row)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DeleteAnycastIpAddressEntry(row: *const MIB_ANYCASTIPADDRESS_ROW) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DeleteAnycastIpAddressEntry(::core::mem::transmute(row)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn DeleteIPAddress(ntecontext: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DeleteIPAddress(ntecontext: u32) -> u32;
-        }
-        ::core::mem::transmute(DeleteIPAddress(::core::mem::transmute(ntecontext)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DeleteIPAddress(ntecontext: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(DeleteIPAddress(::core::mem::transmute(ntecontext)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
 pub unsafe fn DeleteIpForwardEntry(proute: *const MIB_IPFORWARDROW) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DeleteIpForwardEntry(proute: *const MIB_IPFORWARDROW) -> u32;
-        }
-        ::core::mem::transmute(DeleteIpForwardEntry(::core::mem::transmute(proute)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DeleteIpForwardEntry(proute: *const MIB_IPFORWARDROW) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(DeleteIpForwardEntry(::core::mem::transmute(proute)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn DeleteIpForwardEntry2(row: *const MIB_IPFORWARD_ROW2) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DeleteIpForwardEntry2(row: *const MIB_IPFORWARD_ROW2) -> super::super::Foundation::NTSTATUS;
-        }
-        DeleteIpForwardEntry2(::core::mem::transmute(row)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DeleteIpForwardEntry2(row: *const MIB_IPFORWARD_ROW2) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DeleteIpForwardEntry2(::core::mem::transmute(row)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn DeleteIpNetEntry(parpentry: *const MIB_IPNETROW_LH) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DeleteIpNetEntry(parpentry: *const MIB_IPNETROW_LH) -> u32;
-        }
-        ::core::mem::transmute(DeleteIpNetEntry(::core::mem::transmute(parpentry)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DeleteIpNetEntry(parpentry: *const MIB_IPNETROW_LH) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(DeleteIpNetEntry(::core::mem::transmute(parpentry)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn DeleteIpNetEntry2(row: *const MIB_IPNET_ROW2) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DeleteIpNetEntry2(row: *const MIB_IPNET_ROW2) -> super::super::Foundation::NTSTATUS;
-        }
-        DeleteIpNetEntry2(::core::mem::transmute(row)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DeleteIpNetEntry2(row: *const MIB_IPNET_ROW2) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DeleteIpNetEntry2(::core::mem::transmute(row)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn DeletePersistentTcpPortReservation(startport: u16, numberofports: u16) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DeletePersistentTcpPortReservation(startport: u16, numberofports: u16) -> u32;
-        }
-        ::core::mem::transmute(DeletePersistentTcpPortReservation(::core::mem::transmute(startport), ::core::mem::transmute(numberofports)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DeletePersistentTcpPortReservation(startport: u16, numberofports: u16) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(DeletePersistentTcpPortReservation(::core::mem::transmute(startport), ::core::mem::transmute(numberofports)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn DeletePersistentUdpPortReservation(startport: u16, numberofports: u16) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DeletePersistentUdpPortReservation(startport: u16, numberofports: u16) -> u32;
-        }
-        ::core::mem::transmute(DeletePersistentUdpPortReservation(::core::mem::transmute(startport), ::core::mem::transmute(numberofports)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DeletePersistentUdpPortReservation(startport: u16, numberofports: u16) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(DeletePersistentUdpPortReservation(::core::mem::transmute(startport), ::core::mem::transmute(numberofports)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn DeleteProxyArpEntry(dwaddress: u32, dwmask: u32, dwifindex: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DeleteProxyArpEntry(dwaddress: u32, dwmask: u32, dwifindex: u32) -> u32;
-        }
-        ::core::mem::transmute(DeleteProxyArpEntry(::core::mem::transmute(dwaddress), ::core::mem::transmute(dwmask), ::core::mem::transmute(dwifindex)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DeleteProxyArpEntry(dwaddress: u32, dwmask: u32, dwifindex: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(DeleteProxyArpEntry(::core::mem::transmute(dwaddress), ::core::mem::transmute(dwmask), ::core::mem::transmute(dwifindex)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn DeleteUnicastIpAddressEntry(row: *const MIB_UNICASTIPADDRESS_ROW) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DeleteUnicastIpAddressEntry(row: *const MIB_UNICASTIPADDRESS_ROW) -> super::super::Foundation::NTSTATUS;
-        }
-        DeleteUnicastIpAddressEntry(::core::mem::transmute(row)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DeleteUnicastIpAddressEntry(row: *const MIB_UNICASTIPADDRESS_ROW) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DeleteUnicastIpAddressEntry(::core::mem::transmute(row)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn DisableMediaSense(phandle: *mut super::super::Foundation::HANDLE, poverlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DisableMediaSense(phandle: *mut super::super::Foundation::HANDLE, poverlapped: *const super::super::System::IO::OVERLAPPED) -> u32;
-        }
-        ::core::mem::transmute(DisableMediaSense(::core::mem::transmute(phandle), ::core::mem::transmute(poverlapped)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DisableMediaSense(phandle: *mut super::super::Foundation::HANDLE, poverlapped: *const super::super::System::IO::OVERLAPPED) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(DisableMediaSense(::core::mem::transmute(phandle), ::core::mem::transmute(poverlapped)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const ERROR_BASE: u32 = 23000u32;
@@ -968,16 +773,11 @@ pub const ERROR_IPV6_NOT_IMPLEMENTED: u32 = 23003u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn EnableRouter(phandle: *mut super::super::Foundation::HANDLE, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn EnableRouter(phandle: *mut super::super::Foundation::HANDLE, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> u32;
-        }
-        ::core::mem::transmute(EnableRouter(::core::mem::transmute(phandle), ::core::mem::transmute(poverlapped)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn EnableRouter(phandle: *mut super::super::Foundation::HANDLE, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(EnableRouter(::core::mem::transmute(phandle), ::core::mem::transmute(poverlapped)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const FD_FLAGS_ALLFLAGS: u32 = 1u32;
@@ -1032,88 +832,58 @@ impl ::core::default::Default for FIXED_INFO_W2KSP1 {
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn FlushIpNetTable(dwifindex: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn FlushIpNetTable(dwifindex: u32) -> u32;
-        }
-        ::core::mem::transmute(FlushIpNetTable(::core::mem::transmute(dwifindex)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn FlushIpNetTable(dwifindex: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(FlushIpNetTable(::core::mem::transmute(dwifindex)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FlushIpNetTable2(family: u16, interfaceindex: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn FlushIpNetTable2(family: u16, interfaceindex: u32) -> super::super::Foundation::NTSTATUS;
-        }
-        FlushIpNetTable2(::core::mem::transmute(family), ::core::mem::transmute(interfaceindex)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn FlushIpNetTable2(family: u16, interfaceindex: u32) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    FlushIpNetTable2(::core::mem::transmute(family), ::core::mem::transmute(interfaceindex)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FlushIpPathTable(family: u16) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn FlushIpPathTable(family: u16) -> super::super::Foundation::NTSTATUS;
-        }
-        FlushIpPathTable(::core::mem::transmute(family)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn FlushIpPathTable(family: u16) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    FlushIpPathTable(::core::mem::transmute(family)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn FreeDnsSettings(settings: *mut DNS_SETTINGS) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn FreeDnsSettings(settings: *mut DNS_SETTINGS);
-        }
-        FreeDnsSettings(::core::mem::transmute(settings))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn FreeDnsSettings(settings: *mut DNS_SETTINGS);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    FreeDnsSettings(::core::mem::transmute(settings))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn FreeInterfaceDnsSettings(settings: *mut DNS_INTERFACE_SETTINGS) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn FreeInterfaceDnsSettings(settings: *mut DNS_INTERFACE_SETTINGS);
-        }
-        FreeInterfaceDnsSettings(::core::mem::transmute(settings))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn FreeInterfaceDnsSettings(settings: *mut DNS_INTERFACE_SETTINGS);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    FreeInterfaceDnsSettings(::core::mem::transmute(settings))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn FreeMibTable(memory: *const ::core::ffi::c_void) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn FreeMibTable(memory: *const ::core::ffi::c_void);
-        }
-        FreeMibTable(::core::mem::transmute(memory))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn FreeMibTable(memory: *const ::core::ffi::c_void);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    FreeMibTable(::core::mem::transmute(memory))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const GAA_FLAG_SKIP_DNS_INFO: u32 = 2048u32;
@@ -1222,1178 +992,778 @@ impl ::core::fmt::Debug for GLOBAL_FILTER {
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn GetAdapterIndex<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(adaptername: Param0, ifindex: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetAdapterIndex(adaptername: ::windows::core::PCWSTR, ifindex: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(GetAdapterIndex(adaptername.into_param().abi(), ::core::mem::transmute(ifindex)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetAdapterIndex(adaptername: ::windows::core::PCWSTR, ifindex: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetAdapterIndex(adaptername.into_param().abi(), ::core::mem::transmute(ifindex)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn GetAdapterOrderMap() -> *mut IP_ADAPTER_ORDER_MAP {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetAdapterOrderMap() -> *mut IP_ADAPTER_ORDER_MAP;
-        }
-        ::core::mem::transmute(GetAdapterOrderMap())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetAdapterOrderMap() -> *mut IP_ADAPTER_ORDER_MAP;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetAdapterOrderMap())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn GetAdaptersAddresses(family: super::super::Networking::WinSock::ADDRESS_FAMILY, flags: GET_ADAPTERS_ADDRESSES_FLAGS, reserved: *mut ::core::ffi::c_void, adapteraddresses: *mut IP_ADAPTER_ADDRESSES_LH, sizepointer: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetAdaptersAddresses(family: super::super::Networking::WinSock::ADDRESS_FAMILY, flags: GET_ADAPTERS_ADDRESSES_FLAGS, reserved: *mut ::core::ffi::c_void, adapteraddresses: *mut IP_ADAPTER_ADDRESSES_LH, sizepointer: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(GetAdaptersAddresses(::core::mem::transmute(family), ::core::mem::transmute(flags), ::core::mem::transmute(reserved), ::core::mem::transmute(adapteraddresses), ::core::mem::transmute(sizepointer)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetAdaptersAddresses(family: super::super::Networking::WinSock::ADDRESS_FAMILY, flags: GET_ADAPTERS_ADDRESSES_FLAGS, reserved: *mut ::core::ffi::c_void, adapteraddresses: *mut IP_ADAPTER_ADDRESSES_LH, sizepointer: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetAdaptersAddresses(::core::mem::transmute(family), ::core::mem::transmute(flags), ::core::mem::transmute(reserved), ::core::mem::transmute(adapteraddresses), ::core::mem::transmute(sizepointer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetAdaptersInfo(adapterinfo: *mut IP_ADAPTER_INFO, sizepointer: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetAdaptersInfo(adapterinfo: *mut IP_ADAPTER_INFO, sizepointer: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(GetAdaptersInfo(::core::mem::transmute(adapterinfo), ::core::mem::transmute(sizepointer)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetAdaptersInfo(adapterinfo: *mut IP_ADAPTER_INFO, sizepointer: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetAdaptersInfo(::core::mem::transmute(adapterinfo), ::core::mem::transmute(sizepointer)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn GetAnycastIpAddressEntry(row: *mut MIB_ANYCASTIPADDRESS_ROW) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetAnycastIpAddressEntry(row: *mut MIB_ANYCASTIPADDRESS_ROW) -> super::super::Foundation::NTSTATUS;
-        }
-        GetAnycastIpAddressEntry(::core::mem::transmute(row)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetAnycastIpAddressEntry(row: *mut MIB_ANYCASTIPADDRESS_ROW) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    GetAnycastIpAddressEntry(::core::mem::transmute(row)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn GetAnycastIpAddressTable(family: u16, table: *mut *mut MIB_ANYCASTIPADDRESS_TABLE) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetAnycastIpAddressTable(family: u16, table: *mut *mut MIB_ANYCASTIPADDRESS_TABLE) -> super::super::Foundation::NTSTATUS;
-        }
-        GetAnycastIpAddressTable(::core::mem::transmute(family), ::core::mem::transmute(table)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetAnycastIpAddressTable(family: u16, table: *mut *mut MIB_ANYCASTIPADDRESS_TABLE) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    GetAnycastIpAddressTable(::core::mem::transmute(family), ::core::mem::transmute(table)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn GetBestInterface(dwdestaddr: u32, pdwbestifindex: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetBestInterface(dwdestaddr: u32, pdwbestifindex: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(GetBestInterface(::core::mem::transmute(dwdestaddr), ::core::mem::transmute(pdwbestifindex)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetBestInterface(dwdestaddr: u32, pdwbestifindex: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetBestInterface(::core::mem::transmute(dwdestaddr), ::core::mem::transmute(pdwbestifindex)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn GetBestInterfaceEx(pdestaddr: *const super::super::Networking::WinSock::SOCKADDR, pdwbestifindex: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetBestInterfaceEx(pdestaddr: *const super::super::Networking::WinSock::SOCKADDR, pdwbestifindex: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(GetBestInterfaceEx(::core::mem::transmute(pdestaddr), ::core::mem::transmute(pdwbestifindex)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetBestInterfaceEx(pdestaddr: *const super::super::Networking::WinSock::SOCKADDR, pdwbestifindex: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetBestInterfaceEx(::core::mem::transmute(pdestaddr), ::core::mem::transmute(pdwbestifindex)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
 pub unsafe fn GetBestRoute(dwdestaddr: u32, dwsourceaddr: u32, pbestroute: *mut MIB_IPFORWARDROW) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetBestRoute(dwdestaddr: u32, dwsourceaddr: u32, pbestroute: *mut MIB_IPFORWARDROW) -> u32;
-        }
-        ::core::mem::transmute(GetBestRoute(::core::mem::transmute(dwdestaddr), ::core::mem::transmute(dwsourceaddr), ::core::mem::transmute(pbestroute)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetBestRoute(dwdestaddr: u32, dwsourceaddr: u32, pbestroute: *mut MIB_IPFORWARDROW) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetBestRoute(::core::mem::transmute(dwdestaddr), ::core::mem::transmute(dwsourceaddr), ::core::mem::transmute(pbestroute)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn GetBestRoute2(interfaceluid: *const super::Ndis::NET_LUID_LH, interfaceindex: u32, sourceaddress: *const super::super::Networking::WinSock::SOCKADDR_INET, destinationaddress: *const super::super::Networking::WinSock::SOCKADDR_INET, addresssortoptions: u32, bestroute: *mut MIB_IPFORWARD_ROW2, bestsourceaddress: *mut super::super::Networking::WinSock::SOCKADDR_INET) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetBestRoute2(interfaceluid: *const super::Ndis::NET_LUID_LH, interfaceindex: u32, sourceaddress: *const super::super::Networking::WinSock::SOCKADDR_INET, destinationaddress: *const super::super::Networking::WinSock::SOCKADDR_INET, addresssortoptions: u32, bestroute: *mut MIB_IPFORWARD_ROW2, bestsourceaddress: *mut super::super::Networking::WinSock::SOCKADDR_INET) -> super::super::Foundation::NTSTATUS;
-        }
-        GetBestRoute2(::core::mem::transmute(interfaceluid), ::core::mem::transmute(interfaceindex), ::core::mem::transmute(sourceaddress), ::core::mem::transmute(destinationaddress), ::core::mem::transmute(addresssortoptions), ::core::mem::transmute(bestroute), ::core::mem::transmute(bestsourceaddress)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetBestRoute2(interfaceluid: *const super::Ndis::NET_LUID_LH, interfaceindex: u32, sourceaddress: *const super::super::Networking::WinSock::SOCKADDR_INET, destinationaddress: *const super::super::Networking::WinSock::SOCKADDR_INET, addresssortoptions: u32, bestroute: *mut MIB_IPFORWARD_ROW2, bestsourceaddress: *mut super::super::Networking::WinSock::SOCKADDR_INET) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    GetBestRoute2(::core::mem::transmute(interfaceluid), ::core::mem::transmute(interfaceindex), ::core::mem::transmute(sourceaddress), ::core::mem::transmute(destinationaddress), ::core::mem::transmute(addresssortoptions), ::core::mem::transmute(bestroute), ::core::mem::transmute(bestsourceaddress)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn GetCurrentThreadCompartmentId() -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetCurrentThreadCompartmentId() -> u32;
-        }
-        ::core::mem::transmute(GetCurrentThreadCompartmentId())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetCurrentThreadCompartmentId() -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetCurrentThreadCompartmentId())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn GetCurrentThreadCompartmentScope(compartmentscope: *mut u32, compartmentid: *mut u32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetCurrentThreadCompartmentScope(compartmentscope: *mut u32, compartmentid: *mut u32);
-        }
-        GetCurrentThreadCompartmentScope(::core::mem::transmute(compartmentscope), ::core::mem::transmute(compartmentid))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetCurrentThreadCompartmentScope(compartmentscope: *mut u32, compartmentid: *mut u32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    GetCurrentThreadCompartmentScope(::core::mem::transmute(compartmentscope), ::core::mem::transmute(compartmentid))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn GetDefaultCompartmentId() -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetDefaultCompartmentId() -> u32;
-        }
-        ::core::mem::transmute(GetDefaultCompartmentId())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetDefaultCompartmentId() -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetDefaultCompartmentId())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDnsSettings(settings: *mut DNS_SETTINGS) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetDnsSettings(settings: *mut DNS_SETTINGS) -> super::super::Foundation::NTSTATUS;
-        }
-        GetDnsSettings(::core::mem::transmute(settings)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetDnsSettings(settings: *mut DNS_SETTINGS) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    GetDnsSettings(::core::mem::transmute(settings)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetExtendedTcpTable<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(ptcptable: *mut ::core::ffi::c_void, pdwsize: *mut u32, border: Param2, ulaf: u32, tableclass: TCP_TABLE_CLASS, reserved: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetExtendedTcpTable(ptcptable: *mut ::core::ffi::c_void, pdwsize: *mut u32, border: super::super::Foundation::BOOL, ulaf: u32, tableclass: TCP_TABLE_CLASS, reserved: u32) -> u32;
-        }
-        ::core::mem::transmute(GetExtendedTcpTable(::core::mem::transmute(ptcptable), ::core::mem::transmute(pdwsize), border.into_param().abi(), ::core::mem::transmute(ulaf), ::core::mem::transmute(tableclass), ::core::mem::transmute(reserved)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetExtendedTcpTable(ptcptable: *mut ::core::ffi::c_void, pdwsize: *mut u32, border: super::super::Foundation::BOOL, ulaf: u32, tableclass: TCP_TABLE_CLASS, reserved: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetExtendedTcpTable(::core::mem::transmute(ptcptable), ::core::mem::transmute(pdwsize), border.into_param().abi(), ::core::mem::transmute(ulaf), ::core::mem::transmute(tableclass), ::core::mem::transmute(reserved)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetExtendedUdpTable<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(pudptable: *mut ::core::ffi::c_void, pdwsize: *mut u32, border: Param2, ulaf: u32, tableclass: UDP_TABLE_CLASS, reserved: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetExtendedUdpTable(pudptable: *mut ::core::ffi::c_void, pdwsize: *mut u32, border: super::super::Foundation::BOOL, ulaf: u32, tableclass: UDP_TABLE_CLASS, reserved: u32) -> u32;
-        }
-        ::core::mem::transmute(GetExtendedUdpTable(::core::mem::transmute(pudptable), ::core::mem::transmute(pdwsize), border.into_param().abi(), ::core::mem::transmute(ulaf), ::core::mem::transmute(tableclass), ::core::mem::transmute(reserved)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetExtendedUdpTable(pudptable: *mut ::core::ffi::c_void, pdwsize: *mut u32, border: super::super::Foundation::BOOL, ulaf: u32, tableclass: UDP_TABLE_CLASS, reserved: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetExtendedUdpTable(::core::mem::transmute(pudptable), ::core::mem::transmute(pdwsize), border.into_param().abi(), ::core::mem::transmute(ulaf), ::core::mem::transmute(tableclass), ::core::mem::transmute(reserved)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn GetFriendlyIfIndex(ifindex: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetFriendlyIfIndex(ifindex: u32) -> u32;
-        }
-        ::core::mem::transmute(GetFriendlyIfIndex(::core::mem::transmute(ifindex)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetFriendlyIfIndex(ifindex: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetFriendlyIfIndex(::core::mem::transmute(ifindex)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn GetIcmpStatistics(statistics: *mut MIB_ICMP) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetIcmpStatistics(statistics: *mut MIB_ICMP) -> u32;
-        }
-        ::core::mem::transmute(GetIcmpStatistics(::core::mem::transmute(statistics)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetIcmpStatistics(statistics: *mut MIB_ICMP) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetIcmpStatistics(::core::mem::transmute(statistics)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn GetIcmpStatisticsEx(statistics: *mut MIB_ICMP_EX_XPSP1, family: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetIcmpStatisticsEx(statistics: *mut MIB_ICMP_EX_XPSP1, family: u32) -> u32;
-        }
-        ::core::mem::transmute(GetIcmpStatisticsEx(::core::mem::transmute(statistics), ::core::mem::transmute(family)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetIcmpStatisticsEx(statistics: *mut MIB_ICMP_EX_XPSP1, family: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetIcmpStatisticsEx(::core::mem::transmute(statistics), ::core::mem::transmute(family)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn GetIfEntry(pifrow: *mut MIB_IFROW) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetIfEntry(pifrow: *mut MIB_IFROW) -> u32;
-        }
-        ::core::mem::transmute(GetIfEntry(::core::mem::transmute(pifrow)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetIfEntry(pifrow: *mut MIB_IFROW) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetIfEntry(::core::mem::transmute(pifrow)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[inline]
 pub unsafe fn GetIfEntry2(row: *mut MIB_IF_ROW2) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetIfEntry2(row: *mut MIB_IF_ROW2) -> super::super::Foundation::NTSTATUS;
-        }
-        GetIfEntry2(::core::mem::transmute(row)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetIfEntry2(row: *mut MIB_IF_ROW2) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    GetIfEntry2(::core::mem::transmute(row)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[inline]
 pub unsafe fn GetIfEntry2Ex(level: MIB_IF_ENTRY_LEVEL, row: *mut MIB_IF_ROW2) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetIfEntry2Ex(level: MIB_IF_ENTRY_LEVEL, row: *mut MIB_IF_ROW2) -> super::super::Foundation::NTSTATUS;
-        }
-        GetIfEntry2Ex(::core::mem::transmute(level), ::core::mem::transmute(row)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetIfEntry2Ex(level: MIB_IF_ENTRY_LEVEL, row: *mut MIB_IF_ROW2) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    GetIfEntry2Ex(::core::mem::transmute(level), ::core::mem::transmute(row)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetIfStackTable(table: *mut *mut MIB_IFSTACK_TABLE) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetIfStackTable(table: *mut *mut MIB_IFSTACK_TABLE) -> super::super::Foundation::NTSTATUS;
-        }
-        GetIfStackTable(::core::mem::transmute(table)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetIfStackTable(table: *mut *mut MIB_IFSTACK_TABLE) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    GetIfStackTable(::core::mem::transmute(table)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetIfTable<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(piftable: *mut MIB_IFTABLE, pdwsize: *mut u32, border: Param2) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetIfTable(piftable: *mut MIB_IFTABLE, pdwsize: *mut u32, border: super::super::Foundation::BOOL) -> u32;
-        }
-        ::core::mem::transmute(GetIfTable(::core::mem::transmute(piftable), ::core::mem::transmute(pdwsize), border.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetIfTable(piftable: *mut MIB_IFTABLE, pdwsize: *mut u32, border: super::super::Foundation::BOOL) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetIfTable(::core::mem::transmute(piftable), ::core::mem::transmute(pdwsize), border.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[inline]
 pub unsafe fn GetIfTable2(table: *mut *mut MIB_IF_TABLE2) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetIfTable2(table: *mut *mut MIB_IF_TABLE2) -> super::super::Foundation::NTSTATUS;
-        }
-        GetIfTable2(::core::mem::transmute(table)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetIfTable2(table: *mut *mut MIB_IF_TABLE2) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    GetIfTable2(::core::mem::transmute(table)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[inline]
 pub unsafe fn GetIfTable2Ex(level: MIB_IF_TABLE_LEVEL, table: *mut *mut MIB_IF_TABLE2) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetIfTable2Ex(level: MIB_IF_TABLE_LEVEL, table: *mut *mut MIB_IF_TABLE2) -> super::super::Foundation::NTSTATUS;
-        }
-        GetIfTable2Ex(::core::mem::transmute(level), ::core::mem::transmute(table)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetIfTable2Ex(level: MIB_IF_TABLE_LEVEL, table: *mut *mut MIB_IF_TABLE2) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    GetIfTable2Ex(::core::mem::transmute(level), ::core::mem::transmute(table)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[inline]
 pub unsafe fn GetInterfaceActiveTimestampCapabilities(interfaceluid: *const super::Ndis::NET_LUID_LH, timestampcapabilites: *mut INTERFACE_TIMESTAMP_CAPABILITIES) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetInterfaceActiveTimestampCapabilities(interfaceluid: *const super::Ndis::NET_LUID_LH, timestampcapabilites: *mut INTERFACE_TIMESTAMP_CAPABILITIES) -> u32;
-        }
-        ::core::mem::transmute(GetInterfaceActiveTimestampCapabilities(::core::mem::transmute(interfaceluid), ::core::mem::transmute(timestampcapabilites)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetInterfaceActiveTimestampCapabilities(interfaceluid: *const super::Ndis::NET_LUID_LH, timestampcapabilites: *mut INTERFACE_TIMESTAMP_CAPABILITIES) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetInterfaceActiveTimestampCapabilities(::core::mem::transmute(interfaceluid), ::core::mem::transmute(timestampcapabilites)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetInterfaceDnsSettings<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(interface: Param0, settings: *mut DNS_INTERFACE_SETTINGS) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetInterfaceDnsSettings(interface: ::windows::core::GUID, settings: *mut DNS_INTERFACE_SETTINGS) -> super::super::Foundation::NTSTATUS;
-        }
-        GetInterfaceDnsSettings(interface.into_param().abi(), ::core::mem::transmute(settings)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetInterfaceDnsSettings(interface: ::windows::core::GUID, settings: *mut DNS_INTERFACE_SETTINGS) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    GetInterfaceDnsSettings(interface.into_param().abi(), ::core::mem::transmute(settings)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn GetInterfaceInfo(piftable: *mut IP_INTERFACE_INFO, dwoutbuflen: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetInterfaceInfo(piftable: *mut IP_INTERFACE_INFO, dwoutbuflen: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(GetInterfaceInfo(::core::mem::transmute(piftable), ::core::mem::transmute(dwoutbuflen)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetInterfaceInfo(piftable: *mut IP_INTERFACE_INFO, dwoutbuflen: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetInterfaceInfo(::core::mem::transmute(piftable), ::core::mem::transmute(dwoutbuflen)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[inline]
 pub unsafe fn GetInterfaceSupportedTimestampCapabilities(interfaceluid: *const super::Ndis::NET_LUID_LH, timestampcapabilites: *mut INTERFACE_TIMESTAMP_CAPABILITIES) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetInterfaceSupportedTimestampCapabilities(interfaceluid: *const super::Ndis::NET_LUID_LH, timestampcapabilites: *mut INTERFACE_TIMESTAMP_CAPABILITIES) -> u32;
-        }
-        ::core::mem::transmute(GetInterfaceSupportedTimestampCapabilities(::core::mem::transmute(interfaceluid), ::core::mem::transmute(timestampcapabilites)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetInterfaceSupportedTimestampCapabilities(interfaceluid: *const super::Ndis::NET_LUID_LH, timestampcapabilites: *mut INTERFACE_TIMESTAMP_CAPABILITIES) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetInterfaceSupportedTimestampCapabilities(::core::mem::transmute(interfaceluid), ::core::mem::transmute(timestampcapabilites)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetInvertedIfStackTable(table: *mut *mut MIB_INVERTEDIFSTACK_TABLE) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetInvertedIfStackTable(table: *mut *mut MIB_INVERTEDIFSTACK_TABLE) -> super::super::Foundation::NTSTATUS;
-        }
-        GetInvertedIfStackTable(::core::mem::transmute(table)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetInvertedIfStackTable(table: *mut *mut MIB_INVERTEDIFSTACK_TABLE) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    GetInvertedIfStackTable(::core::mem::transmute(table)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetIpAddrTable<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(pipaddrtable: *mut MIB_IPADDRTABLE, pdwsize: *mut u32, border: Param2) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetIpAddrTable(pipaddrtable: *mut MIB_IPADDRTABLE, pdwsize: *mut u32, border: super::super::Foundation::BOOL) -> u32;
-        }
-        ::core::mem::transmute(GetIpAddrTable(::core::mem::transmute(pipaddrtable), ::core::mem::transmute(pdwsize), border.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetIpAddrTable(pipaddrtable: *mut MIB_IPADDRTABLE, pdwsize: *mut u32, border: super::super::Foundation::BOOL) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetIpAddrTable(::core::mem::transmute(pipaddrtable), ::core::mem::transmute(pdwsize), border.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn GetIpErrorString(errorcode: u32, buffer: ::windows::core::PWSTR, size: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetIpErrorString(errorcode: u32, buffer: ::windows::core::PWSTR, size: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(GetIpErrorString(::core::mem::transmute(errorcode), ::core::mem::transmute(buffer), ::core::mem::transmute(size)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetIpErrorString(errorcode: u32, buffer: ::windows::core::PWSTR, size: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetIpErrorString(::core::mem::transmute(errorcode), ::core::mem::transmute(buffer), ::core::mem::transmute(size)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn GetIpForwardEntry2(row: *mut MIB_IPFORWARD_ROW2) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetIpForwardEntry2(row: *mut MIB_IPFORWARD_ROW2) -> super::super::Foundation::NTSTATUS;
-        }
-        GetIpForwardEntry2(::core::mem::transmute(row)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetIpForwardEntry2(row: *mut MIB_IPFORWARD_ROW2) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    GetIpForwardEntry2(::core::mem::transmute(row)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn GetIpForwardTable<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(pipforwardtable: *mut MIB_IPFORWARDTABLE, pdwsize: *mut u32, border: Param2) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetIpForwardTable(pipforwardtable: *mut MIB_IPFORWARDTABLE, pdwsize: *mut u32, border: super::super::Foundation::BOOL) -> u32;
-        }
-        ::core::mem::transmute(GetIpForwardTable(::core::mem::transmute(pipforwardtable), ::core::mem::transmute(pdwsize), border.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetIpForwardTable(pipforwardtable: *mut MIB_IPFORWARDTABLE, pdwsize: *mut u32, border: super::super::Foundation::BOOL) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetIpForwardTable(::core::mem::transmute(pipforwardtable), ::core::mem::transmute(pdwsize), border.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn GetIpForwardTable2(family: u16, table: *mut *mut MIB_IPFORWARD_TABLE2) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetIpForwardTable2(family: u16, table: *mut *mut MIB_IPFORWARD_TABLE2) -> super::super::Foundation::NTSTATUS;
-        }
-        GetIpForwardTable2(::core::mem::transmute(family), ::core::mem::transmute(table)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetIpForwardTable2(family: u16, table: *mut *mut MIB_IPFORWARD_TABLE2) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    GetIpForwardTable2(::core::mem::transmute(family), ::core::mem::transmute(table)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn GetIpInterfaceEntry(row: *mut MIB_IPINTERFACE_ROW) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetIpInterfaceEntry(row: *mut MIB_IPINTERFACE_ROW) -> super::super::Foundation::NTSTATUS;
-        }
-        GetIpInterfaceEntry(::core::mem::transmute(row)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetIpInterfaceEntry(row: *mut MIB_IPINTERFACE_ROW) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    GetIpInterfaceEntry(::core::mem::transmute(row)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn GetIpInterfaceTable(family: u16, table: *mut *mut MIB_IPINTERFACE_TABLE) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetIpInterfaceTable(family: u16, table: *mut *mut MIB_IPINTERFACE_TABLE) -> super::super::Foundation::NTSTATUS;
-        }
-        GetIpInterfaceTable(::core::mem::transmute(family), ::core::mem::transmute(table)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetIpInterfaceTable(family: u16, table: *mut *mut MIB_IPINTERFACE_TABLE) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    GetIpInterfaceTable(::core::mem::transmute(family), ::core::mem::transmute(table)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn GetIpNetEntry2(row: *mut MIB_IPNET_ROW2) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetIpNetEntry2(row: *mut MIB_IPNET_ROW2) -> super::super::Foundation::NTSTATUS;
-        }
-        GetIpNetEntry2(::core::mem::transmute(row)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetIpNetEntry2(row: *mut MIB_IPNET_ROW2) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    GetIpNetEntry2(::core::mem::transmute(row)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetIpNetTable<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(ipnettable: *mut MIB_IPNETTABLE, sizepointer: *mut u32, order: Param2) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetIpNetTable(ipnettable: *mut MIB_IPNETTABLE, sizepointer: *mut u32, order: super::super::Foundation::BOOL) -> u32;
-        }
-        ::core::mem::transmute(GetIpNetTable(::core::mem::transmute(ipnettable), ::core::mem::transmute(sizepointer), order.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetIpNetTable(ipnettable: *mut MIB_IPNETTABLE, sizepointer: *mut u32, order: super::super::Foundation::BOOL) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetIpNetTable(::core::mem::transmute(ipnettable), ::core::mem::transmute(sizepointer), order.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn GetIpNetTable2(family: u16, table: *mut *mut MIB_IPNET_TABLE2) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetIpNetTable2(family: u16, table: *mut *mut MIB_IPNET_TABLE2) -> super::super::Foundation::NTSTATUS;
-        }
-        GetIpNetTable2(::core::mem::transmute(family), ::core::mem::transmute(table)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetIpNetTable2(family: u16, table: *mut *mut MIB_IPNET_TABLE2) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    GetIpNetTable2(::core::mem::transmute(family), ::core::mem::transmute(table)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn GetIpNetworkConnectionBandwidthEstimates(interfaceindex: u32, addressfamily: u16, bandwidthestimates: *mut MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetIpNetworkConnectionBandwidthEstimates(interfaceindex: u32, addressfamily: u16, bandwidthestimates: *mut MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES) -> super::super::Foundation::NTSTATUS;
-        }
-        GetIpNetworkConnectionBandwidthEstimates(::core::mem::transmute(interfaceindex), ::core::mem::transmute(addressfamily), ::core::mem::transmute(bandwidthestimates)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetIpNetworkConnectionBandwidthEstimates(interfaceindex: u32, addressfamily: u16, bandwidthestimates: *mut MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    GetIpNetworkConnectionBandwidthEstimates(::core::mem::transmute(interfaceindex), ::core::mem::transmute(addressfamily), ::core::mem::transmute(bandwidthestimates)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn GetIpPathEntry(row: *mut MIB_IPPATH_ROW) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetIpPathEntry(row: *mut MIB_IPPATH_ROW) -> super::super::Foundation::NTSTATUS;
-        }
-        GetIpPathEntry(::core::mem::transmute(row)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetIpPathEntry(row: *mut MIB_IPPATH_ROW) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    GetIpPathEntry(::core::mem::transmute(row)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn GetIpPathTable(family: u16, table: *mut *mut MIB_IPPATH_TABLE) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetIpPathTable(family: u16, table: *mut *mut MIB_IPPATH_TABLE) -> super::super::Foundation::NTSTATUS;
-        }
-        GetIpPathTable(::core::mem::transmute(family), ::core::mem::transmute(table)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetIpPathTable(family: u16, table: *mut *mut MIB_IPPATH_TABLE) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    GetIpPathTable(::core::mem::transmute(family), ::core::mem::transmute(table)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn GetIpStatistics(statistics: *mut MIB_IPSTATS_LH) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetIpStatistics(statistics: *mut MIB_IPSTATS_LH) -> u32;
-        }
-        ::core::mem::transmute(GetIpStatistics(::core::mem::transmute(statistics)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetIpStatistics(statistics: *mut MIB_IPSTATS_LH) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetIpStatistics(::core::mem::transmute(statistics)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
 pub unsafe fn GetIpStatisticsEx(statistics: *mut MIB_IPSTATS_LH, family: super::super::Networking::WinSock::ADDRESS_FAMILY) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetIpStatisticsEx(statistics: *mut MIB_IPSTATS_LH, family: super::super::Networking::WinSock::ADDRESS_FAMILY) -> u32;
-        }
-        ::core::mem::transmute(GetIpStatisticsEx(::core::mem::transmute(statistics), ::core::mem::transmute(family)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetIpStatisticsEx(statistics: *mut MIB_IPSTATS_LH, family: super::super::Networking::WinSock::ADDRESS_FAMILY) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetIpStatisticsEx(::core::mem::transmute(statistics), ::core::mem::transmute(family)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetJobCompartmentId<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(jobhandle: Param0) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetJobCompartmentId(jobhandle: super::super::Foundation::HANDLE) -> u32;
-        }
-        ::core::mem::transmute(GetJobCompartmentId(jobhandle.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetJobCompartmentId(jobhandle: super::super::Foundation::HANDLE) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetJobCompartmentId(jobhandle.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn GetMulticastIpAddressEntry(row: *mut MIB_MULTICASTIPADDRESS_ROW) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetMulticastIpAddressEntry(row: *mut MIB_MULTICASTIPADDRESS_ROW) -> super::super::Foundation::NTSTATUS;
-        }
-        GetMulticastIpAddressEntry(::core::mem::transmute(row)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetMulticastIpAddressEntry(row: *mut MIB_MULTICASTIPADDRESS_ROW) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    GetMulticastIpAddressEntry(::core::mem::transmute(row)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn GetMulticastIpAddressTable(family: u16, table: *mut *mut MIB_MULTICASTIPADDRESS_TABLE) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetMulticastIpAddressTable(family: u16, table: *mut *mut MIB_MULTICASTIPADDRESS_TABLE) -> super::super::Foundation::NTSTATUS;
-        }
-        GetMulticastIpAddressTable(::core::mem::transmute(family), ::core::mem::transmute(table)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetMulticastIpAddressTable(family: u16, table: *mut *mut MIB_MULTICASTIPADDRESS_TABLE) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    GetMulticastIpAddressTable(::core::mem::transmute(family), ::core::mem::transmute(table)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn GetNetworkConnectivityHint(connectivityhint: *mut super::super::Networking::WinSock::NL_NETWORK_CONNECTIVITY_HINT) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetNetworkConnectivityHint(connectivityhint: *mut super::super::Networking::WinSock::NL_NETWORK_CONNECTIVITY_HINT) -> super::super::Foundation::NTSTATUS;
-        }
-        GetNetworkConnectivityHint(::core::mem::transmute(connectivityhint)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetNetworkConnectivityHint(connectivityhint: *mut super::super::Networking::WinSock::NL_NETWORK_CONNECTIVITY_HINT) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    GetNetworkConnectivityHint(::core::mem::transmute(connectivityhint)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn GetNetworkConnectivityHintForInterface(interfaceindex: u32, connectivityhint: *mut super::super::Networking::WinSock::NL_NETWORK_CONNECTIVITY_HINT) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetNetworkConnectivityHintForInterface(interfaceindex: u32, connectivityhint: *mut super::super::Networking::WinSock::NL_NETWORK_CONNECTIVITY_HINT) -> super::super::Foundation::NTSTATUS;
-        }
-        GetNetworkConnectivityHintForInterface(::core::mem::transmute(interfaceindex), ::core::mem::transmute(connectivityhint)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetNetworkConnectivityHintForInterface(interfaceindex: u32, connectivityhint: *mut super::super::Networking::WinSock::NL_NETWORK_CONNECTIVITY_HINT) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    GetNetworkConnectivityHintForInterface(::core::mem::transmute(interfaceindex), ::core::mem::transmute(connectivityhint)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetNetworkInformation(networkguid: *const ::windows::core::GUID, compartmentid: *mut u32, siteid: *mut u32, networkname: &mut [u16]) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetNetworkInformation(networkguid: *const ::windows::core::GUID, compartmentid: *mut u32, siteid: *mut u32, networkname: ::windows::core::PWSTR, length: u32) -> super::super::Foundation::NTSTATUS;
-        }
-        GetNetworkInformation(::core::mem::transmute(networkguid), ::core::mem::transmute(compartmentid), ::core::mem::transmute(siteid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(networkname)), networkname.len() as _).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetNetworkInformation(networkguid: *const ::windows::core::GUID, compartmentid: *mut u32, siteid: *mut u32, networkname: ::windows::core::PWSTR, length: u32) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    GetNetworkInformation(::core::mem::transmute(networkguid), ::core::mem::transmute(compartmentid), ::core::mem::transmute(siteid), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(networkname)), networkname.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetNetworkParams(pfixedinfo: *mut FIXED_INFO_W2KSP1, poutbuflen: *mut u32) -> super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetNetworkParams(pfixedinfo: *mut FIXED_INFO_W2KSP1, poutbuflen: *mut u32) -> super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(GetNetworkParams(::core::mem::transmute(pfixedinfo), ::core::mem::transmute(poutbuflen)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetNetworkParams(pfixedinfo: *mut FIXED_INFO_W2KSP1, poutbuflen: *mut u32) -> super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetNetworkParams(::core::mem::transmute(pfixedinfo), ::core::mem::transmute(poutbuflen)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn GetNumberOfInterfaces(pdwnumif: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetNumberOfInterfaces(pdwnumif: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(GetNumberOfInterfaces(::core::mem::transmute(pdwnumif)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetNumberOfInterfaces(pdwnumif: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetNumberOfInterfaces(::core::mem::transmute(pdwnumif)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn GetOwnerModuleFromPidAndInfo(ulpid: u32, pinfo: *const u64, class: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: *mut ::core::ffi::c_void, pdwsize: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetOwnerModuleFromPidAndInfo(ulpid: u32, pinfo: *const u64, class: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: *mut ::core::ffi::c_void, pdwsize: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(GetOwnerModuleFromPidAndInfo(::core::mem::transmute(ulpid), ::core::mem::transmute(pinfo), ::core::mem::transmute(class), ::core::mem::transmute(pbuffer), ::core::mem::transmute(pdwsize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetOwnerModuleFromPidAndInfo(ulpid: u32, pinfo: *const u64, class: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: *mut ::core::ffi::c_void, pdwsize: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetOwnerModuleFromPidAndInfo(::core::mem::transmute(ulpid), ::core::mem::transmute(pinfo), ::core::mem::transmute(class), ::core::mem::transmute(pbuffer), ::core::mem::transmute(pdwsize)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn GetOwnerModuleFromTcp6Entry(ptcpentry: *const MIB_TCP6ROW_OWNER_MODULE, class: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: *mut ::core::ffi::c_void, pdwsize: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetOwnerModuleFromTcp6Entry(ptcpentry: *const MIB_TCP6ROW_OWNER_MODULE, class: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: *mut ::core::ffi::c_void, pdwsize: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(GetOwnerModuleFromTcp6Entry(::core::mem::transmute(ptcpentry), ::core::mem::transmute(class), ::core::mem::transmute(pbuffer), ::core::mem::transmute(pdwsize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetOwnerModuleFromTcp6Entry(ptcpentry: *const MIB_TCP6ROW_OWNER_MODULE, class: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: *mut ::core::ffi::c_void, pdwsize: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetOwnerModuleFromTcp6Entry(::core::mem::transmute(ptcpentry), ::core::mem::transmute(class), ::core::mem::transmute(pbuffer), ::core::mem::transmute(pdwsize)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn GetOwnerModuleFromTcpEntry(ptcpentry: *const MIB_TCPROW_OWNER_MODULE, class: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: *mut ::core::ffi::c_void, pdwsize: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetOwnerModuleFromTcpEntry(ptcpentry: *const MIB_TCPROW_OWNER_MODULE, class: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: *mut ::core::ffi::c_void, pdwsize: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(GetOwnerModuleFromTcpEntry(::core::mem::transmute(ptcpentry), ::core::mem::transmute(class), ::core::mem::transmute(pbuffer), ::core::mem::transmute(pdwsize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetOwnerModuleFromTcpEntry(ptcpentry: *const MIB_TCPROW_OWNER_MODULE, class: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: *mut ::core::ffi::c_void, pdwsize: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetOwnerModuleFromTcpEntry(::core::mem::transmute(ptcpentry), ::core::mem::transmute(class), ::core::mem::transmute(pbuffer), ::core::mem::transmute(pdwsize)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn GetOwnerModuleFromUdp6Entry(pudpentry: *const MIB_UDP6ROW_OWNER_MODULE, class: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: *mut ::core::ffi::c_void, pdwsize: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetOwnerModuleFromUdp6Entry(pudpentry: *const MIB_UDP6ROW_OWNER_MODULE, class: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: *mut ::core::ffi::c_void, pdwsize: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(GetOwnerModuleFromUdp6Entry(::core::mem::transmute(pudpentry), ::core::mem::transmute(class), ::core::mem::transmute(pbuffer), ::core::mem::transmute(pdwsize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetOwnerModuleFromUdp6Entry(pudpentry: *const MIB_UDP6ROW_OWNER_MODULE, class: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: *mut ::core::ffi::c_void, pdwsize: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetOwnerModuleFromUdp6Entry(::core::mem::transmute(pudpentry), ::core::mem::transmute(class), ::core::mem::transmute(pbuffer), ::core::mem::transmute(pdwsize)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn GetOwnerModuleFromUdpEntry(pudpentry: *const MIB_UDPROW_OWNER_MODULE, class: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: *mut ::core::ffi::c_void, pdwsize: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetOwnerModuleFromUdpEntry(pudpentry: *const MIB_UDPROW_OWNER_MODULE, class: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: *mut ::core::ffi::c_void, pdwsize: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(GetOwnerModuleFromUdpEntry(::core::mem::transmute(pudpentry), ::core::mem::transmute(class), ::core::mem::transmute(pbuffer), ::core::mem::transmute(pdwsize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetOwnerModuleFromUdpEntry(pudpentry: *const MIB_UDPROW_OWNER_MODULE, class: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: *mut ::core::ffi::c_void, pdwsize: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetOwnerModuleFromUdpEntry(::core::mem::transmute(pudpentry), ::core::mem::transmute(class), ::core::mem::transmute(pbuffer), ::core::mem::transmute(pdwsize)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPerAdapterInfo(ifindex: u32, pperadapterinfo: *mut IP_PER_ADAPTER_INFO_W2KSP1, poutbuflen: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetPerAdapterInfo(ifindex: u32, pperadapterinfo: *mut IP_PER_ADAPTER_INFO_W2KSP1, poutbuflen: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(GetPerAdapterInfo(::core::mem::transmute(ifindex), ::core::mem::transmute(pperadapterinfo), ::core::mem::transmute(poutbuflen)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetPerAdapterInfo(ifindex: u32, pperadapterinfo: *mut IP_PER_ADAPTER_INFO_W2KSP1, poutbuflen: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetPerAdapterInfo(::core::mem::transmute(ifindex), ::core::mem::transmute(pperadapterinfo), ::core::mem::transmute(poutbuflen)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
 pub unsafe fn GetPerTcp6ConnectionEStats(row: *const MIB_TCP6ROW, estatstype: TCP_ESTATS_TYPE, rw: *mut u8, rwversion: u32, rwsize: u32, ros: *mut u8, rosversion: u32, rossize: u32, rod: *mut u8, rodversion: u32, rodsize: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetPerTcp6ConnectionEStats(row: *const MIB_TCP6ROW, estatstype: TCP_ESTATS_TYPE, rw: *mut u8, rwversion: u32, rwsize: u32, ros: *mut u8, rosversion: u32, rossize: u32, rod: *mut u8, rodversion: u32, rodsize: u32) -> u32;
-        }
-        ::core::mem::transmute(GetPerTcp6ConnectionEStats(::core::mem::transmute(row), ::core::mem::transmute(estatstype), ::core::mem::transmute(rw), ::core::mem::transmute(rwversion), ::core::mem::transmute(rwsize), ::core::mem::transmute(ros), ::core::mem::transmute(rosversion), ::core::mem::transmute(rossize), ::core::mem::transmute(rod), ::core::mem::transmute(rodversion), ::core::mem::transmute(rodsize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetPerTcp6ConnectionEStats(row: *const MIB_TCP6ROW, estatstype: TCP_ESTATS_TYPE, rw: *mut u8, rwversion: u32, rwsize: u32, ros: *mut u8, rosversion: u32, rossize: u32, rod: *mut u8, rodversion: u32, rodsize: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetPerTcp6ConnectionEStats(::core::mem::transmute(row), ::core::mem::transmute(estatstype), ::core::mem::transmute(rw), ::core::mem::transmute(rwversion), ::core::mem::transmute(rwsize), ::core::mem::transmute(ros), ::core::mem::transmute(rosversion), ::core::mem::transmute(rossize), ::core::mem::transmute(rod), ::core::mem::transmute(rodversion), ::core::mem::transmute(rodsize)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn GetPerTcpConnectionEStats(row: *const MIB_TCPROW_LH, estatstype: TCP_ESTATS_TYPE, rw: *mut u8, rwversion: u32, rwsize: u32, ros: *mut u8, rosversion: u32, rossize: u32, rod: *mut u8, rodversion: u32, rodsize: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetPerTcpConnectionEStats(row: *const MIB_TCPROW_LH, estatstype: TCP_ESTATS_TYPE, rw: *mut u8, rwversion: u32, rwsize: u32, ros: *mut u8, rosversion: u32, rossize: u32, rod: *mut u8, rodversion: u32, rodsize: u32) -> u32;
-        }
-        ::core::mem::transmute(GetPerTcpConnectionEStats(::core::mem::transmute(row), ::core::mem::transmute(estatstype), ::core::mem::transmute(rw), ::core::mem::transmute(rwversion), ::core::mem::transmute(rwsize), ::core::mem::transmute(ros), ::core::mem::transmute(rosversion), ::core::mem::transmute(rossize), ::core::mem::transmute(rod), ::core::mem::transmute(rodversion), ::core::mem::transmute(rodsize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetPerTcpConnectionEStats(row: *const MIB_TCPROW_LH, estatstype: TCP_ESTATS_TYPE, rw: *mut u8, rwversion: u32, rwsize: u32, ros: *mut u8, rosversion: u32, rossize: u32, rod: *mut u8, rodversion: u32, rodsize: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetPerTcpConnectionEStats(::core::mem::transmute(row), ::core::mem::transmute(estatstype), ::core::mem::transmute(rw), ::core::mem::transmute(rwversion), ::core::mem::transmute(rwsize), ::core::mem::transmute(ros), ::core::mem::transmute(rosversion), ::core::mem::transmute(rossize), ::core::mem::transmute(rod), ::core::mem::transmute(rodversion), ::core::mem::transmute(rodsize)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetRTTAndHopCount(destipaddress: u32, hopcount: *mut u32, maxhops: u32, rtt: *mut u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetRTTAndHopCount(destipaddress: u32, hopcount: *mut u32, maxhops: u32, rtt: *mut u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetRTTAndHopCount(::core::mem::transmute(destipaddress), ::core::mem::transmute(hopcount), ::core::mem::transmute(maxhops), ::core::mem::transmute(rtt)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetRTTAndHopCount(destipaddress: u32, hopcount: *mut u32, maxhops: u32, rtt: *mut u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetRTTAndHopCount(::core::mem::transmute(destipaddress), ::core::mem::transmute(hopcount), ::core::mem::transmute(maxhops), ::core::mem::transmute(rtt)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn GetSessionCompartmentId(sessionid: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetSessionCompartmentId(sessionid: u32) -> u32;
-        }
-        ::core::mem::transmute(GetSessionCompartmentId(::core::mem::transmute(sessionid)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetSessionCompartmentId(sessionid: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetSessionCompartmentId(::core::mem::transmute(sessionid)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn GetTcp6Table<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(tcptable: *mut MIB_TCP6TABLE, sizepointer: *mut u32, order: Param2) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetTcp6Table(tcptable: *mut MIB_TCP6TABLE, sizepointer: *mut u32, order: super::super::Foundation::BOOL) -> u32;
-        }
-        ::core::mem::transmute(GetTcp6Table(::core::mem::transmute(tcptable), ::core::mem::transmute(sizepointer), order.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetTcp6Table(tcptable: *mut MIB_TCP6TABLE, sizepointer: *mut u32, order: super::super::Foundation::BOOL) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetTcp6Table(::core::mem::transmute(tcptable), ::core::mem::transmute(sizepointer), order.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn GetTcp6Table2<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(tcptable: *mut MIB_TCP6TABLE2, sizepointer: *mut u32, order: Param2) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetTcp6Table2(tcptable: *mut MIB_TCP6TABLE2, sizepointer: *mut u32, order: super::super::Foundation::BOOL) -> u32;
-        }
-        ::core::mem::transmute(GetTcp6Table2(::core::mem::transmute(tcptable), ::core::mem::transmute(sizepointer), order.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetTcp6Table2(tcptable: *mut MIB_TCP6TABLE2, sizepointer: *mut u32, order: super::super::Foundation::BOOL) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetTcp6Table2(::core::mem::transmute(tcptable), ::core::mem::transmute(sizepointer), order.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn GetTcpStatistics(statistics: *mut MIB_TCPSTATS_LH) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetTcpStatistics(statistics: *mut MIB_TCPSTATS_LH) -> u32;
-        }
-        ::core::mem::transmute(GetTcpStatistics(::core::mem::transmute(statistics)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetTcpStatistics(statistics: *mut MIB_TCPSTATS_LH) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetTcpStatistics(::core::mem::transmute(statistics)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
 pub unsafe fn GetTcpStatisticsEx(statistics: *mut MIB_TCPSTATS_LH, family: super::super::Networking::WinSock::ADDRESS_FAMILY) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetTcpStatisticsEx(statistics: *mut MIB_TCPSTATS_LH, family: super::super::Networking::WinSock::ADDRESS_FAMILY) -> u32;
-        }
-        ::core::mem::transmute(GetTcpStatisticsEx(::core::mem::transmute(statistics), ::core::mem::transmute(family)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetTcpStatisticsEx(statistics: *mut MIB_TCPSTATS_LH, family: super::super::Networking::WinSock::ADDRESS_FAMILY) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetTcpStatisticsEx(::core::mem::transmute(statistics), ::core::mem::transmute(family)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
 pub unsafe fn GetTcpStatisticsEx2(statistics: *mut MIB_TCPSTATS2, family: super::super::Networking::WinSock::ADDRESS_FAMILY) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetTcpStatisticsEx2(statistics: *mut MIB_TCPSTATS2, family: super::super::Networking::WinSock::ADDRESS_FAMILY) -> u32;
-        }
-        ::core::mem::transmute(GetTcpStatisticsEx2(::core::mem::transmute(statistics), ::core::mem::transmute(family)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetTcpStatisticsEx2(statistics: *mut MIB_TCPSTATS2, family: super::super::Networking::WinSock::ADDRESS_FAMILY) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetTcpStatisticsEx2(::core::mem::transmute(statistics), ::core::mem::transmute(family)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTcpTable<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(tcptable: *mut MIB_TCPTABLE, sizepointer: *mut u32, order: Param2) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetTcpTable(tcptable: *mut MIB_TCPTABLE, sizepointer: *mut u32, order: super::super::Foundation::BOOL) -> u32;
-        }
-        ::core::mem::transmute(GetTcpTable(::core::mem::transmute(tcptable), ::core::mem::transmute(sizepointer), order.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetTcpTable(tcptable: *mut MIB_TCPTABLE, sizepointer: *mut u32, order: super::super::Foundation::BOOL) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetTcpTable(::core::mem::transmute(tcptable), ::core::mem::transmute(sizepointer), order.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTcpTable2<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(tcptable: *mut MIB_TCPTABLE2, sizepointer: *mut u32, order: Param2) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetTcpTable2(tcptable: *mut MIB_TCPTABLE2, sizepointer: *mut u32, order: super::super::Foundation::BOOL) -> u32;
-        }
-        ::core::mem::transmute(GetTcpTable2(::core::mem::transmute(tcptable), ::core::mem::transmute(sizepointer), order.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetTcpTable2(tcptable: *mut MIB_TCPTABLE2, sizepointer: *mut u32, order: super::super::Foundation::BOOL) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetTcpTable2(::core::mem::transmute(tcptable), ::core::mem::transmute(sizepointer), order.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTeredoPort(port: *mut u16) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetTeredoPort(port: *mut u16) -> super::super::Foundation::NTSTATUS;
-        }
-        GetTeredoPort(::core::mem::transmute(port)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetTeredoPort(port: *mut u16) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    GetTeredoPort(::core::mem::transmute(port)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn GetUdp6Table<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(udp6table: *mut MIB_UDP6TABLE, sizepointer: *mut u32, order: Param2) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetUdp6Table(udp6table: *mut MIB_UDP6TABLE, sizepointer: *mut u32, order: super::super::Foundation::BOOL) -> u32;
-        }
-        ::core::mem::transmute(GetUdp6Table(::core::mem::transmute(udp6table), ::core::mem::transmute(sizepointer), order.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetUdp6Table(udp6table: *mut MIB_UDP6TABLE, sizepointer: *mut u32, order: super::super::Foundation::BOOL) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetUdp6Table(::core::mem::transmute(udp6table), ::core::mem::transmute(sizepointer), order.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn GetUdpStatistics(stats: *mut MIB_UDPSTATS) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetUdpStatistics(stats: *mut MIB_UDPSTATS) -> u32;
-        }
-        ::core::mem::transmute(GetUdpStatistics(::core::mem::transmute(stats)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetUdpStatistics(stats: *mut MIB_UDPSTATS) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetUdpStatistics(::core::mem::transmute(stats)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
 pub unsafe fn GetUdpStatisticsEx(statistics: *mut MIB_UDPSTATS, family: super::super::Networking::WinSock::ADDRESS_FAMILY) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetUdpStatisticsEx(statistics: *mut MIB_UDPSTATS, family: super::super::Networking::WinSock::ADDRESS_FAMILY) -> u32;
-        }
-        ::core::mem::transmute(GetUdpStatisticsEx(::core::mem::transmute(statistics), ::core::mem::transmute(family)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetUdpStatisticsEx(statistics: *mut MIB_UDPSTATS, family: super::super::Networking::WinSock::ADDRESS_FAMILY) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetUdpStatisticsEx(::core::mem::transmute(statistics), ::core::mem::transmute(family)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
 pub unsafe fn GetUdpStatisticsEx2(statistics: *mut MIB_UDPSTATS2, family: super::super::Networking::WinSock::ADDRESS_FAMILY) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetUdpStatisticsEx2(statistics: *mut MIB_UDPSTATS2, family: super::super::Networking::WinSock::ADDRESS_FAMILY) -> u32;
-        }
-        ::core::mem::transmute(GetUdpStatisticsEx2(::core::mem::transmute(statistics), ::core::mem::transmute(family)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetUdpStatisticsEx2(statistics: *mut MIB_UDPSTATS2, family: super::super::Networking::WinSock::ADDRESS_FAMILY) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetUdpStatisticsEx2(::core::mem::transmute(statistics), ::core::mem::transmute(family)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetUdpTable<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(udptable: *mut MIB_UDPTABLE, sizepointer: *mut u32, order: Param2) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetUdpTable(udptable: *mut MIB_UDPTABLE, sizepointer: *mut u32, order: super::super::Foundation::BOOL) -> u32;
-        }
-        ::core::mem::transmute(GetUdpTable(::core::mem::transmute(udptable), ::core::mem::transmute(sizepointer), order.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetUdpTable(udptable: *mut MIB_UDPTABLE, sizepointer: *mut u32, order: super::super::Foundation::BOOL) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetUdpTable(::core::mem::transmute(udptable), ::core::mem::transmute(sizepointer), order.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn GetUniDirectionalAdapterInfo(pipifinfo: *mut IP_UNIDIRECTIONAL_ADAPTER_ADDRESS, dwoutbuflen: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetUniDirectionalAdapterInfo(pipifinfo: *mut IP_UNIDIRECTIONAL_ADAPTER_ADDRESS, dwoutbuflen: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(GetUniDirectionalAdapterInfo(::core::mem::transmute(pipifinfo), ::core::mem::transmute(dwoutbuflen)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetUniDirectionalAdapterInfo(pipifinfo: *mut IP_UNIDIRECTIONAL_ADAPTER_ADDRESS, dwoutbuflen: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetUniDirectionalAdapterInfo(::core::mem::transmute(pipifinfo), ::core::mem::transmute(dwoutbuflen)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn GetUnicastIpAddressEntry(row: *mut MIB_UNICASTIPADDRESS_ROW) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetUnicastIpAddressEntry(row: *mut MIB_UNICASTIPADDRESS_ROW) -> super::super::Foundation::NTSTATUS;
-        }
-        GetUnicastIpAddressEntry(::core::mem::transmute(row)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetUnicastIpAddressEntry(row: *mut MIB_UNICASTIPADDRESS_ROW) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    GetUnicastIpAddressEntry(::core::mem::transmute(row)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn GetUnicastIpAddressTable(family: u16, table: *mut *mut MIB_UNICASTIPADDRESS_TABLE) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetUnicastIpAddressTable(family: u16, table: *mut *mut MIB_UNICASTIPADDRESS_TABLE) -> super::super::Foundation::NTSTATUS;
-        }
-        GetUnicastIpAddressTable(::core::mem::transmute(family), ::core::mem::transmute(table)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetUnicastIpAddressTable(family: u16, table: *mut *mut MIB_UNICASTIPADDRESS_TABLE) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    GetUnicastIpAddressTable(::core::mem::transmute(family), ::core::mem::transmute(table)).ok()
 }
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -5051,76 +4421,51 @@ pub const IP_UNRECOGNIZED_NEXT_HEADER: u32 = 11043u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn Icmp6CreateFile() -> ::windows::core::Result<IcmpHandle> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn Icmp6CreateFile() -> IcmpHandle;
-        }
-        let result__ = Icmp6CreateFile();
-        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn Icmp6CreateFile() -> IcmpHandle;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let result__ = Icmp6CreateFile();
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn Icmp6ParseReplies(replybuffer: *mut ::core::ffi::c_void, replysize: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn Icmp6ParseReplies(replybuffer: *mut ::core::ffi::c_void, replysize: u32) -> u32;
-        }
-        ::core::mem::transmute(Icmp6ParseReplies(::core::mem::transmute(replybuffer), ::core::mem::transmute(replysize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn Icmp6ParseReplies(replybuffer: *mut ::core::ffi::c_void, replysize: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(Icmp6ParseReplies(::core::mem::transmute(replybuffer), ::core::mem::transmute(replysize)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`, `\"Win32_System_WindowsProgramming\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn Icmp6SendEcho2<'a, Param0: ::windows::core::IntoParam<'a, IcmpHandle>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(icmphandle: Param0, event: Param1, apcroutine: super::super::System::WindowsProgramming::PIO_APC_ROUTINE, apccontext: *const ::core::ffi::c_void, sourceaddress: *const super::super::Networking::WinSock::SOCKADDR_IN6, destinationaddress: *const super::super::Networking::WinSock::SOCKADDR_IN6, requestdata: *const ::core::ffi::c_void, requestsize: u16, requestoptions: *const ip_option_information, replybuffer: *mut ::core::ffi::c_void, replysize: u32, timeout: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn Icmp6SendEcho2(icmphandle: IcmpHandle, event: super::super::Foundation::HANDLE, apcroutine: *mut ::core::ffi::c_void, apccontext: *const ::core::ffi::c_void, sourceaddress: *const super::super::Networking::WinSock::SOCKADDR_IN6, destinationaddress: *const super::super::Networking::WinSock::SOCKADDR_IN6, requestdata: *const ::core::ffi::c_void, requestsize: u16, requestoptions: *const ip_option_information, replybuffer: *mut ::core::ffi::c_void, replysize: u32, timeout: u32) -> u32;
-        }
-        ::core::mem::transmute(Icmp6SendEcho2(icmphandle.into_param().abi(), event.into_param().abi(), ::core::mem::transmute(apcroutine), ::core::mem::transmute(apccontext), ::core::mem::transmute(sourceaddress), ::core::mem::transmute(destinationaddress), ::core::mem::transmute(requestdata), ::core::mem::transmute(requestsize), ::core::mem::transmute(requestoptions), ::core::mem::transmute(replybuffer), ::core::mem::transmute(replysize), ::core::mem::transmute(timeout)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn Icmp6SendEcho2(icmphandle: IcmpHandle, event: super::super::Foundation::HANDLE, apcroutine: *mut ::core::ffi::c_void, apccontext: *const ::core::ffi::c_void, sourceaddress: *const super::super::Networking::WinSock::SOCKADDR_IN6, destinationaddress: *const super::super::Networking::WinSock::SOCKADDR_IN6, requestdata: *const ::core::ffi::c_void, requestsize: u16, requestoptions: *const ip_option_information, replybuffer: *mut ::core::ffi::c_void, replysize: u32, timeout: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(Icmp6SendEcho2(icmphandle.into_param().abi(), event.into_param().abi(), ::core::mem::transmute(apcroutine), ::core::mem::transmute(apccontext), ::core::mem::transmute(sourceaddress), ::core::mem::transmute(destinationaddress), ::core::mem::transmute(requestdata), ::core::mem::transmute(requestsize), ::core::mem::transmute(requestoptions), ::core::mem::transmute(replybuffer), ::core::mem::transmute(replysize), ::core::mem::transmute(timeout)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IcmpCloseHandle<'a, Param0: ::windows::core::IntoParam<'a, IcmpHandle>>(icmphandle: Param0) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn IcmpCloseHandle(icmphandle: IcmpHandle) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(IcmpCloseHandle(icmphandle.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn IcmpCloseHandle(icmphandle: IcmpHandle) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(IcmpCloseHandle(icmphandle.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn IcmpCreateFile() -> ::windows::core::Result<IcmpHandle> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn IcmpCreateFile() -> IcmpHandle;
-        }
-        let result__ = IcmpCreateFile();
-        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn IcmpCreateFile() -> IcmpHandle;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let result__ = IcmpCreateFile();
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -5152,133 +4497,88 @@ unsafe impl ::windows::core::Abi for IcmpHandle {
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn IcmpParseReplies(replybuffer: *mut ::core::ffi::c_void, replysize: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn IcmpParseReplies(replybuffer: *mut ::core::ffi::c_void, replysize: u32) -> u32;
-        }
-        ::core::mem::transmute(IcmpParseReplies(::core::mem::transmute(replybuffer), ::core::mem::transmute(replysize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn IcmpParseReplies(replybuffer: *mut ::core::ffi::c_void, replysize: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(IcmpParseReplies(::core::mem::transmute(replybuffer), ::core::mem::transmute(replysize)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn IcmpSendEcho<'a, Param0: ::windows::core::IntoParam<'a, IcmpHandle>>(icmphandle: Param0, destinationaddress: u32, requestdata: *const ::core::ffi::c_void, requestsize: u16, requestoptions: *const ip_option_information, replybuffer: *mut ::core::ffi::c_void, replysize: u32, timeout: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn IcmpSendEcho(icmphandle: IcmpHandle, destinationaddress: u32, requestdata: *const ::core::ffi::c_void, requestsize: u16, requestoptions: *const ip_option_information, replybuffer: *mut ::core::ffi::c_void, replysize: u32, timeout: u32) -> u32;
-        }
-        ::core::mem::transmute(IcmpSendEcho(icmphandle.into_param().abi(), ::core::mem::transmute(destinationaddress), ::core::mem::transmute(requestdata), ::core::mem::transmute(requestsize), ::core::mem::transmute(requestoptions), ::core::mem::transmute(replybuffer), ::core::mem::transmute(replysize), ::core::mem::transmute(timeout)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn IcmpSendEcho(icmphandle: IcmpHandle, destinationaddress: u32, requestdata: *const ::core::ffi::c_void, requestsize: u16, requestoptions: *const ip_option_information, replybuffer: *mut ::core::ffi::c_void, replysize: u32, timeout: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(IcmpSendEcho(icmphandle.into_param().abi(), ::core::mem::transmute(destinationaddress), ::core::mem::transmute(requestdata), ::core::mem::transmute(requestsize), ::core::mem::transmute(requestoptions), ::core::mem::transmute(replybuffer), ::core::mem::transmute(replysize), ::core::mem::transmute(timeout)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_System_WindowsProgramming\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn IcmpSendEcho2<'a, Param0: ::windows::core::IntoParam<'a, IcmpHandle>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(icmphandle: Param0, event: Param1, apcroutine: super::super::System::WindowsProgramming::PIO_APC_ROUTINE, apccontext: *const ::core::ffi::c_void, destinationaddress: u32, requestdata: *const ::core::ffi::c_void, requestsize: u16, requestoptions: *const ip_option_information, replybuffer: *mut ::core::ffi::c_void, replysize: u32, timeout: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn IcmpSendEcho2(icmphandle: IcmpHandle, event: super::super::Foundation::HANDLE, apcroutine: *mut ::core::ffi::c_void, apccontext: *const ::core::ffi::c_void, destinationaddress: u32, requestdata: *const ::core::ffi::c_void, requestsize: u16, requestoptions: *const ip_option_information, replybuffer: *mut ::core::ffi::c_void, replysize: u32, timeout: u32) -> u32;
-        }
-        ::core::mem::transmute(IcmpSendEcho2(icmphandle.into_param().abi(), event.into_param().abi(), ::core::mem::transmute(apcroutine), ::core::mem::transmute(apccontext), ::core::mem::transmute(destinationaddress), ::core::mem::transmute(requestdata), ::core::mem::transmute(requestsize), ::core::mem::transmute(requestoptions), ::core::mem::transmute(replybuffer), ::core::mem::transmute(replysize), ::core::mem::transmute(timeout)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn IcmpSendEcho2(icmphandle: IcmpHandle, event: super::super::Foundation::HANDLE, apcroutine: *mut ::core::ffi::c_void, apccontext: *const ::core::ffi::c_void, destinationaddress: u32, requestdata: *const ::core::ffi::c_void, requestsize: u16, requestoptions: *const ip_option_information, replybuffer: *mut ::core::ffi::c_void, replysize: u32, timeout: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(IcmpSendEcho2(icmphandle.into_param().abi(), event.into_param().abi(), ::core::mem::transmute(apcroutine), ::core::mem::transmute(apccontext), ::core::mem::transmute(destinationaddress), ::core::mem::transmute(requestdata), ::core::mem::transmute(requestsize), ::core::mem::transmute(requestoptions), ::core::mem::transmute(replybuffer), ::core::mem::transmute(replysize), ::core::mem::transmute(timeout)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_System_WindowsProgramming\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn IcmpSendEcho2Ex<'a, Param0: ::windows::core::IntoParam<'a, IcmpHandle>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(icmphandle: Param0, event: Param1, apcroutine: super::super::System::WindowsProgramming::PIO_APC_ROUTINE, apccontext: *const ::core::ffi::c_void, sourceaddress: u32, destinationaddress: u32, requestdata: *const ::core::ffi::c_void, requestsize: u16, requestoptions: *const ip_option_information, replybuffer: *mut ::core::ffi::c_void, replysize: u32, timeout: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn IcmpSendEcho2Ex(icmphandle: IcmpHandle, event: super::super::Foundation::HANDLE, apcroutine: *mut ::core::ffi::c_void, apccontext: *const ::core::ffi::c_void, sourceaddress: u32, destinationaddress: u32, requestdata: *const ::core::ffi::c_void, requestsize: u16, requestoptions: *const ip_option_information, replybuffer: *mut ::core::ffi::c_void, replysize: u32, timeout: u32) -> u32;
-        }
-        ::core::mem::transmute(IcmpSendEcho2Ex(icmphandle.into_param().abi(), event.into_param().abi(), ::core::mem::transmute(apcroutine), ::core::mem::transmute(apccontext), ::core::mem::transmute(sourceaddress), ::core::mem::transmute(destinationaddress), ::core::mem::transmute(requestdata), ::core::mem::transmute(requestsize), ::core::mem::transmute(requestoptions), ::core::mem::transmute(replybuffer), ::core::mem::transmute(replysize), ::core::mem::transmute(timeout)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn IcmpSendEcho2Ex(icmphandle: IcmpHandle, event: super::super::Foundation::HANDLE, apcroutine: *mut ::core::ffi::c_void, apccontext: *const ::core::ffi::c_void, sourceaddress: u32, destinationaddress: u32, requestdata: *const ::core::ffi::c_void, requestsize: u16, requestoptions: *const ip_option_information, replybuffer: *mut ::core::ffi::c_void, replysize: u32, timeout: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(IcmpSendEcho2Ex(icmphandle.into_param().abi(), event.into_param().abi(), ::core::mem::transmute(apcroutine), ::core::mem::transmute(apccontext), ::core::mem::transmute(sourceaddress), ::core::mem::transmute(destinationaddress), ::core::mem::transmute(requestdata), ::core::mem::transmute(requestsize), ::core::mem::transmute(requestoptions), ::core::mem::transmute(replybuffer), ::core::mem::transmute(replysize), ::core::mem::transmute(timeout)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn InitializeIpForwardEntry(row: *mut MIB_IPFORWARD_ROW2) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InitializeIpForwardEntry(row: *mut MIB_IPFORWARD_ROW2);
-        }
-        InitializeIpForwardEntry(::core::mem::transmute(row))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitializeIpForwardEntry(row: *mut MIB_IPFORWARD_ROW2);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    InitializeIpForwardEntry(::core::mem::transmute(row))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn InitializeIpInterfaceEntry(row: *mut MIB_IPINTERFACE_ROW) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InitializeIpInterfaceEntry(row: *mut MIB_IPINTERFACE_ROW);
-        }
-        InitializeIpInterfaceEntry(::core::mem::transmute(row))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitializeIpInterfaceEntry(row: *mut MIB_IPINTERFACE_ROW);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    InitializeIpInterfaceEntry(::core::mem::transmute(row))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn InitializeUnicastIpAddressEntry(row: *mut MIB_UNICASTIPADDRESS_ROW) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InitializeUnicastIpAddressEntry(row: *mut MIB_UNICASTIPADDRESS_ROW);
-        }
-        InitializeUnicastIpAddressEntry(::core::mem::transmute(row))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitializeUnicastIpAddressEntry(row: *mut MIB_UNICASTIPADDRESS_ROW);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    InitializeUnicastIpAddressEntry(::core::mem::transmute(row))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn IpReleaseAddress(adapterinfo: *const IP_ADAPTER_INDEX_MAP) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn IpReleaseAddress(adapterinfo: *const IP_ADAPTER_INDEX_MAP) -> u32;
-        }
-        ::core::mem::transmute(IpReleaseAddress(::core::mem::transmute(adapterinfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn IpReleaseAddress(adapterinfo: *const IP_ADAPTER_INDEX_MAP) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(IpReleaseAddress(::core::mem::transmute(adapterinfo)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn IpRenewAddress(adapterinfo: *const IP_ADAPTER_INDEX_MAP) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn IpRenewAddress(adapterinfo: *const IP_ADAPTER_INDEX_MAP) -> u32;
-        }
-        ::core::mem::transmute(IpRenewAddress(::core::mem::transmute(adapterinfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn IpRenewAddress(adapterinfo: *const IP_ADAPTER_INDEX_MAP) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(IpRenewAddress(::core::mem::transmute(adapterinfo)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const LB_DST_ADDR_USE_DSTADDR_FLAG: u32 = 8u32;
@@ -5295,30 +4595,20 @@ pub const LB_SRC_MASK_LATE_FLAG: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn LookupPersistentTcpPortReservation(startport: u16, numberofports: u16, token: *mut u64) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LookupPersistentTcpPortReservation(startport: u16, numberofports: u16, token: *mut u64) -> u32;
-        }
-        ::core::mem::transmute(LookupPersistentTcpPortReservation(::core::mem::transmute(startport), ::core::mem::transmute(numberofports), ::core::mem::transmute(token)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LookupPersistentTcpPortReservation(startport: u16, numberofports: u16, token: *mut u64) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(LookupPersistentTcpPortReservation(::core::mem::transmute(startport), ::core::mem::transmute(numberofports), ::core::mem::transmute(token)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn LookupPersistentUdpPortReservation(startport: u16, numberofports: u16, token: *mut u64) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LookupPersistentUdpPortReservation(startport: u16, numberofports: u16, token: *mut u64) -> u32;
-        }
-        ::core::mem::transmute(LookupPersistentUdpPortReservation(::core::mem::transmute(startport), ::core::mem::transmute(numberofports), ::core::mem::transmute(token)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LookupPersistentUdpPortReservation(startport: u16, numberofports: u16, token: *mut u64) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(LookupPersistentUdpPortReservation(::core::mem::transmute(startport), ::core::mem::transmute(numberofports), ::core::mem::transmute(token)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const MAXLEN_IFDESCR: u32 = 256u32;
@@ -10087,136 +9377,91 @@ pub const NUMBER_OF_EXPORTED_VARIABLES: u32 = 39u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NhpAllocateAndGetInterfaceInfoFromStack<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(pptable: *mut *mut ip_interface_name_info_w2ksp1, pdwcount: *mut u32, border: Param2, hheap: Param3, dwflags: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn NhpAllocateAndGetInterfaceInfoFromStack(pptable: *mut *mut ip_interface_name_info_w2ksp1, pdwcount: *mut u32, border: super::super::Foundation::BOOL, hheap: super::super::Foundation::HANDLE, dwflags: u32) -> u32;
-        }
-        ::core::mem::transmute(NhpAllocateAndGetInterfaceInfoFromStack(::core::mem::transmute(pptable), ::core::mem::transmute(pdwcount), border.into_param().abi(), hheap.into_param().abi(), ::core::mem::transmute(dwflags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NhpAllocateAndGetInterfaceInfoFromStack(pptable: *mut *mut ip_interface_name_info_w2ksp1, pdwcount: *mut u32, border: super::super::Foundation::BOOL, hheap: super::super::Foundation::HANDLE, dwflags: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(NhpAllocateAndGetInterfaceInfoFromStack(::core::mem::transmute(pptable), ::core::mem::transmute(pdwcount), border.into_param().abi(), hheap.into_param().abi(), ::core::mem::transmute(dwflags)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn NotifyAddrChange(handle: *mut super::super::Foundation::HANDLE, overlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn NotifyAddrChange(handle: *mut super::super::Foundation::HANDLE, overlapped: *const super::super::System::IO::OVERLAPPED) -> u32;
-        }
-        ::core::mem::transmute(NotifyAddrChange(::core::mem::transmute(handle), ::core::mem::transmute(overlapped)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NotifyAddrChange(handle: *mut super::super::Foundation::HANDLE, overlapped: *const super::super::System::IO::OVERLAPPED) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(NotifyAddrChange(::core::mem::transmute(handle), ::core::mem::transmute(overlapped)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn NotifyIpInterfaceChange<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(family: u16, callback: PIPINTERFACE_CHANGE_CALLBACK, callercontext: *const ::core::ffi::c_void, initialnotification: Param3, notificationhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn NotifyIpInterfaceChange(family: u16, callback: *mut ::core::ffi::c_void, callercontext: *const ::core::ffi::c_void, initialnotification: super::super::Foundation::BOOLEAN, notificationhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::NTSTATUS;
-        }
-        NotifyIpInterfaceChange(::core::mem::transmute(family), ::core::mem::transmute(callback), ::core::mem::transmute(callercontext), initialnotification.into_param().abi(), ::core::mem::transmute(notificationhandle)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NotifyIpInterfaceChange(family: u16, callback: *mut ::core::ffi::c_void, callercontext: *const ::core::ffi::c_void, initialnotification: super::super::Foundation::BOOLEAN, notificationhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    NotifyIpInterfaceChange(::core::mem::transmute(family), ::core::mem::transmute(callback), ::core::mem::transmute(callercontext), initialnotification.into_param().abi(), ::core::mem::transmute(notificationhandle)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn NotifyNetworkConnectivityHintChange<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(callback: PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACK, callercontext: *const ::core::ffi::c_void, initialnotification: Param2, notificationhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn NotifyNetworkConnectivityHintChange(callback: *mut ::core::ffi::c_void, callercontext: *const ::core::ffi::c_void, initialnotification: super::super::Foundation::BOOLEAN, notificationhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::NTSTATUS;
-        }
-        NotifyNetworkConnectivityHintChange(::core::mem::transmute(callback), ::core::mem::transmute(callercontext), initialnotification.into_param().abi(), ::core::mem::transmute(notificationhandle)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NotifyNetworkConnectivityHintChange(callback: *mut ::core::ffi::c_void, callercontext: *const ::core::ffi::c_void, initialnotification: super::super::Foundation::BOOLEAN, notificationhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    NotifyNetworkConnectivityHintChange(::core::mem::transmute(callback), ::core::mem::transmute(callercontext), initialnotification.into_param().abi(), ::core::mem::transmute(notificationhandle)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn NotifyRouteChange(handle: *mut super::super::Foundation::HANDLE, overlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn NotifyRouteChange(handle: *mut super::super::Foundation::HANDLE, overlapped: *const super::super::System::IO::OVERLAPPED) -> u32;
-        }
-        ::core::mem::transmute(NotifyRouteChange(::core::mem::transmute(handle), ::core::mem::transmute(overlapped)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NotifyRouteChange(handle: *mut super::super::Foundation::HANDLE, overlapped: *const super::super::System::IO::OVERLAPPED) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(NotifyRouteChange(::core::mem::transmute(handle), ::core::mem::transmute(overlapped)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn NotifyRouteChange2<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(addressfamily: u16, callback: PIPFORWARD_CHANGE_CALLBACK, callercontext: *const ::core::ffi::c_void, initialnotification: Param3, notificationhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn NotifyRouteChange2(addressfamily: u16, callback: *mut ::core::ffi::c_void, callercontext: *const ::core::ffi::c_void, initialnotification: super::super::Foundation::BOOLEAN, notificationhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::NTSTATUS;
-        }
-        NotifyRouteChange2(::core::mem::transmute(addressfamily), ::core::mem::transmute(callback), ::core::mem::transmute(callercontext), initialnotification.into_param().abi(), ::core::mem::transmute(notificationhandle)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NotifyRouteChange2(addressfamily: u16, callback: *mut ::core::ffi::c_void, callercontext: *const ::core::ffi::c_void, initialnotification: super::super::Foundation::BOOLEAN, notificationhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    NotifyRouteChange2(::core::mem::transmute(addressfamily), ::core::mem::transmute(callback), ::core::mem::transmute(callercontext), initialnotification.into_param().abi(), ::core::mem::transmute(notificationhandle)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn NotifyStableUnicastIpAddressTable(family: u16, table: *mut *mut MIB_UNICASTIPADDRESS_TABLE, callercallback: PSTABLE_UNICAST_IPADDRESS_TABLE_CALLBACK, callercontext: *const ::core::ffi::c_void, notificationhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn NotifyStableUnicastIpAddressTable(family: u16, table: *mut *mut MIB_UNICASTIPADDRESS_TABLE, callercallback: *mut ::core::ffi::c_void, callercontext: *const ::core::ffi::c_void, notificationhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::NTSTATUS;
-        }
-        NotifyStableUnicastIpAddressTable(::core::mem::transmute(family), ::core::mem::transmute(table), ::core::mem::transmute(callercallback), ::core::mem::transmute(callercontext), ::core::mem::transmute(notificationhandle)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NotifyStableUnicastIpAddressTable(family: u16, table: *mut *mut MIB_UNICASTIPADDRESS_TABLE, callercallback: *mut ::core::ffi::c_void, callercontext: *const ::core::ffi::c_void, notificationhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    NotifyStableUnicastIpAddressTable(::core::mem::transmute(family), ::core::mem::transmute(table), ::core::mem::transmute(callercallback), ::core::mem::transmute(callercontext), ::core::mem::transmute(notificationhandle)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NotifyTeredoPortChange<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(callback: PTEREDO_PORT_CHANGE_CALLBACK, callercontext: *const ::core::ffi::c_void, initialnotification: Param2, notificationhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn NotifyTeredoPortChange(callback: *mut ::core::ffi::c_void, callercontext: *const ::core::ffi::c_void, initialnotification: super::super::Foundation::BOOLEAN, notificationhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::NTSTATUS;
-        }
-        NotifyTeredoPortChange(::core::mem::transmute(callback), ::core::mem::transmute(callercontext), initialnotification.into_param().abi(), ::core::mem::transmute(notificationhandle)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NotifyTeredoPortChange(callback: *mut ::core::ffi::c_void, callercontext: *const ::core::ffi::c_void, initialnotification: super::super::Foundation::BOOLEAN, notificationhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    NotifyTeredoPortChange(::core::mem::transmute(callback), ::core::mem::transmute(callercontext), initialnotification.into_param().abi(), ::core::mem::transmute(notificationhandle)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn NotifyUnicastIpAddressChange<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(family: u16, callback: PUNICAST_IPADDRESS_CHANGE_CALLBACK, callercontext: *const ::core::ffi::c_void, initialnotification: Param3, notificationhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn NotifyUnicastIpAddressChange(family: u16, callback: *mut ::core::ffi::c_void, callercontext: *const ::core::ffi::c_void, initialnotification: super::super::Foundation::BOOLEAN, notificationhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::NTSTATUS;
-        }
-        NotifyUnicastIpAddressChange(::core::mem::transmute(family), ::core::mem::transmute(callback), ::core::mem::transmute(callercontext), initialnotification.into_param().abi(), ::core::mem::transmute(notificationhandle)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NotifyUnicastIpAddressChange(family: u16, callback: *mut ::core::ffi::c_void, callercontext: *const ::core::ffi::c_void, initialnotification: super::super::Foundation::BOOLEAN, notificationhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    NotifyUnicastIpAddressChange(::core::mem::transmute(family), ::core::mem::transmute(callback), ::core::mem::transmute(callercontext), initialnotification.into_param().abi(), ::core::mem::transmute(notificationhandle)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const PEER_TO_PEER_NODETYPE: u32 = 2u32;
@@ -10552,229 +9797,149 @@ pub type PUNICAST_IPADDRESS_CHANGE_CALLBACK = ::core::option::Option<unsafe exte
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn PfAddFiltersToInterface(ih: *mut ::core::ffi::c_void, cinfilters: u32, pfiltin: *mut PF_FILTER_DESCRIPTOR, coutfilters: u32, pfiltout: *mut PF_FILTER_DESCRIPTOR, pfhandle: *mut *mut ::core::ffi::c_void) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PfAddFiltersToInterface(ih: *mut ::core::ffi::c_void, cinfilters: u32, pfiltin: *mut PF_FILTER_DESCRIPTOR, coutfilters: u32, pfiltout: *mut PF_FILTER_DESCRIPTOR, pfhandle: *mut *mut ::core::ffi::c_void) -> u32;
-        }
-        ::core::mem::transmute(PfAddFiltersToInterface(::core::mem::transmute(ih), ::core::mem::transmute(cinfilters), ::core::mem::transmute(pfiltin), ::core::mem::transmute(coutfilters), ::core::mem::transmute(pfiltout), ::core::mem::transmute(pfhandle)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PfAddFiltersToInterface(ih: *mut ::core::ffi::c_void, cinfilters: u32, pfiltin: *mut PF_FILTER_DESCRIPTOR, coutfilters: u32, pfiltout: *mut PF_FILTER_DESCRIPTOR, pfhandle: *mut *mut ::core::ffi::c_void) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PfAddFiltersToInterface(::core::mem::transmute(ih), ::core::mem::transmute(cinfilters), ::core::mem::transmute(pfiltin), ::core::mem::transmute(coutfilters), ::core::mem::transmute(pfiltout), ::core::mem::transmute(pfhandle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn PfAddGlobalFilterToInterface(pinterface: *mut ::core::ffi::c_void, gffilter: GLOBAL_FILTER) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PfAddGlobalFilterToInterface(pinterface: *mut ::core::ffi::c_void, gffilter: GLOBAL_FILTER) -> u32;
-        }
-        ::core::mem::transmute(PfAddGlobalFilterToInterface(::core::mem::transmute(pinterface), ::core::mem::transmute(gffilter)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PfAddGlobalFilterToInterface(pinterface: *mut ::core::ffi::c_void, gffilter: GLOBAL_FILTER) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PfAddGlobalFilterToInterface(::core::mem::transmute(pinterface), ::core::mem::transmute(gffilter)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn PfBindInterfaceToIPAddress(pinterface: *mut ::core::ffi::c_void, pfattype: PFADDRESSTYPE, ipaddress: *mut u8) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PfBindInterfaceToIPAddress(pinterface: *mut ::core::ffi::c_void, pfattype: PFADDRESSTYPE, ipaddress: *mut u8) -> u32;
-        }
-        ::core::mem::transmute(PfBindInterfaceToIPAddress(::core::mem::transmute(pinterface), ::core::mem::transmute(pfattype), ::core::mem::transmute(ipaddress)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PfBindInterfaceToIPAddress(pinterface: *mut ::core::ffi::c_void, pfattype: PFADDRESSTYPE, ipaddress: *mut u8) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PfBindInterfaceToIPAddress(::core::mem::transmute(pinterface), ::core::mem::transmute(pfattype), ::core::mem::transmute(ipaddress)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn PfBindInterfaceToIndex(pinterface: *mut ::core::ffi::c_void, dwindex: u32, pfatlinktype: PFADDRESSTYPE, linkipaddress: *mut u8) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PfBindInterfaceToIndex(pinterface: *mut ::core::ffi::c_void, dwindex: u32, pfatlinktype: PFADDRESSTYPE, linkipaddress: *mut u8) -> u32;
-        }
-        ::core::mem::transmute(PfBindInterfaceToIndex(::core::mem::transmute(pinterface), ::core::mem::transmute(dwindex), ::core::mem::transmute(pfatlinktype), ::core::mem::transmute(linkipaddress)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PfBindInterfaceToIndex(pinterface: *mut ::core::ffi::c_void, dwindex: u32, pfatlinktype: PFADDRESSTYPE, linkipaddress: *mut u8) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PfBindInterfaceToIndex(::core::mem::transmute(pinterface), ::core::mem::transmute(dwindex), ::core::mem::transmute(pfatlinktype), ::core::mem::transmute(linkipaddress)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PfCreateInterface<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(dwname: u32, inaction: PFFORWARD_ACTION, outaction: PFFORWARD_ACTION, buselog: Param3, bmustbeunique: Param4, ppinterface: *mut *mut ::core::ffi::c_void) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PfCreateInterface(dwname: u32, inaction: PFFORWARD_ACTION, outaction: PFFORWARD_ACTION, buselog: super::super::Foundation::BOOL, bmustbeunique: super::super::Foundation::BOOL, ppinterface: *mut *mut ::core::ffi::c_void) -> u32;
-        }
-        ::core::mem::transmute(PfCreateInterface(::core::mem::transmute(dwname), ::core::mem::transmute(inaction), ::core::mem::transmute(outaction), buselog.into_param().abi(), bmustbeunique.into_param().abi(), ::core::mem::transmute(ppinterface)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PfCreateInterface(dwname: u32, inaction: PFFORWARD_ACTION, outaction: PFFORWARD_ACTION, buselog: super::super::Foundation::BOOL, bmustbeunique: super::super::Foundation::BOOL, ppinterface: *mut *mut ::core::ffi::c_void) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PfCreateInterface(::core::mem::transmute(dwname), ::core::mem::transmute(inaction), ::core::mem::transmute(outaction), buselog.into_param().abi(), bmustbeunique.into_param().abi(), ::core::mem::transmute(ppinterface)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn PfDeleteInterface(pinterface: *mut ::core::ffi::c_void) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PfDeleteInterface(pinterface: *mut ::core::ffi::c_void) -> u32;
-        }
-        ::core::mem::transmute(PfDeleteInterface(::core::mem::transmute(pinterface)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PfDeleteInterface(pinterface: *mut ::core::ffi::c_void) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PfDeleteInterface(::core::mem::transmute(pinterface)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn PfDeleteLog() -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PfDeleteLog() -> u32;
-        }
-        ::core::mem::transmute(PfDeleteLog())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PfDeleteLog() -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PfDeleteLog())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PfGetInterfaceStatistics<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(pinterface: *mut ::core::ffi::c_void, ppfstats: *mut PF_INTERFACE_STATS, pdwbuffersize: *mut u32, fresetcounters: Param3) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PfGetInterfaceStatistics(pinterface: *mut ::core::ffi::c_void, ppfstats: *mut PF_INTERFACE_STATS, pdwbuffersize: *mut u32, fresetcounters: super::super::Foundation::BOOL) -> u32;
-        }
-        ::core::mem::transmute(PfGetInterfaceStatistics(::core::mem::transmute(pinterface), ::core::mem::transmute(ppfstats), ::core::mem::transmute(pdwbuffersize), fresetcounters.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PfGetInterfaceStatistics(pinterface: *mut ::core::ffi::c_void, ppfstats: *mut PF_INTERFACE_STATS, pdwbuffersize: *mut u32, fresetcounters: super::super::Foundation::BOOL) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PfGetInterfaceStatistics(::core::mem::transmute(pinterface), ::core::mem::transmute(ppfstats), ::core::mem::transmute(pdwbuffersize), fresetcounters.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PfMakeLog<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hevent: Param0) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PfMakeLog(hevent: super::super::Foundation::HANDLE) -> u32;
-        }
-        ::core::mem::transmute(PfMakeLog(hevent.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PfMakeLog(hevent: super::super::Foundation::HANDLE) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PfMakeLog(hevent.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn PfRebindFilters(pinterface: *mut ::core::ffi::c_void, platebindinfo: *mut PF_LATEBIND_INFO) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PfRebindFilters(pinterface: *mut ::core::ffi::c_void, platebindinfo: *mut PF_LATEBIND_INFO) -> u32;
-        }
-        ::core::mem::transmute(PfRebindFilters(::core::mem::transmute(pinterface), ::core::mem::transmute(platebindinfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PfRebindFilters(pinterface: *mut ::core::ffi::c_void, platebindinfo: *mut PF_LATEBIND_INFO) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PfRebindFilters(::core::mem::transmute(pinterface), ::core::mem::transmute(platebindinfo)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn PfRemoveFilterHandles(pinterface: *mut ::core::ffi::c_void, cfilters: u32, pvhandles: *mut *mut ::core::ffi::c_void) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PfRemoveFilterHandles(pinterface: *mut ::core::ffi::c_void, cfilters: u32, pvhandles: *mut *mut ::core::ffi::c_void) -> u32;
-        }
-        ::core::mem::transmute(PfRemoveFilterHandles(::core::mem::transmute(pinterface), ::core::mem::transmute(cfilters), ::core::mem::transmute(pvhandles)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PfRemoveFilterHandles(pinterface: *mut ::core::ffi::c_void, cfilters: u32, pvhandles: *mut *mut ::core::ffi::c_void) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PfRemoveFilterHandles(::core::mem::transmute(pinterface), ::core::mem::transmute(cfilters), ::core::mem::transmute(pvhandles)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn PfRemoveFiltersFromInterface(ih: *mut ::core::ffi::c_void, cinfilters: u32, pfiltin: *mut PF_FILTER_DESCRIPTOR, coutfilters: u32, pfiltout: *mut PF_FILTER_DESCRIPTOR) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PfRemoveFiltersFromInterface(ih: *mut ::core::ffi::c_void, cinfilters: u32, pfiltin: *mut PF_FILTER_DESCRIPTOR, coutfilters: u32, pfiltout: *mut PF_FILTER_DESCRIPTOR) -> u32;
-        }
-        ::core::mem::transmute(PfRemoveFiltersFromInterface(::core::mem::transmute(ih), ::core::mem::transmute(cinfilters), ::core::mem::transmute(pfiltin), ::core::mem::transmute(coutfilters), ::core::mem::transmute(pfiltout)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PfRemoveFiltersFromInterface(ih: *mut ::core::ffi::c_void, cinfilters: u32, pfiltin: *mut PF_FILTER_DESCRIPTOR, coutfilters: u32, pfiltout: *mut PF_FILTER_DESCRIPTOR) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PfRemoveFiltersFromInterface(::core::mem::transmute(ih), ::core::mem::transmute(cinfilters), ::core::mem::transmute(pfiltin), ::core::mem::transmute(coutfilters), ::core::mem::transmute(pfiltout)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn PfRemoveGlobalFilterFromInterface(pinterface: *mut ::core::ffi::c_void, gffilter: GLOBAL_FILTER) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PfRemoveGlobalFilterFromInterface(pinterface: *mut ::core::ffi::c_void, gffilter: GLOBAL_FILTER) -> u32;
-        }
-        ::core::mem::transmute(PfRemoveGlobalFilterFromInterface(::core::mem::transmute(pinterface), ::core::mem::transmute(gffilter)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PfRemoveGlobalFilterFromInterface(pinterface: *mut ::core::ffi::c_void, gffilter: GLOBAL_FILTER) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PfRemoveGlobalFilterFromInterface(::core::mem::transmute(pinterface), ::core::mem::transmute(gffilter)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn PfSetLogBuffer(pbbuffer: *mut u8, dwsize: u32, dwthreshold: u32, dwentries: u32, pdwloggedentries: *mut u32, pdwlostentries: *mut u32, pdwsizeused: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PfSetLogBuffer(pbbuffer: *mut u8, dwsize: u32, dwthreshold: u32, dwentries: u32, pdwloggedentries: *mut u32, pdwlostentries: *mut u32, pdwsizeused: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(PfSetLogBuffer(::core::mem::transmute(pbbuffer), ::core::mem::transmute(dwsize), ::core::mem::transmute(dwthreshold), ::core::mem::transmute(dwentries), ::core::mem::transmute(pdwloggedentries), ::core::mem::transmute(pdwlostentries), ::core::mem::transmute(pdwsizeused)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PfSetLogBuffer(pbbuffer: *mut u8, dwsize: u32, dwthreshold: u32, dwentries: u32, pdwloggedentries: *mut u32, pdwlostentries: *mut u32, pdwsizeused: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PfSetLogBuffer(::core::mem::transmute(pbbuffer), ::core::mem::transmute(dwsize), ::core::mem::transmute(dwthreshold), ::core::mem::transmute(dwentries), ::core::mem::transmute(pdwloggedentries), ::core::mem::transmute(pdwlostentries), ::core::mem::transmute(pdwsizeused)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn PfTestPacket(pininterface: *mut ::core::ffi::c_void, poutinterface: *mut ::core::ffi::c_void, cbytes: u32, pbpacket: *mut u8, ppaction: *mut PFFORWARD_ACTION) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PfTestPacket(pininterface: *mut ::core::ffi::c_void, poutinterface: *mut ::core::ffi::c_void, cbytes: u32, pbpacket: *mut u8, ppaction: *mut PFFORWARD_ACTION) -> u32;
-        }
-        ::core::mem::transmute(PfTestPacket(::core::mem::transmute(pininterface), ::core::mem::transmute(poutinterface), ::core::mem::transmute(cbytes), ::core::mem::transmute(pbpacket), ::core::mem::transmute(ppaction)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PfTestPacket(pininterface: *mut ::core::ffi::c_void, poutinterface: *mut ::core::ffi::c_void, cbytes: u32, pbpacket: *mut u8, ppaction: *mut PFFORWARD_ACTION) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PfTestPacket(::core::mem::transmute(pininterface), ::core::mem::transmute(poutinterface), ::core::mem::transmute(cbytes), ::core::mem::transmute(pbpacket), ::core::mem::transmute(ppaction)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn PfUnBindInterface(pinterface: *mut ::core::ffi::c_void) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PfUnBindInterface(pinterface: *mut ::core::ffi::c_void) -> u32;
-        }
-        ::core::mem::transmute(PfUnBindInterface(::core::mem::transmute(pinterface)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PfUnBindInterface(pinterface: *mut ::core::ffi::c_void) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PfUnBindInterface(::core::mem::transmute(pinterface)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const ROUTE_LONGER: u32 = 32u32;
@@ -10787,368 +9952,243 @@ pub const ROUTE_STATE: u32 = 34u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn RegisterInterfaceTimestampConfigChange(callback: PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK, callercontext: *const ::core::ffi::c_void, notificationhandle: *mut HIFTIMESTAMPCHANGE) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RegisterInterfaceTimestampConfigChange(callback: *mut ::core::ffi::c_void, callercontext: *const ::core::ffi::c_void, notificationhandle: *mut HIFTIMESTAMPCHANGE) -> u32;
-        }
-        ::core::mem::transmute(RegisterInterfaceTimestampConfigChange(::core::mem::transmute(callback), ::core::mem::transmute(callercontext), ::core::mem::transmute(notificationhandle)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RegisterInterfaceTimestampConfigChange(callback: *mut ::core::ffi::c_void, callercontext: *const ::core::ffi::c_void, notificationhandle: *mut HIFTIMESTAMPCHANGE) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RegisterInterfaceTimestampConfigChange(::core::mem::transmute(callback), ::core::mem::transmute(callercontext), ::core::mem::transmute(notificationhandle)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn ResolveIpNetEntry2(row: *mut MIB_IPNET_ROW2, sourceaddress: *const super::super::Networking::WinSock::SOCKADDR_INET) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ResolveIpNetEntry2(row: *mut MIB_IPNET_ROW2, sourceaddress: *const super::super::Networking::WinSock::SOCKADDR_INET) -> super::super::Foundation::NTSTATUS;
-        }
-        ResolveIpNetEntry2(::core::mem::transmute(row), ::core::mem::transmute(sourceaddress)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ResolveIpNetEntry2(row: *mut MIB_IPNET_ROW2, sourceaddress: *const super::super::Networking::WinSock::SOCKADDR_INET) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ResolveIpNetEntry2(::core::mem::transmute(row), ::core::mem::transmute(sourceaddress)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn ResolveNeighbor(networkaddress: *const super::super::Networking::WinSock::SOCKADDR, physicaladdress: *mut ::core::ffi::c_void, physicaladdresslength: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ResolveNeighbor(networkaddress: *const super::super::Networking::WinSock::SOCKADDR, physicaladdress: *mut ::core::ffi::c_void, physicaladdresslength: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(ResolveNeighbor(::core::mem::transmute(networkaddress), ::core::mem::transmute(physicaladdress), ::core::mem::transmute(physicaladdresslength)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ResolveNeighbor(networkaddress: *const super::super::Networking::WinSock::SOCKADDR, physicaladdress: *mut ::core::ffi::c_void, physicaladdresslength: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(ResolveNeighbor(::core::mem::transmute(networkaddress), ::core::mem::transmute(physicaladdress), ::core::mem::transmute(physicaladdresslength)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn RestoreMediaSense(poverlapped: *const super::super::System::IO::OVERLAPPED, lpdwenablecount: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RestoreMediaSense(poverlapped: *const super::super::System::IO::OVERLAPPED, lpdwenablecount: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(RestoreMediaSense(::core::mem::transmute(poverlapped), ::core::mem::transmute(lpdwenablecount)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RestoreMediaSense(poverlapped: *const super::super::System::IO::OVERLAPPED, lpdwenablecount: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RestoreMediaSense(::core::mem::transmute(poverlapped), ::core::mem::transmute(lpdwenablecount)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn SendARP(destip: u32, srcip: u32, pmacaddr: *mut ::core::ffi::c_void, phyaddrlen: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SendARP(destip: u32, srcip: u32, pmacaddr: *mut ::core::ffi::c_void, phyaddrlen: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(SendARP(::core::mem::transmute(destip), ::core::mem::transmute(srcip), ::core::mem::transmute(pmacaddr), ::core::mem::transmute(phyaddrlen)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SendARP(destip: u32, srcip: u32, pmacaddr: *mut ::core::ffi::c_void, phyaddrlen: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SendARP(::core::mem::transmute(destip), ::core::mem::transmute(srcip), ::core::mem::transmute(pmacaddr), ::core::mem::transmute(phyaddrlen)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetCurrentThreadCompartmentId(compartmentid: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetCurrentThreadCompartmentId(compartmentid: u32) -> super::super::Foundation::NTSTATUS;
-        }
-        SetCurrentThreadCompartmentId(::core::mem::transmute(compartmentid)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetCurrentThreadCompartmentId(compartmentid: u32) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SetCurrentThreadCompartmentId(::core::mem::transmute(compartmentid)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetCurrentThreadCompartmentScope(compartmentscope: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetCurrentThreadCompartmentScope(compartmentscope: u32) -> super::super::Foundation::NTSTATUS;
-        }
-        SetCurrentThreadCompartmentScope(::core::mem::transmute(compartmentscope)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetCurrentThreadCompartmentScope(compartmentscope: u32) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SetCurrentThreadCompartmentScope(::core::mem::transmute(compartmentscope)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetDnsSettings(settings: *const DNS_SETTINGS) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetDnsSettings(settings: *const DNS_SETTINGS) -> super::super::Foundation::NTSTATUS;
-        }
-        SetDnsSettings(::core::mem::transmute(settings)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetDnsSettings(settings: *const DNS_SETTINGS) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SetDnsSettings(::core::mem::transmute(settings)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn SetIfEntry(pifrow: *const MIB_IFROW) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetIfEntry(pifrow: *const MIB_IFROW) -> u32;
-        }
-        ::core::mem::transmute(SetIfEntry(::core::mem::transmute(pifrow)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetIfEntry(pifrow: *const MIB_IFROW) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetIfEntry(::core::mem::transmute(pifrow)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetInterfaceDnsSettings<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(interface: Param0, settings: *const DNS_INTERFACE_SETTINGS) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetInterfaceDnsSettings(interface: ::windows::core::GUID, settings: *const DNS_INTERFACE_SETTINGS) -> super::super::Foundation::NTSTATUS;
-        }
-        SetInterfaceDnsSettings(interface.into_param().abi(), ::core::mem::transmute(settings)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetInterfaceDnsSettings(interface: ::windows::core::GUID, settings: *const DNS_INTERFACE_SETTINGS) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SetInterfaceDnsSettings(interface.into_param().abi(), ::core::mem::transmute(settings)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
 pub unsafe fn SetIpForwardEntry(proute: *const MIB_IPFORWARDROW) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetIpForwardEntry(proute: *const MIB_IPFORWARDROW) -> u32;
-        }
-        ::core::mem::transmute(SetIpForwardEntry(::core::mem::transmute(proute)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetIpForwardEntry(proute: *const MIB_IPFORWARDROW) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetIpForwardEntry(::core::mem::transmute(proute)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn SetIpForwardEntry2(route: *const MIB_IPFORWARD_ROW2) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetIpForwardEntry2(route: *const MIB_IPFORWARD_ROW2) -> super::super::Foundation::NTSTATUS;
-        }
-        SetIpForwardEntry2(::core::mem::transmute(route)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetIpForwardEntry2(route: *const MIB_IPFORWARD_ROW2) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SetIpForwardEntry2(::core::mem::transmute(route)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn SetIpInterfaceEntry(row: *mut MIB_IPINTERFACE_ROW) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetIpInterfaceEntry(row: *mut MIB_IPINTERFACE_ROW) -> super::super::Foundation::NTSTATUS;
-        }
-        SetIpInterfaceEntry(::core::mem::transmute(row)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetIpInterfaceEntry(row: *mut MIB_IPINTERFACE_ROW) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SetIpInterfaceEntry(::core::mem::transmute(row)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn SetIpNetEntry(parpentry: *const MIB_IPNETROW_LH) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetIpNetEntry(parpentry: *const MIB_IPNETROW_LH) -> u32;
-        }
-        ::core::mem::transmute(SetIpNetEntry(::core::mem::transmute(parpentry)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetIpNetEntry(parpentry: *const MIB_IPNETROW_LH) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetIpNetEntry(::core::mem::transmute(parpentry)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn SetIpNetEntry2(row: *const MIB_IPNET_ROW2) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetIpNetEntry2(row: *const MIB_IPNET_ROW2) -> super::super::Foundation::NTSTATUS;
-        }
-        SetIpNetEntry2(::core::mem::transmute(row)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetIpNetEntry2(row: *const MIB_IPNET_ROW2) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SetIpNetEntry2(::core::mem::transmute(row)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn SetIpStatistics(pipstats: *const MIB_IPSTATS_LH) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetIpStatistics(pipstats: *const MIB_IPSTATS_LH) -> u32;
-        }
-        ::core::mem::transmute(SetIpStatistics(::core::mem::transmute(pipstats)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetIpStatistics(pipstats: *const MIB_IPSTATS_LH) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetIpStatistics(::core::mem::transmute(pipstats)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn SetIpStatisticsEx(statistics: *const MIB_IPSTATS_LH, family: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetIpStatisticsEx(statistics: *const MIB_IPSTATS_LH, family: u32) -> u32;
-        }
-        ::core::mem::transmute(SetIpStatisticsEx(::core::mem::transmute(statistics), ::core::mem::transmute(family)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetIpStatisticsEx(statistics: *const MIB_IPSTATS_LH, family: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetIpStatisticsEx(::core::mem::transmute(statistics), ::core::mem::transmute(family)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn SetIpTTL(nttl: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetIpTTL(nttl: u32) -> u32;
-        }
-        ::core::mem::transmute(SetIpTTL(::core::mem::transmute(nttl)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetIpTTL(nttl: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetIpTTL(::core::mem::transmute(nttl)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetJobCompartmentId<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(jobhandle: Param0, compartmentid: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetJobCompartmentId(jobhandle: super::super::Foundation::HANDLE, compartmentid: u32) -> super::super::Foundation::NTSTATUS;
-        }
-        SetJobCompartmentId(jobhandle.into_param().abi(), ::core::mem::transmute(compartmentid)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetJobCompartmentId(jobhandle: super::super::Foundation::HANDLE, compartmentid: u32) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SetJobCompartmentId(jobhandle.into_param().abi(), ::core::mem::transmute(compartmentid)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetNetworkInformation<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(networkguid: *const ::windows::core::GUID, compartmentid: u32, networkname: Param2) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetNetworkInformation(networkguid: *const ::windows::core::GUID, compartmentid: u32, networkname: ::windows::core::PCWSTR) -> super::super::Foundation::NTSTATUS;
-        }
-        SetNetworkInformation(::core::mem::transmute(networkguid), ::core::mem::transmute(compartmentid), networkname.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetNetworkInformation(networkguid: *const ::windows::core::GUID, compartmentid: u32, networkname: ::windows::core::PCWSTR) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SetNetworkInformation(::core::mem::transmute(networkguid), ::core::mem::transmute(compartmentid), networkname.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
 pub unsafe fn SetPerTcp6ConnectionEStats(row: *const MIB_TCP6ROW, estatstype: TCP_ESTATS_TYPE, rw: *const u8, rwversion: u32, rwsize: u32, offset: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetPerTcp6ConnectionEStats(row: *const MIB_TCP6ROW, estatstype: TCP_ESTATS_TYPE, rw: *const u8, rwversion: u32, rwsize: u32, offset: u32) -> u32;
-        }
-        ::core::mem::transmute(SetPerTcp6ConnectionEStats(::core::mem::transmute(row), ::core::mem::transmute(estatstype), ::core::mem::transmute(rw), ::core::mem::transmute(rwversion), ::core::mem::transmute(rwsize), ::core::mem::transmute(offset)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetPerTcp6ConnectionEStats(row: *const MIB_TCP6ROW, estatstype: TCP_ESTATS_TYPE, rw: *const u8, rwversion: u32, rwsize: u32, offset: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetPerTcp6ConnectionEStats(::core::mem::transmute(row), ::core::mem::transmute(estatstype), ::core::mem::transmute(rw), ::core::mem::transmute(rwversion), ::core::mem::transmute(rwsize), ::core::mem::transmute(offset)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn SetPerTcpConnectionEStats(row: *const MIB_TCPROW_LH, estatstype: TCP_ESTATS_TYPE, rw: *const u8, rwversion: u32, rwsize: u32, offset: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetPerTcpConnectionEStats(row: *const MIB_TCPROW_LH, estatstype: TCP_ESTATS_TYPE, rw: *const u8, rwversion: u32, rwsize: u32, offset: u32) -> u32;
-        }
-        ::core::mem::transmute(SetPerTcpConnectionEStats(::core::mem::transmute(row), ::core::mem::transmute(estatstype), ::core::mem::transmute(rw), ::core::mem::transmute(rwversion), ::core::mem::transmute(rwsize), ::core::mem::transmute(offset)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetPerTcpConnectionEStats(row: *const MIB_TCPROW_LH, estatstype: TCP_ESTATS_TYPE, rw: *const u8, rwversion: u32, rwsize: u32, offset: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetPerTcpConnectionEStats(::core::mem::transmute(row), ::core::mem::transmute(estatstype), ::core::mem::transmute(rw), ::core::mem::transmute(rwversion), ::core::mem::transmute(rwsize), ::core::mem::transmute(offset)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetSessionCompartmentId(sessionid: u32, compartmentid: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetSessionCompartmentId(sessionid: u32, compartmentid: u32) -> super::super::Foundation::NTSTATUS;
-        }
-        SetSessionCompartmentId(::core::mem::transmute(sessionid), ::core::mem::transmute(compartmentid)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetSessionCompartmentId(sessionid: u32, compartmentid: u32) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SetSessionCompartmentId(::core::mem::transmute(sessionid), ::core::mem::transmute(compartmentid)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn SetTcpEntry(ptcprow: *const MIB_TCPROW_LH) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetTcpEntry(ptcprow: *const MIB_TCPROW_LH) -> u32;
-        }
-        ::core::mem::transmute(SetTcpEntry(::core::mem::transmute(ptcprow)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetTcpEntry(ptcprow: *const MIB_TCPROW_LH) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetTcpEntry(::core::mem::transmute(ptcprow)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn SetUnicastIpAddressEntry(row: *const MIB_UNICASTIPADDRESS_ROW) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetUnicastIpAddressEntry(row: *const MIB_UNICASTIPADDRESS_ROW) -> super::super::Foundation::NTSTATUS;
-        }
-        SetUnicastIpAddressEntry(::core::mem::transmute(row)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetUnicastIpAddressEntry(row: *const MIB_UNICASTIPADDRESS_ROW) -> super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SetUnicastIpAddressEntry(::core::mem::transmute(row)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const TCP6_STATS: u32 = 38u32;
@@ -12286,30 +11326,20 @@ impl ::core::fmt::Debug for UDP_TABLE_CLASS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn UnenableRouter(poverlapped: *const super::super::System::IO::OVERLAPPED, lpdwenablecount: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UnenableRouter(poverlapped: *const super::super::System::IO::OVERLAPPED, lpdwenablecount: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(UnenableRouter(::core::mem::transmute(poverlapped), ::core::mem::transmute(lpdwenablecount)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UnenableRouter(poverlapped: *const super::super::System::IO::OVERLAPPED, lpdwenablecount: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(UnenableRouter(::core::mem::transmute(poverlapped), ::core::mem::transmute(lpdwenablecount)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn UnregisterInterfaceTimestampConfigChange<'a, Param0: ::windows::core::IntoParam<'a, HIFTIMESTAMPCHANGE>>(notificationhandle: Param0) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UnregisterInterfaceTimestampConfigChange(notificationhandle: HIFTIMESTAMPCHANGE);
-        }
-        UnregisterInterfaceTimestampConfigChange(notificationhandle.into_param().abi())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UnregisterInterfaceTimestampConfigChange(notificationhandle: HIFTIMESTAMPCHANGE);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    UnregisterInterfaceTimestampConfigChange(notificationhandle.into_param().abi())
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
@@ -12452,30 +11482,20 @@ impl ::core::default::Default for icmpv6_echo_reply_lh {
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn if_indextoname(interfaceindex: u32, interfacename: &mut [u8; 256]) -> ::windows::core::PSTR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn if_indextoname(interfaceindex: u32, interfacename: ::windows::core::PSTR) -> ::windows::core::PSTR;
-        }
-        ::core::mem::transmute(if_indextoname(::core::mem::transmute(interfaceindex), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(interfacename))))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn if_indextoname(interfaceindex: u32, interfacename: ::windows::core::PSTR) -> ::windows::core::PSTR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(if_indextoname(::core::mem::transmute(interfaceindex), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(interfacename))))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
 pub unsafe fn if_nametoindex<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(interfacename: Param0) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn if_nametoindex(interfacename: ::windows::core::PCSTR) -> u32;
-        }
-        ::core::mem::transmute(if_nametoindex(interfacename.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn if_nametoindex(interfacename: ::windows::core::PCSTR) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(if_nametoindex(interfacename.into_param().abi()))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]

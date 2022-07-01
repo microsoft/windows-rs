@@ -1,4 +1,4 @@
-#[link(name = "windows")]
+#[cfg_attr(windows, link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
     pub fn HcsAttachLayerStorageFilter(layerpath: ::windows_sys::core::PCWSTR, layerdata: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
