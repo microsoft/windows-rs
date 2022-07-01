@@ -185,10 +185,13 @@ jobs:
 
   cargo_sys:
     name: Check windows-sys
-    runs-on: windows-2019
     strategy:
       matrix:
         rust: [1.46.0, stable, nightly]
+        runs-on:
+          - windows-2019
+          - ubuntu-latest
+    runs-on: ${{ matrix.runs-on }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -199,10 +202,13 @@ jobs:
 
   cargo_windows:
     name: Check windows
-    runs-on: windows-2019
     strategy:
       matrix:
         rust: [1.59.0, stable, nightly]
+        runs-on:
+          - windows-2019
+          - ubuntu-latest
+    runs-on: ${{ matrix.runs-on }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
