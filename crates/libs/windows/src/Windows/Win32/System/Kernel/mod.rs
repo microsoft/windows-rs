@@ -772,100 +772,65 @@ pub const RTL_BALANCED_NODE_RESERVED_PARENT_MASK: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
 #[inline]
 pub unsafe fn RtlFirstEntrySList(listhead: *const SLIST_HEADER) -> *mut SLIST_ENTRY {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtlFirstEntrySList(listhead: *const SLIST_HEADER) -> *mut SLIST_ENTRY;
-        }
-        ::core::mem::transmute(RtlFirstEntrySList(::core::mem::transmute(listhead)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtlFirstEntrySList(listhead: *const SLIST_HEADER) -> *mut SLIST_ENTRY;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtlFirstEntrySList(::core::mem::transmute(listhead)))
 }
 #[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
 #[inline]
 pub unsafe fn RtlInitializeSListHead(listhead: *mut SLIST_HEADER) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtlInitializeSListHead(listhead: *mut SLIST_HEADER);
-        }
-        RtlInitializeSListHead(::core::mem::transmute(listhead))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtlInitializeSListHead(listhead: *mut SLIST_HEADER);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    RtlInitializeSListHead(::core::mem::transmute(listhead))
 }
 #[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
 #[inline]
 pub unsafe fn RtlInterlockedFlushSList(listhead: *mut SLIST_HEADER) -> *mut SLIST_ENTRY {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtlInterlockedFlushSList(listhead: *mut SLIST_HEADER) -> *mut SLIST_ENTRY;
-        }
-        ::core::mem::transmute(RtlInterlockedFlushSList(::core::mem::transmute(listhead)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtlInterlockedFlushSList(listhead: *mut SLIST_HEADER) -> *mut SLIST_ENTRY;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtlInterlockedFlushSList(::core::mem::transmute(listhead)))
 }
 #[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
 #[inline]
 pub unsafe fn RtlInterlockedPopEntrySList(listhead: *mut SLIST_HEADER) -> *mut SLIST_ENTRY {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtlInterlockedPopEntrySList(listhead: *mut SLIST_HEADER) -> *mut SLIST_ENTRY;
-        }
-        ::core::mem::transmute(RtlInterlockedPopEntrySList(::core::mem::transmute(listhead)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtlInterlockedPopEntrySList(listhead: *mut SLIST_HEADER) -> *mut SLIST_ENTRY;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtlInterlockedPopEntrySList(::core::mem::transmute(listhead)))
 }
 #[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
 #[inline]
 pub unsafe fn RtlInterlockedPushEntrySList(listhead: *mut SLIST_HEADER, listentry: *mut SLIST_ENTRY) -> *mut SLIST_ENTRY {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtlInterlockedPushEntrySList(listhead: *mut SLIST_HEADER, listentry: *mut SLIST_ENTRY) -> *mut SLIST_ENTRY;
-        }
-        ::core::mem::transmute(RtlInterlockedPushEntrySList(::core::mem::transmute(listhead), ::core::mem::transmute(listentry)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtlInterlockedPushEntrySList(listhead: *mut SLIST_HEADER, listentry: *mut SLIST_ENTRY) -> *mut SLIST_ENTRY;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtlInterlockedPushEntrySList(::core::mem::transmute(listhead), ::core::mem::transmute(listentry)))
 }
 #[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
 #[inline]
 pub unsafe fn RtlInterlockedPushListSListEx(listhead: *mut SLIST_HEADER, list: *mut SLIST_ENTRY, listend: *mut SLIST_ENTRY, count: u32) -> *mut SLIST_ENTRY {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtlInterlockedPushListSListEx(listhead: *mut SLIST_HEADER, list: *mut SLIST_ENTRY, listend: *mut SLIST_ENTRY, count: u32) -> *mut SLIST_ENTRY;
-        }
-        ::core::mem::transmute(RtlInterlockedPushListSListEx(::core::mem::transmute(listhead), ::core::mem::transmute(list), ::core::mem::transmute(listend), ::core::mem::transmute(count)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtlInterlockedPushListSListEx(listhead: *mut SLIST_HEADER, list: *mut SLIST_ENTRY, listend: *mut SLIST_ENTRY, count: u32) -> *mut SLIST_ENTRY;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtlInterlockedPushListSListEx(::core::mem::transmute(listhead), ::core::mem::transmute(list), ::core::mem::transmute(listend), ::core::mem::transmute(count)))
 }
 #[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
 #[inline]
 pub unsafe fn RtlQueryDepthSList(listhead: *const SLIST_HEADER) -> u16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtlQueryDepthSList(listhead: *const SLIST_HEADER) -> u16;
-        }
-        ::core::mem::transmute(RtlQueryDepthSList(::core::mem::transmute(listhead)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtlQueryDepthSList(listhead: *const SLIST_HEADER) -> u16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtlQueryDepthSList(::core::mem::transmute(listhead)))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Kernel\"`*"]

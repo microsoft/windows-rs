@@ -1,6 +1,6 @@
 #[cfg(feature = "Win32_System_Search_Common")]
 pub mod Common;
-#[link(name = "windows")]
+#[cfg_attr(windows, link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: `\"Win32_System_Search\"`*"]
     pub fn ODBCGetTryWaitValue() -> u32;

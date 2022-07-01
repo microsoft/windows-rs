@@ -813,31 +813,21 @@ pub const GUID_IIS_WWW_SERVER_V2_TRACE_PROVIDER: ::windows::core::GUID = ::windo
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetExtensionVersion(pver: *mut HSE_VERSION_INFO) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetExtensionVersion(pver: *mut HSE_VERSION_INFO) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetExtensionVersion(::core::mem::transmute(pver)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetExtensionVersion(pver: *mut HSE_VERSION_INFO) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetExtensionVersion(::core::mem::transmute(pver)))
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFilterVersion(pver: *mut HTTP_FILTER_VERSION) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetFilterVersion(pver: *mut HTTP_FILTER_VERSION) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetFilterVersion(::core::mem::transmute(pver)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetFilterVersion(pver: *mut HTTP_FILTER_VERSION) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetFilterVersion(::core::mem::transmute(pver)))
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub const HSE_APPEND_LOG_PARAMETER: u32 = 1003u32;
@@ -2172,31 +2162,21 @@ impl ::core::fmt::Debug for HTTP_TRACE_TYPE {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HttpExtensionProc(pecb: *const EXTENSION_CONTROL_BLOCK) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn HttpExtensionProc(pecb: *const EXTENSION_CONTROL_BLOCK) -> u32;
-        }
-        ::core::mem::transmute(HttpExtensionProc(::core::mem::transmute(pecb)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn HttpExtensionProc(pecb: *const EXTENSION_CONTROL_BLOCK) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(HttpExtensionProc(::core::mem::transmute(pecb)))
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HttpFilterProc(pfc: *mut HTTP_FILTER_CONTEXT, notificationtype: u32, pvnotification: *mut ::core::ffi::c_void) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn HttpFilterProc(pfc: *mut HTTP_FILTER_CONTEXT, notificationtype: u32, pvnotification: *mut ::core::ffi::c_void) -> u32;
-        }
-        ::core::mem::transmute(HttpFilterProc(::core::mem::transmute(pfc), ::core::mem::transmute(notificationtype), ::core::mem::transmute(pvnotification)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn HttpFilterProc(pfc: *mut HTTP_FILTER_CONTEXT, notificationtype: u32, pvnotification: *mut ::core::ffi::c_void) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(HttpFilterProc(::core::mem::transmute(pfc), ::core::mem::transmute(notificationtype), ::core::mem::transmute(pvnotification)))
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 #[repr(transparent)]

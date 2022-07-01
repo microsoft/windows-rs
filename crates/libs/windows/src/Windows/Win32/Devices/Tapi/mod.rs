@@ -1132,16 +1132,11 @@ pub const GETTNEFSTREAMCODEPAGE: &str = "GetTnefStreamCodePage";
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn GetTnefStreamCodepage<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(lpstream: Param0, lpulcodepage: *mut u32, lpulsubcodepage: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetTnefStreamCodepage(lpstream: *mut ::core::ffi::c_void, lpulcodepage: *mut u32, lpulsubcodepage: *mut u32) -> ::windows::core::HRESULT;
-        }
-        GetTnefStreamCodepage(lpstream.into_param().abi(), ::core::mem::transmute(lpulcodepage), ::core::mem::transmute(lpulsubcodepage)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetTnefStreamCodepage(lpstream: *mut ::core::ffi::c_void, lpulcodepage: *mut u32, lpulsubcodepage: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    GetTnefStreamCodepage(lpstream.into_param().abi(), ::core::mem::transmute(lpulcodepage), ::core::mem::transmute(lpulsubcodepage)).ok()
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
@@ -20672,31 +20667,21 @@ pub const OPENTNEFSTREAMEX: &str = "OpenTnefStreamEx";
 #[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn OpenTnefStream<'a, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>, Param4: ::windows::core::IntoParam<'a, super::super::System::AddressBook::IMessage>>(lpvsupport: *mut ::core::ffi::c_void, lpstream: Param1, lpszstreamname: *const i8, ulflags: u32, lpmessage: Param4, wkeyval: u16, lpptnef: *mut ::core::option::Option<ITnef>) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OpenTnefStream(lpvsupport: *mut ::core::ffi::c_void, lpstream: *mut ::core::ffi::c_void, lpszstreamname: *const i8, ulflags: u32, lpmessage: *mut ::core::ffi::c_void, wkeyval: u16, lpptnef: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        OpenTnefStream(::core::mem::transmute(lpvsupport), lpstream.into_param().abi(), ::core::mem::transmute(lpszstreamname), ::core::mem::transmute(ulflags), lpmessage.into_param().abi(), ::core::mem::transmute(wkeyval), ::core::mem::transmute(lpptnef)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OpenTnefStream(lpvsupport: *mut ::core::ffi::c_void, lpstream: *mut ::core::ffi::c_void, lpszstreamname: *const i8, ulflags: u32, lpmessage: *mut ::core::ffi::c_void, wkeyval: u16, lpptnef: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    OpenTnefStream(::core::mem::transmute(lpvsupport), lpstream.into_param().abi(), ::core::mem::transmute(lpszstreamname), ::core::mem::transmute(ulflags), lpmessage.into_param().abi(), ::core::mem::transmute(wkeyval), ::core::mem::transmute(lpptnef)).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_System_AddressBook\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn OpenTnefStreamEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>, Param4: ::windows::core::IntoParam<'a, super::super::System::AddressBook::IMessage>, Param6: ::windows::core::IntoParam<'a, super::super::System::AddressBook::IAddrBook>>(lpvsupport: *mut ::core::ffi::c_void, lpstream: Param1, lpszstreamname: *const i8, ulflags: u32, lpmessage: Param4, wkeyval: u16, lpadressbook: Param6, lpptnef: *mut ::core::option::Option<ITnef>) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OpenTnefStreamEx(lpvsupport: *mut ::core::ffi::c_void, lpstream: *mut ::core::ffi::c_void, lpszstreamname: *const i8, ulflags: u32, lpmessage: *mut ::core::ffi::c_void, wkeyval: u16, lpadressbook: *mut ::core::ffi::c_void, lpptnef: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        OpenTnefStreamEx(::core::mem::transmute(lpvsupport), lpstream.into_param().abi(), ::core::mem::transmute(lpszstreamname), ::core::mem::transmute(ulflags), lpmessage.into_param().abi(), ::core::mem::transmute(wkeyval), lpadressbook.into_param().abi(), ::core::mem::transmute(lpptnef)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OpenTnefStreamEx(lpvsupport: *mut ::core::ffi::c_void, lpstream: *mut ::core::ffi::c_void, lpszstreamname: *const i8, ulflags: u32, lpmessage: *mut ::core::ffi::c_void, wkeyval: u16, lpadressbook: *mut ::core::ffi::c_void, lpptnef: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    OpenTnefStreamEx(::core::mem::transmute(lpvsupport), lpstream.into_param().abi(), ::core::mem::transmute(lpszstreamname), ::core::mem::transmute(ulflags), lpmessage.into_param().abi(), ::core::mem::transmute(wkeyval), lpadressbook.into_param().abi(), ::core::mem::transmute(lpptnef)).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const PHONEBUTTONFUNCTION_ABBREVDIAL: u32 = 11u32;
@@ -23171,2711 +23156,1751 @@ pub const cbTYPE: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineAccept<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hcall: u32, lpsuseruserinfo: Param1, dwsize: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineAccept(hcall: u32, lpsuseruserinfo: ::windows::core::PCSTR, dwsize: u32) -> i32;
-        }
-        ::core::mem::transmute(lineAccept(::core::mem::transmute(hcall), lpsuseruserinfo.into_param().abi(), ::core::mem::transmute(dwsize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineAccept(hcall: u32, lpsuseruserinfo: ::windows::core::PCSTR, dwsize: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineAccept(::core::mem::transmute(hcall), lpsuseruserinfo.into_param().abi(), ::core::mem::transmute(dwsize)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineAddProvider<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(lpszproviderfilename: Param0, hwndowner: Param1, lpdwpermanentproviderid: *mut u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineAddProvider(lpszproviderfilename: ::windows::core::PCSTR, hwndowner: super::super::Foundation::HWND, lpdwpermanentproviderid: *mut u32) -> i32;
-        }
-        ::core::mem::transmute(lineAddProvider(lpszproviderfilename.into_param().abi(), hwndowner.into_param().abi(), ::core::mem::transmute(lpdwpermanentproviderid)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineAddProvider(lpszproviderfilename: ::windows::core::PCSTR, hwndowner: super::super::Foundation::HWND, lpdwpermanentproviderid: *mut u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineAddProvider(lpszproviderfilename.into_param().abi(), hwndowner.into_param().abi(), ::core::mem::transmute(lpdwpermanentproviderid)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineAddProviderA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(lpszproviderfilename: Param0, hwndowner: Param1, lpdwpermanentproviderid: *mut u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineAddProviderA(lpszproviderfilename: ::windows::core::PCSTR, hwndowner: super::super::Foundation::HWND, lpdwpermanentproviderid: *mut u32) -> i32;
-        }
-        ::core::mem::transmute(lineAddProviderA(lpszproviderfilename.into_param().abi(), hwndowner.into_param().abi(), ::core::mem::transmute(lpdwpermanentproviderid)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineAddProviderA(lpszproviderfilename: ::windows::core::PCSTR, hwndowner: super::super::Foundation::HWND, lpdwpermanentproviderid: *mut u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineAddProviderA(lpszproviderfilename.into_param().abi(), hwndowner.into_param().abi(), ::core::mem::transmute(lpdwpermanentproviderid)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineAddProviderW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(lpszproviderfilename: Param0, hwndowner: Param1, lpdwpermanentproviderid: *mut u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineAddProviderW(lpszproviderfilename: ::windows::core::PCWSTR, hwndowner: super::super::Foundation::HWND, lpdwpermanentproviderid: *mut u32) -> i32;
-        }
-        ::core::mem::transmute(lineAddProviderW(lpszproviderfilename.into_param().abi(), hwndowner.into_param().abi(), ::core::mem::transmute(lpdwpermanentproviderid)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineAddProviderW(lpszproviderfilename: ::windows::core::PCWSTR, hwndowner: super::super::Foundation::HWND, lpdwpermanentproviderid: *mut u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineAddProviderW(lpszproviderfilename.into_param().abi(), hwndowner.into_param().abi(), ::core::mem::transmute(lpdwpermanentproviderid)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineAddToConference(hconfcall: u32, hconsultcall: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineAddToConference(hconfcall: u32, hconsultcall: u32) -> i32;
-        }
-        ::core::mem::transmute(lineAddToConference(::core::mem::transmute(hconfcall), ::core::mem::transmute(hconsultcall)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineAddToConference(hconfcall: u32, hconsultcall: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineAddToConference(::core::mem::transmute(hconfcall), ::core::mem::transmute(hconsultcall)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineAgentSpecific(hline: u32, dwaddressid: u32, dwagentextensionidindex: u32, lpparams: *mut ::core::ffi::c_void, dwsize: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineAgentSpecific(hline: u32, dwaddressid: u32, dwagentextensionidindex: u32, lpparams: *mut ::core::ffi::c_void, dwsize: u32) -> i32;
-        }
-        ::core::mem::transmute(lineAgentSpecific(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(dwagentextensionidindex), ::core::mem::transmute(lpparams), ::core::mem::transmute(dwsize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineAgentSpecific(hline: u32, dwaddressid: u32, dwagentextensionidindex: u32, lpparams: *mut ::core::ffi::c_void, dwsize: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineAgentSpecific(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(dwagentextensionidindex), ::core::mem::transmute(lpparams), ::core::mem::transmute(dwsize)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineAnswer<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hcall: u32, lpsuseruserinfo: Param1, dwsize: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineAnswer(hcall: u32, lpsuseruserinfo: ::windows::core::PCSTR, dwsize: u32) -> i32;
-        }
-        ::core::mem::transmute(lineAnswer(::core::mem::transmute(hcall), lpsuseruserinfo.into_param().abi(), ::core::mem::transmute(dwsize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineAnswer(hcall: u32, lpsuseruserinfo: ::windows::core::PCSTR, dwsize: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineAnswer(::core::mem::transmute(hcall), lpsuseruserinfo.into_param().abi(), ::core::mem::transmute(dwsize)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineBlindTransfer<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hcall: u32, lpszdestaddress: Param1, dwcountrycode: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineBlindTransfer(hcall: u32, lpszdestaddress: ::windows::core::PCSTR, dwcountrycode: u32) -> i32;
-        }
-        ::core::mem::transmute(lineBlindTransfer(::core::mem::transmute(hcall), lpszdestaddress.into_param().abi(), ::core::mem::transmute(dwcountrycode)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineBlindTransfer(hcall: u32, lpszdestaddress: ::windows::core::PCSTR, dwcountrycode: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineBlindTransfer(::core::mem::transmute(hcall), lpszdestaddress.into_param().abi(), ::core::mem::transmute(dwcountrycode)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineBlindTransferA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hcall: u32, lpszdestaddress: Param1, dwcountrycode: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineBlindTransferA(hcall: u32, lpszdestaddress: ::windows::core::PCSTR, dwcountrycode: u32) -> i32;
-        }
-        ::core::mem::transmute(lineBlindTransferA(::core::mem::transmute(hcall), lpszdestaddress.into_param().abi(), ::core::mem::transmute(dwcountrycode)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineBlindTransferA(hcall: u32, lpszdestaddress: ::windows::core::PCSTR, dwcountrycode: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineBlindTransferA(::core::mem::transmute(hcall), lpszdestaddress.into_param().abi(), ::core::mem::transmute(dwcountrycode)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineBlindTransferW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hcall: u32, lpszdestaddressw: Param1, dwcountrycode: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineBlindTransferW(hcall: u32, lpszdestaddressw: ::windows::core::PCWSTR, dwcountrycode: u32) -> i32;
-        }
-        ::core::mem::transmute(lineBlindTransferW(::core::mem::transmute(hcall), lpszdestaddressw.into_param().abi(), ::core::mem::transmute(dwcountrycode)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineBlindTransferW(hcall: u32, lpszdestaddressw: ::windows::core::PCWSTR, dwcountrycode: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineBlindTransferW(::core::mem::transmute(hcall), lpszdestaddressw.into_param().abi(), ::core::mem::transmute(dwcountrycode)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineClose(hline: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineClose(hline: u32) -> i32;
-        }
-        ::core::mem::transmute(lineClose(::core::mem::transmute(hline)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineClose(hline: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineClose(::core::mem::transmute(hline)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineCompleteCall(hcall: u32, lpdwcompletionid: *mut u32, dwcompletionmode: u32, dwmessageid: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineCompleteCall(hcall: u32, lpdwcompletionid: *mut u32, dwcompletionmode: u32, dwmessageid: u32) -> i32;
-        }
-        ::core::mem::transmute(lineCompleteCall(::core::mem::transmute(hcall), ::core::mem::transmute(lpdwcompletionid), ::core::mem::transmute(dwcompletionmode), ::core::mem::transmute(dwmessageid)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineCompleteCall(hcall: u32, lpdwcompletionid: *mut u32, dwcompletionmode: u32, dwmessageid: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineCompleteCall(::core::mem::transmute(hcall), ::core::mem::transmute(lpdwcompletionid), ::core::mem::transmute(dwcompletionmode), ::core::mem::transmute(dwmessageid)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineCompleteTransfer(hcall: u32, hconsultcall: u32, lphconfcall: *mut u32, dwtransfermode: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineCompleteTransfer(hcall: u32, hconsultcall: u32, lphconfcall: *mut u32, dwtransfermode: u32) -> i32;
-        }
-        ::core::mem::transmute(lineCompleteTransfer(::core::mem::transmute(hcall), ::core::mem::transmute(hconsultcall), ::core::mem::transmute(lphconfcall), ::core::mem::transmute(dwtransfermode)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineCompleteTransfer(hcall: u32, hconsultcall: u32, lphconfcall: *mut u32, dwtransfermode: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineCompleteTransfer(::core::mem::transmute(hcall), ::core::mem::transmute(hconsultcall), ::core::mem::transmute(lphconfcall), ::core::mem::transmute(dwtransfermode)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineConfigDialog<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(dwdeviceid: u32, hwndowner: Param1, lpszdeviceclass: Param2) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineConfigDialog(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: ::windows::core::PCSTR) -> i32;
-        }
-        ::core::mem::transmute(lineConfigDialog(::core::mem::transmute(dwdeviceid), hwndowner.into_param().abi(), lpszdeviceclass.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineConfigDialog(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: ::windows::core::PCSTR) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineConfigDialog(::core::mem::transmute(dwdeviceid), hwndowner.into_param().abi(), lpszdeviceclass.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineConfigDialogA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(dwdeviceid: u32, hwndowner: Param1, lpszdeviceclass: Param2) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineConfigDialogA(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: ::windows::core::PCSTR) -> i32;
-        }
-        ::core::mem::transmute(lineConfigDialogA(::core::mem::transmute(dwdeviceid), hwndowner.into_param().abi(), lpszdeviceclass.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineConfigDialogA(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: ::windows::core::PCSTR) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineConfigDialogA(::core::mem::transmute(dwdeviceid), hwndowner.into_param().abi(), lpszdeviceclass.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineConfigDialogEdit<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(dwdeviceid: u32, hwndowner: Param1, lpszdeviceclass: Param2, lpdeviceconfigin: *const ::core::ffi::c_void, dwsize: u32, lpdeviceconfigout: *mut VARSTRING) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineConfigDialogEdit(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: ::windows::core::PCSTR, lpdeviceconfigin: *const ::core::ffi::c_void, dwsize: u32, lpdeviceconfigout: *mut VARSTRING) -> i32;
-        }
-        ::core::mem::transmute(lineConfigDialogEdit(::core::mem::transmute(dwdeviceid), hwndowner.into_param().abi(), lpszdeviceclass.into_param().abi(), ::core::mem::transmute(lpdeviceconfigin), ::core::mem::transmute(dwsize), ::core::mem::transmute(lpdeviceconfigout)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineConfigDialogEdit(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: ::windows::core::PCSTR, lpdeviceconfigin: *const ::core::ffi::c_void, dwsize: u32, lpdeviceconfigout: *mut VARSTRING) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineConfigDialogEdit(::core::mem::transmute(dwdeviceid), hwndowner.into_param().abi(), lpszdeviceclass.into_param().abi(), ::core::mem::transmute(lpdeviceconfigin), ::core::mem::transmute(dwsize), ::core::mem::transmute(lpdeviceconfigout)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineConfigDialogEditA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(dwdeviceid: u32, hwndowner: Param1, lpszdeviceclass: Param2, lpdeviceconfigin: *const ::core::ffi::c_void, dwsize: u32, lpdeviceconfigout: *mut VARSTRING) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineConfigDialogEditA(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: ::windows::core::PCSTR, lpdeviceconfigin: *const ::core::ffi::c_void, dwsize: u32, lpdeviceconfigout: *mut VARSTRING) -> i32;
-        }
-        ::core::mem::transmute(lineConfigDialogEditA(::core::mem::transmute(dwdeviceid), hwndowner.into_param().abi(), lpszdeviceclass.into_param().abi(), ::core::mem::transmute(lpdeviceconfigin), ::core::mem::transmute(dwsize), ::core::mem::transmute(lpdeviceconfigout)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineConfigDialogEditA(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: ::windows::core::PCSTR, lpdeviceconfigin: *const ::core::ffi::c_void, dwsize: u32, lpdeviceconfigout: *mut VARSTRING) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineConfigDialogEditA(::core::mem::transmute(dwdeviceid), hwndowner.into_param().abi(), lpszdeviceclass.into_param().abi(), ::core::mem::transmute(lpdeviceconfigin), ::core::mem::transmute(dwsize), ::core::mem::transmute(lpdeviceconfigout)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineConfigDialogEditW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(dwdeviceid: u32, hwndowner: Param1, lpszdeviceclass: Param2, lpdeviceconfigin: *const ::core::ffi::c_void, dwsize: u32, lpdeviceconfigout: *mut VARSTRING) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineConfigDialogEditW(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: ::windows::core::PCWSTR, lpdeviceconfigin: *const ::core::ffi::c_void, dwsize: u32, lpdeviceconfigout: *mut VARSTRING) -> i32;
-        }
-        ::core::mem::transmute(lineConfigDialogEditW(::core::mem::transmute(dwdeviceid), hwndowner.into_param().abi(), lpszdeviceclass.into_param().abi(), ::core::mem::transmute(lpdeviceconfigin), ::core::mem::transmute(dwsize), ::core::mem::transmute(lpdeviceconfigout)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineConfigDialogEditW(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: ::windows::core::PCWSTR, lpdeviceconfigin: *const ::core::ffi::c_void, dwsize: u32, lpdeviceconfigout: *mut VARSTRING) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineConfigDialogEditW(::core::mem::transmute(dwdeviceid), hwndowner.into_param().abi(), lpszdeviceclass.into_param().abi(), ::core::mem::transmute(lpdeviceconfigin), ::core::mem::transmute(dwsize), ::core::mem::transmute(lpdeviceconfigout)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineConfigDialogW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(dwdeviceid: u32, hwndowner: Param1, lpszdeviceclass: Param2) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineConfigDialogW(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: ::windows::core::PCWSTR) -> i32;
-        }
-        ::core::mem::transmute(lineConfigDialogW(::core::mem::transmute(dwdeviceid), hwndowner.into_param().abi(), lpszdeviceclass.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineConfigDialogW(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: ::windows::core::PCWSTR) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineConfigDialogW(::core::mem::transmute(dwdeviceid), hwndowner.into_param().abi(), lpszdeviceclass.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineConfigProvider<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwndowner: Param0, dwpermanentproviderid: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineConfigProvider(hwndowner: super::super::Foundation::HWND, dwpermanentproviderid: u32) -> i32;
-        }
-        ::core::mem::transmute(lineConfigProvider(hwndowner.into_param().abi(), ::core::mem::transmute(dwpermanentproviderid)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineConfigProvider(hwndowner: super::super::Foundation::HWND, dwpermanentproviderid: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineConfigProvider(hwndowner.into_param().abi(), ::core::mem::transmute(dwpermanentproviderid)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineCreateAgentA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hline: u32, lpszagentid: Param1, lpszagentpin: Param2, lphagent: *mut u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineCreateAgentA(hline: u32, lpszagentid: ::windows::core::PCSTR, lpszagentpin: ::windows::core::PCSTR, lphagent: *mut u32) -> i32;
-        }
-        ::core::mem::transmute(lineCreateAgentA(::core::mem::transmute(hline), lpszagentid.into_param().abi(), lpszagentpin.into_param().abi(), ::core::mem::transmute(lphagent)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineCreateAgentA(hline: u32, lpszagentid: ::windows::core::PCSTR, lpszagentpin: ::windows::core::PCSTR, lphagent: *mut u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineCreateAgentA(::core::mem::transmute(hline), lpszagentid.into_param().abi(), lpszagentpin.into_param().abi(), ::core::mem::transmute(lphagent)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineCreateAgentSessionA<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hline: u32, hagent: u32, lpszagentpin: Param2, dwworkingaddressid: u32, lpgroupid: *mut ::windows::core::GUID, lphagentsession: *mut u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineCreateAgentSessionA(hline: u32, hagent: u32, lpszagentpin: ::windows::core::PCSTR, dwworkingaddressid: u32, lpgroupid: *mut ::windows::core::GUID, lphagentsession: *mut u32) -> i32;
-        }
-        ::core::mem::transmute(lineCreateAgentSessionA(::core::mem::transmute(hline), ::core::mem::transmute(hagent), lpszagentpin.into_param().abi(), ::core::mem::transmute(dwworkingaddressid), ::core::mem::transmute(lpgroupid), ::core::mem::transmute(lphagentsession)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineCreateAgentSessionA(hline: u32, hagent: u32, lpszagentpin: ::windows::core::PCSTR, dwworkingaddressid: u32, lpgroupid: *mut ::windows::core::GUID, lphagentsession: *mut u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineCreateAgentSessionA(::core::mem::transmute(hline), ::core::mem::transmute(hagent), lpszagentpin.into_param().abi(), ::core::mem::transmute(dwworkingaddressid), ::core::mem::transmute(lpgroupid), ::core::mem::transmute(lphagentsession)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineCreateAgentSessionW<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hline: u32, hagent: u32, lpszagentpin: Param2, dwworkingaddressid: u32, lpgroupid: *mut ::windows::core::GUID, lphagentsession: *mut u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineCreateAgentSessionW(hline: u32, hagent: u32, lpszagentpin: ::windows::core::PCWSTR, dwworkingaddressid: u32, lpgroupid: *mut ::windows::core::GUID, lphagentsession: *mut u32) -> i32;
-        }
-        ::core::mem::transmute(lineCreateAgentSessionW(::core::mem::transmute(hline), ::core::mem::transmute(hagent), lpszagentpin.into_param().abi(), ::core::mem::transmute(dwworkingaddressid), ::core::mem::transmute(lpgroupid), ::core::mem::transmute(lphagentsession)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineCreateAgentSessionW(hline: u32, hagent: u32, lpszagentpin: ::windows::core::PCWSTR, dwworkingaddressid: u32, lpgroupid: *mut ::windows::core::GUID, lphagentsession: *mut u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineCreateAgentSessionW(::core::mem::transmute(hline), ::core::mem::transmute(hagent), lpszagentpin.into_param().abi(), ::core::mem::transmute(dwworkingaddressid), ::core::mem::transmute(lpgroupid), ::core::mem::transmute(lphagentsession)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineCreateAgentW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hline: u32, lpszagentid: Param1, lpszagentpin: Param2, lphagent: *mut u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineCreateAgentW(hline: u32, lpszagentid: ::windows::core::PCWSTR, lpszagentpin: ::windows::core::PCWSTR, lphagent: *mut u32) -> i32;
-        }
-        ::core::mem::transmute(lineCreateAgentW(::core::mem::transmute(hline), lpszagentid.into_param().abi(), lpszagentpin.into_param().abi(), ::core::mem::transmute(lphagent)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineCreateAgentW(hline: u32, lpszagentid: ::windows::core::PCWSTR, lpszagentpin: ::windows::core::PCWSTR, lphagent: *mut u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineCreateAgentW(::core::mem::transmute(hline), lpszagentid.into_param().abi(), lpszagentpin.into_param().abi(), ::core::mem::transmute(lphagent)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineDeallocateCall(hcall: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineDeallocateCall(hcall: u32) -> i32;
-        }
-        ::core::mem::transmute(lineDeallocateCall(::core::mem::transmute(hcall)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineDeallocateCall(hcall: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineDeallocateCall(::core::mem::transmute(hcall)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineDevSpecific(hline: u32, dwaddressid: u32, hcall: u32, lpparams: *mut ::core::ffi::c_void, dwsize: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineDevSpecific(hline: u32, dwaddressid: u32, hcall: u32, lpparams: *mut ::core::ffi::c_void, dwsize: u32) -> i32;
-        }
-        ::core::mem::transmute(lineDevSpecific(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(hcall), ::core::mem::transmute(lpparams), ::core::mem::transmute(dwsize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineDevSpecific(hline: u32, dwaddressid: u32, hcall: u32, lpparams: *mut ::core::ffi::c_void, dwsize: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineDevSpecific(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(hcall), ::core::mem::transmute(lpparams), ::core::mem::transmute(dwsize)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineDevSpecificFeature(hline: u32, dwfeature: u32, lpparams: *mut ::core::ffi::c_void, dwsize: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineDevSpecificFeature(hline: u32, dwfeature: u32, lpparams: *mut ::core::ffi::c_void, dwsize: u32) -> i32;
-        }
-        ::core::mem::transmute(lineDevSpecificFeature(::core::mem::transmute(hline), ::core::mem::transmute(dwfeature), ::core::mem::transmute(lpparams), ::core::mem::transmute(dwsize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineDevSpecificFeature(hline: u32, dwfeature: u32, lpparams: *mut ::core::ffi::c_void, dwsize: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineDevSpecificFeature(::core::mem::transmute(hline), ::core::mem::transmute(dwfeature), ::core::mem::transmute(lpparams), ::core::mem::transmute(dwsize)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineDial<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hcall: u32, lpszdestaddress: Param1, dwcountrycode: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineDial(hcall: u32, lpszdestaddress: ::windows::core::PCSTR, dwcountrycode: u32) -> i32;
-        }
-        ::core::mem::transmute(lineDial(::core::mem::transmute(hcall), lpszdestaddress.into_param().abi(), ::core::mem::transmute(dwcountrycode)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineDial(hcall: u32, lpszdestaddress: ::windows::core::PCSTR, dwcountrycode: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineDial(::core::mem::transmute(hcall), lpszdestaddress.into_param().abi(), ::core::mem::transmute(dwcountrycode)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineDialA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hcall: u32, lpszdestaddress: Param1, dwcountrycode: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineDialA(hcall: u32, lpszdestaddress: ::windows::core::PCSTR, dwcountrycode: u32) -> i32;
-        }
-        ::core::mem::transmute(lineDialA(::core::mem::transmute(hcall), lpszdestaddress.into_param().abi(), ::core::mem::transmute(dwcountrycode)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineDialA(hcall: u32, lpszdestaddress: ::windows::core::PCSTR, dwcountrycode: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineDialA(::core::mem::transmute(hcall), lpszdestaddress.into_param().abi(), ::core::mem::transmute(dwcountrycode)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineDialW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hcall: u32, lpszdestaddress: Param1, dwcountrycode: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineDialW(hcall: u32, lpszdestaddress: ::windows::core::PCWSTR, dwcountrycode: u32) -> i32;
-        }
-        ::core::mem::transmute(lineDialW(::core::mem::transmute(hcall), lpszdestaddress.into_param().abi(), ::core::mem::transmute(dwcountrycode)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineDialW(hcall: u32, lpszdestaddress: ::windows::core::PCWSTR, dwcountrycode: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineDialW(::core::mem::transmute(hcall), lpszdestaddress.into_param().abi(), ::core::mem::transmute(dwcountrycode)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineDrop<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hcall: u32, lpsuseruserinfo: Param1, dwsize: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineDrop(hcall: u32, lpsuseruserinfo: ::windows::core::PCSTR, dwsize: u32) -> i32;
-        }
-        ::core::mem::transmute(lineDrop(::core::mem::transmute(hcall), lpsuseruserinfo.into_param().abi(), ::core::mem::transmute(dwsize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineDrop(hcall: u32, lpsuseruserinfo: ::windows::core::PCSTR, dwsize: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineDrop(::core::mem::transmute(hcall), lpsuseruserinfo.into_param().abi(), ::core::mem::transmute(dwsize)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineForward(hline: u32, balladdresses: u32, dwaddressid: u32, lpforwardlist: *const LINEFORWARDLIST, dwnumringsnoanswer: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineForward(hline: u32, balladdresses: u32, dwaddressid: u32, lpforwardlist: *const LINEFORWARDLIST, dwnumringsnoanswer: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32;
-        }
-        ::core::mem::transmute(lineForward(::core::mem::transmute(hline), ::core::mem::transmute(balladdresses), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(lpforwardlist), ::core::mem::transmute(dwnumringsnoanswer), ::core::mem::transmute(lphconsultcall), ::core::mem::transmute(lpcallparams)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineForward(hline: u32, balladdresses: u32, dwaddressid: u32, lpforwardlist: *const LINEFORWARDLIST, dwnumringsnoanswer: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineForward(::core::mem::transmute(hline), ::core::mem::transmute(balladdresses), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(lpforwardlist), ::core::mem::transmute(dwnumringsnoanswer), ::core::mem::transmute(lphconsultcall), ::core::mem::transmute(lpcallparams)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineForwardA(hline: u32, balladdresses: u32, dwaddressid: u32, lpforwardlist: *const LINEFORWARDLIST, dwnumringsnoanswer: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineForwardA(hline: u32, balladdresses: u32, dwaddressid: u32, lpforwardlist: *const LINEFORWARDLIST, dwnumringsnoanswer: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32;
-        }
-        ::core::mem::transmute(lineForwardA(::core::mem::transmute(hline), ::core::mem::transmute(balladdresses), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(lpforwardlist), ::core::mem::transmute(dwnumringsnoanswer), ::core::mem::transmute(lphconsultcall), ::core::mem::transmute(lpcallparams)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineForwardA(hline: u32, balladdresses: u32, dwaddressid: u32, lpforwardlist: *const LINEFORWARDLIST, dwnumringsnoanswer: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineForwardA(::core::mem::transmute(hline), ::core::mem::transmute(balladdresses), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(lpforwardlist), ::core::mem::transmute(dwnumringsnoanswer), ::core::mem::transmute(lphconsultcall), ::core::mem::transmute(lpcallparams)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineForwardW(hline: u32, balladdresses: u32, dwaddressid: u32, lpforwardlist: *const LINEFORWARDLIST, dwnumringsnoanswer: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineForwardW(hline: u32, balladdresses: u32, dwaddressid: u32, lpforwardlist: *const LINEFORWARDLIST, dwnumringsnoanswer: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32;
-        }
-        ::core::mem::transmute(lineForwardW(::core::mem::transmute(hline), ::core::mem::transmute(balladdresses), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(lpforwardlist), ::core::mem::transmute(dwnumringsnoanswer), ::core::mem::transmute(lphconsultcall), ::core::mem::transmute(lpcallparams)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineForwardW(hline: u32, balladdresses: u32, dwaddressid: u32, lpforwardlist: *const LINEFORWARDLIST, dwnumringsnoanswer: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineForwardW(::core::mem::transmute(hline), ::core::mem::transmute(balladdresses), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(lpforwardlist), ::core::mem::transmute(dwnumringsnoanswer), ::core::mem::transmute(lphconsultcall), ::core::mem::transmute(lpcallparams)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGatherDigits<'a, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hcall: u32, dwdigitmodes: u32, lpsdigits: &mut [u8], lpszterminationdigits: Param4, dwfirstdigittimeout: u32, dwinterdigittimeout: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGatherDigits(hcall: u32, dwdigitmodes: u32, lpsdigits: ::windows::core::PSTR, dwnumdigits: u32, lpszterminationdigits: ::windows::core::PCSTR, dwfirstdigittimeout: u32, dwinterdigittimeout: u32) -> i32;
-        }
-        ::core::mem::transmute(lineGatherDigits(::core::mem::transmute(hcall), ::core::mem::transmute(dwdigitmodes), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpsdigits)), lpsdigits.len() as _, lpszterminationdigits.into_param().abi(), ::core::mem::transmute(dwfirstdigittimeout), ::core::mem::transmute(dwinterdigittimeout)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGatherDigits(hcall: u32, dwdigitmodes: u32, lpsdigits: ::windows::core::PSTR, dwnumdigits: u32, lpszterminationdigits: ::windows::core::PCSTR, dwfirstdigittimeout: u32, dwinterdigittimeout: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGatherDigits(::core::mem::transmute(hcall), ::core::mem::transmute(dwdigitmodes), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpsdigits)), lpsdigits.len() as _, lpszterminationdigits.into_param().abi(), ::core::mem::transmute(dwfirstdigittimeout), ::core::mem::transmute(dwinterdigittimeout)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGatherDigitsA<'a, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hcall: u32, dwdigitmodes: u32, lpsdigits: &mut [u8], lpszterminationdigits: Param4, dwfirstdigittimeout: u32, dwinterdigittimeout: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGatherDigitsA(hcall: u32, dwdigitmodes: u32, lpsdigits: ::windows::core::PSTR, dwnumdigits: u32, lpszterminationdigits: ::windows::core::PCSTR, dwfirstdigittimeout: u32, dwinterdigittimeout: u32) -> i32;
-        }
-        ::core::mem::transmute(lineGatherDigitsA(::core::mem::transmute(hcall), ::core::mem::transmute(dwdigitmodes), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpsdigits)), lpsdigits.len() as _, lpszterminationdigits.into_param().abi(), ::core::mem::transmute(dwfirstdigittimeout), ::core::mem::transmute(dwinterdigittimeout)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGatherDigitsA(hcall: u32, dwdigitmodes: u32, lpsdigits: ::windows::core::PSTR, dwnumdigits: u32, lpszterminationdigits: ::windows::core::PCSTR, dwfirstdigittimeout: u32, dwinterdigittimeout: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGatherDigitsA(::core::mem::transmute(hcall), ::core::mem::transmute(dwdigitmodes), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpsdigits)), lpsdigits.len() as _, lpszterminationdigits.into_param().abi(), ::core::mem::transmute(dwfirstdigittimeout), ::core::mem::transmute(dwinterdigittimeout)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGatherDigitsW<'a, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hcall: u32, dwdigitmodes: u32, lpsdigits: &mut [u16], lpszterminationdigits: Param4, dwfirstdigittimeout: u32, dwinterdigittimeout: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGatherDigitsW(hcall: u32, dwdigitmodes: u32, lpsdigits: ::windows::core::PWSTR, dwnumdigits: u32, lpszterminationdigits: ::windows::core::PCWSTR, dwfirstdigittimeout: u32, dwinterdigittimeout: u32) -> i32;
-        }
-        ::core::mem::transmute(lineGatherDigitsW(::core::mem::transmute(hcall), ::core::mem::transmute(dwdigitmodes), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpsdigits)), lpsdigits.len() as _, lpszterminationdigits.into_param().abi(), ::core::mem::transmute(dwfirstdigittimeout), ::core::mem::transmute(dwinterdigittimeout)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGatherDigitsW(hcall: u32, dwdigitmodes: u32, lpsdigits: ::windows::core::PWSTR, dwnumdigits: u32, lpszterminationdigits: ::windows::core::PCWSTR, dwfirstdigittimeout: u32, dwinterdigittimeout: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGatherDigitsW(::core::mem::transmute(hcall), ::core::mem::transmute(dwdigitmodes), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpsdigits)), lpsdigits.len() as _, lpszterminationdigits.into_param().abi(), ::core::mem::transmute(dwfirstdigittimeout), ::core::mem::transmute(dwinterdigittimeout)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGenerateDigits<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hcall: u32, dwdigitmode: u32, lpszdigits: Param2, dwduration: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGenerateDigits(hcall: u32, dwdigitmode: u32, lpszdigits: ::windows::core::PCSTR, dwduration: u32) -> i32;
-        }
-        ::core::mem::transmute(lineGenerateDigits(::core::mem::transmute(hcall), ::core::mem::transmute(dwdigitmode), lpszdigits.into_param().abi(), ::core::mem::transmute(dwduration)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGenerateDigits(hcall: u32, dwdigitmode: u32, lpszdigits: ::windows::core::PCSTR, dwduration: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGenerateDigits(::core::mem::transmute(hcall), ::core::mem::transmute(dwdigitmode), lpszdigits.into_param().abi(), ::core::mem::transmute(dwduration)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGenerateDigitsA<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hcall: u32, dwdigitmode: u32, lpszdigits: Param2, dwduration: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGenerateDigitsA(hcall: u32, dwdigitmode: u32, lpszdigits: ::windows::core::PCSTR, dwduration: u32) -> i32;
-        }
-        ::core::mem::transmute(lineGenerateDigitsA(::core::mem::transmute(hcall), ::core::mem::transmute(dwdigitmode), lpszdigits.into_param().abi(), ::core::mem::transmute(dwduration)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGenerateDigitsA(hcall: u32, dwdigitmode: u32, lpszdigits: ::windows::core::PCSTR, dwduration: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGenerateDigitsA(::core::mem::transmute(hcall), ::core::mem::transmute(dwdigitmode), lpszdigits.into_param().abi(), ::core::mem::transmute(dwduration)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGenerateDigitsW<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hcall: u32, dwdigitmode: u32, lpszdigits: Param2, dwduration: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGenerateDigitsW(hcall: u32, dwdigitmode: u32, lpszdigits: ::windows::core::PCWSTR, dwduration: u32) -> i32;
-        }
-        ::core::mem::transmute(lineGenerateDigitsW(::core::mem::transmute(hcall), ::core::mem::transmute(dwdigitmode), lpszdigits.into_param().abi(), ::core::mem::transmute(dwduration)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGenerateDigitsW(hcall: u32, dwdigitmode: u32, lpszdigits: ::windows::core::PCWSTR, dwduration: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGenerateDigitsW(::core::mem::transmute(hcall), ::core::mem::transmute(dwdigitmode), lpszdigits.into_param().abi(), ::core::mem::transmute(dwduration)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGenerateTone(hcall: u32, dwtonemode: u32, dwduration: u32, dwnumtones: u32, lptones: *const LINEGENERATETONE) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGenerateTone(hcall: u32, dwtonemode: u32, dwduration: u32, dwnumtones: u32, lptones: *const LINEGENERATETONE) -> i32;
-        }
-        ::core::mem::transmute(lineGenerateTone(::core::mem::transmute(hcall), ::core::mem::transmute(dwtonemode), ::core::mem::transmute(dwduration), ::core::mem::transmute(dwnumtones), ::core::mem::transmute(lptones)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGenerateTone(hcall: u32, dwtonemode: u32, dwduration: u32, dwnumtones: u32, lptones: *const LINEGENERATETONE) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGenerateTone(::core::mem::transmute(hcall), ::core::mem::transmute(dwtonemode), ::core::mem::transmute(dwduration), ::core::mem::transmute(dwnumtones), ::core::mem::transmute(lptones)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetAddressCaps(hlineapp: u32, dwdeviceid: u32, dwaddressid: u32, dwapiversion: u32, dwextversion: u32, lpaddresscaps: *mut LINEADDRESSCAPS) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetAddressCaps(hlineapp: u32, dwdeviceid: u32, dwaddressid: u32, dwapiversion: u32, dwextversion: u32, lpaddresscaps: *mut LINEADDRESSCAPS) -> i32;
-        }
-        ::core::mem::transmute(lineGetAddressCaps(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(dwapiversion), ::core::mem::transmute(dwextversion), ::core::mem::transmute(lpaddresscaps)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetAddressCaps(hlineapp: u32, dwdeviceid: u32, dwaddressid: u32, dwapiversion: u32, dwextversion: u32, lpaddresscaps: *mut LINEADDRESSCAPS) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetAddressCaps(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(dwapiversion), ::core::mem::transmute(dwextversion), ::core::mem::transmute(lpaddresscaps)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetAddressCapsA(hlineapp: u32, dwdeviceid: u32, dwaddressid: u32, dwapiversion: u32, dwextversion: u32, lpaddresscaps: *mut LINEADDRESSCAPS) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetAddressCapsA(hlineapp: u32, dwdeviceid: u32, dwaddressid: u32, dwapiversion: u32, dwextversion: u32, lpaddresscaps: *mut LINEADDRESSCAPS) -> i32;
-        }
-        ::core::mem::transmute(lineGetAddressCapsA(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(dwapiversion), ::core::mem::transmute(dwextversion), ::core::mem::transmute(lpaddresscaps)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetAddressCapsA(hlineapp: u32, dwdeviceid: u32, dwaddressid: u32, dwapiversion: u32, dwextversion: u32, lpaddresscaps: *mut LINEADDRESSCAPS) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetAddressCapsA(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(dwapiversion), ::core::mem::transmute(dwextversion), ::core::mem::transmute(lpaddresscaps)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetAddressCapsW(hlineapp: u32, dwdeviceid: u32, dwaddressid: u32, dwapiversion: u32, dwextversion: u32, lpaddresscaps: *mut LINEADDRESSCAPS) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetAddressCapsW(hlineapp: u32, dwdeviceid: u32, dwaddressid: u32, dwapiversion: u32, dwextversion: u32, lpaddresscaps: *mut LINEADDRESSCAPS) -> i32;
-        }
-        ::core::mem::transmute(lineGetAddressCapsW(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(dwapiversion), ::core::mem::transmute(dwextversion), ::core::mem::transmute(lpaddresscaps)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetAddressCapsW(hlineapp: u32, dwdeviceid: u32, dwaddressid: u32, dwapiversion: u32, dwextversion: u32, lpaddresscaps: *mut LINEADDRESSCAPS) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetAddressCapsW(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(dwapiversion), ::core::mem::transmute(dwextversion), ::core::mem::transmute(lpaddresscaps)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetAddressID<'a, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hline: u32, lpdwaddressid: *mut u32, dwaddressmode: u32, lpsaddress: Param3, dwsize: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetAddressID(hline: u32, lpdwaddressid: *mut u32, dwaddressmode: u32, lpsaddress: ::windows::core::PCSTR, dwsize: u32) -> i32;
-        }
-        ::core::mem::transmute(lineGetAddressID(::core::mem::transmute(hline), ::core::mem::transmute(lpdwaddressid), ::core::mem::transmute(dwaddressmode), lpsaddress.into_param().abi(), ::core::mem::transmute(dwsize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetAddressID(hline: u32, lpdwaddressid: *mut u32, dwaddressmode: u32, lpsaddress: ::windows::core::PCSTR, dwsize: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetAddressID(::core::mem::transmute(hline), ::core::mem::transmute(lpdwaddressid), ::core::mem::transmute(dwaddressmode), lpsaddress.into_param().abi(), ::core::mem::transmute(dwsize)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetAddressIDA<'a, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hline: u32, lpdwaddressid: *mut u32, dwaddressmode: u32, lpsaddress: Param3, dwsize: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetAddressIDA(hline: u32, lpdwaddressid: *mut u32, dwaddressmode: u32, lpsaddress: ::windows::core::PCSTR, dwsize: u32) -> i32;
-        }
-        ::core::mem::transmute(lineGetAddressIDA(::core::mem::transmute(hline), ::core::mem::transmute(lpdwaddressid), ::core::mem::transmute(dwaddressmode), lpsaddress.into_param().abi(), ::core::mem::transmute(dwsize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetAddressIDA(hline: u32, lpdwaddressid: *mut u32, dwaddressmode: u32, lpsaddress: ::windows::core::PCSTR, dwsize: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetAddressIDA(::core::mem::transmute(hline), ::core::mem::transmute(lpdwaddressid), ::core::mem::transmute(dwaddressmode), lpsaddress.into_param().abi(), ::core::mem::transmute(dwsize)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetAddressIDW<'a, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hline: u32, lpdwaddressid: *mut u32, dwaddressmode: u32, lpsaddress: Param3, dwsize: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetAddressIDW(hline: u32, lpdwaddressid: *mut u32, dwaddressmode: u32, lpsaddress: ::windows::core::PCWSTR, dwsize: u32) -> i32;
-        }
-        ::core::mem::transmute(lineGetAddressIDW(::core::mem::transmute(hline), ::core::mem::transmute(lpdwaddressid), ::core::mem::transmute(dwaddressmode), lpsaddress.into_param().abi(), ::core::mem::transmute(dwsize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetAddressIDW(hline: u32, lpdwaddressid: *mut u32, dwaddressmode: u32, lpsaddress: ::windows::core::PCWSTR, dwsize: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetAddressIDW(::core::mem::transmute(hline), ::core::mem::transmute(lpdwaddressid), ::core::mem::transmute(dwaddressmode), lpsaddress.into_param().abi(), ::core::mem::transmute(dwsize)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetAddressStatus(hline: u32, dwaddressid: u32, lpaddressstatus: *mut LINEADDRESSSTATUS) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetAddressStatus(hline: u32, dwaddressid: u32, lpaddressstatus: *mut LINEADDRESSSTATUS) -> i32;
-        }
-        ::core::mem::transmute(lineGetAddressStatus(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(lpaddressstatus)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetAddressStatus(hline: u32, dwaddressid: u32, lpaddressstatus: *mut LINEADDRESSSTATUS) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetAddressStatus(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(lpaddressstatus)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetAddressStatusA(hline: u32, dwaddressid: u32, lpaddressstatus: *mut LINEADDRESSSTATUS) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetAddressStatusA(hline: u32, dwaddressid: u32, lpaddressstatus: *mut LINEADDRESSSTATUS) -> i32;
-        }
-        ::core::mem::transmute(lineGetAddressStatusA(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(lpaddressstatus)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetAddressStatusA(hline: u32, dwaddressid: u32, lpaddressstatus: *mut LINEADDRESSSTATUS) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetAddressStatusA(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(lpaddressstatus)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetAddressStatusW(hline: u32, dwaddressid: u32, lpaddressstatus: *mut LINEADDRESSSTATUS) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetAddressStatusW(hline: u32, dwaddressid: u32, lpaddressstatus: *mut LINEADDRESSSTATUS) -> i32;
-        }
-        ::core::mem::transmute(lineGetAddressStatusW(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(lpaddressstatus)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetAddressStatusW(hline: u32, dwaddressid: u32, lpaddressstatus: *mut LINEADDRESSSTATUS) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetAddressStatusW(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(lpaddressstatus)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetAgentActivityListA(hline: u32, dwaddressid: u32, lpagentactivitylist: *mut LINEAGENTACTIVITYLIST) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetAgentActivityListA(hline: u32, dwaddressid: u32, lpagentactivitylist: *mut LINEAGENTACTIVITYLIST) -> i32;
-        }
-        ::core::mem::transmute(lineGetAgentActivityListA(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(lpagentactivitylist)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetAgentActivityListA(hline: u32, dwaddressid: u32, lpagentactivitylist: *mut LINEAGENTACTIVITYLIST) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetAgentActivityListA(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(lpagentactivitylist)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetAgentActivityListW(hline: u32, dwaddressid: u32, lpagentactivitylist: *mut LINEAGENTACTIVITYLIST) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetAgentActivityListW(hline: u32, dwaddressid: u32, lpagentactivitylist: *mut LINEAGENTACTIVITYLIST) -> i32;
-        }
-        ::core::mem::transmute(lineGetAgentActivityListW(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(lpagentactivitylist)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetAgentActivityListW(hline: u32, dwaddressid: u32, lpagentactivitylist: *mut LINEAGENTACTIVITYLIST) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetAgentActivityListW(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(lpagentactivitylist)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetAgentCapsA(hlineapp: u32, dwdeviceid: u32, dwaddressid: u32, dwappapiversion: u32, lpagentcaps: *mut LINEAGENTCAPS) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetAgentCapsA(hlineapp: u32, dwdeviceid: u32, dwaddressid: u32, dwappapiversion: u32, lpagentcaps: *mut LINEAGENTCAPS) -> i32;
-        }
-        ::core::mem::transmute(lineGetAgentCapsA(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(dwappapiversion), ::core::mem::transmute(lpagentcaps)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetAgentCapsA(hlineapp: u32, dwdeviceid: u32, dwaddressid: u32, dwappapiversion: u32, lpagentcaps: *mut LINEAGENTCAPS) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetAgentCapsA(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(dwappapiversion), ::core::mem::transmute(lpagentcaps)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetAgentCapsW(hlineapp: u32, dwdeviceid: u32, dwaddressid: u32, dwappapiversion: u32, lpagentcaps: *mut LINEAGENTCAPS) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetAgentCapsW(hlineapp: u32, dwdeviceid: u32, dwaddressid: u32, dwappapiversion: u32, lpagentcaps: *mut LINEAGENTCAPS) -> i32;
-        }
-        ::core::mem::transmute(lineGetAgentCapsW(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(dwappapiversion), ::core::mem::transmute(lpagentcaps)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetAgentCapsW(hlineapp: u32, dwdeviceid: u32, dwaddressid: u32, dwappapiversion: u32, lpagentcaps: *mut LINEAGENTCAPS) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetAgentCapsW(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(dwappapiversion), ::core::mem::transmute(lpagentcaps)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetAgentGroupListA(hline: u32, dwaddressid: u32, lpagentgrouplist: *mut LINEAGENTGROUPLIST) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetAgentGroupListA(hline: u32, dwaddressid: u32, lpagentgrouplist: *mut LINEAGENTGROUPLIST) -> i32;
-        }
-        ::core::mem::transmute(lineGetAgentGroupListA(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(lpagentgrouplist)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetAgentGroupListA(hline: u32, dwaddressid: u32, lpagentgrouplist: *mut LINEAGENTGROUPLIST) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetAgentGroupListA(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(lpagentgrouplist)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetAgentGroupListW(hline: u32, dwaddressid: u32, lpagentgrouplist: *mut LINEAGENTGROUPLIST) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetAgentGroupListW(hline: u32, dwaddressid: u32, lpagentgrouplist: *mut LINEAGENTGROUPLIST) -> i32;
-        }
-        ::core::mem::transmute(lineGetAgentGroupListW(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(lpagentgrouplist)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetAgentGroupListW(hline: u32, dwaddressid: u32, lpagentgrouplist: *mut LINEAGENTGROUPLIST) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetAgentGroupListW(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(lpagentgrouplist)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn lineGetAgentInfo(hline: u32, hagent: u32, lpagentinfo: *mut LINEAGENTINFO) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetAgentInfo(hline: u32, hagent: u32, lpagentinfo: *mut LINEAGENTINFO) -> i32;
-        }
-        ::core::mem::transmute(lineGetAgentInfo(::core::mem::transmute(hline), ::core::mem::transmute(hagent), ::core::mem::transmute(lpagentinfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetAgentInfo(hline: u32, hagent: u32, lpagentinfo: *mut LINEAGENTINFO) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetAgentInfo(::core::mem::transmute(hline), ::core::mem::transmute(hagent), ::core::mem::transmute(lpagentinfo)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn lineGetAgentSessionInfo(hline: u32, hagentsession: u32, lpagentsessioninfo: *mut LINEAGENTSESSIONINFO) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetAgentSessionInfo(hline: u32, hagentsession: u32, lpagentsessioninfo: *mut LINEAGENTSESSIONINFO) -> i32;
-        }
-        ::core::mem::transmute(lineGetAgentSessionInfo(::core::mem::transmute(hline), ::core::mem::transmute(hagentsession), ::core::mem::transmute(lpagentsessioninfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetAgentSessionInfo(hline: u32, hagentsession: u32, lpagentsessioninfo: *mut LINEAGENTSESSIONINFO) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetAgentSessionInfo(::core::mem::transmute(hline), ::core::mem::transmute(hagentsession), ::core::mem::transmute(lpagentsessioninfo)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetAgentSessionList(hline: u32, hagent: u32, lpagentsessionlist: *mut LINEAGENTSESSIONLIST) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetAgentSessionList(hline: u32, hagent: u32, lpagentsessionlist: *mut LINEAGENTSESSIONLIST) -> i32;
-        }
-        ::core::mem::transmute(lineGetAgentSessionList(::core::mem::transmute(hline), ::core::mem::transmute(hagent), ::core::mem::transmute(lpagentsessionlist)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetAgentSessionList(hline: u32, hagent: u32, lpagentsessionlist: *mut LINEAGENTSESSIONLIST) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetAgentSessionList(::core::mem::transmute(hline), ::core::mem::transmute(hagent), ::core::mem::transmute(lpagentsessionlist)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetAgentStatusA(hline: u32, dwaddressid: u32, lpagentstatus: *mut LINEAGENTSTATUS) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetAgentStatusA(hline: u32, dwaddressid: u32, lpagentstatus: *mut LINEAGENTSTATUS) -> i32;
-        }
-        ::core::mem::transmute(lineGetAgentStatusA(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(lpagentstatus)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetAgentStatusA(hline: u32, dwaddressid: u32, lpagentstatus: *mut LINEAGENTSTATUS) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetAgentStatusA(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(lpagentstatus)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetAgentStatusW(hline: u32, dwaddressid: u32, lpagentstatus: *mut LINEAGENTSTATUS) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetAgentStatusW(hline: u32, dwaddressid: u32, lpagentstatus: *mut LINEAGENTSTATUS) -> i32;
-        }
-        ::core::mem::transmute(lineGetAgentStatusW(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(lpagentstatus)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetAgentStatusW(hline: u32, dwaddressid: u32, lpagentstatus: *mut LINEAGENTSTATUS) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetAgentStatusW(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(lpagentstatus)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetAppPriority<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lpszappfilename: Param0, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpextensionname: *mut VARSTRING, lpdwpriority: *mut u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetAppPriority(lpszappfilename: ::windows::core::PCSTR, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpextensionname: *mut VARSTRING, lpdwpriority: *mut u32) -> i32;
-        }
-        ::core::mem::transmute(lineGetAppPriority(lpszappfilename.into_param().abi(), ::core::mem::transmute(dwmediamode), ::core::mem::transmute(lpextensionid), ::core::mem::transmute(dwrequestmode), ::core::mem::transmute(lpextensionname), ::core::mem::transmute(lpdwpriority)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetAppPriority(lpszappfilename: ::windows::core::PCSTR, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpextensionname: *mut VARSTRING, lpdwpriority: *mut u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetAppPriority(lpszappfilename.into_param().abi(), ::core::mem::transmute(dwmediamode), ::core::mem::transmute(lpextensionid), ::core::mem::transmute(dwrequestmode), ::core::mem::transmute(lpextensionname), ::core::mem::transmute(lpdwpriority)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetAppPriorityA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lpszappfilename: Param0, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpextensionname: *mut VARSTRING, lpdwpriority: *mut u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetAppPriorityA(lpszappfilename: ::windows::core::PCSTR, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpextensionname: *mut VARSTRING, lpdwpriority: *mut u32) -> i32;
-        }
-        ::core::mem::transmute(lineGetAppPriorityA(lpszappfilename.into_param().abi(), ::core::mem::transmute(dwmediamode), ::core::mem::transmute(lpextensionid), ::core::mem::transmute(dwrequestmode), ::core::mem::transmute(lpextensionname), ::core::mem::transmute(lpdwpriority)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetAppPriorityA(lpszappfilename: ::windows::core::PCSTR, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpextensionname: *mut VARSTRING, lpdwpriority: *mut u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetAppPriorityA(lpszappfilename.into_param().abi(), ::core::mem::transmute(dwmediamode), ::core::mem::transmute(lpextensionid), ::core::mem::transmute(dwrequestmode), ::core::mem::transmute(lpextensionname), ::core::mem::transmute(lpdwpriority)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetAppPriorityW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpszappfilename: Param0, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpextensionname: *mut VARSTRING, lpdwpriority: *mut u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetAppPriorityW(lpszappfilename: ::windows::core::PCWSTR, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpextensionname: *mut VARSTRING, lpdwpriority: *mut u32) -> i32;
-        }
-        ::core::mem::transmute(lineGetAppPriorityW(lpszappfilename.into_param().abi(), ::core::mem::transmute(dwmediamode), ::core::mem::transmute(lpextensionid), ::core::mem::transmute(dwrequestmode), ::core::mem::transmute(lpextensionname), ::core::mem::transmute(lpdwpriority)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetAppPriorityW(lpszappfilename: ::windows::core::PCWSTR, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpextensionname: *mut VARSTRING, lpdwpriority: *mut u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetAppPriorityW(lpszappfilename.into_param().abi(), ::core::mem::transmute(dwmediamode), ::core::mem::transmute(lpextensionid), ::core::mem::transmute(dwrequestmode), ::core::mem::transmute(lpextensionname), ::core::mem::transmute(lpdwpriority)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetCallInfo(hcall: u32, lpcallinfo: *mut LINECALLINFO) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetCallInfo(hcall: u32, lpcallinfo: *mut LINECALLINFO) -> i32;
-        }
-        ::core::mem::transmute(lineGetCallInfo(::core::mem::transmute(hcall), ::core::mem::transmute(lpcallinfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetCallInfo(hcall: u32, lpcallinfo: *mut LINECALLINFO) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetCallInfo(::core::mem::transmute(hcall), ::core::mem::transmute(lpcallinfo)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetCallInfoA(hcall: u32, lpcallinfo: *mut LINECALLINFO) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetCallInfoA(hcall: u32, lpcallinfo: *mut LINECALLINFO) -> i32;
-        }
-        ::core::mem::transmute(lineGetCallInfoA(::core::mem::transmute(hcall), ::core::mem::transmute(lpcallinfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetCallInfoA(hcall: u32, lpcallinfo: *mut LINECALLINFO) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetCallInfoA(::core::mem::transmute(hcall), ::core::mem::transmute(lpcallinfo)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetCallInfoW(hcall: u32, lpcallinfo: *mut LINECALLINFO) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetCallInfoW(hcall: u32, lpcallinfo: *mut LINECALLINFO) -> i32;
-        }
-        ::core::mem::transmute(lineGetCallInfoW(::core::mem::transmute(hcall), ::core::mem::transmute(lpcallinfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetCallInfoW(hcall: u32, lpcallinfo: *mut LINECALLINFO) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetCallInfoW(::core::mem::transmute(hcall), ::core::mem::transmute(lpcallinfo)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineGetCallStatus(hcall: u32, lpcallstatus: *mut LINECALLSTATUS) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetCallStatus(hcall: u32, lpcallstatus: *mut LINECALLSTATUS) -> i32;
-        }
-        ::core::mem::transmute(lineGetCallStatus(::core::mem::transmute(hcall), ::core::mem::transmute(lpcallstatus)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetCallStatus(hcall: u32, lpcallstatus: *mut LINECALLSTATUS) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetCallStatus(::core::mem::transmute(hcall), ::core::mem::transmute(lpcallstatus)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetConfRelatedCalls(hcall: u32, lpcalllist: *mut LINECALLLIST) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetConfRelatedCalls(hcall: u32, lpcalllist: *mut LINECALLLIST) -> i32;
-        }
-        ::core::mem::transmute(lineGetConfRelatedCalls(::core::mem::transmute(hcall), ::core::mem::transmute(lpcalllist)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetConfRelatedCalls(hcall: u32, lpcalllist: *mut LINECALLLIST) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetConfRelatedCalls(::core::mem::transmute(hcall), ::core::mem::transmute(lpcalllist)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetCountry(dwcountryid: u32, dwapiversion: u32, lplinecountrylist: *mut LINECOUNTRYLIST) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetCountry(dwcountryid: u32, dwapiversion: u32, lplinecountrylist: *mut LINECOUNTRYLIST) -> i32;
-        }
-        ::core::mem::transmute(lineGetCountry(::core::mem::transmute(dwcountryid), ::core::mem::transmute(dwapiversion), ::core::mem::transmute(lplinecountrylist)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetCountry(dwcountryid: u32, dwapiversion: u32, lplinecountrylist: *mut LINECOUNTRYLIST) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetCountry(::core::mem::transmute(dwcountryid), ::core::mem::transmute(dwapiversion), ::core::mem::transmute(lplinecountrylist)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetCountryA(dwcountryid: u32, dwapiversion: u32, lplinecountrylist: *mut LINECOUNTRYLIST) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetCountryA(dwcountryid: u32, dwapiversion: u32, lplinecountrylist: *mut LINECOUNTRYLIST) -> i32;
-        }
-        ::core::mem::transmute(lineGetCountryA(::core::mem::transmute(dwcountryid), ::core::mem::transmute(dwapiversion), ::core::mem::transmute(lplinecountrylist)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetCountryA(dwcountryid: u32, dwapiversion: u32, lplinecountrylist: *mut LINECOUNTRYLIST) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetCountryA(::core::mem::transmute(dwcountryid), ::core::mem::transmute(dwapiversion), ::core::mem::transmute(lplinecountrylist)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetCountryW(dwcountryid: u32, dwapiversion: u32, lplinecountrylist: *mut LINECOUNTRYLIST) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetCountryW(dwcountryid: u32, dwapiversion: u32, lplinecountrylist: *mut LINECOUNTRYLIST) -> i32;
-        }
-        ::core::mem::transmute(lineGetCountryW(::core::mem::transmute(dwcountryid), ::core::mem::transmute(dwapiversion), ::core::mem::transmute(lplinecountrylist)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetCountryW(dwcountryid: u32, dwapiversion: u32, lplinecountrylist: *mut LINECOUNTRYLIST) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetCountryW(::core::mem::transmute(dwcountryid), ::core::mem::transmute(dwapiversion), ::core::mem::transmute(lplinecountrylist)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetDevCaps(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextversion: u32, lplinedevcaps: *mut LINEDEVCAPS) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetDevCaps(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextversion: u32, lplinedevcaps: *mut LINEDEVCAPS) -> i32;
-        }
-        ::core::mem::transmute(lineGetDevCaps(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(dwapiversion), ::core::mem::transmute(dwextversion), ::core::mem::transmute(lplinedevcaps)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetDevCaps(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextversion: u32, lplinedevcaps: *mut LINEDEVCAPS) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetDevCaps(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(dwapiversion), ::core::mem::transmute(dwextversion), ::core::mem::transmute(lplinedevcaps)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetDevCapsA(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextversion: u32, lplinedevcaps: *mut LINEDEVCAPS) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetDevCapsA(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextversion: u32, lplinedevcaps: *mut LINEDEVCAPS) -> i32;
-        }
-        ::core::mem::transmute(lineGetDevCapsA(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(dwapiversion), ::core::mem::transmute(dwextversion), ::core::mem::transmute(lplinedevcaps)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetDevCapsA(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextversion: u32, lplinedevcaps: *mut LINEDEVCAPS) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetDevCapsA(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(dwapiversion), ::core::mem::transmute(dwextversion), ::core::mem::transmute(lplinedevcaps)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetDevCapsW(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextversion: u32, lplinedevcaps: *mut LINEDEVCAPS) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetDevCapsW(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextversion: u32, lplinedevcaps: *mut LINEDEVCAPS) -> i32;
-        }
-        ::core::mem::transmute(lineGetDevCapsW(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(dwapiversion), ::core::mem::transmute(dwextversion), ::core::mem::transmute(lplinedevcaps)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetDevCapsW(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextversion: u32, lplinedevcaps: *mut LINEDEVCAPS) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetDevCapsW(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(dwapiversion), ::core::mem::transmute(dwextversion), ::core::mem::transmute(lplinedevcaps)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetDevConfig<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(dwdeviceid: u32, lpdeviceconfig: *mut VARSTRING, lpszdeviceclass: Param2) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetDevConfig(dwdeviceid: u32, lpdeviceconfig: *mut VARSTRING, lpszdeviceclass: ::windows::core::PCSTR) -> i32;
-        }
-        ::core::mem::transmute(lineGetDevConfig(::core::mem::transmute(dwdeviceid), ::core::mem::transmute(lpdeviceconfig), lpszdeviceclass.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetDevConfig(dwdeviceid: u32, lpdeviceconfig: *mut VARSTRING, lpszdeviceclass: ::windows::core::PCSTR) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetDevConfig(::core::mem::transmute(dwdeviceid), ::core::mem::transmute(lpdeviceconfig), lpszdeviceclass.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetDevConfigA<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(dwdeviceid: u32, lpdeviceconfig: *mut VARSTRING, lpszdeviceclass: Param2) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetDevConfigA(dwdeviceid: u32, lpdeviceconfig: *mut VARSTRING, lpszdeviceclass: ::windows::core::PCSTR) -> i32;
-        }
-        ::core::mem::transmute(lineGetDevConfigA(::core::mem::transmute(dwdeviceid), ::core::mem::transmute(lpdeviceconfig), lpszdeviceclass.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetDevConfigA(dwdeviceid: u32, lpdeviceconfig: *mut VARSTRING, lpszdeviceclass: ::windows::core::PCSTR) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetDevConfigA(::core::mem::transmute(dwdeviceid), ::core::mem::transmute(lpdeviceconfig), lpszdeviceclass.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetDevConfigW<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(dwdeviceid: u32, lpdeviceconfig: *mut VARSTRING, lpszdeviceclass: Param2) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetDevConfigW(dwdeviceid: u32, lpdeviceconfig: *mut VARSTRING, lpszdeviceclass: ::windows::core::PCWSTR) -> i32;
-        }
-        ::core::mem::transmute(lineGetDevConfigW(::core::mem::transmute(dwdeviceid), ::core::mem::transmute(lpdeviceconfig), lpszdeviceclass.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetDevConfigW(dwdeviceid: u32, lpdeviceconfig: *mut VARSTRING, lpszdeviceclass: ::windows::core::PCWSTR) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetDevConfigW(::core::mem::transmute(dwdeviceid), ::core::mem::transmute(lpdeviceconfig), lpszdeviceclass.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetGroupListA(hline: u32, lpgrouplist: *mut LINEAGENTGROUPLIST) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetGroupListA(hline: u32, lpgrouplist: *mut LINEAGENTGROUPLIST) -> i32;
-        }
-        ::core::mem::transmute(lineGetGroupListA(::core::mem::transmute(hline), ::core::mem::transmute(lpgrouplist)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetGroupListA(hline: u32, lpgrouplist: *mut LINEAGENTGROUPLIST) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetGroupListA(::core::mem::transmute(hline), ::core::mem::transmute(lpgrouplist)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetGroupListW(hline: u32, lpgrouplist: *mut LINEAGENTGROUPLIST) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetGroupListW(hline: u32, lpgrouplist: *mut LINEAGENTGROUPLIST) -> i32;
-        }
-        ::core::mem::transmute(lineGetGroupListW(::core::mem::transmute(hline), ::core::mem::transmute(lpgrouplist)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetGroupListW(hline: u32, lpgrouplist: *mut LINEAGENTGROUPLIST) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetGroupListW(::core::mem::transmute(hline), ::core::mem::transmute(lpgrouplist)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetID<'a, Param5: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: Param5) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetID(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: ::windows::core::PCSTR) -> i32;
-        }
-        ::core::mem::transmute(lineGetID(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(hcall), ::core::mem::transmute(dwselect), ::core::mem::transmute(lpdeviceid), lpszdeviceclass.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetID(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: ::windows::core::PCSTR) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetID(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(hcall), ::core::mem::transmute(dwselect), ::core::mem::transmute(lpdeviceid), lpszdeviceclass.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetIDA<'a, Param5: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: Param5) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetIDA(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: ::windows::core::PCSTR) -> i32;
-        }
-        ::core::mem::transmute(lineGetIDA(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(hcall), ::core::mem::transmute(dwselect), ::core::mem::transmute(lpdeviceid), lpszdeviceclass.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetIDA(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: ::windows::core::PCSTR) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetIDA(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(hcall), ::core::mem::transmute(dwselect), ::core::mem::transmute(lpdeviceid), lpszdeviceclass.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetIDW<'a, Param5: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: Param5) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetIDW(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: ::windows::core::PCWSTR) -> i32;
-        }
-        ::core::mem::transmute(lineGetIDW(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(hcall), ::core::mem::transmute(dwselect), ::core::mem::transmute(lpdeviceid), lpszdeviceclass.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetIDW(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: ::windows::core::PCWSTR) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetIDW(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(hcall), ::core::mem::transmute(dwselect), ::core::mem::transmute(lpdeviceid), lpszdeviceclass.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetIcon<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(dwdeviceid: u32, lpszdeviceclass: Param1, lphicon: *mut isize) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetIcon(dwdeviceid: u32, lpszdeviceclass: ::windows::core::PCSTR, lphicon: *mut isize) -> i32;
-        }
-        ::core::mem::transmute(lineGetIcon(::core::mem::transmute(dwdeviceid), lpszdeviceclass.into_param().abi(), ::core::mem::transmute(lphicon)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetIcon(dwdeviceid: u32, lpszdeviceclass: ::windows::core::PCSTR, lphicon: *mut isize) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetIcon(::core::mem::transmute(dwdeviceid), lpszdeviceclass.into_param().abi(), ::core::mem::transmute(lphicon)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetIconA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(dwdeviceid: u32, lpszdeviceclass: Param1, lphicon: *mut isize) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetIconA(dwdeviceid: u32, lpszdeviceclass: ::windows::core::PCSTR, lphicon: *mut isize) -> i32;
-        }
-        ::core::mem::transmute(lineGetIconA(::core::mem::transmute(dwdeviceid), lpszdeviceclass.into_param().abi(), ::core::mem::transmute(lphicon)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetIconA(dwdeviceid: u32, lpszdeviceclass: ::windows::core::PCSTR, lphicon: *mut isize) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetIconA(::core::mem::transmute(dwdeviceid), lpszdeviceclass.into_param().abi(), ::core::mem::transmute(lphicon)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetIconW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(dwdeviceid: u32, lpszdeviceclass: Param1, lphicon: *mut isize) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetIconW(dwdeviceid: u32, lpszdeviceclass: ::windows::core::PCWSTR, lphicon: *mut isize) -> i32;
-        }
-        ::core::mem::transmute(lineGetIconW(::core::mem::transmute(dwdeviceid), lpszdeviceclass.into_param().abi(), ::core::mem::transmute(lphicon)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetIconW(dwdeviceid: u32, lpszdeviceclass: ::windows::core::PCWSTR, lphicon: *mut isize) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetIconW(::core::mem::transmute(dwdeviceid), lpszdeviceclass.into_param().abi(), ::core::mem::transmute(lphicon)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetLineDevStatus(hline: u32, lplinedevstatus: *mut LINEDEVSTATUS) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetLineDevStatus(hline: u32, lplinedevstatus: *mut LINEDEVSTATUS) -> i32;
-        }
-        ::core::mem::transmute(lineGetLineDevStatus(::core::mem::transmute(hline), ::core::mem::transmute(lplinedevstatus)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetLineDevStatus(hline: u32, lplinedevstatus: *mut LINEDEVSTATUS) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetLineDevStatus(::core::mem::transmute(hline), ::core::mem::transmute(lplinedevstatus)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetLineDevStatusA(hline: u32, lplinedevstatus: *mut LINEDEVSTATUS) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetLineDevStatusA(hline: u32, lplinedevstatus: *mut LINEDEVSTATUS) -> i32;
-        }
-        ::core::mem::transmute(lineGetLineDevStatusA(::core::mem::transmute(hline), ::core::mem::transmute(lplinedevstatus)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetLineDevStatusA(hline: u32, lplinedevstatus: *mut LINEDEVSTATUS) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetLineDevStatusA(::core::mem::transmute(hline), ::core::mem::transmute(lplinedevstatus)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetLineDevStatusW(hline: u32, lplinedevstatus: *mut LINEDEVSTATUS) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetLineDevStatusW(hline: u32, lplinedevstatus: *mut LINEDEVSTATUS) -> i32;
-        }
-        ::core::mem::transmute(lineGetLineDevStatusW(::core::mem::transmute(hline), ::core::mem::transmute(lplinedevstatus)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetLineDevStatusW(hline: u32, lplinedevstatus: *mut LINEDEVSTATUS) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetLineDevStatusW(::core::mem::transmute(hline), ::core::mem::transmute(lplinedevstatus)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetMessage(hlineapp: u32, lpmessage: *mut LINEMESSAGE, dwtimeout: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetMessage(hlineapp: u32, lpmessage: *mut LINEMESSAGE, dwtimeout: u32) -> i32;
-        }
-        ::core::mem::transmute(lineGetMessage(::core::mem::transmute(hlineapp), ::core::mem::transmute(lpmessage), ::core::mem::transmute(dwtimeout)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetMessage(hlineapp: u32, lpmessage: *mut LINEMESSAGE, dwtimeout: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetMessage(::core::mem::transmute(hlineapp), ::core::mem::transmute(lpmessage), ::core::mem::transmute(dwtimeout)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetNewCalls(hline: u32, dwaddressid: u32, dwselect: u32, lpcalllist: *mut LINECALLLIST) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetNewCalls(hline: u32, dwaddressid: u32, dwselect: u32, lpcalllist: *mut LINECALLLIST) -> i32;
-        }
-        ::core::mem::transmute(lineGetNewCalls(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(dwselect), ::core::mem::transmute(lpcalllist)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetNewCalls(hline: u32, dwaddressid: u32, dwselect: u32, lpcalllist: *mut LINECALLLIST) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetNewCalls(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(dwselect), ::core::mem::transmute(lpcalllist)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetNumRings(hline: u32, dwaddressid: u32, lpdwnumrings: *mut u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetNumRings(hline: u32, dwaddressid: u32, lpdwnumrings: *mut u32) -> i32;
-        }
-        ::core::mem::transmute(lineGetNumRings(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(lpdwnumrings)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetNumRings(hline: u32, dwaddressid: u32, lpdwnumrings: *mut u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetNumRings(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(lpdwnumrings)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetProviderList(dwapiversion: u32, lpproviderlist: *mut LINEPROVIDERLIST) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetProviderList(dwapiversion: u32, lpproviderlist: *mut LINEPROVIDERLIST) -> i32;
-        }
-        ::core::mem::transmute(lineGetProviderList(::core::mem::transmute(dwapiversion), ::core::mem::transmute(lpproviderlist)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetProviderList(dwapiversion: u32, lpproviderlist: *mut LINEPROVIDERLIST) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetProviderList(::core::mem::transmute(dwapiversion), ::core::mem::transmute(lpproviderlist)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetProviderListA(dwapiversion: u32, lpproviderlist: *mut LINEPROVIDERLIST) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetProviderListA(dwapiversion: u32, lpproviderlist: *mut LINEPROVIDERLIST) -> i32;
-        }
-        ::core::mem::transmute(lineGetProviderListA(::core::mem::transmute(dwapiversion), ::core::mem::transmute(lpproviderlist)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetProviderListA(dwapiversion: u32, lpproviderlist: *mut LINEPROVIDERLIST) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetProviderListA(::core::mem::transmute(dwapiversion), ::core::mem::transmute(lpproviderlist)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetProviderListW(dwapiversion: u32, lpproviderlist: *mut LINEPROVIDERLIST) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetProviderListW(dwapiversion: u32, lpproviderlist: *mut LINEPROVIDERLIST) -> i32;
-        }
-        ::core::mem::transmute(lineGetProviderListW(::core::mem::transmute(dwapiversion), ::core::mem::transmute(lpproviderlist)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetProviderListW(dwapiversion: u32, lpproviderlist: *mut LINEPROVIDERLIST) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetProviderListW(::core::mem::transmute(dwapiversion), ::core::mem::transmute(lpproviderlist)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetProxyStatus(hlineapp: u32, dwdeviceid: u32, dwappapiversion: u32, lplineproxyreqestlist: *mut LINEPROXYREQUESTLIST) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetProxyStatus(hlineapp: u32, dwdeviceid: u32, dwappapiversion: u32, lplineproxyreqestlist: *mut LINEPROXYREQUESTLIST) -> i32;
-        }
-        ::core::mem::transmute(lineGetProxyStatus(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(dwappapiversion), ::core::mem::transmute(lplineproxyreqestlist)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetProxyStatus(hlineapp: u32, dwdeviceid: u32, dwappapiversion: u32, lplineproxyreqestlist: *mut LINEPROXYREQUESTLIST) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetProxyStatus(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(dwappapiversion), ::core::mem::transmute(lplineproxyreqestlist)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetQueueInfo(hline: u32, dwqueueid: u32, lplinequeueinfo: *mut LINEQUEUEINFO) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetQueueInfo(hline: u32, dwqueueid: u32, lplinequeueinfo: *mut LINEQUEUEINFO) -> i32;
-        }
-        ::core::mem::transmute(lineGetQueueInfo(::core::mem::transmute(hline), ::core::mem::transmute(dwqueueid), ::core::mem::transmute(lplinequeueinfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetQueueInfo(hline: u32, dwqueueid: u32, lplinequeueinfo: *mut LINEQUEUEINFO) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetQueueInfo(::core::mem::transmute(hline), ::core::mem::transmute(dwqueueid), ::core::mem::transmute(lplinequeueinfo)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetQueueListA(hline: u32, lpgroupid: *mut ::windows::core::GUID, lpqueuelist: *mut LINEQUEUELIST) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetQueueListA(hline: u32, lpgroupid: *mut ::windows::core::GUID, lpqueuelist: *mut LINEQUEUELIST) -> i32;
-        }
-        ::core::mem::transmute(lineGetQueueListA(::core::mem::transmute(hline), ::core::mem::transmute(lpgroupid), ::core::mem::transmute(lpqueuelist)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetQueueListA(hline: u32, lpgroupid: *mut ::windows::core::GUID, lpqueuelist: *mut LINEQUEUELIST) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetQueueListA(::core::mem::transmute(hline), ::core::mem::transmute(lpgroupid), ::core::mem::transmute(lpqueuelist)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetQueueListW(hline: u32, lpgroupid: *mut ::windows::core::GUID, lpqueuelist: *mut LINEQUEUELIST) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetQueueListW(hline: u32, lpgroupid: *mut ::windows::core::GUID, lpqueuelist: *mut LINEQUEUELIST) -> i32;
-        }
-        ::core::mem::transmute(lineGetQueueListW(::core::mem::transmute(hline), ::core::mem::transmute(lpgroupid), ::core::mem::transmute(lpqueuelist)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetQueueListW(hline: u32, lpgroupid: *mut ::windows::core::GUID, lpqueuelist: *mut LINEQUEUELIST) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetQueueListW(::core::mem::transmute(hline), ::core::mem::transmute(lpgroupid), ::core::mem::transmute(lpqueuelist)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetRequest(hlineapp: u32, dwrequestmode: u32, lprequestbuffer: *mut ::core::ffi::c_void) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetRequest(hlineapp: u32, dwrequestmode: u32, lprequestbuffer: *mut ::core::ffi::c_void) -> i32;
-        }
-        ::core::mem::transmute(lineGetRequest(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwrequestmode), ::core::mem::transmute(lprequestbuffer)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetRequest(hlineapp: u32, dwrequestmode: u32, lprequestbuffer: *mut ::core::ffi::c_void) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetRequest(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwrequestmode), ::core::mem::transmute(lprequestbuffer)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetRequestA(hlineapp: u32, dwrequestmode: u32, lprequestbuffer: *mut ::core::ffi::c_void) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetRequestA(hlineapp: u32, dwrequestmode: u32, lprequestbuffer: *mut ::core::ffi::c_void) -> i32;
-        }
-        ::core::mem::transmute(lineGetRequestA(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwrequestmode), ::core::mem::transmute(lprequestbuffer)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetRequestA(hlineapp: u32, dwrequestmode: u32, lprequestbuffer: *mut ::core::ffi::c_void) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetRequestA(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwrequestmode), ::core::mem::transmute(lprequestbuffer)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetRequestW(hlineapp: u32, dwrequestmode: u32, lprequestbuffer: *mut ::core::ffi::c_void) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetRequestW(hlineapp: u32, dwrequestmode: u32, lprequestbuffer: *mut ::core::ffi::c_void) -> i32;
-        }
-        ::core::mem::transmute(lineGetRequestW(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwrequestmode), ::core::mem::transmute(lprequestbuffer)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetRequestW(hlineapp: u32, dwrequestmode: u32, lprequestbuffer: *mut ::core::ffi::c_void) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetRequestW(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwrequestmode), ::core::mem::transmute(lprequestbuffer)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetStatusMessages(hline: u32, lpdwlinestates: *mut u32, lpdwaddressstates: *mut u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetStatusMessages(hline: u32, lpdwlinestates: *mut u32, lpdwaddressstates: *mut u32) -> i32;
-        }
-        ::core::mem::transmute(lineGetStatusMessages(::core::mem::transmute(hline), ::core::mem::transmute(lpdwlinestates), ::core::mem::transmute(lpdwaddressstates)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetStatusMessages(hline: u32, lpdwlinestates: *mut u32, lpdwaddressstates: *mut u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetStatusMessages(::core::mem::transmute(hline), ::core::mem::transmute(lpdwlinestates), ::core::mem::transmute(lpdwaddressstates)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetTranslateCaps(hlineapp: u32, dwapiversion: u32, lptranslatecaps: *mut LINETRANSLATECAPS) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetTranslateCaps(hlineapp: u32, dwapiversion: u32, lptranslatecaps: *mut LINETRANSLATECAPS) -> i32;
-        }
-        ::core::mem::transmute(lineGetTranslateCaps(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwapiversion), ::core::mem::transmute(lptranslatecaps)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetTranslateCaps(hlineapp: u32, dwapiversion: u32, lptranslatecaps: *mut LINETRANSLATECAPS) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetTranslateCaps(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwapiversion), ::core::mem::transmute(lptranslatecaps)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetTranslateCapsA(hlineapp: u32, dwapiversion: u32, lptranslatecaps: *mut LINETRANSLATECAPS) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetTranslateCapsA(hlineapp: u32, dwapiversion: u32, lptranslatecaps: *mut LINETRANSLATECAPS) -> i32;
-        }
-        ::core::mem::transmute(lineGetTranslateCapsA(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwapiversion), ::core::mem::transmute(lptranslatecaps)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetTranslateCapsA(hlineapp: u32, dwapiversion: u32, lptranslatecaps: *mut LINETRANSLATECAPS) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetTranslateCapsA(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwapiversion), ::core::mem::transmute(lptranslatecaps)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineGetTranslateCapsW(hlineapp: u32, dwapiversion: u32, lptranslatecaps: *mut LINETRANSLATECAPS) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineGetTranslateCapsW(hlineapp: u32, dwapiversion: u32, lptranslatecaps: *mut LINETRANSLATECAPS) -> i32;
-        }
-        ::core::mem::transmute(lineGetTranslateCapsW(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwapiversion), ::core::mem::transmute(lptranslatecaps)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineGetTranslateCapsW(hlineapp: u32, dwapiversion: u32, lptranslatecaps: *mut LINETRANSLATECAPS) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineGetTranslateCapsW(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwapiversion), ::core::mem::transmute(lptranslatecaps)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineHandoff<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hcall: u32, lpszfilename: Param1, dwmediamode: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineHandoff(hcall: u32, lpszfilename: ::windows::core::PCSTR, dwmediamode: u32) -> i32;
-        }
-        ::core::mem::transmute(lineHandoff(::core::mem::transmute(hcall), lpszfilename.into_param().abi(), ::core::mem::transmute(dwmediamode)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineHandoff(hcall: u32, lpszfilename: ::windows::core::PCSTR, dwmediamode: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineHandoff(::core::mem::transmute(hcall), lpszfilename.into_param().abi(), ::core::mem::transmute(dwmediamode)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineHandoffA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hcall: u32, lpszfilename: Param1, dwmediamode: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineHandoffA(hcall: u32, lpszfilename: ::windows::core::PCSTR, dwmediamode: u32) -> i32;
-        }
-        ::core::mem::transmute(lineHandoffA(::core::mem::transmute(hcall), lpszfilename.into_param().abi(), ::core::mem::transmute(dwmediamode)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineHandoffA(hcall: u32, lpszfilename: ::windows::core::PCSTR, dwmediamode: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineHandoffA(::core::mem::transmute(hcall), lpszfilename.into_param().abi(), ::core::mem::transmute(dwmediamode)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineHandoffW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hcall: u32, lpszfilename: Param1, dwmediamode: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineHandoffW(hcall: u32, lpszfilename: ::windows::core::PCWSTR, dwmediamode: u32) -> i32;
-        }
-        ::core::mem::transmute(lineHandoffW(::core::mem::transmute(hcall), lpszfilename.into_param().abi(), ::core::mem::transmute(dwmediamode)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineHandoffW(hcall: u32, lpszfilename: ::windows::core::PCWSTR, dwmediamode: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineHandoffW(::core::mem::transmute(hcall), lpszfilename.into_param().abi(), ::core::mem::transmute(dwmediamode)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineHold(hcall: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineHold(hcall: u32) -> i32;
-        }
-        ::core::mem::transmute(lineHold(::core::mem::transmute(hcall)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineHold(hcall: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineHold(::core::mem::transmute(hcall)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineInitialize<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lphlineapp: *mut u32, hinstance: Param1, lpfncallback: LINECALLBACK, lpszappname: Param3, lpdwnumdevs: *mut u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineInitialize(lphlineapp: *mut u32, hinstance: super::super::Foundation::HINSTANCE, lpfncallback: *mut ::core::ffi::c_void, lpszappname: ::windows::core::PCSTR, lpdwnumdevs: *mut u32) -> i32;
-        }
-        ::core::mem::transmute(lineInitialize(::core::mem::transmute(lphlineapp), hinstance.into_param().abi(), ::core::mem::transmute(lpfncallback), lpszappname.into_param().abi(), ::core::mem::transmute(lpdwnumdevs)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineInitialize(lphlineapp: *mut u32, hinstance: super::super::Foundation::HINSTANCE, lpfncallback: *mut ::core::ffi::c_void, lpszappname: ::windows::core::PCSTR, lpdwnumdevs: *mut u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineInitialize(::core::mem::transmute(lphlineapp), hinstance.into_param().abi(), ::core::mem::transmute(lpfncallback), lpszappname.into_param().abi(), ::core::mem::transmute(lpdwnumdevs)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineInitializeExA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lphlineapp: *mut u32, hinstance: Param1, lpfncallback: LINECALLBACK, lpszfriendlyappname: Param3, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lplineinitializeexparams: *mut LINEINITIALIZEEXPARAMS) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineInitializeExA(lphlineapp: *mut u32, hinstance: super::super::Foundation::HINSTANCE, lpfncallback: *mut ::core::ffi::c_void, lpszfriendlyappname: ::windows::core::PCSTR, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lplineinitializeexparams: *mut LINEINITIALIZEEXPARAMS) -> i32;
-        }
-        ::core::mem::transmute(lineInitializeExA(::core::mem::transmute(lphlineapp), hinstance.into_param().abi(), ::core::mem::transmute(lpfncallback), lpszfriendlyappname.into_param().abi(), ::core::mem::transmute(lpdwnumdevs), ::core::mem::transmute(lpdwapiversion), ::core::mem::transmute(lplineinitializeexparams)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineInitializeExA(lphlineapp: *mut u32, hinstance: super::super::Foundation::HINSTANCE, lpfncallback: *mut ::core::ffi::c_void, lpszfriendlyappname: ::windows::core::PCSTR, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lplineinitializeexparams: *mut LINEINITIALIZEEXPARAMS) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineInitializeExA(::core::mem::transmute(lphlineapp), hinstance.into_param().abi(), ::core::mem::transmute(lpfncallback), lpszfriendlyappname.into_param().abi(), ::core::mem::transmute(lpdwnumdevs), ::core::mem::transmute(lpdwapiversion), ::core::mem::transmute(lplineinitializeexparams)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineInitializeExW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lphlineapp: *mut u32, hinstance: Param1, lpfncallback: LINECALLBACK, lpszfriendlyappname: Param3, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lplineinitializeexparams: *mut LINEINITIALIZEEXPARAMS) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineInitializeExW(lphlineapp: *mut u32, hinstance: super::super::Foundation::HINSTANCE, lpfncallback: *mut ::core::ffi::c_void, lpszfriendlyappname: ::windows::core::PCWSTR, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lplineinitializeexparams: *mut LINEINITIALIZEEXPARAMS) -> i32;
-        }
-        ::core::mem::transmute(lineInitializeExW(::core::mem::transmute(lphlineapp), hinstance.into_param().abi(), ::core::mem::transmute(lpfncallback), lpszfriendlyappname.into_param().abi(), ::core::mem::transmute(lpdwnumdevs), ::core::mem::transmute(lpdwapiversion), ::core::mem::transmute(lplineinitializeexparams)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineInitializeExW(lphlineapp: *mut u32, hinstance: super::super::Foundation::HINSTANCE, lpfncallback: *mut ::core::ffi::c_void, lpszfriendlyappname: ::windows::core::PCWSTR, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lplineinitializeexparams: *mut LINEINITIALIZEEXPARAMS) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineInitializeExW(::core::mem::transmute(lphlineapp), hinstance.into_param().abi(), ::core::mem::transmute(lpfncallback), lpszfriendlyappname.into_param().abi(), ::core::mem::transmute(lpdwnumdevs), ::core::mem::transmute(lpdwapiversion), ::core::mem::transmute(lplineinitializeexparams)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineMakeCall<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hline: u32, lphcall: *mut u32, lpszdestaddress: Param2, dwcountrycode: u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineMakeCall(hline: u32, lphcall: *mut u32, lpszdestaddress: ::windows::core::PCSTR, dwcountrycode: u32, lpcallparams: *const LINECALLPARAMS) -> i32;
-        }
-        ::core::mem::transmute(lineMakeCall(::core::mem::transmute(hline), ::core::mem::transmute(lphcall), lpszdestaddress.into_param().abi(), ::core::mem::transmute(dwcountrycode), ::core::mem::transmute(lpcallparams)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineMakeCall(hline: u32, lphcall: *mut u32, lpszdestaddress: ::windows::core::PCSTR, dwcountrycode: u32, lpcallparams: *const LINECALLPARAMS) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineMakeCall(::core::mem::transmute(hline), ::core::mem::transmute(lphcall), lpszdestaddress.into_param().abi(), ::core::mem::transmute(dwcountrycode), ::core::mem::transmute(lpcallparams)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineMakeCallA<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hline: u32, lphcall: *mut u32, lpszdestaddress: Param2, dwcountrycode: u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineMakeCallA(hline: u32, lphcall: *mut u32, lpszdestaddress: ::windows::core::PCSTR, dwcountrycode: u32, lpcallparams: *const LINECALLPARAMS) -> i32;
-        }
-        ::core::mem::transmute(lineMakeCallA(::core::mem::transmute(hline), ::core::mem::transmute(lphcall), lpszdestaddress.into_param().abi(), ::core::mem::transmute(dwcountrycode), ::core::mem::transmute(lpcallparams)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineMakeCallA(hline: u32, lphcall: *mut u32, lpszdestaddress: ::windows::core::PCSTR, dwcountrycode: u32, lpcallparams: *const LINECALLPARAMS) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineMakeCallA(::core::mem::transmute(hline), ::core::mem::transmute(lphcall), lpszdestaddress.into_param().abi(), ::core::mem::transmute(dwcountrycode), ::core::mem::transmute(lpcallparams)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineMakeCallW<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hline: u32, lphcall: *mut u32, lpszdestaddress: Param2, dwcountrycode: u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineMakeCallW(hline: u32, lphcall: *mut u32, lpszdestaddress: ::windows::core::PCWSTR, dwcountrycode: u32, lpcallparams: *const LINECALLPARAMS) -> i32;
-        }
-        ::core::mem::transmute(lineMakeCallW(::core::mem::transmute(hline), ::core::mem::transmute(lphcall), lpszdestaddress.into_param().abi(), ::core::mem::transmute(dwcountrycode), ::core::mem::transmute(lpcallparams)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineMakeCallW(hline: u32, lphcall: *mut u32, lpszdestaddress: ::windows::core::PCWSTR, dwcountrycode: u32, lpcallparams: *const LINECALLPARAMS) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineMakeCallW(::core::mem::transmute(hline), ::core::mem::transmute(lphcall), lpszdestaddress.into_param().abi(), ::core::mem::transmute(dwcountrycode), ::core::mem::transmute(lpcallparams)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineMonitorDigits(hcall: u32, dwdigitmodes: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineMonitorDigits(hcall: u32, dwdigitmodes: u32) -> i32;
-        }
-        ::core::mem::transmute(lineMonitorDigits(::core::mem::transmute(hcall), ::core::mem::transmute(dwdigitmodes)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineMonitorDigits(hcall: u32, dwdigitmodes: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineMonitorDigits(::core::mem::transmute(hcall), ::core::mem::transmute(dwdigitmodes)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineMonitorMedia(hcall: u32, dwmediamodes: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineMonitorMedia(hcall: u32, dwmediamodes: u32) -> i32;
-        }
-        ::core::mem::transmute(lineMonitorMedia(::core::mem::transmute(hcall), ::core::mem::transmute(dwmediamodes)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineMonitorMedia(hcall: u32, dwmediamodes: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineMonitorMedia(::core::mem::transmute(hcall), ::core::mem::transmute(dwmediamodes)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineMonitorTones(hcall: u32, lptonelist: *const LINEMONITORTONE, dwnumentries: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineMonitorTones(hcall: u32, lptonelist: *const LINEMONITORTONE, dwnumentries: u32) -> i32;
-        }
-        ::core::mem::transmute(lineMonitorTones(::core::mem::transmute(hcall), ::core::mem::transmute(lptonelist), ::core::mem::transmute(dwnumentries)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineMonitorTones(hcall: u32, lptonelist: *const LINEMONITORTONE, dwnumentries: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineMonitorTones(::core::mem::transmute(hcall), ::core::mem::transmute(lptonelist), ::core::mem::transmute(dwnumentries)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineNegotiateAPIVersion(hlineapp: u32, dwdeviceid: u32, dwapilowversion: u32, dwapihighversion: u32, lpdwapiversion: *mut u32, lpextensionid: *mut LINEEXTENSIONID) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineNegotiateAPIVersion(hlineapp: u32, dwdeviceid: u32, dwapilowversion: u32, dwapihighversion: u32, lpdwapiversion: *mut u32, lpextensionid: *mut LINEEXTENSIONID) -> i32;
-        }
-        ::core::mem::transmute(lineNegotiateAPIVersion(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(dwapilowversion), ::core::mem::transmute(dwapihighversion), ::core::mem::transmute(lpdwapiversion), ::core::mem::transmute(lpextensionid)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineNegotiateAPIVersion(hlineapp: u32, dwdeviceid: u32, dwapilowversion: u32, dwapihighversion: u32, lpdwapiversion: *mut u32, lpextensionid: *mut LINEEXTENSIONID) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineNegotiateAPIVersion(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(dwapilowversion), ::core::mem::transmute(dwapihighversion), ::core::mem::transmute(lpdwapiversion), ::core::mem::transmute(lpextensionid)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineNegotiateExtVersion(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextlowversion: u32, dwexthighversion: u32, lpdwextversion: *mut u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineNegotiateExtVersion(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextlowversion: u32, dwexthighversion: u32, lpdwextversion: *mut u32) -> i32;
-        }
-        ::core::mem::transmute(lineNegotiateExtVersion(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(dwapiversion), ::core::mem::transmute(dwextlowversion), ::core::mem::transmute(dwexthighversion), ::core::mem::transmute(lpdwextversion)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineNegotiateExtVersion(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextlowversion: u32, dwexthighversion: u32, lpdwextversion: *mut u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineNegotiateExtVersion(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(dwapiversion), ::core::mem::transmute(dwextlowversion), ::core::mem::transmute(dwexthighversion), ::core::mem::transmute(lpdwextversion)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineOpen(hlineapp: u32, dwdeviceid: u32, lphline: *mut u32, dwapiversion: u32, dwextversion: u32, dwcallbackinstance: usize, dwprivileges: u32, dwmediamodes: u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineOpen(hlineapp: u32, dwdeviceid: u32, lphline: *mut u32, dwapiversion: u32, dwextversion: u32, dwcallbackinstance: usize, dwprivileges: u32, dwmediamodes: u32, lpcallparams: *const LINECALLPARAMS) -> i32;
-        }
-        ::core::mem::transmute(lineOpen(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(lphline), ::core::mem::transmute(dwapiversion), ::core::mem::transmute(dwextversion), ::core::mem::transmute(dwcallbackinstance), ::core::mem::transmute(dwprivileges), ::core::mem::transmute(dwmediamodes), ::core::mem::transmute(lpcallparams)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineOpen(hlineapp: u32, dwdeviceid: u32, lphline: *mut u32, dwapiversion: u32, dwextversion: u32, dwcallbackinstance: usize, dwprivileges: u32, dwmediamodes: u32, lpcallparams: *const LINECALLPARAMS) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineOpen(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(lphline), ::core::mem::transmute(dwapiversion), ::core::mem::transmute(dwextversion), ::core::mem::transmute(dwcallbackinstance), ::core::mem::transmute(dwprivileges), ::core::mem::transmute(dwmediamodes), ::core::mem::transmute(lpcallparams)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineOpenA(hlineapp: u32, dwdeviceid: u32, lphline: *mut u32, dwapiversion: u32, dwextversion: u32, dwcallbackinstance: usize, dwprivileges: u32, dwmediamodes: u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineOpenA(hlineapp: u32, dwdeviceid: u32, lphline: *mut u32, dwapiversion: u32, dwextversion: u32, dwcallbackinstance: usize, dwprivileges: u32, dwmediamodes: u32, lpcallparams: *const LINECALLPARAMS) -> i32;
-        }
-        ::core::mem::transmute(lineOpenA(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(lphline), ::core::mem::transmute(dwapiversion), ::core::mem::transmute(dwextversion), ::core::mem::transmute(dwcallbackinstance), ::core::mem::transmute(dwprivileges), ::core::mem::transmute(dwmediamodes), ::core::mem::transmute(lpcallparams)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineOpenA(hlineapp: u32, dwdeviceid: u32, lphline: *mut u32, dwapiversion: u32, dwextversion: u32, dwcallbackinstance: usize, dwprivileges: u32, dwmediamodes: u32, lpcallparams: *const LINECALLPARAMS) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineOpenA(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(lphline), ::core::mem::transmute(dwapiversion), ::core::mem::transmute(dwextversion), ::core::mem::transmute(dwcallbackinstance), ::core::mem::transmute(dwprivileges), ::core::mem::transmute(dwmediamodes), ::core::mem::transmute(lpcallparams)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineOpenW(hlineapp: u32, dwdeviceid: u32, lphline: *mut u32, dwapiversion: u32, dwextversion: u32, dwcallbackinstance: usize, dwprivileges: u32, dwmediamodes: u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineOpenW(hlineapp: u32, dwdeviceid: u32, lphline: *mut u32, dwapiversion: u32, dwextversion: u32, dwcallbackinstance: usize, dwprivileges: u32, dwmediamodes: u32, lpcallparams: *const LINECALLPARAMS) -> i32;
-        }
-        ::core::mem::transmute(lineOpenW(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(lphline), ::core::mem::transmute(dwapiversion), ::core::mem::transmute(dwextversion), ::core::mem::transmute(dwcallbackinstance), ::core::mem::transmute(dwprivileges), ::core::mem::transmute(dwmediamodes), ::core::mem::transmute(lpcallparams)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineOpenW(hlineapp: u32, dwdeviceid: u32, lphline: *mut u32, dwapiversion: u32, dwextversion: u32, dwcallbackinstance: usize, dwprivileges: u32, dwmediamodes: u32, lpcallparams: *const LINECALLPARAMS) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineOpenW(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(lphline), ::core::mem::transmute(dwapiversion), ::core::mem::transmute(dwextversion), ::core::mem::transmute(dwcallbackinstance), ::core::mem::transmute(dwprivileges), ::core::mem::transmute(dwmediamodes), ::core::mem::transmute(lpcallparams)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn linePark<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hcall: u32, dwparkmode: u32, lpszdiraddress: Param2, lpnondiraddress: *mut VARSTRING) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn linePark(hcall: u32, dwparkmode: u32, lpszdiraddress: ::windows::core::PCSTR, lpnondiraddress: *mut VARSTRING) -> i32;
-        }
-        ::core::mem::transmute(linePark(::core::mem::transmute(hcall), ::core::mem::transmute(dwparkmode), lpszdiraddress.into_param().abi(), ::core::mem::transmute(lpnondiraddress)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn linePark(hcall: u32, dwparkmode: u32, lpszdiraddress: ::windows::core::PCSTR, lpnondiraddress: *mut VARSTRING) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(linePark(::core::mem::transmute(hcall), ::core::mem::transmute(dwparkmode), lpszdiraddress.into_param().abi(), ::core::mem::transmute(lpnondiraddress)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineParkA<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hcall: u32, dwparkmode: u32, lpszdiraddress: Param2, lpnondiraddress: *mut VARSTRING) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineParkA(hcall: u32, dwparkmode: u32, lpszdiraddress: ::windows::core::PCSTR, lpnondiraddress: *mut VARSTRING) -> i32;
-        }
-        ::core::mem::transmute(lineParkA(::core::mem::transmute(hcall), ::core::mem::transmute(dwparkmode), lpszdiraddress.into_param().abi(), ::core::mem::transmute(lpnondiraddress)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineParkA(hcall: u32, dwparkmode: u32, lpszdiraddress: ::windows::core::PCSTR, lpnondiraddress: *mut VARSTRING) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineParkA(::core::mem::transmute(hcall), ::core::mem::transmute(dwparkmode), lpszdiraddress.into_param().abi(), ::core::mem::transmute(lpnondiraddress)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineParkW<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hcall: u32, dwparkmode: u32, lpszdiraddress: Param2, lpnondiraddress: *mut VARSTRING) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineParkW(hcall: u32, dwparkmode: u32, lpszdiraddress: ::windows::core::PCWSTR, lpnondiraddress: *mut VARSTRING) -> i32;
-        }
-        ::core::mem::transmute(lineParkW(::core::mem::transmute(hcall), ::core::mem::transmute(dwparkmode), lpszdiraddress.into_param().abi(), ::core::mem::transmute(lpnondiraddress)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineParkW(hcall: u32, dwparkmode: u32, lpszdiraddress: ::windows::core::PCWSTR, lpnondiraddress: *mut VARSTRING) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineParkW(::core::mem::transmute(hcall), ::core::mem::transmute(dwparkmode), lpszdiraddress.into_param().abi(), ::core::mem::transmute(lpnondiraddress)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn linePickup<'a, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: Param3, lpszgroupid: Param4) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn linePickup(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: ::windows::core::PCSTR, lpszgroupid: ::windows::core::PCSTR) -> i32;
-        }
-        ::core::mem::transmute(linePickup(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(lphcall), lpszdestaddress.into_param().abi(), lpszgroupid.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn linePickup(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: ::windows::core::PCSTR, lpszgroupid: ::windows::core::PCSTR) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(linePickup(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(lphcall), lpszdestaddress.into_param().abi(), lpszgroupid.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn linePickupA<'a, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: Param3, lpszgroupid: Param4) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn linePickupA(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: ::windows::core::PCSTR, lpszgroupid: ::windows::core::PCSTR) -> i32;
-        }
-        ::core::mem::transmute(linePickupA(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(lphcall), lpszdestaddress.into_param().abi(), lpszgroupid.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn linePickupA(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: ::windows::core::PCSTR, lpszgroupid: ::windows::core::PCSTR) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(linePickupA(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(lphcall), lpszdestaddress.into_param().abi(), lpszgroupid.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn linePickupW<'a, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: Param3, lpszgroupid: Param4) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn linePickupW(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: ::windows::core::PCWSTR, lpszgroupid: ::windows::core::PCWSTR) -> i32;
-        }
-        ::core::mem::transmute(linePickupW(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(lphcall), lpszdestaddress.into_param().abi(), lpszgroupid.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn linePickupW(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: ::windows::core::PCWSTR, lpszgroupid: ::windows::core::PCWSTR) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(linePickupW(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(lphcall), lpszdestaddress.into_param().abi(), lpszgroupid.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn linePrepareAddToConference(hconfcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn linePrepareAddToConference(hconfcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32;
-        }
-        ::core::mem::transmute(linePrepareAddToConference(::core::mem::transmute(hconfcall), ::core::mem::transmute(lphconsultcall), ::core::mem::transmute(lpcallparams)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn linePrepareAddToConference(hconfcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(linePrepareAddToConference(::core::mem::transmute(hconfcall), ::core::mem::transmute(lphconsultcall), ::core::mem::transmute(lpcallparams)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn linePrepareAddToConferenceA(hconfcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn linePrepareAddToConferenceA(hconfcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32;
-        }
-        ::core::mem::transmute(linePrepareAddToConferenceA(::core::mem::transmute(hconfcall), ::core::mem::transmute(lphconsultcall), ::core::mem::transmute(lpcallparams)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn linePrepareAddToConferenceA(hconfcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(linePrepareAddToConferenceA(::core::mem::transmute(hconfcall), ::core::mem::transmute(lphconsultcall), ::core::mem::transmute(lpcallparams)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn linePrepareAddToConferenceW(hconfcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn linePrepareAddToConferenceW(hconfcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32;
-        }
-        ::core::mem::transmute(linePrepareAddToConferenceW(::core::mem::transmute(hconfcall), ::core::mem::transmute(lphconsultcall), ::core::mem::transmute(lpcallparams)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn linePrepareAddToConferenceW(hconfcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(linePrepareAddToConferenceW(::core::mem::transmute(hconfcall), ::core::mem::transmute(lphconsultcall), ::core::mem::transmute(lpcallparams)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineProxyMessage(hline: u32, hcall: u32, dwmsg: u32, dwparam1: u32, dwparam2: u32, dwparam3: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineProxyMessage(hline: u32, hcall: u32, dwmsg: u32, dwparam1: u32, dwparam2: u32, dwparam3: u32) -> i32;
-        }
-        ::core::mem::transmute(lineProxyMessage(::core::mem::transmute(hline), ::core::mem::transmute(hcall), ::core::mem::transmute(dwmsg), ::core::mem::transmute(dwparam1), ::core::mem::transmute(dwparam2), ::core::mem::transmute(dwparam3)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineProxyMessage(hline: u32, hcall: u32, dwmsg: u32, dwparam1: u32, dwparam2: u32, dwparam3: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineProxyMessage(::core::mem::transmute(hline), ::core::mem::transmute(hcall), ::core::mem::transmute(dwmsg), ::core::mem::transmute(dwparam1), ::core::mem::transmute(dwparam2), ::core::mem::transmute(dwparam3)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn lineProxyResponse(hline: u32, lpproxyrequest: *mut LINEPROXYREQUEST, dwresult: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineProxyResponse(hline: u32, lpproxyrequest: *mut LINEPROXYREQUEST, dwresult: u32) -> i32;
-        }
-        ::core::mem::transmute(lineProxyResponse(::core::mem::transmute(hline), ::core::mem::transmute(lpproxyrequest), ::core::mem::transmute(dwresult)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineProxyResponse(hline: u32, lpproxyrequest: *mut LINEPROXYREQUEST, dwresult: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineProxyResponse(::core::mem::transmute(hline), ::core::mem::transmute(lpproxyrequest), ::core::mem::transmute(dwresult)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineRedirect<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hcall: u32, lpszdestaddress: Param1, dwcountrycode: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineRedirect(hcall: u32, lpszdestaddress: ::windows::core::PCSTR, dwcountrycode: u32) -> i32;
-        }
-        ::core::mem::transmute(lineRedirect(::core::mem::transmute(hcall), lpszdestaddress.into_param().abi(), ::core::mem::transmute(dwcountrycode)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineRedirect(hcall: u32, lpszdestaddress: ::windows::core::PCSTR, dwcountrycode: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineRedirect(::core::mem::transmute(hcall), lpszdestaddress.into_param().abi(), ::core::mem::transmute(dwcountrycode)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineRedirectA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hcall: u32, lpszdestaddress: Param1, dwcountrycode: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineRedirectA(hcall: u32, lpszdestaddress: ::windows::core::PCSTR, dwcountrycode: u32) -> i32;
-        }
-        ::core::mem::transmute(lineRedirectA(::core::mem::transmute(hcall), lpszdestaddress.into_param().abi(), ::core::mem::transmute(dwcountrycode)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineRedirectA(hcall: u32, lpszdestaddress: ::windows::core::PCSTR, dwcountrycode: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineRedirectA(::core::mem::transmute(hcall), lpszdestaddress.into_param().abi(), ::core::mem::transmute(dwcountrycode)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineRedirectW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hcall: u32, lpszdestaddress: Param1, dwcountrycode: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineRedirectW(hcall: u32, lpszdestaddress: ::windows::core::PCWSTR, dwcountrycode: u32) -> i32;
-        }
-        ::core::mem::transmute(lineRedirectW(::core::mem::transmute(hcall), lpszdestaddress.into_param().abi(), ::core::mem::transmute(dwcountrycode)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineRedirectW(hcall: u32, lpszdestaddress: ::windows::core::PCWSTR, dwcountrycode: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineRedirectW(::core::mem::transmute(hcall), lpszdestaddress.into_param().abi(), ::core::mem::transmute(dwcountrycode)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineRegisterRequestRecipient(hlineapp: u32, dwregistrationinstance: u32, dwrequestmode: u32, benable: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineRegisterRequestRecipient(hlineapp: u32, dwregistrationinstance: u32, dwrequestmode: u32, benable: u32) -> i32;
-        }
-        ::core::mem::transmute(lineRegisterRequestRecipient(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwregistrationinstance), ::core::mem::transmute(dwrequestmode), ::core::mem::transmute(benable)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineRegisterRequestRecipient(hlineapp: u32, dwregistrationinstance: u32, dwrequestmode: u32, benable: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineRegisterRequestRecipient(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwregistrationinstance), ::core::mem::transmute(dwrequestmode), ::core::mem::transmute(benable)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineReleaseUserUserInfo(hcall: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineReleaseUserUserInfo(hcall: u32) -> i32;
-        }
-        ::core::mem::transmute(lineReleaseUserUserInfo(::core::mem::transmute(hcall)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineReleaseUserUserInfo(hcall: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineReleaseUserUserInfo(::core::mem::transmute(hcall)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineRemoveFromConference(hcall: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineRemoveFromConference(hcall: u32) -> i32;
-        }
-        ::core::mem::transmute(lineRemoveFromConference(::core::mem::transmute(hcall)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineRemoveFromConference(hcall: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineRemoveFromConference(::core::mem::transmute(hcall)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineRemoveProvider<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(dwpermanentproviderid: u32, hwndowner: Param1) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineRemoveProvider(dwpermanentproviderid: u32, hwndowner: super::super::Foundation::HWND) -> i32;
-        }
-        ::core::mem::transmute(lineRemoveProvider(::core::mem::transmute(dwpermanentproviderid), hwndowner.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineRemoveProvider(dwpermanentproviderid: u32, hwndowner: super::super::Foundation::HWND) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineRemoveProvider(::core::mem::transmute(dwpermanentproviderid), hwndowner.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineSecureCall(hcall: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineSecureCall(hcall: u32) -> i32;
-        }
-        ::core::mem::transmute(lineSecureCall(::core::mem::transmute(hcall)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineSecureCall(hcall: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineSecureCall(::core::mem::transmute(hcall)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineSendUserUserInfo<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hcall: u32, lpsuseruserinfo: Param1, dwsize: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineSendUserUserInfo(hcall: u32, lpsuseruserinfo: ::windows::core::PCSTR, dwsize: u32) -> i32;
-        }
-        ::core::mem::transmute(lineSendUserUserInfo(::core::mem::transmute(hcall), lpsuseruserinfo.into_param().abi(), ::core::mem::transmute(dwsize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineSendUserUserInfo(hcall: u32, lpsuseruserinfo: ::windows::core::PCSTR, dwsize: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineSendUserUserInfo(::core::mem::transmute(hcall), lpsuseruserinfo.into_param().abi(), ::core::mem::transmute(dwsize)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineSetAgentActivity(hline: u32, dwaddressid: u32, dwactivityid: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineSetAgentActivity(hline: u32, dwaddressid: u32, dwactivityid: u32) -> i32;
-        }
-        ::core::mem::transmute(lineSetAgentActivity(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(dwactivityid)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineSetAgentActivity(hline: u32, dwaddressid: u32, dwactivityid: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineSetAgentActivity(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(dwactivityid)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineSetAgentGroup(hline: u32, dwaddressid: u32, lpagentgrouplist: *mut LINEAGENTGROUPLIST) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineSetAgentGroup(hline: u32, dwaddressid: u32, lpagentgrouplist: *mut LINEAGENTGROUPLIST) -> i32;
-        }
-        ::core::mem::transmute(lineSetAgentGroup(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(lpagentgrouplist)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineSetAgentGroup(hline: u32, dwaddressid: u32, lpagentgrouplist: *mut LINEAGENTGROUPLIST) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineSetAgentGroup(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(lpagentgrouplist)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineSetAgentMeasurementPeriod(hline: u32, hagent: u32, dwmeasurementperiod: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineSetAgentMeasurementPeriod(hline: u32, hagent: u32, dwmeasurementperiod: u32) -> i32;
-        }
-        ::core::mem::transmute(lineSetAgentMeasurementPeriod(::core::mem::transmute(hline), ::core::mem::transmute(hagent), ::core::mem::transmute(dwmeasurementperiod)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineSetAgentMeasurementPeriod(hline: u32, hagent: u32, dwmeasurementperiod: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineSetAgentMeasurementPeriod(::core::mem::transmute(hline), ::core::mem::transmute(hagent), ::core::mem::transmute(dwmeasurementperiod)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineSetAgentSessionState(hline: u32, hagentsession: u32, dwagentsessionstate: u32, dwnextagentsessionstate: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineSetAgentSessionState(hline: u32, hagentsession: u32, dwagentsessionstate: u32, dwnextagentsessionstate: u32) -> i32;
-        }
-        ::core::mem::transmute(lineSetAgentSessionState(::core::mem::transmute(hline), ::core::mem::transmute(hagentsession), ::core::mem::transmute(dwagentsessionstate), ::core::mem::transmute(dwnextagentsessionstate)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineSetAgentSessionState(hline: u32, hagentsession: u32, dwagentsessionstate: u32, dwnextagentsessionstate: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineSetAgentSessionState(::core::mem::transmute(hline), ::core::mem::transmute(hagentsession), ::core::mem::transmute(dwagentsessionstate), ::core::mem::transmute(dwnextagentsessionstate)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineSetAgentState(hline: u32, dwaddressid: u32, dwagentstate: u32, dwnextagentstate: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineSetAgentState(hline: u32, dwaddressid: u32, dwagentstate: u32, dwnextagentstate: u32) -> i32;
-        }
-        ::core::mem::transmute(lineSetAgentState(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(dwagentstate), ::core::mem::transmute(dwnextagentstate)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineSetAgentState(hline: u32, dwaddressid: u32, dwagentstate: u32, dwnextagentstate: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineSetAgentState(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(dwagentstate), ::core::mem::transmute(dwnextagentstate)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineSetAgentStateEx(hline: u32, hagent: u32, dwagentstate: u32, dwnextagentstate: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineSetAgentStateEx(hline: u32, hagent: u32, dwagentstate: u32, dwnextagentstate: u32) -> i32;
-        }
-        ::core::mem::transmute(lineSetAgentStateEx(::core::mem::transmute(hline), ::core::mem::transmute(hagent), ::core::mem::transmute(dwagentstate), ::core::mem::transmute(dwnextagentstate)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineSetAgentStateEx(hline: u32, hagent: u32, dwagentstate: u32, dwnextagentstate: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineSetAgentStateEx(::core::mem::transmute(hline), ::core::mem::transmute(hagent), ::core::mem::transmute(dwagentstate), ::core::mem::transmute(dwnextagentstate)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineSetAppPriority<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lpszappfilename: Param0, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpszextensionname: Param4, dwpriority: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineSetAppPriority(lpszappfilename: ::windows::core::PCSTR, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpszextensionname: ::windows::core::PCSTR, dwpriority: u32) -> i32;
-        }
-        ::core::mem::transmute(lineSetAppPriority(lpszappfilename.into_param().abi(), ::core::mem::transmute(dwmediamode), ::core::mem::transmute(lpextensionid), ::core::mem::transmute(dwrequestmode), lpszextensionname.into_param().abi(), ::core::mem::transmute(dwpriority)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineSetAppPriority(lpszappfilename: ::windows::core::PCSTR, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpszextensionname: ::windows::core::PCSTR, dwpriority: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineSetAppPriority(lpszappfilename.into_param().abi(), ::core::mem::transmute(dwmediamode), ::core::mem::transmute(lpextensionid), ::core::mem::transmute(dwrequestmode), lpszextensionname.into_param().abi(), ::core::mem::transmute(dwpriority)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineSetAppPriorityA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lpszappfilename: Param0, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpszextensionname: Param4, dwpriority: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineSetAppPriorityA(lpszappfilename: ::windows::core::PCSTR, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpszextensionname: ::windows::core::PCSTR, dwpriority: u32) -> i32;
-        }
-        ::core::mem::transmute(lineSetAppPriorityA(lpszappfilename.into_param().abi(), ::core::mem::transmute(dwmediamode), ::core::mem::transmute(lpextensionid), ::core::mem::transmute(dwrequestmode), lpszextensionname.into_param().abi(), ::core::mem::transmute(dwpriority)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineSetAppPriorityA(lpszappfilename: ::windows::core::PCSTR, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpszextensionname: ::windows::core::PCSTR, dwpriority: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineSetAppPriorityA(lpszappfilename.into_param().abi(), ::core::mem::transmute(dwmediamode), ::core::mem::transmute(lpextensionid), ::core::mem::transmute(dwrequestmode), lpszextensionname.into_param().abi(), ::core::mem::transmute(dwpriority)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineSetAppPriorityW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpszappfilename: Param0, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpszextensionname: Param4, dwpriority: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineSetAppPriorityW(lpszappfilename: ::windows::core::PCWSTR, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpszextensionname: ::windows::core::PCWSTR, dwpriority: u32) -> i32;
-        }
-        ::core::mem::transmute(lineSetAppPriorityW(lpszappfilename.into_param().abi(), ::core::mem::transmute(dwmediamode), ::core::mem::transmute(lpextensionid), ::core::mem::transmute(dwrequestmode), lpszextensionname.into_param().abi(), ::core::mem::transmute(dwpriority)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineSetAppPriorityW(lpszappfilename: ::windows::core::PCWSTR, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpszextensionname: ::windows::core::PCWSTR, dwpriority: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineSetAppPriorityW(lpszappfilename.into_param().abi(), ::core::mem::transmute(dwmediamode), ::core::mem::transmute(lpextensionid), ::core::mem::transmute(dwrequestmode), lpszextensionname.into_param().abi(), ::core::mem::transmute(dwpriority)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineSetAppSpecific(hcall: u32, dwappspecific: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineSetAppSpecific(hcall: u32, dwappspecific: u32) -> i32;
-        }
-        ::core::mem::transmute(lineSetAppSpecific(::core::mem::transmute(hcall), ::core::mem::transmute(dwappspecific)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineSetAppSpecific(hcall: u32, dwappspecific: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineSetAppSpecific(::core::mem::transmute(hcall), ::core::mem::transmute(dwappspecific)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineSetCallData(hcall: u32, lpcalldata: *mut ::core::ffi::c_void, dwsize: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineSetCallData(hcall: u32, lpcalldata: *mut ::core::ffi::c_void, dwsize: u32) -> i32;
-        }
-        ::core::mem::transmute(lineSetCallData(::core::mem::transmute(hcall), ::core::mem::transmute(lpcalldata), ::core::mem::transmute(dwsize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineSetCallData(hcall: u32, lpcalldata: *mut ::core::ffi::c_void, dwsize: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineSetCallData(::core::mem::transmute(hcall), ::core::mem::transmute(lpcalldata), ::core::mem::transmute(dwsize)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineSetCallParams(hcall: u32, dwbearermode: u32, dwminrate: u32, dwmaxrate: u32, lpdialparams: *const LINEDIALPARAMS) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineSetCallParams(hcall: u32, dwbearermode: u32, dwminrate: u32, dwmaxrate: u32, lpdialparams: *const LINEDIALPARAMS) -> i32;
-        }
-        ::core::mem::transmute(lineSetCallParams(::core::mem::transmute(hcall), ::core::mem::transmute(dwbearermode), ::core::mem::transmute(dwminrate), ::core::mem::transmute(dwmaxrate), ::core::mem::transmute(lpdialparams)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineSetCallParams(hcall: u32, dwbearermode: u32, dwminrate: u32, dwmaxrate: u32, lpdialparams: *const LINEDIALPARAMS) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineSetCallParams(::core::mem::transmute(hcall), ::core::mem::transmute(dwbearermode), ::core::mem::transmute(dwminrate), ::core::mem::transmute(dwmaxrate), ::core::mem::transmute(lpdialparams)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineSetCallPrivilege(hcall: u32, dwcallprivilege: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineSetCallPrivilege(hcall: u32, dwcallprivilege: u32) -> i32;
-        }
-        ::core::mem::transmute(lineSetCallPrivilege(::core::mem::transmute(hcall), ::core::mem::transmute(dwcallprivilege)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineSetCallPrivilege(hcall: u32, dwcallprivilege: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineSetCallPrivilege(::core::mem::transmute(hcall), ::core::mem::transmute(dwcallprivilege)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineSetCallQualityOfService(hcall: u32, lpsendingflowspec: *mut ::core::ffi::c_void, dwsendingflowspecsize: u32, lpreceivingflowspec: *mut ::core::ffi::c_void, dwreceivingflowspecsize: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineSetCallQualityOfService(hcall: u32, lpsendingflowspec: *mut ::core::ffi::c_void, dwsendingflowspecsize: u32, lpreceivingflowspec: *mut ::core::ffi::c_void, dwreceivingflowspecsize: u32) -> i32;
-        }
-        ::core::mem::transmute(lineSetCallQualityOfService(::core::mem::transmute(hcall), ::core::mem::transmute(lpsendingflowspec), ::core::mem::transmute(dwsendingflowspecsize), ::core::mem::transmute(lpreceivingflowspec), ::core::mem::transmute(dwreceivingflowspecsize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineSetCallQualityOfService(hcall: u32, lpsendingflowspec: *mut ::core::ffi::c_void, dwsendingflowspecsize: u32, lpreceivingflowspec: *mut ::core::ffi::c_void, dwreceivingflowspecsize: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineSetCallQualityOfService(::core::mem::transmute(hcall), ::core::mem::transmute(lpsendingflowspec), ::core::mem::transmute(dwsendingflowspecsize), ::core::mem::transmute(lpreceivingflowspec), ::core::mem::transmute(dwreceivingflowspecsize)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineSetCallTreatment(hcall: u32, dwtreatment: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineSetCallTreatment(hcall: u32, dwtreatment: u32) -> i32;
-        }
-        ::core::mem::transmute(lineSetCallTreatment(::core::mem::transmute(hcall), ::core::mem::transmute(dwtreatment)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineSetCallTreatment(hcall: u32, dwtreatment: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineSetCallTreatment(::core::mem::transmute(hcall), ::core::mem::transmute(dwtreatment)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineSetCurrentLocation(hlineapp: u32, dwlocation: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineSetCurrentLocation(hlineapp: u32, dwlocation: u32) -> i32;
-        }
-        ::core::mem::transmute(lineSetCurrentLocation(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwlocation)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineSetCurrentLocation(hlineapp: u32, dwlocation: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineSetCurrentLocation(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwlocation)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineSetDevConfig<'a, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(dwdeviceid: u32, lpdeviceconfig: *const ::core::ffi::c_void, dwsize: u32, lpszdeviceclass: Param3) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineSetDevConfig(dwdeviceid: u32, lpdeviceconfig: *const ::core::ffi::c_void, dwsize: u32, lpszdeviceclass: ::windows::core::PCSTR) -> i32;
-        }
-        ::core::mem::transmute(lineSetDevConfig(::core::mem::transmute(dwdeviceid), ::core::mem::transmute(lpdeviceconfig), ::core::mem::transmute(dwsize), lpszdeviceclass.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineSetDevConfig(dwdeviceid: u32, lpdeviceconfig: *const ::core::ffi::c_void, dwsize: u32, lpszdeviceclass: ::windows::core::PCSTR) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineSetDevConfig(::core::mem::transmute(dwdeviceid), ::core::mem::transmute(lpdeviceconfig), ::core::mem::transmute(dwsize), lpszdeviceclass.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineSetDevConfigA<'a, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(dwdeviceid: u32, lpdeviceconfig: *const ::core::ffi::c_void, dwsize: u32, lpszdeviceclass: Param3) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineSetDevConfigA(dwdeviceid: u32, lpdeviceconfig: *const ::core::ffi::c_void, dwsize: u32, lpszdeviceclass: ::windows::core::PCSTR) -> i32;
-        }
-        ::core::mem::transmute(lineSetDevConfigA(::core::mem::transmute(dwdeviceid), ::core::mem::transmute(lpdeviceconfig), ::core::mem::transmute(dwsize), lpszdeviceclass.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineSetDevConfigA(dwdeviceid: u32, lpdeviceconfig: *const ::core::ffi::c_void, dwsize: u32, lpszdeviceclass: ::windows::core::PCSTR) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineSetDevConfigA(::core::mem::transmute(dwdeviceid), ::core::mem::transmute(lpdeviceconfig), ::core::mem::transmute(dwsize), lpszdeviceclass.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineSetDevConfigW<'a, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(dwdeviceid: u32, lpdeviceconfig: *const ::core::ffi::c_void, dwsize: u32, lpszdeviceclass: Param3) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineSetDevConfigW(dwdeviceid: u32, lpdeviceconfig: *const ::core::ffi::c_void, dwsize: u32, lpszdeviceclass: ::windows::core::PCWSTR) -> i32;
-        }
-        ::core::mem::transmute(lineSetDevConfigW(::core::mem::transmute(dwdeviceid), ::core::mem::transmute(lpdeviceconfig), ::core::mem::transmute(dwsize), lpszdeviceclass.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineSetDevConfigW(dwdeviceid: u32, lpdeviceconfig: *const ::core::ffi::c_void, dwsize: u32, lpszdeviceclass: ::windows::core::PCWSTR) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineSetDevConfigW(::core::mem::transmute(dwdeviceid), ::core::mem::transmute(lpdeviceconfig), ::core::mem::transmute(dwsize), lpszdeviceclass.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineSetLineDevStatus(hline: u32, dwstatustochange: u32, fstatus: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineSetLineDevStatus(hline: u32, dwstatustochange: u32, fstatus: u32) -> i32;
-        }
-        ::core::mem::transmute(lineSetLineDevStatus(::core::mem::transmute(hline), ::core::mem::transmute(dwstatustochange), ::core::mem::transmute(fstatus)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineSetLineDevStatus(hline: u32, dwstatustochange: u32, fstatus: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineSetLineDevStatus(::core::mem::transmute(hline), ::core::mem::transmute(dwstatustochange), ::core::mem::transmute(fstatus)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineSetMediaControl(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, lpdigitlist: *const LINEMEDIACONTROLDIGIT, dwdigitnumentries: u32, lpmedialist: *const LINEMEDIACONTROLMEDIA, dwmedianumentries: u32, lptonelist: *const LINEMEDIACONTROLTONE, dwtonenumentries: u32, lpcallstatelist: *const LINEMEDIACONTROLCALLSTATE, dwcallstatenumentries: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineSetMediaControl(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, lpdigitlist: *const LINEMEDIACONTROLDIGIT, dwdigitnumentries: u32, lpmedialist: *const LINEMEDIACONTROLMEDIA, dwmedianumentries: u32, lptonelist: *const LINEMEDIACONTROLTONE, dwtonenumentries: u32, lpcallstatelist: *const LINEMEDIACONTROLCALLSTATE, dwcallstatenumentries: u32) -> i32;
-        }
-        ::core::mem::transmute(lineSetMediaControl(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(hcall), ::core::mem::transmute(dwselect), ::core::mem::transmute(lpdigitlist), ::core::mem::transmute(dwdigitnumentries), ::core::mem::transmute(lpmedialist), ::core::mem::transmute(dwmedianumentries), ::core::mem::transmute(lptonelist), ::core::mem::transmute(dwtonenumentries), ::core::mem::transmute(lpcallstatelist), ::core::mem::transmute(dwcallstatenumentries)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineSetMediaControl(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, lpdigitlist: *const LINEMEDIACONTROLDIGIT, dwdigitnumentries: u32, lpmedialist: *const LINEMEDIACONTROLMEDIA, dwmedianumentries: u32, lptonelist: *const LINEMEDIACONTROLTONE, dwtonenumentries: u32, lpcallstatelist: *const LINEMEDIACONTROLCALLSTATE, dwcallstatenumentries: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineSetMediaControl(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(hcall), ::core::mem::transmute(dwselect), ::core::mem::transmute(lpdigitlist), ::core::mem::transmute(dwdigitnumentries), ::core::mem::transmute(lpmedialist), ::core::mem::transmute(dwmedianumentries), ::core::mem::transmute(lptonelist), ::core::mem::transmute(dwtonenumentries), ::core::mem::transmute(lpcallstatelist), ::core::mem::transmute(dwcallstatenumentries)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineSetMediaMode(hcall: u32, dwmediamodes: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineSetMediaMode(hcall: u32, dwmediamodes: u32) -> i32;
-        }
-        ::core::mem::transmute(lineSetMediaMode(::core::mem::transmute(hcall), ::core::mem::transmute(dwmediamodes)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineSetMediaMode(hcall: u32, dwmediamodes: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineSetMediaMode(::core::mem::transmute(hcall), ::core::mem::transmute(dwmediamodes)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineSetNumRings(hline: u32, dwaddressid: u32, dwnumrings: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineSetNumRings(hline: u32, dwaddressid: u32, dwnumrings: u32) -> i32;
-        }
-        ::core::mem::transmute(lineSetNumRings(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(dwnumrings)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineSetNumRings(hline: u32, dwaddressid: u32, dwnumrings: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineSetNumRings(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(dwnumrings)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineSetQueueMeasurementPeriod(hline: u32, dwqueueid: u32, dwmeasurementperiod: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineSetQueueMeasurementPeriod(hline: u32, dwqueueid: u32, dwmeasurementperiod: u32) -> i32;
-        }
-        ::core::mem::transmute(lineSetQueueMeasurementPeriod(::core::mem::transmute(hline), ::core::mem::transmute(dwqueueid), ::core::mem::transmute(dwmeasurementperiod)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineSetQueueMeasurementPeriod(hline: u32, dwqueueid: u32, dwmeasurementperiod: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineSetQueueMeasurementPeriod(::core::mem::transmute(hline), ::core::mem::transmute(dwqueueid), ::core::mem::transmute(dwmeasurementperiod)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineSetStatusMessages(hline: u32, dwlinestates: u32, dwaddressstates: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineSetStatusMessages(hline: u32, dwlinestates: u32, dwaddressstates: u32) -> i32;
-        }
-        ::core::mem::transmute(lineSetStatusMessages(::core::mem::transmute(hline), ::core::mem::transmute(dwlinestates), ::core::mem::transmute(dwaddressstates)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineSetStatusMessages(hline: u32, dwlinestates: u32, dwaddressstates: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineSetStatusMessages(::core::mem::transmute(hline), ::core::mem::transmute(dwlinestates), ::core::mem::transmute(dwaddressstates)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineSetTerminal(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, dwterminalmodes: u32, dwterminalid: u32, benable: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineSetTerminal(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, dwterminalmodes: u32, dwterminalid: u32, benable: u32) -> i32;
-        }
-        ::core::mem::transmute(lineSetTerminal(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(hcall), ::core::mem::transmute(dwselect), ::core::mem::transmute(dwterminalmodes), ::core::mem::transmute(dwterminalid), ::core::mem::transmute(benable)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineSetTerminal(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, dwterminalmodes: u32, dwterminalid: u32, benable: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineSetTerminal(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(hcall), ::core::mem::transmute(dwselect), ::core::mem::transmute(dwterminalmodes), ::core::mem::transmute(dwterminalid), ::core::mem::transmute(benable)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineSetTollList<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hlineapp: u32, dwdeviceid: u32, lpszaddressin: Param2, dwtolllistoption: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineSetTollList(hlineapp: u32, dwdeviceid: u32, lpszaddressin: ::windows::core::PCSTR, dwtolllistoption: u32) -> i32;
-        }
-        ::core::mem::transmute(lineSetTollList(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), lpszaddressin.into_param().abi(), ::core::mem::transmute(dwtolllistoption)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineSetTollList(hlineapp: u32, dwdeviceid: u32, lpszaddressin: ::windows::core::PCSTR, dwtolllistoption: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineSetTollList(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), lpszaddressin.into_param().abi(), ::core::mem::transmute(dwtolllistoption)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineSetTollListA<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hlineapp: u32, dwdeviceid: u32, lpszaddressin: Param2, dwtolllistoption: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineSetTollListA(hlineapp: u32, dwdeviceid: u32, lpszaddressin: ::windows::core::PCSTR, dwtolllistoption: u32) -> i32;
-        }
-        ::core::mem::transmute(lineSetTollListA(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), lpszaddressin.into_param().abi(), ::core::mem::transmute(dwtolllistoption)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineSetTollListA(hlineapp: u32, dwdeviceid: u32, lpszaddressin: ::windows::core::PCSTR, dwtolllistoption: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineSetTollListA(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), lpszaddressin.into_param().abi(), ::core::mem::transmute(dwtolllistoption)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineSetTollListW<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hlineapp: u32, dwdeviceid: u32, lpszaddressinw: Param2, dwtolllistoption: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineSetTollListW(hlineapp: u32, dwdeviceid: u32, lpszaddressinw: ::windows::core::PCWSTR, dwtolllistoption: u32) -> i32;
-        }
-        ::core::mem::transmute(lineSetTollListW(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), lpszaddressinw.into_param().abi(), ::core::mem::transmute(dwtolllistoption)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineSetTollListW(hlineapp: u32, dwdeviceid: u32, lpszaddressinw: ::windows::core::PCWSTR, dwtolllistoption: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineSetTollListW(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), lpszaddressinw.into_param().abi(), ::core::mem::transmute(dwtolllistoption)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineSetupConference(hcall: u32, hline: u32, lphconfcall: *mut u32, lphconsultcall: *mut u32, dwnumparties: u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineSetupConference(hcall: u32, hline: u32, lphconfcall: *mut u32, lphconsultcall: *mut u32, dwnumparties: u32, lpcallparams: *const LINECALLPARAMS) -> i32;
-        }
-        ::core::mem::transmute(lineSetupConference(::core::mem::transmute(hcall), ::core::mem::transmute(hline), ::core::mem::transmute(lphconfcall), ::core::mem::transmute(lphconsultcall), ::core::mem::transmute(dwnumparties), ::core::mem::transmute(lpcallparams)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineSetupConference(hcall: u32, hline: u32, lphconfcall: *mut u32, lphconsultcall: *mut u32, dwnumparties: u32, lpcallparams: *const LINECALLPARAMS) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineSetupConference(::core::mem::transmute(hcall), ::core::mem::transmute(hline), ::core::mem::transmute(lphconfcall), ::core::mem::transmute(lphconsultcall), ::core::mem::transmute(dwnumparties), ::core::mem::transmute(lpcallparams)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineSetupConferenceA(hcall: u32, hline: u32, lphconfcall: *mut u32, lphconsultcall: *mut u32, dwnumparties: u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineSetupConferenceA(hcall: u32, hline: u32, lphconfcall: *mut u32, lphconsultcall: *mut u32, dwnumparties: u32, lpcallparams: *const LINECALLPARAMS) -> i32;
-        }
-        ::core::mem::transmute(lineSetupConferenceA(::core::mem::transmute(hcall), ::core::mem::transmute(hline), ::core::mem::transmute(lphconfcall), ::core::mem::transmute(lphconsultcall), ::core::mem::transmute(dwnumparties), ::core::mem::transmute(lpcallparams)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineSetupConferenceA(hcall: u32, hline: u32, lphconfcall: *mut u32, lphconsultcall: *mut u32, dwnumparties: u32, lpcallparams: *const LINECALLPARAMS) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineSetupConferenceA(::core::mem::transmute(hcall), ::core::mem::transmute(hline), ::core::mem::transmute(lphconfcall), ::core::mem::transmute(lphconsultcall), ::core::mem::transmute(dwnumparties), ::core::mem::transmute(lpcallparams)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineSetupConferenceW(hcall: u32, hline: u32, lphconfcall: *mut u32, lphconsultcall: *mut u32, dwnumparties: u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineSetupConferenceW(hcall: u32, hline: u32, lphconfcall: *mut u32, lphconsultcall: *mut u32, dwnumparties: u32, lpcallparams: *const LINECALLPARAMS) -> i32;
-        }
-        ::core::mem::transmute(lineSetupConferenceW(::core::mem::transmute(hcall), ::core::mem::transmute(hline), ::core::mem::transmute(lphconfcall), ::core::mem::transmute(lphconsultcall), ::core::mem::transmute(dwnumparties), ::core::mem::transmute(lpcallparams)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineSetupConferenceW(hcall: u32, hline: u32, lphconfcall: *mut u32, lphconsultcall: *mut u32, dwnumparties: u32, lpcallparams: *const LINECALLPARAMS) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineSetupConferenceW(::core::mem::transmute(hcall), ::core::mem::transmute(hline), ::core::mem::transmute(lphconfcall), ::core::mem::transmute(lphconsultcall), ::core::mem::transmute(dwnumparties), ::core::mem::transmute(lpcallparams)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineSetupTransfer(hcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineSetupTransfer(hcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32;
-        }
-        ::core::mem::transmute(lineSetupTransfer(::core::mem::transmute(hcall), ::core::mem::transmute(lphconsultcall), ::core::mem::transmute(lpcallparams)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineSetupTransfer(hcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineSetupTransfer(::core::mem::transmute(hcall), ::core::mem::transmute(lphconsultcall), ::core::mem::transmute(lpcallparams)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineSetupTransferA(hcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineSetupTransferA(hcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32;
-        }
-        ::core::mem::transmute(lineSetupTransferA(::core::mem::transmute(hcall), ::core::mem::transmute(lphconsultcall), ::core::mem::transmute(lpcallparams)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineSetupTransferA(hcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineSetupTransferA(::core::mem::transmute(hcall), ::core::mem::transmute(lphconsultcall), ::core::mem::transmute(lpcallparams)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineSetupTransferW(hcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineSetupTransferW(hcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32;
-        }
-        ::core::mem::transmute(lineSetupTransferW(::core::mem::transmute(hcall), ::core::mem::transmute(lphconsultcall), ::core::mem::transmute(lpcallparams)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineSetupTransferW(hcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineSetupTransferW(::core::mem::transmute(hcall), ::core::mem::transmute(lphconsultcall), ::core::mem::transmute(lpcallparams)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineShutdown(hlineapp: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineShutdown(hlineapp: u32) -> i32;
-        }
-        ::core::mem::transmute(lineShutdown(::core::mem::transmute(hlineapp)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineShutdown(hlineapp: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineShutdown(::core::mem::transmute(hlineapp)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineSwapHold(hactivecall: u32, hheldcall: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineSwapHold(hactivecall: u32, hheldcall: u32) -> i32;
-        }
-        ::core::mem::transmute(lineSwapHold(::core::mem::transmute(hactivecall), ::core::mem::transmute(hheldcall)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineSwapHold(hactivecall: u32, hheldcall: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineSwapHold(::core::mem::transmute(hactivecall), ::core::mem::transmute(hheldcall)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineTranslateAddress<'a, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, lpszaddressin: Param3, dwcard: u32, dwtranslateoptions: u32, lptranslateoutput: *mut LINETRANSLATEOUTPUT) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineTranslateAddress(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, lpszaddressin: ::windows::core::PCSTR, dwcard: u32, dwtranslateoptions: u32, lptranslateoutput: *mut LINETRANSLATEOUTPUT) -> i32;
-        }
-        ::core::mem::transmute(lineTranslateAddress(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(dwapiversion), lpszaddressin.into_param().abi(), ::core::mem::transmute(dwcard), ::core::mem::transmute(dwtranslateoptions), ::core::mem::transmute(lptranslateoutput)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineTranslateAddress(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, lpszaddressin: ::windows::core::PCSTR, dwcard: u32, dwtranslateoptions: u32, lptranslateoutput: *mut LINETRANSLATEOUTPUT) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineTranslateAddress(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(dwapiversion), lpszaddressin.into_param().abi(), ::core::mem::transmute(dwcard), ::core::mem::transmute(dwtranslateoptions), ::core::mem::transmute(lptranslateoutput)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineTranslateAddressA<'a, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, lpszaddressin: Param3, dwcard: u32, dwtranslateoptions: u32, lptranslateoutput: *mut LINETRANSLATEOUTPUT) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineTranslateAddressA(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, lpszaddressin: ::windows::core::PCSTR, dwcard: u32, dwtranslateoptions: u32, lptranslateoutput: *mut LINETRANSLATEOUTPUT) -> i32;
-        }
-        ::core::mem::transmute(lineTranslateAddressA(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(dwapiversion), lpszaddressin.into_param().abi(), ::core::mem::transmute(dwcard), ::core::mem::transmute(dwtranslateoptions), ::core::mem::transmute(lptranslateoutput)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineTranslateAddressA(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, lpszaddressin: ::windows::core::PCSTR, dwcard: u32, dwtranslateoptions: u32, lptranslateoutput: *mut LINETRANSLATEOUTPUT) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineTranslateAddressA(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(dwapiversion), lpszaddressin.into_param().abi(), ::core::mem::transmute(dwcard), ::core::mem::transmute(dwtranslateoptions), ::core::mem::transmute(lptranslateoutput)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineTranslateAddressW<'a, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, lpszaddressin: Param3, dwcard: u32, dwtranslateoptions: u32, lptranslateoutput: *mut LINETRANSLATEOUTPUT) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineTranslateAddressW(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, lpszaddressin: ::windows::core::PCWSTR, dwcard: u32, dwtranslateoptions: u32, lptranslateoutput: *mut LINETRANSLATEOUTPUT) -> i32;
-        }
-        ::core::mem::transmute(lineTranslateAddressW(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(dwapiversion), lpszaddressin.into_param().abi(), ::core::mem::transmute(dwcard), ::core::mem::transmute(dwtranslateoptions), ::core::mem::transmute(lptranslateoutput)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineTranslateAddressW(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, lpszaddressin: ::windows::core::PCWSTR, dwcard: u32, dwtranslateoptions: u32, lptranslateoutput: *mut LINETRANSLATEOUTPUT) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineTranslateAddressW(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(dwapiversion), lpszaddressin.into_param().abi(), ::core::mem::transmute(dwcard), ::core::mem::transmute(dwtranslateoptions), ::core::mem::transmute(lptranslateoutput)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineTranslateDialog<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, hwndowner: Param3, lpszaddressin: Param4) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineTranslateDialog(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, hwndowner: super::super::Foundation::HWND, lpszaddressin: ::windows::core::PCSTR) -> i32;
-        }
-        ::core::mem::transmute(lineTranslateDialog(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(dwapiversion), hwndowner.into_param().abi(), lpszaddressin.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineTranslateDialog(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, hwndowner: super::super::Foundation::HWND, lpszaddressin: ::windows::core::PCSTR) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineTranslateDialog(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(dwapiversion), hwndowner.into_param().abi(), lpszaddressin.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineTranslateDialogA<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, hwndowner: Param3, lpszaddressin: Param4) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineTranslateDialogA(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, hwndowner: super::super::Foundation::HWND, lpszaddressin: ::windows::core::PCSTR) -> i32;
-        }
-        ::core::mem::transmute(lineTranslateDialogA(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(dwapiversion), hwndowner.into_param().abi(), lpszaddressin.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineTranslateDialogA(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, hwndowner: super::super::Foundation::HWND, lpszaddressin: ::windows::core::PCSTR) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineTranslateDialogA(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(dwapiversion), hwndowner.into_param().abi(), lpszaddressin.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineTranslateDialogW<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, hwndowner: Param3, lpszaddressin: Param4) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineTranslateDialogW(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, hwndowner: super::super::Foundation::HWND, lpszaddressin: ::windows::core::PCWSTR) -> i32;
-        }
-        ::core::mem::transmute(lineTranslateDialogW(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(dwapiversion), hwndowner.into_param().abi(), lpszaddressin.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineTranslateDialogW(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, hwndowner: super::super::Foundation::HWND, lpszaddressin: ::windows::core::PCWSTR) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineTranslateDialogW(::core::mem::transmute(hlineapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(dwapiversion), hwndowner.into_param().abi(), lpszaddressin.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineUncompleteCall(hline: u32, dwcompletionid: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineUncompleteCall(hline: u32, dwcompletionid: u32) -> i32;
-        }
-        ::core::mem::transmute(lineUncompleteCall(::core::mem::transmute(hline), ::core::mem::transmute(dwcompletionid)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineUncompleteCall(hline: u32, dwcompletionid: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineUncompleteCall(::core::mem::transmute(hline), ::core::mem::transmute(dwcompletionid)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineUnhold(hcall: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineUnhold(hcall: u32) -> i32;
-        }
-        ::core::mem::transmute(lineUnhold(::core::mem::transmute(hcall)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineUnhold(hcall: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineUnhold(::core::mem::transmute(hcall)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineUnpark<'a, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: Param3) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineUnpark(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: ::windows::core::PCSTR) -> i32;
-        }
-        ::core::mem::transmute(lineUnpark(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(lphcall), lpszdestaddress.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineUnpark(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: ::windows::core::PCSTR) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineUnpark(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(lphcall), lpszdestaddress.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineUnparkA<'a, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: Param3) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineUnparkA(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: ::windows::core::PCSTR) -> i32;
-        }
-        ::core::mem::transmute(lineUnparkA(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(lphcall), lpszdestaddress.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineUnparkA(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: ::windows::core::PCSTR) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineUnparkA(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(lphcall), lpszdestaddress.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn lineUnparkW<'a, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: Param3) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn lineUnparkW(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: ::windows::core::PCWSTR) -> i32;
-        }
-        ::core::mem::transmute(lineUnparkW(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(lphcall), lpszdestaddress.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn lineUnparkW(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: ::windows::core::PCWSTR) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(lineUnparkW(::core::mem::transmute(hline), ::core::mem::transmute(dwaddressid), ::core::mem::transmute(lphcall), lpszdestaddress.into_param().abi()))
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
@@ -25949,666 +24974,431 @@ impl ::core::default::Default for linereqmediacallW_tag {
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn phoneClose(hphone: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn phoneClose(hphone: u32) -> i32;
-        }
-        ::core::mem::transmute(phoneClose(::core::mem::transmute(hphone)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn phoneClose(hphone: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(phoneClose(::core::mem::transmute(hphone)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn phoneConfigDialog<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(dwdeviceid: u32, hwndowner: Param1, lpszdeviceclass: Param2) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn phoneConfigDialog(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: ::windows::core::PCSTR) -> i32;
-        }
-        ::core::mem::transmute(phoneConfigDialog(::core::mem::transmute(dwdeviceid), hwndowner.into_param().abi(), lpszdeviceclass.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn phoneConfigDialog(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: ::windows::core::PCSTR) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(phoneConfigDialog(::core::mem::transmute(dwdeviceid), hwndowner.into_param().abi(), lpszdeviceclass.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn phoneConfigDialogA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(dwdeviceid: u32, hwndowner: Param1, lpszdeviceclass: Param2) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn phoneConfigDialogA(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: ::windows::core::PCSTR) -> i32;
-        }
-        ::core::mem::transmute(phoneConfigDialogA(::core::mem::transmute(dwdeviceid), hwndowner.into_param().abi(), lpszdeviceclass.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn phoneConfigDialogA(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: ::windows::core::PCSTR) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(phoneConfigDialogA(::core::mem::transmute(dwdeviceid), hwndowner.into_param().abi(), lpszdeviceclass.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn phoneConfigDialogW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(dwdeviceid: u32, hwndowner: Param1, lpszdeviceclass: Param2) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn phoneConfigDialogW(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: ::windows::core::PCWSTR) -> i32;
-        }
-        ::core::mem::transmute(phoneConfigDialogW(::core::mem::transmute(dwdeviceid), hwndowner.into_param().abi(), lpszdeviceclass.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn phoneConfigDialogW(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: ::windows::core::PCWSTR) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(phoneConfigDialogW(::core::mem::transmute(dwdeviceid), hwndowner.into_param().abi(), lpszdeviceclass.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn phoneDevSpecific(hphone: u32, lpparams: *mut ::core::ffi::c_void, dwsize: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn phoneDevSpecific(hphone: u32, lpparams: *mut ::core::ffi::c_void, dwsize: u32) -> i32;
-        }
-        ::core::mem::transmute(phoneDevSpecific(::core::mem::transmute(hphone), ::core::mem::transmute(lpparams), ::core::mem::transmute(dwsize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn phoneDevSpecific(hphone: u32, lpparams: *mut ::core::ffi::c_void, dwsize: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(phoneDevSpecific(::core::mem::transmute(hphone), ::core::mem::transmute(lpparams), ::core::mem::transmute(dwsize)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn phoneGetButtonInfo(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo: *mut PHONEBUTTONINFO) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn phoneGetButtonInfo(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo: *mut PHONEBUTTONINFO) -> i32;
-        }
-        ::core::mem::transmute(phoneGetButtonInfo(::core::mem::transmute(hphone), ::core::mem::transmute(dwbuttonlampid), ::core::mem::transmute(lpbuttoninfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn phoneGetButtonInfo(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo: *mut PHONEBUTTONINFO) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(phoneGetButtonInfo(::core::mem::transmute(hphone), ::core::mem::transmute(dwbuttonlampid), ::core::mem::transmute(lpbuttoninfo)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn phoneGetButtonInfoA(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo: *mut PHONEBUTTONINFO) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn phoneGetButtonInfoA(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo: *mut PHONEBUTTONINFO) -> i32;
-        }
-        ::core::mem::transmute(phoneGetButtonInfoA(::core::mem::transmute(hphone), ::core::mem::transmute(dwbuttonlampid), ::core::mem::transmute(lpbuttoninfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn phoneGetButtonInfoA(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo: *mut PHONEBUTTONINFO) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(phoneGetButtonInfoA(::core::mem::transmute(hphone), ::core::mem::transmute(dwbuttonlampid), ::core::mem::transmute(lpbuttoninfo)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn phoneGetButtonInfoW(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo: *mut PHONEBUTTONINFO) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn phoneGetButtonInfoW(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo: *mut PHONEBUTTONINFO) -> i32;
-        }
-        ::core::mem::transmute(phoneGetButtonInfoW(::core::mem::transmute(hphone), ::core::mem::transmute(dwbuttonlampid), ::core::mem::transmute(lpbuttoninfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn phoneGetButtonInfoW(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo: *mut PHONEBUTTONINFO) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(phoneGetButtonInfoW(::core::mem::transmute(hphone), ::core::mem::transmute(dwbuttonlampid), ::core::mem::transmute(lpbuttoninfo)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn phoneGetData(hphone: u32, dwdataid: u32, lpdata: *mut ::core::ffi::c_void, dwsize: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn phoneGetData(hphone: u32, dwdataid: u32, lpdata: *mut ::core::ffi::c_void, dwsize: u32) -> i32;
-        }
-        ::core::mem::transmute(phoneGetData(::core::mem::transmute(hphone), ::core::mem::transmute(dwdataid), ::core::mem::transmute(lpdata), ::core::mem::transmute(dwsize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn phoneGetData(hphone: u32, dwdataid: u32, lpdata: *mut ::core::ffi::c_void, dwsize: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(phoneGetData(::core::mem::transmute(hphone), ::core::mem::transmute(dwdataid), ::core::mem::transmute(lpdata), ::core::mem::transmute(dwsize)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn phoneGetDevCaps(hphoneapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextversion: u32, lpphonecaps: *mut PHONECAPS) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn phoneGetDevCaps(hphoneapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextversion: u32, lpphonecaps: *mut PHONECAPS) -> i32;
-        }
-        ::core::mem::transmute(phoneGetDevCaps(::core::mem::transmute(hphoneapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(dwapiversion), ::core::mem::transmute(dwextversion), ::core::mem::transmute(lpphonecaps)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn phoneGetDevCaps(hphoneapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextversion: u32, lpphonecaps: *mut PHONECAPS) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(phoneGetDevCaps(::core::mem::transmute(hphoneapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(dwapiversion), ::core::mem::transmute(dwextversion), ::core::mem::transmute(lpphonecaps)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn phoneGetDevCapsA(hphoneapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextversion: u32, lpphonecaps: *mut PHONECAPS) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn phoneGetDevCapsA(hphoneapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextversion: u32, lpphonecaps: *mut PHONECAPS) -> i32;
-        }
-        ::core::mem::transmute(phoneGetDevCapsA(::core::mem::transmute(hphoneapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(dwapiversion), ::core::mem::transmute(dwextversion), ::core::mem::transmute(lpphonecaps)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn phoneGetDevCapsA(hphoneapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextversion: u32, lpphonecaps: *mut PHONECAPS) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(phoneGetDevCapsA(::core::mem::transmute(hphoneapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(dwapiversion), ::core::mem::transmute(dwextversion), ::core::mem::transmute(lpphonecaps)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn phoneGetDevCapsW(hphoneapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextversion: u32, lpphonecaps: *mut PHONECAPS) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn phoneGetDevCapsW(hphoneapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextversion: u32, lpphonecaps: *mut PHONECAPS) -> i32;
-        }
-        ::core::mem::transmute(phoneGetDevCapsW(::core::mem::transmute(hphoneapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(dwapiversion), ::core::mem::transmute(dwextversion), ::core::mem::transmute(lpphonecaps)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn phoneGetDevCapsW(hphoneapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextversion: u32, lpphonecaps: *mut PHONECAPS) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(phoneGetDevCapsW(::core::mem::transmute(hphoneapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(dwapiversion), ::core::mem::transmute(dwextversion), ::core::mem::transmute(lpphonecaps)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn phoneGetDisplay(hphone: u32, lpdisplay: *mut VARSTRING) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn phoneGetDisplay(hphone: u32, lpdisplay: *mut VARSTRING) -> i32;
-        }
-        ::core::mem::transmute(phoneGetDisplay(::core::mem::transmute(hphone), ::core::mem::transmute(lpdisplay)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn phoneGetDisplay(hphone: u32, lpdisplay: *mut VARSTRING) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(phoneGetDisplay(::core::mem::transmute(hphone), ::core::mem::transmute(lpdisplay)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn phoneGetGain(hphone: u32, dwhookswitchdev: u32, lpdwgain: *mut u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn phoneGetGain(hphone: u32, dwhookswitchdev: u32, lpdwgain: *mut u32) -> i32;
-        }
-        ::core::mem::transmute(phoneGetGain(::core::mem::transmute(hphone), ::core::mem::transmute(dwhookswitchdev), ::core::mem::transmute(lpdwgain)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn phoneGetGain(hphone: u32, dwhookswitchdev: u32, lpdwgain: *mut u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(phoneGetGain(::core::mem::transmute(hphone), ::core::mem::transmute(dwhookswitchdev), ::core::mem::transmute(lpdwgain)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn phoneGetHookSwitch(hphone: u32, lpdwhookswitchdevs: *mut u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn phoneGetHookSwitch(hphone: u32, lpdwhookswitchdevs: *mut u32) -> i32;
-        }
-        ::core::mem::transmute(phoneGetHookSwitch(::core::mem::transmute(hphone), ::core::mem::transmute(lpdwhookswitchdevs)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn phoneGetHookSwitch(hphone: u32, lpdwhookswitchdevs: *mut u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(phoneGetHookSwitch(::core::mem::transmute(hphone), ::core::mem::transmute(lpdwhookswitchdevs)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn phoneGetID<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hphone: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: Param2) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn phoneGetID(hphone: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: ::windows::core::PCSTR) -> i32;
-        }
-        ::core::mem::transmute(phoneGetID(::core::mem::transmute(hphone), ::core::mem::transmute(lpdeviceid), lpszdeviceclass.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn phoneGetID(hphone: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: ::windows::core::PCSTR) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(phoneGetID(::core::mem::transmute(hphone), ::core::mem::transmute(lpdeviceid), lpszdeviceclass.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn phoneGetIDA<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hphone: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: Param2) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn phoneGetIDA(hphone: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: ::windows::core::PCSTR) -> i32;
-        }
-        ::core::mem::transmute(phoneGetIDA(::core::mem::transmute(hphone), ::core::mem::transmute(lpdeviceid), lpszdeviceclass.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn phoneGetIDA(hphone: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: ::windows::core::PCSTR) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(phoneGetIDA(::core::mem::transmute(hphone), ::core::mem::transmute(lpdeviceid), lpszdeviceclass.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn phoneGetIDW<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hphone: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: Param2) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn phoneGetIDW(hphone: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: ::windows::core::PCWSTR) -> i32;
-        }
-        ::core::mem::transmute(phoneGetIDW(::core::mem::transmute(hphone), ::core::mem::transmute(lpdeviceid), lpszdeviceclass.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn phoneGetIDW(hphone: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: ::windows::core::PCWSTR) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(phoneGetIDW(::core::mem::transmute(hphone), ::core::mem::transmute(lpdeviceid), lpszdeviceclass.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn phoneGetIcon<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(dwdeviceid: u32, lpszdeviceclass: Param1, lphicon: *mut isize) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn phoneGetIcon(dwdeviceid: u32, lpszdeviceclass: ::windows::core::PCSTR, lphicon: *mut isize) -> i32;
-        }
-        ::core::mem::transmute(phoneGetIcon(::core::mem::transmute(dwdeviceid), lpszdeviceclass.into_param().abi(), ::core::mem::transmute(lphicon)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn phoneGetIcon(dwdeviceid: u32, lpszdeviceclass: ::windows::core::PCSTR, lphicon: *mut isize) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(phoneGetIcon(::core::mem::transmute(dwdeviceid), lpszdeviceclass.into_param().abi(), ::core::mem::transmute(lphicon)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn phoneGetIconA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(dwdeviceid: u32, lpszdeviceclass: Param1, lphicon: *mut isize) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn phoneGetIconA(dwdeviceid: u32, lpszdeviceclass: ::windows::core::PCSTR, lphicon: *mut isize) -> i32;
-        }
-        ::core::mem::transmute(phoneGetIconA(::core::mem::transmute(dwdeviceid), lpszdeviceclass.into_param().abi(), ::core::mem::transmute(lphicon)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn phoneGetIconA(dwdeviceid: u32, lpszdeviceclass: ::windows::core::PCSTR, lphicon: *mut isize) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(phoneGetIconA(::core::mem::transmute(dwdeviceid), lpszdeviceclass.into_param().abi(), ::core::mem::transmute(lphicon)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn phoneGetIconW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(dwdeviceid: u32, lpszdeviceclass: Param1, lphicon: *mut isize) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn phoneGetIconW(dwdeviceid: u32, lpszdeviceclass: ::windows::core::PCWSTR, lphicon: *mut isize) -> i32;
-        }
-        ::core::mem::transmute(phoneGetIconW(::core::mem::transmute(dwdeviceid), lpszdeviceclass.into_param().abi(), ::core::mem::transmute(lphicon)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn phoneGetIconW(dwdeviceid: u32, lpszdeviceclass: ::windows::core::PCWSTR, lphicon: *mut isize) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(phoneGetIconW(::core::mem::transmute(dwdeviceid), lpszdeviceclass.into_param().abi(), ::core::mem::transmute(lphicon)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn phoneGetLamp(hphone: u32, dwbuttonlampid: u32, lpdwlampmode: *mut u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn phoneGetLamp(hphone: u32, dwbuttonlampid: u32, lpdwlampmode: *mut u32) -> i32;
-        }
-        ::core::mem::transmute(phoneGetLamp(::core::mem::transmute(hphone), ::core::mem::transmute(dwbuttonlampid), ::core::mem::transmute(lpdwlampmode)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn phoneGetLamp(hphone: u32, dwbuttonlampid: u32, lpdwlampmode: *mut u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(phoneGetLamp(::core::mem::transmute(hphone), ::core::mem::transmute(dwbuttonlampid), ::core::mem::transmute(lpdwlampmode)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn phoneGetMessage(hphoneapp: u32, lpmessage: *mut PHONEMESSAGE, dwtimeout: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn phoneGetMessage(hphoneapp: u32, lpmessage: *mut PHONEMESSAGE, dwtimeout: u32) -> i32;
-        }
-        ::core::mem::transmute(phoneGetMessage(::core::mem::transmute(hphoneapp), ::core::mem::transmute(lpmessage), ::core::mem::transmute(dwtimeout)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn phoneGetMessage(hphoneapp: u32, lpmessage: *mut PHONEMESSAGE, dwtimeout: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(phoneGetMessage(::core::mem::transmute(hphoneapp), ::core::mem::transmute(lpmessage), ::core::mem::transmute(dwtimeout)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn phoneGetRing(hphone: u32, lpdwringmode: *mut u32, lpdwvolume: *mut u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn phoneGetRing(hphone: u32, lpdwringmode: *mut u32, lpdwvolume: *mut u32) -> i32;
-        }
-        ::core::mem::transmute(phoneGetRing(::core::mem::transmute(hphone), ::core::mem::transmute(lpdwringmode), ::core::mem::transmute(lpdwvolume)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn phoneGetRing(hphone: u32, lpdwringmode: *mut u32, lpdwvolume: *mut u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(phoneGetRing(::core::mem::transmute(hphone), ::core::mem::transmute(lpdwringmode), ::core::mem::transmute(lpdwvolume)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn phoneGetStatus(hphone: u32, lpphonestatus: *mut PHONESTATUS) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn phoneGetStatus(hphone: u32, lpphonestatus: *mut PHONESTATUS) -> i32;
-        }
-        ::core::mem::transmute(phoneGetStatus(::core::mem::transmute(hphone), ::core::mem::transmute(lpphonestatus)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn phoneGetStatus(hphone: u32, lpphonestatus: *mut PHONESTATUS) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(phoneGetStatus(::core::mem::transmute(hphone), ::core::mem::transmute(lpphonestatus)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn phoneGetStatusA(hphone: u32, lpphonestatus: *mut PHONESTATUS) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn phoneGetStatusA(hphone: u32, lpphonestatus: *mut PHONESTATUS) -> i32;
-        }
-        ::core::mem::transmute(phoneGetStatusA(::core::mem::transmute(hphone), ::core::mem::transmute(lpphonestatus)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn phoneGetStatusA(hphone: u32, lpphonestatus: *mut PHONESTATUS) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(phoneGetStatusA(::core::mem::transmute(hphone), ::core::mem::transmute(lpphonestatus)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn phoneGetStatusMessages(hphone: u32, lpdwphonestates: *mut u32, lpdwbuttonmodes: *mut u32, lpdwbuttonstates: *mut u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn phoneGetStatusMessages(hphone: u32, lpdwphonestates: *mut u32, lpdwbuttonmodes: *mut u32, lpdwbuttonstates: *mut u32) -> i32;
-        }
-        ::core::mem::transmute(phoneGetStatusMessages(::core::mem::transmute(hphone), ::core::mem::transmute(lpdwphonestates), ::core::mem::transmute(lpdwbuttonmodes), ::core::mem::transmute(lpdwbuttonstates)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn phoneGetStatusMessages(hphone: u32, lpdwphonestates: *mut u32, lpdwbuttonmodes: *mut u32, lpdwbuttonstates: *mut u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(phoneGetStatusMessages(::core::mem::transmute(hphone), ::core::mem::transmute(lpdwphonestates), ::core::mem::transmute(lpdwbuttonmodes), ::core::mem::transmute(lpdwbuttonstates)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn phoneGetStatusW(hphone: u32, lpphonestatus: *mut PHONESTATUS) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn phoneGetStatusW(hphone: u32, lpphonestatus: *mut PHONESTATUS) -> i32;
-        }
-        ::core::mem::transmute(phoneGetStatusW(::core::mem::transmute(hphone), ::core::mem::transmute(lpphonestatus)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn phoneGetStatusW(hphone: u32, lpphonestatus: *mut PHONESTATUS) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(phoneGetStatusW(::core::mem::transmute(hphone), ::core::mem::transmute(lpphonestatus)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn phoneGetVolume(hphone: u32, dwhookswitchdev: u32, lpdwvolume: *mut u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn phoneGetVolume(hphone: u32, dwhookswitchdev: u32, lpdwvolume: *mut u32) -> i32;
-        }
-        ::core::mem::transmute(phoneGetVolume(::core::mem::transmute(hphone), ::core::mem::transmute(dwhookswitchdev), ::core::mem::transmute(lpdwvolume)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn phoneGetVolume(hphone: u32, dwhookswitchdev: u32, lpdwvolume: *mut u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(phoneGetVolume(::core::mem::transmute(hphone), ::core::mem::transmute(dwhookswitchdev), ::core::mem::transmute(lpdwvolume)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn phoneInitialize<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lphphoneapp: *mut u32, hinstance: Param1, lpfncallback: PHONECALLBACK, lpszappname: Param3, lpdwnumdevs: *mut u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn phoneInitialize(lphphoneapp: *mut u32, hinstance: super::super::Foundation::HINSTANCE, lpfncallback: *mut ::core::ffi::c_void, lpszappname: ::windows::core::PCSTR, lpdwnumdevs: *mut u32) -> i32;
-        }
-        ::core::mem::transmute(phoneInitialize(::core::mem::transmute(lphphoneapp), hinstance.into_param().abi(), ::core::mem::transmute(lpfncallback), lpszappname.into_param().abi(), ::core::mem::transmute(lpdwnumdevs)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn phoneInitialize(lphphoneapp: *mut u32, hinstance: super::super::Foundation::HINSTANCE, lpfncallback: *mut ::core::ffi::c_void, lpszappname: ::windows::core::PCSTR, lpdwnumdevs: *mut u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(phoneInitialize(::core::mem::transmute(lphphoneapp), hinstance.into_param().abi(), ::core::mem::transmute(lpfncallback), lpszappname.into_param().abi(), ::core::mem::transmute(lpdwnumdevs)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn phoneInitializeExA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lphphoneapp: *mut u32, hinstance: Param1, lpfncallback: PHONECALLBACK, lpszfriendlyappname: Param3, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lpphoneinitializeexparams: *mut PHONEINITIALIZEEXPARAMS) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn phoneInitializeExA(lphphoneapp: *mut u32, hinstance: super::super::Foundation::HINSTANCE, lpfncallback: *mut ::core::ffi::c_void, lpszfriendlyappname: ::windows::core::PCSTR, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lpphoneinitializeexparams: *mut PHONEINITIALIZEEXPARAMS) -> i32;
-        }
-        ::core::mem::transmute(phoneInitializeExA(::core::mem::transmute(lphphoneapp), hinstance.into_param().abi(), ::core::mem::transmute(lpfncallback), lpszfriendlyappname.into_param().abi(), ::core::mem::transmute(lpdwnumdevs), ::core::mem::transmute(lpdwapiversion), ::core::mem::transmute(lpphoneinitializeexparams)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn phoneInitializeExA(lphphoneapp: *mut u32, hinstance: super::super::Foundation::HINSTANCE, lpfncallback: *mut ::core::ffi::c_void, lpszfriendlyappname: ::windows::core::PCSTR, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lpphoneinitializeexparams: *mut PHONEINITIALIZEEXPARAMS) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(phoneInitializeExA(::core::mem::transmute(lphphoneapp), hinstance.into_param().abi(), ::core::mem::transmute(lpfncallback), lpszfriendlyappname.into_param().abi(), ::core::mem::transmute(lpdwnumdevs), ::core::mem::transmute(lpdwapiversion), ::core::mem::transmute(lpphoneinitializeexparams)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn phoneInitializeExW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lphphoneapp: *mut u32, hinstance: Param1, lpfncallback: PHONECALLBACK, lpszfriendlyappname: Param3, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lpphoneinitializeexparams: *mut PHONEINITIALIZEEXPARAMS) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn phoneInitializeExW(lphphoneapp: *mut u32, hinstance: super::super::Foundation::HINSTANCE, lpfncallback: *mut ::core::ffi::c_void, lpszfriendlyappname: ::windows::core::PCWSTR, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lpphoneinitializeexparams: *mut PHONEINITIALIZEEXPARAMS) -> i32;
-        }
-        ::core::mem::transmute(phoneInitializeExW(::core::mem::transmute(lphphoneapp), hinstance.into_param().abi(), ::core::mem::transmute(lpfncallback), lpszfriendlyappname.into_param().abi(), ::core::mem::transmute(lpdwnumdevs), ::core::mem::transmute(lpdwapiversion), ::core::mem::transmute(lpphoneinitializeexparams)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn phoneInitializeExW(lphphoneapp: *mut u32, hinstance: super::super::Foundation::HINSTANCE, lpfncallback: *mut ::core::ffi::c_void, lpszfriendlyappname: ::windows::core::PCWSTR, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lpphoneinitializeexparams: *mut PHONEINITIALIZEEXPARAMS) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(phoneInitializeExW(::core::mem::transmute(lphphoneapp), hinstance.into_param().abi(), ::core::mem::transmute(lpfncallback), lpszfriendlyappname.into_param().abi(), ::core::mem::transmute(lpdwnumdevs), ::core::mem::transmute(lpdwapiversion), ::core::mem::transmute(lpphoneinitializeexparams)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn phoneNegotiateAPIVersion(hphoneapp: u32, dwdeviceid: u32, dwapilowversion: u32, dwapihighversion: u32, lpdwapiversion: *mut u32, lpextensionid: *mut PHONEEXTENSIONID) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn phoneNegotiateAPIVersion(hphoneapp: u32, dwdeviceid: u32, dwapilowversion: u32, dwapihighversion: u32, lpdwapiversion: *mut u32, lpextensionid: *mut PHONEEXTENSIONID) -> i32;
-        }
-        ::core::mem::transmute(phoneNegotiateAPIVersion(::core::mem::transmute(hphoneapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(dwapilowversion), ::core::mem::transmute(dwapihighversion), ::core::mem::transmute(lpdwapiversion), ::core::mem::transmute(lpextensionid)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn phoneNegotiateAPIVersion(hphoneapp: u32, dwdeviceid: u32, dwapilowversion: u32, dwapihighversion: u32, lpdwapiversion: *mut u32, lpextensionid: *mut PHONEEXTENSIONID) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(phoneNegotiateAPIVersion(::core::mem::transmute(hphoneapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(dwapilowversion), ::core::mem::transmute(dwapihighversion), ::core::mem::transmute(lpdwapiversion), ::core::mem::transmute(lpextensionid)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn phoneNegotiateExtVersion(hphoneapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextlowversion: u32, dwexthighversion: u32, lpdwextversion: *mut u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn phoneNegotiateExtVersion(hphoneapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextlowversion: u32, dwexthighversion: u32, lpdwextversion: *mut u32) -> i32;
-        }
-        ::core::mem::transmute(phoneNegotiateExtVersion(::core::mem::transmute(hphoneapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(dwapiversion), ::core::mem::transmute(dwextlowversion), ::core::mem::transmute(dwexthighversion), ::core::mem::transmute(lpdwextversion)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn phoneNegotiateExtVersion(hphoneapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextlowversion: u32, dwexthighversion: u32, lpdwextversion: *mut u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(phoneNegotiateExtVersion(::core::mem::transmute(hphoneapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(dwapiversion), ::core::mem::transmute(dwextlowversion), ::core::mem::transmute(dwexthighversion), ::core::mem::transmute(lpdwextversion)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn phoneOpen(hphoneapp: u32, dwdeviceid: u32, lphphone: *mut u32, dwapiversion: u32, dwextversion: u32, dwcallbackinstance: usize, dwprivilege: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn phoneOpen(hphoneapp: u32, dwdeviceid: u32, lphphone: *mut u32, dwapiversion: u32, dwextversion: u32, dwcallbackinstance: usize, dwprivilege: u32) -> i32;
-        }
-        ::core::mem::transmute(phoneOpen(::core::mem::transmute(hphoneapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(lphphone), ::core::mem::transmute(dwapiversion), ::core::mem::transmute(dwextversion), ::core::mem::transmute(dwcallbackinstance), ::core::mem::transmute(dwprivilege)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn phoneOpen(hphoneapp: u32, dwdeviceid: u32, lphphone: *mut u32, dwapiversion: u32, dwextversion: u32, dwcallbackinstance: usize, dwprivilege: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(phoneOpen(::core::mem::transmute(hphoneapp), ::core::mem::transmute(dwdeviceid), ::core::mem::transmute(lphphone), ::core::mem::transmute(dwapiversion), ::core::mem::transmute(dwextversion), ::core::mem::transmute(dwcallbackinstance), ::core::mem::transmute(dwprivilege)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn phoneSetButtonInfo(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo: *const PHONEBUTTONINFO) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn phoneSetButtonInfo(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo: *const PHONEBUTTONINFO) -> i32;
-        }
-        ::core::mem::transmute(phoneSetButtonInfo(::core::mem::transmute(hphone), ::core::mem::transmute(dwbuttonlampid), ::core::mem::transmute(lpbuttoninfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn phoneSetButtonInfo(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo: *const PHONEBUTTONINFO) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(phoneSetButtonInfo(::core::mem::transmute(hphone), ::core::mem::transmute(dwbuttonlampid), ::core::mem::transmute(lpbuttoninfo)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn phoneSetButtonInfoA(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo: *const PHONEBUTTONINFO) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn phoneSetButtonInfoA(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo: *const PHONEBUTTONINFO) -> i32;
-        }
-        ::core::mem::transmute(phoneSetButtonInfoA(::core::mem::transmute(hphone), ::core::mem::transmute(dwbuttonlampid), ::core::mem::transmute(lpbuttoninfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn phoneSetButtonInfoA(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo: *const PHONEBUTTONINFO) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(phoneSetButtonInfoA(::core::mem::transmute(hphone), ::core::mem::transmute(dwbuttonlampid), ::core::mem::transmute(lpbuttoninfo)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn phoneSetButtonInfoW(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo: *const PHONEBUTTONINFO) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn phoneSetButtonInfoW(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo: *const PHONEBUTTONINFO) -> i32;
-        }
-        ::core::mem::transmute(phoneSetButtonInfoW(::core::mem::transmute(hphone), ::core::mem::transmute(dwbuttonlampid), ::core::mem::transmute(lpbuttoninfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn phoneSetButtonInfoW(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo: *const PHONEBUTTONINFO) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(phoneSetButtonInfoW(::core::mem::transmute(hphone), ::core::mem::transmute(dwbuttonlampid), ::core::mem::transmute(lpbuttoninfo)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn phoneSetData(hphone: u32, dwdataid: u32, lpdata: *const ::core::ffi::c_void, dwsize: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn phoneSetData(hphone: u32, dwdataid: u32, lpdata: *const ::core::ffi::c_void, dwsize: u32) -> i32;
-        }
-        ::core::mem::transmute(phoneSetData(::core::mem::transmute(hphone), ::core::mem::transmute(dwdataid), ::core::mem::transmute(lpdata), ::core::mem::transmute(dwsize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn phoneSetData(hphone: u32, dwdataid: u32, lpdata: *const ::core::ffi::c_void, dwsize: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(phoneSetData(::core::mem::transmute(hphone), ::core::mem::transmute(dwdataid), ::core::mem::transmute(lpdata), ::core::mem::transmute(dwsize)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn phoneSetDisplay<'a, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hphone: u32, dwrow: u32, dwcolumn: u32, lpsdisplay: Param3, dwsize: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn phoneSetDisplay(hphone: u32, dwrow: u32, dwcolumn: u32, lpsdisplay: ::windows::core::PCSTR, dwsize: u32) -> i32;
-        }
-        ::core::mem::transmute(phoneSetDisplay(::core::mem::transmute(hphone), ::core::mem::transmute(dwrow), ::core::mem::transmute(dwcolumn), lpsdisplay.into_param().abi(), ::core::mem::transmute(dwsize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn phoneSetDisplay(hphone: u32, dwrow: u32, dwcolumn: u32, lpsdisplay: ::windows::core::PCSTR, dwsize: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(phoneSetDisplay(::core::mem::transmute(hphone), ::core::mem::transmute(dwrow), ::core::mem::transmute(dwcolumn), lpsdisplay.into_param().abi(), ::core::mem::transmute(dwsize)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn phoneSetGain(hphone: u32, dwhookswitchdev: u32, dwgain: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn phoneSetGain(hphone: u32, dwhookswitchdev: u32, dwgain: u32) -> i32;
-        }
-        ::core::mem::transmute(phoneSetGain(::core::mem::transmute(hphone), ::core::mem::transmute(dwhookswitchdev), ::core::mem::transmute(dwgain)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn phoneSetGain(hphone: u32, dwhookswitchdev: u32, dwgain: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(phoneSetGain(::core::mem::transmute(hphone), ::core::mem::transmute(dwhookswitchdev), ::core::mem::transmute(dwgain)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn phoneSetHookSwitch(hphone: u32, dwhookswitchdevs: u32, dwhookswitchmode: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn phoneSetHookSwitch(hphone: u32, dwhookswitchdevs: u32, dwhookswitchmode: u32) -> i32;
-        }
-        ::core::mem::transmute(phoneSetHookSwitch(::core::mem::transmute(hphone), ::core::mem::transmute(dwhookswitchdevs), ::core::mem::transmute(dwhookswitchmode)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn phoneSetHookSwitch(hphone: u32, dwhookswitchdevs: u32, dwhookswitchmode: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(phoneSetHookSwitch(::core::mem::transmute(hphone), ::core::mem::transmute(dwhookswitchdevs), ::core::mem::transmute(dwhookswitchmode)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn phoneSetLamp(hphone: u32, dwbuttonlampid: u32, dwlampmode: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn phoneSetLamp(hphone: u32, dwbuttonlampid: u32, dwlampmode: u32) -> i32;
-        }
-        ::core::mem::transmute(phoneSetLamp(::core::mem::transmute(hphone), ::core::mem::transmute(dwbuttonlampid), ::core::mem::transmute(dwlampmode)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn phoneSetLamp(hphone: u32, dwbuttonlampid: u32, dwlampmode: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(phoneSetLamp(::core::mem::transmute(hphone), ::core::mem::transmute(dwbuttonlampid), ::core::mem::transmute(dwlampmode)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn phoneSetRing(hphone: u32, dwringmode: u32, dwvolume: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn phoneSetRing(hphone: u32, dwringmode: u32, dwvolume: u32) -> i32;
-        }
-        ::core::mem::transmute(phoneSetRing(::core::mem::transmute(hphone), ::core::mem::transmute(dwringmode), ::core::mem::transmute(dwvolume)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn phoneSetRing(hphone: u32, dwringmode: u32, dwvolume: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(phoneSetRing(::core::mem::transmute(hphone), ::core::mem::transmute(dwringmode), ::core::mem::transmute(dwvolume)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn phoneSetStatusMessages(hphone: u32, dwphonestates: u32, dwbuttonmodes: u32, dwbuttonstates: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn phoneSetStatusMessages(hphone: u32, dwphonestates: u32, dwbuttonmodes: u32, dwbuttonstates: u32) -> i32;
-        }
-        ::core::mem::transmute(phoneSetStatusMessages(::core::mem::transmute(hphone), ::core::mem::transmute(dwphonestates), ::core::mem::transmute(dwbuttonmodes), ::core::mem::transmute(dwbuttonstates)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn phoneSetStatusMessages(hphone: u32, dwphonestates: u32, dwbuttonmodes: u32, dwbuttonstates: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(phoneSetStatusMessages(::core::mem::transmute(hphone), ::core::mem::transmute(dwphonestates), ::core::mem::transmute(dwbuttonmodes), ::core::mem::transmute(dwbuttonstates)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn phoneSetVolume(hphone: u32, dwhookswitchdev: u32, dwvolume: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn phoneSetVolume(hphone: u32, dwhookswitchdev: u32, dwvolume: u32) -> i32;
-        }
-        ::core::mem::transmute(phoneSetVolume(::core::mem::transmute(hphone), ::core::mem::transmute(dwhookswitchdev), ::core::mem::transmute(dwvolume)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn phoneSetVolume(hphone: u32, dwhookswitchdev: u32, dwvolume: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(phoneSetVolume(::core::mem::transmute(hphone), ::core::mem::transmute(dwhookswitchdev), ::core::mem::transmute(dwvolume)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn phoneShutdown(hphoneapp: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn phoneShutdown(hphoneapp: u32) -> i32;
-        }
-        ::core::mem::transmute(phoneShutdown(::core::mem::transmute(hphoneapp)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn phoneShutdown(hphoneapp: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(phoneShutdown(::core::mem::transmute(hphoneapp)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const prioHigh: u32 = 1u32;
@@ -26619,146 +25409,96 @@ pub const prioNorm: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn tapiGetLocationInfo(lpszcountrycode: &mut [u8; 8], lpszcitycode: &mut [u8; 8]) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn tapiGetLocationInfo(lpszcountrycode: ::windows::core::PSTR, lpszcitycode: ::windows::core::PSTR) -> i32;
-        }
-        ::core::mem::transmute(tapiGetLocationInfo(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszcountrycode)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszcitycode))))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn tapiGetLocationInfo(lpszcountrycode: ::windows::core::PSTR, lpszcitycode: ::windows::core::PSTR) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(tapiGetLocationInfo(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszcountrycode)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszcitycode))))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn tapiGetLocationInfoA(lpszcountrycode: &mut [u8; 8], lpszcitycode: &mut [u8; 8]) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn tapiGetLocationInfoA(lpszcountrycode: ::windows::core::PSTR, lpszcitycode: ::windows::core::PSTR) -> i32;
-        }
-        ::core::mem::transmute(tapiGetLocationInfoA(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszcountrycode)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszcitycode))))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn tapiGetLocationInfoA(lpszcountrycode: ::windows::core::PSTR, lpszcitycode: ::windows::core::PSTR) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(tapiGetLocationInfoA(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszcountrycode)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszcitycode))))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn tapiGetLocationInfoW(lpszcountrycodew: &mut [u16; 8], lpszcitycodew: &mut [u16; 8]) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn tapiGetLocationInfoW(lpszcountrycodew: ::windows::core::PWSTR, lpszcitycodew: ::windows::core::PWSTR) -> i32;
-        }
-        ::core::mem::transmute(tapiGetLocationInfoW(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszcountrycodew)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszcitycodew))))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn tapiGetLocationInfoW(lpszcountrycodew: ::windows::core::PWSTR, lpszcitycodew: ::windows::core::PWSTR) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(tapiGetLocationInfoW(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszcountrycodew)), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszcitycodew))))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn tapiRequestDrop<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>>(hwnd: Param0, wrequestid: Param1) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn tapiRequestDrop(hwnd: super::super::Foundation::HWND, wrequestid: super::super::Foundation::WPARAM) -> i32;
-        }
-        ::core::mem::transmute(tapiRequestDrop(hwnd.into_param().abi(), wrequestid.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn tapiRequestDrop(hwnd: super::super::Foundation::HWND, wrequestid: super::super::Foundation::WPARAM) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(tapiRequestDrop(hwnd.into_param().abi(), wrequestid.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn tapiRequestMakeCall<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lpszdestaddress: Param0, lpszappname: Param1, lpszcalledparty: Param2, lpszcomment: Param3) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn tapiRequestMakeCall(lpszdestaddress: ::windows::core::PCSTR, lpszappname: ::windows::core::PCSTR, lpszcalledparty: ::windows::core::PCSTR, lpszcomment: ::windows::core::PCSTR) -> i32;
-        }
-        ::core::mem::transmute(tapiRequestMakeCall(lpszdestaddress.into_param().abi(), lpszappname.into_param().abi(), lpszcalledparty.into_param().abi(), lpszcomment.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn tapiRequestMakeCall(lpszdestaddress: ::windows::core::PCSTR, lpszappname: ::windows::core::PCSTR, lpszcalledparty: ::windows::core::PCSTR, lpszcomment: ::windows::core::PCSTR) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(tapiRequestMakeCall(lpszdestaddress.into_param().abi(), lpszappname.into_param().abi(), lpszcalledparty.into_param().abi(), lpszcomment.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn tapiRequestMakeCallA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lpszdestaddress: Param0, lpszappname: Param1, lpszcalledparty: Param2, lpszcomment: Param3) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn tapiRequestMakeCallA(lpszdestaddress: ::windows::core::PCSTR, lpszappname: ::windows::core::PCSTR, lpszcalledparty: ::windows::core::PCSTR, lpszcomment: ::windows::core::PCSTR) -> i32;
-        }
-        ::core::mem::transmute(tapiRequestMakeCallA(lpszdestaddress.into_param().abi(), lpszappname.into_param().abi(), lpszcalledparty.into_param().abi(), lpszcomment.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn tapiRequestMakeCallA(lpszdestaddress: ::windows::core::PCSTR, lpszappname: ::windows::core::PCSTR, lpszcalledparty: ::windows::core::PCSTR, lpszcomment: ::windows::core::PCSTR) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(tapiRequestMakeCallA(lpszdestaddress.into_param().abi(), lpszappname.into_param().abi(), lpszcalledparty.into_param().abi(), lpszcomment.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[inline]
 pub unsafe fn tapiRequestMakeCallW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpszdestaddress: Param0, lpszappname: Param1, lpszcalledparty: Param2, lpszcomment: Param3) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn tapiRequestMakeCallW(lpszdestaddress: ::windows::core::PCWSTR, lpszappname: ::windows::core::PCWSTR, lpszcalledparty: ::windows::core::PCWSTR, lpszcomment: ::windows::core::PCWSTR) -> i32;
-        }
-        ::core::mem::transmute(tapiRequestMakeCallW(lpszdestaddress.into_param().abi(), lpszappname.into_param().abi(), lpszcalledparty.into_param().abi(), lpszcomment.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn tapiRequestMakeCallW(lpszdestaddress: ::windows::core::PCWSTR, lpszappname: ::windows::core::PCWSTR, lpszcalledparty: ::windows::core::PCWSTR, lpszcomment: ::windows::core::PCWSTR) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(tapiRequestMakeCallW(lpszdestaddress.into_param().abi(), lpszappname.into_param().abi(), lpszcalledparty.into_param().abi(), lpszcomment.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn tapiRequestMediaCall<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param6: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param7: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param8: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param9: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hwnd: Param0, wrequestid: Param1, lpszdeviceclass: Param2, lpdeviceid: Param3, dwsize: u32, dwsecure: u32, lpszdestaddress: Param6, lpszappname: Param7, lpszcalledparty: Param8, lpszcomment: Param9) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn tapiRequestMediaCall(hwnd: super::super::Foundation::HWND, wrequestid: super::super::Foundation::WPARAM, lpszdeviceclass: ::windows::core::PCSTR, lpdeviceid: ::windows::core::PCSTR, dwsize: u32, dwsecure: u32, lpszdestaddress: ::windows::core::PCSTR, lpszappname: ::windows::core::PCSTR, lpszcalledparty: ::windows::core::PCSTR, lpszcomment: ::windows::core::PCSTR) -> i32;
-        }
-        ::core::mem::transmute(tapiRequestMediaCall(hwnd.into_param().abi(), wrequestid.into_param().abi(), lpszdeviceclass.into_param().abi(), lpdeviceid.into_param().abi(), ::core::mem::transmute(dwsize), ::core::mem::transmute(dwsecure), lpszdestaddress.into_param().abi(), lpszappname.into_param().abi(), lpszcalledparty.into_param().abi(), lpszcomment.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn tapiRequestMediaCall(hwnd: super::super::Foundation::HWND, wrequestid: super::super::Foundation::WPARAM, lpszdeviceclass: ::windows::core::PCSTR, lpdeviceid: ::windows::core::PCSTR, dwsize: u32, dwsecure: u32, lpszdestaddress: ::windows::core::PCSTR, lpszappname: ::windows::core::PCSTR, lpszcalledparty: ::windows::core::PCSTR, lpszcomment: ::windows::core::PCSTR) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(tapiRequestMediaCall(hwnd.into_param().abi(), wrequestid.into_param().abi(), lpszdeviceclass.into_param().abi(), lpdeviceid.into_param().abi(), ::core::mem::transmute(dwsize), ::core::mem::transmute(dwsecure), lpszdestaddress.into_param().abi(), lpszappname.into_param().abi(), lpszcalledparty.into_param().abi(), lpszcomment.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn tapiRequestMediaCallA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param6: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param7: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param8: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param9: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hwnd: Param0, wrequestid: Param1, lpszdeviceclass: Param2, lpdeviceid: Param3, dwsize: u32, dwsecure: u32, lpszdestaddress: Param6, lpszappname: Param7, lpszcalledparty: Param8, lpszcomment: Param9) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn tapiRequestMediaCallA(hwnd: super::super::Foundation::HWND, wrequestid: super::super::Foundation::WPARAM, lpszdeviceclass: ::windows::core::PCSTR, lpdeviceid: ::windows::core::PCSTR, dwsize: u32, dwsecure: u32, lpszdestaddress: ::windows::core::PCSTR, lpszappname: ::windows::core::PCSTR, lpszcalledparty: ::windows::core::PCSTR, lpszcomment: ::windows::core::PCSTR) -> i32;
-        }
-        ::core::mem::transmute(tapiRequestMediaCallA(hwnd.into_param().abi(), wrequestid.into_param().abi(), lpszdeviceclass.into_param().abi(), lpdeviceid.into_param().abi(), ::core::mem::transmute(dwsize), ::core::mem::transmute(dwsecure), lpszdestaddress.into_param().abi(), lpszappname.into_param().abi(), lpszcalledparty.into_param().abi(), lpszcomment.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn tapiRequestMediaCallA(hwnd: super::super::Foundation::HWND, wrequestid: super::super::Foundation::WPARAM, lpszdeviceclass: ::windows::core::PCSTR, lpdeviceid: ::windows::core::PCSTR, dwsize: u32, dwsecure: u32, lpszdestaddress: ::windows::core::PCSTR, lpszappname: ::windows::core::PCSTR, lpszcalledparty: ::windows::core::PCSTR, lpszcomment: ::windows::core::PCSTR) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(tapiRequestMediaCallA(hwnd.into_param().abi(), wrequestid.into_param().abi(), lpszdeviceclass.into_param().abi(), lpdeviceid.into_param().abi(), ::core::mem::transmute(dwsize), ::core::mem::transmute(dwsecure), lpszdestaddress.into_param().abi(), lpszappname.into_param().abi(), lpszcalledparty.into_param().abi(), lpszcomment.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn tapiRequestMediaCallW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param6: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param7: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param8: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param9: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hwnd: Param0, wrequestid: Param1, lpszdeviceclass: Param2, lpdeviceid: Param3, dwsize: u32, dwsecure: u32, lpszdestaddress: Param6, lpszappname: Param7, lpszcalledparty: Param8, lpszcomment: Param9) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn tapiRequestMediaCallW(hwnd: super::super::Foundation::HWND, wrequestid: super::super::Foundation::WPARAM, lpszdeviceclass: ::windows::core::PCWSTR, lpdeviceid: ::windows::core::PCWSTR, dwsize: u32, dwsecure: u32, lpszdestaddress: ::windows::core::PCWSTR, lpszappname: ::windows::core::PCWSTR, lpszcalledparty: ::windows::core::PCWSTR, lpszcomment: ::windows::core::PCWSTR) -> i32;
-        }
-        ::core::mem::transmute(tapiRequestMediaCallW(hwnd.into_param().abi(), wrequestid.into_param().abi(), lpszdeviceclass.into_param().abi(), lpdeviceid.into_param().abi(), ::core::mem::transmute(dwsize), ::core::mem::transmute(dwsecure), lpszdestaddress.into_param().abi(), lpszappname.into_param().abi(), lpszcalledparty.into_param().abi(), lpszcomment.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn tapiRequestMediaCallW(hwnd: super::super::Foundation::HWND, wrequestid: super::super::Foundation::WPARAM, lpszdeviceclass: ::windows::core::PCWSTR, lpdeviceid: ::windows::core::PCWSTR, dwsize: u32, dwsecure: u32, lpszdestaddress: ::windows::core::PCWSTR, lpszappname: ::windows::core::PCWSTR, lpszcalledparty: ::windows::core::PCWSTR, lpszcomment: ::windows::core::PCWSTR) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(tapiRequestMediaCallW(hwnd.into_param().abi(), wrequestid.into_param().abi(), lpszdeviceclass.into_param().abi(), lpdeviceid.into_param().abi(), ::core::mem::transmute(dwsize), ::core::mem::transmute(dwsecure), lpszdestaddress.into_param().abi(), lpszappname.into_param().abi(), lpszcalledparty.into_param().abi(), lpszcomment.into_param().abi()))
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

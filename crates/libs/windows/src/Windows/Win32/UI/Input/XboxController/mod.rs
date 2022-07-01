@@ -390,100 +390,65 @@ impl ::core::fmt::Debug for XINPUT_VIRTUAL_KEY {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn XInputEnable<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(enable: Param0) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn XInputEnable(enable: super::super::super::Foundation::BOOL);
-        }
-        XInputEnable(enable.into_param().abi())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn XInputEnable(enable: super::super::super::Foundation::BOOL);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    XInputEnable(enable.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
 #[inline]
 pub unsafe fn XInputGetAudioDeviceIds(dwuserindex: u32, prenderdeviceid: ::windows::core::PWSTR, prendercount: *mut u32, pcapturedeviceid: ::windows::core::PWSTR, pcapturecount: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn XInputGetAudioDeviceIds(dwuserindex: u32, prenderdeviceid: ::windows::core::PWSTR, prendercount: *mut u32, pcapturedeviceid: ::windows::core::PWSTR, pcapturecount: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(XInputGetAudioDeviceIds(::core::mem::transmute(dwuserindex), ::core::mem::transmute(prenderdeviceid), ::core::mem::transmute(prendercount), ::core::mem::transmute(pcapturedeviceid), ::core::mem::transmute(pcapturecount)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn XInputGetAudioDeviceIds(dwuserindex: u32, prenderdeviceid: ::windows::core::PWSTR, prendercount: *mut u32, pcapturedeviceid: ::windows::core::PWSTR, pcapturecount: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(XInputGetAudioDeviceIds(::core::mem::transmute(dwuserindex), ::core::mem::transmute(prenderdeviceid), ::core::mem::transmute(prendercount), ::core::mem::transmute(pcapturedeviceid), ::core::mem::transmute(pcapturecount)))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
 #[inline]
 pub unsafe fn XInputGetBatteryInformation(dwuserindex: u32, devtype: u8, pbatteryinformation: *mut XINPUT_BATTERY_INFORMATION) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn XInputGetBatteryInformation(dwuserindex: u32, devtype: u8, pbatteryinformation: *mut XINPUT_BATTERY_INFORMATION) -> u32;
-        }
-        ::core::mem::transmute(XInputGetBatteryInformation(::core::mem::transmute(dwuserindex), ::core::mem::transmute(devtype), ::core::mem::transmute(pbatteryinformation)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn XInputGetBatteryInformation(dwuserindex: u32, devtype: u8, pbatteryinformation: *mut XINPUT_BATTERY_INFORMATION) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(XInputGetBatteryInformation(::core::mem::transmute(dwuserindex), ::core::mem::transmute(devtype), ::core::mem::transmute(pbatteryinformation)))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
 #[inline]
 pub unsafe fn XInputGetCapabilities(dwuserindex: u32, dwflags: u32, pcapabilities: *mut XINPUT_CAPABILITIES) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn XInputGetCapabilities(dwuserindex: u32, dwflags: u32, pcapabilities: *mut XINPUT_CAPABILITIES) -> u32;
-        }
-        ::core::mem::transmute(XInputGetCapabilities(::core::mem::transmute(dwuserindex), ::core::mem::transmute(dwflags), ::core::mem::transmute(pcapabilities)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn XInputGetCapabilities(dwuserindex: u32, dwflags: u32, pcapabilities: *mut XINPUT_CAPABILITIES) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(XInputGetCapabilities(::core::mem::transmute(dwuserindex), ::core::mem::transmute(dwflags), ::core::mem::transmute(pcapabilities)))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
 #[inline]
 pub unsafe fn XInputGetKeystroke(dwuserindex: u32, dwreserved: u32, pkeystroke: *mut XINPUT_KEYSTROKE) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn XInputGetKeystroke(dwuserindex: u32, dwreserved: u32, pkeystroke: *mut XINPUT_KEYSTROKE) -> u32;
-        }
-        ::core::mem::transmute(XInputGetKeystroke(::core::mem::transmute(dwuserindex), ::core::mem::transmute(dwreserved), ::core::mem::transmute(pkeystroke)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn XInputGetKeystroke(dwuserindex: u32, dwreserved: u32, pkeystroke: *mut XINPUT_KEYSTROKE) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(XInputGetKeystroke(::core::mem::transmute(dwuserindex), ::core::mem::transmute(dwreserved), ::core::mem::transmute(pkeystroke)))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
 #[inline]
 pub unsafe fn XInputGetState(dwuserindex: u32, pstate: *mut XINPUT_STATE) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn XInputGetState(dwuserindex: u32, pstate: *mut XINPUT_STATE) -> u32;
-        }
-        ::core::mem::transmute(XInputGetState(::core::mem::transmute(dwuserindex), ::core::mem::transmute(pstate)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn XInputGetState(dwuserindex: u32, pstate: *mut XINPUT_STATE) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(XInputGetState(::core::mem::transmute(dwuserindex), ::core::mem::transmute(pstate)))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
 #[inline]
 pub unsafe fn XInputSetState(dwuserindex: u32, pvibration: *const XINPUT_VIBRATION) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn XInputSetState(dwuserindex: u32, pvibration: *const XINPUT_VIBRATION) -> u32;
-        }
-        ::core::mem::transmute(XInputSetState(::core::mem::transmute(dwuserindex), ::core::mem::transmute(pvibration)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn XInputSetState(dwuserindex: u32, pvibration: *const XINPUT_VIBRATION) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(XInputSetState(::core::mem::transmute(dwuserindex), ::core::mem::transmute(pvibration)))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
 pub const XUSER_INDEX_ANY: u32 = 255u32;
