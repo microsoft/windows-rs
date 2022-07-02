@@ -182,7 +182,7 @@ jobs:
       run: cargo run -p tool_${{ matrix.generator }}
     - name: Compare
       shell: bash
-      run: git diff --exit-code || (echo '::error::Generated `tool_${{ matrix.generator }}` are out-of-date. Please run `cargo run -p tool_${{ matrix.generator }}`'; exit 1)
+      run: test -z "$(git status --porcelain)" || (echo '::error::Generated `tool_${{ matrix.generator }}` are out-of-date. Please run `cargo run -p tool_${{ matrix.generator }}`'; git diff; exit 1)
 
   cargo_sys:
     name: Check windows-sys
