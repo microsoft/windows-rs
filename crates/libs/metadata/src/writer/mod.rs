@@ -1,8 +1,8 @@
 mod blobs;
 mod codes;
+pub mod file;
 mod gen;
 mod helpers;
-pub mod file;
 mod strings;
 mod tables;
 mod r#type;

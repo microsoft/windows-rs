@@ -1,5 +1,5 @@
 // Note: these definitions are taken from `windows-sys` to avoid a circular dependency.
-#![allow(non_snake_case,non_camel_case_types)]
+#![allow(non_snake_case, non_camel_case_types)]
 
 pub type IMAGE_DIRECTORY_ENTRY = u32;
 pub type IMAGE_DLL_CHARACTERISTICS = u16;
