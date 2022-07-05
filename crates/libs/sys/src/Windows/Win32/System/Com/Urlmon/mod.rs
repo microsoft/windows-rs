@@ -1,4 +1,4 @@
-#[link(name = "windows")]
+#[cfg_attr(windows, link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
     pub fn CoGetClassObjectFromURL(rclassid: *const ::windows_sys::core::GUID, szcode: ::windows_sys::core::PCWSTR, dwfileversionms: u32, dwfileversionls: u32, sztype: ::windows_sys::core::PCWSTR, pbindctx: super::IBindCtx, dwclscontext: super::CLSCTX, pvreserved: *mut ::core::ffi::c_void, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;

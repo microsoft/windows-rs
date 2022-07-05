@@ -6,87 +6,57 @@ pub const CLSID_D3D12Tools: ::windows::core::GUID = ::windows::core::GUID::from_
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 #[inline]
 pub unsafe fn D3D12CreateDevice<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, T: ::windows::core::Interface>(padapter: Param0, minimumfeaturelevel: super::Direct3D::D3D_FEATURE_LEVEL, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn D3D12CreateDevice(padapter: *mut ::core::ffi::c_void, minimumfeaturelevel: super::Direct3D::D3D_FEATURE_LEVEL, riid: *const ::windows::core::GUID, ppdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        D3D12CreateDevice(padapter.into_param().abi(), ::core::mem::transmute(minimumfeaturelevel), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn D3D12CreateDevice(padapter: *mut ::core::ffi::c_void, minimumfeaturelevel: super::Direct3D::D3D_FEATURE_LEVEL, riid: *const ::windows::core::GUID, ppdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    D3D12CreateDevice(padapter.into_param().abi(), ::core::mem::transmute(minimumfeaturelevel), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[inline]
 pub unsafe fn D3D12CreateRootSignatureDeserializer(psrcdata: *const ::core::ffi::c_void, srcdatasizeinbytes: usize, prootsignaturedeserializerinterface: *const ::windows::core::GUID, pprootsignaturedeserializer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn D3D12CreateRootSignatureDeserializer(psrcdata: *const ::core::ffi::c_void, srcdatasizeinbytes: usize, prootsignaturedeserializerinterface: *const ::windows::core::GUID, pprootsignaturedeserializer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        D3D12CreateRootSignatureDeserializer(::core::mem::transmute(psrcdata), ::core::mem::transmute(srcdatasizeinbytes), ::core::mem::transmute(prootsignaturedeserializerinterface), ::core::mem::transmute(pprootsignaturedeserializer)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn D3D12CreateRootSignatureDeserializer(psrcdata: *const ::core::ffi::c_void, srcdatasizeinbytes: usize, prootsignaturedeserializerinterface: *const ::windows::core::GUID, pprootsignaturedeserializer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    D3D12CreateRootSignatureDeserializer(::core::mem::transmute(psrcdata), ::core::mem::transmute(srcdatasizeinbytes), ::core::mem::transmute(prootsignaturedeserializerinterface), ::core::mem::transmute(pprootsignaturedeserializer)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[inline]
 pub unsafe fn D3D12CreateVersionedRootSignatureDeserializer(psrcdata: *const ::core::ffi::c_void, srcdatasizeinbytes: usize, prootsignaturedeserializerinterface: *const ::windows::core::GUID, pprootsignaturedeserializer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn D3D12CreateVersionedRootSignatureDeserializer(psrcdata: *const ::core::ffi::c_void, srcdatasizeinbytes: usize, prootsignaturedeserializerinterface: *const ::windows::core::GUID, pprootsignaturedeserializer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        D3D12CreateVersionedRootSignatureDeserializer(::core::mem::transmute(psrcdata), ::core::mem::transmute(srcdatasizeinbytes), ::core::mem::transmute(prootsignaturedeserializerinterface), ::core::mem::transmute(pprootsignaturedeserializer)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn D3D12CreateVersionedRootSignatureDeserializer(psrcdata: *const ::core::ffi::c_void, srcdatasizeinbytes: usize, prootsignaturedeserializerinterface: *const ::windows::core::GUID, pprootsignaturedeserializer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    D3D12CreateVersionedRootSignatureDeserializer(::core::mem::transmute(psrcdata), ::core::mem::transmute(srcdatasizeinbytes), ::core::mem::transmute(prootsignaturedeserializerinterface), ::core::mem::transmute(pprootsignaturedeserializer)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[inline]
 pub unsafe fn D3D12EnableExperimentalFeatures(numfeatures: u32, piids: *const ::windows::core::GUID, pconfigurationstructs: *const ::core::ffi::c_void, pconfigurationstructsizes: *const u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn D3D12EnableExperimentalFeatures(numfeatures: u32, piids: *const ::windows::core::GUID, pconfigurationstructs: *const ::core::ffi::c_void, pconfigurationstructsizes: *const u32) -> ::windows::core::HRESULT;
-        }
-        D3D12EnableExperimentalFeatures(::core::mem::transmute(numfeatures), ::core::mem::transmute(piids), ::core::mem::transmute(pconfigurationstructs), ::core::mem::transmute(pconfigurationstructsizes)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn D3D12EnableExperimentalFeatures(numfeatures: u32, piids: *const ::windows::core::GUID, pconfigurationstructs: *const ::core::ffi::c_void, pconfigurationstructsizes: *const u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    D3D12EnableExperimentalFeatures(::core::mem::transmute(numfeatures), ::core::mem::transmute(piids), ::core::mem::transmute(pconfigurationstructs), ::core::mem::transmute(pconfigurationstructsizes)).ok()
 }
 pub const D3D12ExperimentalShaderModels: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76f5573e_f13a_40f5_b297_81ce9e18933f);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[inline]
 pub unsafe fn D3D12GetDebugInterface<T: ::windows::core::Interface>(result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn D3D12GetDebugInterface(riid: *const ::windows::core::GUID, ppvdebug: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        D3D12GetDebugInterface(&<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn D3D12GetDebugInterface(riid: *const ::windows::core::GUID, ppvdebug: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    D3D12GetDebugInterface(&<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 #[inline]
 pub unsafe fn D3D12GetInterface<T: ::windows::core::Interface>(rclsid: *const ::windows::core::GUID, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn D3D12GetInterface(rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvdebug: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        D3D12GetInterface(::core::mem::transmute(rclsid), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn D3D12GetInterface(rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvdebug: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    D3D12GetInterface(::core::mem::transmute(rclsid), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
 pub type D3D12MessageFunc = ::core::option::Option<unsafe extern "system" fn(category: D3D12_MESSAGE_CATEGORY, severity: D3D12_MESSAGE_SEVERITY, id: D3D12_MESSAGE_ID, pdescription: ::windows::core::PCSTR, pcontext: *mut ::core::ffi::c_void)>;
@@ -95,31 +65,21 @@ pub const D3D12MetaCommand: ::windows::core::GUID = ::windows::core::GUID::from_
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 #[inline]
 pub unsafe fn D3D12SerializeRootSignature(prootsignature: *const D3D12_ROOT_SIGNATURE_DESC, version: D3D_ROOT_SIGNATURE_VERSION, ppblob: *mut ::core::option::Option<super::Direct3D::ID3DBlob>, pperrorblob: *mut ::core::option::Option<super::Direct3D::ID3DBlob>) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn D3D12SerializeRootSignature(prootsignature: *const D3D12_ROOT_SIGNATURE_DESC, version: D3D_ROOT_SIGNATURE_VERSION, ppblob: *mut *mut ::core::ffi::c_void, pperrorblob: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        D3D12SerializeRootSignature(::core::mem::transmute(prootsignature), ::core::mem::transmute(version), ::core::mem::transmute(ppblob), ::core::mem::transmute(pperrorblob)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn D3D12SerializeRootSignature(prootsignature: *const D3D12_ROOT_SIGNATURE_DESC, version: D3D_ROOT_SIGNATURE_VERSION, ppblob: *mut *mut ::core::ffi::c_void, pperrorblob: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    D3D12SerializeRootSignature(::core::mem::transmute(prootsignature), ::core::mem::transmute(version), ::core::mem::transmute(ppblob), ::core::mem::transmute(pperrorblob)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Direct3D\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 #[inline]
 pub unsafe fn D3D12SerializeVersionedRootSignature(prootsignature: *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC, ppblob: *mut ::core::option::Option<super::Direct3D::ID3DBlob>, pperrorblob: *mut ::core::option::Option<super::Direct3D::ID3DBlob>) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn D3D12SerializeVersionedRootSignature(prootsignature: *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC, ppblob: *mut *mut ::core::ffi::c_void, pperrorblob: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        D3D12SerializeVersionedRootSignature(::core::mem::transmute(prootsignature), ::core::mem::transmute(ppblob), ::core::mem::transmute(pperrorblob)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn D3D12SerializeVersionedRootSignature(prootsignature: *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC, ppblob: *mut *mut ::core::ffi::c_void, pperrorblob: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    D3D12SerializeVersionedRootSignature(::core::mem::transmute(prootsignature), ::core::mem::transmute(ppblob), ::core::mem::transmute(pperrorblob)).ok()
 }
 pub const D3D12TiledResourceTier4: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9c4725f_a81a_4f56_8c5b_c51039d694fb);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]

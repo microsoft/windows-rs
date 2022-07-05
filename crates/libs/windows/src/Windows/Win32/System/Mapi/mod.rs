@@ -27,16 +27,11 @@ pub type LPMAPISENDMAILW = ::core::option::Option<unsafe extern "system" fn(lhse
 #[doc = "*Required features: `\"Win32_System_Mapi\"`*"]
 #[inline]
 pub unsafe fn MAPIFreeBuffer(pv: *mut ::core::ffi::c_void) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MAPIFreeBuffer(pv: *mut ::core::ffi::c_void) -> u32;
-        }
-        ::core::mem::transmute(MAPIFreeBuffer(::core::mem::transmute(pv)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MAPIFreeBuffer(pv: *mut ::core::ffi::c_void) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MAPIFreeBuffer(::core::mem::transmute(pv)))
 }
 #[doc = "*Required features: `\"Win32_System_Mapi\"`*"]
 pub const MAPI_AB_NOMODIFY: u32 = 1024u32;

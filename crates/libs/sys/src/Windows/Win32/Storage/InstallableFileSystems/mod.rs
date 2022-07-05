@@ -1,4 +1,4 @@
-#[link(name = "windows")]
+#[cfg_attr(windows, link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"]
     pub fn FilterAttach(lpfiltername: ::windows_sys::core::PCWSTR, lpvolumename: ::windows_sys::core::PCWSTR, lpinstancename: ::windows_sys::core::PCWSTR, dwcreatedinstancenamelength: u32, lpcreatedinstancename: ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT;

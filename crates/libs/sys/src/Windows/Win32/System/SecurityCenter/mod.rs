@@ -1,4 +1,4 @@
-#[link(name = "windows")]
+#[cfg_attr(windows, link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
     pub fn WscGetAntiMalwareUri(ppszuri: *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT;

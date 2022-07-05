@@ -2,31 +2,21 @@
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ChoosePixelFormat<'a, Param0: ::windows::core::IntoParam<'a, super::Gdi::HDC>>(hdc: Param0, ppfd: *const PIXELFORMATDESCRIPTOR) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ChoosePixelFormat(hdc: super::Gdi::HDC, ppfd: *const PIXELFORMATDESCRIPTOR) -> i32;
-        }
-        ::core::mem::transmute(ChoosePixelFormat(hdc.into_param().abi(), ::core::mem::transmute(ppfd)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ChoosePixelFormat(hdc: super::Gdi::HDC, ppfd: *const PIXELFORMATDESCRIPTOR) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(ChoosePixelFormat(hdc.into_param().abi(), ::core::mem::transmute(ppfd)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn DescribePixelFormat<'a, Param0: ::windows::core::IntoParam<'a, super::Gdi::HDC>>(hdc: Param0, ipixelformat: PFD_PIXEL_TYPE, nbytes: u32, ppfd: *mut PIXELFORMATDESCRIPTOR) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DescribePixelFormat(hdc: super::Gdi::HDC, ipixelformat: PFD_PIXEL_TYPE, nbytes: u32, ppfd: *mut PIXELFORMATDESCRIPTOR) -> i32;
-        }
-        ::core::mem::transmute(DescribePixelFormat(hdc.into_param().abi(), ::core::mem::transmute(ipixelformat), ::core::mem::transmute(nbytes), ::core::mem::transmute(ppfd)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DescribePixelFormat(hdc: super::Gdi::HDC, ipixelformat: PFD_PIXEL_TYPE, nbytes: u32, ppfd: *mut PIXELFORMATDESCRIPTOR) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(DescribePixelFormat(hdc.into_param().abi(), ::core::mem::transmute(ipixelformat), ::core::mem::transmute(nbytes), ::core::mem::transmute(ppfd)))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -1545,31 +1535,21 @@ pub const GL_ZOOM_Y: u32 = 3351u32;
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GetEnhMetaFilePixelFormat<'a, Param0: ::windows::core::IntoParam<'a, super::Gdi::HENHMETAFILE>>(hemf: Param0, cbbuffer: u32, ppfd: *mut PIXELFORMATDESCRIPTOR) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetEnhMetaFilePixelFormat(hemf: super::Gdi::HENHMETAFILE, cbbuffer: u32, ppfd: *mut PIXELFORMATDESCRIPTOR) -> u32;
-        }
-        ::core::mem::transmute(GetEnhMetaFilePixelFormat(hemf.into_param().abi(), ::core::mem::transmute(cbbuffer), ::core::mem::transmute(ppfd)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetEnhMetaFilePixelFormat(hemf: super::Gdi::HENHMETAFILE, cbbuffer: u32, ppfd: *mut PIXELFORMATDESCRIPTOR) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetEnhMetaFilePixelFormat(hemf.into_param().abi(), ::core::mem::transmute(cbbuffer), ::core::mem::transmute(ppfd)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GetPixelFormat<'a, Param0: ::windows::core::IntoParam<'a, super::Gdi::HDC>>(hdc: Param0) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetPixelFormat(hdc: super::Gdi::HDC) -> i32;
-        }
-        ::core::mem::transmute(GetPixelFormat(hdc.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetPixelFormat(hdc: super::Gdi::HDC) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetPixelFormat(hdc.into_param().abi()))
 }
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -1972,5734 +1952,3694 @@ impl ::core::default::Default for POINTFLOAT {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn SetPixelFormat<'a, Param0: ::windows::core::IntoParam<'a, super::Gdi::HDC>>(hdc: Param0, format: i32, ppfd: *const PIXELFORMATDESCRIPTOR) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetPixelFormat(hdc: super::Gdi::HDC, format: i32, ppfd: *const PIXELFORMATDESCRIPTOR) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(SetPixelFormat(hdc.into_param().abi(), ::core::mem::transmute(format), ::core::mem::transmute(ppfd)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetPixelFormat(hdc: super::Gdi::HDC, format: i32, ppfd: *const PIXELFORMATDESCRIPTOR) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetPixelFormat(hdc.into_param().abi(), ::core::mem::transmute(format), ::core::mem::transmute(ppfd)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn SwapBuffers<'a, Param0: ::windows::core::IntoParam<'a, super::Gdi::HDC>>(param0: Param0) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SwapBuffers(param0: super::Gdi::HDC) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(SwapBuffers(param0.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SwapBuffers(param0: super::Gdi::HDC) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SwapBuffers(param0.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glAccum(op: u32, value: f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glAccum(op: u32, value: f32);
-        }
-        glAccum(::core::mem::transmute(op), ::core::mem::transmute(value))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glAccum(op: u32, value: f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glAccum(::core::mem::transmute(op), ::core::mem::transmute(value))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glAlphaFunc(func: u32, r#ref: f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glAlphaFunc(func: u32, r#ref: f32);
-        }
-        glAlphaFunc(::core::mem::transmute(func), ::core::mem::transmute(r#ref))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glAlphaFunc(func: u32, r#ref: f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glAlphaFunc(::core::mem::transmute(func), ::core::mem::transmute(r#ref))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glAreTexturesResident(n: i32, textures: *const u32, residences: *mut u8) -> u8 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glAreTexturesResident(n: i32, textures: *const u32, residences: *mut u8) -> u8;
-        }
-        ::core::mem::transmute(glAreTexturesResident(::core::mem::transmute(n), ::core::mem::transmute(textures), ::core::mem::transmute(residences)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glAreTexturesResident(n: i32, textures: *const u32, residences: *mut u8) -> u8;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(glAreTexturesResident(::core::mem::transmute(n), ::core::mem::transmute(textures), ::core::mem::transmute(residences)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glArrayElement(i: i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glArrayElement(i: i32);
-        }
-        glArrayElement(::core::mem::transmute(i))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glArrayElement(i: i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glArrayElement(::core::mem::transmute(i))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glBegin(mode: u32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glBegin(mode: u32);
-        }
-        glBegin(::core::mem::transmute(mode))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glBegin(mode: u32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glBegin(::core::mem::transmute(mode))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glBindTexture(target: u32, texture: u32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glBindTexture(target: u32, texture: u32);
-        }
-        glBindTexture(::core::mem::transmute(target), ::core::mem::transmute(texture))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glBindTexture(target: u32, texture: u32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glBindTexture(::core::mem::transmute(target), ::core::mem::transmute(texture))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glBitmap(width: i32, height: i32, xorig: f32, yorig: f32, xmove: f32, ymove: f32, bitmap: *const u8) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glBitmap(width: i32, height: i32, xorig: f32, yorig: f32, xmove: f32, ymove: f32, bitmap: *const u8);
-        }
-        glBitmap(::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(xorig), ::core::mem::transmute(yorig), ::core::mem::transmute(xmove), ::core::mem::transmute(ymove), ::core::mem::transmute(bitmap))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glBitmap(width: i32, height: i32, xorig: f32, yorig: f32, xmove: f32, ymove: f32, bitmap: *const u8);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glBitmap(::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(xorig), ::core::mem::transmute(yorig), ::core::mem::transmute(xmove), ::core::mem::transmute(ymove), ::core::mem::transmute(bitmap))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glBlendFunc(sfactor: u32, dfactor: u32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glBlendFunc(sfactor: u32, dfactor: u32);
-        }
-        glBlendFunc(::core::mem::transmute(sfactor), ::core::mem::transmute(dfactor))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glBlendFunc(sfactor: u32, dfactor: u32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glBlendFunc(::core::mem::transmute(sfactor), ::core::mem::transmute(dfactor))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glCallList(list: u32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glCallList(list: u32);
-        }
-        glCallList(::core::mem::transmute(list))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glCallList(list: u32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glCallList(::core::mem::transmute(list))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glCallLists(n: i32, r#type: u32, lists: *const ::core::ffi::c_void) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glCallLists(n: i32, r#type: u32, lists: *const ::core::ffi::c_void);
-        }
-        glCallLists(::core::mem::transmute(n), ::core::mem::transmute(r#type), ::core::mem::transmute(lists))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glCallLists(n: i32, r#type: u32, lists: *const ::core::ffi::c_void);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glCallLists(::core::mem::transmute(n), ::core::mem::transmute(r#type), ::core::mem::transmute(lists))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glClear(mask: u32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glClear(mask: u32);
-        }
-        glClear(::core::mem::transmute(mask))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glClear(mask: u32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glClear(::core::mem::transmute(mask))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glClearAccum(red: f32, green: f32, blue: f32, alpha: f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glClearAccum(red: f32, green: f32, blue: f32, alpha: f32);
-        }
-        glClearAccum(::core::mem::transmute(red), ::core::mem::transmute(green), ::core::mem::transmute(blue), ::core::mem::transmute(alpha))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glClearAccum(red: f32, green: f32, blue: f32, alpha: f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glClearAccum(::core::mem::transmute(red), ::core::mem::transmute(green), ::core::mem::transmute(blue), ::core::mem::transmute(alpha))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glClearColor(red: f32, green: f32, blue: f32, alpha: f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glClearColor(red: f32, green: f32, blue: f32, alpha: f32);
-        }
-        glClearColor(::core::mem::transmute(red), ::core::mem::transmute(green), ::core::mem::transmute(blue), ::core::mem::transmute(alpha))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glClearColor(red: f32, green: f32, blue: f32, alpha: f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glClearColor(::core::mem::transmute(red), ::core::mem::transmute(green), ::core::mem::transmute(blue), ::core::mem::transmute(alpha))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glClearDepth(depth: f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glClearDepth(depth: f64);
-        }
-        glClearDepth(::core::mem::transmute(depth))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glClearDepth(depth: f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glClearDepth(::core::mem::transmute(depth))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glClearIndex(c: f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glClearIndex(c: f32);
-        }
-        glClearIndex(::core::mem::transmute(c))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glClearIndex(c: f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glClearIndex(::core::mem::transmute(c))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glClearStencil(s: i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glClearStencil(s: i32);
-        }
-        glClearStencil(::core::mem::transmute(s))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glClearStencil(s: i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glClearStencil(::core::mem::transmute(s))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glClipPlane(plane: u32, equation: *const f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glClipPlane(plane: u32, equation: *const f64);
-        }
-        glClipPlane(::core::mem::transmute(plane), ::core::mem::transmute(equation))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glClipPlane(plane: u32, equation: *const f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glClipPlane(::core::mem::transmute(plane), ::core::mem::transmute(equation))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glColor3b(red: i8, green: i8, blue: i8) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glColor3b(red: i8, green: i8, blue: i8);
-        }
-        glColor3b(::core::mem::transmute(red), ::core::mem::transmute(green), ::core::mem::transmute(blue))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glColor3b(red: i8, green: i8, blue: i8);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glColor3b(::core::mem::transmute(red), ::core::mem::transmute(green), ::core::mem::transmute(blue))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glColor3bv(v: *const i8) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glColor3bv(v: *const i8);
-        }
-        glColor3bv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glColor3bv(v: *const i8);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glColor3bv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glColor3d(red: f64, green: f64, blue: f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glColor3d(red: f64, green: f64, blue: f64);
-        }
-        glColor3d(::core::mem::transmute(red), ::core::mem::transmute(green), ::core::mem::transmute(blue))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glColor3d(red: f64, green: f64, blue: f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glColor3d(::core::mem::transmute(red), ::core::mem::transmute(green), ::core::mem::transmute(blue))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glColor3dv(v: *const f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glColor3dv(v: *const f64);
-        }
-        glColor3dv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glColor3dv(v: *const f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glColor3dv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glColor3f(red: f32, green: f32, blue: f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glColor3f(red: f32, green: f32, blue: f32);
-        }
-        glColor3f(::core::mem::transmute(red), ::core::mem::transmute(green), ::core::mem::transmute(blue))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glColor3f(red: f32, green: f32, blue: f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glColor3f(::core::mem::transmute(red), ::core::mem::transmute(green), ::core::mem::transmute(blue))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glColor3fv(v: *const f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glColor3fv(v: *const f32);
-        }
-        glColor3fv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glColor3fv(v: *const f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glColor3fv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glColor3i(red: i32, green: i32, blue: i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glColor3i(red: i32, green: i32, blue: i32);
-        }
-        glColor3i(::core::mem::transmute(red), ::core::mem::transmute(green), ::core::mem::transmute(blue))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glColor3i(red: i32, green: i32, blue: i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glColor3i(::core::mem::transmute(red), ::core::mem::transmute(green), ::core::mem::transmute(blue))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glColor3iv(v: *const i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glColor3iv(v: *const i32);
-        }
-        glColor3iv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glColor3iv(v: *const i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glColor3iv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glColor3s(red: i16, green: i16, blue: i16) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glColor3s(red: i16, green: i16, blue: i16);
-        }
-        glColor3s(::core::mem::transmute(red), ::core::mem::transmute(green), ::core::mem::transmute(blue))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glColor3s(red: i16, green: i16, blue: i16);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glColor3s(::core::mem::transmute(red), ::core::mem::transmute(green), ::core::mem::transmute(blue))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glColor3sv(v: *const i16) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glColor3sv(v: *const i16);
-        }
-        glColor3sv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glColor3sv(v: *const i16);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glColor3sv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glColor3ub(red: u8, green: u8, blue: u8) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glColor3ub(red: u8, green: u8, blue: u8);
-        }
-        glColor3ub(::core::mem::transmute(red), ::core::mem::transmute(green), ::core::mem::transmute(blue))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glColor3ub(red: u8, green: u8, blue: u8);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glColor3ub(::core::mem::transmute(red), ::core::mem::transmute(green), ::core::mem::transmute(blue))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glColor3ubv(v: *const u8) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glColor3ubv(v: *const u8);
-        }
-        glColor3ubv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glColor3ubv(v: *const u8);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glColor3ubv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glColor3ui(red: u32, green: u32, blue: u32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glColor3ui(red: u32, green: u32, blue: u32);
-        }
-        glColor3ui(::core::mem::transmute(red), ::core::mem::transmute(green), ::core::mem::transmute(blue))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glColor3ui(red: u32, green: u32, blue: u32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glColor3ui(::core::mem::transmute(red), ::core::mem::transmute(green), ::core::mem::transmute(blue))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glColor3uiv(v: *const u32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glColor3uiv(v: *const u32);
-        }
-        glColor3uiv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glColor3uiv(v: *const u32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glColor3uiv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glColor3us(red: u16, green: u16, blue: u16) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glColor3us(red: u16, green: u16, blue: u16);
-        }
-        glColor3us(::core::mem::transmute(red), ::core::mem::transmute(green), ::core::mem::transmute(blue))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glColor3us(red: u16, green: u16, blue: u16);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glColor3us(::core::mem::transmute(red), ::core::mem::transmute(green), ::core::mem::transmute(blue))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glColor3usv(v: *const u16) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glColor3usv(v: *const u16);
-        }
-        glColor3usv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glColor3usv(v: *const u16);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glColor3usv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glColor4b(red: i8, green: i8, blue: i8, alpha: i8) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glColor4b(red: i8, green: i8, blue: i8, alpha: i8);
-        }
-        glColor4b(::core::mem::transmute(red), ::core::mem::transmute(green), ::core::mem::transmute(blue), ::core::mem::transmute(alpha))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glColor4b(red: i8, green: i8, blue: i8, alpha: i8);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glColor4b(::core::mem::transmute(red), ::core::mem::transmute(green), ::core::mem::transmute(blue), ::core::mem::transmute(alpha))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glColor4bv(v: *const i8) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glColor4bv(v: *const i8);
-        }
-        glColor4bv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glColor4bv(v: *const i8);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glColor4bv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glColor4d(red: f64, green: f64, blue: f64, alpha: f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glColor4d(red: f64, green: f64, blue: f64, alpha: f64);
-        }
-        glColor4d(::core::mem::transmute(red), ::core::mem::transmute(green), ::core::mem::transmute(blue), ::core::mem::transmute(alpha))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glColor4d(red: f64, green: f64, blue: f64, alpha: f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glColor4d(::core::mem::transmute(red), ::core::mem::transmute(green), ::core::mem::transmute(blue), ::core::mem::transmute(alpha))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glColor4dv(v: *const f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glColor4dv(v: *const f64);
-        }
-        glColor4dv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glColor4dv(v: *const f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glColor4dv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glColor4f(red: f32, green: f32, blue: f32, alpha: f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glColor4f(red: f32, green: f32, blue: f32, alpha: f32);
-        }
-        glColor4f(::core::mem::transmute(red), ::core::mem::transmute(green), ::core::mem::transmute(blue), ::core::mem::transmute(alpha))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glColor4f(red: f32, green: f32, blue: f32, alpha: f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glColor4f(::core::mem::transmute(red), ::core::mem::transmute(green), ::core::mem::transmute(blue), ::core::mem::transmute(alpha))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glColor4fv(v: *const f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glColor4fv(v: *const f32);
-        }
-        glColor4fv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glColor4fv(v: *const f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glColor4fv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glColor4i(red: i32, green: i32, blue: i32, alpha: i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glColor4i(red: i32, green: i32, blue: i32, alpha: i32);
-        }
-        glColor4i(::core::mem::transmute(red), ::core::mem::transmute(green), ::core::mem::transmute(blue), ::core::mem::transmute(alpha))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glColor4i(red: i32, green: i32, blue: i32, alpha: i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glColor4i(::core::mem::transmute(red), ::core::mem::transmute(green), ::core::mem::transmute(blue), ::core::mem::transmute(alpha))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glColor4iv(v: *const i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glColor4iv(v: *const i32);
-        }
-        glColor4iv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glColor4iv(v: *const i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glColor4iv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glColor4s(red: i16, green: i16, blue: i16, alpha: i16) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glColor4s(red: i16, green: i16, blue: i16, alpha: i16);
-        }
-        glColor4s(::core::mem::transmute(red), ::core::mem::transmute(green), ::core::mem::transmute(blue), ::core::mem::transmute(alpha))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glColor4s(red: i16, green: i16, blue: i16, alpha: i16);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glColor4s(::core::mem::transmute(red), ::core::mem::transmute(green), ::core::mem::transmute(blue), ::core::mem::transmute(alpha))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glColor4sv(v: *const i16) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glColor4sv(v: *const i16);
-        }
-        glColor4sv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glColor4sv(v: *const i16);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glColor4sv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glColor4ub(red: u8, green: u8, blue: u8, alpha: u8) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glColor4ub(red: u8, green: u8, blue: u8, alpha: u8);
-        }
-        glColor4ub(::core::mem::transmute(red), ::core::mem::transmute(green), ::core::mem::transmute(blue), ::core::mem::transmute(alpha))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glColor4ub(red: u8, green: u8, blue: u8, alpha: u8);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glColor4ub(::core::mem::transmute(red), ::core::mem::transmute(green), ::core::mem::transmute(blue), ::core::mem::transmute(alpha))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glColor4ubv(v: *const u8) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glColor4ubv(v: *const u8);
-        }
-        glColor4ubv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glColor4ubv(v: *const u8);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glColor4ubv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glColor4ui(red: u32, green: u32, blue: u32, alpha: u32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glColor4ui(red: u32, green: u32, blue: u32, alpha: u32);
-        }
-        glColor4ui(::core::mem::transmute(red), ::core::mem::transmute(green), ::core::mem::transmute(blue), ::core::mem::transmute(alpha))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glColor4ui(red: u32, green: u32, blue: u32, alpha: u32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glColor4ui(::core::mem::transmute(red), ::core::mem::transmute(green), ::core::mem::transmute(blue), ::core::mem::transmute(alpha))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glColor4uiv(v: *const u32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glColor4uiv(v: *const u32);
-        }
-        glColor4uiv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glColor4uiv(v: *const u32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glColor4uiv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glColor4us(red: u16, green: u16, blue: u16, alpha: u16) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glColor4us(red: u16, green: u16, blue: u16, alpha: u16);
-        }
-        glColor4us(::core::mem::transmute(red), ::core::mem::transmute(green), ::core::mem::transmute(blue), ::core::mem::transmute(alpha))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glColor4us(red: u16, green: u16, blue: u16, alpha: u16);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glColor4us(::core::mem::transmute(red), ::core::mem::transmute(green), ::core::mem::transmute(blue), ::core::mem::transmute(alpha))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glColor4usv(v: *const u16) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glColor4usv(v: *const u16);
-        }
-        glColor4usv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glColor4usv(v: *const u16);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glColor4usv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glColorMask(red: u8, green: u8, blue: u8, alpha: u8) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glColorMask(red: u8, green: u8, blue: u8, alpha: u8);
-        }
-        glColorMask(::core::mem::transmute(red), ::core::mem::transmute(green), ::core::mem::transmute(blue), ::core::mem::transmute(alpha))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glColorMask(red: u8, green: u8, blue: u8, alpha: u8);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glColorMask(::core::mem::transmute(red), ::core::mem::transmute(green), ::core::mem::transmute(blue), ::core::mem::transmute(alpha))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glColorMaterial(face: u32, mode: u32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glColorMaterial(face: u32, mode: u32);
-        }
-        glColorMaterial(::core::mem::transmute(face), ::core::mem::transmute(mode))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glColorMaterial(face: u32, mode: u32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glColorMaterial(::core::mem::transmute(face), ::core::mem::transmute(mode))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glColorPointer(size: i32, r#type: u32, stride: i32, pointer: *const ::core::ffi::c_void) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glColorPointer(size: i32, r#type: u32, stride: i32, pointer: *const ::core::ffi::c_void);
-        }
-        glColorPointer(::core::mem::transmute(size), ::core::mem::transmute(r#type), ::core::mem::transmute(stride), ::core::mem::transmute(pointer))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glColorPointer(size: i32, r#type: u32, stride: i32, pointer: *const ::core::ffi::c_void);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glColorPointer(::core::mem::transmute(size), ::core::mem::transmute(r#type), ::core::mem::transmute(stride), ::core::mem::transmute(pointer))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glCopyPixels(x: i32, y: i32, width: i32, height: i32, r#type: u32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glCopyPixels(x: i32, y: i32, width: i32, height: i32, r#type: u32);
-        }
-        glCopyPixels(::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(r#type))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glCopyPixels(x: i32, y: i32, width: i32, height: i32, r#type: u32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glCopyPixels(::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(r#type))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glCopyTexImage1D(target: u32, level: i32, internalformat: u32, x: i32, y: i32, width: i32, border: i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glCopyTexImage1D(target: u32, level: i32, internalformat: u32, x: i32, y: i32, width: i32, border: i32);
-        }
-        glCopyTexImage1D(::core::mem::transmute(target), ::core::mem::transmute(level), ::core::mem::transmute(internalformat), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(width), ::core::mem::transmute(border))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glCopyTexImage1D(target: u32, level: i32, internalformat: u32, x: i32, y: i32, width: i32, border: i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glCopyTexImage1D(::core::mem::transmute(target), ::core::mem::transmute(level), ::core::mem::transmute(internalformat), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(width), ::core::mem::transmute(border))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glCopyTexImage2D(target: u32, level: i32, internalformat: u32, x: i32, y: i32, width: i32, height: i32, border: i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glCopyTexImage2D(target: u32, level: i32, internalformat: u32, x: i32, y: i32, width: i32, height: i32, border: i32);
-        }
-        glCopyTexImage2D(::core::mem::transmute(target), ::core::mem::transmute(level), ::core::mem::transmute(internalformat), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(border))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glCopyTexImage2D(target: u32, level: i32, internalformat: u32, x: i32, y: i32, width: i32, height: i32, border: i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glCopyTexImage2D(::core::mem::transmute(target), ::core::mem::transmute(level), ::core::mem::transmute(internalformat), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(border))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glCopyTexSubImage1D(target: u32, level: i32, xoffset: i32, x: i32, y: i32, width: i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glCopyTexSubImage1D(target: u32, level: i32, xoffset: i32, x: i32, y: i32, width: i32);
-        }
-        glCopyTexSubImage1D(::core::mem::transmute(target), ::core::mem::transmute(level), ::core::mem::transmute(xoffset), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(width))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glCopyTexSubImage1D(target: u32, level: i32, xoffset: i32, x: i32, y: i32, width: i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glCopyTexSubImage1D(::core::mem::transmute(target), ::core::mem::transmute(level), ::core::mem::transmute(xoffset), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(width))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glCopyTexSubImage2D(target: u32, level: i32, xoffset: i32, yoffset: i32, x: i32, y: i32, width: i32, height: i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glCopyTexSubImage2D(target: u32, level: i32, xoffset: i32, yoffset: i32, x: i32, y: i32, width: i32, height: i32);
-        }
-        glCopyTexSubImage2D(::core::mem::transmute(target), ::core::mem::transmute(level), ::core::mem::transmute(xoffset), ::core::mem::transmute(yoffset), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(width), ::core::mem::transmute(height))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glCopyTexSubImage2D(target: u32, level: i32, xoffset: i32, yoffset: i32, x: i32, y: i32, width: i32, height: i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glCopyTexSubImage2D(::core::mem::transmute(target), ::core::mem::transmute(level), ::core::mem::transmute(xoffset), ::core::mem::transmute(yoffset), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(width), ::core::mem::transmute(height))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glCullFace(mode: u32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glCullFace(mode: u32);
-        }
-        glCullFace(::core::mem::transmute(mode))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glCullFace(mode: u32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glCullFace(::core::mem::transmute(mode))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glDeleteLists(list: u32, range: i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glDeleteLists(list: u32, range: i32);
-        }
-        glDeleteLists(::core::mem::transmute(list), ::core::mem::transmute(range))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glDeleteLists(list: u32, range: i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glDeleteLists(::core::mem::transmute(list), ::core::mem::transmute(range))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glDeleteTextures(n: i32, textures: *const u32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glDeleteTextures(n: i32, textures: *const u32);
-        }
-        glDeleteTextures(::core::mem::transmute(n), ::core::mem::transmute(textures))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glDeleteTextures(n: i32, textures: *const u32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glDeleteTextures(::core::mem::transmute(n), ::core::mem::transmute(textures))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glDepthFunc(func: u32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glDepthFunc(func: u32);
-        }
-        glDepthFunc(::core::mem::transmute(func))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glDepthFunc(func: u32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glDepthFunc(::core::mem::transmute(func))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glDepthMask(flag: u8) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glDepthMask(flag: u8);
-        }
-        glDepthMask(::core::mem::transmute(flag))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glDepthMask(flag: u8);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glDepthMask(::core::mem::transmute(flag))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glDepthRange(znear: f64, zfar: f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glDepthRange(znear: f64, zfar: f64);
-        }
-        glDepthRange(::core::mem::transmute(znear), ::core::mem::transmute(zfar))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glDepthRange(znear: f64, zfar: f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glDepthRange(::core::mem::transmute(znear), ::core::mem::transmute(zfar))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glDisable(cap: u32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glDisable(cap: u32);
-        }
-        glDisable(::core::mem::transmute(cap))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glDisable(cap: u32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glDisable(::core::mem::transmute(cap))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glDisableClientState(array: u32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glDisableClientState(array: u32);
-        }
-        glDisableClientState(::core::mem::transmute(array))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glDisableClientState(array: u32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glDisableClientState(::core::mem::transmute(array))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glDrawArrays(mode: u32, first: i32, count: i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glDrawArrays(mode: u32, first: i32, count: i32);
-        }
-        glDrawArrays(::core::mem::transmute(mode), ::core::mem::transmute(first), ::core::mem::transmute(count))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glDrawArrays(mode: u32, first: i32, count: i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glDrawArrays(::core::mem::transmute(mode), ::core::mem::transmute(first), ::core::mem::transmute(count))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glDrawBuffer(mode: u32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glDrawBuffer(mode: u32);
-        }
-        glDrawBuffer(::core::mem::transmute(mode))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glDrawBuffer(mode: u32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glDrawBuffer(::core::mem::transmute(mode))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glDrawElements(mode: u32, count: i32, r#type: u32, indices: *const ::core::ffi::c_void) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glDrawElements(mode: u32, count: i32, r#type: u32, indices: *const ::core::ffi::c_void);
-        }
-        glDrawElements(::core::mem::transmute(mode), ::core::mem::transmute(count), ::core::mem::transmute(r#type), ::core::mem::transmute(indices))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glDrawElements(mode: u32, count: i32, r#type: u32, indices: *const ::core::ffi::c_void);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glDrawElements(::core::mem::transmute(mode), ::core::mem::transmute(count), ::core::mem::transmute(r#type), ::core::mem::transmute(indices))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glDrawPixels(width: i32, height: i32, format: u32, r#type: u32, pixels: *const ::core::ffi::c_void) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glDrawPixels(width: i32, height: i32, format: u32, r#type: u32, pixels: *const ::core::ffi::c_void);
-        }
-        glDrawPixels(::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(format), ::core::mem::transmute(r#type), ::core::mem::transmute(pixels))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glDrawPixels(width: i32, height: i32, format: u32, r#type: u32, pixels: *const ::core::ffi::c_void);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glDrawPixels(::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(format), ::core::mem::transmute(r#type), ::core::mem::transmute(pixels))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glEdgeFlag(flag: u8) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glEdgeFlag(flag: u8);
-        }
-        glEdgeFlag(::core::mem::transmute(flag))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glEdgeFlag(flag: u8);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glEdgeFlag(::core::mem::transmute(flag))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glEdgeFlagPointer(stride: i32, pointer: *const ::core::ffi::c_void) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glEdgeFlagPointer(stride: i32, pointer: *const ::core::ffi::c_void);
-        }
-        glEdgeFlagPointer(::core::mem::transmute(stride), ::core::mem::transmute(pointer))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glEdgeFlagPointer(stride: i32, pointer: *const ::core::ffi::c_void);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glEdgeFlagPointer(::core::mem::transmute(stride), ::core::mem::transmute(pointer))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glEdgeFlagv(flag: *const u8) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glEdgeFlagv(flag: *const u8);
-        }
-        glEdgeFlagv(::core::mem::transmute(flag))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glEdgeFlagv(flag: *const u8);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glEdgeFlagv(::core::mem::transmute(flag))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glEnable(cap: u32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glEnable(cap: u32);
-        }
-        glEnable(::core::mem::transmute(cap))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glEnable(cap: u32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glEnable(::core::mem::transmute(cap))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glEnableClientState(array: u32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glEnableClientState(array: u32);
-        }
-        glEnableClientState(::core::mem::transmute(array))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glEnableClientState(array: u32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glEnableClientState(::core::mem::transmute(array))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glEnd() {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glEnd();
-        }
-        glEnd()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glEnd();
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glEnd()
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glEndList() {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glEndList();
-        }
-        glEndList()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glEndList();
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glEndList()
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glEvalCoord1d(u: f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glEvalCoord1d(u: f64);
-        }
-        glEvalCoord1d(::core::mem::transmute(u))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glEvalCoord1d(u: f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glEvalCoord1d(::core::mem::transmute(u))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glEvalCoord1dv(u: *const f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glEvalCoord1dv(u: *const f64);
-        }
-        glEvalCoord1dv(::core::mem::transmute(u))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glEvalCoord1dv(u: *const f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glEvalCoord1dv(::core::mem::transmute(u))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glEvalCoord1f(u: f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glEvalCoord1f(u: f32);
-        }
-        glEvalCoord1f(::core::mem::transmute(u))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glEvalCoord1f(u: f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glEvalCoord1f(::core::mem::transmute(u))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glEvalCoord1fv(u: *const f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glEvalCoord1fv(u: *const f32);
-        }
-        glEvalCoord1fv(::core::mem::transmute(u))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glEvalCoord1fv(u: *const f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glEvalCoord1fv(::core::mem::transmute(u))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glEvalCoord2d(u: f64, v: f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glEvalCoord2d(u: f64, v: f64);
-        }
-        glEvalCoord2d(::core::mem::transmute(u), ::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glEvalCoord2d(u: f64, v: f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glEvalCoord2d(::core::mem::transmute(u), ::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glEvalCoord2dv(u: *const f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glEvalCoord2dv(u: *const f64);
-        }
-        glEvalCoord2dv(::core::mem::transmute(u))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glEvalCoord2dv(u: *const f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glEvalCoord2dv(::core::mem::transmute(u))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glEvalCoord2f(u: f32, v: f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glEvalCoord2f(u: f32, v: f32);
-        }
-        glEvalCoord2f(::core::mem::transmute(u), ::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glEvalCoord2f(u: f32, v: f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glEvalCoord2f(::core::mem::transmute(u), ::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glEvalCoord2fv(u: *const f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glEvalCoord2fv(u: *const f32);
-        }
-        glEvalCoord2fv(::core::mem::transmute(u))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glEvalCoord2fv(u: *const f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glEvalCoord2fv(::core::mem::transmute(u))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glEvalMesh1(mode: u32, i1: i32, i2: i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glEvalMesh1(mode: u32, i1: i32, i2: i32);
-        }
-        glEvalMesh1(::core::mem::transmute(mode), ::core::mem::transmute(i1), ::core::mem::transmute(i2))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glEvalMesh1(mode: u32, i1: i32, i2: i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glEvalMesh1(::core::mem::transmute(mode), ::core::mem::transmute(i1), ::core::mem::transmute(i2))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glEvalMesh2(mode: u32, i1: i32, i2: i32, j1: i32, j2: i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glEvalMesh2(mode: u32, i1: i32, i2: i32, j1: i32, j2: i32);
-        }
-        glEvalMesh2(::core::mem::transmute(mode), ::core::mem::transmute(i1), ::core::mem::transmute(i2), ::core::mem::transmute(j1), ::core::mem::transmute(j2))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glEvalMesh2(mode: u32, i1: i32, i2: i32, j1: i32, j2: i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glEvalMesh2(::core::mem::transmute(mode), ::core::mem::transmute(i1), ::core::mem::transmute(i2), ::core::mem::transmute(j1), ::core::mem::transmute(j2))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glEvalPoint1(i: i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glEvalPoint1(i: i32);
-        }
-        glEvalPoint1(::core::mem::transmute(i))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glEvalPoint1(i: i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glEvalPoint1(::core::mem::transmute(i))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glEvalPoint2(i: i32, j: i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glEvalPoint2(i: i32, j: i32);
-        }
-        glEvalPoint2(::core::mem::transmute(i), ::core::mem::transmute(j))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glEvalPoint2(i: i32, j: i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glEvalPoint2(::core::mem::transmute(i), ::core::mem::transmute(j))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glFeedbackBuffer(size: i32, r#type: u32, buffer: *mut f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glFeedbackBuffer(size: i32, r#type: u32, buffer: *mut f32);
-        }
-        glFeedbackBuffer(::core::mem::transmute(size), ::core::mem::transmute(r#type), ::core::mem::transmute(buffer))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glFeedbackBuffer(size: i32, r#type: u32, buffer: *mut f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glFeedbackBuffer(::core::mem::transmute(size), ::core::mem::transmute(r#type), ::core::mem::transmute(buffer))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glFinish() {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glFinish();
-        }
-        glFinish()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glFinish();
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glFinish()
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glFlush() {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glFlush();
-        }
-        glFlush()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glFlush();
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glFlush()
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glFogf(pname: u32, param1: f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glFogf(pname: u32, param1: f32);
-        }
-        glFogf(::core::mem::transmute(pname), ::core::mem::transmute(param1))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glFogf(pname: u32, param1: f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glFogf(::core::mem::transmute(pname), ::core::mem::transmute(param1))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glFogfv(pname: u32, params: *const f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glFogfv(pname: u32, params: *const f32);
-        }
-        glFogfv(::core::mem::transmute(pname), ::core::mem::transmute(params))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glFogfv(pname: u32, params: *const f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glFogfv(::core::mem::transmute(pname), ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glFogi(pname: u32, param1: i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glFogi(pname: u32, param1: i32);
-        }
-        glFogi(::core::mem::transmute(pname), ::core::mem::transmute(param1))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glFogi(pname: u32, param1: i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glFogi(::core::mem::transmute(pname), ::core::mem::transmute(param1))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glFogiv(pname: u32, params: *const i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glFogiv(pname: u32, params: *const i32);
-        }
-        glFogiv(::core::mem::transmute(pname), ::core::mem::transmute(params))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glFogiv(pname: u32, params: *const i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glFogiv(::core::mem::transmute(pname), ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glFrontFace(mode: u32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glFrontFace(mode: u32);
-        }
-        glFrontFace(::core::mem::transmute(mode))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glFrontFace(mode: u32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glFrontFace(::core::mem::transmute(mode))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glFrustum(left: f64, right: f64, bottom: f64, top: f64, znear: f64, zfar: f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glFrustum(left: f64, right: f64, bottom: f64, top: f64, znear: f64, zfar: f64);
-        }
-        glFrustum(::core::mem::transmute(left), ::core::mem::transmute(right), ::core::mem::transmute(bottom), ::core::mem::transmute(top), ::core::mem::transmute(znear), ::core::mem::transmute(zfar))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glFrustum(left: f64, right: f64, bottom: f64, top: f64, znear: f64, zfar: f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glFrustum(::core::mem::transmute(left), ::core::mem::transmute(right), ::core::mem::transmute(bottom), ::core::mem::transmute(top), ::core::mem::transmute(znear), ::core::mem::transmute(zfar))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glGenLists(range: i32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glGenLists(range: i32) -> u32;
-        }
-        ::core::mem::transmute(glGenLists(::core::mem::transmute(range)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glGenLists(range: i32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(glGenLists(::core::mem::transmute(range)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glGenTextures(n: i32, textures: *mut u32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glGenTextures(n: i32, textures: *mut u32);
-        }
-        glGenTextures(::core::mem::transmute(n), ::core::mem::transmute(textures))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glGenTextures(n: i32, textures: *mut u32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glGenTextures(::core::mem::transmute(n), ::core::mem::transmute(textures))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glGetBooleanv(pname: u32, params: *mut u8) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glGetBooleanv(pname: u32, params: *mut u8);
-        }
-        glGetBooleanv(::core::mem::transmute(pname), ::core::mem::transmute(params))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glGetBooleanv(pname: u32, params: *mut u8);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glGetBooleanv(::core::mem::transmute(pname), ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glGetClipPlane(plane: u32, equation: *mut f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glGetClipPlane(plane: u32, equation: *mut f64);
-        }
-        glGetClipPlane(::core::mem::transmute(plane), ::core::mem::transmute(equation))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glGetClipPlane(plane: u32, equation: *mut f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glGetClipPlane(::core::mem::transmute(plane), ::core::mem::transmute(equation))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glGetDoublev(pname: u32, params: *mut f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glGetDoublev(pname: u32, params: *mut f64);
-        }
-        glGetDoublev(::core::mem::transmute(pname), ::core::mem::transmute(params))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glGetDoublev(pname: u32, params: *mut f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glGetDoublev(::core::mem::transmute(pname), ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glGetError() -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glGetError() -> u32;
-        }
-        ::core::mem::transmute(glGetError())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glGetError() -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(glGetError())
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glGetFloatv(pname: u32, params: *mut f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glGetFloatv(pname: u32, params: *mut f32);
-        }
-        glGetFloatv(::core::mem::transmute(pname), ::core::mem::transmute(params))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glGetFloatv(pname: u32, params: *mut f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glGetFloatv(::core::mem::transmute(pname), ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glGetIntegerv(pname: u32, params: *mut i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glGetIntegerv(pname: u32, params: *mut i32);
-        }
-        glGetIntegerv(::core::mem::transmute(pname), ::core::mem::transmute(params))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glGetIntegerv(pname: u32, params: *mut i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glGetIntegerv(::core::mem::transmute(pname), ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glGetLightfv(light: u32, pname: u32, params: *mut f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glGetLightfv(light: u32, pname: u32, params: *mut f32);
-        }
-        glGetLightfv(::core::mem::transmute(light), ::core::mem::transmute(pname), ::core::mem::transmute(params))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glGetLightfv(light: u32, pname: u32, params: *mut f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glGetLightfv(::core::mem::transmute(light), ::core::mem::transmute(pname), ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glGetLightiv(light: u32, pname: u32, params: *mut i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glGetLightiv(light: u32, pname: u32, params: *mut i32);
-        }
-        glGetLightiv(::core::mem::transmute(light), ::core::mem::transmute(pname), ::core::mem::transmute(params))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glGetLightiv(light: u32, pname: u32, params: *mut i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glGetLightiv(::core::mem::transmute(light), ::core::mem::transmute(pname), ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glGetMapdv(target: u32, query: u32, v: *mut f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glGetMapdv(target: u32, query: u32, v: *mut f64);
-        }
-        glGetMapdv(::core::mem::transmute(target), ::core::mem::transmute(query), ::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glGetMapdv(target: u32, query: u32, v: *mut f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glGetMapdv(::core::mem::transmute(target), ::core::mem::transmute(query), ::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glGetMapfv(target: u32, query: u32, v: *mut f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glGetMapfv(target: u32, query: u32, v: *mut f32);
-        }
-        glGetMapfv(::core::mem::transmute(target), ::core::mem::transmute(query), ::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glGetMapfv(target: u32, query: u32, v: *mut f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glGetMapfv(::core::mem::transmute(target), ::core::mem::transmute(query), ::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glGetMapiv(target: u32, query: u32, v: *mut i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glGetMapiv(target: u32, query: u32, v: *mut i32);
-        }
-        glGetMapiv(::core::mem::transmute(target), ::core::mem::transmute(query), ::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glGetMapiv(target: u32, query: u32, v: *mut i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glGetMapiv(::core::mem::transmute(target), ::core::mem::transmute(query), ::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glGetMaterialfv(face: u32, pname: u32, params: *mut f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glGetMaterialfv(face: u32, pname: u32, params: *mut f32);
-        }
-        glGetMaterialfv(::core::mem::transmute(face), ::core::mem::transmute(pname), ::core::mem::transmute(params))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glGetMaterialfv(face: u32, pname: u32, params: *mut f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glGetMaterialfv(::core::mem::transmute(face), ::core::mem::transmute(pname), ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glGetMaterialiv(face: u32, pname: u32, params: *mut i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glGetMaterialiv(face: u32, pname: u32, params: *mut i32);
-        }
-        glGetMaterialiv(::core::mem::transmute(face), ::core::mem::transmute(pname), ::core::mem::transmute(params))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glGetMaterialiv(face: u32, pname: u32, params: *mut i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glGetMaterialiv(::core::mem::transmute(face), ::core::mem::transmute(pname), ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glGetPixelMapfv(map: u32, values: *mut f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glGetPixelMapfv(map: u32, values: *mut f32);
-        }
-        glGetPixelMapfv(::core::mem::transmute(map), ::core::mem::transmute(values))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glGetPixelMapfv(map: u32, values: *mut f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glGetPixelMapfv(::core::mem::transmute(map), ::core::mem::transmute(values))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glGetPixelMapuiv(map: u32, values: *mut u32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glGetPixelMapuiv(map: u32, values: *mut u32);
-        }
-        glGetPixelMapuiv(::core::mem::transmute(map), ::core::mem::transmute(values))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glGetPixelMapuiv(map: u32, values: *mut u32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glGetPixelMapuiv(::core::mem::transmute(map), ::core::mem::transmute(values))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glGetPixelMapusv(map: u32, values: *mut u16) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glGetPixelMapusv(map: u32, values: *mut u16);
-        }
-        glGetPixelMapusv(::core::mem::transmute(map), ::core::mem::transmute(values))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glGetPixelMapusv(map: u32, values: *mut u16);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glGetPixelMapusv(::core::mem::transmute(map), ::core::mem::transmute(values))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glGetPointerv(pname: u32, params: *mut *mut ::core::ffi::c_void) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glGetPointerv(pname: u32, params: *mut *mut ::core::ffi::c_void);
-        }
-        glGetPointerv(::core::mem::transmute(pname), ::core::mem::transmute(params))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glGetPointerv(pname: u32, params: *mut *mut ::core::ffi::c_void);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glGetPointerv(::core::mem::transmute(pname), ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glGetPolygonStipple(mask: *mut u8) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glGetPolygonStipple(mask: *mut u8);
-        }
-        glGetPolygonStipple(::core::mem::transmute(mask))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glGetPolygonStipple(mask: *mut u8);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glGetPolygonStipple(::core::mem::transmute(mask))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glGetString(name: u32) -> *mut u8 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glGetString(name: u32) -> *mut u8;
-        }
-        ::core::mem::transmute(glGetString(::core::mem::transmute(name)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glGetString(name: u32) -> *mut u8;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(glGetString(::core::mem::transmute(name)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glGetTexEnvfv(target: u32, pname: u32, params: *mut f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glGetTexEnvfv(target: u32, pname: u32, params: *mut f32);
-        }
-        glGetTexEnvfv(::core::mem::transmute(target), ::core::mem::transmute(pname), ::core::mem::transmute(params))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glGetTexEnvfv(target: u32, pname: u32, params: *mut f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glGetTexEnvfv(::core::mem::transmute(target), ::core::mem::transmute(pname), ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glGetTexEnviv(target: u32, pname: u32, params: *mut i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glGetTexEnviv(target: u32, pname: u32, params: *mut i32);
-        }
-        glGetTexEnviv(::core::mem::transmute(target), ::core::mem::transmute(pname), ::core::mem::transmute(params))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glGetTexEnviv(target: u32, pname: u32, params: *mut i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glGetTexEnviv(::core::mem::transmute(target), ::core::mem::transmute(pname), ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glGetTexGendv(coord: u32, pname: u32, params: *mut f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glGetTexGendv(coord: u32, pname: u32, params: *mut f64);
-        }
-        glGetTexGendv(::core::mem::transmute(coord), ::core::mem::transmute(pname), ::core::mem::transmute(params))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glGetTexGendv(coord: u32, pname: u32, params: *mut f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glGetTexGendv(::core::mem::transmute(coord), ::core::mem::transmute(pname), ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glGetTexGenfv(coord: u32, pname: u32, params: *mut f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glGetTexGenfv(coord: u32, pname: u32, params: *mut f32);
-        }
-        glGetTexGenfv(::core::mem::transmute(coord), ::core::mem::transmute(pname), ::core::mem::transmute(params))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glGetTexGenfv(coord: u32, pname: u32, params: *mut f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glGetTexGenfv(::core::mem::transmute(coord), ::core::mem::transmute(pname), ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glGetTexGeniv(coord: u32, pname: u32, params: *mut i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glGetTexGeniv(coord: u32, pname: u32, params: *mut i32);
-        }
-        glGetTexGeniv(::core::mem::transmute(coord), ::core::mem::transmute(pname), ::core::mem::transmute(params))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glGetTexGeniv(coord: u32, pname: u32, params: *mut i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glGetTexGeniv(::core::mem::transmute(coord), ::core::mem::transmute(pname), ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glGetTexImage(target: u32, level: i32, format: u32, r#type: u32, pixels: *mut ::core::ffi::c_void) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glGetTexImage(target: u32, level: i32, format: u32, r#type: u32, pixels: *mut ::core::ffi::c_void);
-        }
-        glGetTexImage(::core::mem::transmute(target), ::core::mem::transmute(level), ::core::mem::transmute(format), ::core::mem::transmute(r#type), ::core::mem::transmute(pixels))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glGetTexImage(target: u32, level: i32, format: u32, r#type: u32, pixels: *mut ::core::ffi::c_void);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glGetTexImage(::core::mem::transmute(target), ::core::mem::transmute(level), ::core::mem::transmute(format), ::core::mem::transmute(r#type), ::core::mem::transmute(pixels))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glGetTexLevelParameterfv(target: u32, level: i32, pname: u32, params: *mut f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glGetTexLevelParameterfv(target: u32, level: i32, pname: u32, params: *mut f32);
-        }
-        glGetTexLevelParameterfv(::core::mem::transmute(target), ::core::mem::transmute(level), ::core::mem::transmute(pname), ::core::mem::transmute(params))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glGetTexLevelParameterfv(target: u32, level: i32, pname: u32, params: *mut f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glGetTexLevelParameterfv(::core::mem::transmute(target), ::core::mem::transmute(level), ::core::mem::transmute(pname), ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glGetTexLevelParameteriv(target: u32, level: i32, pname: u32, params: *mut i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glGetTexLevelParameteriv(target: u32, level: i32, pname: u32, params: *mut i32);
-        }
-        glGetTexLevelParameteriv(::core::mem::transmute(target), ::core::mem::transmute(level), ::core::mem::transmute(pname), ::core::mem::transmute(params))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glGetTexLevelParameteriv(target: u32, level: i32, pname: u32, params: *mut i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glGetTexLevelParameteriv(::core::mem::transmute(target), ::core::mem::transmute(level), ::core::mem::transmute(pname), ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glGetTexParameterfv(target: u32, pname: u32, params: *mut f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glGetTexParameterfv(target: u32, pname: u32, params: *mut f32);
-        }
-        glGetTexParameterfv(::core::mem::transmute(target), ::core::mem::transmute(pname), ::core::mem::transmute(params))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glGetTexParameterfv(target: u32, pname: u32, params: *mut f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glGetTexParameterfv(::core::mem::transmute(target), ::core::mem::transmute(pname), ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glGetTexParameteriv(target: u32, pname: u32, params: *mut i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glGetTexParameteriv(target: u32, pname: u32, params: *mut i32);
-        }
-        glGetTexParameteriv(::core::mem::transmute(target), ::core::mem::transmute(pname), ::core::mem::transmute(params))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glGetTexParameteriv(target: u32, pname: u32, params: *mut i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glGetTexParameteriv(::core::mem::transmute(target), ::core::mem::transmute(pname), ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glHint(target: u32, mode: u32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glHint(target: u32, mode: u32);
-        }
-        glHint(::core::mem::transmute(target), ::core::mem::transmute(mode))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glHint(target: u32, mode: u32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glHint(::core::mem::transmute(target), ::core::mem::transmute(mode))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glIndexMask(mask: u32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glIndexMask(mask: u32);
-        }
-        glIndexMask(::core::mem::transmute(mask))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glIndexMask(mask: u32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glIndexMask(::core::mem::transmute(mask))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glIndexPointer(r#type: u32, stride: i32, pointer: *const ::core::ffi::c_void) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glIndexPointer(r#type: u32, stride: i32, pointer: *const ::core::ffi::c_void);
-        }
-        glIndexPointer(::core::mem::transmute(r#type), ::core::mem::transmute(stride), ::core::mem::transmute(pointer))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glIndexPointer(r#type: u32, stride: i32, pointer: *const ::core::ffi::c_void);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glIndexPointer(::core::mem::transmute(r#type), ::core::mem::transmute(stride), ::core::mem::transmute(pointer))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glIndexd(c: f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glIndexd(c: f64);
-        }
-        glIndexd(::core::mem::transmute(c))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glIndexd(c: f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glIndexd(::core::mem::transmute(c))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glIndexdv(c: *const f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glIndexdv(c: *const f64);
-        }
-        glIndexdv(::core::mem::transmute(c))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glIndexdv(c: *const f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glIndexdv(::core::mem::transmute(c))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glIndexf(c: f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glIndexf(c: f32);
-        }
-        glIndexf(::core::mem::transmute(c))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glIndexf(c: f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glIndexf(::core::mem::transmute(c))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glIndexfv(c: *const f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glIndexfv(c: *const f32);
-        }
-        glIndexfv(::core::mem::transmute(c))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glIndexfv(c: *const f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glIndexfv(::core::mem::transmute(c))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glIndexi(c: i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glIndexi(c: i32);
-        }
-        glIndexi(::core::mem::transmute(c))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glIndexi(c: i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glIndexi(::core::mem::transmute(c))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glIndexiv(c: *const i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glIndexiv(c: *const i32);
-        }
-        glIndexiv(::core::mem::transmute(c))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glIndexiv(c: *const i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glIndexiv(::core::mem::transmute(c))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glIndexs(c: i16) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glIndexs(c: i16);
-        }
-        glIndexs(::core::mem::transmute(c))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glIndexs(c: i16);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glIndexs(::core::mem::transmute(c))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glIndexsv(c: *const i16) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glIndexsv(c: *const i16);
-        }
-        glIndexsv(::core::mem::transmute(c))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glIndexsv(c: *const i16);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glIndexsv(::core::mem::transmute(c))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glIndexub(c: u8) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glIndexub(c: u8);
-        }
-        glIndexub(::core::mem::transmute(c))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glIndexub(c: u8);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glIndexub(::core::mem::transmute(c))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glIndexubv(c: *const u8) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glIndexubv(c: *const u8);
-        }
-        glIndexubv(::core::mem::transmute(c))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glIndexubv(c: *const u8);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glIndexubv(::core::mem::transmute(c))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glInitNames() {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glInitNames();
-        }
-        glInitNames()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glInitNames();
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glInitNames()
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glInterleavedArrays(format: u32, stride: i32, pointer: *const ::core::ffi::c_void) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glInterleavedArrays(format: u32, stride: i32, pointer: *const ::core::ffi::c_void);
-        }
-        glInterleavedArrays(::core::mem::transmute(format), ::core::mem::transmute(stride), ::core::mem::transmute(pointer))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glInterleavedArrays(format: u32, stride: i32, pointer: *const ::core::ffi::c_void);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glInterleavedArrays(::core::mem::transmute(format), ::core::mem::transmute(stride), ::core::mem::transmute(pointer))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glIsEnabled(cap: u32) -> u8 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glIsEnabled(cap: u32) -> u8;
-        }
-        ::core::mem::transmute(glIsEnabled(::core::mem::transmute(cap)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glIsEnabled(cap: u32) -> u8;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(glIsEnabled(::core::mem::transmute(cap)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glIsList(list: u32) -> u8 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glIsList(list: u32) -> u8;
-        }
-        ::core::mem::transmute(glIsList(::core::mem::transmute(list)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glIsList(list: u32) -> u8;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(glIsList(::core::mem::transmute(list)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glIsTexture(texture: u32) -> u8 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glIsTexture(texture: u32) -> u8;
-        }
-        ::core::mem::transmute(glIsTexture(::core::mem::transmute(texture)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glIsTexture(texture: u32) -> u8;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(glIsTexture(::core::mem::transmute(texture)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glLightModelf(pname: u32, param1: f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glLightModelf(pname: u32, param1: f32);
-        }
-        glLightModelf(::core::mem::transmute(pname), ::core::mem::transmute(param1))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glLightModelf(pname: u32, param1: f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glLightModelf(::core::mem::transmute(pname), ::core::mem::transmute(param1))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glLightModelfv(pname: u32, params: *const f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glLightModelfv(pname: u32, params: *const f32);
-        }
-        glLightModelfv(::core::mem::transmute(pname), ::core::mem::transmute(params))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glLightModelfv(pname: u32, params: *const f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glLightModelfv(::core::mem::transmute(pname), ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glLightModeli(pname: u32, param1: i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glLightModeli(pname: u32, param1: i32);
-        }
-        glLightModeli(::core::mem::transmute(pname), ::core::mem::transmute(param1))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glLightModeli(pname: u32, param1: i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glLightModeli(::core::mem::transmute(pname), ::core::mem::transmute(param1))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glLightModeliv(pname: u32, params: *const i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glLightModeliv(pname: u32, params: *const i32);
-        }
-        glLightModeliv(::core::mem::transmute(pname), ::core::mem::transmute(params))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glLightModeliv(pname: u32, params: *const i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glLightModeliv(::core::mem::transmute(pname), ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glLightf(light: u32, pname: u32, param2: f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glLightf(light: u32, pname: u32, param2: f32);
-        }
-        glLightf(::core::mem::transmute(light), ::core::mem::transmute(pname), ::core::mem::transmute(param2))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glLightf(light: u32, pname: u32, param2: f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glLightf(::core::mem::transmute(light), ::core::mem::transmute(pname), ::core::mem::transmute(param2))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glLightfv(light: u32, pname: u32, params: *const f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glLightfv(light: u32, pname: u32, params: *const f32);
-        }
-        glLightfv(::core::mem::transmute(light), ::core::mem::transmute(pname), ::core::mem::transmute(params))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glLightfv(light: u32, pname: u32, params: *const f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glLightfv(::core::mem::transmute(light), ::core::mem::transmute(pname), ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glLighti(light: u32, pname: u32, param2: i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glLighti(light: u32, pname: u32, param2: i32);
-        }
-        glLighti(::core::mem::transmute(light), ::core::mem::transmute(pname), ::core::mem::transmute(param2))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glLighti(light: u32, pname: u32, param2: i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glLighti(::core::mem::transmute(light), ::core::mem::transmute(pname), ::core::mem::transmute(param2))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glLightiv(light: u32, pname: u32, params: *const i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glLightiv(light: u32, pname: u32, params: *const i32);
-        }
-        glLightiv(::core::mem::transmute(light), ::core::mem::transmute(pname), ::core::mem::transmute(params))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glLightiv(light: u32, pname: u32, params: *const i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glLightiv(::core::mem::transmute(light), ::core::mem::transmute(pname), ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glLineStipple(factor: i32, pattern: u16) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glLineStipple(factor: i32, pattern: u16);
-        }
-        glLineStipple(::core::mem::transmute(factor), ::core::mem::transmute(pattern))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glLineStipple(factor: i32, pattern: u16);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glLineStipple(::core::mem::transmute(factor), ::core::mem::transmute(pattern))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glLineWidth(width: f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glLineWidth(width: f32);
-        }
-        glLineWidth(::core::mem::transmute(width))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glLineWidth(width: f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glLineWidth(::core::mem::transmute(width))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glListBase(base: u32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glListBase(base: u32);
-        }
-        glListBase(::core::mem::transmute(base))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glListBase(base: u32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glListBase(::core::mem::transmute(base))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glLoadIdentity() {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glLoadIdentity();
-        }
-        glLoadIdentity()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glLoadIdentity();
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glLoadIdentity()
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glLoadMatrixd(m: *const f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glLoadMatrixd(m: *const f64);
-        }
-        glLoadMatrixd(::core::mem::transmute(m))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glLoadMatrixd(m: *const f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glLoadMatrixd(::core::mem::transmute(m))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glLoadMatrixf(m: *const f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glLoadMatrixf(m: *const f32);
-        }
-        glLoadMatrixf(::core::mem::transmute(m))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glLoadMatrixf(m: *const f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glLoadMatrixf(::core::mem::transmute(m))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glLoadName(name: u32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glLoadName(name: u32);
-        }
-        glLoadName(::core::mem::transmute(name))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glLoadName(name: u32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glLoadName(::core::mem::transmute(name))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glLogicOp(opcode: u32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glLogicOp(opcode: u32);
-        }
-        glLogicOp(::core::mem::transmute(opcode))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glLogicOp(opcode: u32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glLogicOp(::core::mem::transmute(opcode))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glMap1d(target: u32, u1: f64, u2: f64, stride: i32, order: i32, points: *const f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glMap1d(target: u32, u1: f64, u2: f64, stride: i32, order: i32, points: *const f64);
-        }
-        glMap1d(::core::mem::transmute(target), ::core::mem::transmute(u1), ::core::mem::transmute(u2), ::core::mem::transmute(stride), ::core::mem::transmute(order), ::core::mem::transmute(points))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glMap1d(target: u32, u1: f64, u2: f64, stride: i32, order: i32, points: *const f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glMap1d(::core::mem::transmute(target), ::core::mem::transmute(u1), ::core::mem::transmute(u2), ::core::mem::transmute(stride), ::core::mem::transmute(order), ::core::mem::transmute(points))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glMap1f(target: u32, u1: f32, u2: f32, stride: i32, order: i32, points: *const f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glMap1f(target: u32, u1: f32, u2: f32, stride: i32, order: i32, points: *const f32);
-        }
-        glMap1f(::core::mem::transmute(target), ::core::mem::transmute(u1), ::core::mem::transmute(u2), ::core::mem::transmute(stride), ::core::mem::transmute(order), ::core::mem::transmute(points))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glMap1f(target: u32, u1: f32, u2: f32, stride: i32, order: i32, points: *const f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glMap1f(::core::mem::transmute(target), ::core::mem::transmute(u1), ::core::mem::transmute(u2), ::core::mem::transmute(stride), ::core::mem::transmute(order), ::core::mem::transmute(points))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glMap2d(target: u32, u1: f64, u2: f64, ustride: i32, uorder: i32, v1: f64, v2: f64, vstride: i32, vorder: i32, points: *const f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glMap2d(target: u32, u1: f64, u2: f64, ustride: i32, uorder: i32, v1: f64, v2: f64, vstride: i32, vorder: i32, points: *const f64);
-        }
-        glMap2d(::core::mem::transmute(target), ::core::mem::transmute(u1), ::core::mem::transmute(u2), ::core::mem::transmute(ustride), ::core::mem::transmute(uorder), ::core::mem::transmute(v1), ::core::mem::transmute(v2), ::core::mem::transmute(vstride), ::core::mem::transmute(vorder), ::core::mem::transmute(points))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glMap2d(target: u32, u1: f64, u2: f64, ustride: i32, uorder: i32, v1: f64, v2: f64, vstride: i32, vorder: i32, points: *const f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glMap2d(::core::mem::transmute(target), ::core::mem::transmute(u1), ::core::mem::transmute(u2), ::core::mem::transmute(ustride), ::core::mem::transmute(uorder), ::core::mem::transmute(v1), ::core::mem::transmute(v2), ::core::mem::transmute(vstride), ::core::mem::transmute(vorder), ::core::mem::transmute(points))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glMap2f(target: u32, u1: f32, u2: f32, ustride: i32, uorder: i32, v1: f32, v2: f32, vstride: i32, vorder: i32, points: *const f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glMap2f(target: u32, u1: f32, u2: f32, ustride: i32, uorder: i32, v1: f32, v2: f32, vstride: i32, vorder: i32, points: *const f32);
-        }
-        glMap2f(::core::mem::transmute(target), ::core::mem::transmute(u1), ::core::mem::transmute(u2), ::core::mem::transmute(ustride), ::core::mem::transmute(uorder), ::core::mem::transmute(v1), ::core::mem::transmute(v2), ::core::mem::transmute(vstride), ::core::mem::transmute(vorder), ::core::mem::transmute(points))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glMap2f(target: u32, u1: f32, u2: f32, ustride: i32, uorder: i32, v1: f32, v2: f32, vstride: i32, vorder: i32, points: *const f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glMap2f(::core::mem::transmute(target), ::core::mem::transmute(u1), ::core::mem::transmute(u2), ::core::mem::transmute(ustride), ::core::mem::transmute(uorder), ::core::mem::transmute(v1), ::core::mem::transmute(v2), ::core::mem::transmute(vstride), ::core::mem::transmute(vorder), ::core::mem::transmute(points))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glMapGrid1d(un: i32, u1: f64, u2: f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glMapGrid1d(un: i32, u1: f64, u2: f64);
-        }
-        glMapGrid1d(::core::mem::transmute(un), ::core::mem::transmute(u1), ::core::mem::transmute(u2))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glMapGrid1d(un: i32, u1: f64, u2: f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glMapGrid1d(::core::mem::transmute(un), ::core::mem::transmute(u1), ::core::mem::transmute(u2))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glMapGrid1f(un: i32, u1: f32, u2: f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glMapGrid1f(un: i32, u1: f32, u2: f32);
-        }
-        glMapGrid1f(::core::mem::transmute(un), ::core::mem::transmute(u1), ::core::mem::transmute(u2))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glMapGrid1f(un: i32, u1: f32, u2: f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glMapGrid1f(::core::mem::transmute(un), ::core::mem::transmute(u1), ::core::mem::transmute(u2))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glMapGrid2d(un: i32, u1: f64, u2: f64, vn: i32, v1: f64, v2: f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glMapGrid2d(un: i32, u1: f64, u2: f64, vn: i32, v1: f64, v2: f64);
-        }
-        glMapGrid2d(::core::mem::transmute(un), ::core::mem::transmute(u1), ::core::mem::transmute(u2), ::core::mem::transmute(vn), ::core::mem::transmute(v1), ::core::mem::transmute(v2))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glMapGrid2d(un: i32, u1: f64, u2: f64, vn: i32, v1: f64, v2: f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glMapGrid2d(::core::mem::transmute(un), ::core::mem::transmute(u1), ::core::mem::transmute(u2), ::core::mem::transmute(vn), ::core::mem::transmute(v1), ::core::mem::transmute(v2))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glMapGrid2f(un: i32, u1: f32, u2: f32, vn: i32, v1: f32, v2: f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glMapGrid2f(un: i32, u1: f32, u2: f32, vn: i32, v1: f32, v2: f32);
-        }
-        glMapGrid2f(::core::mem::transmute(un), ::core::mem::transmute(u1), ::core::mem::transmute(u2), ::core::mem::transmute(vn), ::core::mem::transmute(v1), ::core::mem::transmute(v2))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glMapGrid2f(un: i32, u1: f32, u2: f32, vn: i32, v1: f32, v2: f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glMapGrid2f(::core::mem::transmute(un), ::core::mem::transmute(u1), ::core::mem::transmute(u2), ::core::mem::transmute(vn), ::core::mem::transmute(v1), ::core::mem::transmute(v2))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glMaterialf(face: u32, pname: u32, param2: f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glMaterialf(face: u32, pname: u32, param2: f32);
-        }
-        glMaterialf(::core::mem::transmute(face), ::core::mem::transmute(pname), ::core::mem::transmute(param2))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glMaterialf(face: u32, pname: u32, param2: f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glMaterialf(::core::mem::transmute(face), ::core::mem::transmute(pname), ::core::mem::transmute(param2))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glMaterialfv(face: u32, pname: u32, params: *const f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glMaterialfv(face: u32, pname: u32, params: *const f32);
-        }
-        glMaterialfv(::core::mem::transmute(face), ::core::mem::transmute(pname), ::core::mem::transmute(params))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glMaterialfv(face: u32, pname: u32, params: *const f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glMaterialfv(::core::mem::transmute(face), ::core::mem::transmute(pname), ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glMateriali(face: u32, pname: u32, param2: i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glMateriali(face: u32, pname: u32, param2: i32);
-        }
-        glMateriali(::core::mem::transmute(face), ::core::mem::transmute(pname), ::core::mem::transmute(param2))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glMateriali(face: u32, pname: u32, param2: i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glMateriali(::core::mem::transmute(face), ::core::mem::transmute(pname), ::core::mem::transmute(param2))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glMaterialiv(face: u32, pname: u32, params: *const i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glMaterialiv(face: u32, pname: u32, params: *const i32);
-        }
-        glMaterialiv(::core::mem::transmute(face), ::core::mem::transmute(pname), ::core::mem::transmute(params))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glMaterialiv(face: u32, pname: u32, params: *const i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glMaterialiv(::core::mem::transmute(face), ::core::mem::transmute(pname), ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glMatrixMode(mode: u32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glMatrixMode(mode: u32);
-        }
-        glMatrixMode(::core::mem::transmute(mode))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glMatrixMode(mode: u32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glMatrixMode(::core::mem::transmute(mode))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glMultMatrixd(m: *const f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glMultMatrixd(m: *const f64);
-        }
-        glMultMatrixd(::core::mem::transmute(m))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glMultMatrixd(m: *const f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glMultMatrixd(::core::mem::transmute(m))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glMultMatrixf(m: *const f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glMultMatrixf(m: *const f32);
-        }
-        glMultMatrixf(::core::mem::transmute(m))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glMultMatrixf(m: *const f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glMultMatrixf(::core::mem::transmute(m))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glNewList(list: u32, mode: u32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glNewList(list: u32, mode: u32);
-        }
-        glNewList(::core::mem::transmute(list), ::core::mem::transmute(mode))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glNewList(list: u32, mode: u32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glNewList(::core::mem::transmute(list), ::core::mem::transmute(mode))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glNormal3b(nx: i8, ny: i8, nz: i8) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glNormal3b(nx: i8, ny: i8, nz: i8);
-        }
-        glNormal3b(::core::mem::transmute(nx), ::core::mem::transmute(ny), ::core::mem::transmute(nz))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glNormal3b(nx: i8, ny: i8, nz: i8);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glNormal3b(::core::mem::transmute(nx), ::core::mem::transmute(ny), ::core::mem::transmute(nz))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glNormal3bv(v: *const i8) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glNormal3bv(v: *const i8);
-        }
-        glNormal3bv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glNormal3bv(v: *const i8);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glNormal3bv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glNormal3d(nx: f64, ny: f64, nz: f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glNormal3d(nx: f64, ny: f64, nz: f64);
-        }
-        glNormal3d(::core::mem::transmute(nx), ::core::mem::transmute(ny), ::core::mem::transmute(nz))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glNormal3d(nx: f64, ny: f64, nz: f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glNormal3d(::core::mem::transmute(nx), ::core::mem::transmute(ny), ::core::mem::transmute(nz))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glNormal3dv(v: *const f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glNormal3dv(v: *const f64);
-        }
-        glNormal3dv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glNormal3dv(v: *const f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glNormal3dv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glNormal3f(nx: f32, ny: f32, nz: f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glNormal3f(nx: f32, ny: f32, nz: f32);
-        }
-        glNormal3f(::core::mem::transmute(nx), ::core::mem::transmute(ny), ::core::mem::transmute(nz))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glNormal3f(nx: f32, ny: f32, nz: f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glNormal3f(::core::mem::transmute(nx), ::core::mem::transmute(ny), ::core::mem::transmute(nz))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glNormal3fv(v: *const f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glNormal3fv(v: *const f32);
-        }
-        glNormal3fv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glNormal3fv(v: *const f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glNormal3fv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glNormal3i(nx: i32, ny: i32, nz: i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glNormal3i(nx: i32, ny: i32, nz: i32);
-        }
-        glNormal3i(::core::mem::transmute(nx), ::core::mem::transmute(ny), ::core::mem::transmute(nz))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glNormal3i(nx: i32, ny: i32, nz: i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glNormal3i(::core::mem::transmute(nx), ::core::mem::transmute(ny), ::core::mem::transmute(nz))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glNormal3iv(v: *const i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glNormal3iv(v: *const i32);
-        }
-        glNormal3iv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glNormal3iv(v: *const i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glNormal3iv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glNormal3s(nx: i16, ny: i16, nz: i16) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glNormal3s(nx: i16, ny: i16, nz: i16);
-        }
-        glNormal3s(::core::mem::transmute(nx), ::core::mem::transmute(ny), ::core::mem::transmute(nz))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glNormal3s(nx: i16, ny: i16, nz: i16);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glNormal3s(::core::mem::transmute(nx), ::core::mem::transmute(ny), ::core::mem::transmute(nz))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glNormal3sv(v: *const i16) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glNormal3sv(v: *const i16);
-        }
-        glNormal3sv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glNormal3sv(v: *const i16);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glNormal3sv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glNormalPointer(r#type: u32, stride: i32, pointer: *const ::core::ffi::c_void) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glNormalPointer(r#type: u32, stride: i32, pointer: *const ::core::ffi::c_void);
-        }
-        glNormalPointer(::core::mem::transmute(r#type), ::core::mem::transmute(stride), ::core::mem::transmute(pointer))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glNormalPointer(r#type: u32, stride: i32, pointer: *const ::core::ffi::c_void);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glNormalPointer(::core::mem::transmute(r#type), ::core::mem::transmute(stride), ::core::mem::transmute(pointer))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glOrtho(left: f64, right: f64, bottom: f64, top: f64, znear: f64, zfar: f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glOrtho(left: f64, right: f64, bottom: f64, top: f64, znear: f64, zfar: f64);
-        }
-        glOrtho(::core::mem::transmute(left), ::core::mem::transmute(right), ::core::mem::transmute(bottom), ::core::mem::transmute(top), ::core::mem::transmute(znear), ::core::mem::transmute(zfar))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glOrtho(left: f64, right: f64, bottom: f64, top: f64, znear: f64, zfar: f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glOrtho(::core::mem::transmute(left), ::core::mem::transmute(right), ::core::mem::transmute(bottom), ::core::mem::transmute(top), ::core::mem::transmute(znear), ::core::mem::transmute(zfar))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glPassThrough(token: f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glPassThrough(token: f32);
-        }
-        glPassThrough(::core::mem::transmute(token))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glPassThrough(token: f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glPassThrough(::core::mem::transmute(token))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glPixelMapfv(map: u32, mapsize: i32, values: *const f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glPixelMapfv(map: u32, mapsize: i32, values: *const f32);
-        }
-        glPixelMapfv(::core::mem::transmute(map), ::core::mem::transmute(mapsize), ::core::mem::transmute(values))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glPixelMapfv(map: u32, mapsize: i32, values: *const f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glPixelMapfv(::core::mem::transmute(map), ::core::mem::transmute(mapsize), ::core::mem::transmute(values))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glPixelMapuiv(map: u32, mapsize: i32, values: *const u32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glPixelMapuiv(map: u32, mapsize: i32, values: *const u32);
-        }
-        glPixelMapuiv(::core::mem::transmute(map), ::core::mem::transmute(mapsize), ::core::mem::transmute(values))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glPixelMapuiv(map: u32, mapsize: i32, values: *const u32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glPixelMapuiv(::core::mem::transmute(map), ::core::mem::transmute(mapsize), ::core::mem::transmute(values))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glPixelMapusv(map: u32, mapsize: i32, values: *const u16) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glPixelMapusv(map: u32, mapsize: i32, values: *const u16);
-        }
-        glPixelMapusv(::core::mem::transmute(map), ::core::mem::transmute(mapsize), ::core::mem::transmute(values))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glPixelMapusv(map: u32, mapsize: i32, values: *const u16);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glPixelMapusv(::core::mem::transmute(map), ::core::mem::transmute(mapsize), ::core::mem::transmute(values))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glPixelStoref(pname: u32, param1: f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glPixelStoref(pname: u32, param1: f32);
-        }
-        glPixelStoref(::core::mem::transmute(pname), ::core::mem::transmute(param1))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glPixelStoref(pname: u32, param1: f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glPixelStoref(::core::mem::transmute(pname), ::core::mem::transmute(param1))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glPixelStorei(pname: u32, param1: i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glPixelStorei(pname: u32, param1: i32);
-        }
-        glPixelStorei(::core::mem::transmute(pname), ::core::mem::transmute(param1))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glPixelStorei(pname: u32, param1: i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glPixelStorei(::core::mem::transmute(pname), ::core::mem::transmute(param1))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glPixelTransferf(pname: u32, param1: f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glPixelTransferf(pname: u32, param1: f32);
-        }
-        glPixelTransferf(::core::mem::transmute(pname), ::core::mem::transmute(param1))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glPixelTransferf(pname: u32, param1: f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glPixelTransferf(::core::mem::transmute(pname), ::core::mem::transmute(param1))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glPixelTransferi(pname: u32, param1: i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glPixelTransferi(pname: u32, param1: i32);
-        }
-        glPixelTransferi(::core::mem::transmute(pname), ::core::mem::transmute(param1))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glPixelTransferi(pname: u32, param1: i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glPixelTransferi(::core::mem::transmute(pname), ::core::mem::transmute(param1))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glPixelZoom(xfactor: f32, yfactor: f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glPixelZoom(xfactor: f32, yfactor: f32);
-        }
-        glPixelZoom(::core::mem::transmute(xfactor), ::core::mem::transmute(yfactor))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glPixelZoom(xfactor: f32, yfactor: f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glPixelZoom(::core::mem::transmute(xfactor), ::core::mem::transmute(yfactor))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glPointSize(size: f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glPointSize(size: f32);
-        }
-        glPointSize(::core::mem::transmute(size))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glPointSize(size: f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glPointSize(::core::mem::transmute(size))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glPolygonMode(face: u32, mode: u32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glPolygonMode(face: u32, mode: u32);
-        }
-        glPolygonMode(::core::mem::transmute(face), ::core::mem::transmute(mode))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glPolygonMode(face: u32, mode: u32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glPolygonMode(::core::mem::transmute(face), ::core::mem::transmute(mode))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glPolygonOffset(factor: f32, units: f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glPolygonOffset(factor: f32, units: f32);
-        }
-        glPolygonOffset(::core::mem::transmute(factor), ::core::mem::transmute(units))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glPolygonOffset(factor: f32, units: f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glPolygonOffset(::core::mem::transmute(factor), ::core::mem::transmute(units))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glPolygonStipple(mask: *const u8) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glPolygonStipple(mask: *const u8);
-        }
-        glPolygonStipple(::core::mem::transmute(mask))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glPolygonStipple(mask: *const u8);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glPolygonStipple(::core::mem::transmute(mask))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glPopAttrib() {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glPopAttrib();
-        }
-        glPopAttrib()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glPopAttrib();
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glPopAttrib()
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glPopClientAttrib() {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glPopClientAttrib();
-        }
-        glPopClientAttrib()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glPopClientAttrib();
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glPopClientAttrib()
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glPopMatrix() {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glPopMatrix();
-        }
-        glPopMatrix()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glPopMatrix();
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glPopMatrix()
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glPopName() {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glPopName();
-        }
-        glPopName()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glPopName();
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glPopName()
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glPrioritizeTextures(n: i32, textures: *const u32, priorities: *const f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glPrioritizeTextures(n: i32, textures: *const u32, priorities: *const f32);
-        }
-        glPrioritizeTextures(::core::mem::transmute(n), ::core::mem::transmute(textures), ::core::mem::transmute(priorities))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glPrioritizeTextures(n: i32, textures: *const u32, priorities: *const f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glPrioritizeTextures(::core::mem::transmute(n), ::core::mem::transmute(textures), ::core::mem::transmute(priorities))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glPushAttrib(mask: u32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glPushAttrib(mask: u32);
-        }
-        glPushAttrib(::core::mem::transmute(mask))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glPushAttrib(mask: u32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glPushAttrib(::core::mem::transmute(mask))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glPushClientAttrib(mask: u32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glPushClientAttrib(mask: u32);
-        }
-        glPushClientAttrib(::core::mem::transmute(mask))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glPushClientAttrib(mask: u32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glPushClientAttrib(::core::mem::transmute(mask))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glPushMatrix() {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glPushMatrix();
-        }
-        glPushMatrix()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glPushMatrix();
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glPushMatrix()
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glPushName(name: u32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glPushName(name: u32);
-        }
-        glPushName(::core::mem::transmute(name))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glPushName(name: u32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glPushName(::core::mem::transmute(name))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glRasterPos2d(x: f64, y: f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glRasterPos2d(x: f64, y: f64);
-        }
-        glRasterPos2d(::core::mem::transmute(x), ::core::mem::transmute(y))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glRasterPos2d(x: f64, y: f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glRasterPos2d(::core::mem::transmute(x), ::core::mem::transmute(y))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glRasterPos2dv(v: *const f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glRasterPos2dv(v: *const f64);
-        }
-        glRasterPos2dv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glRasterPos2dv(v: *const f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glRasterPos2dv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glRasterPos2f(x: f32, y: f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glRasterPos2f(x: f32, y: f32);
-        }
-        glRasterPos2f(::core::mem::transmute(x), ::core::mem::transmute(y))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glRasterPos2f(x: f32, y: f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glRasterPos2f(::core::mem::transmute(x), ::core::mem::transmute(y))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glRasterPos2fv(v: *const f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glRasterPos2fv(v: *const f32);
-        }
-        glRasterPos2fv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glRasterPos2fv(v: *const f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glRasterPos2fv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glRasterPos2i(x: i32, y: i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glRasterPos2i(x: i32, y: i32);
-        }
-        glRasterPos2i(::core::mem::transmute(x), ::core::mem::transmute(y))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glRasterPos2i(x: i32, y: i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glRasterPos2i(::core::mem::transmute(x), ::core::mem::transmute(y))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glRasterPos2iv(v: *const i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glRasterPos2iv(v: *const i32);
-        }
-        glRasterPos2iv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glRasterPos2iv(v: *const i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glRasterPos2iv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glRasterPos2s(x: i16, y: i16) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glRasterPos2s(x: i16, y: i16);
-        }
-        glRasterPos2s(::core::mem::transmute(x), ::core::mem::transmute(y))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glRasterPos2s(x: i16, y: i16);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glRasterPos2s(::core::mem::transmute(x), ::core::mem::transmute(y))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glRasterPos2sv(v: *const i16) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glRasterPos2sv(v: *const i16);
-        }
-        glRasterPos2sv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glRasterPos2sv(v: *const i16);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glRasterPos2sv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glRasterPos3d(x: f64, y: f64, z: f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glRasterPos3d(x: f64, y: f64, z: f64);
-        }
-        glRasterPos3d(::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glRasterPos3d(x: f64, y: f64, z: f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glRasterPos3d(::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glRasterPos3dv(v: *const f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glRasterPos3dv(v: *const f64);
-        }
-        glRasterPos3dv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glRasterPos3dv(v: *const f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glRasterPos3dv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glRasterPos3f(x: f32, y: f32, z: f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glRasterPos3f(x: f32, y: f32, z: f32);
-        }
-        glRasterPos3f(::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glRasterPos3f(x: f32, y: f32, z: f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glRasterPos3f(::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glRasterPos3fv(v: *const f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glRasterPos3fv(v: *const f32);
-        }
-        glRasterPos3fv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glRasterPos3fv(v: *const f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glRasterPos3fv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glRasterPos3i(x: i32, y: i32, z: i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glRasterPos3i(x: i32, y: i32, z: i32);
-        }
-        glRasterPos3i(::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glRasterPos3i(x: i32, y: i32, z: i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glRasterPos3i(::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glRasterPos3iv(v: *const i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glRasterPos3iv(v: *const i32);
-        }
-        glRasterPos3iv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glRasterPos3iv(v: *const i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glRasterPos3iv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glRasterPos3s(x: i16, y: i16, z: i16) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glRasterPos3s(x: i16, y: i16, z: i16);
-        }
-        glRasterPos3s(::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glRasterPos3s(x: i16, y: i16, z: i16);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glRasterPos3s(::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glRasterPos3sv(v: *const i16) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glRasterPos3sv(v: *const i16);
-        }
-        glRasterPos3sv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glRasterPos3sv(v: *const i16);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glRasterPos3sv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glRasterPos4d(x: f64, y: f64, z: f64, w: f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glRasterPos4d(x: f64, y: f64, z: f64, w: f64);
-        }
-        glRasterPos4d(::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z), ::core::mem::transmute(w))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glRasterPos4d(x: f64, y: f64, z: f64, w: f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glRasterPos4d(::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z), ::core::mem::transmute(w))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glRasterPos4dv(v: *const f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glRasterPos4dv(v: *const f64);
-        }
-        glRasterPos4dv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glRasterPos4dv(v: *const f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glRasterPos4dv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glRasterPos4f(x: f32, y: f32, z: f32, w: f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glRasterPos4f(x: f32, y: f32, z: f32, w: f32);
-        }
-        glRasterPos4f(::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z), ::core::mem::transmute(w))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glRasterPos4f(x: f32, y: f32, z: f32, w: f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glRasterPos4f(::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z), ::core::mem::transmute(w))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glRasterPos4fv(v: *const f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glRasterPos4fv(v: *const f32);
-        }
-        glRasterPos4fv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glRasterPos4fv(v: *const f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glRasterPos4fv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glRasterPos4i(x: i32, y: i32, z: i32, w: i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glRasterPos4i(x: i32, y: i32, z: i32, w: i32);
-        }
-        glRasterPos4i(::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z), ::core::mem::transmute(w))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glRasterPos4i(x: i32, y: i32, z: i32, w: i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glRasterPos4i(::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z), ::core::mem::transmute(w))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glRasterPos4iv(v: *const i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glRasterPos4iv(v: *const i32);
-        }
-        glRasterPos4iv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glRasterPos4iv(v: *const i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glRasterPos4iv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glRasterPos4s(x: i16, y: i16, z: i16, w: i16) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glRasterPos4s(x: i16, y: i16, z: i16, w: i16);
-        }
-        glRasterPos4s(::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z), ::core::mem::transmute(w))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glRasterPos4s(x: i16, y: i16, z: i16, w: i16);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glRasterPos4s(::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z), ::core::mem::transmute(w))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glRasterPos4sv(v: *const i16) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glRasterPos4sv(v: *const i16);
-        }
-        glRasterPos4sv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glRasterPos4sv(v: *const i16);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glRasterPos4sv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glReadBuffer(mode: u32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glReadBuffer(mode: u32);
-        }
-        glReadBuffer(::core::mem::transmute(mode))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glReadBuffer(mode: u32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glReadBuffer(::core::mem::transmute(mode))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glReadPixels(x: i32, y: i32, width: i32, height: i32, format: u32, r#type: u32, pixels: *mut ::core::ffi::c_void) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glReadPixels(x: i32, y: i32, width: i32, height: i32, format: u32, r#type: u32, pixels: *mut ::core::ffi::c_void);
-        }
-        glReadPixels(::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(format), ::core::mem::transmute(r#type), ::core::mem::transmute(pixels))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glReadPixels(x: i32, y: i32, width: i32, height: i32, format: u32, r#type: u32, pixels: *mut ::core::ffi::c_void);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glReadPixels(::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(format), ::core::mem::transmute(r#type), ::core::mem::transmute(pixels))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glRectd(x1: f64, y1: f64, x2: f64, y2: f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glRectd(x1: f64, y1: f64, x2: f64, y2: f64);
-        }
-        glRectd(::core::mem::transmute(x1), ::core::mem::transmute(y1), ::core::mem::transmute(x2), ::core::mem::transmute(y2))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glRectd(x1: f64, y1: f64, x2: f64, y2: f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glRectd(::core::mem::transmute(x1), ::core::mem::transmute(y1), ::core::mem::transmute(x2), ::core::mem::transmute(y2))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glRectdv(v1: *const f64, v2: *const f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glRectdv(v1: *const f64, v2: *const f64);
-        }
-        glRectdv(::core::mem::transmute(v1), ::core::mem::transmute(v2))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glRectdv(v1: *const f64, v2: *const f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glRectdv(::core::mem::transmute(v1), ::core::mem::transmute(v2))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glRectf(x1: f32, y1: f32, x2: f32, y2: f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glRectf(x1: f32, y1: f32, x2: f32, y2: f32);
-        }
-        glRectf(::core::mem::transmute(x1), ::core::mem::transmute(y1), ::core::mem::transmute(x2), ::core::mem::transmute(y2))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glRectf(x1: f32, y1: f32, x2: f32, y2: f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glRectf(::core::mem::transmute(x1), ::core::mem::transmute(y1), ::core::mem::transmute(x2), ::core::mem::transmute(y2))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glRectfv(v1: *const f32, v2: *const f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glRectfv(v1: *const f32, v2: *const f32);
-        }
-        glRectfv(::core::mem::transmute(v1), ::core::mem::transmute(v2))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glRectfv(v1: *const f32, v2: *const f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glRectfv(::core::mem::transmute(v1), ::core::mem::transmute(v2))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glRecti(x1: i32, y1: i32, x2: i32, y2: i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glRecti(x1: i32, y1: i32, x2: i32, y2: i32);
-        }
-        glRecti(::core::mem::transmute(x1), ::core::mem::transmute(y1), ::core::mem::transmute(x2), ::core::mem::transmute(y2))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glRecti(x1: i32, y1: i32, x2: i32, y2: i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glRecti(::core::mem::transmute(x1), ::core::mem::transmute(y1), ::core::mem::transmute(x2), ::core::mem::transmute(y2))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glRectiv(v1: *const i32, v2: *const i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glRectiv(v1: *const i32, v2: *const i32);
-        }
-        glRectiv(::core::mem::transmute(v1), ::core::mem::transmute(v2))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glRectiv(v1: *const i32, v2: *const i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glRectiv(::core::mem::transmute(v1), ::core::mem::transmute(v2))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glRects(x1: i16, y1: i16, x2: i16, y2: i16) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glRects(x1: i16, y1: i16, x2: i16, y2: i16);
-        }
-        glRects(::core::mem::transmute(x1), ::core::mem::transmute(y1), ::core::mem::transmute(x2), ::core::mem::transmute(y2))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glRects(x1: i16, y1: i16, x2: i16, y2: i16);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glRects(::core::mem::transmute(x1), ::core::mem::transmute(y1), ::core::mem::transmute(x2), ::core::mem::transmute(y2))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glRectsv(v1: *const i16, v2: *const i16) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glRectsv(v1: *const i16, v2: *const i16);
-        }
-        glRectsv(::core::mem::transmute(v1), ::core::mem::transmute(v2))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glRectsv(v1: *const i16, v2: *const i16);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glRectsv(::core::mem::transmute(v1), ::core::mem::transmute(v2))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glRenderMode(mode: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glRenderMode(mode: u32) -> i32;
-        }
-        ::core::mem::transmute(glRenderMode(::core::mem::transmute(mode)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glRenderMode(mode: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(glRenderMode(::core::mem::transmute(mode)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glRotated(angle: f64, x: f64, y: f64, z: f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glRotated(angle: f64, x: f64, y: f64, z: f64);
-        }
-        glRotated(::core::mem::transmute(angle), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glRotated(angle: f64, x: f64, y: f64, z: f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glRotated(::core::mem::transmute(angle), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glRotatef(angle: f32, x: f32, y: f32, z: f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glRotatef(angle: f32, x: f32, y: f32, z: f32);
-        }
-        glRotatef(::core::mem::transmute(angle), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glRotatef(angle: f32, x: f32, y: f32, z: f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glRotatef(::core::mem::transmute(angle), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glScaled(x: f64, y: f64, z: f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glScaled(x: f64, y: f64, z: f64);
-        }
-        glScaled(::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glScaled(x: f64, y: f64, z: f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glScaled(::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glScalef(x: f32, y: f32, z: f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glScalef(x: f32, y: f32, z: f32);
-        }
-        glScalef(::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glScalef(x: f32, y: f32, z: f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glScalef(::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glScissor(x: i32, y: i32, width: i32, height: i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glScissor(x: i32, y: i32, width: i32, height: i32);
-        }
-        glScissor(::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(width), ::core::mem::transmute(height))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glScissor(x: i32, y: i32, width: i32, height: i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glScissor(::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(width), ::core::mem::transmute(height))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glSelectBuffer(size: i32, buffer: *mut u32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glSelectBuffer(size: i32, buffer: *mut u32);
-        }
-        glSelectBuffer(::core::mem::transmute(size), ::core::mem::transmute(buffer))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glSelectBuffer(size: i32, buffer: *mut u32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glSelectBuffer(::core::mem::transmute(size), ::core::mem::transmute(buffer))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glShadeModel(mode: u32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glShadeModel(mode: u32);
-        }
-        glShadeModel(::core::mem::transmute(mode))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glShadeModel(mode: u32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glShadeModel(::core::mem::transmute(mode))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glStencilFunc(func: u32, r#ref: i32, mask: u32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glStencilFunc(func: u32, r#ref: i32, mask: u32);
-        }
-        glStencilFunc(::core::mem::transmute(func), ::core::mem::transmute(r#ref), ::core::mem::transmute(mask))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glStencilFunc(func: u32, r#ref: i32, mask: u32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glStencilFunc(::core::mem::transmute(func), ::core::mem::transmute(r#ref), ::core::mem::transmute(mask))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glStencilMask(mask: u32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glStencilMask(mask: u32);
-        }
-        glStencilMask(::core::mem::transmute(mask))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glStencilMask(mask: u32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glStencilMask(::core::mem::transmute(mask))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glStencilOp(fail: u32, zfail: u32, zpass: u32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glStencilOp(fail: u32, zfail: u32, zpass: u32);
-        }
-        glStencilOp(::core::mem::transmute(fail), ::core::mem::transmute(zfail), ::core::mem::transmute(zpass))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glStencilOp(fail: u32, zfail: u32, zpass: u32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glStencilOp(::core::mem::transmute(fail), ::core::mem::transmute(zfail), ::core::mem::transmute(zpass))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glTexCoord1d(s: f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glTexCoord1d(s: f64);
-        }
-        glTexCoord1d(::core::mem::transmute(s))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glTexCoord1d(s: f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glTexCoord1d(::core::mem::transmute(s))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glTexCoord1dv(v: *const f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glTexCoord1dv(v: *const f64);
-        }
-        glTexCoord1dv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glTexCoord1dv(v: *const f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glTexCoord1dv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glTexCoord1f(s: f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glTexCoord1f(s: f32);
-        }
-        glTexCoord1f(::core::mem::transmute(s))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glTexCoord1f(s: f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glTexCoord1f(::core::mem::transmute(s))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glTexCoord1fv(v: *const f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glTexCoord1fv(v: *const f32);
-        }
-        glTexCoord1fv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glTexCoord1fv(v: *const f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glTexCoord1fv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glTexCoord1i(s: i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glTexCoord1i(s: i32);
-        }
-        glTexCoord1i(::core::mem::transmute(s))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glTexCoord1i(s: i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glTexCoord1i(::core::mem::transmute(s))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glTexCoord1iv(v: *const i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glTexCoord1iv(v: *const i32);
-        }
-        glTexCoord1iv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glTexCoord1iv(v: *const i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glTexCoord1iv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glTexCoord1s(s: i16) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glTexCoord1s(s: i16);
-        }
-        glTexCoord1s(::core::mem::transmute(s))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glTexCoord1s(s: i16);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glTexCoord1s(::core::mem::transmute(s))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glTexCoord1sv(v: *const i16) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glTexCoord1sv(v: *const i16);
-        }
-        glTexCoord1sv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glTexCoord1sv(v: *const i16);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glTexCoord1sv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glTexCoord2d(s: f64, t: f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glTexCoord2d(s: f64, t: f64);
-        }
-        glTexCoord2d(::core::mem::transmute(s), ::core::mem::transmute(t))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glTexCoord2d(s: f64, t: f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glTexCoord2d(::core::mem::transmute(s), ::core::mem::transmute(t))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glTexCoord2dv(v: *const f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glTexCoord2dv(v: *const f64);
-        }
-        glTexCoord2dv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glTexCoord2dv(v: *const f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glTexCoord2dv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glTexCoord2f(s: f32, t: f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glTexCoord2f(s: f32, t: f32);
-        }
-        glTexCoord2f(::core::mem::transmute(s), ::core::mem::transmute(t))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glTexCoord2f(s: f32, t: f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glTexCoord2f(::core::mem::transmute(s), ::core::mem::transmute(t))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glTexCoord2fv(v: *const f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glTexCoord2fv(v: *const f32);
-        }
-        glTexCoord2fv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glTexCoord2fv(v: *const f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glTexCoord2fv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glTexCoord2i(s: i32, t: i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glTexCoord2i(s: i32, t: i32);
-        }
-        glTexCoord2i(::core::mem::transmute(s), ::core::mem::transmute(t))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glTexCoord2i(s: i32, t: i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glTexCoord2i(::core::mem::transmute(s), ::core::mem::transmute(t))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glTexCoord2iv(v: *const i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glTexCoord2iv(v: *const i32);
-        }
-        glTexCoord2iv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glTexCoord2iv(v: *const i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glTexCoord2iv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glTexCoord2s(s: i16, t: i16) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glTexCoord2s(s: i16, t: i16);
-        }
-        glTexCoord2s(::core::mem::transmute(s), ::core::mem::transmute(t))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glTexCoord2s(s: i16, t: i16);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glTexCoord2s(::core::mem::transmute(s), ::core::mem::transmute(t))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glTexCoord2sv(v: *const i16) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glTexCoord2sv(v: *const i16);
-        }
-        glTexCoord2sv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glTexCoord2sv(v: *const i16);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glTexCoord2sv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glTexCoord3d(s: f64, t: f64, r: f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glTexCoord3d(s: f64, t: f64, r: f64);
-        }
-        glTexCoord3d(::core::mem::transmute(s), ::core::mem::transmute(t), ::core::mem::transmute(r))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glTexCoord3d(s: f64, t: f64, r: f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glTexCoord3d(::core::mem::transmute(s), ::core::mem::transmute(t), ::core::mem::transmute(r))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glTexCoord3dv(v: *const f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glTexCoord3dv(v: *const f64);
-        }
-        glTexCoord3dv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glTexCoord3dv(v: *const f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glTexCoord3dv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glTexCoord3f(s: f32, t: f32, r: f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glTexCoord3f(s: f32, t: f32, r: f32);
-        }
-        glTexCoord3f(::core::mem::transmute(s), ::core::mem::transmute(t), ::core::mem::transmute(r))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glTexCoord3f(s: f32, t: f32, r: f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glTexCoord3f(::core::mem::transmute(s), ::core::mem::transmute(t), ::core::mem::transmute(r))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glTexCoord3fv(v: *const f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glTexCoord3fv(v: *const f32);
-        }
-        glTexCoord3fv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glTexCoord3fv(v: *const f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glTexCoord3fv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glTexCoord3i(s: i32, t: i32, r: i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glTexCoord3i(s: i32, t: i32, r: i32);
-        }
-        glTexCoord3i(::core::mem::transmute(s), ::core::mem::transmute(t), ::core::mem::transmute(r))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glTexCoord3i(s: i32, t: i32, r: i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glTexCoord3i(::core::mem::transmute(s), ::core::mem::transmute(t), ::core::mem::transmute(r))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glTexCoord3iv(v: *const i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glTexCoord3iv(v: *const i32);
-        }
-        glTexCoord3iv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glTexCoord3iv(v: *const i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glTexCoord3iv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glTexCoord3s(s: i16, t: i16, r: i16) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glTexCoord3s(s: i16, t: i16, r: i16);
-        }
-        glTexCoord3s(::core::mem::transmute(s), ::core::mem::transmute(t), ::core::mem::transmute(r))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glTexCoord3s(s: i16, t: i16, r: i16);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glTexCoord3s(::core::mem::transmute(s), ::core::mem::transmute(t), ::core::mem::transmute(r))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glTexCoord3sv(v: *const i16) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glTexCoord3sv(v: *const i16);
-        }
-        glTexCoord3sv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glTexCoord3sv(v: *const i16);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glTexCoord3sv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glTexCoord4d(s: f64, t: f64, r: f64, q: f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glTexCoord4d(s: f64, t: f64, r: f64, q: f64);
-        }
-        glTexCoord4d(::core::mem::transmute(s), ::core::mem::transmute(t), ::core::mem::transmute(r), ::core::mem::transmute(q))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glTexCoord4d(s: f64, t: f64, r: f64, q: f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glTexCoord4d(::core::mem::transmute(s), ::core::mem::transmute(t), ::core::mem::transmute(r), ::core::mem::transmute(q))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glTexCoord4dv(v: *const f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glTexCoord4dv(v: *const f64);
-        }
-        glTexCoord4dv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glTexCoord4dv(v: *const f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glTexCoord4dv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glTexCoord4f(s: f32, t: f32, r: f32, q: f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glTexCoord4f(s: f32, t: f32, r: f32, q: f32);
-        }
-        glTexCoord4f(::core::mem::transmute(s), ::core::mem::transmute(t), ::core::mem::transmute(r), ::core::mem::transmute(q))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glTexCoord4f(s: f32, t: f32, r: f32, q: f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glTexCoord4f(::core::mem::transmute(s), ::core::mem::transmute(t), ::core::mem::transmute(r), ::core::mem::transmute(q))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glTexCoord4fv(v: *const f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glTexCoord4fv(v: *const f32);
-        }
-        glTexCoord4fv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glTexCoord4fv(v: *const f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glTexCoord4fv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glTexCoord4i(s: i32, t: i32, r: i32, q: i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glTexCoord4i(s: i32, t: i32, r: i32, q: i32);
-        }
-        glTexCoord4i(::core::mem::transmute(s), ::core::mem::transmute(t), ::core::mem::transmute(r), ::core::mem::transmute(q))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glTexCoord4i(s: i32, t: i32, r: i32, q: i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glTexCoord4i(::core::mem::transmute(s), ::core::mem::transmute(t), ::core::mem::transmute(r), ::core::mem::transmute(q))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glTexCoord4iv(v: *const i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glTexCoord4iv(v: *const i32);
-        }
-        glTexCoord4iv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glTexCoord4iv(v: *const i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glTexCoord4iv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glTexCoord4s(s: i16, t: i16, r: i16, q: i16) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glTexCoord4s(s: i16, t: i16, r: i16, q: i16);
-        }
-        glTexCoord4s(::core::mem::transmute(s), ::core::mem::transmute(t), ::core::mem::transmute(r), ::core::mem::transmute(q))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glTexCoord4s(s: i16, t: i16, r: i16, q: i16);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glTexCoord4s(::core::mem::transmute(s), ::core::mem::transmute(t), ::core::mem::transmute(r), ::core::mem::transmute(q))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glTexCoord4sv(v: *const i16) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glTexCoord4sv(v: *const i16);
-        }
-        glTexCoord4sv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glTexCoord4sv(v: *const i16);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glTexCoord4sv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glTexCoordPointer(size: i32, r#type: u32, stride: i32, pointer: *const ::core::ffi::c_void) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glTexCoordPointer(size: i32, r#type: u32, stride: i32, pointer: *const ::core::ffi::c_void);
-        }
-        glTexCoordPointer(::core::mem::transmute(size), ::core::mem::transmute(r#type), ::core::mem::transmute(stride), ::core::mem::transmute(pointer))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glTexCoordPointer(size: i32, r#type: u32, stride: i32, pointer: *const ::core::ffi::c_void);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glTexCoordPointer(::core::mem::transmute(size), ::core::mem::transmute(r#type), ::core::mem::transmute(stride), ::core::mem::transmute(pointer))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glTexEnvf(target: u32, pname: u32, param2: f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glTexEnvf(target: u32, pname: u32, param2: f32);
-        }
-        glTexEnvf(::core::mem::transmute(target), ::core::mem::transmute(pname), ::core::mem::transmute(param2))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glTexEnvf(target: u32, pname: u32, param2: f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glTexEnvf(::core::mem::transmute(target), ::core::mem::transmute(pname), ::core::mem::transmute(param2))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glTexEnvfv(target: u32, pname: u32, params: *const f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glTexEnvfv(target: u32, pname: u32, params: *const f32);
-        }
-        glTexEnvfv(::core::mem::transmute(target), ::core::mem::transmute(pname), ::core::mem::transmute(params))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glTexEnvfv(target: u32, pname: u32, params: *const f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glTexEnvfv(::core::mem::transmute(target), ::core::mem::transmute(pname), ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glTexEnvi(target: u32, pname: u32, param2: i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glTexEnvi(target: u32, pname: u32, param2: i32);
-        }
-        glTexEnvi(::core::mem::transmute(target), ::core::mem::transmute(pname), ::core::mem::transmute(param2))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glTexEnvi(target: u32, pname: u32, param2: i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glTexEnvi(::core::mem::transmute(target), ::core::mem::transmute(pname), ::core::mem::transmute(param2))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glTexEnviv(target: u32, pname: u32, params: *const i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glTexEnviv(target: u32, pname: u32, params: *const i32);
-        }
-        glTexEnviv(::core::mem::transmute(target), ::core::mem::transmute(pname), ::core::mem::transmute(params))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glTexEnviv(target: u32, pname: u32, params: *const i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glTexEnviv(::core::mem::transmute(target), ::core::mem::transmute(pname), ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glTexGend(coord: u32, pname: u32, param2: f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glTexGend(coord: u32, pname: u32, param2: f64);
-        }
-        glTexGend(::core::mem::transmute(coord), ::core::mem::transmute(pname), ::core::mem::transmute(param2))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glTexGend(coord: u32, pname: u32, param2: f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glTexGend(::core::mem::transmute(coord), ::core::mem::transmute(pname), ::core::mem::transmute(param2))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glTexGendv(coord: u32, pname: u32, params: *const f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glTexGendv(coord: u32, pname: u32, params: *const f64);
-        }
-        glTexGendv(::core::mem::transmute(coord), ::core::mem::transmute(pname), ::core::mem::transmute(params))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glTexGendv(coord: u32, pname: u32, params: *const f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glTexGendv(::core::mem::transmute(coord), ::core::mem::transmute(pname), ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glTexGenf(coord: u32, pname: u32, param2: f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glTexGenf(coord: u32, pname: u32, param2: f32);
-        }
-        glTexGenf(::core::mem::transmute(coord), ::core::mem::transmute(pname), ::core::mem::transmute(param2))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glTexGenf(coord: u32, pname: u32, param2: f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glTexGenf(::core::mem::transmute(coord), ::core::mem::transmute(pname), ::core::mem::transmute(param2))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glTexGenfv(coord: u32, pname: u32, params: *const f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glTexGenfv(coord: u32, pname: u32, params: *const f32);
-        }
-        glTexGenfv(::core::mem::transmute(coord), ::core::mem::transmute(pname), ::core::mem::transmute(params))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glTexGenfv(coord: u32, pname: u32, params: *const f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glTexGenfv(::core::mem::transmute(coord), ::core::mem::transmute(pname), ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glTexGeni(coord: u32, pname: u32, param2: i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glTexGeni(coord: u32, pname: u32, param2: i32);
-        }
-        glTexGeni(::core::mem::transmute(coord), ::core::mem::transmute(pname), ::core::mem::transmute(param2))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glTexGeni(coord: u32, pname: u32, param2: i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glTexGeni(::core::mem::transmute(coord), ::core::mem::transmute(pname), ::core::mem::transmute(param2))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glTexGeniv(coord: u32, pname: u32, params: *const i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glTexGeniv(coord: u32, pname: u32, params: *const i32);
-        }
-        glTexGeniv(::core::mem::transmute(coord), ::core::mem::transmute(pname), ::core::mem::transmute(params))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glTexGeniv(coord: u32, pname: u32, params: *const i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glTexGeniv(::core::mem::transmute(coord), ::core::mem::transmute(pname), ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glTexImage1D(target: u32, level: i32, internalformat: i32, width: i32, border: i32, format: u32, r#type: u32, pixels: *const ::core::ffi::c_void) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glTexImage1D(target: u32, level: i32, internalformat: i32, width: i32, border: i32, format: u32, r#type: u32, pixels: *const ::core::ffi::c_void);
-        }
-        glTexImage1D(::core::mem::transmute(target), ::core::mem::transmute(level), ::core::mem::transmute(internalformat), ::core::mem::transmute(width), ::core::mem::transmute(border), ::core::mem::transmute(format), ::core::mem::transmute(r#type), ::core::mem::transmute(pixels))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glTexImage1D(target: u32, level: i32, internalformat: i32, width: i32, border: i32, format: u32, r#type: u32, pixels: *const ::core::ffi::c_void);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glTexImage1D(::core::mem::transmute(target), ::core::mem::transmute(level), ::core::mem::transmute(internalformat), ::core::mem::transmute(width), ::core::mem::transmute(border), ::core::mem::transmute(format), ::core::mem::transmute(r#type), ::core::mem::transmute(pixels))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glTexImage2D(target: u32, level: i32, internalformat: i32, width: i32, height: i32, border: i32, format: u32, r#type: u32, pixels: *const ::core::ffi::c_void) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glTexImage2D(target: u32, level: i32, internalformat: i32, width: i32, height: i32, border: i32, format: u32, r#type: u32, pixels: *const ::core::ffi::c_void);
-        }
-        glTexImage2D(::core::mem::transmute(target), ::core::mem::transmute(level), ::core::mem::transmute(internalformat), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(border), ::core::mem::transmute(format), ::core::mem::transmute(r#type), ::core::mem::transmute(pixels))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glTexImage2D(target: u32, level: i32, internalformat: i32, width: i32, height: i32, border: i32, format: u32, r#type: u32, pixels: *const ::core::ffi::c_void);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glTexImage2D(::core::mem::transmute(target), ::core::mem::transmute(level), ::core::mem::transmute(internalformat), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(border), ::core::mem::transmute(format), ::core::mem::transmute(r#type), ::core::mem::transmute(pixels))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glTexParameterf(target: u32, pname: u32, param2: f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glTexParameterf(target: u32, pname: u32, param2: f32);
-        }
-        glTexParameterf(::core::mem::transmute(target), ::core::mem::transmute(pname), ::core::mem::transmute(param2))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glTexParameterf(target: u32, pname: u32, param2: f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glTexParameterf(::core::mem::transmute(target), ::core::mem::transmute(pname), ::core::mem::transmute(param2))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glTexParameterfv(target: u32, pname: u32, params: *const f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glTexParameterfv(target: u32, pname: u32, params: *const f32);
-        }
-        glTexParameterfv(::core::mem::transmute(target), ::core::mem::transmute(pname), ::core::mem::transmute(params))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glTexParameterfv(target: u32, pname: u32, params: *const f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glTexParameterfv(::core::mem::transmute(target), ::core::mem::transmute(pname), ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glTexParameteri(target: u32, pname: u32, param2: i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glTexParameteri(target: u32, pname: u32, param2: i32);
-        }
-        glTexParameteri(::core::mem::transmute(target), ::core::mem::transmute(pname), ::core::mem::transmute(param2))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glTexParameteri(target: u32, pname: u32, param2: i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glTexParameteri(::core::mem::transmute(target), ::core::mem::transmute(pname), ::core::mem::transmute(param2))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glTexParameteriv(target: u32, pname: u32, params: *const i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glTexParameteriv(target: u32, pname: u32, params: *const i32);
-        }
-        glTexParameteriv(::core::mem::transmute(target), ::core::mem::transmute(pname), ::core::mem::transmute(params))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glTexParameteriv(target: u32, pname: u32, params: *const i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glTexParameteriv(::core::mem::transmute(target), ::core::mem::transmute(pname), ::core::mem::transmute(params))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glTexSubImage1D(target: u32, level: i32, xoffset: i32, width: i32, format: u32, r#type: u32, pixels: *const ::core::ffi::c_void) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glTexSubImage1D(target: u32, level: i32, xoffset: i32, width: i32, format: u32, r#type: u32, pixels: *const ::core::ffi::c_void);
-        }
-        glTexSubImage1D(::core::mem::transmute(target), ::core::mem::transmute(level), ::core::mem::transmute(xoffset), ::core::mem::transmute(width), ::core::mem::transmute(format), ::core::mem::transmute(r#type), ::core::mem::transmute(pixels))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glTexSubImage1D(target: u32, level: i32, xoffset: i32, width: i32, format: u32, r#type: u32, pixels: *const ::core::ffi::c_void);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glTexSubImage1D(::core::mem::transmute(target), ::core::mem::transmute(level), ::core::mem::transmute(xoffset), ::core::mem::transmute(width), ::core::mem::transmute(format), ::core::mem::transmute(r#type), ::core::mem::transmute(pixels))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glTexSubImage2D(target: u32, level: i32, xoffset: i32, yoffset: i32, width: i32, height: i32, format: u32, r#type: u32, pixels: *const ::core::ffi::c_void) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glTexSubImage2D(target: u32, level: i32, xoffset: i32, yoffset: i32, width: i32, height: i32, format: u32, r#type: u32, pixels: *const ::core::ffi::c_void);
-        }
-        glTexSubImage2D(::core::mem::transmute(target), ::core::mem::transmute(level), ::core::mem::transmute(xoffset), ::core::mem::transmute(yoffset), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(format), ::core::mem::transmute(r#type), ::core::mem::transmute(pixels))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glTexSubImage2D(target: u32, level: i32, xoffset: i32, yoffset: i32, width: i32, height: i32, format: u32, r#type: u32, pixels: *const ::core::ffi::c_void);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glTexSubImage2D(::core::mem::transmute(target), ::core::mem::transmute(level), ::core::mem::transmute(xoffset), ::core::mem::transmute(yoffset), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(format), ::core::mem::transmute(r#type), ::core::mem::transmute(pixels))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glTranslated(x: f64, y: f64, z: f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glTranslated(x: f64, y: f64, z: f64);
-        }
-        glTranslated(::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glTranslated(x: f64, y: f64, z: f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glTranslated(::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glTranslatef(x: f32, y: f32, z: f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glTranslatef(x: f32, y: f32, z: f32);
-        }
-        glTranslatef(::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glTranslatef(x: f32, y: f32, z: f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glTranslatef(::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glVertex2d(x: f64, y: f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glVertex2d(x: f64, y: f64);
-        }
-        glVertex2d(::core::mem::transmute(x), ::core::mem::transmute(y))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glVertex2d(x: f64, y: f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glVertex2d(::core::mem::transmute(x), ::core::mem::transmute(y))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glVertex2dv(v: *const f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glVertex2dv(v: *const f64);
-        }
-        glVertex2dv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glVertex2dv(v: *const f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glVertex2dv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glVertex2f(x: f32, y: f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glVertex2f(x: f32, y: f32);
-        }
-        glVertex2f(::core::mem::transmute(x), ::core::mem::transmute(y))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glVertex2f(x: f32, y: f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glVertex2f(::core::mem::transmute(x), ::core::mem::transmute(y))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glVertex2fv(v: *const f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glVertex2fv(v: *const f32);
-        }
-        glVertex2fv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glVertex2fv(v: *const f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glVertex2fv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glVertex2i(x: i32, y: i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glVertex2i(x: i32, y: i32);
-        }
-        glVertex2i(::core::mem::transmute(x), ::core::mem::transmute(y))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glVertex2i(x: i32, y: i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glVertex2i(::core::mem::transmute(x), ::core::mem::transmute(y))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glVertex2iv(v: *const i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glVertex2iv(v: *const i32);
-        }
-        glVertex2iv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glVertex2iv(v: *const i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glVertex2iv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glVertex2s(x: i16, y: i16) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glVertex2s(x: i16, y: i16);
-        }
-        glVertex2s(::core::mem::transmute(x), ::core::mem::transmute(y))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glVertex2s(x: i16, y: i16);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glVertex2s(::core::mem::transmute(x), ::core::mem::transmute(y))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glVertex2sv(v: *const i16) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glVertex2sv(v: *const i16);
-        }
-        glVertex2sv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glVertex2sv(v: *const i16);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glVertex2sv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glVertex3d(x: f64, y: f64, z: f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glVertex3d(x: f64, y: f64, z: f64);
-        }
-        glVertex3d(::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glVertex3d(x: f64, y: f64, z: f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glVertex3d(::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glVertex3dv(v: *const f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glVertex3dv(v: *const f64);
-        }
-        glVertex3dv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glVertex3dv(v: *const f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glVertex3dv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glVertex3f(x: f32, y: f32, z: f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glVertex3f(x: f32, y: f32, z: f32);
-        }
-        glVertex3f(::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glVertex3f(x: f32, y: f32, z: f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glVertex3f(::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glVertex3fv(v: *const f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glVertex3fv(v: *const f32);
-        }
-        glVertex3fv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glVertex3fv(v: *const f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glVertex3fv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glVertex3i(x: i32, y: i32, z: i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glVertex3i(x: i32, y: i32, z: i32);
-        }
-        glVertex3i(::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glVertex3i(x: i32, y: i32, z: i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glVertex3i(::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glVertex3iv(v: *const i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glVertex3iv(v: *const i32);
-        }
-        glVertex3iv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glVertex3iv(v: *const i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glVertex3iv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glVertex3s(x: i16, y: i16, z: i16) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glVertex3s(x: i16, y: i16, z: i16);
-        }
-        glVertex3s(::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glVertex3s(x: i16, y: i16, z: i16);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glVertex3s(::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glVertex3sv(v: *const i16) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glVertex3sv(v: *const i16);
-        }
-        glVertex3sv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glVertex3sv(v: *const i16);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glVertex3sv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glVertex4d(x: f64, y: f64, z: f64, w: f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glVertex4d(x: f64, y: f64, z: f64, w: f64);
-        }
-        glVertex4d(::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z), ::core::mem::transmute(w))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glVertex4d(x: f64, y: f64, z: f64, w: f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glVertex4d(::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z), ::core::mem::transmute(w))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glVertex4dv(v: *const f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glVertex4dv(v: *const f64);
-        }
-        glVertex4dv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glVertex4dv(v: *const f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glVertex4dv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glVertex4f(x: f32, y: f32, z: f32, w: f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glVertex4f(x: f32, y: f32, z: f32, w: f32);
-        }
-        glVertex4f(::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z), ::core::mem::transmute(w))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glVertex4f(x: f32, y: f32, z: f32, w: f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glVertex4f(::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z), ::core::mem::transmute(w))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glVertex4fv(v: *const f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glVertex4fv(v: *const f32);
-        }
-        glVertex4fv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glVertex4fv(v: *const f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glVertex4fv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glVertex4i(x: i32, y: i32, z: i32, w: i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glVertex4i(x: i32, y: i32, z: i32, w: i32);
-        }
-        glVertex4i(::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z), ::core::mem::transmute(w))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glVertex4i(x: i32, y: i32, z: i32, w: i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glVertex4i(::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z), ::core::mem::transmute(w))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glVertex4iv(v: *const i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glVertex4iv(v: *const i32);
-        }
-        glVertex4iv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glVertex4iv(v: *const i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glVertex4iv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glVertex4s(x: i16, y: i16, z: i16, w: i16) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glVertex4s(x: i16, y: i16, z: i16, w: i16);
-        }
-        glVertex4s(::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z), ::core::mem::transmute(w))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glVertex4s(x: i16, y: i16, z: i16, w: i16);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glVertex4s(::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z), ::core::mem::transmute(w))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glVertex4sv(v: *const i16) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glVertex4sv(v: *const i16);
-        }
-        glVertex4sv(::core::mem::transmute(v))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glVertex4sv(v: *const i16);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glVertex4sv(::core::mem::transmute(v))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glVertexPointer(size: i32, r#type: u32, stride: i32, pointer: *const ::core::ffi::c_void) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glVertexPointer(size: i32, r#type: u32, stride: i32, pointer: *const ::core::ffi::c_void);
-        }
-        glVertexPointer(::core::mem::transmute(size), ::core::mem::transmute(r#type), ::core::mem::transmute(stride), ::core::mem::transmute(pointer))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glVertexPointer(size: i32, r#type: u32, stride: i32, pointer: *const ::core::ffi::c_void);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glVertexPointer(::core::mem::transmute(size), ::core::mem::transmute(r#type), ::core::mem::transmute(stride), ::core::mem::transmute(pointer))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn glViewport(x: i32, y: i32, width: i32, height: i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn glViewport(x: i32, y: i32, width: i32, height: i32);
-        }
-        glViewport(::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(width), ::core::mem::transmute(height))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn glViewport(x: i32, y: i32, width: i32, height: i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    glViewport(::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(width), ::core::mem::transmute(height))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn gluBeginCurve(nobj: *mut GLUnurbs) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn gluBeginCurve(nobj: *mut GLUnurbs);
-        }
-        gluBeginCurve(::core::mem::transmute(nobj))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn gluBeginCurve(nobj: *mut GLUnurbs);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    gluBeginCurve(::core::mem::transmute(nobj))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn gluBeginPolygon(tess: *mut GLUtesselator) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn gluBeginPolygon(tess: *mut GLUtesselator);
-        }
-        gluBeginPolygon(::core::mem::transmute(tess))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn gluBeginPolygon(tess: *mut GLUtesselator);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    gluBeginPolygon(::core::mem::transmute(tess))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn gluBeginSurface(nobj: *mut GLUnurbs) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn gluBeginSurface(nobj: *mut GLUnurbs);
-        }
-        gluBeginSurface(::core::mem::transmute(nobj))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn gluBeginSurface(nobj: *mut GLUnurbs);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    gluBeginSurface(::core::mem::transmute(nobj))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn gluBeginTrim(nobj: *mut GLUnurbs) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn gluBeginTrim(nobj: *mut GLUnurbs);
-        }
-        gluBeginTrim(::core::mem::transmute(nobj))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn gluBeginTrim(nobj: *mut GLUnurbs);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    gluBeginTrim(::core::mem::transmute(nobj))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn gluBuild1DMipmaps(target: u32, components: i32, width: i32, format: u32, r#type: u32, data: *const ::core::ffi::c_void) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn gluBuild1DMipmaps(target: u32, components: i32, width: i32, format: u32, r#type: u32, data: *const ::core::ffi::c_void) -> i32;
-        }
-        ::core::mem::transmute(gluBuild1DMipmaps(::core::mem::transmute(target), ::core::mem::transmute(components), ::core::mem::transmute(width), ::core::mem::transmute(format), ::core::mem::transmute(r#type), ::core::mem::transmute(data)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn gluBuild1DMipmaps(target: u32, components: i32, width: i32, format: u32, r#type: u32, data: *const ::core::ffi::c_void) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(gluBuild1DMipmaps(::core::mem::transmute(target), ::core::mem::transmute(components), ::core::mem::transmute(width), ::core::mem::transmute(format), ::core::mem::transmute(r#type), ::core::mem::transmute(data)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn gluBuild2DMipmaps(target: u32, components: i32, width: i32, height: i32, format: u32, r#type: u32, data: *const ::core::ffi::c_void) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn gluBuild2DMipmaps(target: u32, components: i32, width: i32, height: i32, format: u32, r#type: u32, data: *const ::core::ffi::c_void) -> i32;
-        }
-        ::core::mem::transmute(gluBuild2DMipmaps(::core::mem::transmute(target), ::core::mem::transmute(components), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(format), ::core::mem::transmute(r#type), ::core::mem::transmute(data)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn gluBuild2DMipmaps(target: u32, components: i32, width: i32, height: i32, format: u32, r#type: u32, data: *const ::core::ffi::c_void) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(gluBuild2DMipmaps(::core::mem::transmute(target), ::core::mem::transmute(components), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(format), ::core::mem::transmute(r#type), ::core::mem::transmute(data)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn gluCylinder(qobj: *mut GLUquadric, baseradius: f64, topradius: f64, height: f64, slices: i32, stacks: i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn gluCylinder(qobj: *mut GLUquadric, baseradius: f64, topradius: f64, height: f64, slices: i32, stacks: i32);
-        }
-        gluCylinder(::core::mem::transmute(qobj), ::core::mem::transmute(baseradius), ::core::mem::transmute(topradius), ::core::mem::transmute(height), ::core::mem::transmute(slices), ::core::mem::transmute(stacks))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn gluCylinder(qobj: *mut GLUquadric, baseradius: f64, topradius: f64, height: f64, slices: i32, stacks: i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    gluCylinder(::core::mem::transmute(qobj), ::core::mem::transmute(baseradius), ::core::mem::transmute(topradius), ::core::mem::transmute(height), ::core::mem::transmute(slices), ::core::mem::transmute(stacks))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn gluDeleteNurbsRenderer(nobj: *mut GLUnurbs) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn gluDeleteNurbsRenderer(nobj: *mut GLUnurbs);
-        }
-        gluDeleteNurbsRenderer(::core::mem::transmute(nobj))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn gluDeleteNurbsRenderer(nobj: *mut GLUnurbs);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    gluDeleteNurbsRenderer(::core::mem::transmute(nobj))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn gluDeleteQuadric(state: *mut GLUquadric) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn gluDeleteQuadric(state: *mut GLUquadric);
-        }
-        gluDeleteQuadric(::core::mem::transmute(state))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn gluDeleteQuadric(state: *mut GLUquadric);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    gluDeleteQuadric(::core::mem::transmute(state))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn gluDeleteTess(tess: *mut GLUtesselator) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn gluDeleteTess(tess: *mut GLUtesselator);
-        }
-        gluDeleteTess(::core::mem::transmute(tess))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn gluDeleteTess(tess: *mut GLUtesselator);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    gluDeleteTess(::core::mem::transmute(tess))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn gluDisk(qobj: *mut GLUquadric, innerradius: f64, outerradius: f64, slices: i32, loops: i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn gluDisk(qobj: *mut GLUquadric, innerradius: f64, outerradius: f64, slices: i32, loops: i32);
-        }
-        gluDisk(::core::mem::transmute(qobj), ::core::mem::transmute(innerradius), ::core::mem::transmute(outerradius), ::core::mem::transmute(slices), ::core::mem::transmute(loops))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn gluDisk(qobj: *mut GLUquadric, innerradius: f64, outerradius: f64, slices: i32, loops: i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    gluDisk(::core::mem::transmute(qobj), ::core::mem::transmute(innerradius), ::core::mem::transmute(outerradius), ::core::mem::transmute(slices), ::core::mem::transmute(loops))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn gluEndCurve(nobj: *mut GLUnurbs) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn gluEndCurve(nobj: *mut GLUnurbs);
-        }
-        gluEndCurve(::core::mem::transmute(nobj))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn gluEndCurve(nobj: *mut GLUnurbs);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    gluEndCurve(::core::mem::transmute(nobj))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn gluEndPolygon(tess: *mut GLUtesselator) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn gluEndPolygon(tess: *mut GLUtesselator);
-        }
-        gluEndPolygon(::core::mem::transmute(tess))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn gluEndPolygon(tess: *mut GLUtesselator);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    gluEndPolygon(::core::mem::transmute(tess))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn gluEndSurface(nobj: *mut GLUnurbs) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn gluEndSurface(nobj: *mut GLUnurbs);
-        }
-        gluEndSurface(::core::mem::transmute(nobj))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn gluEndSurface(nobj: *mut GLUnurbs);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    gluEndSurface(::core::mem::transmute(nobj))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn gluEndTrim(nobj: *mut GLUnurbs) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn gluEndTrim(nobj: *mut GLUnurbs);
-        }
-        gluEndTrim(::core::mem::transmute(nobj))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn gluEndTrim(nobj: *mut GLUnurbs);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    gluEndTrim(::core::mem::transmute(nobj))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn gluErrorString(errcode: u32) -> *mut u8 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn gluErrorString(errcode: u32) -> *mut u8;
-        }
-        ::core::mem::transmute(gluErrorString(::core::mem::transmute(errcode)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn gluErrorString(errcode: u32) -> *mut u8;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(gluErrorString(::core::mem::transmute(errcode)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn gluErrorUnicodeStringEXT(errcode: u32) -> ::windows::core::PWSTR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn gluErrorUnicodeStringEXT(errcode: u32) -> ::windows::core::PWSTR;
-        }
-        ::core::mem::transmute(gluErrorUnicodeStringEXT(::core::mem::transmute(errcode)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn gluErrorUnicodeStringEXT(errcode: u32) -> ::windows::core::PWSTR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(gluErrorUnicodeStringEXT(::core::mem::transmute(errcode)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn gluGetNurbsProperty(nobj: *mut GLUnurbs, property: u32, value: *mut f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn gluGetNurbsProperty(nobj: *mut GLUnurbs, property: u32, value: *mut f32);
-        }
-        gluGetNurbsProperty(::core::mem::transmute(nobj), ::core::mem::transmute(property), ::core::mem::transmute(value))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn gluGetNurbsProperty(nobj: *mut GLUnurbs, property: u32, value: *mut f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    gluGetNurbsProperty(::core::mem::transmute(nobj), ::core::mem::transmute(property), ::core::mem::transmute(value))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn gluGetString(name: u32) -> *mut u8 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn gluGetString(name: u32) -> *mut u8;
-        }
-        ::core::mem::transmute(gluGetString(::core::mem::transmute(name)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn gluGetString(name: u32) -> *mut u8;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(gluGetString(::core::mem::transmute(name)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn gluGetTessProperty(tess: *mut GLUtesselator, which: u32, value: *mut f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn gluGetTessProperty(tess: *mut GLUtesselator, which: u32, value: *mut f64);
-        }
-        gluGetTessProperty(::core::mem::transmute(tess), ::core::mem::transmute(which), ::core::mem::transmute(value))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn gluGetTessProperty(tess: *mut GLUtesselator, which: u32, value: *mut f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    gluGetTessProperty(::core::mem::transmute(tess), ::core::mem::transmute(which), ::core::mem::transmute(value))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn gluLoadSamplingMatrices(nobj: *mut GLUnurbs, modelmatrix: *const f32, projmatrix: *const f32, viewport: *const i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn gluLoadSamplingMatrices(nobj: *mut GLUnurbs, modelmatrix: *const f32, projmatrix: *const f32, viewport: *const i32);
-        }
-        gluLoadSamplingMatrices(::core::mem::transmute(nobj), ::core::mem::transmute(modelmatrix), ::core::mem::transmute(projmatrix), ::core::mem::transmute(viewport))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn gluLoadSamplingMatrices(nobj: *mut GLUnurbs, modelmatrix: *const f32, projmatrix: *const f32, viewport: *const i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    gluLoadSamplingMatrices(::core::mem::transmute(nobj), ::core::mem::transmute(modelmatrix), ::core::mem::transmute(projmatrix), ::core::mem::transmute(viewport))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn gluLookAt(eyex: f64, eyey: f64, eyez: f64, centerx: f64, centery: f64, centerz: f64, upx: f64, upy: f64, upz: f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn gluLookAt(eyex: f64, eyey: f64, eyez: f64, centerx: f64, centery: f64, centerz: f64, upx: f64, upy: f64, upz: f64);
-        }
-        gluLookAt(::core::mem::transmute(eyex), ::core::mem::transmute(eyey), ::core::mem::transmute(eyez), ::core::mem::transmute(centerx), ::core::mem::transmute(centery), ::core::mem::transmute(centerz), ::core::mem::transmute(upx), ::core::mem::transmute(upy), ::core::mem::transmute(upz))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn gluLookAt(eyex: f64, eyey: f64, eyez: f64, centerx: f64, centery: f64, centerz: f64, upx: f64, upy: f64, upz: f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    gluLookAt(::core::mem::transmute(eyex), ::core::mem::transmute(eyey), ::core::mem::transmute(eyez), ::core::mem::transmute(centerx), ::core::mem::transmute(centery), ::core::mem::transmute(centerz), ::core::mem::transmute(upx), ::core::mem::transmute(upy), ::core::mem::transmute(upz))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn gluNewNurbsRenderer() -> *mut GLUnurbs {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn gluNewNurbsRenderer() -> *mut GLUnurbs;
-        }
-        ::core::mem::transmute(gluNewNurbsRenderer())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn gluNewNurbsRenderer() -> *mut GLUnurbs;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(gluNewNurbsRenderer())
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn gluNewQuadric() -> *mut GLUquadric {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn gluNewQuadric() -> *mut GLUquadric;
-        }
-        ::core::mem::transmute(gluNewQuadric())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn gluNewQuadric() -> *mut GLUquadric;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(gluNewQuadric())
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn gluNewTess() -> *mut GLUtesselator {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn gluNewTess() -> *mut GLUtesselator;
-        }
-        ::core::mem::transmute(gluNewTess())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn gluNewTess() -> *mut GLUtesselator;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(gluNewTess())
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn gluNextContour(tess: *mut GLUtesselator, r#type: u32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn gluNextContour(tess: *mut GLUtesselator, r#type: u32);
-        }
-        gluNextContour(::core::mem::transmute(tess), ::core::mem::transmute(r#type))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn gluNextContour(tess: *mut GLUtesselator, r#type: u32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    gluNextContour(::core::mem::transmute(tess), ::core::mem::transmute(r#type))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn gluNurbsCallback(nobj: *mut GLUnurbs, which: u32, r#fn: isize) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn gluNurbsCallback(nobj: *mut GLUnurbs, which: u32, r#fn: isize);
-        }
-        gluNurbsCallback(::core::mem::transmute(nobj), ::core::mem::transmute(which), ::core::mem::transmute(r#fn))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn gluNurbsCallback(nobj: *mut GLUnurbs, which: u32, r#fn: isize);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    gluNurbsCallback(::core::mem::transmute(nobj), ::core::mem::transmute(which), ::core::mem::transmute(r#fn))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn gluNurbsCurve(nobj: *mut GLUnurbs, nknots: i32, knot: *mut f32, stride: i32, ctlarray: *mut f32, order: i32, r#type: u32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn gluNurbsCurve(nobj: *mut GLUnurbs, nknots: i32, knot: *mut f32, stride: i32, ctlarray: *mut f32, order: i32, r#type: u32);
-        }
-        gluNurbsCurve(::core::mem::transmute(nobj), ::core::mem::transmute(nknots), ::core::mem::transmute(knot), ::core::mem::transmute(stride), ::core::mem::transmute(ctlarray), ::core::mem::transmute(order), ::core::mem::transmute(r#type))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn gluNurbsCurve(nobj: *mut GLUnurbs, nknots: i32, knot: *mut f32, stride: i32, ctlarray: *mut f32, order: i32, r#type: u32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    gluNurbsCurve(::core::mem::transmute(nobj), ::core::mem::transmute(nknots), ::core::mem::transmute(knot), ::core::mem::transmute(stride), ::core::mem::transmute(ctlarray), ::core::mem::transmute(order), ::core::mem::transmute(r#type))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn gluNurbsProperty(nobj: *mut GLUnurbs, property: u32, value: f32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn gluNurbsProperty(nobj: *mut GLUnurbs, property: u32, value: f32);
-        }
-        gluNurbsProperty(::core::mem::transmute(nobj), ::core::mem::transmute(property), ::core::mem::transmute(value))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn gluNurbsProperty(nobj: *mut GLUnurbs, property: u32, value: f32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    gluNurbsProperty(::core::mem::transmute(nobj), ::core::mem::transmute(property), ::core::mem::transmute(value))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn gluNurbsSurface(nobj: *mut GLUnurbs, sknot_count: i32, sknot: *mut f32, tknot_count: i32, tknot: *mut f32, s_stride: i32, t_stride: i32, ctlarray: *mut f32, sorder: i32, torder: i32, r#type: u32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn gluNurbsSurface(nobj: *mut GLUnurbs, sknot_count: i32, sknot: *mut f32, tknot_count: i32, tknot: *mut f32, s_stride: i32, t_stride: i32, ctlarray: *mut f32, sorder: i32, torder: i32, r#type: u32);
-        }
-        gluNurbsSurface(::core::mem::transmute(nobj), ::core::mem::transmute(sknot_count), ::core::mem::transmute(sknot), ::core::mem::transmute(tknot_count), ::core::mem::transmute(tknot), ::core::mem::transmute(s_stride), ::core::mem::transmute(t_stride), ::core::mem::transmute(ctlarray), ::core::mem::transmute(sorder), ::core::mem::transmute(torder), ::core::mem::transmute(r#type))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn gluNurbsSurface(nobj: *mut GLUnurbs, sknot_count: i32, sknot: *mut f32, tknot_count: i32, tknot: *mut f32, s_stride: i32, t_stride: i32, ctlarray: *mut f32, sorder: i32, torder: i32, r#type: u32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    gluNurbsSurface(::core::mem::transmute(nobj), ::core::mem::transmute(sknot_count), ::core::mem::transmute(sknot), ::core::mem::transmute(tknot_count), ::core::mem::transmute(tknot), ::core::mem::transmute(s_stride), ::core::mem::transmute(t_stride), ::core::mem::transmute(ctlarray), ::core::mem::transmute(sorder), ::core::mem::transmute(torder), ::core::mem::transmute(r#type))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn gluOrtho2D(left: f64, right: f64, bottom: f64, top: f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn gluOrtho2D(left: f64, right: f64, bottom: f64, top: f64);
-        }
-        gluOrtho2D(::core::mem::transmute(left), ::core::mem::transmute(right), ::core::mem::transmute(bottom), ::core::mem::transmute(top))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn gluOrtho2D(left: f64, right: f64, bottom: f64, top: f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    gluOrtho2D(::core::mem::transmute(left), ::core::mem::transmute(right), ::core::mem::transmute(bottom), ::core::mem::transmute(top))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn gluPartialDisk(qobj: *mut GLUquadric, innerradius: f64, outerradius: f64, slices: i32, loops: i32, startangle: f64, sweepangle: f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn gluPartialDisk(qobj: *mut GLUquadric, innerradius: f64, outerradius: f64, slices: i32, loops: i32, startangle: f64, sweepangle: f64);
-        }
-        gluPartialDisk(::core::mem::transmute(qobj), ::core::mem::transmute(innerradius), ::core::mem::transmute(outerradius), ::core::mem::transmute(slices), ::core::mem::transmute(loops), ::core::mem::transmute(startangle), ::core::mem::transmute(sweepangle))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn gluPartialDisk(qobj: *mut GLUquadric, innerradius: f64, outerradius: f64, slices: i32, loops: i32, startangle: f64, sweepangle: f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    gluPartialDisk(::core::mem::transmute(qobj), ::core::mem::transmute(innerradius), ::core::mem::transmute(outerradius), ::core::mem::transmute(slices), ::core::mem::transmute(loops), ::core::mem::transmute(startangle), ::core::mem::transmute(sweepangle))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn gluPerspective(fovy: f64, aspect: f64, znear: f64, zfar: f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn gluPerspective(fovy: f64, aspect: f64, znear: f64, zfar: f64);
-        }
-        gluPerspective(::core::mem::transmute(fovy), ::core::mem::transmute(aspect), ::core::mem::transmute(znear), ::core::mem::transmute(zfar))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn gluPerspective(fovy: f64, aspect: f64, znear: f64, zfar: f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    gluPerspective(::core::mem::transmute(fovy), ::core::mem::transmute(aspect), ::core::mem::transmute(znear), ::core::mem::transmute(zfar))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn gluPickMatrix(x: f64, y: f64, width: f64, height: f64, viewport: *mut i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn gluPickMatrix(x: f64, y: f64, width: f64, height: f64, viewport: *mut i32);
-        }
-        gluPickMatrix(::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(viewport))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn gluPickMatrix(x: f64, y: f64, width: f64, height: f64, viewport: *mut i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    gluPickMatrix(::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(viewport))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn gluProject(objx: f64, objy: f64, objz: f64, modelmatrix: *const f64, projmatrix: *const f64, viewport: *const i32, winx: *mut f64, winy: *mut f64, winz: *mut f64) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn gluProject(objx: f64, objy: f64, objz: f64, modelmatrix: *const f64, projmatrix: *const f64, viewport: *const i32, winx: *mut f64, winy: *mut f64, winz: *mut f64) -> i32;
-        }
-        ::core::mem::transmute(gluProject(::core::mem::transmute(objx), ::core::mem::transmute(objy), ::core::mem::transmute(objz), ::core::mem::transmute(modelmatrix), ::core::mem::transmute(projmatrix), ::core::mem::transmute(viewport), ::core::mem::transmute(winx), ::core::mem::transmute(winy), ::core::mem::transmute(winz)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn gluProject(objx: f64, objy: f64, objz: f64, modelmatrix: *const f64, projmatrix: *const f64, viewport: *const i32, winx: *mut f64, winy: *mut f64, winz: *mut f64) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(gluProject(::core::mem::transmute(objx), ::core::mem::transmute(objy), ::core::mem::transmute(objz), ::core::mem::transmute(modelmatrix), ::core::mem::transmute(projmatrix), ::core::mem::transmute(viewport), ::core::mem::transmute(winx), ::core::mem::transmute(winy), ::core::mem::transmute(winz)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn gluPwlCurve(nobj: *mut GLUnurbs, count: i32, array: *mut f32, stride: i32, r#type: u32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn gluPwlCurve(nobj: *mut GLUnurbs, count: i32, array: *mut f32, stride: i32, r#type: u32);
-        }
-        gluPwlCurve(::core::mem::transmute(nobj), ::core::mem::transmute(count), ::core::mem::transmute(array), ::core::mem::transmute(stride), ::core::mem::transmute(r#type))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn gluPwlCurve(nobj: *mut GLUnurbs, count: i32, array: *mut f32, stride: i32, r#type: u32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    gluPwlCurve(::core::mem::transmute(nobj), ::core::mem::transmute(count), ::core::mem::transmute(array), ::core::mem::transmute(stride), ::core::mem::transmute(r#type))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn gluQuadricCallback(qobj: *mut GLUquadric, which: u32, r#fn: isize) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn gluQuadricCallback(qobj: *mut GLUquadric, which: u32, r#fn: isize);
-        }
-        gluQuadricCallback(::core::mem::transmute(qobj), ::core::mem::transmute(which), ::core::mem::transmute(r#fn))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn gluQuadricCallback(qobj: *mut GLUquadric, which: u32, r#fn: isize);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    gluQuadricCallback(::core::mem::transmute(qobj), ::core::mem::transmute(which), ::core::mem::transmute(r#fn))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn gluQuadricDrawStyle(quadobject: *mut GLUquadric, drawstyle: u32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn gluQuadricDrawStyle(quadobject: *mut GLUquadric, drawstyle: u32);
-        }
-        gluQuadricDrawStyle(::core::mem::transmute(quadobject), ::core::mem::transmute(drawstyle))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn gluQuadricDrawStyle(quadobject: *mut GLUquadric, drawstyle: u32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    gluQuadricDrawStyle(::core::mem::transmute(quadobject), ::core::mem::transmute(drawstyle))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn gluQuadricNormals(quadobject: *mut GLUquadric, normals: u32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn gluQuadricNormals(quadobject: *mut GLUquadric, normals: u32);
-        }
-        gluQuadricNormals(::core::mem::transmute(quadobject), ::core::mem::transmute(normals))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn gluQuadricNormals(quadobject: *mut GLUquadric, normals: u32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    gluQuadricNormals(::core::mem::transmute(quadobject), ::core::mem::transmute(normals))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn gluQuadricOrientation(quadobject: *mut GLUquadric, orientation: u32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn gluQuadricOrientation(quadobject: *mut GLUquadric, orientation: u32);
-        }
-        gluQuadricOrientation(::core::mem::transmute(quadobject), ::core::mem::transmute(orientation))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn gluQuadricOrientation(quadobject: *mut GLUquadric, orientation: u32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    gluQuadricOrientation(::core::mem::transmute(quadobject), ::core::mem::transmute(orientation))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn gluQuadricTexture(quadobject: *mut GLUquadric, texturecoords: u8) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn gluQuadricTexture(quadobject: *mut GLUquadric, texturecoords: u8);
-        }
-        gluQuadricTexture(::core::mem::transmute(quadobject), ::core::mem::transmute(texturecoords))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn gluQuadricTexture(quadobject: *mut GLUquadric, texturecoords: u8);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    gluQuadricTexture(::core::mem::transmute(quadobject), ::core::mem::transmute(texturecoords))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn gluScaleImage(format: u32, widthin: i32, heightin: i32, typein: u32, datain: *const ::core::ffi::c_void, widthout: i32, heightout: i32, typeout: u32, dataout: *mut ::core::ffi::c_void) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn gluScaleImage(format: u32, widthin: i32, heightin: i32, typein: u32, datain: *const ::core::ffi::c_void, widthout: i32, heightout: i32, typeout: u32, dataout: *mut ::core::ffi::c_void) -> i32;
-        }
-        ::core::mem::transmute(gluScaleImage(::core::mem::transmute(format), ::core::mem::transmute(widthin), ::core::mem::transmute(heightin), ::core::mem::transmute(typein), ::core::mem::transmute(datain), ::core::mem::transmute(widthout), ::core::mem::transmute(heightout), ::core::mem::transmute(typeout), ::core::mem::transmute(dataout)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn gluScaleImage(format: u32, widthin: i32, heightin: i32, typein: u32, datain: *const ::core::ffi::c_void, widthout: i32, heightout: i32, typeout: u32, dataout: *mut ::core::ffi::c_void) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(gluScaleImage(::core::mem::transmute(format), ::core::mem::transmute(widthin), ::core::mem::transmute(heightin), ::core::mem::transmute(typein), ::core::mem::transmute(datain), ::core::mem::transmute(widthout), ::core::mem::transmute(heightout), ::core::mem::transmute(typeout), ::core::mem::transmute(dataout)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn gluSphere(qobj: *mut GLUquadric, radius: f64, slices: i32, stacks: i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn gluSphere(qobj: *mut GLUquadric, radius: f64, slices: i32, stacks: i32);
-        }
-        gluSphere(::core::mem::transmute(qobj), ::core::mem::transmute(radius), ::core::mem::transmute(slices), ::core::mem::transmute(stacks))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn gluSphere(qobj: *mut GLUquadric, radius: f64, slices: i32, stacks: i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    gluSphere(::core::mem::transmute(qobj), ::core::mem::transmute(radius), ::core::mem::transmute(slices), ::core::mem::transmute(stacks))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn gluTessBeginContour(tess: *mut GLUtesselator) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn gluTessBeginContour(tess: *mut GLUtesselator);
-        }
-        gluTessBeginContour(::core::mem::transmute(tess))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn gluTessBeginContour(tess: *mut GLUtesselator);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    gluTessBeginContour(::core::mem::transmute(tess))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn gluTessBeginPolygon(tess: *mut GLUtesselator, polygon_data: *mut ::core::ffi::c_void) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn gluTessBeginPolygon(tess: *mut GLUtesselator, polygon_data: *mut ::core::ffi::c_void);
-        }
-        gluTessBeginPolygon(::core::mem::transmute(tess), ::core::mem::transmute(polygon_data))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn gluTessBeginPolygon(tess: *mut GLUtesselator, polygon_data: *mut ::core::ffi::c_void);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    gluTessBeginPolygon(::core::mem::transmute(tess), ::core::mem::transmute(polygon_data))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn gluTessCallback(tess: *mut GLUtesselator, which: u32, r#fn: isize) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn gluTessCallback(tess: *mut GLUtesselator, which: u32, r#fn: isize);
-        }
-        gluTessCallback(::core::mem::transmute(tess), ::core::mem::transmute(which), ::core::mem::transmute(r#fn))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn gluTessCallback(tess: *mut GLUtesselator, which: u32, r#fn: isize);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    gluTessCallback(::core::mem::transmute(tess), ::core::mem::transmute(which), ::core::mem::transmute(r#fn))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn gluTessEndContour(tess: *mut GLUtesselator) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn gluTessEndContour(tess: *mut GLUtesselator);
-        }
-        gluTessEndContour(::core::mem::transmute(tess))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn gluTessEndContour(tess: *mut GLUtesselator);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    gluTessEndContour(::core::mem::transmute(tess))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn gluTessEndPolygon(tess: *mut GLUtesselator) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn gluTessEndPolygon(tess: *mut GLUtesselator);
-        }
-        gluTessEndPolygon(::core::mem::transmute(tess))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn gluTessEndPolygon(tess: *mut GLUtesselator);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    gluTessEndPolygon(::core::mem::transmute(tess))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn gluTessNormal(tess: *mut GLUtesselator, x: f64, y: f64, z: f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn gluTessNormal(tess: *mut GLUtesselator, x: f64, y: f64, z: f64);
-        }
-        gluTessNormal(::core::mem::transmute(tess), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn gluTessNormal(tess: *mut GLUtesselator, x: f64, y: f64, z: f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    gluTessNormal(::core::mem::transmute(tess), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn gluTessProperty(tess: *mut GLUtesselator, which: u32, value: f64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn gluTessProperty(tess: *mut GLUtesselator, which: u32, value: f64);
-        }
-        gluTessProperty(::core::mem::transmute(tess), ::core::mem::transmute(which), ::core::mem::transmute(value))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn gluTessProperty(tess: *mut GLUtesselator, which: u32, value: f64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    gluTessProperty(::core::mem::transmute(tess), ::core::mem::transmute(which), ::core::mem::transmute(value))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn gluTessVertex(tess: *mut GLUtesselator, coords: *mut f64, data: *mut ::core::ffi::c_void) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn gluTessVertex(tess: *mut GLUtesselator, coords: *mut f64, data: *mut ::core::ffi::c_void);
-        }
-        gluTessVertex(::core::mem::transmute(tess), ::core::mem::transmute(coords), ::core::mem::transmute(data))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn gluTessVertex(tess: *mut GLUtesselator, coords: *mut f64, data: *mut ::core::ffi::c_void);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    gluTessVertex(::core::mem::transmute(tess), ::core::mem::transmute(coords), ::core::mem::transmute(data))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn gluUnProject(winx: f64, winy: f64, winz: f64, modelmatrix: *const f64, projmatrix: *const f64, viewport: *const i32, objx: *mut f64, objy: *mut f64, objz: *mut f64) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn gluUnProject(winx: f64, winy: f64, winz: f64, modelmatrix: *const f64, projmatrix: *const f64, viewport: *const i32, objx: *mut f64, objy: *mut f64, objz: *mut f64) -> i32;
-        }
-        ::core::mem::transmute(gluUnProject(::core::mem::transmute(winx), ::core::mem::transmute(winy), ::core::mem::transmute(winz), ::core::mem::transmute(modelmatrix), ::core::mem::transmute(projmatrix), ::core::mem::transmute(viewport), ::core::mem::transmute(objx), ::core::mem::transmute(objy), ::core::mem::transmute(objz)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn gluUnProject(winx: f64, winy: f64, winz: f64, modelmatrix: *const f64, projmatrix: *const f64, viewport: *const i32, objx: *mut f64, objy: *mut f64, objz: *mut f64) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(gluUnProject(::core::mem::transmute(winx), ::core::mem::transmute(winy), ::core::mem::transmute(winz), ::core::mem::transmute(modelmatrix), ::core::mem::transmute(projmatrix), ::core::mem::transmute(viewport), ::core::mem::transmute(objx), ::core::mem::transmute(objy), ::core::mem::transmute(objz)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn wglCopyContext<'a, Param0: ::windows::core::IntoParam<'a, HGLRC>, Param1: ::windows::core::IntoParam<'a, HGLRC>>(param0: Param0, param1: Param1, param2: u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn wglCopyContext(param0: HGLRC, param1: HGLRC, param2: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(wglCopyContext(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn wglCopyContext(param0: HGLRC, param1: HGLRC, param2: u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(wglCopyContext(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn wglCreateContext<'a, Param0: ::windows::core::IntoParam<'a, super::Gdi::HDC>>(param0: Param0) -> ::windows::core::Result<HGLRC> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn wglCreateContext(param0: super::Gdi::HDC) -> HGLRC;
-        }
-        let result__ = wglCreateContext(param0.into_param().abi());
-        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn wglCreateContext(param0: super::Gdi::HDC) -> HGLRC;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let result__ = wglCreateContext(param0.into_param().abi());
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn wglCreateLayerContext<'a, Param0: ::windows::core::IntoParam<'a, super::Gdi::HDC>>(param0: Param0, param1: i32) -> ::windows::core::Result<HGLRC> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn wglCreateLayerContext(param0: super::Gdi::HDC, param1: i32) -> HGLRC;
-        }
-        let result__ = wglCreateLayerContext(param0.into_param().abi(), ::core::mem::transmute(param1));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn wglCreateLayerContext(param0: super::Gdi::HDC, param1: i32) -> HGLRC;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let result__ = wglCreateLayerContext(param0.into_param().abi(), ::core::mem::transmute(param1));
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn wglDeleteContext<'a, Param0: ::windows::core::IntoParam<'a, HGLRC>>(param0: Param0) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn wglDeleteContext(param0: HGLRC) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(wglDeleteContext(param0.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn wglDeleteContext(param0: HGLRC) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(wglDeleteContext(param0.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn wglDescribeLayerPlane<'a, Param0: ::windows::core::IntoParam<'a, super::Gdi::HDC>>(param0: Param0, param1: i32, param2: i32, param3: u32, param4: *mut LAYERPLANEDESCRIPTOR) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn wglDescribeLayerPlane(param0: super::Gdi::HDC, param1: i32, param2: i32, param3: u32, param4: *mut LAYERPLANEDESCRIPTOR) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(wglDescribeLayerPlane(param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn wglDescribeLayerPlane(param0: super::Gdi::HDC, param1: i32, param2: i32, param3: u32, param4: *mut LAYERPLANEDESCRIPTOR) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(wglDescribeLayerPlane(param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 #[inline]
 pub unsafe fn wglGetCurrentContext() -> HGLRC {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn wglGetCurrentContext() -> HGLRC;
-        }
-        ::core::mem::transmute(wglGetCurrentContext())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn wglGetCurrentContext() -> HGLRC;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(wglGetCurrentContext())
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn wglGetCurrentDC() -> super::Gdi::HDC {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn wglGetCurrentDC() -> super::Gdi::HDC;
-        }
-        ::core::mem::transmute(wglGetCurrentDC())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn wglGetCurrentDC() -> super::Gdi::HDC;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(wglGetCurrentDC())
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn wglGetLayerPaletteEntries<'a, Param0: ::windows::core::IntoParam<'a, super::Gdi::HDC>>(param0: Param0, param1: i32, param2: i32, param3: i32, param4: *mut u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn wglGetLayerPaletteEntries(param0: super::Gdi::HDC, param1: i32, param2: i32, param3: i32, param4: *mut u32) -> i32;
-        }
-        ::core::mem::transmute(wglGetLayerPaletteEntries(param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn wglGetLayerPaletteEntries(param0: super::Gdi::HDC, param1: i32, param2: i32, param3: i32, param4: *mut u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(wglGetLayerPaletteEntries(param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn wglGetProcAddress<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: Param0) -> super::super::Foundation::PROC {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn wglGetProcAddress(param0: ::windows::core::PCSTR) -> super::super::Foundation::PROC;
-        }
-        ::core::mem::transmute(wglGetProcAddress(param0.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn wglGetProcAddress(param0: ::windows::core::PCSTR) -> super::super::Foundation::PROC;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(wglGetProcAddress(param0.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn wglMakeCurrent<'a, Param0: ::windows::core::IntoParam<'a, super::Gdi::HDC>, Param1: ::windows::core::IntoParam<'a, HGLRC>>(param0: Param0, param1: Param1) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn wglMakeCurrent(param0: super::Gdi::HDC, param1: HGLRC) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(wglMakeCurrent(param0.into_param().abi(), param1.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn wglMakeCurrent(param0: super::Gdi::HDC, param1: HGLRC) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(wglMakeCurrent(param0.into_param().abi(), param1.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn wglRealizeLayerPalette<'a, Param0: ::windows::core::IntoParam<'a, super::Gdi::HDC>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(param0: Param0, param1: i32, param2: Param2) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn wglRealizeLayerPalette(param0: super::Gdi::HDC, param1: i32, param2: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(wglRealizeLayerPalette(param0.into_param().abi(), ::core::mem::transmute(param1), param2.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn wglRealizeLayerPalette(param0: super::Gdi::HDC, param1: i32, param2: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(wglRealizeLayerPalette(param0.into_param().abi(), ::core::mem::transmute(param1), param2.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn wglSetLayerPaletteEntries<'a, Param0: ::windows::core::IntoParam<'a, super::Gdi::HDC>>(param0: Param0, param1: i32, param2: i32, param3: i32, param4: *const u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn wglSetLayerPaletteEntries(param0: super::Gdi::HDC, param1: i32, param2: i32, param3: i32, param4: *const u32) -> i32;
-        }
-        ::core::mem::transmute(wglSetLayerPaletteEntries(param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn wglSetLayerPaletteEntries(param0: super::Gdi::HDC, param1: i32, param2: i32, param3: i32, param4: *const u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(wglSetLayerPaletteEntries(param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn wglShareLists<'a, Param0: ::windows::core::IntoParam<'a, HGLRC>, Param1: ::windows::core::IntoParam<'a, HGLRC>>(param0: Param0, param1: Param1) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn wglShareLists(param0: HGLRC, param1: HGLRC) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(wglShareLists(param0.into_param().abi(), param1.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn wglShareLists(param0: HGLRC, param1: HGLRC) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(wglShareLists(param0.into_param().abi(), param1.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn wglSwapLayerBuffers<'a, Param0: ::windows::core::IntoParam<'a, super::Gdi::HDC>>(param0: Param0, param1: u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn wglSwapLayerBuffers(param0: super::Gdi::HDC, param1: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(wglSwapLayerBuffers(param0.into_param().abi(), ::core::mem::transmute(param1)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn wglSwapLayerBuffers(param0: super::Gdi::HDC, param1: u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(wglSwapLayerBuffers(param0.into_param().abi(), ::core::mem::transmute(param1)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn wglUseFontBitmapsA<'a, Param0: ::windows::core::IntoParam<'a, super::Gdi::HDC>>(param0: Param0, param1: u32, param2: u32, param3: u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn wglUseFontBitmapsA(param0: super::Gdi::HDC, param1: u32, param2: u32, param3: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(wglUseFontBitmapsA(param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn wglUseFontBitmapsA(param0: super::Gdi::HDC, param1: u32, param2: u32, param3: u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(wglUseFontBitmapsA(param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn wglUseFontBitmapsW<'a, Param0: ::windows::core::IntoParam<'a, super::Gdi::HDC>>(param0: Param0, param1: u32, param2: u32, param3: u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn wglUseFontBitmapsW(param0: super::Gdi::HDC, param1: u32, param2: u32, param3: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(wglUseFontBitmapsW(param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn wglUseFontBitmapsW(param0: super::Gdi::HDC, param1: u32, param2: u32, param3: u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(wglUseFontBitmapsW(param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn wglUseFontOutlinesA<'a, Param0: ::windows::core::IntoParam<'a, super::Gdi::HDC>>(param0: Param0, param1: u32, param2: u32, param3: u32, param4: f32, param5: f32, param6: i32, param7: *mut GLYPHMETRICSFLOAT) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn wglUseFontOutlinesA(param0: super::Gdi::HDC, param1: u32, param2: u32, param3: u32, param4: f32, param5: f32, param6: i32, param7: *mut GLYPHMETRICSFLOAT) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(wglUseFontOutlinesA(param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5), ::core::mem::transmute(param6), ::core::mem::transmute(param7)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn wglUseFontOutlinesA(param0: super::Gdi::HDC, param1: u32, param2: u32, param3: u32, param4: f32, param5: f32, param6: i32, param7: *mut GLYPHMETRICSFLOAT) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(wglUseFontOutlinesA(param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5), ::core::mem::transmute(param6), ::core::mem::transmute(param7)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn wglUseFontOutlinesW<'a, Param0: ::windows::core::IntoParam<'a, super::Gdi::HDC>>(param0: Param0, param1: u32, param2: u32, param3: u32, param4: f32, param5: f32, param6: i32, param7: *mut GLYPHMETRICSFLOAT) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn wglUseFontOutlinesW(param0: super::Gdi::HDC, param1: u32, param2: u32, param3: u32, param4: f32, param5: f32, param6: i32, param7: *mut GLYPHMETRICSFLOAT) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(wglUseFontOutlinesW(param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5), ::core::mem::transmute(param6), ::core::mem::transmute(param7)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn wglUseFontOutlinesW(param0: super::Gdi::HDC, param1: u32, param2: u32, param3: u32, param4: f32, param5: f32, param6: i32, param7: *mut GLYPHMETRICSFLOAT) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(wglUseFontOutlinesW(param0.into_param().abi(), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5), ::core::mem::transmute(param6), ::core::mem::transmute(param7)))
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

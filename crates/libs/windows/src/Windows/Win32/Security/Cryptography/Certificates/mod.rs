@@ -2558,255 +2558,165 @@ pub const CX509SCEPEnrollmentHelper: ::windows::core::GUID = ::windows::core::GU
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
 pub unsafe fn CertSrvBackupClose(hbc: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CertSrvBackupClose(hbc: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        CertSrvBackupClose(::core::mem::transmute(hbc)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CertSrvBackupClose(hbc: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CertSrvBackupClose(::core::mem::transmute(hbc)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
 pub unsafe fn CertSrvBackupEnd(hbc: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CertSrvBackupEnd(hbc: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        CertSrvBackupEnd(::core::mem::transmute(hbc)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CertSrvBackupEnd(hbc: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CertSrvBackupEnd(::core::mem::transmute(hbc)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
 pub unsafe fn CertSrvBackupFree(pv: *mut ::core::ffi::c_void) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CertSrvBackupFree(pv: *mut ::core::ffi::c_void);
-        }
-        CertSrvBackupFree(::core::mem::transmute(pv))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CertSrvBackupFree(pv: *mut ::core::ffi::c_void);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CertSrvBackupFree(::core::mem::transmute(pv))
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
 pub unsafe fn CertSrvBackupGetBackupLogsW(hbc: *const ::core::ffi::c_void, ppwszzbackuplogfiles: *mut ::windows::core::PWSTR, pcbsize: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CertSrvBackupGetBackupLogsW(hbc: *const ::core::ffi::c_void, ppwszzbackuplogfiles: *mut ::windows::core::PWSTR, pcbsize: *mut u32) -> ::windows::core::HRESULT;
-        }
-        CertSrvBackupGetBackupLogsW(::core::mem::transmute(hbc), ::core::mem::transmute(ppwszzbackuplogfiles), ::core::mem::transmute(pcbsize)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CertSrvBackupGetBackupLogsW(hbc: *const ::core::ffi::c_void, ppwszzbackuplogfiles: *mut ::windows::core::PWSTR, pcbsize: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CertSrvBackupGetBackupLogsW(::core::mem::transmute(hbc), ::core::mem::transmute(ppwszzbackuplogfiles), ::core::mem::transmute(pcbsize)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
 pub unsafe fn CertSrvBackupGetDatabaseNamesW(hbc: *const ::core::ffi::c_void, ppwszzattachmentinformation: *mut ::windows::core::PWSTR, pcbsize: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CertSrvBackupGetDatabaseNamesW(hbc: *const ::core::ffi::c_void, ppwszzattachmentinformation: *mut ::windows::core::PWSTR, pcbsize: *mut u32) -> ::windows::core::HRESULT;
-        }
-        CertSrvBackupGetDatabaseNamesW(::core::mem::transmute(hbc), ::core::mem::transmute(ppwszzattachmentinformation), ::core::mem::transmute(pcbsize)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CertSrvBackupGetDatabaseNamesW(hbc: *const ::core::ffi::c_void, ppwszzattachmentinformation: *mut ::windows::core::PWSTR, pcbsize: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CertSrvBackupGetDatabaseNamesW(::core::mem::transmute(hbc), ::core::mem::transmute(ppwszzattachmentinformation), ::core::mem::transmute(pcbsize)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
 pub unsafe fn CertSrvBackupGetDynamicFileListW(hbc: *const ::core::ffi::c_void, ppwszzfilelist: *mut ::windows::core::PWSTR, pcbsize: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CertSrvBackupGetDynamicFileListW(hbc: *const ::core::ffi::c_void, ppwszzfilelist: *mut ::windows::core::PWSTR, pcbsize: *mut u32) -> ::windows::core::HRESULT;
-        }
-        CertSrvBackupGetDynamicFileListW(::core::mem::transmute(hbc), ::core::mem::transmute(ppwszzfilelist), ::core::mem::transmute(pcbsize)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CertSrvBackupGetDynamicFileListW(hbc: *const ::core::ffi::c_void, ppwszzfilelist: *mut ::windows::core::PWSTR, pcbsize: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CertSrvBackupGetDynamicFileListW(::core::mem::transmute(hbc), ::core::mem::transmute(ppwszzfilelist), ::core::mem::transmute(pcbsize)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
 pub unsafe fn CertSrvBackupOpenFileW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hbc: *mut ::core::ffi::c_void, pwszattachmentname: Param1, cbreadhintsize: u32, plifilesize: *mut i64) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CertSrvBackupOpenFileW(hbc: *mut ::core::ffi::c_void, pwszattachmentname: ::windows::core::PCWSTR, cbreadhintsize: u32, plifilesize: *mut i64) -> ::windows::core::HRESULT;
-        }
-        CertSrvBackupOpenFileW(::core::mem::transmute(hbc), pwszattachmentname.into_param().abi(), ::core::mem::transmute(cbreadhintsize), ::core::mem::transmute(plifilesize)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CertSrvBackupOpenFileW(hbc: *mut ::core::ffi::c_void, pwszattachmentname: ::windows::core::PCWSTR, cbreadhintsize: u32, plifilesize: *mut i64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CertSrvBackupOpenFileW(::core::mem::transmute(hbc), pwszattachmentname.into_param().abi(), ::core::mem::transmute(cbreadhintsize), ::core::mem::transmute(plifilesize)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
 pub unsafe fn CertSrvBackupPrepareW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pwszservername: Param0, grbitjet: u32, dwbackupflags: CSBACKUP_TYPE, phbc: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CertSrvBackupPrepareW(pwszservername: ::windows::core::PCWSTR, grbitjet: u32, dwbackupflags: CSBACKUP_TYPE, phbc: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        CertSrvBackupPrepareW(pwszservername.into_param().abi(), ::core::mem::transmute(grbitjet), ::core::mem::transmute(dwbackupflags), ::core::mem::transmute(phbc)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CertSrvBackupPrepareW(pwszservername: ::windows::core::PCWSTR, grbitjet: u32, dwbackupflags: CSBACKUP_TYPE, phbc: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CertSrvBackupPrepareW(pwszservername.into_param().abi(), ::core::mem::transmute(grbitjet), ::core::mem::transmute(dwbackupflags), ::core::mem::transmute(phbc)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
 pub unsafe fn CertSrvBackupRead(hbc: *mut ::core::ffi::c_void, pvbuffer: *mut ::core::ffi::c_void, cbbuffer: u32, pcbread: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CertSrvBackupRead(hbc: *mut ::core::ffi::c_void, pvbuffer: *mut ::core::ffi::c_void, cbbuffer: u32, pcbread: *mut u32) -> ::windows::core::HRESULT;
-        }
-        CertSrvBackupRead(::core::mem::transmute(hbc), ::core::mem::transmute(pvbuffer), ::core::mem::transmute(cbbuffer), ::core::mem::transmute(pcbread)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CertSrvBackupRead(hbc: *mut ::core::ffi::c_void, pvbuffer: *mut ::core::ffi::c_void, cbbuffer: u32, pcbread: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CertSrvBackupRead(::core::mem::transmute(hbc), ::core::mem::transmute(pvbuffer), ::core::mem::transmute(cbbuffer), ::core::mem::transmute(pcbread)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
 pub unsafe fn CertSrvBackupTruncateLogs(hbc: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CertSrvBackupTruncateLogs(hbc: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        CertSrvBackupTruncateLogs(::core::mem::transmute(hbc)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CertSrvBackupTruncateLogs(hbc: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CertSrvBackupTruncateLogs(::core::mem::transmute(hbc)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CertSrvIsServerOnlineW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pwszservername: Param0, pfserveronline: *mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CertSrvIsServerOnlineW(pwszservername: ::windows::core::PCWSTR, pfserveronline: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
-        }
-        CertSrvIsServerOnlineW(pwszservername.into_param().abi(), ::core::mem::transmute(pfserveronline)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CertSrvIsServerOnlineW(pwszservername: ::windows::core::PCWSTR, pfserveronline: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CertSrvIsServerOnlineW(pwszservername.into_param().abi(), ::core::mem::transmute(pfserveronline)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
 pub unsafe fn CertSrvRestoreEnd(hbc: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CertSrvRestoreEnd(hbc: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        CertSrvRestoreEnd(::core::mem::transmute(hbc)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CertSrvRestoreEnd(hbc: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CertSrvRestoreEnd(::core::mem::transmute(hbc)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
 pub unsafe fn CertSrvRestoreGetDatabaseLocationsW(hbc: *const ::core::ffi::c_void, ppwszzdatabaselocationlist: *mut ::windows::core::PWSTR, pcbsize: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CertSrvRestoreGetDatabaseLocationsW(hbc: *const ::core::ffi::c_void, ppwszzdatabaselocationlist: *mut ::windows::core::PWSTR, pcbsize: *mut u32) -> ::windows::core::HRESULT;
-        }
-        CertSrvRestoreGetDatabaseLocationsW(::core::mem::transmute(hbc), ::core::mem::transmute(ppwszzdatabaselocationlist), ::core::mem::transmute(pcbsize)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CertSrvRestoreGetDatabaseLocationsW(hbc: *const ::core::ffi::c_void, ppwszzdatabaselocationlist: *mut ::windows::core::PWSTR, pcbsize: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CertSrvRestoreGetDatabaseLocationsW(::core::mem::transmute(hbc), ::core::mem::transmute(ppwszzdatabaselocationlist), ::core::mem::transmute(pcbsize)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
 pub unsafe fn CertSrvRestorePrepareW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pwszservername: Param0, dwrestoreflags: u32, phbc: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CertSrvRestorePrepareW(pwszservername: ::windows::core::PCWSTR, dwrestoreflags: u32, phbc: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        CertSrvRestorePrepareW(pwszservername.into_param().abi(), ::core::mem::transmute(dwrestoreflags), ::core::mem::transmute(phbc)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CertSrvRestorePrepareW(pwszservername: ::windows::core::PCWSTR, dwrestoreflags: u32, phbc: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CertSrvRestorePrepareW(pwszservername.into_param().abi(), ::core::mem::transmute(dwrestoreflags), ::core::mem::transmute(phbc)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
 pub unsafe fn CertSrvRestoreRegisterComplete(hbc: *mut ::core::ffi::c_void, hrrestorestate: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CertSrvRestoreRegisterComplete(hbc: *mut ::core::ffi::c_void, hrrestorestate: ::windows::core::HRESULT) -> ::windows::core::HRESULT;
-        }
-        CertSrvRestoreRegisterComplete(::core::mem::transmute(hbc), ::core::mem::transmute(hrrestorestate)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CertSrvRestoreRegisterComplete(hbc: *mut ::core::ffi::c_void, hrrestorestate: ::windows::core::HRESULT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CertSrvRestoreRegisterComplete(::core::mem::transmute(hbc), ::core::mem::transmute(hrrestorestate)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
 pub unsafe fn CertSrvRestoreRegisterThroughFile<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param5: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hbc: *mut ::core::ffi::c_void, pwszcheckpointfilepath: Param1, pwszlogpath: Param2, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, pwszbackuplogpath: Param5, genlow: u32, genhigh: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CertSrvRestoreRegisterThroughFile(hbc: *mut ::core::ffi::c_void, pwszcheckpointfilepath: ::windows::core::PCWSTR, pwszlogpath: ::windows::core::PCWSTR, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, pwszbackuplogpath: ::windows::core::PCWSTR, genlow: u32, genhigh: u32) -> ::windows::core::HRESULT;
-        }
-        CertSrvRestoreRegisterThroughFile(::core::mem::transmute(hbc), pwszcheckpointfilepath.into_param().abi(), pwszlogpath.into_param().abi(), ::core::mem::transmute(rgrstmap), ::core::mem::transmute(crstmap), pwszbackuplogpath.into_param().abi(), ::core::mem::transmute(genlow), ::core::mem::transmute(genhigh)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CertSrvRestoreRegisterThroughFile(hbc: *mut ::core::ffi::c_void, pwszcheckpointfilepath: ::windows::core::PCWSTR, pwszlogpath: ::windows::core::PCWSTR, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, pwszbackuplogpath: ::windows::core::PCWSTR, genlow: u32, genhigh: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CertSrvRestoreRegisterThroughFile(::core::mem::transmute(hbc), pwszcheckpointfilepath.into_param().abi(), pwszlogpath.into_param().abi(), ::core::mem::transmute(rgrstmap), ::core::mem::transmute(crstmap), pwszbackuplogpath.into_param().abi(), ::core::mem::transmute(genlow), ::core::mem::transmute(genhigh)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
 pub unsafe fn CertSrvRestoreRegisterW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param5: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hbc: *mut ::core::ffi::c_void, pwszcheckpointfilepath: Param1, pwszlogpath: Param2, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, pwszbackuplogpath: Param5, genlow: u32, genhigh: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CertSrvRestoreRegisterW(hbc: *mut ::core::ffi::c_void, pwszcheckpointfilepath: ::windows::core::PCWSTR, pwszlogpath: ::windows::core::PCWSTR, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, pwszbackuplogpath: ::windows::core::PCWSTR, genlow: u32, genhigh: u32) -> ::windows::core::HRESULT;
-        }
-        CertSrvRestoreRegisterW(::core::mem::transmute(hbc), pwszcheckpointfilepath.into_param().abi(), pwszlogpath.into_param().abi(), ::core::mem::transmute(rgrstmap), ::core::mem::transmute(crstmap), pwszbackuplogpath.into_param().abi(), ::core::mem::transmute(genlow), ::core::mem::transmute(genhigh)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CertSrvRestoreRegisterW(hbc: *mut ::core::ffi::c_void, pwszcheckpointfilepath: ::windows::core::PCWSTR, pwszlogpath: ::windows::core::PCWSTR, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, pwszbackuplogpath: ::windows::core::PCWSTR, genlow: u32, genhigh: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CertSrvRestoreRegisterW(::core::mem::transmute(hbc), pwszcheckpointfilepath.into_param().abi(), pwszlogpath.into_param().abi(), ::core::mem::transmute(rgrstmap), ::core::mem::transmute(crstmap), pwszbackuplogpath.into_param().abi(), ::core::mem::transmute(genlow), ::core::mem::transmute(genhigh)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[inline]
 pub unsafe fn CertSrvServerControlW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pwszservername: Param0, dwcontrolflags: u32, pcbout: *mut u32, ppbout: *mut *mut u8) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CertSrvServerControlW(pwszservername: ::windows::core::PCWSTR, dwcontrolflags: u32, pcbout: *mut u32, ppbout: *mut *mut u8) -> ::windows::core::HRESULT;
-        }
-        CertSrvServerControlW(pwszservername.into_param().abi(), ::core::mem::transmute(dwcontrolflags), ::core::mem::transmute(pcbout), ::core::mem::transmute(ppbout)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CertSrvServerControlW(pwszservername: ::windows::core::PCWSTR, dwcontrolflags: u32, pcbout: *mut u32, ppbout: *mut *mut u8) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CertSrvServerControlW(pwszservername.into_param().abi(), ::core::mem::transmute(dwcontrolflags), ::core::mem::transmute(pcbout), ::core::mem::transmute(ppbout)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
@@ -34039,121 +33949,81 @@ impl ::core::fmt::Debug for PolicyServerUrlPropertyID {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PstAcquirePrivateKey(pcert: *const super::CERT_CONTEXT) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PstAcquirePrivateKey(pcert: *const super::CERT_CONTEXT) -> super::super::super::Foundation::NTSTATUS;
-        }
-        PstAcquirePrivateKey(::core::mem::transmute(pcert)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PstAcquirePrivateKey(pcert: *const super::CERT_CONTEXT) -> super::super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PstAcquirePrivateKey(::core::mem::transmute(pcert)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Authentication_Identity\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
 #[inline]
 pub unsafe fn PstGetCertificateChain(pcert: *const super::CERT_CONTEXT, ptrustedissuers: *const super::super::Authentication::Identity::SecPkgContext_IssuerListInfoEx, ppcertchaincontext: *mut *mut super::CERT_CHAIN_CONTEXT) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PstGetCertificateChain(pcert: *const super::CERT_CONTEXT, ptrustedissuers: *const super::super::Authentication::Identity::SecPkgContext_IssuerListInfoEx, ppcertchaincontext: *mut *mut super::CERT_CHAIN_CONTEXT) -> super::super::super::Foundation::NTSTATUS;
-        }
-        PstGetCertificateChain(::core::mem::transmute(pcert), ::core::mem::transmute(ptrustedissuers), ::core::mem::transmute(ppcertchaincontext)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PstGetCertificateChain(pcert: *const super::CERT_CONTEXT, ptrustedissuers: *const super::super::Authentication::Identity::SecPkgContext_IssuerListInfoEx, ppcertchaincontext: *mut *mut super::CERT_CHAIN_CONTEXT) -> super::super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PstGetCertificateChain(::core::mem::transmute(pcert), ::core::mem::transmute(ptrustedissuers), ::core::mem::transmute(ppcertchaincontext)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PstGetCertificates<'a, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(ptargetname: *const super::super::super::Foundation::UNICODE_STRING, rgpcriteria: &[super::CERT_SELECT_CRITERIA], bisclient: Param3, pdwcertchaincontextcount: *mut u32, ppcertchaincontexts: *mut *mut *mut super::CERT_CHAIN_CONTEXT) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PstGetCertificates(ptargetname: *const super::super::super::Foundation::UNICODE_STRING, ccriteria: u32, rgpcriteria: *const super::CERT_SELECT_CRITERIA, bisclient: super::super::super::Foundation::BOOL, pdwcertchaincontextcount: *mut u32, ppcertchaincontexts: *mut *mut *mut super::CERT_CHAIN_CONTEXT) -> super::super::super::Foundation::NTSTATUS;
-        }
-        PstGetCertificates(::core::mem::transmute(ptargetname), rgpcriteria.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpcriteria)), bisclient.into_param().abi(), ::core::mem::transmute(pdwcertchaincontextcount), ::core::mem::transmute(ppcertchaincontexts)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PstGetCertificates(ptargetname: *const super::super::super::Foundation::UNICODE_STRING, ccriteria: u32, rgpcriteria: *const super::CERT_SELECT_CRITERIA, bisclient: super::super::super::Foundation::BOOL, pdwcertchaincontextcount: *mut u32, ppcertchaincontexts: *mut *mut *mut super::CERT_CHAIN_CONTEXT) -> super::super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PstGetCertificates(::core::mem::transmute(ptargetname), rgpcriteria.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpcriteria)), bisclient.into_param().abi(), ::core::mem::transmute(pdwcertchaincontextcount), ::core::mem::transmute(ppcertchaincontexts)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Authentication_Identity\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
 #[inline]
 pub unsafe fn PstGetTrustAnchors(ptargetname: *const super::super::super::Foundation::UNICODE_STRING, rgpcriteria: &[super::CERT_SELECT_CRITERIA], pptrustedissuers: *mut *mut super::super::Authentication::Identity::SecPkgContext_IssuerListInfoEx) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PstGetTrustAnchors(ptargetname: *const super::super::super::Foundation::UNICODE_STRING, ccriteria: u32, rgpcriteria: *const super::CERT_SELECT_CRITERIA, pptrustedissuers: *mut *mut super::super::Authentication::Identity::SecPkgContext_IssuerListInfoEx) -> super::super::super::Foundation::NTSTATUS;
-        }
-        PstGetTrustAnchors(::core::mem::transmute(ptargetname), rgpcriteria.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpcriteria)), ::core::mem::transmute(pptrustedissuers)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PstGetTrustAnchors(ptargetname: *const super::super::super::Foundation::UNICODE_STRING, ccriteria: u32, rgpcriteria: *const super::CERT_SELECT_CRITERIA, pptrustedissuers: *mut *mut super::super::Authentication::Identity::SecPkgContext_IssuerListInfoEx) -> super::super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PstGetTrustAnchors(::core::mem::transmute(ptargetname), rgpcriteria.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpcriteria)), ::core::mem::transmute(pptrustedissuers)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Authentication_Identity\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
 #[inline]
 pub unsafe fn PstGetTrustAnchorsEx(ptargetname: *const super::super::super::Foundation::UNICODE_STRING, rgpcriteria: &[super::CERT_SELECT_CRITERIA], pcertcontext: *const super::CERT_CONTEXT, pptrustedissuers: *mut *mut super::super::Authentication::Identity::SecPkgContext_IssuerListInfoEx) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PstGetTrustAnchorsEx(ptargetname: *const super::super::super::Foundation::UNICODE_STRING, ccriteria: u32, rgpcriteria: *const super::CERT_SELECT_CRITERIA, pcertcontext: *const super::CERT_CONTEXT, pptrustedissuers: *mut *mut super::super::Authentication::Identity::SecPkgContext_IssuerListInfoEx) -> super::super::super::Foundation::NTSTATUS;
-        }
-        PstGetTrustAnchorsEx(::core::mem::transmute(ptargetname), rgpcriteria.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpcriteria)), ::core::mem::transmute(pcertcontext), ::core::mem::transmute(pptrustedissuers)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PstGetTrustAnchorsEx(ptargetname: *const super::super::super::Foundation::UNICODE_STRING, ccriteria: u32, rgpcriteria: *const super::CERT_SELECT_CRITERIA, pcertcontext: *const super::CERT_CONTEXT, pptrustedissuers: *mut *mut super::super::Authentication::Identity::SecPkgContext_IssuerListInfoEx) -> super::super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PstGetTrustAnchorsEx(::core::mem::transmute(ptargetname), rgpcriteria.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpcriteria)), ::core::mem::transmute(pcertcontext), ::core::mem::transmute(pptrustedissuers)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PstGetUserNameForCertificate(pcertcontext: *const super::CERT_CONTEXT, username: *mut super::super::super::Foundation::UNICODE_STRING) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PstGetUserNameForCertificate(pcertcontext: *const super::CERT_CONTEXT, username: *mut super::super::super::Foundation::UNICODE_STRING) -> super::super::super::Foundation::NTSTATUS;
-        }
-        PstGetUserNameForCertificate(::core::mem::transmute(pcertcontext), ::core::mem::transmute(username)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PstGetUserNameForCertificate(pcertcontext: *const super::CERT_CONTEXT, username: *mut super::super::super::Foundation::UNICODE_STRING) -> super::super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PstGetUserNameForCertificate(::core::mem::transmute(pcertcontext), ::core::mem::transmute(username)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Authentication_Identity\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
 #[inline]
 pub unsafe fn PstMapCertificate(pcert: *const super::CERT_CONTEXT, ptokeninformationtype: *mut super::super::Authentication::Identity::LSA_TOKEN_INFORMATION_TYPE, pptokeninformation: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PstMapCertificate(pcert: *const super::CERT_CONTEXT, ptokeninformationtype: *mut super::super::Authentication::Identity::LSA_TOKEN_INFORMATION_TYPE, pptokeninformation: *mut *mut ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
-        }
-        PstMapCertificate(::core::mem::transmute(pcert), ::core::mem::transmute(ptokeninformationtype), ::core::mem::transmute(pptokeninformation)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PstMapCertificate(pcert: *const super::CERT_CONTEXT, ptokeninformationtype: *mut super::super::Authentication::Identity::LSA_TOKEN_INFORMATION_TYPE, pptokeninformation: *mut *mut ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PstMapCertificate(::core::mem::transmute(pcert), ::core::mem::transmute(ptokeninformationtype), ::core::mem::transmute(pptokeninformation)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PstValidate<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(ptargetname: *const super::super::super::Foundation::UNICODE_STRING, bisclient: Param1, prequestedissuancepolicy: *const super::CERT_USAGE_MATCH, phadditionalcertstore: *const super::HCERTSTORE, pcert: *const super::CERT_CONTEXT, pprovguid: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PstValidate(ptargetname: *const super::super::super::Foundation::UNICODE_STRING, bisclient: super::super::super::Foundation::BOOL, prequestedissuancepolicy: *const super::CERT_USAGE_MATCH, phadditionalcertstore: *const super::HCERTSTORE, pcert: *const super::CERT_CONTEXT, pprovguid: *mut ::windows::core::GUID) -> super::super::super::Foundation::NTSTATUS;
-        }
-        PstValidate(::core::mem::transmute(ptargetname), bisclient.into_param().abi(), ::core::mem::transmute(prequestedissuancepolicy), ::core::mem::transmute(phadditionalcertstore), ::core::mem::transmute(pcert), ::core::mem::transmute(pprovguid)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PstValidate(ptargetname: *const super::super::super::Foundation::UNICODE_STRING, bisclient: super::super::super::Foundation::BOOL, prequestedissuancepolicy: *const super::CERT_USAGE_MATCH, phadditionalcertstore: *const super::HCERTSTORE, pcert: *const super::CERT_CONTEXT, pprovguid: *mut ::windows::core::GUID) -> super::super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PstValidate(::core::mem::transmute(ptargetname), bisclient.into_param().abi(), ::core::mem::transmute(prequestedissuancepolicy), ::core::mem::transmute(phadditionalcertstore), ::core::mem::transmute(pcert), ::core::mem::transmute(pprovguid)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 pub const REQDISP_DEFAULT_ENTERPRISE: u32 = 1u32;

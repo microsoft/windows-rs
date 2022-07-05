@@ -1,6 +1,6 @@
 #[cfg(feature = "Win32_Security_Authorization_UI")]
 pub mod UI;
-#[link(name = "windows")]
+#[cfg_attr(windows, link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]

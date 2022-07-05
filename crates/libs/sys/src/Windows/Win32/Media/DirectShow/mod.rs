@@ -1,6 +1,6 @@
 #[cfg(feature = "Win32_Media_DirectShow_Xml")]
 pub mod Xml;
-#[link(name = "windows")]
+#[cfg_attr(windows, link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
     pub fn AMGetErrorTextA(hr: ::windows_sys::core::HRESULT, pbuffer: ::windows_sys::core::PSTR, maxlen: u32) -> u32;

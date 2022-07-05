@@ -23606,31 +23606,21 @@ pub const OCC_INVALID: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn ODBCGetTryWaitValue() -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ODBCGetTryWaitValue() -> u32;
-        }
-        ::core::mem::transmute(ODBCGetTryWaitValue())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ODBCGetTryWaitValue() -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(ODBCGetTryWaitValue())
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ODBCSetTryWaitValue(dwvalue: u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ODBCSetTryWaitValue(dwvalue: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(ODBCSetTryWaitValue(::core::mem::transmute(dwvalue)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ODBCSetTryWaitValue(dwvalue: u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(ODBCSetTryWaitValue(::core::mem::transmute(dwvalue)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const ODBCVER: u32 = 896u32;
@@ -25564,72 +25554,47 @@ pub const SQLAOPVARP: u32 = 51u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLAllocConnect(environmenthandle: *mut ::core::ffi::c_void, connectionhandle: *mut *mut ::core::ffi::c_void) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLAllocConnect(environmenthandle: *mut ::core::ffi::c_void, connectionhandle: *mut *mut ::core::ffi::c_void) -> i16;
-        }
-        ::core::mem::transmute(SQLAllocConnect(::core::mem::transmute(environmenthandle), ::core::mem::transmute(connectionhandle)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLAllocConnect(environmenthandle: *mut ::core::ffi::c_void, connectionhandle: *mut *mut ::core::ffi::c_void) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLAllocConnect(::core::mem::transmute(environmenthandle), ::core::mem::transmute(connectionhandle)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLAllocEnv(environmenthandle: *mut *mut ::core::ffi::c_void) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLAllocEnv(environmenthandle: *mut *mut ::core::ffi::c_void) -> i16;
-        }
-        ::core::mem::transmute(SQLAllocEnv(::core::mem::transmute(environmenthandle)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLAllocEnv(environmenthandle: *mut *mut ::core::ffi::c_void) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLAllocEnv(::core::mem::transmute(environmenthandle)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLAllocHandle(handletype: i16, inputhandle: *mut ::core::ffi::c_void, outputhandle: *mut *mut ::core::ffi::c_void) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLAllocHandle(handletype: i16, inputhandle: *mut ::core::ffi::c_void, outputhandle: *mut *mut ::core::ffi::c_void) -> i16;
-        }
-        ::core::mem::transmute(SQLAllocHandle(::core::mem::transmute(handletype), ::core::mem::transmute(inputhandle), ::core::mem::transmute(outputhandle)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLAllocHandle(handletype: i16, inputhandle: *mut ::core::ffi::c_void, outputhandle: *mut *mut ::core::ffi::c_void) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLAllocHandle(::core::mem::transmute(handletype), ::core::mem::transmute(inputhandle), ::core::mem::transmute(outputhandle)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLAllocHandleStd(fhandletype: i16, hinput: *mut ::core::ffi::c_void, phoutput: *mut *mut ::core::ffi::c_void) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLAllocHandleStd(fhandletype: i16, hinput: *mut ::core::ffi::c_void, phoutput: *mut *mut ::core::ffi::c_void) -> i16;
-        }
-        ::core::mem::transmute(SQLAllocHandleStd(::core::mem::transmute(fhandletype), ::core::mem::transmute(hinput), ::core::mem::transmute(phoutput)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLAllocHandleStd(fhandletype: i16, hinput: *mut ::core::ffi::c_void, phoutput: *mut *mut ::core::ffi::c_void) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLAllocHandleStd(::core::mem::transmute(fhandletype), ::core::mem::transmute(hinput), ::core::mem::transmute(phoutput)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLAllocStmt(connectionhandle: *mut ::core::ffi::c_void, statementhandle: *mut *mut ::core::ffi::c_void) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLAllocStmt(connectionhandle: *mut ::core::ffi::c_void, statementhandle: *mut *mut ::core::ffi::c_void) -> i16;
-        }
-        ::core::mem::transmute(SQLAllocStmt(::core::mem::transmute(connectionhandle), ::core::mem::transmute(statementhandle)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLAllocStmt(connectionhandle: *mut ::core::ffi::c_void, statementhandle: *mut *mut ::core::ffi::c_void) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLAllocStmt(::core::mem::transmute(connectionhandle), ::core::mem::transmute(statementhandle)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const SQLBIGBINARY: u32 = 173u32;
@@ -25649,540 +25614,355 @@ pub const SQLBITN: u32 = 104u32;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLBindCol(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: *mut ::core::ffi::c_void, bufferlength: i64, strlen_or_ind: *mut i64) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLBindCol(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: *mut ::core::ffi::c_void, bufferlength: i64, strlen_or_ind: *mut i64) -> i16;
-        }
-        ::core::mem::transmute(SQLBindCol(::core::mem::transmute(statementhandle), ::core::mem::transmute(columnnumber), ::core::mem::transmute(targettype), ::core::mem::transmute(targetvalue), ::core::mem::transmute(bufferlength), ::core::mem::transmute(strlen_or_ind)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLBindCol(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: *mut ::core::ffi::c_void, bufferlength: i64, strlen_or_ind: *mut i64) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLBindCol(::core::mem::transmute(statementhandle), ::core::mem::transmute(columnnumber), ::core::mem::transmute(targettype), ::core::mem::transmute(targetvalue), ::core::mem::transmute(bufferlength), ::core::mem::transmute(strlen_or_ind)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLBindCol(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: *mut ::core::ffi::c_void, bufferlength: i32, strlen_or_ind: *mut i32) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLBindCol(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: *mut ::core::ffi::c_void, bufferlength: i32, strlen_or_ind: *mut i32) -> i16;
-        }
-        ::core::mem::transmute(SQLBindCol(::core::mem::transmute(statementhandle), ::core::mem::transmute(columnnumber), ::core::mem::transmute(targettype), ::core::mem::transmute(targetvalue), ::core::mem::transmute(bufferlength), ::core::mem::transmute(strlen_or_ind)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLBindCol(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: *mut ::core::ffi::c_void, bufferlength: i32, strlen_or_ind: *mut i32) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLBindCol(::core::mem::transmute(statementhandle), ::core::mem::transmute(columnnumber), ::core::mem::transmute(targettype), ::core::mem::transmute(targetvalue), ::core::mem::transmute(bufferlength), ::core::mem::transmute(strlen_or_ind)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLBindParam(statementhandle: *mut ::core::ffi::c_void, parameternumber: u16, valuetype: i16, parametertype: i16, lengthprecision: u64, parameterscale: i16, parametervalue: *mut ::core::ffi::c_void, strlen_or_ind: *mut i64) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLBindParam(statementhandle: *mut ::core::ffi::c_void, parameternumber: u16, valuetype: i16, parametertype: i16, lengthprecision: u64, parameterscale: i16, parametervalue: *mut ::core::ffi::c_void, strlen_or_ind: *mut i64) -> i16;
-        }
-        ::core::mem::transmute(SQLBindParam(::core::mem::transmute(statementhandle), ::core::mem::transmute(parameternumber), ::core::mem::transmute(valuetype), ::core::mem::transmute(parametertype), ::core::mem::transmute(lengthprecision), ::core::mem::transmute(parameterscale), ::core::mem::transmute(parametervalue), ::core::mem::transmute(strlen_or_ind)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLBindParam(statementhandle: *mut ::core::ffi::c_void, parameternumber: u16, valuetype: i16, parametertype: i16, lengthprecision: u64, parameterscale: i16, parametervalue: *mut ::core::ffi::c_void, strlen_or_ind: *mut i64) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLBindParam(::core::mem::transmute(statementhandle), ::core::mem::transmute(parameternumber), ::core::mem::transmute(valuetype), ::core::mem::transmute(parametertype), ::core::mem::transmute(lengthprecision), ::core::mem::transmute(parameterscale), ::core::mem::transmute(parametervalue), ::core::mem::transmute(strlen_or_ind)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLBindParam(statementhandle: *mut ::core::ffi::c_void, parameternumber: u16, valuetype: i16, parametertype: i16, lengthprecision: u32, parameterscale: i16, parametervalue: *mut ::core::ffi::c_void, strlen_or_ind: *mut i32) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLBindParam(statementhandle: *mut ::core::ffi::c_void, parameternumber: u16, valuetype: i16, parametertype: i16, lengthprecision: u32, parameterscale: i16, parametervalue: *mut ::core::ffi::c_void, strlen_or_ind: *mut i32) -> i16;
-        }
-        ::core::mem::transmute(SQLBindParam(::core::mem::transmute(statementhandle), ::core::mem::transmute(parameternumber), ::core::mem::transmute(valuetype), ::core::mem::transmute(parametertype), ::core::mem::transmute(lengthprecision), ::core::mem::transmute(parameterscale), ::core::mem::transmute(parametervalue), ::core::mem::transmute(strlen_or_ind)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLBindParam(statementhandle: *mut ::core::ffi::c_void, parameternumber: u16, valuetype: i16, parametertype: i16, lengthprecision: u32, parameterscale: i16, parametervalue: *mut ::core::ffi::c_void, strlen_or_ind: *mut i32) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLBindParam(::core::mem::transmute(statementhandle), ::core::mem::transmute(parameternumber), ::core::mem::transmute(valuetype), ::core::mem::transmute(parametertype), ::core::mem::transmute(lengthprecision), ::core::mem::transmute(parameterscale), ::core::mem::transmute(parametervalue), ::core::mem::transmute(strlen_or_ind)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLBindParameter(hstmt: *mut ::core::ffi::c_void, ipar: u16, fparamtype: i16, fctype: i16, fsqltype: i16, cbcoldef: u64, ibscale: i16, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i64, pcbvalue: *mut i64) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLBindParameter(hstmt: *mut ::core::ffi::c_void, ipar: u16, fparamtype: i16, fctype: i16, fsqltype: i16, cbcoldef: u64, ibscale: i16, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i64, pcbvalue: *mut i64) -> i16;
-        }
-        ::core::mem::transmute(SQLBindParameter(::core::mem::transmute(hstmt), ::core::mem::transmute(ipar), ::core::mem::transmute(fparamtype), ::core::mem::transmute(fctype), ::core::mem::transmute(fsqltype), ::core::mem::transmute(cbcoldef), ::core::mem::transmute(ibscale), ::core::mem::transmute(rgbvalue), ::core::mem::transmute(cbvaluemax), ::core::mem::transmute(pcbvalue)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLBindParameter(hstmt: *mut ::core::ffi::c_void, ipar: u16, fparamtype: i16, fctype: i16, fsqltype: i16, cbcoldef: u64, ibscale: i16, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i64, pcbvalue: *mut i64) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLBindParameter(::core::mem::transmute(hstmt), ::core::mem::transmute(ipar), ::core::mem::transmute(fparamtype), ::core::mem::transmute(fctype), ::core::mem::transmute(fsqltype), ::core::mem::transmute(cbcoldef), ::core::mem::transmute(ibscale), ::core::mem::transmute(rgbvalue), ::core::mem::transmute(cbvaluemax), ::core::mem::transmute(pcbvalue)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLBindParameter(hstmt: *mut ::core::ffi::c_void, ipar: u16, fparamtype: i16, fctype: i16, fsqltype: i16, cbcoldef: u32, ibscale: i16, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i32, pcbvalue: *mut i32) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLBindParameter(hstmt: *mut ::core::ffi::c_void, ipar: u16, fparamtype: i16, fctype: i16, fsqltype: i16, cbcoldef: u32, ibscale: i16, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i32, pcbvalue: *mut i32) -> i16;
-        }
-        ::core::mem::transmute(SQLBindParameter(::core::mem::transmute(hstmt), ::core::mem::transmute(ipar), ::core::mem::transmute(fparamtype), ::core::mem::transmute(fctype), ::core::mem::transmute(fsqltype), ::core::mem::transmute(cbcoldef), ::core::mem::transmute(ibscale), ::core::mem::transmute(rgbvalue), ::core::mem::transmute(cbvaluemax), ::core::mem::transmute(pcbvalue)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLBindParameter(hstmt: *mut ::core::ffi::c_void, ipar: u16, fparamtype: i16, fctype: i16, fsqltype: i16, cbcoldef: u32, ibscale: i16, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i32, pcbvalue: *mut i32) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLBindParameter(::core::mem::transmute(hstmt), ::core::mem::transmute(ipar), ::core::mem::transmute(fparamtype), ::core::mem::transmute(fctype), ::core::mem::transmute(fsqltype), ::core::mem::transmute(cbcoldef), ::core::mem::transmute(ibscale), ::core::mem::transmute(rgbvalue), ::core::mem::transmute(cbvaluemax), ::core::mem::transmute(pcbvalue)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLBrowseConnect(hdbc: *mut ::core::ffi::c_void, szconnstrin: &[u8], szconnstrout: &mut [u8], pcchconnstrout: *mut i16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLBrowseConnect(hdbc: *mut ::core::ffi::c_void, szconnstrin: *const u8, cchconnstrin: i16, szconnstrout: *mut u8, cchconnstroutmax: i16, pcchconnstrout: *mut i16) -> i16;
-        }
-        ::core::mem::transmute(SQLBrowseConnect(::core::mem::transmute(hdbc), ::core::mem::transmute(::windows::core::as_ptr_or_null(szconnstrin)), szconnstrin.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szconnstrout)), szconnstrout.len() as _, ::core::mem::transmute(pcchconnstrout)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLBrowseConnect(hdbc: *mut ::core::ffi::c_void, szconnstrin: *const u8, cchconnstrin: i16, szconnstrout: *mut u8, cchconnstroutmax: i16, pcchconnstrout: *mut i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLBrowseConnect(::core::mem::transmute(hdbc), ::core::mem::transmute(::windows::core::as_ptr_or_null(szconnstrin)), szconnstrin.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szconnstrout)), szconnstrout.len() as _, ::core::mem::transmute(pcchconnstrout)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLBrowseConnectA(hdbc: *mut ::core::ffi::c_void, szconnstrin: &[u8], szconnstrout: &mut [u8], pcbconnstrout: *mut i16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLBrowseConnectA(hdbc: *mut ::core::ffi::c_void, szconnstrin: *const u8, cbconnstrin: i16, szconnstrout: *mut u8, cbconnstroutmax: i16, pcbconnstrout: *mut i16) -> i16;
-        }
-        ::core::mem::transmute(SQLBrowseConnectA(::core::mem::transmute(hdbc), ::core::mem::transmute(::windows::core::as_ptr_or_null(szconnstrin)), szconnstrin.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szconnstrout)), szconnstrout.len() as _, ::core::mem::transmute(pcbconnstrout)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLBrowseConnectA(hdbc: *mut ::core::ffi::c_void, szconnstrin: *const u8, cbconnstrin: i16, szconnstrout: *mut u8, cbconnstroutmax: i16, pcbconnstrout: *mut i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLBrowseConnectA(::core::mem::transmute(hdbc), ::core::mem::transmute(::windows::core::as_ptr_or_null(szconnstrin)), szconnstrin.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szconnstrout)), szconnstrout.len() as _, ::core::mem::transmute(pcbconnstrout)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLBrowseConnectW(hdbc: *mut ::core::ffi::c_void, szconnstrin: &[u16], szconnstrout: &mut [u16], pcchconnstrout: *mut i16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLBrowseConnectW(hdbc: *mut ::core::ffi::c_void, szconnstrin: *const u16, cchconnstrin: i16, szconnstrout: *mut u16, cchconnstroutmax: i16, pcchconnstrout: *mut i16) -> i16;
-        }
-        ::core::mem::transmute(SQLBrowseConnectW(::core::mem::transmute(hdbc), ::core::mem::transmute(::windows::core::as_ptr_or_null(szconnstrin)), szconnstrin.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szconnstrout)), szconnstrout.len() as _, ::core::mem::transmute(pcchconnstrout)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLBrowseConnectW(hdbc: *mut ::core::ffi::c_void, szconnstrin: *const u16, cchconnstrin: i16, szconnstrout: *mut u16, cchconnstroutmax: i16, pcchconnstrout: *mut i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLBrowseConnectW(::core::mem::transmute(hdbc), ::core::mem::transmute(::windows::core::as_ptr_or_null(szconnstrin)), szconnstrin.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szconnstrout)), szconnstrout.len() as _, ::core::mem::transmute(pcchconnstrout)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLBulkOperations(statementhandle: *mut ::core::ffi::c_void, operation: i16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLBulkOperations(statementhandle: *mut ::core::ffi::c_void, operation: i16) -> i16;
-        }
-        ::core::mem::transmute(SQLBulkOperations(::core::mem::transmute(statementhandle), ::core::mem::transmute(operation)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLBulkOperations(statementhandle: *mut ::core::ffi::c_void, operation: i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLBulkOperations(::core::mem::transmute(statementhandle), ::core::mem::transmute(operation)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const SQLCHARACTER: u32 = 47u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLCancel(statementhandle: *mut ::core::ffi::c_void) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLCancel(statementhandle: *mut ::core::ffi::c_void) -> i16;
-        }
-        ::core::mem::transmute(SQLCancel(::core::mem::transmute(statementhandle)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLCancel(statementhandle: *mut ::core::ffi::c_void) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLCancel(::core::mem::transmute(statementhandle)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLCancelHandle(handletype: i16, inputhandle: *mut ::core::ffi::c_void) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLCancelHandle(handletype: i16, inputhandle: *mut ::core::ffi::c_void) -> i16;
-        }
-        ::core::mem::transmute(SQLCancelHandle(::core::mem::transmute(handletype), ::core::mem::transmute(inputhandle)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLCancelHandle(handletype: i16, inputhandle: *mut ::core::ffi::c_void) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLCancelHandle(::core::mem::transmute(handletype), ::core::mem::transmute(inputhandle)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLCloseCursor(statementhandle: *mut ::core::ffi::c_void) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLCloseCursor(statementhandle: *mut ::core::ffi::c_void) -> i16;
-        }
-        ::core::mem::transmute(SQLCloseCursor(::core::mem::transmute(statementhandle)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLCloseCursor(statementhandle: *mut ::core::ffi::c_void) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLCloseCursor(::core::mem::transmute(statementhandle)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SQLCloseEnumServers<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(henumhandle: Param0) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLCloseEnumServers(henumhandle: super::super::Foundation::HANDLE) -> i16;
-        }
-        ::core::mem::transmute(SQLCloseEnumServers(henumhandle.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLCloseEnumServers(henumhandle: super::super::Foundation::HANDLE) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLCloseEnumServers(henumhandle.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLColAttribute(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, fieldidentifier: u16, characterattribute: *mut ::core::ffi::c_void, bufferlength: i16, stringlength: *mut i16, numericattribute: *mut i64) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLColAttribute(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, fieldidentifier: u16, characterattribute: *mut ::core::ffi::c_void, bufferlength: i16, stringlength: *mut i16, numericattribute: *mut i64) -> i16;
-        }
-        ::core::mem::transmute(SQLColAttribute(::core::mem::transmute(statementhandle), ::core::mem::transmute(columnnumber), ::core::mem::transmute(fieldidentifier), ::core::mem::transmute(characterattribute), ::core::mem::transmute(bufferlength), ::core::mem::transmute(stringlength), ::core::mem::transmute(numericattribute)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLColAttribute(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, fieldidentifier: u16, characterattribute: *mut ::core::ffi::c_void, bufferlength: i16, stringlength: *mut i16, numericattribute: *mut i64) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLColAttribute(::core::mem::transmute(statementhandle), ::core::mem::transmute(columnnumber), ::core::mem::transmute(fieldidentifier), ::core::mem::transmute(characterattribute), ::core::mem::transmute(bufferlength), ::core::mem::transmute(stringlength), ::core::mem::transmute(numericattribute)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLColAttribute(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, fieldidentifier: u16, characterattribute: *mut ::core::ffi::c_void, bufferlength: i16, stringlength: *mut i16, numericattribute: *mut ::core::ffi::c_void) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLColAttribute(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, fieldidentifier: u16, characterattribute: *mut ::core::ffi::c_void, bufferlength: i16, stringlength: *mut i16, numericattribute: *mut ::core::ffi::c_void) -> i16;
-        }
-        ::core::mem::transmute(SQLColAttribute(::core::mem::transmute(statementhandle), ::core::mem::transmute(columnnumber), ::core::mem::transmute(fieldidentifier), ::core::mem::transmute(characterattribute), ::core::mem::transmute(bufferlength), ::core::mem::transmute(stringlength), ::core::mem::transmute(numericattribute)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLColAttribute(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, fieldidentifier: u16, characterattribute: *mut ::core::ffi::c_void, bufferlength: i16, stringlength: *mut i16, numericattribute: *mut ::core::ffi::c_void) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLColAttribute(::core::mem::transmute(statementhandle), ::core::mem::transmute(columnnumber), ::core::mem::transmute(fieldidentifier), ::core::mem::transmute(characterattribute), ::core::mem::transmute(bufferlength), ::core::mem::transmute(stringlength), ::core::mem::transmute(numericattribute)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLColAttributeA(hstmt: *mut ::core::ffi::c_void, icol: i16, ifield: i16, pcharattr: *mut ::core::ffi::c_void, cbcharattrmax: i16, pcbcharattr: *mut i16, pnumattr: *mut i64) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLColAttributeA(hstmt: *mut ::core::ffi::c_void, icol: i16, ifield: i16, pcharattr: *mut ::core::ffi::c_void, cbcharattrmax: i16, pcbcharattr: *mut i16, pnumattr: *mut i64) -> i16;
-        }
-        ::core::mem::transmute(SQLColAttributeA(::core::mem::transmute(hstmt), ::core::mem::transmute(icol), ::core::mem::transmute(ifield), ::core::mem::transmute(pcharattr), ::core::mem::transmute(cbcharattrmax), ::core::mem::transmute(pcbcharattr), ::core::mem::transmute(pnumattr)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLColAttributeA(hstmt: *mut ::core::ffi::c_void, icol: i16, ifield: i16, pcharattr: *mut ::core::ffi::c_void, cbcharattrmax: i16, pcbcharattr: *mut i16, pnumattr: *mut i64) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLColAttributeA(::core::mem::transmute(hstmt), ::core::mem::transmute(icol), ::core::mem::transmute(ifield), ::core::mem::transmute(pcharattr), ::core::mem::transmute(cbcharattrmax), ::core::mem::transmute(pcbcharattr), ::core::mem::transmute(pnumattr)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLColAttributeA(hstmt: *mut ::core::ffi::c_void, icol: i16, ifield: i16, pcharattr: *mut ::core::ffi::c_void, cbcharattrmax: i16, pcbcharattr: *mut i16, pnumattr: *mut ::core::ffi::c_void) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLColAttributeA(hstmt: *mut ::core::ffi::c_void, icol: i16, ifield: i16, pcharattr: *mut ::core::ffi::c_void, cbcharattrmax: i16, pcbcharattr: *mut i16, pnumattr: *mut ::core::ffi::c_void) -> i16;
-        }
-        ::core::mem::transmute(SQLColAttributeA(::core::mem::transmute(hstmt), ::core::mem::transmute(icol), ::core::mem::transmute(ifield), ::core::mem::transmute(pcharattr), ::core::mem::transmute(cbcharattrmax), ::core::mem::transmute(pcbcharattr), ::core::mem::transmute(pnumattr)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLColAttributeA(hstmt: *mut ::core::ffi::c_void, icol: i16, ifield: i16, pcharattr: *mut ::core::ffi::c_void, cbcharattrmax: i16, pcbcharattr: *mut i16, pnumattr: *mut ::core::ffi::c_void) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLColAttributeA(::core::mem::transmute(hstmt), ::core::mem::transmute(icol), ::core::mem::transmute(ifield), ::core::mem::transmute(pcharattr), ::core::mem::transmute(cbcharattrmax), ::core::mem::transmute(pcbcharattr), ::core::mem::transmute(pnumattr)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLColAttributeW(hstmt: *mut ::core::ffi::c_void, icol: u16, ifield: u16, pcharattr: *mut ::core::ffi::c_void, cbdescmax: i16, pcbcharattr: *mut i16, pnumattr: *mut i64) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLColAttributeW(hstmt: *mut ::core::ffi::c_void, icol: u16, ifield: u16, pcharattr: *mut ::core::ffi::c_void, cbdescmax: i16, pcbcharattr: *mut i16, pnumattr: *mut i64) -> i16;
-        }
-        ::core::mem::transmute(SQLColAttributeW(::core::mem::transmute(hstmt), ::core::mem::transmute(icol), ::core::mem::transmute(ifield), ::core::mem::transmute(pcharattr), ::core::mem::transmute(cbdescmax), ::core::mem::transmute(pcbcharattr), ::core::mem::transmute(pnumattr)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLColAttributeW(hstmt: *mut ::core::ffi::c_void, icol: u16, ifield: u16, pcharattr: *mut ::core::ffi::c_void, cbdescmax: i16, pcbcharattr: *mut i16, pnumattr: *mut i64) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLColAttributeW(::core::mem::transmute(hstmt), ::core::mem::transmute(icol), ::core::mem::transmute(ifield), ::core::mem::transmute(pcharattr), ::core::mem::transmute(cbdescmax), ::core::mem::transmute(pcbcharattr), ::core::mem::transmute(pnumattr)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLColAttributeW(hstmt: *mut ::core::ffi::c_void, icol: u16, ifield: u16, pcharattr: *mut ::core::ffi::c_void, cbdescmax: i16, pcbcharattr: *mut i16, pnumattr: *mut ::core::ffi::c_void) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLColAttributeW(hstmt: *mut ::core::ffi::c_void, icol: u16, ifield: u16, pcharattr: *mut ::core::ffi::c_void, cbdescmax: i16, pcbcharattr: *mut i16, pnumattr: *mut ::core::ffi::c_void) -> i16;
-        }
-        ::core::mem::transmute(SQLColAttributeW(::core::mem::transmute(hstmt), ::core::mem::transmute(icol), ::core::mem::transmute(ifield), ::core::mem::transmute(pcharattr), ::core::mem::transmute(cbdescmax), ::core::mem::transmute(pcbcharattr), ::core::mem::transmute(pnumattr)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLColAttributeW(hstmt: *mut ::core::ffi::c_void, icol: u16, ifield: u16, pcharattr: *mut ::core::ffi::c_void, cbdescmax: i16, pcbcharattr: *mut i16, pnumattr: *mut ::core::ffi::c_void) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLColAttributeW(::core::mem::transmute(hstmt), ::core::mem::transmute(icol), ::core::mem::transmute(ifield), ::core::mem::transmute(pcharattr), ::core::mem::transmute(cbdescmax), ::core::mem::transmute(pcbcharattr), ::core::mem::transmute(pnumattr)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLColAttributes(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::core::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i64) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLColAttributes(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::core::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i64) -> i16;
-        }
-        ::core::mem::transmute(SQLColAttributes(::core::mem::transmute(hstmt), ::core::mem::transmute(icol), ::core::mem::transmute(fdesctype), ::core::mem::transmute(rgbdesc), ::core::mem::transmute(cbdescmax), ::core::mem::transmute(pcbdesc), ::core::mem::transmute(pfdesc)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLColAttributes(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::core::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i64) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLColAttributes(::core::mem::transmute(hstmt), ::core::mem::transmute(icol), ::core::mem::transmute(fdesctype), ::core::mem::transmute(rgbdesc), ::core::mem::transmute(cbdescmax), ::core::mem::transmute(pcbdesc), ::core::mem::transmute(pfdesc)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLColAttributes(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::core::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i32) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLColAttributes(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::core::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i32) -> i16;
-        }
-        ::core::mem::transmute(SQLColAttributes(::core::mem::transmute(hstmt), ::core::mem::transmute(icol), ::core::mem::transmute(fdesctype), ::core::mem::transmute(rgbdesc), ::core::mem::transmute(cbdescmax), ::core::mem::transmute(pcbdesc), ::core::mem::transmute(pfdesc)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLColAttributes(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::core::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i32) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLColAttributes(::core::mem::transmute(hstmt), ::core::mem::transmute(icol), ::core::mem::transmute(fdesctype), ::core::mem::transmute(rgbdesc), ::core::mem::transmute(cbdescmax), ::core::mem::transmute(pcbdesc), ::core::mem::transmute(pfdesc)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLColAttributesA(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::core::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i64) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLColAttributesA(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::core::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i64) -> i16;
-        }
-        ::core::mem::transmute(SQLColAttributesA(::core::mem::transmute(hstmt), ::core::mem::transmute(icol), ::core::mem::transmute(fdesctype), ::core::mem::transmute(rgbdesc), ::core::mem::transmute(cbdescmax), ::core::mem::transmute(pcbdesc), ::core::mem::transmute(pfdesc)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLColAttributesA(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::core::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i64) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLColAttributesA(::core::mem::transmute(hstmt), ::core::mem::transmute(icol), ::core::mem::transmute(fdesctype), ::core::mem::transmute(rgbdesc), ::core::mem::transmute(cbdescmax), ::core::mem::transmute(pcbdesc), ::core::mem::transmute(pfdesc)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLColAttributesA(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::core::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i32) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLColAttributesA(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::core::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i32) -> i16;
-        }
-        ::core::mem::transmute(SQLColAttributesA(::core::mem::transmute(hstmt), ::core::mem::transmute(icol), ::core::mem::transmute(fdesctype), ::core::mem::transmute(rgbdesc), ::core::mem::transmute(cbdescmax), ::core::mem::transmute(pcbdesc), ::core::mem::transmute(pfdesc)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLColAttributesA(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::core::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i32) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLColAttributesA(::core::mem::transmute(hstmt), ::core::mem::transmute(icol), ::core::mem::transmute(fdesctype), ::core::mem::transmute(rgbdesc), ::core::mem::transmute(cbdescmax), ::core::mem::transmute(pcbdesc), ::core::mem::transmute(pfdesc)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLColAttributesW(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::core::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i64) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLColAttributesW(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::core::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i64) -> i16;
-        }
-        ::core::mem::transmute(SQLColAttributesW(::core::mem::transmute(hstmt), ::core::mem::transmute(icol), ::core::mem::transmute(fdesctype), ::core::mem::transmute(rgbdesc), ::core::mem::transmute(cbdescmax), ::core::mem::transmute(pcbdesc), ::core::mem::transmute(pfdesc)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLColAttributesW(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::core::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i64) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLColAttributesW(::core::mem::transmute(hstmt), ::core::mem::transmute(icol), ::core::mem::transmute(fdesctype), ::core::mem::transmute(rgbdesc), ::core::mem::transmute(cbdescmax), ::core::mem::transmute(pcbdesc), ::core::mem::transmute(pfdesc)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLColAttributesW(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::core::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i32) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLColAttributesW(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::core::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i32) -> i16;
-        }
-        ::core::mem::transmute(SQLColAttributesW(::core::mem::transmute(hstmt), ::core::mem::transmute(icol), ::core::mem::transmute(fdesctype), ::core::mem::transmute(rgbdesc), ::core::mem::transmute(cbdescmax), ::core::mem::transmute(pcbdesc), ::core::mem::transmute(pfdesc)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLColAttributesW(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::core::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i32) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLColAttributesW(::core::mem::transmute(hstmt), ::core::mem::transmute(icol), ::core::mem::transmute(fdesctype), ::core::mem::transmute(rgbdesc), ::core::mem::transmute(cbdescmax), ::core::mem::transmute(pcbdesc), ::core::mem::transmute(pfdesc)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLColumnPrivileges(hstmt: *mut ::core::ffi::c_void, szcatalogname: &[u8], szschemaname: &[u8], sztablename: &[u8], szcolumnname: &[u8]) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLColumnPrivileges(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cchcatalogname: i16, szschemaname: *const u8, cchschemaname: i16, sztablename: *const u8, cchtablename: i16, szcolumnname: *const u8, cchcolumnname: i16) -> i16;
-        }
-        ::core::mem::transmute(SQLColumnPrivileges(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztablename)), sztablename.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szcolumnname)), szcolumnname.len() as _))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLColumnPrivileges(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cchcatalogname: i16, szschemaname: *const u8, cchschemaname: i16, sztablename: *const u8, cchtablename: i16, szcolumnname: *const u8, cchcolumnname: i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLColumnPrivileges(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztablename)), sztablename.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szcolumnname)), szcolumnname.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLColumnPrivilegesA(hstmt: *mut ::core::ffi::c_void, szcatalogname: &[u8], szschemaname: &[u8], sztablename: &[u8], szcolumnname: &[u8]) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLColumnPrivilegesA(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cbcatalogname: i16, szschemaname: *const u8, cbschemaname: i16, sztablename: *const u8, cbtablename: i16, szcolumnname: *const u8, cbcolumnname: i16) -> i16;
-        }
-        ::core::mem::transmute(SQLColumnPrivilegesA(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztablename)), sztablename.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szcolumnname)), szcolumnname.len() as _))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLColumnPrivilegesA(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cbcatalogname: i16, szschemaname: *const u8, cbschemaname: i16, sztablename: *const u8, cbtablename: i16, szcolumnname: *const u8, cbcolumnname: i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLColumnPrivilegesA(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztablename)), sztablename.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szcolumnname)), szcolumnname.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLColumnPrivilegesW(hstmt: *mut ::core::ffi::c_void, szcatalogname: &[u16], szschemaname: &[u16], sztablename: &[u16], szcolumnname: &[u16]) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLColumnPrivilegesW(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u16, cchcatalogname: i16, szschemaname: *const u16, cchschemaname: i16, sztablename: *const u16, cchtablename: i16, szcolumnname: *const u16, cchcolumnname: i16) -> i16;
-        }
-        ::core::mem::transmute(SQLColumnPrivilegesW(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztablename)), sztablename.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szcolumnname)), szcolumnname.len() as _))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLColumnPrivilegesW(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u16, cchcatalogname: i16, szschemaname: *const u16, cchschemaname: i16, sztablename: *const u16, cchtablename: i16, szcolumnname: *const u16, cchcolumnname: i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLColumnPrivilegesW(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztablename)), sztablename.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szcolumnname)), szcolumnname.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLColumns(statementhandle: *mut ::core::ffi::c_void, catalogname: &[u8], schemaname: &[u8], tablename: &[u8], columnname: &[u8]) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLColumns(statementhandle: *mut ::core::ffi::c_void, catalogname: *const u8, namelength1: i16, schemaname: *const u8, namelength2: i16, tablename: *const u8, namelength3: i16, columnname: *const u8, namelength4: i16) -> i16;
-        }
-        ::core::mem::transmute(SQLColumns(::core::mem::transmute(statementhandle), ::core::mem::transmute(::windows::core::as_ptr_or_null(catalogname)), catalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(schemaname)), schemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(tablename)), tablename.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(columnname)), columnname.len() as _))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLColumns(statementhandle: *mut ::core::ffi::c_void, catalogname: *const u8, namelength1: i16, schemaname: *const u8, namelength2: i16, tablename: *const u8, namelength3: i16, columnname: *const u8, namelength4: i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLColumns(::core::mem::transmute(statementhandle), ::core::mem::transmute(::windows::core::as_ptr_or_null(catalogname)), catalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(schemaname)), schemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(tablename)), tablename.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(columnname)), columnname.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLColumnsA(hstmt: *mut ::core::ffi::c_void, szcatalogname: &[u8], szschemaname: &[u8], sztablename: &[u8], szcolumnname: &[u8]) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLColumnsA(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cbcatalogname: i16, szschemaname: *const u8, cbschemaname: i16, sztablename: *const u8, cbtablename: i16, szcolumnname: *const u8, cbcolumnname: i16) -> i16;
-        }
-        ::core::mem::transmute(SQLColumnsA(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztablename)), sztablename.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szcolumnname)), szcolumnname.len() as _))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLColumnsA(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cbcatalogname: i16, szschemaname: *const u8, cbschemaname: i16, sztablename: *const u8, cbtablename: i16, szcolumnname: *const u8, cbcolumnname: i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLColumnsA(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztablename)), sztablename.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szcolumnname)), szcolumnname.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLColumnsW(hstmt: *mut ::core::ffi::c_void, szcatalogname: &[u16], szschemaname: &[u16], sztablename: &[u16], szcolumnname: &[u16]) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLColumnsW(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u16, cchcatalogname: i16, szschemaname: *const u16, cchschemaname: i16, sztablename: *const u16, cchtablename: i16, szcolumnname: *const u16, cchcolumnname: i16) -> i16;
-        }
-        ::core::mem::transmute(SQLColumnsW(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztablename)), sztablename.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szcolumnname)), szcolumnname.len() as _))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLColumnsW(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u16, cchcatalogname: i16, szschemaname: *const u16, cchschemaname: i16, sztablename: *const u16, cchtablename: i16, szcolumnname: *const u16, cchcolumnname: i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLColumnsW(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztablename)), sztablename.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szcolumnname)), szcolumnname.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLCompleteAsync(handletype: i16, handle: *mut ::core::ffi::c_void, asyncretcodeptr: *mut i16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLCompleteAsync(handletype: i16, handle: *mut ::core::ffi::c_void, asyncretcodeptr: *mut i16) -> i16;
-        }
-        ::core::mem::transmute(SQLCompleteAsync(::core::mem::transmute(handletype), ::core::mem::transmute(handle), ::core::mem::transmute(asyncretcodeptr)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLCompleteAsync(handletype: i16, handle: *mut ::core::ffi::c_void, asyncretcodeptr: *mut i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLCompleteAsync(::core::mem::transmute(handletype), ::core::mem::transmute(handle), ::core::mem::transmute(asyncretcodeptr)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLConnect(connectionhandle: *mut ::core::ffi::c_void, servername: &[u8], username: &[u8], authentication: &[u8]) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLConnect(connectionhandle: *mut ::core::ffi::c_void, servername: *const u8, namelength1: i16, username: *const u8, namelength2: i16, authentication: *const u8, namelength3: i16) -> i16;
-        }
-        ::core::mem::transmute(SQLConnect(::core::mem::transmute(connectionhandle), ::core::mem::transmute(::windows::core::as_ptr_or_null(servername)), servername.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(username)), username.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(authentication)), authentication.len() as _))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLConnect(connectionhandle: *mut ::core::ffi::c_void, servername: *const u8, namelength1: i16, username: *const u8, namelength2: i16, authentication: *const u8, namelength3: i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLConnect(::core::mem::transmute(connectionhandle), ::core::mem::transmute(::windows::core::as_ptr_or_null(servername)), servername.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(username)), username.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(authentication)), authentication.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLConnectA(hdbc: *mut ::core::ffi::c_void, szdsn: &[u8], szuid: &[u8], szauthstr: &[u8]) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLConnectA(hdbc: *mut ::core::ffi::c_void, szdsn: *const u8, cbdsn: i16, szuid: *const u8, cbuid: i16, szauthstr: *const u8, cbauthstr: i16) -> i16;
-        }
-        ::core::mem::transmute(SQLConnectA(::core::mem::transmute(hdbc), ::core::mem::transmute(::windows::core::as_ptr_or_null(szdsn)), szdsn.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szuid)), szuid.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szauthstr)), szauthstr.len() as _))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLConnectA(hdbc: *mut ::core::ffi::c_void, szdsn: *const u8, cbdsn: i16, szuid: *const u8, cbuid: i16, szauthstr: *const u8, cbauthstr: i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLConnectA(::core::mem::transmute(hdbc), ::core::mem::transmute(::windows::core::as_ptr_or_null(szdsn)), szdsn.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szuid)), szuid.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szauthstr)), szauthstr.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLConnectW(hdbc: *mut ::core::ffi::c_void, szdsn: &[u16], szuid: &[u16], szauthstr: &[u16]) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLConnectW(hdbc: *mut ::core::ffi::c_void, szdsn: *const u16, cchdsn: i16, szuid: *const u16, cchuid: i16, szauthstr: *const u16, cchauthstr: i16) -> i16;
-        }
-        ::core::mem::transmute(SQLConnectW(::core::mem::transmute(hdbc), ::core::mem::transmute(::windows::core::as_ptr_or_null(szdsn)), szdsn.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szuid)), szuid.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szauthstr)), szauthstr.len() as _))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLConnectW(hdbc: *mut ::core::ffi::c_void, szdsn: *const u16, cchdsn: i16, szuid: *const u16, cchuid: i16, szauthstr: *const u16, cchauthstr: i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLConnectW(::core::mem::transmute(hdbc), ::core::mem::transmute(::windows::core::as_ptr_or_null(szdsn)), szdsn.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szuid)), szuid.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szauthstr)), szauthstr.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLCopyDesc(sourcedeschandle: *mut ::core::ffi::c_void, targetdeschandle: *mut ::core::ffi::c_void) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLCopyDesc(sourcedeschandle: *mut ::core::ffi::c_void, targetdeschandle: *mut ::core::ffi::c_void) -> i16;
-        }
-        ::core::mem::transmute(SQLCopyDesc(::core::mem::transmute(sourcedeschandle), ::core::mem::transmute(targetdeschandle)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLCopyDesc(sourcedeschandle: *mut ::core::ffi::c_void, targetdeschandle: *mut ::core::ffi::c_void) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLCopyDesc(::core::mem::transmute(sourcedeschandle), ::core::mem::transmute(targetdeschandle)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const SQLDATETIM4: u32 = 58u32;
@@ -26197,404 +25977,264 @@ pub const SQLDECIMALN: u32 = 106u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLDataSources(environmenthandle: *mut ::core::ffi::c_void, direction: u16, servername: &mut [u8], namelength1ptr: *mut i16, description: &mut [u8], namelength2ptr: *mut i16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLDataSources(environmenthandle: *mut ::core::ffi::c_void, direction: u16, servername: *mut u8, bufferlength1: i16, namelength1ptr: *mut i16, description: *mut u8, bufferlength2: i16, namelength2ptr: *mut i16) -> i16;
-        }
-        ::core::mem::transmute(SQLDataSources(::core::mem::transmute(environmenthandle), ::core::mem::transmute(direction), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(servername)), servername.len() as _, ::core::mem::transmute(namelength1ptr), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(description)), description.len() as _, ::core::mem::transmute(namelength2ptr)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLDataSources(environmenthandle: *mut ::core::ffi::c_void, direction: u16, servername: *mut u8, bufferlength1: i16, namelength1ptr: *mut i16, description: *mut u8, bufferlength2: i16, namelength2ptr: *mut i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLDataSources(::core::mem::transmute(environmenthandle), ::core::mem::transmute(direction), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(servername)), servername.len() as _, ::core::mem::transmute(namelength1ptr), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(description)), description.len() as _, ::core::mem::transmute(namelength2ptr)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLDataSourcesA(henv: *mut ::core::ffi::c_void, fdirection: u16, szdsn: &mut [u8], pcbdsn: *mut i16, szdescription: &mut [u8], pcbdescription: *mut i16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLDataSourcesA(henv: *mut ::core::ffi::c_void, fdirection: u16, szdsn: *mut u8, cbdsnmax: i16, pcbdsn: *mut i16, szdescription: *mut u8, cbdescriptionmax: i16, pcbdescription: *mut i16) -> i16;
-        }
-        ::core::mem::transmute(SQLDataSourcesA(::core::mem::transmute(henv), ::core::mem::transmute(fdirection), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szdsn)), szdsn.len() as _, ::core::mem::transmute(pcbdsn), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szdescription)), szdescription.len() as _, ::core::mem::transmute(pcbdescription)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLDataSourcesA(henv: *mut ::core::ffi::c_void, fdirection: u16, szdsn: *mut u8, cbdsnmax: i16, pcbdsn: *mut i16, szdescription: *mut u8, cbdescriptionmax: i16, pcbdescription: *mut i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLDataSourcesA(::core::mem::transmute(henv), ::core::mem::transmute(fdirection), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szdsn)), szdsn.len() as _, ::core::mem::transmute(pcbdsn), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szdescription)), szdescription.len() as _, ::core::mem::transmute(pcbdescription)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLDataSourcesW(henv: *mut ::core::ffi::c_void, fdirection: u16, szdsn: &mut [u16], pcchdsn: *mut i16, wszdescription: &mut [u16], pcchdescription: *mut i16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLDataSourcesW(henv: *mut ::core::ffi::c_void, fdirection: u16, szdsn: *mut u16, cchdsnmax: i16, pcchdsn: *mut i16, wszdescription: *mut u16, cchdescriptionmax: i16, pcchdescription: *mut i16) -> i16;
-        }
-        ::core::mem::transmute(SQLDataSourcesW(::core::mem::transmute(henv), ::core::mem::transmute(fdirection), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szdsn)), szdsn.len() as _, ::core::mem::transmute(pcchdsn), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(wszdescription)), wszdescription.len() as _, ::core::mem::transmute(pcchdescription)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLDataSourcesW(henv: *mut ::core::ffi::c_void, fdirection: u16, szdsn: *mut u16, cchdsnmax: i16, pcchdsn: *mut i16, wszdescription: *mut u16, cchdescriptionmax: i16, pcchdescription: *mut i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLDataSourcesW(::core::mem::transmute(henv), ::core::mem::transmute(fdirection), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szdsn)), szdsn.len() as _, ::core::mem::transmute(pcchdsn), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(wszdescription)), wszdescription.len() as _, ::core::mem::transmute(pcchdescription)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLDescribeCol(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, columnname: &mut [u8], namelength: *mut i16, datatype: *mut i16, columnsize: *mut u64, decimaldigits: *mut i16, nullable: *mut i16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLDescribeCol(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, columnname: *mut u8, bufferlength: i16, namelength: *mut i16, datatype: *mut i16, columnsize: *mut u64, decimaldigits: *mut i16, nullable: *mut i16) -> i16;
-        }
-        ::core::mem::transmute(SQLDescribeCol(::core::mem::transmute(statementhandle), ::core::mem::transmute(columnnumber), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(columnname)), columnname.len() as _, ::core::mem::transmute(namelength), ::core::mem::transmute(datatype), ::core::mem::transmute(columnsize), ::core::mem::transmute(decimaldigits), ::core::mem::transmute(nullable)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLDescribeCol(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, columnname: *mut u8, bufferlength: i16, namelength: *mut i16, datatype: *mut i16, columnsize: *mut u64, decimaldigits: *mut i16, nullable: *mut i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLDescribeCol(::core::mem::transmute(statementhandle), ::core::mem::transmute(columnnumber), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(columnname)), columnname.len() as _, ::core::mem::transmute(namelength), ::core::mem::transmute(datatype), ::core::mem::transmute(columnsize), ::core::mem::transmute(decimaldigits), ::core::mem::transmute(nullable)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLDescribeCol(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, columnname: &mut [u8], namelength: *mut i16, datatype: *mut i16, columnsize: *mut u32, decimaldigits: *mut i16, nullable: *mut i16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLDescribeCol(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, columnname: *mut u8, bufferlength: i16, namelength: *mut i16, datatype: *mut i16, columnsize: *mut u32, decimaldigits: *mut i16, nullable: *mut i16) -> i16;
-        }
-        ::core::mem::transmute(SQLDescribeCol(::core::mem::transmute(statementhandle), ::core::mem::transmute(columnnumber), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(columnname)), columnname.len() as _, ::core::mem::transmute(namelength), ::core::mem::transmute(datatype), ::core::mem::transmute(columnsize), ::core::mem::transmute(decimaldigits), ::core::mem::transmute(nullable)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLDescribeCol(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, columnname: *mut u8, bufferlength: i16, namelength: *mut i16, datatype: *mut i16, columnsize: *mut u32, decimaldigits: *mut i16, nullable: *mut i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLDescribeCol(::core::mem::transmute(statementhandle), ::core::mem::transmute(columnnumber), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(columnname)), columnname.len() as _, ::core::mem::transmute(namelength), ::core::mem::transmute(datatype), ::core::mem::transmute(columnsize), ::core::mem::transmute(decimaldigits), ::core::mem::transmute(nullable)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLDescribeColA(hstmt: *mut ::core::ffi::c_void, icol: u16, szcolname: &mut [u8], pcbcolname: *mut i16, pfsqltype: *mut i16, pcbcoldef: *mut u64, pibscale: *mut i16, pfnullable: *mut i16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLDescribeColA(hstmt: *mut ::core::ffi::c_void, icol: u16, szcolname: *mut u8, cbcolnamemax: i16, pcbcolname: *mut i16, pfsqltype: *mut i16, pcbcoldef: *mut u64, pibscale: *mut i16, pfnullable: *mut i16) -> i16;
-        }
-        ::core::mem::transmute(SQLDescribeColA(::core::mem::transmute(hstmt), ::core::mem::transmute(icol), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szcolname)), szcolname.len() as _, ::core::mem::transmute(pcbcolname), ::core::mem::transmute(pfsqltype), ::core::mem::transmute(pcbcoldef), ::core::mem::transmute(pibscale), ::core::mem::transmute(pfnullable)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLDescribeColA(hstmt: *mut ::core::ffi::c_void, icol: u16, szcolname: *mut u8, cbcolnamemax: i16, pcbcolname: *mut i16, pfsqltype: *mut i16, pcbcoldef: *mut u64, pibscale: *mut i16, pfnullable: *mut i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLDescribeColA(::core::mem::transmute(hstmt), ::core::mem::transmute(icol), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szcolname)), szcolname.len() as _, ::core::mem::transmute(pcbcolname), ::core::mem::transmute(pfsqltype), ::core::mem::transmute(pcbcoldef), ::core::mem::transmute(pibscale), ::core::mem::transmute(pfnullable)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLDescribeColA(hstmt: *mut ::core::ffi::c_void, icol: u16, szcolname: &mut [u8], pcbcolname: *mut i16, pfsqltype: *mut i16, pcbcoldef: *mut u32, pibscale: *mut i16, pfnullable: *mut i16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLDescribeColA(hstmt: *mut ::core::ffi::c_void, icol: u16, szcolname: *mut u8, cbcolnamemax: i16, pcbcolname: *mut i16, pfsqltype: *mut i16, pcbcoldef: *mut u32, pibscale: *mut i16, pfnullable: *mut i16) -> i16;
-        }
-        ::core::mem::transmute(SQLDescribeColA(::core::mem::transmute(hstmt), ::core::mem::transmute(icol), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szcolname)), szcolname.len() as _, ::core::mem::transmute(pcbcolname), ::core::mem::transmute(pfsqltype), ::core::mem::transmute(pcbcoldef), ::core::mem::transmute(pibscale), ::core::mem::transmute(pfnullable)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLDescribeColA(hstmt: *mut ::core::ffi::c_void, icol: u16, szcolname: *mut u8, cbcolnamemax: i16, pcbcolname: *mut i16, pfsqltype: *mut i16, pcbcoldef: *mut u32, pibscale: *mut i16, pfnullable: *mut i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLDescribeColA(::core::mem::transmute(hstmt), ::core::mem::transmute(icol), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szcolname)), szcolname.len() as _, ::core::mem::transmute(pcbcolname), ::core::mem::transmute(pfsqltype), ::core::mem::transmute(pcbcoldef), ::core::mem::transmute(pibscale), ::core::mem::transmute(pfnullable)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLDescribeColW(hstmt: *mut ::core::ffi::c_void, icol: u16, szcolname: &mut [u16], pcchcolname: *mut i16, pfsqltype: *mut i16, pcbcoldef: *mut u64, pibscale: *mut i16, pfnullable: *mut i16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLDescribeColW(hstmt: *mut ::core::ffi::c_void, icol: u16, szcolname: *mut u16, cchcolnamemax: i16, pcchcolname: *mut i16, pfsqltype: *mut i16, pcbcoldef: *mut u64, pibscale: *mut i16, pfnullable: *mut i16) -> i16;
-        }
-        ::core::mem::transmute(SQLDescribeColW(::core::mem::transmute(hstmt), ::core::mem::transmute(icol), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szcolname)), szcolname.len() as _, ::core::mem::transmute(pcchcolname), ::core::mem::transmute(pfsqltype), ::core::mem::transmute(pcbcoldef), ::core::mem::transmute(pibscale), ::core::mem::transmute(pfnullable)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLDescribeColW(hstmt: *mut ::core::ffi::c_void, icol: u16, szcolname: *mut u16, cchcolnamemax: i16, pcchcolname: *mut i16, pfsqltype: *mut i16, pcbcoldef: *mut u64, pibscale: *mut i16, pfnullable: *mut i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLDescribeColW(::core::mem::transmute(hstmt), ::core::mem::transmute(icol), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szcolname)), szcolname.len() as _, ::core::mem::transmute(pcchcolname), ::core::mem::transmute(pfsqltype), ::core::mem::transmute(pcbcoldef), ::core::mem::transmute(pibscale), ::core::mem::transmute(pfnullable)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLDescribeColW(hstmt: *mut ::core::ffi::c_void, icol: u16, szcolname: &mut [u16], pcchcolname: *mut i16, pfsqltype: *mut i16, pcbcoldef: *mut u32, pibscale: *mut i16, pfnullable: *mut i16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLDescribeColW(hstmt: *mut ::core::ffi::c_void, icol: u16, szcolname: *mut u16, cchcolnamemax: i16, pcchcolname: *mut i16, pfsqltype: *mut i16, pcbcoldef: *mut u32, pibscale: *mut i16, pfnullable: *mut i16) -> i16;
-        }
-        ::core::mem::transmute(SQLDescribeColW(::core::mem::transmute(hstmt), ::core::mem::transmute(icol), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szcolname)), szcolname.len() as _, ::core::mem::transmute(pcchcolname), ::core::mem::transmute(pfsqltype), ::core::mem::transmute(pcbcoldef), ::core::mem::transmute(pibscale), ::core::mem::transmute(pfnullable)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLDescribeColW(hstmt: *mut ::core::ffi::c_void, icol: u16, szcolname: *mut u16, cchcolnamemax: i16, pcchcolname: *mut i16, pfsqltype: *mut i16, pcbcoldef: *mut u32, pibscale: *mut i16, pfnullable: *mut i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLDescribeColW(::core::mem::transmute(hstmt), ::core::mem::transmute(icol), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szcolname)), szcolname.len() as _, ::core::mem::transmute(pcchcolname), ::core::mem::transmute(pfsqltype), ::core::mem::transmute(pcbcoldef), ::core::mem::transmute(pibscale), ::core::mem::transmute(pfnullable)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLDescribeParam(hstmt: *mut ::core::ffi::c_void, ipar: u16, pfsqltype: *mut i16, pcbparamdef: *mut u64, pibscale: *mut i16, pfnullable: *mut i16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLDescribeParam(hstmt: *mut ::core::ffi::c_void, ipar: u16, pfsqltype: *mut i16, pcbparamdef: *mut u64, pibscale: *mut i16, pfnullable: *mut i16) -> i16;
-        }
-        ::core::mem::transmute(SQLDescribeParam(::core::mem::transmute(hstmt), ::core::mem::transmute(ipar), ::core::mem::transmute(pfsqltype), ::core::mem::transmute(pcbparamdef), ::core::mem::transmute(pibscale), ::core::mem::transmute(pfnullable)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLDescribeParam(hstmt: *mut ::core::ffi::c_void, ipar: u16, pfsqltype: *mut i16, pcbparamdef: *mut u64, pibscale: *mut i16, pfnullable: *mut i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLDescribeParam(::core::mem::transmute(hstmt), ::core::mem::transmute(ipar), ::core::mem::transmute(pfsqltype), ::core::mem::transmute(pcbparamdef), ::core::mem::transmute(pibscale), ::core::mem::transmute(pfnullable)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLDescribeParam(hstmt: *mut ::core::ffi::c_void, ipar: u16, pfsqltype: *mut i16, pcbparamdef: *mut u32, pibscale: *mut i16, pfnullable: *mut i16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLDescribeParam(hstmt: *mut ::core::ffi::c_void, ipar: u16, pfsqltype: *mut i16, pcbparamdef: *mut u32, pibscale: *mut i16, pfnullable: *mut i16) -> i16;
-        }
-        ::core::mem::transmute(SQLDescribeParam(::core::mem::transmute(hstmt), ::core::mem::transmute(ipar), ::core::mem::transmute(pfsqltype), ::core::mem::transmute(pcbparamdef), ::core::mem::transmute(pibscale), ::core::mem::transmute(pfnullable)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLDescribeParam(hstmt: *mut ::core::ffi::c_void, ipar: u16, pfsqltype: *mut i16, pcbparamdef: *mut u32, pibscale: *mut i16, pfnullable: *mut i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLDescribeParam(::core::mem::transmute(hstmt), ::core::mem::transmute(ipar), ::core::mem::transmute(pfsqltype), ::core::mem::transmute(pcbparamdef), ::core::mem::transmute(pibscale), ::core::mem::transmute(pfnullable)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLDisconnect(connectionhandle: *mut ::core::ffi::c_void) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLDisconnect(connectionhandle: *mut ::core::ffi::c_void) -> i16;
-        }
-        ::core::mem::transmute(SQLDisconnect(::core::mem::transmute(connectionhandle)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLDisconnect(connectionhandle: *mut ::core::ffi::c_void) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLDisconnect(::core::mem::transmute(connectionhandle)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLDriverConnect(hdbc: *mut ::core::ffi::c_void, hwnd: isize, szconnstrin: &[u8], szconnstrout: &mut [u8], pcchconnstrout: *mut i16, fdrivercompletion: u16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLDriverConnect(hdbc: *mut ::core::ffi::c_void, hwnd: isize, szconnstrin: *const u8, cchconnstrin: i16, szconnstrout: *mut u8, cchconnstroutmax: i16, pcchconnstrout: *mut i16, fdrivercompletion: u16) -> i16;
-        }
-        ::core::mem::transmute(SQLDriverConnect(::core::mem::transmute(hdbc), ::core::mem::transmute(hwnd), ::core::mem::transmute(::windows::core::as_ptr_or_null(szconnstrin)), szconnstrin.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szconnstrout)), szconnstrout.len() as _, ::core::mem::transmute(pcchconnstrout), ::core::mem::transmute(fdrivercompletion)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLDriverConnect(hdbc: *mut ::core::ffi::c_void, hwnd: isize, szconnstrin: *const u8, cchconnstrin: i16, szconnstrout: *mut u8, cchconnstroutmax: i16, pcchconnstrout: *mut i16, fdrivercompletion: u16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLDriverConnect(::core::mem::transmute(hdbc), ::core::mem::transmute(hwnd), ::core::mem::transmute(::windows::core::as_ptr_or_null(szconnstrin)), szconnstrin.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szconnstrout)), szconnstrout.len() as _, ::core::mem::transmute(pcchconnstrout), ::core::mem::transmute(fdrivercompletion)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLDriverConnectA(hdbc: *mut ::core::ffi::c_void, hwnd: isize, szconnstrin: &[u8], szconnstrout: &mut [u8], pcbconnstrout: *mut i16, fdrivercompletion: u16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLDriverConnectA(hdbc: *mut ::core::ffi::c_void, hwnd: isize, szconnstrin: *const u8, cbconnstrin: i16, szconnstrout: *mut u8, cbconnstroutmax: i16, pcbconnstrout: *mut i16, fdrivercompletion: u16) -> i16;
-        }
-        ::core::mem::transmute(SQLDriverConnectA(::core::mem::transmute(hdbc), ::core::mem::transmute(hwnd), ::core::mem::transmute(::windows::core::as_ptr_or_null(szconnstrin)), szconnstrin.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szconnstrout)), szconnstrout.len() as _, ::core::mem::transmute(pcbconnstrout), ::core::mem::transmute(fdrivercompletion)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLDriverConnectA(hdbc: *mut ::core::ffi::c_void, hwnd: isize, szconnstrin: *const u8, cbconnstrin: i16, szconnstrout: *mut u8, cbconnstroutmax: i16, pcbconnstrout: *mut i16, fdrivercompletion: u16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLDriverConnectA(::core::mem::transmute(hdbc), ::core::mem::transmute(hwnd), ::core::mem::transmute(::windows::core::as_ptr_or_null(szconnstrin)), szconnstrin.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szconnstrout)), szconnstrout.len() as _, ::core::mem::transmute(pcbconnstrout), ::core::mem::transmute(fdrivercompletion)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLDriverConnectW(hdbc: *mut ::core::ffi::c_void, hwnd: isize, szconnstrin: &[u16], szconnstrout: &mut [u16], pcchconnstrout: *mut i16, fdrivercompletion: u16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLDriverConnectW(hdbc: *mut ::core::ffi::c_void, hwnd: isize, szconnstrin: *const u16, cchconnstrin: i16, szconnstrout: *mut u16, cchconnstroutmax: i16, pcchconnstrout: *mut i16, fdrivercompletion: u16) -> i16;
-        }
-        ::core::mem::transmute(SQLDriverConnectW(::core::mem::transmute(hdbc), ::core::mem::transmute(hwnd), ::core::mem::transmute(::windows::core::as_ptr_or_null(szconnstrin)), szconnstrin.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szconnstrout)), szconnstrout.len() as _, ::core::mem::transmute(pcchconnstrout), ::core::mem::transmute(fdrivercompletion)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLDriverConnectW(hdbc: *mut ::core::ffi::c_void, hwnd: isize, szconnstrin: *const u16, cchconnstrin: i16, szconnstrout: *mut u16, cchconnstroutmax: i16, pcchconnstrout: *mut i16, fdrivercompletion: u16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLDriverConnectW(::core::mem::transmute(hdbc), ::core::mem::transmute(hwnd), ::core::mem::transmute(::windows::core::as_ptr_or_null(szconnstrin)), szconnstrin.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szconnstrout)), szconnstrout.len() as _, ::core::mem::transmute(pcchconnstrout), ::core::mem::transmute(fdrivercompletion)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLDrivers(henv: *mut ::core::ffi::c_void, fdirection: u16, szdriverdesc: &mut [u8], pcchdriverdesc: *mut i16, szdriverattributes: &mut [u8], pcchdrvrattr: *mut i16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLDrivers(henv: *mut ::core::ffi::c_void, fdirection: u16, szdriverdesc: *mut u8, cchdriverdescmax: i16, pcchdriverdesc: *mut i16, szdriverattributes: *mut u8, cchdrvrattrmax: i16, pcchdrvrattr: *mut i16) -> i16;
-        }
-        ::core::mem::transmute(SQLDrivers(::core::mem::transmute(henv), ::core::mem::transmute(fdirection), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szdriverdesc)), szdriverdesc.len() as _, ::core::mem::transmute(pcchdriverdesc), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szdriverattributes)), szdriverattributes.len() as _, ::core::mem::transmute(pcchdrvrattr)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLDrivers(henv: *mut ::core::ffi::c_void, fdirection: u16, szdriverdesc: *mut u8, cchdriverdescmax: i16, pcchdriverdesc: *mut i16, szdriverattributes: *mut u8, cchdrvrattrmax: i16, pcchdrvrattr: *mut i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLDrivers(::core::mem::transmute(henv), ::core::mem::transmute(fdirection), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szdriverdesc)), szdriverdesc.len() as _, ::core::mem::transmute(pcchdriverdesc), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szdriverattributes)), szdriverattributes.len() as _, ::core::mem::transmute(pcchdrvrattr)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLDriversA(henv: *mut ::core::ffi::c_void, fdirection: u16, szdriverdesc: &mut [u8], pcbdriverdesc: *mut i16, szdriverattributes: &mut [u8], pcbdrvrattr: *mut i16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLDriversA(henv: *mut ::core::ffi::c_void, fdirection: u16, szdriverdesc: *mut u8, cbdriverdescmax: i16, pcbdriverdesc: *mut i16, szdriverattributes: *mut u8, cbdrvrattrmax: i16, pcbdrvrattr: *mut i16) -> i16;
-        }
-        ::core::mem::transmute(SQLDriversA(::core::mem::transmute(henv), ::core::mem::transmute(fdirection), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szdriverdesc)), szdriverdesc.len() as _, ::core::mem::transmute(pcbdriverdesc), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szdriverattributes)), szdriverattributes.len() as _, ::core::mem::transmute(pcbdrvrattr)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLDriversA(henv: *mut ::core::ffi::c_void, fdirection: u16, szdriverdesc: *mut u8, cbdriverdescmax: i16, pcbdriverdesc: *mut i16, szdriverattributes: *mut u8, cbdrvrattrmax: i16, pcbdrvrattr: *mut i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLDriversA(::core::mem::transmute(henv), ::core::mem::transmute(fdirection), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szdriverdesc)), szdriverdesc.len() as _, ::core::mem::transmute(pcbdriverdesc), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szdriverattributes)), szdriverattributes.len() as _, ::core::mem::transmute(pcbdrvrattr)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLDriversW(henv: *mut ::core::ffi::c_void, fdirection: u16, szdriverdesc: &mut [u16], pcchdriverdesc: *mut i16, szdriverattributes: &mut [u16], pcchdrvrattr: *mut i16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLDriversW(henv: *mut ::core::ffi::c_void, fdirection: u16, szdriverdesc: *mut u16, cchdriverdescmax: i16, pcchdriverdesc: *mut i16, szdriverattributes: *mut u16, cchdrvrattrmax: i16, pcchdrvrattr: *mut i16) -> i16;
-        }
-        ::core::mem::transmute(SQLDriversW(::core::mem::transmute(henv), ::core::mem::transmute(fdirection), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szdriverdesc)), szdriverdesc.len() as _, ::core::mem::transmute(pcchdriverdesc), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szdriverattributes)), szdriverattributes.len() as _, ::core::mem::transmute(pcchdrvrattr)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLDriversW(henv: *mut ::core::ffi::c_void, fdirection: u16, szdriverdesc: *mut u16, cchdriverdescmax: i16, pcchdriverdesc: *mut i16, szdriverattributes: *mut u16, cchdrvrattrmax: i16, pcchdrvrattr: *mut i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLDriversW(::core::mem::transmute(henv), ::core::mem::transmute(fdirection), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szdriverdesc)), szdriverdesc.len() as _, ::core::mem::transmute(pcchdriverdesc), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szdriverattributes)), szdriverattributes.len() as _, ::core::mem::transmute(pcchdrvrattr)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLEndTran(handletype: i16, handle: *mut ::core::ffi::c_void, completiontype: i16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLEndTran(handletype: i16, handle: *mut ::core::ffi::c_void, completiontype: i16) -> i16;
-        }
-        ::core::mem::transmute(SQLEndTran(::core::mem::transmute(handletype), ::core::mem::transmute(handle), ::core::mem::transmute(completiontype)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLEndTran(handletype: i16, handle: *mut ::core::ffi::c_void, completiontype: i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLEndTran(::core::mem::transmute(handletype), ::core::mem::transmute(handle), ::core::mem::transmute(completiontype)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLError(environmenthandle: *mut ::core::ffi::c_void, connectionhandle: *mut ::core::ffi::c_void, statementhandle: *mut ::core::ffi::c_void, sqlstate: &mut [u8; 6], nativeerror: *mut i32, messagetext: &mut [u8], textlength: *mut i16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLError(environmenthandle: *mut ::core::ffi::c_void, connectionhandle: *mut ::core::ffi::c_void, statementhandle: *mut ::core::ffi::c_void, sqlstate: *mut u8, nativeerror: *mut i32, messagetext: *mut u8, bufferlength: i16, textlength: *mut i16) -> i16;
-        }
-        ::core::mem::transmute(SQLError(::core::mem::transmute(environmenthandle), ::core::mem::transmute(connectionhandle), ::core::mem::transmute(statementhandle), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(sqlstate)), ::core::mem::transmute(nativeerror), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(messagetext)), messagetext.len() as _, ::core::mem::transmute(textlength)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLError(environmenthandle: *mut ::core::ffi::c_void, connectionhandle: *mut ::core::ffi::c_void, statementhandle: *mut ::core::ffi::c_void, sqlstate: *mut u8, nativeerror: *mut i32, messagetext: *mut u8, bufferlength: i16, textlength: *mut i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLError(::core::mem::transmute(environmenthandle), ::core::mem::transmute(connectionhandle), ::core::mem::transmute(statementhandle), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(sqlstate)), ::core::mem::transmute(nativeerror), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(messagetext)), messagetext.len() as _, ::core::mem::transmute(textlength)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLErrorA(henv: *mut ::core::ffi::c_void, hdbc: *mut ::core::ffi::c_void, hstmt: *mut ::core::ffi::c_void, szsqlstate: *mut u8, pfnativeerror: *mut i32, szerrormsg: &mut [u8], pcberrormsg: *mut i16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLErrorA(henv: *mut ::core::ffi::c_void, hdbc: *mut ::core::ffi::c_void, hstmt: *mut ::core::ffi::c_void, szsqlstate: *mut u8, pfnativeerror: *mut i32, szerrormsg: *mut u8, cberrormsgmax: i16, pcberrormsg: *mut i16) -> i16;
-        }
-        ::core::mem::transmute(SQLErrorA(::core::mem::transmute(henv), ::core::mem::transmute(hdbc), ::core::mem::transmute(hstmt), ::core::mem::transmute(szsqlstate), ::core::mem::transmute(pfnativeerror), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szerrormsg)), szerrormsg.len() as _, ::core::mem::transmute(pcberrormsg)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLErrorA(henv: *mut ::core::ffi::c_void, hdbc: *mut ::core::ffi::c_void, hstmt: *mut ::core::ffi::c_void, szsqlstate: *mut u8, pfnativeerror: *mut i32, szerrormsg: *mut u8, cberrormsgmax: i16, pcberrormsg: *mut i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLErrorA(::core::mem::transmute(henv), ::core::mem::transmute(hdbc), ::core::mem::transmute(hstmt), ::core::mem::transmute(szsqlstate), ::core::mem::transmute(pfnativeerror), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szerrormsg)), szerrormsg.len() as _, ::core::mem::transmute(pcberrormsg)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLErrorW(henv: *mut ::core::ffi::c_void, hdbc: *mut ::core::ffi::c_void, hstmt: *mut ::core::ffi::c_void, wszsqlstate: &mut [u16; 6], pfnativeerror: *mut i32, wszerrormsg: &mut [u16], pccherrormsg: *mut i16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLErrorW(henv: *mut ::core::ffi::c_void, hdbc: *mut ::core::ffi::c_void, hstmt: *mut ::core::ffi::c_void, wszsqlstate: *mut u16, pfnativeerror: *mut i32, wszerrormsg: *mut u16, ccherrormsgmax: i16, pccherrormsg: *mut i16) -> i16;
-        }
-        ::core::mem::transmute(SQLErrorW(::core::mem::transmute(henv), ::core::mem::transmute(hdbc), ::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(wszsqlstate)), ::core::mem::transmute(pfnativeerror), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(wszerrormsg)), wszerrormsg.len() as _, ::core::mem::transmute(pccherrormsg)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLErrorW(henv: *mut ::core::ffi::c_void, hdbc: *mut ::core::ffi::c_void, hstmt: *mut ::core::ffi::c_void, wszsqlstate: *mut u16, pfnativeerror: *mut i32, wszerrormsg: *mut u16, ccherrormsgmax: i16, pccherrormsg: *mut i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLErrorW(::core::mem::transmute(henv), ::core::mem::transmute(hdbc), ::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(wszsqlstate)), ::core::mem::transmute(pfnativeerror), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(wszerrormsg)), wszerrormsg.len() as _, ::core::mem::transmute(pccherrormsg)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLExecDirect(statementhandle: *mut ::core::ffi::c_void, statementtext: &[u8]) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLExecDirect(statementhandle: *mut ::core::ffi::c_void, statementtext: *const u8, textlength: i32) -> i16;
-        }
-        ::core::mem::transmute(SQLExecDirect(::core::mem::transmute(statementhandle), ::core::mem::transmute(::windows::core::as_ptr_or_null(statementtext)), statementtext.len() as _))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLExecDirect(statementhandle: *mut ::core::ffi::c_void, statementtext: *const u8, textlength: i32) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLExecDirect(::core::mem::transmute(statementhandle), ::core::mem::transmute(::windows::core::as_ptr_or_null(statementtext)), statementtext.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLExecDirectA(hstmt: *mut ::core::ffi::c_void, szsqlstr: &[u8]) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLExecDirectA(hstmt: *mut ::core::ffi::c_void, szsqlstr: *const u8, cbsqlstr: i32) -> i16;
-        }
-        ::core::mem::transmute(SQLExecDirectA(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szsqlstr)), szsqlstr.len() as _))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLExecDirectA(hstmt: *mut ::core::ffi::c_void, szsqlstr: *const u8, cbsqlstr: i32) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLExecDirectA(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szsqlstr)), szsqlstr.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLExecDirectW(hstmt: *mut ::core::ffi::c_void, szsqlstr: &[u16]) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLExecDirectW(hstmt: *mut ::core::ffi::c_void, szsqlstr: *const u16, textlength: i32) -> i16;
-        }
-        ::core::mem::transmute(SQLExecDirectW(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szsqlstr)), szsqlstr.len() as _))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLExecDirectW(hstmt: *mut ::core::ffi::c_void, szsqlstr: *const u16, textlength: i32) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLExecDirectW(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szsqlstr)), szsqlstr.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLExecute(statementhandle: *mut ::core::ffi::c_void) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLExecute(statementhandle: *mut ::core::ffi::c_void) -> i16;
-        }
-        ::core::mem::transmute(SQLExecute(::core::mem::transmute(statementhandle)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLExecute(statementhandle: *mut ::core::ffi::c_void) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLExecute(::core::mem::transmute(statementhandle)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLExtendedFetch(hstmt: *mut ::core::ffi::c_void, ffetchtype: u16, irow: i64, pcrow: *mut u64, rgfrowstatus: *mut u16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLExtendedFetch(hstmt: *mut ::core::ffi::c_void, ffetchtype: u16, irow: i64, pcrow: *mut u64, rgfrowstatus: *mut u16) -> i16;
-        }
-        ::core::mem::transmute(SQLExtendedFetch(::core::mem::transmute(hstmt), ::core::mem::transmute(ffetchtype), ::core::mem::transmute(irow), ::core::mem::transmute(pcrow), ::core::mem::transmute(rgfrowstatus)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLExtendedFetch(hstmt: *mut ::core::ffi::c_void, ffetchtype: u16, irow: i64, pcrow: *mut u64, rgfrowstatus: *mut u16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLExtendedFetch(::core::mem::transmute(hstmt), ::core::mem::transmute(ffetchtype), ::core::mem::transmute(irow), ::core::mem::transmute(pcrow), ::core::mem::transmute(rgfrowstatus)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLExtendedFetch(hstmt: *mut ::core::ffi::c_void, ffetchtype: u16, irow: i32, pcrow: *mut u32, rgfrowstatus: *mut u16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLExtendedFetch(hstmt: *mut ::core::ffi::c_void, ffetchtype: u16, irow: i32, pcrow: *mut u32, rgfrowstatus: *mut u16) -> i16;
-        }
-        ::core::mem::transmute(SQLExtendedFetch(::core::mem::transmute(hstmt), ::core::mem::transmute(ffetchtype), ::core::mem::transmute(irow), ::core::mem::transmute(pcrow), ::core::mem::transmute(rgfrowstatus)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLExtendedFetch(hstmt: *mut ::core::ffi::c_void, ffetchtype: u16, irow: i32, pcrow: *mut u32, rgfrowstatus: *mut u16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLExtendedFetch(::core::mem::transmute(hstmt), ::core::mem::transmute(ffetchtype), ::core::mem::transmute(irow), ::core::mem::transmute(pcrow), ::core::mem::transmute(rgfrowstatus)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const SQLFLT4: u32 = 59u32;
@@ -26605,741 +26245,496 @@ pub const SQLFLTN: u32 = 109u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLFetch(statementhandle: *mut ::core::ffi::c_void) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLFetch(statementhandle: *mut ::core::ffi::c_void) -> i16;
-        }
-        ::core::mem::transmute(SQLFetch(::core::mem::transmute(statementhandle)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLFetch(statementhandle: *mut ::core::ffi::c_void) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLFetch(::core::mem::transmute(statementhandle)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLFetchScroll(statementhandle: *mut ::core::ffi::c_void, fetchorientation: i16, fetchoffset: i64) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLFetchScroll(statementhandle: *mut ::core::ffi::c_void, fetchorientation: i16, fetchoffset: i64) -> i16;
-        }
-        ::core::mem::transmute(SQLFetchScroll(::core::mem::transmute(statementhandle), ::core::mem::transmute(fetchorientation), ::core::mem::transmute(fetchoffset)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLFetchScroll(statementhandle: *mut ::core::ffi::c_void, fetchorientation: i16, fetchoffset: i64) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLFetchScroll(::core::mem::transmute(statementhandle), ::core::mem::transmute(fetchorientation), ::core::mem::transmute(fetchoffset)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLFetchScroll(statementhandle: *mut ::core::ffi::c_void, fetchorientation: i16, fetchoffset: i32) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLFetchScroll(statementhandle: *mut ::core::ffi::c_void, fetchorientation: i16, fetchoffset: i32) -> i16;
-        }
-        ::core::mem::transmute(SQLFetchScroll(::core::mem::transmute(statementhandle), ::core::mem::transmute(fetchorientation), ::core::mem::transmute(fetchoffset)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLFetchScroll(statementhandle: *mut ::core::ffi::c_void, fetchorientation: i16, fetchoffset: i32) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLFetchScroll(::core::mem::transmute(statementhandle), ::core::mem::transmute(fetchorientation), ::core::mem::transmute(fetchoffset)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLForeignKeys(hstmt: *mut ::core::ffi::c_void, szpkcatalogname: &[u8], szpkschemaname: &[u8], szpktablename: &[u8], szfkcatalogname: &[u8], szfkschemaname: &[u8], szfktablename: &[u8]) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLForeignKeys(hstmt: *mut ::core::ffi::c_void, szpkcatalogname: *const u8, cchpkcatalogname: i16, szpkschemaname: *const u8, cchpkschemaname: i16, szpktablename: *const u8, cchpktablename: i16, szfkcatalogname: *const u8, cchfkcatalogname: i16, szfkschemaname: *const u8, cchfkschemaname: i16, szfktablename: *const u8, cchfktablename: i16) -> i16;
-        }
-        ::core::mem::transmute(SQLForeignKeys(
-            ::core::mem::transmute(hstmt),
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(szpkcatalogname)),
-            szpkcatalogname.len() as _,
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(szpkschemaname)),
-            szpkschemaname.len() as _,
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(szpktablename)),
-            szpktablename.len() as _,
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(szfkcatalogname)),
-            szfkcatalogname.len() as _,
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(szfkschemaname)),
-            szfkschemaname.len() as _,
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(szfktablename)),
-            szfktablename.len() as _,
-        ))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLForeignKeys(hstmt: *mut ::core::ffi::c_void, szpkcatalogname: *const u8, cchpkcatalogname: i16, szpkschemaname: *const u8, cchpkschemaname: i16, szpktablename: *const u8, cchpktablename: i16, szfkcatalogname: *const u8, cchfkcatalogname: i16, szfkschemaname: *const u8, cchfkschemaname: i16, szfktablename: *const u8, cchfktablename: i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLForeignKeys(
+        ::core::mem::transmute(hstmt),
+        ::core::mem::transmute(::windows::core::as_ptr_or_null(szpkcatalogname)),
+        szpkcatalogname.len() as _,
+        ::core::mem::transmute(::windows::core::as_ptr_or_null(szpkschemaname)),
+        szpkschemaname.len() as _,
+        ::core::mem::transmute(::windows::core::as_ptr_or_null(szpktablename)),
+        szpktablename.len() as _,
+        ::core::mem::transmute(::windows::core::as_ptr_or_null(szfkcatalogname)),
+        szfkcatalogname.len() as _,
+        ::core::mem::transmute(::windows::core::as_ptr_or_null(szfkschemaname)),
+        szfkschemaname.len() as _,
+        ::core::mem::transmute(::windows::core::as_ptr_or_null(szfktablename)),
+        szfktablename.len() as _,
+    ))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLForeignKeysA(hstmt: *mut ::core::ffi::c_void, szpkcatalogname: &[u8], szpkschemaname: &[u8], szpktablename: &[u8], szfkcatalogname: &[u8], szfkschemaname: &[u8], szfktablename: &[u8]) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLForeignKeysA(hstmt: *mut ::core::ffi::c_void, szpkcatalogname: *const u8, cbpkcatalogname: i16, szpkschemaname: *const u8, cbpkschemaname: i16, szpktablename: *const u8, cbpktablename: i16, szfkcatalogname: *const u8, cbfkcatalogname: i16, szfkschemaname: *const u8, cbfkschemaname: i16, szfktablename: *const u8, cbfktablename: i16) -> i16;
-        }
-        ::core::mem::transmute(SQLForeignKeysA(
-            ::core::mem::transmute(hstmt),
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(szpkcatalogname)),
-            szpkcatalogname.len() as _,
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(szpkschemaname)),
-            szpkschemaname.len() as _,
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(szpktablename)),
-            szpktablename.len() as _,
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(szfkcatalogname)),
-            szfkcatalogname.len() as _,
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(szfkschemaname)),
-            szfkschemaname.len() as _,
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(szfktablename)),
-            szfktablename.len() as _,
-        ))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLForeignKeysA(hstmt: *mut ::core::ffi::c_void, szpkcatalogname: *const u8, cbpkcatalogname: i16, szpkschemaname: *const u8, cbpkschemaname: i16, szpktablename: *const u8, cbpktablename: i16, szfkcatalogname: *const u8, cbfkcatalogname: i16, szfkschemaname: *const u8, cbfkschemaname: i16, szfktablename: *const u8, cbfktablename: i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLForeignKeysA(
+        ::core::mem::transmute(hstmt),
+        ::core::mem::transmute(::windows::core::as_ptr_or_null(szpkcatalogname)),
+        szpkcatalogname.len() as _,
+        ::core::mem::transmute(::windows::core::as_ptr_or_null(szpkschemaname)),
+        szpkschemaname.len() as _,
+        ::core::mem::transmute(::windows::core::as_ptr_or_null(szpktablename)),
+        szpktablename.len() as _,
+        ::core::mem::transmute(::windows::core::as_ptr_or_null(szfkcatalogname)),
+        szfkcatalogname.len() as _,
+        ::core::mem::transmute(::windows::core::as_ptr_or_null(szfkschemaname)),
+        szfkschemaname.len() as _,
+        ::core::mem::transmute(::windows::core::as_ptr_or_null(szfktablename)),
+        szfktablename.len() as _,
+    ))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLForeignKeysW(hstmt: *mut ::core::ffi::c_void, szpkcatalogname: &[u16], szpkschemaname: &[u16], szpktablename: &[u16], szfkcatalogname: &[u16], szfkschemaname: &[u16], szfktablename: &[u16]) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLForeignKeysW(hstmt: *mut ::core::ffi::c_void, szpkcatalogname: *const u16, cchpkcatalogname: i16, szpkschemaname: *const u16, cchpkschemaname: i16, szpktablename: *const u16, cchpktablename: i16, szfkcatalogname: *const u16, cchfkcatalogname: i16, szfkschemaname: *const u16, cchfkschemaname: i16, szfktablename: *const u16, cchfktablename: i16) -> i16;
-        }
-        ::core::mem::transmute(SQLForeignKeysW(
-            ::core::mem::transmute(hstmt),
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(szpkcatalogname)),
-            szpkcatalogname.len() as _,
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(szpkschemaname)),
-            szpkschemaname.len() as _,
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(szpktablename)),
-            szpktablename.len() as _,
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(szfkcatalogname)),
-            szfkcatalogname.len() as _,
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(szfkschemaname)),
-            szfkschemaname.len() as _,
-            ::core::mem::transmute(::windows::core::as_ptr_or_null(szfktablename)),
-            szfktablename.len() as _,
-        ))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLForeignKeysW(hstmt: *mut ::core::ffi::c_void, szpkcatalogname: *const u16, cchpkcatalogname: i16, szpkschemaname: *const u16, cchpkschemaname: i16, szpktablename: *const u16, cchpktablename: i16, szfkcatalogname: *const u16, cchfkcatalogname: i16, szfkschemaname: *const u16, cchfkschemaname: i16, szfktablename: *const u16, cchfktablename: i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLForeignKeysW(
+        ::core::mem::transmute(hstmt),
+        ::core::mem::transmute(::windows::core::as_ptr_or_null(szpkcatalogname)),
+        szpkcatalogname.len() as _,
+        ::core::mem::transmute(::windows::core::as_ptr_or_null(szpkschemaname)),
+        szpkschemaname.len() as _,
+        ::core::mem::transmute(::windows::core::as_ptr_or_null(szpktablename)),
+        szpktablename.len() as _,
+        ::core::mem::transmute(::windows::core::as_ptr_or_null(szfkcatalogname)),
+        szfkcatalogname.len() as _,
+        ::core::mem::transmute(::windows::core::as_ptr_or_null(szfkschemaname)),
+        szfkschemaname.len() as _,
+        ::core::mem::transmute(::windows::core::as_ptr_or_null(szfktablename)),
+        szfktablename.len() as _,
+    ))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLFreeConnect(connectionhandle: *mut ::core::ffi::c_void) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLFreeConnect(connectionhandle: *mut ::core::ffi::c_void) -> i16;
-        }
-        ::core::mem::transmute(SQLFreeConnect(::core::mem::transmute(connectionhandle)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLFreeConnect(connectionhandle: *mut ::core::ffi::c_void) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLFreeConnect(::core::mem::transmute(connectionhandle)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLFreeEnv(environmenthandle: *mut ::core::ffi::c_void) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLFreeEnv(environmenthandle: *mut ::core::ffi::c_void) -> i16;
-        }
-        ::core::mem::transmute(SQLFreeEnv(::core::mem::transmute(environmenthandle)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLFreeEnv(environmenthandle: *mut ::core::ffi::c_void) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLFreeEnv(::core::mem::transmute(environmenthandle)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLFreeHandle(handletype: i16, handle: *mut ::core::ffi::c_void) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLFreeHandle(handletype: i16, handle: *mut ::core::ffi::c_void) -> i16;
-        }
-        ::core::mem::transmute(SQLFreeHandle(::core::mem::transmute(handletype), ::core::mem::transmute(handle)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLFreeHandle(handletype: i16, handle: *mut ::core::ffi::c_void) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLFreeHandle(::core::mem::transmute(handletype), ::core::mem::transmute(handle)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLFreeStmt(statementhandle: *mut ::core::ffi::c_void, option: u16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLFreeStmt(statementhandle: *mut ::core::ffi::c_void, option: u16) -> i16;
-        }
-        ::core::mem::transmute(SQLFreeStmt(::core::mem::transmute(statementhandle), ::core::mem::transmute(option)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLFreeStmt(statementhandle: *mut ::core::ffi::c_void, option: u16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLFreeStmt(::core::mem::transmute(statementhandle), ::core::mem::transmute(option)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetConnectAttr(connectionhandle: *mut ::core::ffi::c_void, attribute: i32, value: *mut ::core::ffi::c_void, bufferlength: i32, stringlengthptr: *mut i32) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLGetConnectAttr(connectionhandle: *mut ::core::ffi::c_void, attribute: i32, value: *mut ::core::ffi::c_void, bufferlength: i32, stringlengthptr: *mut i32) -> i16;
-        }
-        ::core::mem::transmute(SQLGetConnectAttr(::core::mem::transmute(connectionhandle), ::core::mem::transmute(attribute), ::core::mem::transmute(value), ::core::mem::transmute(bufferlength), ::core::mem::transmute(stringlengthptr)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLGetConnectAttr(connectionhandle: *mut ::core::ffi::c_void, attribute: i32, value: *mut ::core::ffi::c_void, bufferlength: i32, stringlengthptr: *mut i32) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLGetConnectAttr(::core::mem::transmute(connectionhandle), ::core::mem::transmute(attribute), ::core::mem::transmute(value), ::core::mem::transmute(bufferlength), ::core::mem::transmute(stringlengthptr)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetConnectAttrA(hdbc: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i32, pcbvalue: *mut i32) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLGetConnectAttrA(hdbc: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i32, pcbvalue: *mut i32) -> i16;
-        }
-        ::core::mem::transmute(SQLGetConnectAttrA(::core::mem::transmute(hdbc), ::core::mem::transmute(fattribute), ::core::mem::transmute(rgbvalue), ::core::mem::transmute(cbvaluemax), ::core::mem::transmute(pcbvalue)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLGetConnectAttrA(hdbc: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i32, pcbvalue: *mut i32) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLGetConnectAttrA(::core::mem::transmute(hdbc), ::core::mem::transmute(fattribute), ::core::mem::transmute(rgbvalue), ::core::mem::transmute(cbvaluemax), ::core::mem::transmute(pcbvalue)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetConnectAttrW(hdbc: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i32, pcbvalue: *mut i32) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLGetConnectAttrW(hdbc: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i32, pcbvalue: *mut i32) -> i16;
-        }
-        ::core::mem::transmute(SQLGetConnectAttrW(::core::mem::transmute(hdbc), ::core::mem::transmute(fattribute), ::core::mem::transmute(rgbvalue), ::core::mem::transmute(cbvaluemax), ::core::mem::transmute(pcbvalue)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLGetConnectAttrW(hdbc: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i32, pcbvalue: *mut i32) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLGetConnectAttrW(::core::mem::transmute(hdbc), ::core::mem::transmute(fattribute), ::core::mem::transmute(rgbvalue), ::core::mem::transmute(cbvaluemax), ::core::mem::transmute(pcbvalue)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetConnectOption(connectionhandle: *mut ::core::ffi::c_void, option: u16, value: *mut ::core::ffi::c_void) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLGetConnectOption(connectionhandle: *mut ::core::ffi::c_void, option: u16, value: *mut ::core::ffi::c_void) -> i16;
-        }
-        ::core::mem::transmute(SQLGetConnectOption(::core::mem::transmute(connectionhandle), ::core::mem::transmute(option), ::core::mem::transmute(value)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLGetConnectOption(connectionhandle: *mut ::core::ffi::c_void, option: u16, value: *mut ::core::ffi::c_void) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLGetConnectOption(::core::mem::transmute(connectionhandle), ::core::mem::transmute(option), ::core::mem::transmute(value)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetConnectOptionA(hdbc: *mut ::core::ffi::c_void, foption: u16, pvparam: *mut ::core::ffi::c_void) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLGetConnectOptionA(hdbc: *mut ::core::ffi::c_void, foption: u16, pvparam: *mut ::core::ffi::c_void) -> i16;
-        }
-        ::core::mem::transmute(SQLGetConnectOptionA(::core::mem::transmute(hdbc), ::core::mem::transmute(foption), ::core::mem::transmute(pvparam)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLGetConnectOptionA(hdbc: *mut ::core::ffi::c_void, foption: u16, pvparam: *mut ::core::ffi::c_void) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLGetConnectOptionA(::core::mem::transmute(hdbc), ::core::mem::transmute(foption), ::core::mem::transmute(pvparam)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetConnectOptionW(hdbc: *mut ::core::ffi::c_void, foption: u16, pvparam: *mut ::core::ffi::c_void) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLGetConnectOptionW(hdbc: *mut ::core::ffi::c_void, foption: u16, pvparam: *mut ::core::ffi::c_void) -> i16;
-        }
-        ::core::mem::transmute(SQLGetConnectOptionW(::core::mem::transmute(hdbc), ::core::mem::transmute(foption), ::core::mem::transmute(pvparam)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLGetConnectOptionW(hdbc: *mut ::core::ffi::c_void, foption: u16, pvparam: *mut ::core::ffi::c_void) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLGetConnectOptionW(::core::mem::transmute(hdbc), ::core::mem::transmute(foption), ::core::mem::transmute(pvparam)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetCursorName(statementhandle: *mut ::core::ffi::c_void, cursorname: &mut [u8], namelengthptr: *mut i16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLGetCursorName(statementhandle: *mut ::core::ffi::c_void, cursorname: *mut u8, bufferlength: i16, namelengthptr: *mut i16) -> i16;
-        }
-        ::core::mem::transmute(SQLGetCursorName(::core::mem::transmute(statementhandle), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(cursorname)), cursorname.len() as _, ::core::mem::transmute(namelengthptr)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLGetCursorName(statementhandle: *mut ::core::ffi::c_void, cursorname: *mut u8, bufferlength: i16, namelengthptr: *mut i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLGetCursorName(::core::mem::transmute(statementhandle), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(cursorname)), cursorname.len() as _, ::core::mem::transmute(namelengthptr)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetCursorNameA(hstmt: *mut ::core::ffi::c_void, szcursor: &mut [u8], pcbcursor: *mut i16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLGetCursorNameA(hstmt: *mut ::core::ffi::c_void, szcursor: *mut u8, cbcursormax: i16, pcbcursor: *mut i16) -> i16;
-        }
-        ::core::mem::transmute(SQLGetCursorNameA(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szcursor)), szcursor.len() as _, ::core::mem::transmute(pcbcursor)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLGetCursorNameA(hstmt: *mut ::core::ffi::c_void, szcursor: *mut u8, cbcursormax: i16, pcbcursor: *mut i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLGetCursorNameA(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szcursor)), szcursor.len() as _, ::core::mem::transmute(pcbcursor)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetCursorNameW(hstmt: *mut ::core::ffi::c_void, szcursor: &mut [u16], pcchcursor: *mut i16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLGetCursorNameW(hstmt: *mut ::core::ffi::c_void, szcursor: *mut u16, cchcursormax: i16, pcchcursor: *mut i16) -> i16;
-        }
-        ::core::mem::transmute(SQLGetCursorNameW(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szcursor)), szcursor.len() as _, ::core::mem::transmute(pcchcursor)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLGetCursorNameW(hstmt: *mut ::core::ffi::c_void, szcursor: *mut u16, cchcursormax: i16, pcchcursor: *mut i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLGetCursorNameW(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szcursor)), szcursor.len() as _, ::core::mem::transmute(pcchcursor)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLGetData(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: *mut ::core::ffi::c_void, bufferlength: i64, strlen_or_indptr: *mut i64) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLGetData(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: *mut ::core::ffi::c_void, bufferlength: i64, strlen_or_indptr: *mut i64) -> i16;
-        }
-        ::core::mem::transmute(SQLGetData(::core::mem::transmute(statementhandle), ::core::mem::transmute(columnnumber), ::core::mem::transmute(targettype), ::core::mem::transmute(targetvalue), ::core::mem::transmute(bufferlength), ::core::mem::transmute(strlen_or_indptr)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLGetData(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: *mut ::core::ffi::c_void, bufferlength: i64, strlen_or_indptr: *mut i64) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLGetData(::core::mem::transmute(statementhandle), ::core::mem::transmute(columnnumber), ::core::mem::transmute(targettype), ::core::mem::transmute(targetvalue), ::core::mem::transmute(bufferlength), ::core::mem::transmute(strlen_or_indptr)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLGetData(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: *mut ::core::ffi::c_void, bufferlength: i32, strlen_or_indptr: *mut i32) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLGetData(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: *mut ::core::ffi::c_void, bufferlength: i32, strlen_or_indptr: *mut i32) -> i16;
-        }
-        ::core::mem::transmute(SQLGetData(::core::mem::transmute(statementhandle), ::core::mem::transmute(columnnumber), ::core::mem::transmute(targettype), ::core::mem::transmute(targetvalue), ::core::mem::transmute(bufferlength), ::core::mem::transmute(strlen_or_indptr)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLGetData(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: *mut ::core::ffi::c_void, bufferlength: i32, strlen_or_indptr: *mut i32) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLGetData(::core::mem::transmute(statementhandle), ::core::mem::transmute(columnnumber), ::core::mem::transmute(targettype), ::core::mem::transmute(targetvalue), ::core::mem::transmute(bufferlength), ::core::mem::transmute(strlen_or_indptr)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetDescField(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, fieldidentifier: i16, value: *mut ::core::ffi::c_void, bufferlength: i32, stringlength: *mut i32) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLGetDescField(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, fieldidentifier: i16, value: *mut ::core::ffi::c_void, bufferlength: i32, stringlength: *mut i32) -> i16;
-        }
-        ::core::mem::transmute(SQLGetDescField(::core::mem::transmute(descriptorhandle), ::core::mem::transmute(recnumber), ::core::mem::transmute(fieldidentifier), ::core::mem::transmute(value), ::core::mem::transmute(bufferlength), ::core::mem::transmute(stringlength)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLGetDescField(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, fieldidentifier: i16, value: *mut ::core::ffi::c_void, bufferlength: i32, stringlength: *mut i32) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLGetDescField(::core::mem::transmute(descriptorhandle), ::core::mem::transmute(recnumber), ::core::mem::transmute(fieldidentifier), ::core::mem::transmute(value), ::core::mem::transmute(bufferlength), ::core::mem::transmute(stringlength)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetDescFieldA(hdesc: *mut ::core::ffi::c_void, irecord: i16, ifield: i16, rgbvalue: *mut ::core::ffi::c_void, cbbufferlength: i32, stringlength: *mut i32) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLGetDescFieldA(hdesc: *mut ::core::ffi::c_void, irecord: i16, ifield: i16, rgbvalue: *mut ::core::ffi::c_void, cbbufferlength: i32, stringlength: *mut i32) -> i16;
-        }
-        ::core::mem::transmute(SQLGetDescFieldA(::core::mem::transmute(hdesc), ::core::mem::transmute(irecord), ::core::mem::transmute(ifield), ::core::mem::transmute(rgbvalue), ::core::mem::transmute(cbbufferlength), ::core::mem::transmute(stringlength)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLGetDescFieldA(hdesc: *mut ::core::ffi::c_void, irecord: i16, ifield: i16, rgbvalue: *mut ::core::ffi::c_void, cbbufferlength: i32, stringlength: *mut i32) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLGetDescFieldA(::core::mem::transmute(hdesc), ::core::mem::transmute(irecord), ::core::mem::transmute(ifield), ::core::mem::transmute(rgbvalue), ::core::mem::transmute(cbbufferlength), ::core::mem::transmute(stringlength)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetDescFieldW(hdesc: *mut ::core::ffi::c_void, irecord: i16, ifield: i16, rgbvalue: *mut ::core::ffi::c_void, cbbufferlength: i32, stringlength: *mut i32) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLGetDescFieldW(hdesc: *mut ::core::ffi::c_void, irecord: i16, ifield: i16, rgbvalue: *mut ::core::ffi::c_void, cbbufferlength: i32, stringlength: *mut i32) -> i16;
-        }
-        ::core::mem::transmute(SQLGetDescFieldW(::core::mem::transmute(hdesc), ::core::mem::transmute(irecord), ::core::mem::transmute(ifield), ::core::mem::transmute(rgbvalue), ::core::mem::transmute(cbbufferlength), ::core::mem::transmute(stringlength)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLGetDescFieldW(hdesc: *mut ::core::ffi::c_void, irecord: i16, ifield: i16, rgbvalue: *mut ::core::ffi::c_void, cbbufferlength: i32, stringlength: *mut i32) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLGetDescFieldW(::core::mem::transmute(hdesc), ::core::mem::transmute(irecord), ::core::mem::transmute(ifield), ::core::mem::transmute(rgbvalue), ::core::mem::transmute(cbbufferlength), ::core::mem::transmute(stringlength)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLGetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, name: &mut [u8], stringlengthptr: *mut i16, typeptr: *mut i16, subtypeptr: *mut i16, lengthptr: *mut i64, precisionptr: *mut i16, scaleptr: *mut i16, nullableptr: *mut i16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLGetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, name: *mut u8, bufferlength: i16, stringlengthptr: *mut i16, typeptr: *mut i16, subtypeptr: *mut i16, lengthptr: *mut i64, precisionptr: *mut i16, scaleptr: *mut i16, nullableptr: *mut i16) -> i16;
-        }
-        ::core::mem::transmute(SQLGetDescRec(::core::mem::transmute(descriptorhandle), ::core::mem::transmute(recnumber), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(name)), name.len() as _, ::core::mem::transmute(stringlengthptr), ::core::mem::transmute(typeptr), ::core::mem::transmute(subtypeptr), ::core::mem::transmute(lengthptr), ::core::mem::transmute(precisionptr), ::core::mem::transmute(scaleptr), ::core::mem::transmute(nullableptr)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLGetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, name: *mut u8, bufferlength: i16, stringlengthptr: *mut i16, typeptr: *mut i16, subtypeptr: *mut i16, lengthptr: *mut i64, precisionptr: *mut i16, scaleptr: *mut i16, nullableptr: *mut i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLGetDescRec(::core::mem::transmute(descriptorhandle), ::core::mem::transmute(recnumber), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(name)), name.len() as _, ::core::mem::transmute(stringlengthptr), ::core::mem::transmute(typeptr), ::core::mem::transmute(subtypeptr), ::core::mem::transmute(lengthptr), ::core::mem::transmute(precisionptr), ::core::mem::transmute(scaleptr), ::core::mem::transmute(nullableptr)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLGetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, name: &mut [u8], stringlengthptr: *mut i16, typeptr: *mut i16, subtypeptr: *mut i16, lengthptr: *mut i32, precisionptr: *mut i16, scaleptr: *mut i16, nullableptr: *mut i16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLGetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, name: *mut u8, bufferlength: i16, stringlengthptr: *mut i16, typeptr: *mut i16, subtypeptr: *mut i16, lengthptr: *mut i32, precisionptr: *mut i16, scaleptr: *mut i16, nullableptr: *mut i16) -> i16;
-        }
-        ::core::mem::transmute(SQLGetDescRec(::core::mem::transmute(descriptorhandle), ::core::mem::transmute(recnumber), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(name)), name.len() as _, ::core::mem::transmute(stringlengthptr), ::core::mem::transmute(typeptr), ::core::mem::transmute(subtypeptr), ::core::mem::transmute(lengthptr), ::core::mem::transmute(precisionptr), ::core::mem::transmute(scaleptr), ::core::mem::transmute(nullableptr)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLGetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, name: *mut u8, bufferlength: i16, stringlengthptr: *mut i16, typeptr: *mut i16, subtypeptr: *mut i16, lengthptr: *mut i32, precisionptr: *mut i16, scaleptr: *mut i16, nullableptr: *mut i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLGetDescRec(::core::mem::transmute(descriptorhandle), ::core::mem::transmute(recnumber), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(name)), name.len() as _, ::core::mem::transmute(stringlengthptr), ::core::mem::transmute(typeptr), ::core::mem::transmute(subtypeptr), ::core::mem::transmute(lengthptr), ::core::mem::transmute(precisionptr), ::core::mem::transmute(scaleptr), ::core::mem::transmute(nullableptr)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLGetDescRecA(hdesc: *mut ::core::ffi::c_void, irecord: i16, szname: &mut [u8], pcbname: *mut i16, pftype: *mut i16, pfsubtype: *mut i16, plength: *mut i64, pprecision: *mut i16, pscale: *mut i16, pnullable: *mut i16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLGetDescRecA(hdesc: *mut ::core::ffi::c_void, irecord: i16, szname: *mut u8, cbnamemax: i16, pcbname: *mut i16, pftype: *mut i16, pfsubtype: *mut i16, plength: *mut i64, pprecision: *mut i16, pscale: *mut i16, pnullable: *mut i16) -> i16;
-        }
-        ::core::mem::transmute(SQLGetDescRecA(::core::mem::transmute(hdesc), ::core::mem::transmute(irecord), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szname)), szname.len() as _, ::core::mem::transmute(pcbname), ::core::mem::transmute(pftype), ::core::mem::transmute(pfsubtype), ::core::mem::transmute(plength), ::core::mem::transmute(pprecision), ::core::mem::transmute(pscale), ::core::mem::transmute(pnullable)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLGetDescRecA(hdesc: *mut ::core::ffi::c_void, irecord: i16, szname: *mut u8, cbnamemax: i16, pcbname: *mut i16, pftype: *mut i16, pfsubtype: *mut i16, plength: *mut i64, pprecision: *mut i16, pscale: *mut i16, pnullable: *mut i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLGetDescRecA(::core::mem::transmute(hdesc), ::core::mem::transmute(irecord), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szname)), szname.len() as _, ::core::mem::transmute(pcbname), ::core::mem::transmute(pftype), ::core::mem::transmute(pfsubtype), ::core::mem::transmute(plength), ::core::mem::transmute(pprecision), ::core::mem::transmute(pscale), ::core::mem::transmute(pnullable)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLGetDescRecA(hdesc: *mut ::core::ffi::c_void, irecord: i16, szname: &mut [u8], pcbname: *mut i16, pftype: *mut i16, pfsubtype: *mut i16, plength: *mut i32, pprecision: *mut i16, pscale: *mut i16, pnullable: *mut i16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLGetDescRecA(hdesc: *mut ::core::ffi::c_void, irecord: i16, szname: *mut u8, cbnamemax: i16, pcbname: *mut i16, pftype: *mut i16, pfsubtype: *mut i16, plength: *mut i32, pprecision: *mut i16, pscale: *mut i16, pnullable: *mut i16) -> i16;
-        }
-        ::core::mem::transmute(SQLGetDescRecA(::core::mem::transmute(hdesc), ::core::mem::transmute(irecord), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szname)), szname.len() as _, ::core::mem::transmute(pcbname), ::core::mem::transmute(pftype), ::core::mem::transmute(pfsubtype), ::core::mem::transmute(plength), ::core::mem::transmute(pprecision), ::core::mem::transmute(pscale), ::core::mem::transmute(pnullable)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLGetDescRecA(hdesc: *mut ::core::ffi::c_void, irecord: i16, szname: *mut u8, cbnamemax: i16, pcbname: *mut i16, pftype: *mut i16, pfsubtype: *mut i16, plength: *mut i32, pprecision: *mut i16, pscale: *mut i16, pnullable: *mut i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLGetDescRecA(::core::mem::transmute(hdesc), ::core::mem::transmute(irecord), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szname)), szname.len() as _, ::core::mem::transmute(pcbname), ::core::mem::transmute(pftype), ::core::mem::transmute(pfsubtype), ::core::mem::transmute(plength), ::core::mem::transmute(pprecision), ::core::mem::transmute(pscale), ::core::mem::transmute(pnullable)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLGetDescRecW(hdesc: *mut ::core::ffi::c_void, irecord: i16, szname: &mut [u16], pcchname: *mut i16, pftype: *mut i16, pfsubtype: *mut i16, plength: *mut i64, pprecision: *mut i16, pscale: *mut i16, pnullable: *mut i16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLGetDescRecW(hdesc: *mut ::core::ffi::c_void, irecord: i16, szname: *mut u16, cchnamemax: i16, pcchname: *mut i16, pftype: *mut i16, pfsubtype: *mut i16, plength: *mut i64, pprecision: *mut i16, pscale: *mut i16, pnullable: *mut i16) -> i16;
-        }
-        ::core::mem::transmute(SQLGetDescRecW(::core::mem::transmute(hdesc), ::core::mem::transmute(irecord), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szname)), szname.len() as _, ::core::mem::transmute(pcchname), ::core::mem::transmute(pftype), ::core::mem::transmute(pfsubtype), ::core::mem::transmute(plength), ::core::mem::transmute(pprecision), ::core::mem::transmute(pscale), ::core::mem::transmute(pnullable)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLGetDescRecW(hdesc: *mut ::core::ffi::c_void, irecord: i16, szname: *mut u16, cchnamemax: i16, pcchname: *mut i16, pftype: *mut i16, pfsubtype: *mut i16, plength: *mut i64, pprecision: *mut i16, pscale: *mut i16, pnullable: *mut i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLGetDescRecW(::core::mem::transmute(hdesc), ::core::mem::transmute(irecord), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szname)), szname.len() as _, ::core::mem::transmute(pcchname), ::core::mem::transmute(pftype), ::core::mem::transmute(pfsubtype), ::core::mem::transmute(plength), ::core::mem::transmute(pprecision), ::core::mem::transmute(pscale), ::core::mem::transmute(pnullable)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLGetDescRecW(hdesc: *mut ::core::ffi::c_void, irecord: i16, szname: &mut [u16], pcchname: *mut i16, pftype: *mut i16, pfsubtype: *mut i16, plength: *mut i32, pprecision: *mut i16, pscale: *mut i16, pnullable: *mut i16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLGetDescRecW(hdesc: *mut ::core::ffi::c_void, irecord: i16, szname: *mut u16, cchnamemax: i16, pcchname: *mut i16, pftype: *mut i16, pfsubtype: *mut i16, plength: *mut i32, pprecision: *mut i16, pscale: *mut i16, pnullable: *mut i16) -> i16;
-        }
-        ::core::mem::transmute(SQLGetDescRecW(::core::mem::transmute(hdesc), ::core::mem::transmute(irecord), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szname)), szname.len() as _, ::core::mem::transmute(pcchname), ::core::mem::transmute(pftype), ::core::mem::transmute(pfsubtype), ::core::mem::transmute(plength), ::core::mem::transmute(pprecision), ::core::mem::transmute(pscale), ::core::mem::transmute(pnullable)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLGetDescRecW(hdesc: *mut ::core::ffi::c_void, irecord: i16, szname: *mut u16, cchnamemax: i16, pcchname: *mut i16, pftype: *mut i16, pfsubtype: *mut i16, plength: *mut i32, pprecision: *mut i16, pscale: *mut i16, pnullable: *mut i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLGetDescRecW(::core::mem::transmute(hdesc), ::core::mem::transmute(irecord), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szname)), szname.len() as _, ::core::mem::transmute(pcchname), ::core::mem::transmute(pftype), ::core::mem::transmute(pfsubtype), ::core::mem::transmute(plength), ::core::mem::transmute(pprecision), ::core::mem::transmute(pscale), ::core::mem::transmute(pnullable)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetDiagField(handletype: i16, handle: *mut ::core::ffi::c_void, recnumber: i16, diagidentifier: i16, diaginfo: *mut ::core::ffi::c_void, bufferlength: i16, stringlength: *mut i16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLGetDiagField(handletype: i16, handle: *mut ::core::ffi::c_void, recnumber: i16, diagidentifier: i16, diaginfo: *mut ::core::ffi::c_void, bufferlength: i16, stringlength: *mut i16) -> i16;
-        }
-        ::core::mem::transmute(SQLGetDiagField(::core::mem::transmute(handletype), ::core::mem::transmute(handle), ::core::mem::transmute(recnumber), ::core::mem::transmute(diagidentifier), ::core::mem::transmute(diaginfo), ::core::mem::transmute(bufferlength), ::core::mem::transmute(stringlength)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLGetDiagField(handletype: i16, handle: *mut ::core::ffi::c_void, recnumber: i16, diagidentifier: i16, diaginfo: *mut ::core::ffi::c_void, bufferlength: i16, stringlength: *mut i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLGetDiagField(::core::mem::transmute(handletype), ::core::mem::transmute(handle), ::core::mem::transmute(recnumber), ::core::mem::transmute(diagidentifier), ::core::mem::transmute(diaginfo), ::core::mem::transmute(bufferlength), ::core::mem::transmute(stringlength)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetDiagFieldA(fhandletype: i16, handle: *mut ::core::ffi::c_void, irecord: i16, fdiagfield: i16, rgbdiaginfo: *mut ::core::ffi::c_void, cbdiaginfomax: i16, pcbdiaginfo: *mut i16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLGetDiagFieldA(fhandletype: i16, handle: *mut ::core::ffi::c_void, irecord: i16, fdiagfield: i16, rgbdiaginfo: *mut ::core::ffi::c_void, cbdiaginfomax: i16, pcbdiaginfo: *mut i16) -> i16;
-        }
-        ::core::mem::transmute(SQLGetDiagFieldA(::core::mem::transmute(fhandletype), ::core::mem::transmute(handle), ::core::mem::transmute(irecord), ::core::mem::transmute(fdiagfield), ::core::mem::transmute(rgbdiaginfo), ::core::mem::transmute(cbdiaginfomax), ::core::mem::transmute(pcbdiaginfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLGetDiagFieldA(fhandletype: i16, handle: *mut ::core::ffi::c_void, irecord: i16, fdiagfield: i16, rgbdiaginfo: *mut ::core::ffi::c_void, cbdiaginfomax: i16, pcbdiaginfo: *mut i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLGetDiagFieldA(::core::mem::transmute(fhandletype), ::core::mem::transmute(handle), ::core::mem::transmute(irecord), ::core::mem::transmute(fdiagfield), ::core::mem::transmute(rgbdiaginfo), ::core::mem::transmute(cbdiaginfomax), ::core::mem::transmute(pcbdiaginfo)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetDiagFieldW(fhandletype: i16, handle: *mut ::core::ffi::c_void, irecord: i16, fdiagfield: i16, rgbdiaginfo: *mut ::core::ffi::c_void, cbbufferlength: i16, pcbstringlength: *mut i16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLGetDiagFieldW(fhandletype: i16, handle: *mut ::core::ffi::c_void, irecord: i16, fdiagfield: i16, rgbdiaginfo: *mut ::core::ffi::c_void, cbbufferlength: i16, pcbstringlength: *mut i16) -> i16;
-        }
-        ::core::mem::transmute(SQLGetDiagFieldW(::core::mem::transmute(fhandletype), ::core::mem::transmute(handle), ::core::mem::transmute(irecord), ::core::mem::transmute(fdiagfield), ::core::mem::transmute(rgbdiaginfo), ::core::mem::transmute(cbbufferlength), ::core::mem::transmute(pcbstringlength)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLGetDiagFieldW(fhandletype: i16, handle: *mut ::core::ffi::c_void, irecord: i16, fdiagfield: i16, rgbdiaginfo: *mut ::core::ffi::c_void, cbbufferlength: i16, pcbstringlength: *mut i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLGetDiagFieldW(::core::mem::transmute(fhandletype), ::core::mem::transmute(handle), ::core::mem::transmute(irecord), ::core::mem::transmute(fdiagfield), ::core::mem::transmute(rgbdiaginfo), ::core::mem::transmute(cbbufferlength), ::core::mem::transmute(pcbstringlength)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetDiagRec(handletype: i16, handle: *mut ::core::ffi::c_void, recnumber: i16, sqlstate: &mut [u8; 6], nativeerror: *mut i32, messagetext: &mut [u8], textlength: *mut i16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLGetDiagRec(handletype: i16, handle: *mut ::core::ffi::c_void, recnumber: i16, sqlstate: *mut u8, nativeerror: *mut i32, messagetext: *mut u8, bufferlength: i16, textlength: *mut i16) -> i16;
-        }
-        ::core::mem::transmute(SQLGetDiagRec(::core::mem::transmute(handletype), ::core::mem::transmute(handle), ::core::mem::transmute(recnumber), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(sqlstate)), ::core::mem::transmute(nativeerror), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(messagetext)), messagetext.len() as _, ::core::mem::transmute(textlength)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLGetDiagRec(handletype: i16, handle: *mut ::core::ffi::c_void, recnumber: i16, sqlstate: *mut u8, nativeerror: *mut i32, messagetext: *mut u8, bufferlength: i16, textlength: *mut i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLGetDiagRec(::core::mem::transmute(handletype), ::core::mem::transmute(handle), ::core::mem::transmute(recnumber), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(sqlstate)), ::core::mem::transmute(nativeerror), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(messagetext)), messagetext.len() as _, ::core::mem::transmute(textlength)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetDiagRecA(fhandletype: i16, handle: *mut ::core::ffi::c_void, irecord: i16, szsqlstate: &mut [u8; 6], pfnativeerror: *mut i32, szerrormsg: &mut [u8], pcberrormsg: *mut i16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLGetDiagRecA(fhandletype: i16, handle: *mut ::core::ffi::c_void, irecord: i16, szsqlstate: *mut u8, pfnativeerror: *mut i32, szerrormsg: *mut u8, cberrormsgmax: i16, pcberrormsg: *mut i16) -> i16;
-        }
-        ::core::mem::transmute(SQLGetDiagRecA(::core::mem::transmute(fhandletype), ::core::mem::transmute(handle), ::core::mem::transmute(irecord), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szsqlstate)), ::core::mem::transmute(pfnativeerror), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szerrormsg)), szerrormsg.len() as _, ::core::mem::transmute(pcberrormsg)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLGetDiagRecA(fhandletype: i16, handle: *mut ::core::ffi::c_void, irecord: i16, szsqlstate: *mut u8, pfnativeerror: *mut i32, szerrormsg: *mut u8, cberrormsgmax: i16, pcberrormsg: *mut i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLGetDiagRecA(::core::mem::transmute(fhandletype), ::core::mem::transmute(handle), ::core::mem::transmute(irecord), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szsqlstate)), ::core::mem::transmute(pfnativeerror), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szerrormsg)), szerrormsg.len() as _, ::core::mem::transmute(pcberrormsg)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetDiagRecW(fhandletype: i16, handle: *mut ::core::ffi::c_void, irecord: i16, szsqlstate: &mut [u16; 6], pfnativeerror: *mut i32, szerrormsg: &mut [u16], pccherrormsg: *mut i16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLGetDiagRecW(fhandletype: i16, handle: *mut ::core::ffi::c_void, irecord: i16, szsqlstate: *mut u16, pfnativeerror: *mut i32, szerrormsg: *mut u16, ccherrormsgmax: i16, pccherrormsg: *mut i16) -> i16;
-        }
-        ::core::mem::transmute(SQLGetDiagRecW(::core::mem::transmute(fhandletype), ::core::mem::transmute(handle), ::core::mem::transmute(irecord), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szsqlstate)), ::core::mem::transmute(pfnativeerror), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szerrormsg)), szerrormsg.len() as _, ::core::mem::transmute(pccherrormsg)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLGetDiagRecW(fhandletype: i16, handle: *mut ::core::ffi::c_void, irecord: i16, szsqlstate: *mut u16, pfnativeerror: *mut i32, szerrormsg: *mut u16, ccherrormsgmax: i16, pccherrormsg: *mut i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLGetDiagRecW(::core::mem::transmute(fhandletype), ::core::mem::transmute(handle), ::core::mem::transmute(irecord), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szsqlstate)), ::core::mem::transmute(pfnativeerror), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szerrormsg)), szerrormsg.len() as _, ::core::mem::transmute(pccherrormsg)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetEnvAttr(environmenthandle: *mut ::core::ffi::c_void, attribute: i32, value: *mut ::core::ffi::c_void, bufferlength: i32, stringlength: *mut i32) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLGetEnvAttr(environmenthandle: *mut ::core::ffi::c_void, attribute: i32, value: *mut ::core::ffi::c_void, bufferlength: i32, stringlength: *mut i32) -> i16;
-        }
-        ::core::mem::transmute(SQLGetEnvAttr(::core::mem::transmute(environmenthandle), ::core::mem::transmute(attribute), ::core::mem::transmute(value), ::core::mem::transmute(bufferlength), ::core::mem::transmute(stringlength)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLGetEnvAttr(environmenthandle: *mut ::core::ffi::c_void, attribute: i32, value: *mut ::core::ffi::c_void, bufferlength: i32, stringlength: *mut i32) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLGetEnvAttr(::core::mem::transmute(environmenthandle), ::core::mem::transmute(attribute), ::core::mem::transmute(value), ::core::mem::transmute(bufferlength), ::core::mem::transmute(stringlength)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetFunctions(connectionhandle: *mut ::core::ffi::c_void, functionid: u16, supported: *mut u16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLGetFunctions(connectionhandle: *mut ::core::ffi::c_void, functionid: u16, supported: *mut u16) -> i16;
-        }
-        ::core::mem::transmute(SQLGetFunctions(::core::mem::transmute(connectionhandle), ::core::mem::transmute(functionid), ::core::mem::transmute(supported)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLGetFunctions(connectionhandle: *mut ::core::ffi::c_void, functionid: u16, supported: *mut u16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLGetFunctions(::core::mem::transmute(connectionhandle), ::core::mem::transmute(functionid), ::core::mem::transmute(supported)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetInfo(connectionhandle: *mut ::core::ffi::c_void, infotype: u16, infovalue: *mut ::core::ffi::c_void, bufferlength: i16, stringlengthptr: *mut i16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLGetInfo(connectionhandle: *mut ::core::ffi::c_void, infotype: u16, infovalue: *mut ::core::ffi::c_void, bufferlength: i16, stringlengthptr: *mut i16) -> i16;
-        }
-        ::core::mem::transmute(SQLGetInfo(::core::mem::transmute(connectionhandle), ::core::mem::transmute(infotype), ::core::mem::transmute(infovalue), ::core::mem::transmute(bufferlength), ::core::mem::transmute(stringlengthptr)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLGetInfo(connectionhandle: *mut ::core::ffi::c_void, infotype: u16, infovalue: *mut ::core::ffi::c_void, bufferlength: i16, stringlengthptr: *mut i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLGetInfo(::core::mem::transmute(connectionhandle), ::core::mem::transmute(infotype), ::core::mem::transmute(infovalue), ::core::mem::transmute(bufferlength), ::core::mem::transmute(stringlengthptr)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetInfoA(hdbc: *mut ::core::ffi::c_void, finfotype: u16, rgbinfovalue: *mut ::core::ffi::c_void, cbinfovaluemax: i16, pcbinfovalue: *mut i16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLGetInfoA(hdbc: *mut ::core::ffi::c_void, finfotype: u16, rgbinfovalue: *mut ::core::ffi::c_void, cbinfovaluemax: i16, pcbinfovalue: *mut i16) -> i16;
-        }
-        ::core::mem::transmute(SQLGetInfoA(::core::mem::transmute(hdbc), ::core::mem::transmute(finfotype), ::core::mem::transmute(rgbinfovalue), ::core::mem::transmute(cbinfovaluemax), ::core::mem::transmute(pcbinfovalue)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLGetInfoA(hdbc: *mut ::core::ffi::c_void, finfotype: u16, rgbinfovalue: *mut ::core::ffi::c_void, cbinfovaluemax: i16, pcbinfovalue: *mut i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLGetInfoA(::core::mem::transmute(hdbc), ::core::mem::transmute(finfotype), ::core::mem::transmute(rgbinfovalue), ::core::mem::transmute(cbinfovaluemax), ::core::mem::transmute(pcbinfovalue)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetInfoW(hdbc: *mut ::core::ffi::c_void, finfotype: u16, rgbinfovalue: *mut ::core::ffi::c_void, cbinfovaluemax: i16, pcbinfovalue: *mut i16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLGetInfoW(hdbc: *mut ::core::ffi::c_void, finfotype: u16, rgbinfovalue: *mut ::core::ffi::c_void, cbinfovaluemax: i16, pcbinfovalue: *mut i16) -> i16;
-        }
-        ::core::mem::transmute(SQLGetInfoW(::core::mem::transmute(hdbc), ::core::mem::transmute(finfotype), ::core::mem::transmute(rgbinfovalue), ::core::mem::transmute(cbinfovaluemax), ::core::mem::transmute(pcbinfovalue)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLGetInfoW(hdbc: *mut ::core::ffi::c_void, finfotype: u16, rgbinfovalue: *mut ::core::ffi::c_void, cbinfovaluemax: i16, pcbinfovalue: *mut i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLGetInfoW(::core::mem::transmute(hdbc), ::core::mem::transmute(finfotype), ::core::mem::transmute(rgbinfovalue), ::core::mem::transmute(cbinfovaluemax), ::core::mem::transmute(pcbinfovalue)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SQLGetNextEnumeration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(henumhandle: Param0, prgenumdata: *mut u8, pienumlength: *mut i32) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLGetNextEnumeration(henumhandle: super::super::Foundation::HANDLE, prgenumdata: *mut u8, pienumlength: *mut i32) -> i16;
-        }
-        ::core::mem::transmute(SQLGetNextEnumeration(henumhandle.into_param().abi(), ::core::mem::transmute(prgenumdata), ::core::mem::transmute(pienumlength)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLGetNextEnumeration(henumhandle: super::super::Foundation::HANDLE, prgenumdata: *mut u8, pienumlength: *mut i32) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLGetNextEnumeration(henumhandle.into_param().abi(), ::core::mem::transmute(prgenumdata), ::core::mem::transmute(pienumlength)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetStmtAttr(statementhandle: *mut ::core::ffi::c_void, attribute: i32, value: *mut ::core::ffi::c_void, bufferlength: i32, stringlength: *mut i32) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLGetStmtAttr(statementhandle: *mut ::core::ffi::c_void, attribute: i32, value: *mut ::core::ffi::c_void, bufferlength: i32, stringlength: *mut i32) -> i16;
-        }
-        ::core::mem::transmute(SQLGetStmtAttr(::core::mem::transmute(statementhandle), ::core::mem::transmute(attribute), ::core::mem::transmute(value), ::core::mem::transmute(bufferlength), ::core::mem::transmute(stringlength)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLGetStmtAttr(statementhandle: *mut ::core::ffi::c_void, attribute: i32, value: *mut ::core::ffi::c_void, bufferlength: i32, stringlength: *mut i32) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLGetStmtAttr(::core::mem::transmute(statementhandle), ::core::mem::transmute(attribute), ::core::mem::transmute(value), ::core::mem::transmute(bufferlength), ::core::mem::transmute(stringlength)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetStmtAttrA(hstmt: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i32, pcbvalue: *mut i32) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLGetStmtAttrA(hstmt: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i32, pcbvalue: *mut i32) -> i16;
-        }
-        ::core::mem::transmute(SQLGetStmtAttrA(::core::mem::transmute(hstmt), ::core::mem::transmute(fattribute), ::core::mem::transmute(rgbvalue), ::core::mem::transmute(cbvaluemax), ::core::mem::transmute(pcbvalue)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLGetStmtAttrA(hstmt: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i32, pcbvalue: *mut i32) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLGetStmtAttrA(::core::mem::transmute(hstmt), ::core::mem::transmute(fattribute), ::core::mem::transmute(rgbvalue), ::core::mem::transmute(cbvaluemax), ::core::mem::transmute(pcbvalue)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetStmtAttrW(hstmt: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i32, pcbvalue: *mut i32) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLGetStmtAttrW(hstmt: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i32, pcbvalue: *mut i32) -> i16;
-        }
-        ::core::mem::transmute(SQLGetStmtAttrW(::core::mem::transmute(hstmt), ::core::mem::transmute(fattribute), ::core::mem::transmute(rgbvalue), ::core::mem::transmute(cbvaluemax), ::core::mem::transmute(pcbvalue)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLGetStmtAttrW(hstmt: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i32, pcbvalue: *mut i32) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLGetStmtAttrW(::core::mem::transmute(hstmt), ::core::mem::transmute(fattribute), ::core::mem::transmute(rgbvalue), ::core::mem::transmute(cbvaluemax), ::core::mem::transmute(pcbvalue)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetStmtOption(statementhandle: *mut ::core::ffi::c_void, option: u16, value: *mut ::core::ffi::c_void) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLGetStmtOption(statementhandle: *mut ::core::ffi::c_void, option: u16, value: *mut ::core::ffi::c_void) -> i16;
-        }
-        ::core::mem::transmute(SQLGetStmtOption(::core::mem::transmute(statementhandle), ::core::mem::transmute(option), ::core::mem::transmute(value)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLGetStmtOption(statementhandle: *mut ::core::ffi::c_void, option: u16, value: *mut ::core::ffi::c_void) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLGetStmtOption(::core::mem::transmute(statementhandle), ::core::mem::transmute(option), ::core::mem::transmute(value)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetTypeInfo(statementhandle: *mut ::core::ffi::c_void, datatype: i16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLGetTypeInfo(statementhandle: *mut ::core::ffi::c_void, datatype: i16) -> i16;
-        }
-        ::core::mem::transmute(SQLGetTypeInfo(::core::mem::transmute(statementhandle), ::core::mem::transmute(datatype)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLGetTypeInfo(statementhandle: *mut ::core::ffi::c_void, datatype: i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLGetTypeInfo(::core::mem::transmute(statementhandle), ::core::mem::transmute(datatype)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetTypeInfoA(statementhandle: *mut ::core::ffi::c_void, datatype: i16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLGetTypeInfoA(statementhandle: *mut ::core::ffi::c_void, datatype: i16) -> i16;
-        }
-        ::core::mem::transmute(SQLGetTypeInfoA(::core::mem::transmute(statementhandle), ::core::mem::transmute(datatype)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLGetTypeInfoA(statementhandle: *mut ::core::ffi::c_void, datatype: i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLGetTypeInfoA(::core::mem::transmute(statementhandle), ::core::mem::transmute(datatype)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLGetTypeInfoW(statementhandle: *mut ::core::ffi::c_void, datatype: i16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLGetTypeInfoW(statementhandle: *mut ::core::ffi::c_void, datatype: i16) -> i16;
-        }
-        ::core::mem::transmute(SQLGetTypeInfoW(::core::mem::transmute(statementhandle), ::core::mem::transmute(datatype)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLGetTypeInfoW(statementhandle: *mut ::core::ffi::c_void, datatype: i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLGetTypeInfoW(::core::mem::transmute(statementhandle), ::core::mem::transmute(datatype)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const SQLIMAGE: u32 = 34u32;
@@ -27406,58 +26801,38 @@ pub const SQLINTN: u32 = 38u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SQLInitEnumServers<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pwchservername: Param0, pwchinstancename: Param1) -> super::super::Foundation::HANDLE {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLInitEnumServers(pwchservername: ::windows::core::PCWSTR, pwchinstancename: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
-        }
-        ::core::mem::transmute(SQLInitEnumServers(pwchservername.into_param().abi(), pwchinstancename.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLInitEnumServers(pwchservername: ::windows::core::PCWSTR, pwchinstancename: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLInitEnumServers(pwchservername.into_param().abi(), pwchinstancename.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLLinkedCatalogsA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: *mut ::core::ffi::c_void, param1: Param1, param2: i16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLLinkedCatalogsA(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCSTR, param2: i16) -> i16;
-        }
-        ::core::mem::transmute(SQLLinkedCatalogsA(::core::mem::transmute(param0), param1.into_param().abi(), ::core::mem::transmute(param2)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLLinkedCatalogsA(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCSTR, param2: i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLLinkedCatalogsA(::core::mem::transmute(param0), param1.into_param().abi(), ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLLinkedCatalogsW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(param0: *mut ::core::ffi::c_void, param1: Param1, param2: i16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLLinkedCatalogsW(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCWSTR, param2: i16) -> i16;
-        }
-        ::core::mem::transmute(SQLLinkedCatalogsW(::core::mem::transmute(param0), param1.into_param().abi(), ::core::mem::transmute(param2)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLLinkedCatalogsW(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCWSTR, param2: i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLLinkedCatalogsW(::core::mem::transmute(param0), param1.into_param().abi(), ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLLinkedServers(param0: *mut ::core::ffi::c_void) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLLinkedServers(param0: *mut ::core::ffi::c_void) -> i16;
-        }
-        ::core::mem::transmute(SQLLinkedServers(::core::mem::transmute(param0)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLLinkedServers(param0: *mut ::core::ffi::c_void) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLLinkedServers(::core::mem::transmute(param0)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const SQLMONEY: u32 = 60u32;
@@ -27468,16 +26843,11 @@ pub const SQLMONEYN: u32 = 110u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLMoreResults(hstmt: *mut ::core::ffi::c_void) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLMoreResults(hstmt: *mut ::core::ffi::c_void) -> i16;
-        }
-        ::core::mem::transmute(SQLMoreResults(::core::mem::transmute(hstmt)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLMoreResults(hstmt: *mut ::core::ffi::c_void) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLMoreResults(::core::mem::transmute(hstmt)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const SQLNCHAR: u32 = 239u32;
@@ -27492,922 +26862,602 @@ pub const SQLNVARCHAR: u32 = 231u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLNativeSql(hdbc: *mut ::core::ffi::c_void, szsqlstrin: &[u8], szsqlstr: &mut [u8], pcbsqlstr: *mut i32) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLNativeSql(hdbc: *mut ::core::ffi::c_void, szsqlstrin: *const u8, cchsqlstrin: i32, szsqlstr: *mut u8, cchsqlstrmax: i32, pcbsqlstr: *mut i32) -> i16;
-        }
-        ::core::mem::transmute(SQLNativeSql(::core::mem::transmute(hdbc), ::core::mem::transmute(::windows::core::as_ptr_or_null(szsqlstrin)), szsqlstrin.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szsqlstr)), szsqlstr.len() as _, ::core::mem::transmute(pcbsqlstr)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLNativeSql(hdbc: *mut ::core::ffi::c_void, szsqlstrin: *const u8, cchsqlstrin: i32, szsqlstr: *mut u8, cchsqlstrmax: i32, pcbsqlstr: *mut i32) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLNativeSql(::core::mem::transmute(hdbc), ::core::mem::transmute(::windows::core::as_ptr_or_null(szsqlstrin)), szsqlstrin.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szsqlstr)), szsqlstr.len() as _, ::core::mem::transmute(pcbsqlstr)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLNativeSqlA(hdbc: *mut ::core::ffi::c_void, szsqlstrin: &[u8], szsqlstr: &mut [u8], pcbsqlstr: *mut i32) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLNativeSqlA(hdbc: *mut ::core::ffi::c_void, szsqlstrin: *const u8, cbsqlstrin: i32, szsqlstr: *mut u8, cbsqlstrmax: i32, pcbsqlstr: *mut i32) -> i16;
-        }
-        ::core::mem::transmute(SQLNativeSqlA(::core::mem::transmute(hdbc), ::core::mem::transmute(::windows::core::as_ptr_or_null(szsqlstrin)), szsqlstrin.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szsqlstr)), szsqlstr.len() as _, ::core::mem::transmute(pcbsqlstr)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLNativeSqlA(hdbc: *mut ::core::ffi::c_void, szsqlstrin: *const u8, cbsqlstrin: i32, szsqlstr: *mut u8, cbsqlstrmax: i32, pcbsqlstr: *mut i32) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLNativeSqlA(::core::mem::transmute(hdbc), ::core::mem::transmute(::windows::core::as_ptr_or_null(szsqlstrin)), szsqlstrin.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szsqlstr)), szsqlstr.len() as _, ::core::mem::transmute(pcbsqlstr)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLNativeSqlW(hdbc: *mut ::core::ffi::c_void, szsqlstrin: &[u16], szsqlstr: &mut [u16], pcchsqlstr: *mut i32) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLNativeSqlW(hdbc: *mut ::core::ffi::c_void, szsqlstrin: *const u16, cchsqlstrin: i32, szsqlstr: *mut u16, cchsqlstrmax: i32, pcchsqlstr: *mut i32) -> i16;
-        }
-        ::core::mem::transmute(SQLNativeSqlW(::core::mem::transmute(hdbc), ::core::mem::transmute(::windows::core::as_ptr_or_null(szsqlstrin)), szsqlstrin.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szsqlstr)), szsqlstr.len() as _, ::core::mem::transmute(pcchsqlstr)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLNativeSqlW(hdbc: *mut ::core::ffi::c_void, szsqlstrin: *const u16, cchsqlstrin: i32, szsqlstr: *mut u16, cchsqlstrmax: i32, pcchsqlstr: *mut i32) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLNativeSqlW(::core::mem::transmute(hdbc), ::core::mem::transmute(::windows::core::as_ptr_or_null(szsqlstrin)), szsqlstrin.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szsqlstr)), szsqlstr.len() as _, ::core::mem::transmute(pcchsqlstr)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLNumParams(hstmt: *mut ::core::ffi::c_void, pcpar: *mut i16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLNumParams(hstmt: *mut ::core::ffi::c_void, pcpar: *mut i16) -> i16;
-        }
-        ::core::mem::transmute(SQLNumParams(::core::mem::transmute(hstmt), ::core::mem::transmute(pcpar)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLNumParams(hstmt: *mut ::core::ffi::c_void, pcpar: *mut i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLNumParams(::core::mem::transmute(hstmt), ::core::mem::transmute(pcpar)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLNumResultCols(statementhandle: *mut ::core::ffi::c_void, columncount: *mut i16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLNumResultCols(statementhandle: *mut ::core::ffi::c_void, columncount: *mut i16) -> i16;
-        }
-        ::core::mem::transmute(SQLNumResultCols(::core::mem::transmute(statementhandle), ::core::mem::transmute(columncount)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLNumResultCols(statementhandle: *mut ::core::ffi::c_void, columncount: *mut i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLNumResultCols(::core::mem::transmute(statementhandle), ::core::mem::transmute(columncount)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLParamData(statementhandle: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLParamData(statementhandle: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> i16;
-        }
-        ::core::mem::transmute(SQLParamData(::core::mem::transmute(statementhandle), ::core::mem::transmute(value)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLParamData(statementhandle: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLParamData(::core::mem::transmute(statementhandle), ::core::mem::transmute(value)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLParamOptions(hstmt: *mut ::core::ffi::c_void, crow: u64, pirow: *mut u64) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLParamOptions(hstmt: *mut ::core::ffi::c_void, crow: u64, pirow: *mut u64) -> i16;
-        }
-        ::core::mem::transmute(SQLParamOptions(::core::mem::transmute(hstmt), ::core::mem::transmute(crow), ::core::mem::transmute(pirow)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLParamOptions(hstmt: *mut ::core::ffi::c_void, crow: u64, pirow: *mut u64) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLParamOptions(::core::mem::transmute(hstmt), ::core::mem::transmute(crow), ::core::mem::transmute(pirow)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLParamOptions(hstmt: *mut ::core::ffi::c_void, crow: u32, pirow: *mut u32) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLParamOptions(hstmt: *mut ::core::ffi::c_void, crow: u32, pirow: *mut u32) -> i16;
-        }
-        ::core::mem::transmute(SQLParamOptions(::core::mem::transmute(hstmt), ::core::mem::transmute(crow), ::core::mem::transmute(pirow)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLParamOptions(hstmt: *mut ::core::ffi::c_void, crow: u32, pirow: *mut u32) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLParamOptions(::core::mem::transmute(hstmt), ::core::mem::transmute(crow), ::core::mem::transmute(pirow)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLPrepare(statementhandle: *mut ::core::ffi::c_void, statementtext: &[u8]) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLPrepare(statementhandle: *mut ::core::ffi::c_void, statementtext: *const u8, textlength: i32) -> i16;
-        }
-        ::core::mem::transmute(SQLPrepare(::core::mem::transmute(statementhandle), ::core::mem::transmute(::windows::core::as_ptr_or_null(statementtext)), statementtext.len() as _))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLPrepare(statementhandle: *mut ::core::ffi::c_void, statementtext: *const u8, textlength: i32) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLPrepare(::core::mem::transmute(statementhandle), ::core::mem::transmute(::windows::core::as_ptr_or_null(statementtext)), statementtext.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLPrepareA(hstmt: *mut ::core::ffi::c_void, szsqlstr: &[u8]) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLPrepareA(hstmt: *mut ::core::ffi::c_void, szsqlstr: *const u8, cbsqlstr: i32) -> i16;
-        }
-        ::core::mem::transmute(SQLPrepareA(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szsqlstr)), szsqlstr.len() as _))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLPrepareA(hstmt: *mut ::core::ffi::c_void, szsqlstr: *const u8, cbsqlstr: i32) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLPrepareA(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szsqlstr)), szsqlstr.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLPrepareW(hstmt: *mut ::core::ffi::c_void, szsqlstr: &[u16]) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLPrepareW(hstmt: *mut ::core::ffi::c_void, szsqlstr: *const u16, cchsqlstr: i32) -> i16;
-        }
-        ::core::mem::transmute(SQLPrepareW(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szsqlstr)), szsqlstr.len() as _))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLPrepareW(hstmt: *mut ::core::ffi::c_void, szsqlstr: *const u16, cchsqlstr: i32) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLPrepareW(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szsqlstr)), szsqlstr.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLPrimaryKeys(hstmt: *mut ::core::ffi::c_void, szcatalogname: &[u8], szschemaname: &[u8], sztablename: &[u8]) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLPrimaryKeys(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cchcatalogname: i16, szschemaname: *const u8, cchschemaname: i16, sztablename: *const u8, cchtablename: i16) -> i16;
-        }
-        ::core::mem::transmute(SQLPrimaryKeys(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztablename)), sztablename.len() as _))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLPrimaryKeys(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cchcatalogname: i16, szschemaname: *const u8, cchschemaname: i16, sztablename: *const u8, cchtablename: i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLPrimaryKeys(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztablename)), sztablename.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLPrimaryKeysA(hstmt: *mut ::core::ffi::c_void, szcatalogname: &[u8], szschemaname: &[u8], sztablename: &[u8]) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLPrimaryKeysA(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cbcatalogname: i16, szschemaname: *const u8, cbschemaname: i16, sztablename: *const u8, cbtablename: i16) -> i16;
-        }
-        ::core::mem::transmute(SQLPrimaryKeysA(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztablename)), sztablename.len() as _))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLPrimaryKeysA(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cbcatalogname: i16, szschemaname: *const u8, cbschemaname: i16, sztablename: *const u8, cbtablename: i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLPrimaryKeysA(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztablename)), sztablename.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLPrimaryKeysW(hstmt: *mut ::core::ffi::c_void, szcatalogname: &[u16], szschemaname: &[u16], sztablename: &[u16]) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLPrimaryKeysW(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u16, cchcatalogname: i16, szschemaname: *const u16, cchschemaname: i16, sztablename: *const u16, cchtablename: i16) -> i16;
-        }
-        ::core::mem::transmute(SQLPrimaryKeysW(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztablename)), sztablename.len() as _))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLPrimaryKeysW(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u16, cchcatalogname: i16, szschemaname: *const u16, cchschemaname: i16, sztablename: *const u16, cchtablename: i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLPrimaryKeysW(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztablename)), sztablename.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLProcedureColumns(hstmt: *mut ::core::ffi::c_void, szcatalogname: &[u8], szschemaname: &[u8], szprocname: &[u8], szcolumnname: &[u8]) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLProcedureColumns(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cchcatalogname: i16, szschemaname: *const u8, cchschemaname: i16, szprocname: *const u8, cchprocname: i16, szcolumnname: *const u8, cchcolumnname: i16) -> i16;
-        }
-        ::core::mem::transmute(SQLProcedureColumns(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szprocname)), szprocname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szcolumnname)), szcolumnname.len() as _))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLProcedureColumns(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cchcatalogname: i16, szschemaname: *const u8, cchschemaname: i16, szprocname: *const u8, cchprocname: i16, szcolumnname: *const u8, cchcolumnname: i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLProcedureColumns(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szprocname)), szprocname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szcolumnname)), szcolumnname.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLProcedureColumnsA(hstmt: *mut ::core::ffi::c_void, szcatalogname: &[u8], szschemaname: &[u8], szprocname: &[u8], szcolumnname: &[u8]) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLProcedureColumnsA(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cbcatalogname: i16, szschemaname: *const u8, cbschemaname: i16, szprocname: *const u8, cbprocname: i16, szcolumnname: *const u8, cbcolumnname: i16) -> i16;
-        }
-        ::core::mem::transmute(SQLProcedureColumnsA(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szprocname)), szprocname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szcolumnname)), szcolumnname.len() as _))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLProcedureColumnsA(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cbcatalogname: i16, szschemaname: *const u8, cbschemaname: i16, szprocname: *const u8, cbprocname: i16, szcolumnname: *const u8, cbcolumnname: i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLProcedureColumnsA(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szprocname)), szprocname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szcolumnname)), szcolumnname.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLProcedureColumnsW(hstmt: *mut ::core::ffi::c_void, szcatalogname: &[u16], szschemaname: &[u16], szprocname: &[u16], szcolumnname: &[u16]) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLProcedureColumnsW(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u16, cchcatalogname: i16, szschemaname: *const u16, cchschemaname: i16, szprocname: *const u16, cchprocname: i16, szcolumnname: *const u16, cchcolumnname: i16) -> i16;
-        }
-        ::core::mem::transmute(SQLProcedureColumnsW(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szprocname)), szprocname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szcolumnname)), szcolumnname.len() as _))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLProcedureColumnsW(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u16, cchcatalogname: i16, szschemaname: *const u16, cchschemaname: i16, szprocname: *const u16, cchprocname: i16, szcolumnname: *const u16, cchcolumnname: i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLProcedureColumnsW(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szprocname)), szprocname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szcolumnname)), szcolumnname.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLProcedures(hstmt: *mut ::core::ffi::c_void, szcatalogname: &[u8], szschemaname: &[u8], szprocname: &[u8]) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLProcedures(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cchcatalogname: i16, szschemaname: *const u8, cchschemaname: i16, szprocname: *const u8, cchprocname: i16) -> i16;
-        }
-        ::core::mem::transmute(SQLProcedures(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szprocname)), szprocname.len() as _))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLProcedures(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cchcatalogname: i16, szschemaname: *const u8, cchschemaname: i16, szprocname: *const u8, cchprocname: i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLProcedures(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szprocname)), szprocname.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLProceduresA(hstmt: *mut ::core::ffi::c_void, szcatalogname: &[u8], szschemaname: &[u8], szprocname: &[u8]) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLProceduresA(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cbcatalogname: i16, szschemaname: *const u8, cbschemaname: i16, szprocname: *const u8, cbprocname: i16) -> i16;
-        }
-        ::core::mem::transmute(SQLProceduresA(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szprocname)), szprocname.len() as _))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLProceduresA(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cbcatalogname: i16, szschemaname: *const u8, cbschemaname: i16, szprocname: *const u8, cbprocname: i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLProceduresA(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szprocname)), szprocname.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLProceduresW(hstmt: *mut ::core::ffi::c_void, szcatalogname: &[u16], szschemaname: &[u16], szprocname: &[u16]) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLProceduresW(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u16, cchcatalogname: i16, szschemaname: *const u16, cchschemaname: i16, szprocname: *const u16, cchprocname: i16) -> i16;
-        }
-        ::core::mem::transmute(SQLProceduresW(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szprocname)), szprocname.len() as _))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLProceduresW(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u16, cchcatalogname: i16, szschemaname: *const u16, cchschemaname: i16, szprocname: *const u16, cchprocname: i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLProceduresW(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szprocname)), szprocname.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLPutData(statementhandle: *mut ::core::ffi::c_void, data: *const ::core::ffi::c_void, strlen_or_ind: i64) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLPutData(statementhandle: *mut ::core::ffi::c_void, data: *const ::core::ffi::c_void, strlen_or_ind: i64) -> i16;
-        }
-        ::core::mem::transmute(SQLPutData(::core::mem::transmute(statementhandle), ::core::mem::transmute(data), ::core::mem::transmute(strlen_or_ind)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLPutData(statementhandle: *mut ::core::ffi::c_void, data: *const ::core::ffi::c_void, strlen_or_ind: i64) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLPutData(::core::mem::transmute(statementhandle), ::core::mem::transmute(data), ::core::mem::transmute(strlen_or_ind)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLPutData(statementhandle: *mut ::core::ffi::c_void, data: *const ::core::ffi::c_void, strlen_or_ind: i32) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLPutData(statementhandle: *mut ::core::ffi::c_void, data: *const ::core::ffi::c_void, strlen_or_ind: i32) -> i16;
-        }
-        ::core::mem::transmute(SQLPutData(::core::mem::transmute(statementhandle), ::core::mem::transmute(data), ::core::mem::transmute(strlen_or_ind)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLPutData(statementhandle: *mut ::core::ffi::c_void, data: *const ::core::ffi::c_void, strlen_or_ind: i32) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLPutData(::core::mem::transmute(statementhandle), ::core::mem::transmute(data), ::core::mem::transmute(strlen_or_ind)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLRowCount(statementhandle: *const ::core::ffi::c_void, rowcount: *mut i64) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLRowCount(statementhandle: *const ::core::ffi::c_void, rowcount: *mut i64) -> i16;
-        }
-        ::core::mem::transmute(SQLRowCount(::core::mem::transmute(statementhandle), ::core::mem::transmute(rowcount)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLRowCount(statementhandle: *const ::core::ffi::c_void, rowcount: *mut i64) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLRowCount(::core::mem::transmute(statementhandle), ::core::mem::transmute(rowcount)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLRowCount(statementhandle: *const ::core::ffi::c_void, rowcount: *mut i32) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLRowCount(statementhandle: *const ::core::ffi::c_void, rowcount: *mut i32) -> i16;
-        }
-        ::core::mem::transmute(SQLRowCount(::core::mem::transmute(statementhandle), ::core::mem::transmute(rowcount)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLRowCount(statementhandle: *const ::core::ffi::c_void, rowcount: *mut i32) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLRowCount(::core::mem::transmute(statementhandle), ::core::mem::transmute(rowcount)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLSetConnectAttr(connectionhandle: *mut ::core::ffi::c_void, attribute: i32, value: *const ::core::ffi::c_void, stringlength: i32) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLSetConnectAttr(connectionhandle: *mut ::core::ffi::c_void, attribute: i32, value: *const ::core::ffi::c_void, stringlength: i32) -> i16;
-        }
-        ::core::mem::transmute(SQLSetConnectAttr(::core::mem::transmute(connectionhandle), ::core::mem::transmute(attribute), ::core::mem::transmute(value), ::core::mem::transmute(stringlength)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLSetConnectAttr(connectionhandle: *mut ::core::ffi::c_void, attribute: i32, value: *const ::core::ffi::c_void, stringlength: i32) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLSetConnectAttr(::core::mem::transmute(connectionhandle), ::core::mem::transmute(attribute), ::core::mem::transmute(value), ::core::mem::transmute(stringlength)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLSetConnectAttrA(hdbc: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *const ::core::ffi::c_void, cbvalue: i32) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLSetConnectAttrA(hdbc: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *const ::core::ffi::c_void, cbvalue: i32) -> i16;
-        }
-        ::core::mem::transmute(SQLSetConnectAttrA(::core::mem::transmute(hdbc), ::core::mem::transmute(fattribute), ::core::mem::transmute(rgbvalue), ::core::mem::transmute(cbvalue)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLSetConnectAttrA(hdbc: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *const ::core::ffi::c_void, cbvalue: i32) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLSetConnectAttrA(::core::mem::transmute(hdbc), ::core::mem::transmute(fattribute), ::core::mem::transmute(rgbvalue), ::core::mem::transmute(cbvalue)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLSetConnectAttrW(hdbc: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *const ::core::ffi::c_void, cbvalue: i32) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLSetConnectAttrW(hdbc: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *const ::core::ffi::c_void, cbvalue: i32) -> i16;
-        }
-        ::core::mem::transmute(SQLSetConnectAttrW(::core::mem::transmute(hdbc), ::core::mem::transmute(fattribute), ::core::mem::transmute(rgbvalue), ::core::mem::transmute(cbvalue)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLSetConnectAttrW(hdbc: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *const ::core::ffi::c_void, cbvalue: i32) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLSetConnectAttrW(::core::mem::transmute(hdbc), ::core::mem::transmute(fattribute), ::core::mem::transmute(rgbvalue), ::core::mem::transmute(cbvalue)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLSetConnectOption(connectionhandle: *mut ::core::ffi::c_void, option: u16, value: u64) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLSetConnectOption(connectionhandle: *mut ::core::ffi::c_void, option: u16, value: u64) -> i16;
-        }
-        ::core::mem::transmute(SQLSetConnectOption(::core::mem::transmute(connectionhandle), ::core::mem::transmute(option), ::core::mem::transmute(value)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLSetConnectOption(connectionhandle: *mut ::core::ffi::c_void, option: u16, value: u64) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLSetConnectOption(::core::mem::transmute(connectionhandle), ::core::mem::transmute(option), ::core::mem::transmute(value)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLSetConnectOption(connectionhandle: *mut ::core::ffi::c_void, option: u16, value: u32) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLSetConnectOption(connectionhandle: *mut ::core::ffi::c_void, option: u16, value: u32) -> i16;
-        }
-        ::core::mem::transmute(SQLSetConnectOption(::core::mem::transmute(connectionhandle), ::core::mem::transmute(option), ::core::mem::transmute(value)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLSetConnectOption(connectionhandle: *mut ::core::ffi::c_void, option: u16, value: u32) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLSetConnectOption(::core::mem::transmute(connectionhandle), ::core::mem::transmute(option), ::core::mem::transmute(value)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLSetConnectOptionA(hdbc: *mut ::core::ffi::c_void, foption: u16, vparam: u64) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLSetConnectOptionA(hdbc: *mut ::core::ffi::c_void, foption: u16, vparam: u64) -> i16;
-        }
-        ::core::mem::transmute(SQLSetConnectOptionA(::core::mem::transmute(hdbc), ::core::mem::transmute(foption), ::core::mem::transmute(vparam)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLSetConnectOptionA(hdbc: *mut ::core::ffi::c_void, foption: u16, vparam: u64) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLSetConnectOptionA(::core::mem::transmute(hdbc), ::core::mem::transmute(foption), ::core::mem::transmute(vparam)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLSetConnectOptionA(hdbc: *mut ::core::ffi::c_void, foption: u16, vparam: u32) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLSetConnectOptionA(hdbc: *mut ::core::ffi::c_void, foption: u16, vparam: u32) -> i16;
-        }
-        ::core::mem::transmute(SQLSetConnectOptionA(::core::mem::transmute(hdbc), ::core::mem::transmute(foption), ::core::mem::transmute(vparam)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLSetConnectOptionA(hdbc: *mut ::core::ffi::c_void, foption: u16, vparam: u32) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLSetConnectOptionA(::core::mem::transmute(hdbc), ::core::mem::transmute(foption), ::core::mem::transmute(vparam)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLSetConnectOptionW(hdbc: *mut ::core::ffi::c_void, foption: u16, vparam: u64) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLSetConnectOptionW(hdbc: *mut ::core::ffi::c_void, foption: u16, vparam: u64) -> i16;
-        }
-        ::core::mem::transmute(SQLSetConnectOptionW(::core::mem::transmute(hdbc), ::core::mem::transmute(foption), ::core::mem::transmute(vparam)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLSetConnectOptionW(hdbc: *mut ::core::ffi::c_void, foption: u16, vparam: u64) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLSetConnectOptionW(::core::mem::transmute(hdbc), ::core::mem::transmute(foption), ::core::mem::transmute(vparam)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLSetConnectOptionW(hdbc: *mut ::core::ffi::c_void, foption: u16, vparam: u32) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLSetConnectOptionW(hdbc: *mut ::core::ffi::c_void, foption: u16, vparam: u32) -> i16;
-        }
-        ::core::mem::transmute(SQLSetConnectOptionW(::core::mem::transmute(hdbc), ::core::mem::transmute(foption), ::core::mem::transmute(vparam)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLSetConnectOptionW(hdbc: *mut ::core::ffi::c_void, foption: u16, vparam: u32) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLSetConnectOptionW(::core::mem::transmute(hdbc), ::core::mem::transmute(foption), ::core::mem::transmute(vparam)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLSetCursorName(statementhandle: *mut ::core::ffi::c_void, cursorname: &[u8]) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLSetCursorName(statementhandle: *mut ::core::ffi::c_void, cursorname: *const u8, namelength: i16) -> i16;
-        }
-        ::core::mem::transmute(SQLSetCursorName(::core::mem::transmute(statementhandle), ::core::mem::transmute(::windows::core::as_ptr_or_null(cursorname)), cursorname.len() as _))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLSetCursorName(statementhandle: *mut ::core::ffi::c_void, cursorname: *const u8, namelength: i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLSetCursorName(::core::mem::transmute(statementhandle), ::core::mem::transmute(::windows::core::as_ptr_or_null(cursorname)), cursorname.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLSetCursorNameA(hstmt: *mut ::core::ffi::c_void, szcursor: &[u8]) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLSetCursorNameA(hstmt: *mut ::core::ffi::c_void, szcursor: *const u8, cbcursor: i16) -> i16;
-        }
-        ::core::mem::transmute(SQLSetCursorNameA(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcursor)), szcursor.len() as _))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLSetCursorNameA(hstmt: *mut ::core::ffi::c_void, szcursor: *const u8, cbcursor: i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLSetCursorNameA(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcursor)), szcursor.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLSetCursorNameW(hstmt: *mut ::core::ffi::c_void, szcursor: &[u16]) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLSetCursorNameW(hstmt: *mut ::core::ffi::c_void, szcursor: *const u16, cchcursor: i16) -> i16;
-        }
-        ::core::mem::transmute(SQLSetCursorNameW(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcursor)), szcursor.len() as _))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLSetCursorNameW(hstmt: *mut ::core::ffi::c_void, szcursor: *const u16, cchcursor: i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLSetCursorNameW(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcursor)), szcursor.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLSetDescField(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, fieldidentifier: i16, value: *const ::core::ffi::c_void, bufferlength: i32) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLSetDescField(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, fieldidentifier: i16, value: *const ::core::ffi::c_void, bufferlength: i32) -> i16;
-        }
-        ::core::mem::transmute(SQLSetDescField(::core::mem::transmute(descriptorhandle), ::core::mem::transmute(recnumber), ::core::mem::transmute(fieldidentifier), ::core::mem::transmute(value), ::core::mem::transmute(bufferlength)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLSetDescField(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, fieldidentifier: i16, value: *const ::core::ffi::c_void, bufferlength: i32) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLSetDescField(::core::mem::transmute(descriptorhandle), ::core::mem::transmute(recnumber), ::core::mem::transmute(fieldidentifier), ::core::mem::transmute(value), ::core::mem::transmute(bufferlength)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLSetDescFieldW(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, fieldidentifier: i16, value: *mut ::core::ffi::c_void, bufferlength: i32) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLSetDescFieldW(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, fieldidentifier: i16, value: *mut ::core::ffi::c_void, bufferlength: i32) -> i16;
-        }
-        ::core::mem::transmute(SQLSetDescFieldW(::core::mem::transmute(descriptorhandle), ::core::mem::transmute(recnumber), ::core::mem::transmute(fieldidentifier), ::core::mem::transmute(value), ::core::mem::transmute(bufferlength)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLSetDescFieldW(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, fieldidentifier: i16, value: *mut ::core::ffi::c_void, bufferlength: i32) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLSetDescFieldW(::core::mem::transmute(descriptorhandle), ::core::mem::transmute(recnumber), ::core::mem::transmute(fieldidentifier), ::core::mem::transmute(value), ::core::mem::transmute(bufferlength)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLSetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, r#type: i16, subtype: i16, length: i64, precision: i16, scale: i16, data: *mut ::core::ffi::c_void, stringlength: *mut i64, indicator: *mut i64) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLSetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, r#type: i16, subtype: i16, length: i64, precision: i16, scale: i16, data: *mut ::core::ffi::c_void, stringlength: *mut i64, indicator: *mut i64) -> i16;
-        }
-        ::core::mem::transmute(SQLSetDescRec(::core::mem::transmute(descriptorhandle), ::core::mem::transmute(recnumber), ::core::mem::transmute(r#type), ::core::mem::transmute(subtype), ::core::mem::transmute(length), ::core::mem::transmute(precision), ::core::mem::transmute(scale), ::core::mem::transmute(data), ::core::mem::transmute(stringlength), ::core::mem::transmute(indicator)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLSetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, r#type: i16, subtype: i16, length: i64, precision: i16, scale: i16, data: *mut ::core::ffi::c_void, stringlength: *mut i64, indicator: *mut i64) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLSetDescRec(::core::mem::transmute(descriptorhandle), ::core::mem::transmute(recnumber), ::core::mem::transmute(r#type), ::core::mem::transmute(subtype), ::core::mem::transmute(length), ::core::mem::transmute(precision), ::core::mem::transmute(scale), ::core::mem::transmute(data), ::core::mem::transmute(stringlength), ::core::mem::transmute(indicator)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLSetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, r#type: i16, subtype: i16, length: i32, precision: i16, scale: i16, data: *mut ::core::ffi::c_void, stringlength: *mut i32, indicator: *mut i32) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLSetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, r#type: i16, subtype: i16, length: i32, precision: i16, scale: i16, data: *mut ::core::ffi::c_void, stringlength: *mut i32, indicator: *mut i32) -> i16;
-        }
-        ::core::mem::transmute(SQLSetDescRec(::core::mem::transmute(descriptorhandle), ::core::mem::transmute(recnumber), ::core::mem::transmute(r#type), ::core::mem::transmute(subtype), ::core::mem::transmute(length), ::core::mem::transmute(precision), ::core::mem::transmute(scale), ::core::mem::transmute(data), ::core::mem::transmute(stringlength), ::core::mem::transmute(indicator)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLSetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, r#type: i16, subtype: i16, length: i32, precision: i16, scale: i16, data: *mut ::core::ffi::c_void, stringlength: *mut i32, indicator: *mut i32) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLSetDescRec(::core::mem::transmute(descriptorhandle), ::core::mem::transmute(recnumber), ::core::mem::transmute(r#type), ::core::mem::transmute(subtype), ::core::mem::transmute(length), ::core::mem::transmute(precision), ::core::mem::transmute(scale), ::core::mem::transmute(data), ::core::mem::transmute(stringlength), ::core::mem::transmute(indicator)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLSetEnvAttr(environmenthandle: *mut ::core::ffi::c_void, attribute: i32, value: *const ::core::ffi::c_void, stringlength: i32) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLSetEnvAttr(environmenthandle: *mut ::core::ffi::c_void, attribute: i32, value: *const ::core::ffi::c_void, stringlength: i32) -> i16;
-        }
-        ::core::mem::transmute(SQLSetEnvAttr(::core::mem::transmute(environmenthandle), ::core::mem::transmute(attribute), ::core::mem::transmute(value), ::core::mem::transmute(stringlength)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLSetEnvAttr(environmenthandle: *mut ::core::ffi::c_void, attribute: i32, value: *const ::core::ffi::c_void, stringlength: i32) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLSetEnvAttr(::core::mem::transmute(environmenthandle), ::core::mem::transmute(attribute), ::core::mem::transmute(value), ::core::mem::transmute(stringlength)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLSetParam(statementhandle: *mut ::core::ffi::c_void, parameternumber: u16, valuetype: i16, parametertype: i16, lengthprecision: u64, parameterscale: i16, parametervalue: *const ::core::ffi::c_void, strlen_or_ind: *mut i64) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLSetParam(statementhandle: *mut ::core::ffi::c_void, parameternumber: u16, valuetype: i16, parametertype: i16, lengthprecision: u64, parameterscale: i16, parametervalue: *const ::core::ffi::c_void, strlen_or_ind: *mut i64) -> i16;
-        }
-        ::core::mem::transmute(SQLSetParam(::core::mem::transmute(statementhandle), ::core::mem::transmute(parameternumber), ::core::mem::transmute(valuetype), ::core::mem::transmute(parametertype), ::core::mem::transmute(lengthprecision), ::core::mem::transmute(parameterscale), ::core::mem::transmute(parametervalue), ::core::mem::transmute(strlen_or_ind)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLSetParam(statementhandle: *mut ::core::ffi::c_void, parameternumber: u16, valuetype: i16, parametertype: i16, lengthprecision: u64, parameterscale: i16, parametervalue: *const ::core::ffi::c_void, strlen_or_ind: *mut i64) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLSetParam(::core::mem::transmute(statementhandle), ::core::mem::transmute(parameternumber), ::core::mem::transmute(valuetype), ::core::mem::transmute(parametertype), ::core::mem::transmute(lengthprecision), ::core::mem::transmute(parameterscale), ::core::mem::transmute(parametervalue), ::core::mem::transmute(strlen_or_ind)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLSetParam(statementhandle: *mut ::core::ffi::c_void, parameternumber: u16, valuetype: i16, parametertype: i16, lengthprecision: u32, parameterscale: i16, parametervalue: *const ::core::ffi::c_void, strlen_or_ind: *mut i32) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLSetParam(statementhandle: *mut ::core::ffi::c_void, parameternumber: u16, valuetype: i16, parametertype: i16, lengthprecision: u32, parameterscale: i16, parametervalue: *const ::core::ffi::c_void, strlen_or_ind: *mut i32) -> i16;
-        }
-        ::core::mem::transmute(SQLSetParam(::core::mem::transmute(statementhandle), ::core::mem::transmute(parameternumber), ::core::mem::transmute(valuetype), ::core::mem::transmute(parametertype), ::core::mem::transmute(lengthprecision), ::core::mem::transmute(parameterscale), ::core::mem::transmute(parametervalue), ::core::mem::transmute(strlen_or_ind)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLSetParam(statementhandle: *mut ::core::ffi::c_void, parameternumber: u16, valuetype: i16, parametertype: i16, lengthprecision: u32, parameterscale: i16, parametervalue: *const ::core::ffi::c_void, strlen_or_ind: *mut i32) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLSetParam(::core::mem::transmute(statementhandle), ::core::mem::transmute(parameternumber), ::core::mem::transmute(valuetype), ::core::mem::transmute(parametertype), ::core::mem::transmute(lengthprecision), ::core::mem::transmute(parameterscale), ::core::mem::transmute(parametervalue), ::core::mem::transmute(strlen_or_ind)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLSetPos(hstmt: *mut ::core::ffi::c_void, irow: u64, foption: u16, flock: u16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLSetPos(hstmt: *mut ::core::ffi::c_void, irow: u64, foption: u16, flock: u16) -> i16;
-        }
-        ::core::mem::transmute(SQLSetPos(::core::mem::transmute(hstmt), ::core::mem::transmute(irow), ::core::mem::transmute(foption), ::core::mem::transmute(flock)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLSetPos(hstmt: *mut ::core::ffi::c_void, irow: u64, foption: u16, flock: u16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLSetPos(::core::mem::transmute(hstmt), ::core::mem::transmute(irow), ::core::mem::transmute(foption), ::core::mem::transmute(flock)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLSetPos(hstmt: *mut ::core::ffi::c_void, irow: u16, foption: u16, flock: u16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLSetPos(hstmt: *mut ::core::ffi::c_void, irow: u16, foption: u16, flock: u16) -> i16;
-        }
-        ::core::mem::transmute(SQLSetPos(::core::mem::transmute(hstmt), ::core::mem::transmute(irow), ::core::mem::transmute(foption), ::core::mem::transmute(flock)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLSetPos(hstmt: *mut ::core::ffi::c_void, irow: u16, foption: u16, flock: u16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLSetPos(::core::mem::transmute(hstmt), ::core::mem::transmute(irow), ::core::mem::transmute(foption), ::core::mem::transmute(flock)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLSetScrollOptions(hstmt: *mut ::core::ffi::c_void, fconcurrency: u16, crowkeyset: i64, crowrowset: u16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLSetScrollOptions(hstmt: *mut ::core::ffi::c_void, fconcurrency: u16, crowkeyset: i64, crowrowset: u16) -> i16;
-        }
-        ::core::mem::transmute(SQLSetScrollOptions(::core::mem::transmute(hstmt), ::core::mem::transmute(fconcurrency), ::core::mem::transmute(crowkeyset), ::core::mem::transmute(crowrowset)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLSetScrollOptions(hstmt: *mut ::core::ffi::c_void, fconcurrency: u16, crowkeyset: i64, crowrowset: u16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLSetScrollOptions(::core::mem::transmute(hstmt), ::core::mem::transmute(fconcurrency), ::core::mem::transmute(crowkeyset), ::core::mem::transmute(crowrowset)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLSetScrollOptions(hstmt: *mut ::core::ffi::c_void, fconcurrency: u16, crowkeyset: i32, crowrowset: u16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLSetScrollOptions(hstmt: *mut ::core::ffi::c_void, fconcurrency: u16, crowkeyset: i32, crowrowset: u16) -> i16;
-        }
-        ::core::mem::transmute(SQLSetScrollOptions(::core::mem::transmute(hstmt), ::core::mem::transmute(fconcurrency), ::core::mem::transmute(crowkeyset), ::core::mem::transmute(crowrowset)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLSetScrollOptions(hstmt: *mut ::core::ffi::c_void, fconcurrency: u16, crowkeyset: i32, crowrowset: u16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLSetScrollOptions(::core::mem::transmute(hstmt), ::core::mem::transmute(fconcurrency), ::core::mem::transmute(crowkeyset), ::core::mem::transmute(crowrowset)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLSetStmtAttr(statementhandle: *mut ::core::ffi::c_void, attribute: i32, value: *const ::core::ffi::c_void, stringlength: i32) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLSetStmtAttr(statementhandle: *mut ::core::ffi::c_void, attribute: i32, value: *const ::core::ffi::c_void, stringlength: i32) -> i16;
-        }
-        ::core::mem::transmute(SQLSetStmtAttr(::core::mem::transmute(statementhandle), ::core::mem::transmute(attribute), ::core::mem::transmute(value), ::core::mem::transmute(stringlength)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLSetStmtAttr(statementhandle: *mut ::core::ffi::c_void, attribute: i32, value: *const ::core::ffi::c_void, stringlength: i32) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLSetStmtAttr(::core::mem::transmute(statementhandle), ::core::mem::transmute(attribute), ::core::mem::transmute(value), ::core::mem::transmute(stringlength)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLSetStmtAttrW(hstmt: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i32) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLSetStmtAttrW(hstmt: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i32) -> i16;
-        }
-        ::core::mem::transmute(SQLSetStmtAttrW(::core::mem::transmute(hstmt), ::core::mem::transmute(fattribute), ::core::mem::transmute(rgbvalue), ::core::mem::transmute(cbvaluemax)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLSetStmtAttrW(hstmt: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i32) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLSetStmtAttrW(::core::mem::transmute(hstmt), ::core::mem::transmute(fattribute), ::core::mem::transmute(rgbvalue), ::core::mem::transmute(cbvaluemax)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLSetStmtOption(statementhandle: *mut ::core::ffi::c_void, option: u16, value: u64) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLSetStmtOption(statementhandle: *mut ::core::ffi::c_void, option: u16, value: u64) -> i16;
-        }
-        ::core::mem::transmute(SQLSetStmtOption(::core::mem::transmute(statementhandle), ::core::mem::transmute(option), ::core::mem::transmute(value)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLSetStmtOption(statementhandle: *mut ::core::ffi::c_void, option: u16, value: u64) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLSetStmtOption(::core::mem::transmute(statementhandle), ::core::mem::transmute(option), ::core::mem::transmute(value)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLSetStmtOption(statementhandle: *mut ::core::ffi::c_void, option: u16, value: u32) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLSetStmtOption(statementhandle: *mut ::core::ffi::c_void, option: u16, value: u32) -> i16;
-        }
-        ::core::mem::transmute(SQLSetStmtOption(::core::mem::transmute(statementhandle), ::core::mem::transmute(option), ::core::mem::transmute(value)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLSetStmtOption(statementhandle: *mut ::core::ffi::c_void, option: u16, value: u32) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLSetStmtOption(::core::mem::transmute(statementhandle), ::core::mem::transmute(option), ::core::mem::transmute(value)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLSpecialColumns(statementhandle: *mut ::core::ffi::c_void, identifiertype: u16, catalogname: &[u8], schemaname: &[u8], tablename: &[u8], scope: u16, nullable: u16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLSpecialColumns(statementhandle: *mut ::core::ffi::c_void, identifiertype: u16, catalogname: *const u8, namelength1: i16, schemaname: *const u8, namelength2: i16, tablename: *const u8, namelength3: i16, scope: u16, nullable: u16) -> i16;
-        }
-        ::core::mem::transmute(SQLSpecialColumns(::core::mem::transmute(statementhandle), ::core::mem::transmute(identifiertype), ::core::mem::transmute(::windows::core::as_ptr_or_null(catalogname)), catalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(schemaname)), schemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(tablename)), tablename.len() as _, ::core::mem::transmute(scope), ::core::mem::transmute(nullable)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLSpecialColumns(statementhandle: *mut ::core::ffi::c_void, identifiertype: u16, catalogname: *const u8, namelength1: i16, schemaname: *const u8, namelength2: i16, tablename: *const u8, namelength3: i16, scope: u16, nullable: u16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLSpecialColumns(::core::mem::transmute(statementhandle), ::core::mem::transmute(identifiertype), ::core::mem::transmute(::windows::core::as_ptr_or_null(catalogname)), catalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(schemaname)), schemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(tablename)), tablename.len() as _, ::core::mem::transmute(scope), ::core::mem::transmute(nullable)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLSpecialColumnsA(hstmt: *mut ::core::ffi::c_void, fcoltype: u16, szcatalogname: &[u8], szschemaname: &[u8], sztablename: &[u8], fscope: u16, fnullable: u16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLSpecialColumnsA(hstmt: *mut ::core::ffi::c_void, fcoltype: u16, szcatalogname: *const u8, cbcatalogname: i16, szschemaname: *const u8, cbschemaname: i16, sztablename: *const u8, cbtablename: i16, fscope: u16, fnullable: u16) -> i16;
-        }
-        ::core::mem::transmute(SQLSpecialColumnsA(::core::mem::transmute(hstmt), ::core::mem::transmute(fcoltype), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztablename)), sztablename.len() as _, ::core::mem::transmute(fscope), ::core::mem::transmute(fnullable)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLSpecialColumnsA(hstmt: *mut ::core::ffi::c_void, fcoltype: u16, szcatalogname: *const u8, cbcatalogname: i16, szschemaname: *const u8, cbschemaname: i16, sztablename: *const u8, cbtablename: i16, fscope: u16, fnullable: u16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLSpecialColumnsA(::core::mem::transmute(hstmt), ::core::mem::transmute(fcoltype), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztablename)), sztablename.len() as _, ::core::mem::transmute(fscope), ::core::mem::transmute(fnullable)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLSpecialColumnsW(hstmt: *mut ::core::ffi::c_void, fcoltype: u16, szcatalogname: &[u16], szschemaname: &[u16], sztablename: &[u16], fscope: u16, fnullable: u16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLSpecialColumnsW(hstmt: *mut ::core::ffi::c_void, fcoltype: u16, szcatalogname: *const u16, cchcatalogname: i16, szschemaname: *const u16, cchschemaname: i16, sztablename: *const u16, cchtablename: i16, fscope: u16, fnullable: u16) -> i16;
-        }
-        ::core::mem::transmute(SQLSpecialColumnsW(::core::mem::transmute(hstmt), ::core::mem::transmute(fcoltype), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztablename)), sztablename.len() as _, ::core::mem::transmute(fscope), ::core::mem::transmute(fnullable)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLSpecialColumnsW(hstmt: *mut ::core::ffi::c_void, fcoltype: u16, szcatalogname: *const u16, cchcatalogname: i16, szschemaname: *const u16, cchschemaname: i16, sztablename: *const u16, cchtablename: i16, fscope: u16, fnullable: u16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLSpecialColumnsW(::core::mem::transmute(hstmt), ::core::mem::transmute(fcoltype), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztablename)), sztablename.len() as _, ::core::mem::transmute(fscope), ::core::mem::transmute(fnullable)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLStatistics(statementhandle: *mut ::core::ffi::c_void, catalogname: &[u8], schemaname: &[u8], tablename: &[u8], unique: u16, reserved: u16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLStatistics(statementhandle: *mut ::core::ffi::c_void, catalogname: *const u8, namelength1: i16, schemaname: *const u8, namelength2: i16, tablename: *const u8, namelength3: i16, unique: u16, reserved: u16) -> i16;
-        }
-        ::core::mem::transmute(SQLStatistics(::core::mem::transmute(statementhandle), ::core::mem::transmute(::windows::core::as_ptr_or_null(catalogname)), catalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(schemaname)), schemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(tablename)), tablename.len() as _, ::core::mem::transmute(unique), ::core::mem::transmute(reserved)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLStatistics(statementhandle: *mut ::core::ffi::c_void, catalogname: *const u8, namelength1: i16, schemaname: *const u8, namelength2: i16, tablename: *const u8, namelength3: i16, unique: u16, reserved: u16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLStatistics(::core::mem::transmute(statementhandle), ::core::mem::transmute(::windows::core::as_ptr_or_null(catalogname)), catalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(schemaname)), schemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(tablename)), tablename.len() as _, ::core::mem::transmute(unique), ::core::mem::transmute(reserved)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLStatisticsA(hstmt: *mut ::core::ffi::c_void, szcatalogname: &[u8], szschemaname: &[u8], sztablename: &[u8], funique: u16, faccuracy: u16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLStatisticsA(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cbcatalogname: i16, szschemaname: *const u8, cbschemaname: i16, sztablename: *const u8, cbtablename: i16, funique: u16, faccuracy: u16) -> i16;
-        }
-        ::core::mem::transmute(SQLStatisticsA(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztablename)), sztablename.len() as _, ::core::mem::transmute(funique), ::core::mem::transmute(faccuracy)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLStatisticsA(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cbcatalogname: i16, szschemaname: *const u8, cbschemaname: i16, sztablename: *const u8, cbtablename: i16, funique: u16, faccuracy: u16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLStatisticsA(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztablename)), sztablename.len() as _, ::core::mem::transmute(funique), ::core::mem::transmute(faccuracy)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLStatisticsW(hstmt: *mut ::core::ffi::c_void, szcatalogname: &[u16], szschemaname: &[u16], sztablename: &[u16], funique: u16, faccuracy: u16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLStatisticsW(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u16, cchcatalogname: i16, szschemaname: *const u16, cchschemaname: i16, sztablename: *const u16, cchtablename: i16, funique: u16, faccuracy: u16) -> i16;
-        }
-        ::core::mem::transmute(SQLStatisticsW(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztablename)), sztablename.len() as _, ::core::mem::transmute(funique), ::core::mem::transmute(faccuracy)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLStatisticsW(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u16, cchcatalogname: i16, szschemaname: *const u16, cchschemaname: i16, sztablename: *const u16, cchtablename: i16, funique: u16, faccuracy: u16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLStatisticsW(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztablename)), sztablename.len() as _, ::core::mem::transmute(funique), ::core::mem::transmute(faccuracy)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const SQLTEXT: u32 = 35u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLTablePrivileges(hstmt: *mut ::core::ffi::c_void, szcatalogname: &[u8], szschemaname: &[u8], sztablename: &[u8]) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLTablePrivileges(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cchcatalogname: i16, szschemaname: *const u8, cchschemaname: i16, sztablename: *const u8, cchtablename: i16) -> i16;
-        }
-        ::core::mem::transmute(SQLTablePrivileges(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztablename)), sztablename.len() as _))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLTablePrivileges(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cchcatalogname: i16, szschemaname: *const u8, cchschemaname: i16, sztablename: *const u8, cchtablename: i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLTablePrivileges(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztablename)), sztablename.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLTablePrivilegesA(hstmt: *mut ::core::ffi::c_void, szcatalogname: &[u8], szschemaname: &[u8], sztablename: &[u8]) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLTablePrivilegesA(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cbcatalogname: i16, szschemaname: *const u8, cbschemaname: i16, sztablename: *const u8, cbtablename: i16) -> i16;
-        }
-        ::core::mem::transmute(SQLTablePrivilegesA(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztablename)), sztablename.len() as _))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLTablePrivilegesA(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cbcatalogname: i16, szschemaname: *const u8, cbschemaname: i16, sztablename: *const u8, cbtablename: i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLTablePrivilegesA(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztablename)), sztablename.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLTablePrivilegesW(hstmt: *mut ::core::ffi::c_void, szcatalogname: &[u16], szschemaname: &[u16], sztablename: &[u16]) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLTablePrivilegesW(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u16, cchcatalogname: i16, szschemaname: *const u16, cchschemaname: i16, sztablename: *const u16, cchtablename: i16) -> i16;
-        }
-        ::core::mem::transmute(SQLTablePrivilegesW(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztablename)), sztablename.len() as _))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLTablePrivilegesW(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u16, cchcatalogname: i16, szschemaname: *const u16, cchschemaname: i16, sztablename: *const u16, cchtablename: i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLTablePrivilegesW(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztablename)), sztablename.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLTables(statementhandle: *mut ::core::ffi::c_void, catalogname: &[u8], schemaname: &[u8], tablename: &[u8], tabletype: &[u8]) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLTables(statementhandle: *mut ::core::ffi::c_void, catalogname: *const u8, namelength1: i16, schemaname: *const u8, namelength2: i16, tablename: *const u8, namelength3: i16, tabletype: *const u8, namelength4: i16) -> i16;
-        }
-        ::core::mem::transmute(SQLTables(::core::mem::transmute(statementhandle), ::core::mem::transmute(::windows::core::as_ptr_or_null(catalogname)), catalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(schemaname)), schemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(tablename)), tablename.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(tabletype)), tabletype.len() as _))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLTables(statementhandle: *mut ::core::ffi::c_void, catalogname: *const u8, namelength1: i16, schemaname: *const u8, namelength2: i16, tablename: *const u8, namelength3: i16, tabletype: *const u8, namelength4: i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLTables(::core::mem::transmute(statementhandle), ::core::mem::transmute(::windows::core::as_ptr_or_null(catalogname)), catalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(schemaname)), schemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(tablename)), tablename.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(tabletype)), tabletype.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLTablesA(hstmt: *mut ::core::ffi::c_void, szcatalogname: &[u8], szschemaname: &[u8], sztablename: &[u8], sztabletype: &[u8]) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLTablesA(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cbcatalogname: i16, szschemaname: *const u8, cbschemaname: i16, sztablename: *const u8, cbtablename: i16, sztabletype: *const u8, cbtabletype: i16) -> i16;
-        }
-        ::core::mem::transmute(SQLTablesA(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztablename)), sztablename.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztabletype)), sztabletype.len() as _))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLTablesA(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cbcatalogname: i16, szschemaname: *const u8, cbschemaname: i16, sztablename: *const u8, cbtablename: i16, sztabletype: *const u8, cbtabletype: i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLTablesA(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztablename)), sztablename.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztabletype)), sztabletype.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLTablesW(hstmt: *mut ::core::ffi::c_void, szcatalogname: &[u16], szschemaname: &[u16], sztablename: &[u16], sztabletype: &[u16]) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLTablesW(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u16, cchcatalogname: i16, szschemaname: *const u16, cchschemaname: i16, sztablename: *const u16, cchtablename: i16, sztabletype: *const u16, cchtabletype: i16) -> i16;
-        }
-        ::core::mem::transmute(SQLTablesW(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztablename)), sztablename.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztabletype)), sztabletype.len() as _))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLTablesW(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u16, cchcatalogname: i16, szschemaname: *const u16, cchschemaname: i16, sztablename: *const u16, cchtablename: i16, sztabletype: *const u16, cchtabletype: i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLTablesW(::core::mem::transmute(hstmt), ::core::mem::transmute(::windows::core::as_ptr_or_null(szcatalogname)), szcatalogname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(szschemaname)), szschemaname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztablename)), sztablename.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(sztabletype)), sztabletype.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn SQLTransact(environmenthandle: *mut ::core::ffi::c_void, connectionhandle: *mut ::core::ffi::c_void, completiontype: u16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SQLTransact(environmenthandle: *mut ::core::ffi::c_void, connectionhandle: *mut ::core::ffi::c_void, completiontype: u16) -> i16;
-        }
-        ::core::mem::transmute(SQLTransact(::core::mem::transmute(environmenthandle), ::core::mem::transmute(connectionhandle), ::core::mem::transmute(completiontype)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SQLTransact(environmenthandle: *mut ::core::ffi::c_void, connectionhandle: *mut ::core::ffi::c_void, completiontype: u16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SQLTransact(::core::mem::transmute(environmenthandle), ::core::mem::transmute(connectionhandle), ::core::mem::transmute(completiontype)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const SQLUNIQUEID: u32 = 36u32;
@@ -32944,268 +31994,173 @@ pub const _MAPI_W_NO_SERVICE: i32 = 262659i32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn bcp_batch(param0: *mut ::core::ffi::c_void) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn bcp_batch(param0: *mut ::core::ffi::c_void) -> i32;
-        }
-        ::core::mem::transmute(bcp_batch(::core::mem::transmute(param0)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn bcp_batch(param0: *mut ::core::ffi::c_void) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(bcp_batch(::core::mem::transmute(param0)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn bcp_bind(param0: *mut ::core::ffi::c_void, param1: *mut u8, param2: i32, param3: i32, param4: *mut u8, param5: i32, param6: i32, param7: i32) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn bcp_bind(param0: *mut ::core::ffi::c_void, param1: *mut u8, param2: i32, param3: i32, param4: *mut u8, param5: i32, param6: i32, param7: i32) -> i16;
-        }
-        ::core::mem::transmute(bcp_bind(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5), ::core::mem::transmute(param6), ::core::mem::transmute(param7)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn bcp_bind(param0: *mut ::core::ffi::c_void, param1: *mut u8, param2: i32, param3: i32, param4: *mut u8, param5: i32, param6: i32, param7: i32) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(bcp_bind(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5), ::core::mem::transmute(param6), ::core::mem::transmute(param7)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn bcp_colfmt(param0: *mut ::core::ffi::c_void, param1: i32, param2: u8, param3: i32, param4: i32, param5: *mut u8, param6: i32, param7: i32) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn bcp_colfmt(param0: *mut ::core::ffi::c_void, param1: i32, param2: u8, param3: i32, param4: i32, param5: *mut u8, param6: i32, param7: i32) -> i16;
-        }
-        ::core::mem::transmute(bcp_colfmt(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5), ::core::mem::transmute(param6), ::core::mem::transmute(param7)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn bcp_colfmt(param0: *mut ::core::ffi::c_void, param1: i32, param2: u8, param3: i32, param4: i32, param5: *mut u8, param6: i32, param7: i32) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(bcp_colfmt(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5), ::core::mem::transmute(param6), ::core::mem::transmute(param7)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn bcp_collen(param0: *mut ::core::ffi::c_void, param1: i32, param2: i32) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn bcp_collen(param0: *mut ::core::ffi::c_void, param1: i32, param2: i32) -> i16;
-        }
-        ::core::mem::transmute(bcp_collen(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn bcp_collen(param0: *mut ::core::ffi::c_void, param1: i32, param2: i32) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(bcp_collen(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn bcp_colptr(param0: *mut ::core::ffi::c_void, param1: *mut u8, param2: i32) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn bcp_colptr(param0: *mut ::core::ffi::c_void, param1: *mut u8, param2: i32) -> i16;
-        }
-        ::core::mem::transmute(bcp_colptr(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn bcp_colptr(param0: *mut ::core::ffi::c_void, param1: *mut u8, param2: i32) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(bcp_colptr(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn bcp_columns(param0: *mut ::core::ffi::c_void, param1: i32) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn bcp_columns(param0: *mut ::core::ffi::c_void, param1: i32) -> i16;
-        }
-        ::core::mem::transmute(bcp_columns(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn bcp_columns(param0: *mut ::core::ffi::c_void, param1: i32) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(bcp_columns(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn bcp_control(param0: *mut ::core::ffi::c_void, param1: i32, param2: *mut ::core::ffi::c_void) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn bcp_control(param0: *mut ::core::ffi::c_void, param1: i32, param2: *mut ::core::ffi::c_void) -> i16;
-        }
-        ::core::mem::transmute(bcp_control(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn bcp_control(param0: *mut ::core::ffi::c_void, param1: i32, param2: *mut ::core::ffi::c_void) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(bcp_control(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn bcp_done(param0: *mut ::core::ffi::c_void) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn bcp_done(param0: *mut ::core::ffi::c_void) -> i32;
-        }
-        ::core::mem::transmute(bcp_done(::core::mem::transmute(param0)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn bcp_done(param0: *mut ::core::ffi::c_void) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(bcp_done(::core::mem::transmute(param0)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn bcp_exec(param0: *mut ::core::ffi::c_void, param1: *mut i32) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn bcp_exec(param0: *mut ::core::ffi::c_void, param1: *mut i32) -> i16;
-        }
-        ::core::mem::transmute(bcp_exec(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn bcp_exec(param0: *mut ::core::ffi::c_void, param1: *mut i32) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(bcp_exec(::core::mem::transmute(param0), ::core::mem::transmute(param1)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn bcp_getcolfmt(param0: *mut ::core::ffi::c_void, param1: i32, param2: i32, param3: *mut ::core::ffi::c_void, param4: i32, param5: *mut i32) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn bcp_getcolfmt(param0: *mut ::core::ffi::c_void, param1: i32, param2: i32, param3: *mut ::core::ffi::c_void, param4: i32, param5: *mut i32) -> i16;
-        }
-        ::core::mem::transmute(bcp_getcolfmt(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn bcp_getcolfmt(param0: *mut ::core::ffi::c_void, param1: i32, param2: i32, param3: *mut ::core::ffi::c_void, param4: i32, param5: *mut i32) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(bcp_getcolfmt(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4), ::core::mem::transmute(param5)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn bcp_initA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: *mut ::core::ffi::c_void, param1: Param1, param2: Param2, param3: Param3, param4: i32) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn bcp_initA(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCSTR, param2: ::windows::core::PCSTR, param3: ::windows::core::PCSTR, param4: i32) -> i16;
-        }
-        ::core::mem::transmute(bcp_initA(::core::mem::transmute(param0), param1.into_param().abi(), param2.into_param().abi(), param3.into_param().abi(), ::core::mem::transmute(param4)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn bcp_initA(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCSTR, param2: ::windows::core::PCSTR, param3: ::windows::core::PCSTR, param4: i32) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(bcp_initA(::core::mem::transmute(param0), param1.into_param().abi(), param2.into_param().abi(), param3.into_param().abi(), ::core::mem::transmute(param4)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn bcp_initW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(param0: *mut ::core::ffi::c_void, param1: Param1, param2: Param2, param3: Param3, param4: i32) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn bcp_initW(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCWSTR, param2: ::windows::core::PCWSTR, param3: ::windows::core::PCWSTR, param4: i32) -> i16;
-        }
-        ::core::mem::transmute(bcp_initW(::core::mem::transmute(param0), param1.into_param().abi(), param2.into_param().abi(), param3.into_param().abi(), ::core::mem::transmute(param4)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn bcp_initW(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCWSTR, param2: ::windows::core::PCWSTR, param3: ::windows::core::PCWSTR, param4: i32) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(bcp_initW(::core::mem::transmute(param0), param1.into_param().abi(), param2.into_param().abi(), param3.into_param().abi(), ::core::mem::transmute(param4)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn bcp_moretext(param0: *mut ::core::ffi::c_void, param1: i32, param2: *mut u8) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn bcp_moretext(param0: *mut ::core::ffi::c_void, param1: i32, param2: *mut u8) -> i16;
-        }
-        ::core::mem::transmute(bcp_moretext(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn bcp_moretext(param0: *mut ::core::ffi::c_void, param1: i32, param2: *mut u8) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(bcp_moretext(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn bcp_readfmtA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: *mut ::core::ffi::c_void, param1: Param1) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn bcp_readfmtA(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCSTR) -> i16;
-        }
-        ::core::mem::transmute(bcp_readfmtA(::core::mem::transmute(param0), param1.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn bcp_readfmtA(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCSTR) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(bcp_readfmtA(::core::mem::transmute(param0), param1.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn bcp_readfmtW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(param0: *mut ::core::ffi::c_void, param1: Param1) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn bcp_readfmtW(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCWSTR) -> i16;
-        }
-        ::core::mem::transmute(bcp_readfmtW(::core::mem::transmute(param0), param1.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn bcp_readfmtW(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCWSTR) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(bcp_readfmtW(::core::mem::transmute(param0), param1.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn bcp_sendrow(param0: *mut ::core::ffi::c_void) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn bcp_sendrow(param0: *mut ::core::ffi::c_void) -> i16;
-        }
-        ::core::mem::transmute(bcp_sendrow(::core::mem::transmute(param0)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn bcp_sendrow(param0: *mut ::core::ffi::c_void) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(bcp_sendrow(::core::mem::transmute(param0)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn bcp_setcolfmt(param0: *mut ::core::ffi::c_void, param1: i32, param2: i32, param3: *mut ::core::ffi::c_void, param4: i32) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn bcp_setcolfmt(param0: *mut ::core::ffi::c_void, param1: i32, param2: i32, param3: *mut ::core::ffi::c_void, param4: i32) -> i16;
-        }
-        ::core::mem::transmute(bcp_setcolfmt(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn bcp_setcolfmt(param0: *mut ::core::ffi::c_void, param1: i32, param2: i32, param3: *mut ::core::ffi::c_void, param4: i32) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(bcp_setcolfmt(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), ::core::mem::transmute(param3), ::core::mem::transmute(param4)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn bcp_writefmtA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(param0: *mut ::core::ffi::c_void, param1: Param1) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn bcp_writefmtA(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCSTR) -> i16;
-        }
-        ::core::mem::transmute(bcp_writefmtA(::core::mem::transmute(param0), param1.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn bcp_writefmtA(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCSTR) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(bcp_writefmtA(::core::mem::transmute(param0), param1.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn bcp_writefmtW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(param0: *mut ::core::ffi::c_void, param1: Param1) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn bcp_writefmtW(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCWSTR) -> i16;
-        }
-        ::core::mem::transmute(bcp_writefmtW(::core::mem::transmute(param0), param1.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn bcp_writefmtW(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCWSTR) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(bcp_writefmtW(::core::mem::transmute(param0), param1.into_param().abi()))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
@@ -33303,30 +32258,20 @@ impl ::core::default::Default for dbmoney {
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn dbprtypeA(param0: i32) -> ::windows::core::PSTR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn dbprtypeA(param0: i32) -> ::windows::core::PSTR;
-        }
-        ::core::mem::transmute(dbprtypeA(::core::mem::transmute(param0)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn dbprtypeA(param0: i32) -> ::windows::core::PSTR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(dbprtypeA(::core::mem::transmute(param0)))
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[inline]
 pub unsafe fn dbprtypeW(param0: i32) -> ::windows::core::PWSTR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn dbprtypeW(param0: i32) -> ::windows::core::PWSTR;
-        }
-        ::core::mem::transmute(dbprtypeW(::core::mem::transmute(param0)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn dbprtypeW(param0: i32) -> ::windows::core::PWSTR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(dbprtypeW(::core::mem::transmute(param0)))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]

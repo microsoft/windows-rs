@@ -1,4 +1,4 @@
-#[link(name = "windows")]
+#[cfg_attr(windows, link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     pub fn DirectSoundCaptureCreate(pcguiddevice: *const ::windows_sys::core::GUID, ppdsc: *mut IDirectSoundCapture, punkouter: ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;

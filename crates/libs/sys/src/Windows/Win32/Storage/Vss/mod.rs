@@ -1,4 +1,4 @@
-#[link(name = "windows")]
+#[cfg_attr(windows, link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
     pub fn CreateVssExpressWriterInternal(ppwriter: *mut IVssExpressWriter) -> ::windows_sys::core::HRESULT;

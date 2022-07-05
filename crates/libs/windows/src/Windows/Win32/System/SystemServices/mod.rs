@@ -16667,16 +16667,11 @@ impl ::core::fmt::Debug for USER_ACTIVITY_PRESENCE {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UnregisterDeviceNotification(handle: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UnregisterDeviceNotification(handle: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(UnregisterDeviceNotification(::core::mem::transmute(handle)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UnregisterDeviceNotification(handle: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(UnregisterDeviceNotification(::core::mem::transmute(handle)))
 }
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const VALID_INHERIT_FLAGS: u32 = 31u32;
