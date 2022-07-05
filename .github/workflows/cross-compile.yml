@@ -31,24 +31,24 @@ jobs:
     runs-on: ${{ matrix.image }}
 
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
 
-    - name: Add toolchain target
-      run: rustup target add ${{ matrix.target }}
+      - name: Add toolchain target
+        run: rustup target add ${{ matrix.target }}
 
-    - name: Install gcc-mingw-w64-x86-64
-      run: sudo apt-get install -y gcc-mingw-w64-x86-64
-      if: startsWith(matrix.image, 'ubuntu-') && matrix.target == 'x86_64-pc-windows-gnu'
+      - name: Install gcc-mingw-w64-x86-64
+        run: sudo apt-get install -y gcc-mingw-w64-x86-64
+        if: startsWith(matrix.image, 'ubuntu-') && matrix.target == 'x86_64-pc-windows-gnu'
 
-    - name: Install mingw-w64
-      run: brew install mingw-w64
-      if: startsWith(matrix.image, 'macos-') && matrix.target == 'x86_64-pc-windows-gnu'
+      - name: Install mingw-w64
+        run: brew install mingw-w64
+        if: startsWith(matrix.image, 'macos-') && matrix.target == 'x86_64-pc-windows-gnu'
 
-    - name: Test
-      shell: pwsh
-      run: |
-        cargo test --no-run --target ${{ matrix.target }} -p test_win32
-        if (-Not (Resolve-Path "target/*/debug/deps/test_win32-*.exe" | Test-Path)) {
-          throw "Failed to find test_win32 executable."
-        }
+      - name: Test
+        shell: pwsh
+        run: |
+          cargo test --no-run --target ${{ matrix.target }} -p test_win32
+          if (-Not (Resolve-Path "target/*/debug/deps/test_win32-*.exe" | Test-Path)) {
+            throw "Failed to find test_win32 executable."
+          }

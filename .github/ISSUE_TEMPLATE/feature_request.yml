@@ -1,13 +1,13 @@
 name: Feature request
 description: Suggest an improvement to windows-rs
-title: 'Feature request:'
-labels: ['enhancement']
+title: "Feature request:"
+labels: ["enhancement"]
 assignees: []
 body:
   - type: markdown
     attributes:
       value: >
-        Thank you for submitting a feature request! 
+        Thank you for submitting a feature request!
   - type: textarea
     attributes:
       label: Motivation
