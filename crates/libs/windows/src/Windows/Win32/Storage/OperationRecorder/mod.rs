@@ -172,31 +172,21 @@ impl ::core::default::Default for OPERATION_START_PARAMETERS {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OperationEnd(operationendparams: *const OPERATION_END_PARAMETERS) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OperationEnd(operationendparams: *const OPERATION_END_PARAMETERS) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(OperationEnd(::core::mem::transmute(operationendparams)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OperationEnd(operationendparams: *const OPERATION_END_PARAMETERS) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(OperationEnd(::core::mem::transmute(operationendparams)))
 }
 #[doc = "*Required features: `\"Win32_Storage_OperationRecorder\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OperationStart(operationstartparams: *const OPERATION_START_PARAMETERS) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OperationStart(operationstartparams: *const OPERATION_START_PARAMETERS) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(OperationStart(::core::mem::transmute(operationstartparams)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OperationStart(operationstartparams: *const OPERATION_START_PARAMETERS) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(OperationStart(::core::mem::transmute(operationstartparams)))
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

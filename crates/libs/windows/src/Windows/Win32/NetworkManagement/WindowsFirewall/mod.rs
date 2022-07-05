@@ -7146,121 +7146,81 @@ pub const NetSharingManager: ::windows::core::GUID = ::windows::core::GUID::from
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 #[inline]
 pub unsafe fn NetworkIsolationDiagnoseConnectFailureAndGetInfo<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(wszservername: Param0, netisoerror: *mut NETISO_ERROR_TYPE) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn NetworkIsolationDiagnoseConnectFailureAndGetInfo(wszservername: ::windows::core::PCWSTR, netisoerror: *mut NETISO_ERROR_TYPE) -> u32;
-        }
-        ::core::mem::transmute(NetworkIsolationDiagnoseConnectFailureAndGetInfo(wszservername.into_param().abi(), ::core::mem::transmute(netisoerror)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetworkIsolationDiagnoseConnectFailureAndGetInfo(wszservername: ::windows::core::PCWSTR, netisoerror: *mut NETISO_ERROR_TYPE) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(NetworkIsolationDiagnoseConnectFailureAndGetInfo(wszservername.into_param().abi(), ::core::mem::transmute(netisoerror)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn NetworkIsolationEnumAppContainers(flags: u32, pdwnumpublicappcs: *mut u32, pppublicappcs: *mut *mut INET_FIREWALL_APP_CONTAINER) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn NetworkIsolationEnumAppContainers(flags: u32, pdwnumpublicappcs: *mut u32, pppublicappcs: *mut *mut INET_FIREWALL_APP_CONTAINER) -> u32;
-        }
-        ::core::mem::transmute(NetworkIsolationEnumAppContainers(::core::mem::transmute(flags), ::core::mem::transmute(pdwnumpublicappcs), ::core::mem::transmute(pppublicappcs)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetworkIsolationEnumAppContainers(flags: u32, pdwnumpublicappcs: *mut u32, pppublicappcs: *mut *mut INET_FIREWALL_APP_CONTAINER) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(NetworkIsolationEnumAppContainers(::core::mem::transmute(flags), ::core::mem::transmute(pdwnumpublicappcs), ::core::mem::transmute(pppublicappcs)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn NetworkIsolationFreeAppContainers(ppublicappcs: *const INET_FIREWALL_APP_CONTAINER) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn NetworkIsolationFreeAppContainers(ppublicappcs: *const INET_FIREWALL_APP_CONTAINER) -> u32;
-        }
-        ::core::mem::transmute(NetworkIsolationFreeAppContainers(::core::mem::transmute(ppublicappcs)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetworkIsolationFreeAppContainers(ppublicappcs: *const INET_FIREWALL_APP_CONTAINER) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(NetworkIsolationFreeAppContainers(::core::mem::transmute(ppublicappcs)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn NetworkIsolationGetAppContainerConfig(pdwnumpublicappcs: *mut u32, appcontainersids: *mut *mut super::super::Security::SID_AND_ATTRIBUTES) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn NetworkIsolationGetAppContainerConfig(pdwnumpublicappcs: *mut u32, appcontainersids: *mut *mut super::super::Security::SID_AND_ATTRIBUTES) -> u32;
-        }
-        ::core::mem::transmute(NetworkIsolationGetAppContainerConfig(::core::mem::transmute(pdwnumpublicappcs), ::core::mem::transmute(appcontainersids)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetworkIsolationGetAppContainerConfig(pdwnumpublicappcs: *mut u32, appcontainersids: *mut *mut super::super::Security::SID_AND_ATTRIBUTES) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(NetworkIsolationGetAppContainerConfig(::core::mem::transmute(pdwnumpublicappcs), ::core::mem::transmute(appcontainersids)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn NetworkIsolationRegisterForAppContainerChanges(flags: u32, callback: PAC_CHANGES_CALLBACK_FN, context: *const ::core::ffi::c_void, registrationobject: *mut super::super::Foundation::HANDLE) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn NetworkIsolationRegisterForAppContainerChanges(flags: u32, callback: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, registrationobject: *mut super::super::Foundation::HANDLE) -> u32;
-        }
-        ::core::mem::transmute(NetworkIsolationRegisterForAppContainerChanges(::core::mem::transmute(flags), ::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(registrationobject)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetworkIsolationRegisterForAppContainerChanges(flags: u32, callback: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, registrationobject: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(NetworkIsolationRegisterForAppContainerChanges(::core::mem::transmute(flags), ::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(registrationobject)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn NetworkIsolationSetAppContainerConfig(appcontainersids: &[super::super::Security::SID_AND_ATTRIBUTES]) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn NetworkIsolationSetAppContainerConfig(dwnumpublicappcs: u32, appcontainersids: *const super::super::Security::SID_AND_ATTRIBUTES) -> u32;
-        }
-        ::core::mem::transmute(NetworkIsolationSetAppContainerConfig(appcontainersids.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(appcontainersids))))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetworkIsolationSetAppContainerConfig(dwnumpublicappcs: u32, appcontainersids: *const super::super::Security::SID_AND_ATTRIBUTES) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(NetworkIsolationSetAppContainerConfig(appcontainersids.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(appcontainersids))))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetworkIsolationSetupAppContainerBinaries<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSID>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(applicationcontainersid: Param0, packagefullname: Param1, packagefolder: Param2, displayname: Param3, bbinariesfullycomputed: Param4, binaries: &[::windows::core::PWSTR]) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn NetworkIsolationSetupAppContainerBinaries(applicationcontainersid: super::super::Foundation::PSID, packagefullname: ::windows::core::PCWSTR, packagefolder: ::windows::core::PCWSTR, displayname: ::windows::core::PCWSTR, bbinariesfullycomputed: super::super::Foundation::BOOL, binaries: *const ::windows::core::PWSTR, binariescount: u32) -> ::windows::core::HRESULT;
-        }
-        NetworkIsolationSetupAppContainerBinaries(applicationcontainersid.into_param().abi(), packagefullname.into_param().abi(), packagefolder.into_param().abi(), displayname.into_param().abi(), bbinariesfullycomputed.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(binaries)), binaries.len() as _).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetworkIsolationSetupAppContainerBinaries(applicationcontainersid: super::super::Foundation::PSID, packagefullname: ::windows::core::PCWSTR, packagefolder: ::windows::core::PCWSTR, displayname: ::windows::core::PCWSTR, bbinariesfullycomputed: super::super::Foundation::BOOL, binaries: *const ::windows::core::PWSTR, binariescount: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    NetworkIsolationSetupAppContainerBinaries(applicationcontainersid.into_param().abi(), packagefullname.into_param().abi(), packagefolder.into_param().abi(), displayname.into_param().abi(), bbinariesfullycomputed.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(binaries)), binaries.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetworkIsolationUnregisterForAppContainerChanges<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(registrationobject: Param0) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn NetworkIsolationUnregisterForAppContainerChanges(registrationobject: super::super::Foundation::HANDLE) -> u32;
-        }
-        ::core::mem::transmute(NetworkIsolationUnregisterForAppContainerChanges(registrationobject.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NetworkIsolationUnregisterForAppContainerChanges(registrationobject: super::super::Foundation::HANDLE) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(NetworkIsolationUnregisterForAppContainerChanges(registrationobject.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]

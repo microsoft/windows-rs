@@ -658,31 +658,21 @@ impl ::core::default::Default for CM_POWER_DATA {
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 #[inline]
 pub unsafe fn CallNtPowerInformation(informationlevel: POWER_INFORMATION_LEVEL, inputbuffer: *const ::core::ffi::c_void, inputbufferlength: u32, outputbuffer: *mut ::core::ffi::c_void, outputbufferlength: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CallNtPowerInformation(informationlevel: POWER_INFORMATION_LEVEL, inputbuffer: *const ::core::ffi::c_void, inputbufferlength: u32, outputbuffer: *mut ::core::ffi::c_void, outputbufferlength: u32) -> i32;
-        }
-        ::core::mem::transmute(CallNtPowerInformation(::core::mem::transmute(informationlevel), ::core::mem::transmute(inputbuffer), ::core::mem::transmute(inputbufferlength), ::core::mem::transmute(outputbuffer), ::core::mem::transmute(outputbufferlength)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CallNtPowerInformation(informationlevel: POWER_INFORMATION_LEVEL, inputbuffer: *const ::core::ffi::c_void, inputbufferlength: u32, outputbuffer: *mut ::core::ffi::c_void, outputbufferlength: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CallNtPowerInformation(::core::mem::transmute(informationlevel), ::core::mem::transmute(inputbuffer), ::core::mem::transmute(inputbufferlength), ::core::mem::transmute(outputbuffer), ::core::mem::transmute(outputbufferlength)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CanUserWritePwrScheme() -> super::super::Foundation::BOOLEAN {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CanUserWritePwrScheme() -> super::super::Foundation::BOOLEAN;
-        }
-        ::core::mem::transmute(CanUserWritePwrScheme())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CanUserWritePwrScheme() -> super::super::Foundation::BOOLEAN;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CanUserWritePwrScheme())
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const DEVICEPOWER_AND_OPERATION: u32 = 1073741824u32;
@@ -772,75 +762,50 @@ impl ::core::fmt::Debug for DEVICE_POWER_STATE {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeletePwrScheme(uiid: u32) -> super::super::Foundation::BOOLEAN {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DeletePwrScheme(uiid: u32) -> super::super::Foundation::BOOLEAN;
-        }
-        ::core::mem::transmute(DeletePwrScheme(::core::mem::transmute(uiid)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DeletePwrScheme(uiid: u32) -> super::super::Foundation::BOOLEAN;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(DeletePwrScheme(::core::mem::transmute(uiid)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DevicePowerClose() -> super::super::Foundation::BOOLEAN {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DevicePowerClose() -> super::super::Foundation::BOOLEAN;
-        }
-        ::core::mem::transmute(DevicePowerClose())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DevicePowerClose() -> super::super::Foundation::BOOLEAN;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(DevicePowerClose())
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DevicePowerEnumDevices(queryindex: u32, queryinterpretationflags: u32, queryflags: u32, preturnbuffer: *mut u8, pbuffersize: *mut u32) -> super::super::Foundation::BOOLEAN {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DevicePowerEnumDevices(queryindex: u32, queryinterpretationflags: u32, queryflags: u32, preturnbuffer: *mut u8, pbuffersize: *mut u32) -> super::super::Foundation::BOOLEAN;
-        }
-        ::core::mem::transmute(DevicePowerEnumDevices(::core::mem::transmute(queryindex), ::core::mem::transmute(queryinterpretationflags), ::core::mem::transmute(queryflags), ::core::mem::transmute(preturnbuffer), ::core::mem::transmute(pbuffersize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DevicePowerEnumDevices(queryindex: u32, queryinterpretationflags: u32, queryflags: u32, preturnbuffer: *mut u8, pbuffersize: *mut u32) -> super::super::Foundation::BOOLEAN;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(DevicePowerEnumDevices(::core::mem::transmute(queryindex), ::core::mem::transmute(queryinterpretationflags), ::core::mem::transmute(queryflags), ::core::mem::transmute(preturnbuffer), ::core::mem::transmute(pbuffersize)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DevicePowerOpen(debugmask: u32) -> super::super::Foundation::BOOLEAN {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DevicePowerOpen(debugmask: u32) -> super::super::Foundation::BOOLEAN;
-        }
-        ::core::mem::transmute(DevicePowerOpen(::core::mem::transmute(debugmask)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DevicePowerOpen(debugmask: u32) -> super::super::Foundation::BOOLEAN;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(DevicePowerOpen(::core::mem::transmute(debugmask)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 #[inline]
 pub unsafe fn DevicePowerSetDeviceState<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(devicedescription: Param0, setflags: u32, setdata: *const ::core::ffi::c_void) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DevicePowerSetDeviceState(devicedescription: ::windows::core::PCWSTR, setflags: u32, setdata: *const ::core::ffi::c_void) -> u32;
-        }
-        ::core::mem::transmute(DevicePowerSetDeviceState(devicedescription.into_param().abi(), ::core::mem::transmute(setflags), ::core::mem::transmute(setdata)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DevicePowerSetDeviceState(devicedescription: ::windows::core::PCWSTR, setflags: u32, setdata: *const ::core::ffi::c_void) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(DevicePowerSetDeviceState(devicedescription.into_param().abi(), ::core::mem::transmute(setflags), ::core::mem::transmute(setdata)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 #[repr(transparent)]
@@ -1213,16 +1178,11 @@ pub const EnableWakeOnRing: u32 = 8u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumPwrSchemes<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(lpfn: PWRSCHEMESENUMPROC, lparam: Param1) -> super::super::Foundation::BOOLEAN {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn EnumPwrSchemes(lpfn: *mut ::core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOLEAN;
-        }
-        ::core::mem::transmute(EnumPwrSchemes(::core::mem::transmute(lpfn), lparam.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn EnumPwrSchemes(lpfn: *mut ::core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOLEAN;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(EnumPwrSchemes(::core::mem::transmute(lpfn), lparam.into_param().abi()))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
@@ -1360,91 +1320,61 @@ pub const GUID_DEVINTERFACE_THERMAL_MANAGER: ::windows::core::GUID = ::windows::
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetActivePwrScheme(puiid: *mut u32) -> super::super::Foundation::BOOLEAN {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetActivePwrScheme(puiid: *mut u32) -> super::super::Foundation::BOOLEAN;
-        }
-        ::core::mem::transmute(GetActivePwrScheme(::core::mem::transmute(puiid)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetActivePwrScheme(puiid: *mut u32) -> super::super::Foundation::BOOLEAN;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetActivePwrScheme(::core::mem::transmute(puiid)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCurrentPowerPolicies(pglobalpowerpolicy: *mut GLOBAL_POWER_POLICY, ppowerpolicy: *mut POWER_POLICY) -> super::super::Foundation::BOOLEAN {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetCurrentPowerPolicies(pglobalpowerpolicy: *mut GLOBAL_POWER_POLICY, ppowerpolicy: *mut POWER_POLICY) -> super::super::Foundation::BOOLEAN;
-        }
-        ::core::mem::transmute(GetCurrentPowerPolicies(::core::mem::transmute(pglobalpowerpolicy), ::core::mem::transmute(ppowerpolicy)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetCurrentPowerPolicies(pglobalpowerpolicy: *mut GLOBAL_POWER_POLICY, ppowerpolicy: *mut POWER_POLICY) -> super::super::Foundation::BOOLEAN;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetCurrentPowerPolicies(::core::mem::transmute(pglobalpowerpolicy), ::core::mem::transmute(ppowerpolicy)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDevicePowerState<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hdevice: Param0, pfon: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetDevicePowerState(hdevice: super::super::Foundation::HANDLE, pfon: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetDevicePowerState(hdevice.into_param().abi(), ::core::mem::transmute(pfon)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetDevicePowerState(hdevice: super::super::Foundation::HANDLE, pfon: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetDevicePowerState(hdevice.into_param().abi(), ::core::mem::transmute(pfon)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPwrCapabilities(lpspc: *mut SYSTEM_POWER_CAPABILITIES) -> super::super::Foundation::BOOLEAN {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetPwrCapabilities(lpspc: *mut SYSTEM_POWER_CAPABILITIES) -> super::super::Foundation::BOOLEAN;
-        }
-        ::core::mem::transmute(GetPwrCapabilities(::core::mem::transmute(lpspc)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetPwrCapabilities(lpspc: *mut SYSTEM_POWER_CAPABILITIES) -> super::super::Foundation::BOOLEAN;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetPwrCapabilities(::core::mem::transmute(lpspc)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPwrDiskSpindownRange(puimax: *mut u32, puimin: *mut u32) -> super::super::Foundation::BOOLEAN {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetPwrDiskSpindownRange(puimax: *mut u32, puimin: *mut u32) -> super::super::Foundation::BOOLEAN;
-        }
-        ::core::mem::transmute(GetPwrDiskSpindownRange(::core::mem::transmute(puimax), ::core::mem::transmute(puimin)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetPwrDiskSpindownRange(puimax: *mut u32, puimin: *mut u32) -> super::super::Foundation::BOOLEAN;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetPwrDiskSpindownRange(::core::mem::transmute(puimax), ::core::mem::transmute(puimin)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSystemPowerStatus(lpsystempowerstatus: *mut SYSTEM_POWER_STATUS) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetSystemPowerStatus(lpsystempowerstatus: *mut SYSTEM_POWER_STATUS) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetSystemPowerStatus(::core::mem::transmute(lpsystempowerstatus)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetSystemPowerStatus(lpsystempowerstatus: *mut SYSTEM_POWER_STATUS) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetSystemPowerStatus(::core::mem::transmute(lpsystempowerstatus)))
 }
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -1533,76 +1463,51 @@ pub const IOCTL_THERMAL_SET_PASSIVE_LIMIT: u32 = 2719884u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsAdminOverrideActive(papp: *const ADMINISTRATOR_POWER_POLICY) -> super::super::Foundation::BOOLEAN {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn IsAdminOverrideActive(papp: *const ADMINISTRATOR_POWER_POLICY) -> super::super::Foundation::BOOLEAN;
-        }
-        ::core::mem::transmute(IsAdminOverrideActive(::core::mem::transmute(papp)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn IsAdminOverrideActive(papp: *const ADMINISTRATOR_POWER_POLICY) -> super::super::Foundation::BOOLEAN;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(IsAdminOverrideActive(::core::mem::transmute(papp)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsPwrHibernateAllowed() -> super::super::Foundation::BOOLEAN {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn IsPwrHibernateAllowed() -> super::super::Foundation::BOOLEAN;
-        }
-        ::core::mem::transmute(IsPwrHibernateAllowed())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn IsPwrHibernateAllowed() -> super::super::Foundation::BOOLEAN;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(IsPwrHibernateAllowed())
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsPwrShutdownAllowed() -> super::super::Foundation::BOOLEAN {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn IsPwrShutdownAllowed() -> super::super::Foundation::BOOLEAN;
-        }
-        ::core::mem::transmute(IsPwrShutdownAllowed())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn IsPwrShutdownAllowed() -> super::super::Foundation::BOOLEAN;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(IsPwrShutdownAllowed())
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsPwrSuspendAllowed() -> super::super::Foundation::BOOLEAN {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn IsPwrSuspendAllowed() -> super::super::Foundation::BOOLEAN;
-        }
-        ::core::mem::transmute(IsPwrSuspendAllowed())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn IsPwrSuspendAllowed() -> super::super::Foundation::BOOLEAN;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(IsPwrSuspendAllowed())
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsSystemResumeAutomatic() -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn IsSystemResumeAutomatic() -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(IsSystemResumeAutomatic())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn IsSystemResumeAutomatic() -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(IsSystemResumeAutomatic())
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 #[repr(transparent)]
@@ -2536,1010 +2441,670 @@ pub type PWRSCHEMESENUMPROC_V1 = ::core::option::Option<unsafe extern "system" f
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 #[inline]
 pub unsafe fn PowerCanRestoreIndividualDefaultPowerScheme(schemeguid: *const ::windows::core::GUID) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerCanRestoreIndividualDefaultPowerScheme(schemeguid: *const ::windows::core::GUID) -> u32;
-        }
-        ::core::mem::transmute(PowerCanRestoreIndividualDefaultPowerScheme(::core::mem::transmute(schemeguid)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerCanRestoreIndividualDefaultPowerScheme(schemeguid: *const ::windows::core::GUID) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PowerCanRestoreIndividualDefaultPowerScheme(::core::mem::transmute(schemeguid)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PowerClearRequest<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(powerrequest: Param0, requesttype: POWER_REQUEST_TYPE) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerClearRequest(powerrequest: super::super::Foundation::HANDLE, requesttype: POWER_REQUEST_TYPE) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(PowerClearRequest(powerrequest.into_param().abi(), ::core::mem::transmute(requesttype)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerClearRequest(powerrequest: super::super::Foundation::HANDLE, requesttype: POWER_REQUEST_TYPE) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PowerClearRequest(powerrequest.into_param().abi(), ::core::mem::transmute(requesttype)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerCreatePossibleSetting<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootsystempowerkey: Param0, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, possiblesettingindex: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerCreatePossibleSetting(rootsystempowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, possiblesettingindex: u32) -> u32;
-        }
-        ::core::mem::transmute(PowerCreatePossibleSetting(rootsystempowerkey.into_param().abi(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(possiblesettingindex)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerCreatePossibleSetting(rootsystempowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, possiblesettingindex: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PowerCreatePossibleSetting(rootsystempowerkey.into_param().abi(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(possiblesettingindex)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`, `\"Win32_System_Threading\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
 #[inline]
 pub unsafe fn PowerCreateRequest(context: *const super::Threading::REASON_CONTEXT) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerCreateRequest(context: *const super::Threading::REASON_CONTEXT) -> super::super::Foundation::HANDLE;
-        }
-        let result__ = PowerCreateRequest(::core::mem::transmute(context));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerCreateRequest(context: *const super::Threading::REASON_CONTEXT) -> super::super::Foundation::HANDLE;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let result__ = PowerCreateRequest(::core::mem::transmute(context));
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerCreateSetting<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootsystempowerkey: Param0, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerCreateSetting(rootsystempowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID) -> u32;
-        }
-        ::core::mem::transmute(PowerCreateSetting(rootsystempowerkey.into_param().abi(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerCreateSetting(rootsystempowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PowerCreateSetting(rootsystempowerkey.into_param().abi(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerDeleteScheme<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, schemeguid: *const ::windows::core::GUID) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerDeleteScheme(rootpowerkey: super::Registry::HKEY, schemeguid: *const ::windows::core::GUID) -> u32;
-        }
-        ::core::mem::transmute(PowerDeleteScheme(rootpowerkey.into_param().abi(), ::core::mem::transmute(schemeguid)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerDeleteScheme(rootpowerkey: super::Registry::HKEY, schemeguid: *const ::windows::core::GUID) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PowerDeleteScheme(rootpowerkey.into_param().abi(), ::core::mem::transmute(schemeguid)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 #[inline]
 pub unsafe fn PowerDeterminePlatformRole() -> POWER_PLATFORM_ROLE {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerDeterminePlatformRole() -> POWER_PLATFORM_ROLE;
-        }
-        ::core::mem::transmute(PowerDeterminePlatformRole())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerDeterminePlatformRole() -> POWER_PLATFORM_ROLE;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PowerDeterminePlatformRole())
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 #[inline]
 pub unsafe fn PowerDeterminePlatformRoleEx(version: POWER_PLATFORM_ROLE_VERSION) -> POWER_PLATFORM_ROLE {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerDeterminePlatformRoleEx(version: POWER_PLATFORM_ROLE_VERSION) -> POWER_PLATFORM_ROLE;
-        }
-        ::core::mem::transmute(PowerDeterminePlatformRoleEx(::core::mem::transmute(version)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerDeterminePlatformRoleEx(version: POWER_PLATFORM_ROLE_VERSION) -> POWER_PLATFORM_ROLE;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PowerDeterminePlatformRoleEx(::core::mem::transmute(version)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerDuplicateScheme<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, sourceschemeguid: *const ::windows::core::GUID, destinationschemeguid: *mut *mut ::windows::core::GUID) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerDuplicateScheme(rootpowerkey: super::Registry::HKEY, sourceschemeguid: *const ::windows::core::GUID, destinationschemeguid: *mut *mut ::windows::core::GUID) -> u32;
-        }
-        ::core::mem::transmute(PowerDuplicateScheme(rootpowerkey.into_param().abi(), ::core::mem::transmute(sourceschemeguid), ::core::mem::transmute(destinationschemeguid)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerDuplicateScheme(rootpowerkey: super::Registry::HKEY, sourceschemeguid: *const ::windows::core::GUID, destinationschemeguid: *mut *mut ::windows::core::GUID) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PowerDuplicateScheme(rootpowerkey.into_param().abi(), ::core::mem::transmute(sourceschemeguid), ::core::mem::transmute(destinationschemeguid)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerEnumerate<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, accessflags: POWER_DATA_ACCESSOR, index: u32, buffer: *mut u8, buffersize: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerEnumerate(rootpowerkey: super::Registry::HKEY, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, accessflags: POWER_DATA_ACCESSOR, index: u32, buffer: *mut u8, buffersize: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(PowerEnumerate(rootpowerkey.into_param().abi(), ::core::mem::transmute(schemeguid), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(accessflags), ::core::mem::transmute(index), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerEnumerate(rootpowerkey: super::Registry::HKEY, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, accessflags: POWER_DATA_ACCESSOR, index: u32, buffer: *mut u8, buffersize: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PowerEnumerate(rootpowerkey.into_param().abi(), ::core::mem::transmute(schemeguid), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(accessflags), ::core::mem::transmute(index), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerGetActiveScheme<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(userrootpowerkey: Param0, activepolicyguid: *mut *mut ::windows::core::GUID) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerGetActiveScheme(userrootpowerkey: super::Registry::HKEY, activepolicyguid: *mut *mut ::windows::core::GUID) -> u32;
-        }
-        ::core::mem::transmute(PowerGetActiveScheme(userrootpowerkey.into_param().abi(), ::core::mem::transmute(activepolicyguid)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerGetActiveScheme(userrootpowerkey: super::Registry::HKEY, activepolicyguid: *mut *mut ::windows::core::GUID) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PowerGetActiveScheme(userrootpowerkey.into_param().abi(), ::core::mem::transmute(activepolicyguid)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerImportPowerScheme<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(rootpowerkey: Param0, importfilenamepath: Param1, destinationschemeguid: *mut *mut ::windows::core::GUID) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerImportPowerScheme(rootpowerkey: super::Registry::HKEY, importfilenamepath: ::windows::core::PCWSTR, destinationschemeguid: *mut *mut ::windows::core::GUID) -> u32;
-        }
-        ::core::mem::transmute(PowerImportPowerScheme(rootpowerkey.into_param().abi(), importfilenamepath.into_param().abi(), ::core::mem::transmute(destinationschemeguid)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerImportPowerScheme(rootpowerkey: super::Registry::HKEY, importfilenamepath: ::windows::core::PCWSTR, destinationschemeguid: *mut *mut ::windows::core::GUID) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PowerImportPowerScheme(rootpowerkey.into_param().abi(), importfilenamepath.into_param().abi(), ::core::mem::transmute(destinationschemeguid)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PowerIsSettingRangeDefined(subkeyguid: *const ::windows::core::GUID, settingguid: *const ::windows::core::GUID) -> super::super::Foundation::BOOLEAN {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerIsSettingRangeDefined(subkeyguid: *const ::windows::core::GUID, settingguid: *const ::windows::core::GUID) -> super::super::Foundation::BOOLEAN;
-        }
-        ::core::mem::transmute(PowerIsSettingRangeDefined(::core::mem::transmute(subkeyguid), ::core::mem::transmute(settingguid)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerIsSettingRangeDefined(subkeyguid: *const ::windows::core::GUID, settingguid: *const ::windows::core::GUID) -> super::super::Foundation::BOOLEAN;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PowerIsSettingRangeDefined(::core::mem::transmute(subkeyguid), ::core::mem::transmute(settingguid)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn PowerOpenSystemPowerKey<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(phsystempowerkey: *mut super::Registry::HKEY, access: u32, openexisting: Param2) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerOpenSystemPowerKey(phsystempowerkey: *mut super::Registry::HKEY, access: u32, openexisting: super::super::Foundation::BOOL) -> u32;
-        }
-        ::core::mem::transmute(PowerOpenSystemPowerKey(::core::mem::transmute(phsystempowerkey), ::core::mem::transmute(access), openexisting.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerOpenSystemPowerKey(phsystempowerkey: *mut super::Registry::HKEY, access: u32, openexisting: super::super::Foundation::BOOL) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PowerOpenSystemPowerKey(::core::mem::transmute(phsystempowerkey), ::core::mem::transmute(access), openexisting.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn PowerOpenUserPowerKey<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(phuserpowerkey: *mut super::Registry::HKEY, access: u32, openexisting: Param2) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerOpenUserPowerKey(phuserpowerkey: *mut super::Registry::HKEY, access: u32, openexisting: super::super::Foundation::BOOL) -> u32;
-        }
-        ::core::mem::transmute(PowerOpenUserPowerKey(::core::mem::transmute(phuserpowerkey), ::core::mem::transmute(access), openexisting.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerOpenUserPowerKey(phuserpowerkey: *mut super::Registry::HKEY, access: u32, openexisting: super::super::Foundation::BOOL) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PowerOpenUserPowerKey(::core::mem::transmute(phuserpowerkey), ::core::mem::transmute(access), openexisting.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerReadACDefaultIndex<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, schemepersonalityguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, acdefaultindex: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerReadACDefaultIndex(rootpowerkey: super::Registry::HKEY, schemepersonalityguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, acdefaultindex: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(PowerReadACDefaultIndex(rootpowerkey.into_param().abi(), ::core::mem::transmute(schemepersonalityguid), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(acdefaultindex)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerReadACDefaultIndex(rootpowerkey: super::Registry::HKEY, schemepersonalityguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, acdefaultindex: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PowerReadACDefaultIndex(rootpowerkey.into_param().abi(), ::core::mem::transmute(schemepersonalityguid), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(acdefaultindex)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerReadACValue<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, r#type: *mut u32, buffer: *mut u8, buffersize: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerReadACValue(rootpowerkey: super::Registry::HKEY, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, r#type: *mut u32, buffer: *mut u8, buffersize: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(PowerReadACValue(rootpowerkey.into_param().abi(), ::core::mem::transmute(schemeguid), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(r#type), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerReadACValue(rootpowerkey: super::Registry::HKEY, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, r#type: *mut u32, buffer: *mut u8, buffersize: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PowerReadACValue(rootpowerkey.into_param().abi(), ::core::mem::transmute(schemeguid), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(r#type), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerReadACValueIndex<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, acvalueindex: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerReadACValueIndex(rootpowerkey: super::Registry::HKEY, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, acvalueindex: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(PowerReadACValueIndex(rootpowerkey.into_param().abi(), ::core::mem::transmute(schemeguid), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(acvalueindex)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerReadACValueIndex(rootpowerkey: super::Registry::HKEY, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, acvalueindex: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PowerReadACValueIndex(rootpowerkey.into_param().abi(), ::core::mem::transmute(schemeguid), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(acvalueindex)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerReadDCDefaultIndex<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, schemepersonalityguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, dcdefaultindex: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerReadDCDefaultIndex(rootpowerkey: super::Registry::HKEY, schemepersonalityguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, dcdefaultindex: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(PowerReadDCDefaultIndex(rootpowerkey.into_param().abi(), ::core::mem::transmute(schemepersonalityguid), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(dcdefaultindex)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerReadDCDefaultIndex(rootpowerkey: super::Registry::HKEY, schemepersonalityguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, dcdefaultindex: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PowerReadDCDefaultIndex(rootpowerkey.into_param().abi(), ::core::mem::transmute(schemepersonalityguid), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(dcdefaultindex)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerReadDCValue<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, r#type: *mut u32, buffer: *mut u8, buffersize: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerReadDCValue(rootpowerkey: super::Registry::HKEY, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, r#type: *mut u32, buffer: *mut u8, buffersize: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(PowerReadDCValue(rootpowerkey.into_param().abi(), ::core::mem::transmute(schemeguid), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(r#type), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerReadDCValue(rootpowerkey: super::Registry::HKEY, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, r#type: *mut u32, buffer: *mut u8, buffersize: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PowerReadDCValue(rootpowerkey.into_param().abi(), ::core::mem::transmute(schemeguid), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(r#type), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerReadDCValueIndex<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, dcvalueindex: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerReadDCValueIndex(rootpowerkey: super::Registry::HKEY, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, dcvalueindex: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(PowerReadDCValueIndex(rootpowerkey.into_param().abi(), ::core::mem::transmute(schemeguid), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(dcvalueindex)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerReadDCValueIndex(rootpowerkey: super::Registry::HKEY, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, dcvalueindex: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PowerReadDCValueIndex(rootpowerkey.into_param().abi(), ::core::mem::transmute(schemeguid), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(dcvalueindex)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerReadDescription<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, buffer: *mut u8, buffersize: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerReadDescription(rootpowerkey: super::Registry::HKEY, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, buffer: *mut u8, buffersize: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(PowerReadDescription(rootpowerkey.into_param().abi(), ::core::mem::transmute(schemeguid), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerReadDescription(rootpowerkey: super::Registry::HKEY, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, buffer: *mut u8, buffersize: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PowerReadDescription(rootpowerkey.into_param().abi(), ::core::mem::transmute(schemeguid), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerReadFriendlyName<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, buffer: *mut u8, buffersize: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerReadFriendlyName(rootpowerkey: super::Registry::HKEY, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, buffer: *mut u8, buffersize: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(PowerReadFriendlyName(rootpowerkey.into_param().abi(), ::core::mem::transmute(schemeguid), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerReadFriendlyName(rootpowerkey: super::Registry::HKEY, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, buffer: *mut u8, buffersize: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PowerReadFriendlyName(rootpowerkey.into_param().abi(), ::core::mem::transmute(schemeguid), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerReadIconResourceSpecifier<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, buffer: *mut u8, buffersize: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerReadIconResourceSpecifier(rootpowerkey: super::Registry::HKEY, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, buffer: *mut u8, buffersize: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(PowerReadIconResourceSpecifier(rootpowerkey.into_param().abi(), ::core::mem::transmute(schemeguid), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerReadIconResourceSpecifier(rootpowerkey: super::Registry::HKEY, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, buffer: *mut u8, buffersize: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PowerReadIconResourceSpecifier(rootpowerkey.into_param().abi(), ::core::mem::transmute(schemeguid), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerReadPossibleDescription<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, possiblesettingindex: u32, buffer: *mut u8, buffersize: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerReadPossibleDescription(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, possiblesettingindex: u32, buffer: *mut u8, buffersize: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(PowerReadPossibleDescription(rootpowerkey.into_param().abi(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(possiblesettingindex), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerReadPossibleDescription(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, possiblesettingindex: u32, buffer: *mut u8, buffersize: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PowerReadPossibleDescription(rootpowerkey.into_param().abi(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(possiblesettingindex), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerReadPossibleFriendlyName<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, possiblesettingindex: u32, buffer: *mut u8, buffersize: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerReadPossibleFriendlyName(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, possiblesettingindex: u32, buffer: *mut u8, buffersize: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(PowerReadPossibleFriendlyName(rootpowerkey.into_param().abi(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(possiblesettingindex), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerReadPossibleFriendlyName(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, possiblesettingindex: u32, buffer: *mut u8, buffersize: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PowerReadPossibleFriendlyName(rootpowerkey.into_param().abi(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(possiblesettingindex), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerReadPossibleValue<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, r#type: *mut u32, possiblesettingindex: u32, buffer: *mut u8, buffersize: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerReadPossibleValue(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, r#type: *mut u32, possiblesettingindex: u32, buffer: *mut u8, buffersize: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(PowerReadPossibleValue(rootpowerkey.into_param().abi(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(r#type), ::core::mem::transmute(possiblesettingindex), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerReadPossibleValue(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, r#type: *mut u32, possiblesettingindex: u32, buffer: *mut u8, buffersize: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PowerReadPossibleValue(rootpowerkey.into_param().abi(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(r#type), ::core::mem::transmute(possiblesettingindex), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 #[inline]
 pub unsafe fn PowerReadSettingAttributes(subgroupguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerReadSettingAttributes(subgroupguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID) -> u32;
-        }
-        ::core::mem::transmute(PowerReadSettingAttributes(::core::mem::transmute(subgroupguid), ::core::mem::transmute(powersettingguid)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerReadSettingAttributes(subgroupguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PowerReadSettingAttributes(::core::mem::transmute(subgroupguid), ::core::mem::transmute(powersettingguid)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerReadValueIncrement<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, valueincrement: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerReadValueIncrement(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, valueincrement: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(PowerReadValueIncrement(rootpowerkey.into_param().abi(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(valueincrement)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerReadValueIncrement(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, valueincrement: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PowerReadValueIncrement(rootpowerkey.into_param().abi(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(valueincrement)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerReadValueMax<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, valuemaximum: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerReadValueMax(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, valuemaximum: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(PowerReadValueMax(rootpowerkey.into_param().abi(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(valuemaximum)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerReadValueMax(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, valuemaximum: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PowerReadValueMax(rootpowerkey.into_param().abi(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(valuemaximum)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerReadValueMin<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, valueminimum: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerReadValueMin(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, valueminimum: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(PowerReadValueMin(rootpowerkey.into_param().abi(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(valueminimum)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerReadValueMin(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, valueminimum: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PowerReadValueMin(rootpowerkey.into_param().abi(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(valueminimum)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerReadValueUnitsSpecifier<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, buffer: *mut u8, buffersize: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerReadValueUnitsSpecifier(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, buffer: *mut u8, buffersize: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(PowerReadValueUnitsSpecifier(rootpowerkey.into_param().abi(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerReadValueUnitsSpecifier(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, buffer: *mut u8, buffersize: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PowerReadValueUnitsSpecifier(rootpowerkey.into_param().abi(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 #[inline]
 pub unsafe fn PowerRegisterForEffectivePowerModeNotifications(version: u32, callback: EFFECTIVE_POWER_MODE_CALLBACK, context: *const ::core::ffi::c_void, registrationhandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerRegisterForEffectivePowerModeNotifications(version: u32, callback: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, registrationhandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        PowerRegisterForEffectivePowerModeNotifications(::core::mem::transmute(version), ::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(registrationhandle)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerRegisterForEffectivePowerModeNotifications(version: u32, callback: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, registrationhandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PowerRegisterForEffectivePowerModeNotifications(::core::mem::transmute(version), ::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(registrationhandle)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PowerRegisterSuspendResumeNotification<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(flags: u32, recipient: Param1, registrationhandle: *mut *mut ::core::ffi::c_void) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerRegisterSuspendResumeNotification(flags: u32, recipient: super::super::Foundation::HANDLE, registrationhandle: *mut *mut ::core::ffi::c_void) -> u32;
-        }
-        ::core::mem::transmute(PowerRegisterSuspendResumeNotification(::core::mem::transmute(flags), recipient.into_param().abi(), ::core::mem::transmute(registrationhandle)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerRegisterSuspendResumeNotification(flags: u32, recipient: super::super::Foundation::HANDLE, registrationhandle: *mut *mut ::core::ffi::c_void) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PowerRegisterSuspendResumeNotification(::core::mem::transmute(flags), recipient.into_param().abi(), ::core::mem::transmute(registrationhandle)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 #[inline]
 pub unsafe fn PowerRemovePowerSetting(powersettingsubkeyguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerRemovePowerSetting(powersettingsubkeyguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID) -> u32;
-        }
-        ::core::mem::transmute(PowerRemovePowerSetting(::core::mem::transmute(powersettingsubkeyguid), ::core::mem::transmute(powersettingguid)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerRemovePowerSetting(powersettingsubkeyguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PowerRemovePowerSetting(::core::mem::transmute(powersettingsubkeyguid), ::core::mem::transmute(powersettingguid)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 #[inline]
 pub unsafe fn PowerReplaceDefaultPowerSchemes() -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerReplaceDefaultPowerSchemes() -> u32;
-        }
-        ::core::mem::transmute(PowerReplaceDefaultPowerSchemes())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerReplaceDefaultPowerSchemes() -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PowerReplaceDefaultPowerSchemes())
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 #[inline]
 pub unsafe fn PowerReportThermalEvent(event: *const THERMAL_EVENT) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerReportThermalEvent(event: *const THERMAL_EVENT) -> u32;
-        }
-        ::core::mem::transmute(PowerReportThermalEvent(::core::mem::transmute(event)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerReportThermalEvent(event: *const THERMAL_EVENT) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PowerReportThermalEvent(::core::mem::transmute(event)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 #[inline]
 pub unsafe fn PowerRestoreDefaultPowerSchemes() -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerRestoreDefaultPowerSchemes() -> u32;
-        }
-        ::core::mem::transmute(PowerRestoreDefaultPowerSchemes())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerRestoreDefaultPowerSchemes() -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PowerRestoreDefaultPowerSchemes())
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 #[inline]
 pub unsafe fn PowerRestoreIndividualDefaultPowerScheme(schemeguid: *const ::windows::core::GUID) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerRestoreIndividualDefaultPowerScheme(schemeguid: *const ::windows::core::GUID) -> u32;
-        }
-        ::core::mem::transmute(PowerRestoreIndividualDefaultPowerScheme(::core::mem::transmute(schemeguid)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerRestoreIndividualDefaultPowerScheme(schemeguid: *const ::windows::core::GUID) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PowerRestoreIndividualDefaultPowerScheme(::core::mem::transmute(schemeguid)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerSetActiveScheme<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(userrootpowerkey: Param0, schemeguid: *const ::windows::core::GUID) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerSetActiveScheme(userrootpowerkey: super::Registry::HKEY, schemeguid: *const ::windows::core::GUID) -> u32;
-        }
-        ::core::mem::transmute(PowerSetActiveScheme(userrootpowerkey.into_param().abi(), ::core::mem::transmute(schemeguid)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerSetActiveScheme(userrootpowerkey: super::Registry::HKEY, schemeguid: *const ::windows::core::GUID) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PowerSetActiveScheme(userrootpowerkey.into_param().abi(), ::core::mem::transmute(schemeguid)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PowerSetRequest<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(powerrequest: Param0, requesttype: POWER_REQUEST_TYPE) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerSetRequest(powerrequest: super::super::Foundation::HANDLE, requesttype: POWER_REQUEST_TYPE) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(PowerSetRequest(powerrequest.into_param().abi(), ::core::mem::transmute(requesttype)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerSetRequest(powerrequest: super::super::Foundation::HANDLE, requesttype: POWER_REQUEST_TYPE) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PowerSetRequest(powerrequest.into_param().abi(), ::core::mem::transmute(requesttype)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 #[inline]
 pub unsafe fn PowerSettingAccessCheck(accessflags: POWER_DATA_ACCESSOR, powerguid: *const ::windows::core::GUID) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerSettingAccessCheck(accessflags: POWER_DATA_ACCESSOR, powerguid: *const ::windows::core::GUID) -> u32;
-        }
-        ::core::mem::transmute(PowerSettingAccessCheck(::core::mem::transmute(accessflags), ::core::mem::transmute(powerguid)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerSettingAccessCheck(accessflags: POWER_DATA_ACCESSOR, powerguid: *const ::windows::core::GUID) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PowerSettingAccessCheck(::core::mem::transmute(accessflags), ::core::mem::transmute(powerguid)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerSettingAccessCheckEx(accessflags: POWER_DATA_ACCESSOR, powerguid: *const ::windows::core::GUID, accesstype: super::Registry::REG_SAM_FLAGS) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerSettingAccessCheckEx(accessflags: POWER_DATA_ACCESSOR, powerguid: *const ::windows::core::GUID, accesstype: super::Registry::REG_SAM_FLAGS) -> u32;
-        }
-        ::core::mem::transmute(PowerSettingAccessCheckEx(::core::mem::transmute(accessflags), ::core::mem::transmute(powerguid), ::core::mem::transmute(accesstype)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerSettingAccessCheckEx(accessflags: POWER_DATA_ACCESSOR, powerguid: *const ::windows::core::GUID, accesstype: super::Registry::REG_SAM_FLAGS) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PowerSettingAccessCheckEx(::core::mem::transmute(accessflags), ::core::mem::transmute(powerguid), ::core::mem::transmute(accesstype)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PowerSettingRegisterNotification<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(settingguid: *const ::windows::core::GUID, flags: POWER_SETTING_REGISTER_NOTIFICATION_FLAGS, recipient: Param2, registrationhandle: *mut *mut ::core::ffi::c_void) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerSettingRegisterNotification(settingguid: *const ::windows::core::GUID, flags: POWER_SETTING_REGISTER_NOTIFICATION_FLAGS, recipient: super::super::Foundation::HANDLE, registrationhandle: *mut *mut ::core::ffi::c_void) -> u32;
-        }
-        ::core::mem::transmute(PowerSettingRegisterNotification(::core::mem::transmute(settingguid), ::core::mem::transmute(flags), recipient.into_param().abi(), ::core::mem::transmute(registrationhandle)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerSettingRegisterNotification(settingguid: *const ::windows::core::GUID, flags: POWER_SETTING_REGISTER_NOTIFICATION_FLAGS, recipient: super::super::Foundation::HANDLE, registrationhandle: *mut *mut ::core::ffi::c_void) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PowerSettingRegisterNotification(::core::mem::transmute(settingguid), ::core::mem::transmute(flags), recipient.into_param().abi(), ::core::mem::transmute(registrationhandle)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 #[inline]
 pub unsafe fn PowerSettingUnregisterNotification<'a, Param0: ::windows::core::IntoParam<'a, HPOWERNOTIFY>>(registrationhandle: Param0) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerSettingUnregisterNotification(registrationhandle: HPOWERNOTIFY) -> u32;
-        }
-        ::core::mem::transmute(PowerSettingUnregisterNotification(registrationhandle.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerSettingUnregisterNotification(registrationhandle: HPOWERNOTIFY) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PowerSettingUnregisterNotification(registrationhandle.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 #[inline]
 pub unsafe fn PowerUnregisterFromEffectivePowerModeNotifications(registrationhandle: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerUnregisterFromEffectivePowerModeNotifications(registrationhandle: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        PowerUnregisterFromEffectivePowerModeNotifications(::core::mem::transmute(registrationhandle)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerUnregisterFromEffectivePowerModeNotifications(registrationhandle: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PowerUnregisterFromEffectivePowerModeNotifications(::core::mem::transmute(registrationhandle)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 #[inline]
 pub unsafe fn PowerUnregisterSuspendResumeNotification<'a, Param0: ::windows::core::IntoParam<'a, HPOWERNOTIFY>>(registrationhandle: Param0) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerUnregisterSuspendResumeNotification(registrationhandle: HPOWERNOTIFY) -> u32;
-        }
-        ::core::mem::transmute(PowerUnregisterSuspendResumeNotification(registrationhandle.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerUnregisterSuspendResumeNotification(registrationhandle: HPOWERNOTIFY) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PowerUnregisterSuspendResumeNotification(registrationhandle.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerWriteACDefaultIndex<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootsystempowerkey: Param0, schemepersonalityguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, defaultacindex: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerWriteACDefaultIndex(rootsystempowerkey: super::Registry::HKEY, schemepersonalityguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, defaultacindex: u32) -> u32;
-        }
-        ::core::mem::transmute(PowerWriteACDefaultIndex(rootsystempowerkey.into_param().abi(), ::core::mem::transmute(schemepersonalityguid), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(defaultacindex)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerWriteACDefaultIndex(rootsystempowerkey: super::Registry::HKEY, schemepersonalityguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, defaultacindex: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PowerWriteACDefaultIndex(rootsystempowerkey.into_param().abi(), ::core::mem::transmute(schemepersonalityguid), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(defaultacindex)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerWriteACValueIndex<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, acvalueindex: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerWriteACValueIndex(rootpowerkey: super::Registry::HKEY, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, acvalueindex: u32) -> u32;
-        }
-        ::core::mem::transmute(PowerWriteACValueIndex(rootpowerkey.into_param().abi(), ::core::mem::transmute(schemeguid), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(acvalueindex)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerWriteACValueIndex(rootpowerkey: super::Registry::HKEY, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, acvalueindex: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PowerWriteACValueIndex(rootpowerkey.into_param().abi(), ::core::mem::transmute(schemeguid), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(acvalueindex)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerWriteDCDefaultIndex<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootsystempowerkey: Param0, schemepersonalityguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, defaultdcindex: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerWriteDCDefaultIndex(rootsystempowerkey: super::Registry::HKEY, schemepersonalityguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, defaultdcindex: u32) -> u32;
-        }
-        ::core::mem::transmute(PowerWriteDCDefaultIndex(rootsystempowerkey.into_param().abi(), ::core::mem::transmute(schemepersonalityguid), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(defaultdcindex)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerWriteDCDefaultIndex(rootsystempowerkey: super::Registry::HKEY, schemepersonalityguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, defaultdcindex: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PowerWriteDCDefaultIndex(rootsystempowerkey.into_param().abi(), ::core::mem::transmute(schemepersonalityguid), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(defaultdcindex)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerWriteDCValueIndex<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, dcvalueindex: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerWriteDCValueIndex(rootpowerkey: super::Registry::HKEY, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, dcvalueindex: u32) -> u32;
-        }
-        ::core::mem::transmute(PowerWriteDCValueIndex(rootpowerkey.into_param().abi(), ::core::mem::transmute(schemeguid), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(dcvalueindex)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerWriteDCValueIndex(rootpowerkey: super::Registry::HKEY, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, dcvalueindex: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PowerWriteDCValueIndex(rootpowerkey.into_param().abi(), ::core::mem::transmute(schemeguid), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(dcvalueindex)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerWriteDescription<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, buffer: *const u8, buffersize: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerWriteDescription(rootpowerkey: super::Registry::HKEY, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, buffer: *const u8, buffersize: u32) -> u32;
-        }
-        ::core::mem::transmute(PowerWriteDescription(rootpowerkey.into_param().abi(), ::core::mem::transmute(schemeguid), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerWriteDescription(rootpowerkey: super::Registry::HKEY, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, buffer: *const u8, buffersize: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PowerWriteDescription(rootpowerkey.into_param().abi(), ::core::mem::transmute(schemeguid), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerWriteFriendlyName<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, buffer: *const u8, buffersize: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerWriteFriendlyName(rootpowerkey: super::Registry::HKEY, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, buffer: *const u8, buffersize: u32) -> u32;
-        }
-        ::core::mem::transmute(PowerWriteFriendlyName(rootpowerkey.into_param().abi(), ::core::mem::transmute(schemeguid), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerWriteFriendlyName(rootpowerkey: super::Registry::HKEY, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, buffer: *const u8, buffersize: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PowerWriteFriendlyName(rootpowerkey.into_param().abi(), ::core::mem::transmute(schemeguid), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerWriteIconResourceSpecifier<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, buffer: *const u8, buffersize: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerWriteIconResourceSpecifier(rootpowerkey: super::Registry::HKEY, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, buffer: *const u8, buffersize: u32) -> u32;
-        }
-        ::core::mem::transmute(PowerWriteIconResourceSpecifier(rootpowerkey.into_param().abi(), ::core::mem::transmute(schemeguid), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerWriteIconResourceSpecifier(rootpowerkey: super::Registry::HKEY, schemeguid: *const ::windows::core::GUID, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, buffer: *const u8, buffersize: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PowerWriteIconResourceSpecifier(rootpowerkey.into_param().abi(), ::core::mem::transmute(schemeguid), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerWritePossibleDescription<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, possiblesettingindex: u32, buffer: *const u8, buffersize: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerWritePossibleDescription(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, possiblesettingindex: u32, buffer: *const u8, buffersize: u32) -> u32;
-        }
-        ::core::mem::transmute(PowerWritePossibleDescription(rootpowerkey.into_param().abi(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(possiblesettingindex), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerWritePossibleDescription(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, possiblesettingindex: u32, buffer: *const u8, buffersize: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PowerWritePossibleDescription(rootpowerkey.into_param().abi(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(possiblesettingindex), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerWritePossibleFriendlyName<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, possiblesettingindex: u32, buffer: *const u8, buffersize: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerWritePossibleFriendlyName(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, possiblesettingindex: u32, buffer: *const u8, buffersize: u32) -> u32;
-        }
-        ::core::mem::transmute(PowerWritePossibleFriendlyName(rootpowerkey.into_param().abi(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(possiblesettingindex), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerWritePossibleFriendlyName(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, possiblesettingindex: u32, buffer: *const u8, buffersize: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PowerWritePossibleFriendlyName(rootpowerkey.into_param().abi(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(possiblesettingindex), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerWritePossibleValue<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, r#type: u32, possiblesettingindex: u32, buffer: *const u8, buffersize: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerWritePossibleValue(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, r#type: u32, possiblesettingindex: u32, buffer: *const u8, buffersize: u32) -> u32;
-        }
-        ::core::mem::transmute(PowerWritePossibleValue(rootpowerkey.into_param().abi(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(r#type), ::core::mem::transmute(possiblesettingindex), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerWritePossibleValue(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, r#type: u32, possiblesettingindex: u32, buffer: *const u8, buffersize: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PowerWritePossibleValue(rootpowerkey.into_param().abi(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(r#type), ::core::mem::transmute(possiblesettingindex), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 #[inline]
 pub unsafe fn PowerWriteSettingAttributes(subgroupguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, attributes: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerWriteSettingAttributes(subgroupguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, attributes: u32) -> u32;
-        }
-        ::core::mem::transmute(PowerWriteSettingAttributes(::core::mem::transmute(subgroupguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(attributes)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerWriteSettingAttributes(subgroupguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, attributes: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PowerWriteSettingAttributes(::core::mem::transmute(subgroupguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(attributes)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerWriteValueIncrement<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, valueincrement: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerWriteValueIncrement(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, valueincrement: u32) -> u32;
-        }
-        ::core::mem::transmute(PowerWriteValueIncrement(rootpowerkey.into_param().abi(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(valueincrement)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerWriteValueIncrement(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, valueincrement: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PowerWriteValueIncrement(rootpowerkey.into_param().abi(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(valueincrement)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerWriteValueMax<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, valuemaximum: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerWriteValueMax(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, valuemaximum: u32) -> u32;
-        }
-        ::core::mem::transmute(PowerWriteValueMax(rootpowerkey.into_param().abi(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(valuemaximum)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerWriteValueMax(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, valuemaximum: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PowerWriteValueMax(rootpowerkey.into_param().abi(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(valuemaximum)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerWriteValueMin<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, valueminimum: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerWriteValueMin(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, valueminimum: u32) -> u32;
-        }
-        ::core::mem::transmute(PowerWriteValueMin(rootpowerkey.into_param().abi(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(valueminimum)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerWriteValueMin(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, valueminimum: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PowerWriteValueMin(rootpowerkey.into_param().abi(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(valueminimum)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerWriteValueUnitsSpecifier<'a, Param0: ::windows::core::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, buffer: *const u8, buffersize: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PowerWriteValueUnitsSpecifier(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, buffer: *const u8, buffersize: u32) -> u32;
-        }
-        ::core::mem::transmute(PowerWriteValueUnitsSpecifier(rootpowerkey.into_param().abi(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PowerWriteValueUnitsSpecifier(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows::core::GUID, powersettingguid: *const ::windows::core::GUID, buffer: *const u8, buffersize: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PowerWriteValueUnitsSpecifier(rootpowerkey.into_param().abi(), ::core::mem::transmute(subgroupofpowersettingsguid), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReadGlobalPwrPolicy(pglobalpowerpolicy: *const GLOBAL_POWER_POLICY) -> super::super::Foundation::BOOLEAN {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ReadGlobalPwrPolicy(pglobalpowerpolicy: *const GLOBAL_POWER_POLICY) -> super::super::Foundation::BOOLEAN;
-        }
-        ::core::mem::transmute(ReadGlobalPwrPolicy(::core::mem::transmute(pglobalpowerpolicy)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ReadGlobalPwrPolicy(pglobalpowerpolicy: *const GLOBAL_POWER_POLICY) -> super::super::Foundation::BOOLEAN;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(ReadGlobalPwrPolicy(::core::mem::transmute(pglobalpowerpolicy)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReadProcessorPwrScheme(uiid: u32, pmachineprocessorpowerpolicy: *mut MACHINE_PROCESSOR_POWER_POLICY) -> super::super::Foundation::BOOLEAN {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ReadProcessorPwrScheme(uiid: u32, pmachineprocessorpowerpolicy: *mut MACHINE_PROCESSOR_POWER_POLICY) -> super::super::Foundation::BOOLEAN;
-        }
-        ::core::mem::transmute(ReadProcessorPwrScheme(::core::mem::transmute(uiid), ::core::mem::transmute(pmachineprocessorpowerpolicy)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ReadProcessorPwrScheme(uiid: u32, pmachineprocessorpowerpolicy: *mut MACHINE_PROCESSOR_POWER_POLICY) -> super::super::Foundation::BOOLEAN;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(ReadProcessorPwrScheme(::core::mem::transmute(uiid), ::core::mem::transmute(pmachineprocessorpowerpolicy)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReadPwrScheme(uiid: u32, ppowerpolicy: *mut POWER_POLICY) -> super::super::Foundation::BOOLEAN {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ReadPwrScheme(uiid: u32, ppowerpolicy: *mut POWER_POLICY) -> super::super::Foundation::BOOLEAN;
-        }
-        ::core::mem::transmute(ReadPwrScheme(::core::mem::transmute(uiid), ::core::mem::transmute(ppowerpolicy)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ReadPwrScheme(uiid: u32, ppowerpolicy: *mut POWER_POLICY) -> super::super::Foundation::BOOLEAN;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(ReadPwrScheme(::core::mem::transmute(uiid), ::core::mem::transmute(ppowerpolicy)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegisterPowerSettingNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hrecipient: Param0, powersettingguid: *const ::windows::core::GUID, flags: u32) -> ::windows::core::Result<HPOWERNOTIFY> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RegisterPowerSettingNotification(hrecipient: super::super::Foundation::HANDLE, powersettingguid: *const ::windows::core::GUID, flags: u32) -> HPOWERNOTIFY;
-        }
-        let result__ = RegisterPowerSettingNotification(hrecipient.into_param().abi(), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(flags));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RegisterPowerSettingNotification(hrecipient: super::super::Foundation::HANDLE, powersettingguid: *const ::windows::core::GUID, flags: u32) -> HPOWERNOTIFY;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let result__ = RegisterPowerSettingNotification(hrecipient.into_param().abi(), ::core::mem::transmute(powersettingguid), ::core::mem::transmute(flags));
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegisterSuspendResumeNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hrecipient: Param0, flags: u32) -> ::windows::core::Result<HPOWERNOTIFY> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RegisterSuspendResumeNotification(hrecipient: super::super::Foundation::HANDLE, flags: u32) -> HPOWERNOTIFY;
-        }
-        let result__ = RegisterSuspendResumeNotification(hrecipient.into_param().abi(), ::core::mem::transmute(flags));
-        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RegisterSuspendResumeNotification(hrecipient: super::super::Foundation::HANDLE, flags: u32) -> HPOWERNOTIFY;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let result__ = RegisterSuspendResumeNotification(hrecipient.into_param().abi(), ::core::mem::transmute(flags));
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RequestWakeupLatency(latency: LATENCY_TIME) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RequestWakeupLatency(latency: LATENCY_TIME) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(RequestWakeupLatency(::core::mem::transmute(latency)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RequestWakeupLatency(latency: LATENCY_TIME) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RequestWakeupLatency(::core::mem::transmute(latency)))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
@@ -4004,60 +3569,40 @@ pub const SYS_BUTTON_WAKE: u32 = 2147483648u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetActivePwrScheme(uiid: u32, pglobalpowerpolicy: *const GLOBAL_POWER_POLICY, ppowerpolicy: *const POWER_POLICY) -> super::super::Foundation::BOOLEAN {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetActivePwrScheme(uiid: u32, pglobalpowerpolicy: *const GLOBAL_POWER_POLICY, ppowerpolicy: *const POWER_POLICY) -> super::super::Foundation::BOOLEAN;
-        }
-        ::core::mem::transmute(SetActivePwrScheme(::core::mem::transmute(uiid), ::core::mem::transmute(pglobalpowerpolicy), ::core::mem::transmute(ppowerpolicy)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetActivePwrScheme(uiid: u32, pglobalpowerpolicy: *const GLOBAL_POWER_POLICY, ppowerpolicy: *const POWER_POLICY) -> super::super::Foundation::BOOLEAN;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetActivePwrScheme(::core::mem::transmute(uiid), ::core::mem::transmute(pglobalpowerpolicy), ::core::mem::transmute(ppowerpolicy)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetSuspendState<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(bhibernate: Param0, bforce: Param1, bwakeupeventsdisabled: Param2) -> super::super::Foundation::BOOLEAN {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetSuspendState(bhibernate: super::super::Foundation::BOOLEAN, bforce: super::super::Foundation::BOOLEAN, bwakeupeventsdisabled: super::super::Foundation::BOOLEAN) -> super::super::Foundation::BOOLEAN;
-        }
-        ::core::mem::transmute(SetSuspendState(bhibernate.into_param().abi(), bforce.into_param().abi(), bwakeupeventsdisabled.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetSuspendState(bhibernate: super::super::Foundation::BOOLEAN, bforce: super::super::Foundation::BOOLEAN, bwakeupeventsdisabled: super::super::Foundation::BOOLEAN) -> super::super::Foundation::BOOLEAN;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetSuspendState(bhibernate.into_param().abi(), bforce.into_param().abi(), bwakeupeventsdisabled.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetSystemPowerState<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(fsuspend: Param0, fforce: Param1) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetSystemPowerState(fsuspend: super::super::Foundation::BOOL, fforce: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(SetSystemPowerState(fsuspend.into_param().abi(), fforce.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetSystemPowerState(fsuspend: super::super::Foundation::BOOL, fforce: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetSystemPowerState(fsuspend.into_param().abi(), fforce.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 #[inline]
 pub unsafe fn SetThreadExecutionState(esflags: EXECUTION_STATE) -> EXECUTION_STATE {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetThreadExecutionState(esflags: EXECUTION_STATE) -> EXECUTION_STATE;
-        }
-        ::core::mem::transmute(SetThreadExecutionState(::core::mem::transmute(esflags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetThreadExecutionState(esflags: EXECUTION_STATE) -> EXECUTION_STATE;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetThreadExecutionState(::core::mem::transmute(esflags)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const THERMAL_COOLING_INTERFACE_VERSION: u32 = 1u32;
@@ -4359,46 +3904,31 @@ impl ::core::default::Default for USER_POWER_POLICY {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UnregisterPowerSettingNotification<'a, Param0: ::windows::core::IntoParam<'a, HPOWERNOTIFY>>(handle: Param0) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UnregisterPowerSettingNotification(handle: HPOWERNOTIFY) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(UnregisterPowerSettingNotification(handle.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UnregisterPowerSettingNotification(handle: HPOWERNOTIFY) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(UnregisterPowerSettingNotification(handle.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UnregisterSuspendResumeNotification<'a, Param0: ::windows::core::IntoParam<'a, HPOWERNOTIFY>>(handle: Param0) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UnregisterSuspendResumeNotification(handle: HPOWERNOTIFY) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(UnregisterSuspendResumeNotification(handle.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UnregisterSuspendResumeNotification(handle: HPOWERNOTIFY) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(UnregisterSuspendResumeNotification(handle.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ValidatePowerPolicies(pglobalpowerpolicy: *mut GLOBAL_POWER_POLICY, ppowerpolicy: *mut POWER_POLICY) -> super::super::Foundation::BOOLEAN {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ValidatePowerPolicies(pglobalpowerpolicy: *mut GLOBAL_POWER_POLICY, ppowerpolicy: *mut POWER_POLICY) -> super::super::Foundation::BOOLEAN;
-        }
-        ::core::mem::transmute(ValidatePowerPolicies(::core::mem::transmute(pglobalpowerpolicy), ::core::mem::transmute(ppowerpolicy)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ValidatePowerPolicies(pglobalpowerpolicy: *mut GLOBAL_POWER_POLICY, ppowerpolicy: *mut POWER_POLICY) -> super::super::Foundation::BOOLEAN;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(ValidatePowerPolicies(::core::mem::transmute(pglobalpowerpolicy), ::core::mem::transmute(ppowerpolicy)))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
@@ -4435,46 +3965,31 @@ impl ::core::default::Default for WAKE_ALARM_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WriteGlobalPwrPolicy(pglobalpowerpolicy: *const GLOBAL_POWER_POLICY) -> super::super::Foundation::BOOLEAN {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WriteGlobalPwrPolicy(pglobalpowerpolicy: *const GLOBAL_POWER_POLICY) -> super::super::Foundation::BOOLEAN;
-        }
-        ::core::mem::transmute(WriteGlobalPwrPolicy(::core::mem::transmute(pglobalpowerpolicy)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WriteGlobalPwrPolicy(pglobalpowerpolicy: *const GLOBAL_POWER_POLICY) -> super::super::Foundation::BOOLEAN;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(WriteGlobalPwrPolicy(::core::mem::transmute(pglobalpowerpolicy)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WriteProcessorPwrScheme(uiid: u32, pmachineprocessorpowerpolicy: *const MACHINE_PROCESSOR_POWER_POLICY) -> super::super::Foundation::BOOLEAN {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WriteProcessorPwrScheme(uiid: u32, pmachineprocessorpowerpolicy: *const MACHINE_PROCESSOR_POWER_POLICY) -> super::super::Foundation::BOOLEAN;
-        }
-        ::core::mem::transmute(WriteProcessorPwrScheme(::core::mem::transmute(uiid), ::core::mem::transmute(pmachineprocessorpowerpolicy)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WriteProcessorPwrScheme(uiid: u32, pmachineprocessorpowerpolicy: *const MACHINE_PROCESSOR_POWER_POLICY) -> super::super::Foundation::BOOLEAN;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(WriteProcessorPwrScheme(::core::mem::transmute(uiid), ::core::mem::transmute(pmachineprocessorpowerpolicy)))
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WritePwrScheme<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(puiid: *const u32, lpszschemename: Param1, lpszdescription: Param2, lpscheme: *const POWER_POLICY) -> super::super::Foundation::BOOLEAN {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WritePwrScheme(puiid: *const u32, lpszschemename: ::windows::core::PCWSTR, lpszdescription: ::windows::core::PCWSTR, lpscheme: *const POWER_POLICY) -> super::super::Foundation::BOOLEAN;
-        }
-        ::core::mem::transmute(WritePwrScheme(::core::mem::transmute(puiid), lpszschemename.into_param().abi(), lpszdescription.into_param().abi(), ::core::mem::transmute(lpscheme)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WritePwrScheme(puiid: *const u32, lpszschemename: ::windows::core::PCWSTR, lpszdescription: ::windows::core::PCWSTR, lpscheme: *const POWER_POLICY) -> super::super::Foundation::BOOLEAN;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(WritePwrScheme(::core::mem::transmute(puiid), lpszschemename.into_param().abi(), lpszdescription.into_param().abi(), ::core::mem::transmute(lpscheme)))
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

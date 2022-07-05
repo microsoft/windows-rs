@@ -58,14 +58,14 @@ impl<'a> IntoParam<'a, PCWSTR> for alloc::string::String {
         IntoParam::into_param(self.as_str())
     }
 }
-#[cfg(feature = "alloc")]
+#[cfg(all(windows, feature = "alloc"))]
 impl<'a> IntoParam<'a, PCWSTR> for &::std::ffi::OsStr {
     fn into_param(self) -> Param<'a, PCWSTR> {
         use ::std::os::windows::ffi::OsStrExt;
         Param::Boxed(PCWSTR(alloc_from_iter(self.encode_wide().chain(core::iter::once(0)), self.len() + 1)))
     }
 }
-#[cfg(feature = "alloc")]
+#[cfg(all(windows, feature = "alloc"))]
 impl<'a> IntoParam<'a, PCWSTR> for ::std::ffi::OsString {
     fn into_param(self) -> Param<'a, PCWSTR> {
         IntoParam::into_param(self.as_os_str())

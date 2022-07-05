@@ -274,30 +274,20 @@ impl ::core::fmt::Debug for CALLFRAME_WALK {
 #[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
 #[inline]
 pub unsafe fn CoGetInterceptor<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(iidintercepted: *const ::windows::core::GUID, punkouter: Param1, iid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CoGetInterceptor(iidintercepted: *const ::windows::core::GUID, punkouter: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        CoGetInterceptor(::core::mem::transmute(iidintercepted), punkouter.into_param().abi(), ::core::mem::transmute(iid), ::core::mem::transmute(ppv)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CoGetInterceptor(iidintercepted: *const ::windows::core::GUID, punkouter: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CoGetInterceptor(::core::mem::transmute(iidintercepted), punkouter.into_param().abi(), ::core::mem::transmute(iid), ::core::mem::transmute(ppv)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
 #[inline]
 pub unsafe fn CoGetInterceptorFromTypeInfo<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param2: ::windows::core::IntoParam<'a, super::ITypeInfo>>(iidintercepted: *const ::windows::core::GUID, punkouter: Param1, typeinfo: Param2, iid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CoGetInterceptorFromTypeInfo(iidintercepted: *const ::windows::core::GUID, punkouter: *mut ::core::ffi::c_void, typeinfo: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        CoGetInterceptorFromTypeInfo(::core::mem::transmute(iidintercepted), punkouter.into_param().abi(), typeinfo.into_param().abi(), ::core::mem::transmute(iid), ::core::mem::transmute(ppv)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CoGetInterceptorFromTypeInfo(iidintercepted: *const ::windows::core::GUID, punkouter: *mut ::core::ffi::c_void, typeinfo: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CoGetInterceptorFromTypeInfo(::core::mem::transmute(iidintercepted), punkouter.into_param().abi(), typeinfo.into_param().abi(), ::core::mem::transmute(iid), ::core::mem::transmute(ppv)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
 #[repr(transparent)]

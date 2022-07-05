@@ -400,151 +400,101 @@ impl ::core::fmt::Debug for DCOMPOSITION_OPACITY_MODE {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DCompositionAttachMouseDragToHwnd<'a, Param0: ::windows::core::IntoParam<'a, IDCompositionVisual>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(visual: Param0, hwnd: Param1, enable: Param2) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DCompositionAttachMouseDragToHwnd(visual: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, enable: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
-        }
-        DCompositionAttachMouseDragToHwnd(visual.into_param().abi(), hwnd.into_param().abi(), enable.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DCompositionAttachMouseDragToHwnd(visual: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, enable: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DCompositionAttachMouseDragToHwnd(visual.into_param().abi(), hwnd.into_param().abi(), enable.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DCompositionAttachMouseWheelToHwnd<'a, Param0: ::windows::core::IntoParam<'a, IDCompositionVisual>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(visual: Param0, hwnd: Param1, enable: Param2) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DCompositionAttachMouseWheelToHwnd(visual: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, enable: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
-        }
-        DCompositionAttachMouseWheelToHwnd(visual.into_param().abi(), hwnd.into_param().abi(), enable.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DCompositionAttachMouseWheelToHwnd(visual: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, enable: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DCompositionAttachMouseWheelToHwnd(visual.into_param().abi(), hwnd.into_param().abi(), enable.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DCompositionBoostCompositorClock<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(enable: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DCompositionBoostCompositorClock(enable: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
-        }
-        DCompositionBoostCompositorClock(enable.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DCompositionBoostCompositorClock(enable: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DCompositionBoostCompositorClock(enable.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Graphics_Dxgi\"`*"]
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 #[inline]
 pub unsafe fn DCompositionCreateDevice<'a, Param0: ::windows::core::IntoParam<'a, super::Dxgi::IDXGIDevice>>(dxgidevice: Param0, iid: *const ::windows::core::GUID, dcompositiondevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DCompositionCreateDevice(dxgidevice: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, dcompositiondevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        DCompositionCreateDevice(dxgidevice.into_param().abi(), ::core::mem::transmute(iid), ::core::mem::transmute(dcompositiondevice)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DCompositionCreateDevice(dxgidevice: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, dcompositiondevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DCompositionCreateDevice(dxgidevice.into_param().abi(), ::core::mem::transmute(iid), ::core::mem::transmute(dcompositiondevice)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[inline]
 pub unsafe fn DCompositionCreateDevice2<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(renderingdevice: Param0, iid: *const ::windows::core::GUID, dcompositiondevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DCompositionCreateDevice2(renderingdevice: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, dcompositiondevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        DCompositionCreateDevice2(renderingdevice.into_param().abi(), ::core::mem::transmute(iid), ::core::mem::transmute(dcompositiondevice)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DCompositionCreateDevice2(renderingdevice: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, dcompositiondevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DCompositionCreateDevice2(renderingdevice.into_param().abi(), ::core::mem::transmute(iid), ::core::mem::transmute(dcompositiondevice)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[inline]
 pub unsafe fn DCompositionCreateDevice3<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(renderingdevice: Param0, iid: *const ::windows::core::GUID, dcompositiondevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DCompositionCreateDevice3(renderingdevice: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, dcompositiondevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        DCompositionCreateDevice3(renderingdevice.into_param().abi(), ::core::mem::transmute(iid), ::core::mem::transmute(dcompositiondevice)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DCompositionCreateDevice3(renderingdevice: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, dcompositiondevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DCompositionCreateDevice3(renderingdevice.into_param().abi(), ::core::mem::transmute(iid), ::core::mem::transmute(dcompositiondevice)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn DCompositionCreateSurfaceHandle(desiredaccess: u32, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DCompositionCreateSurfaceHandle(desiredaccess: u32, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, surfacehandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HANDLE>::zeroed();
-        DCompositionCreateSurfaceHandle(::core::mem::transmute(desiredaccess), ::core::mem::transmute(securityattributes), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DCompositionCreateSurfaceHandle(desiredaccess: u32, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, surfacehandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HANDLE>::zeroed();
+    DCompositionCreateSurfaceHandle(::core::mem::transmute(desiredaccess), ::core::mem::transmute(securityattributes), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[inline]
 pub unsafe fn DCompositionGetFrameId(frameidtype: COMPOSITION_FRAME_ID_TYPE) -> ::windows::core::Result<u64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DCompositionGetFrameId(frameidtype: COMPOSITION_FRAME_ID_TYPE, frameid: *mut u64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-        DCompositionGetFrameId(::core::mem::transmute(frameidtype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DCompositionGetFrameId(frameidtype: COMPOSITION_FRAME_ID_TYPE, frameid: *mut u64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
+    DCompositionGetFrameId(::core::mem::transmute(frameidtype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DCompositionGetStatistics(frameid: u64, framestats: *mut COMPOSITION_FRAME_STATS, targetidcount: u32, targetids: *mut COMPOSITION_TARGET_ID, actualtargetidcount: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DCompositionGetStatistics(frameid: u64, framestats: *mut COMPOSITION_FRAME_STATS, targetidcount: u32, targetids: *mut COMPOSITION_TARGET_ID, actualtargetidcount: *mut u32) -> ::windows::core::HRESULT;
-        }
-        DCompositionGetStatistics(::core::mem::transmute(frameid), ::core::mem::transmute(framestats), ::core::mem::transmute(targetidcount), ::core::mem::transmute(targetids), ::core::mem::transmute(actualtargetidcount)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DCompositionGetStatistics(frameid: u64, framestats: *mut COMPOSITION_FRAME_STATS, targetidcount: u32, targetids: *mut COMPOSITION_TARGET_ID, actualtargetidcount: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DCompositionGetStatistics(::core::mem::transmute(frameid), ::core::mem::transmute(framestats), ::core::mem::transmute(targetidcount), ::core::mem::transmute(targetids), ::core::mem::transmute(actualtargetidcount)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DCompositionGetTargetStatistics(frameid: u64, targetid: *const COMPOSITION_TARGET_ID) -> ::windows::core::Result<COMPOSITION_TARGET_STATS> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DCompositionGetTargetStatistics(frameid: u64, targetid: *const COMPOSITION_TARGET_ID, targetstats: *mut COMPOSITION_TARGET_STATS) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<COMPOSITION_TARGET_STATS>::zeroed();
-        DCompositionGetTargetStatistics(::core::mem::transmute(frameid), ::core::mem::transmute(targetid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<COMPOSITION_TARGET_STATS>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DCompositionGetTargetStatistics(frameid: u64, targetid: *const COMPOSITION_TARGET_ID, targetstats: *mut COMPOSITION_TARGET_STATS) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<COMPOSITION_TARGET_STATS>::zeroed();
+    DCompositionGetTargetStatistics(::core::mem::transmute(frameid), ::core::mem::transmute(targetid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<COMPOSITION_TARGET_STATS>(result__)
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
@@ -582,16 +532,11 @@ impl ::core::default::Default for DCompositionInkTrailPoint {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DCompositionWaitForCompositorClock(handles: &[super::super::Foundation::HANDLE], timeoutinms: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DCompositionWaitForCompositorClock(count: u32, handles: *const super::super::Foundation::HANDLE, timeoutinms: u32) -> u32;
-        }
-        ::core::mem::transmute(DCompositionWaitForCompositorClock(handles.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(handles)), ::core::mem::transmute(timeoutinms)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DCompositionWaitForCompositorClock(count: u32, handles: *const super::super::Foundation::HANDLE, timeoutinms: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(DCompositionWaitForCompositorClock(handles.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(handles)), ::core::mem::transmute(timeoutinms)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[repr(transparent)]

@@ -4309,521 +4309,346 @@ impl ::core::ops::Not for CF_UPDATE_FLAGS {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CfCloseHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CfCloseHandle(filehandle: super::super::Foundation::HANDLE);
-        }
-        CfCloseHandle(filehandle.into_param().abi())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CfCloseHandle(filehandle: super::super::Foundation::HANDLE);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CfCloseHandle(filehandle.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`, `\"Win32_System_CorrelationVector\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
 #[inline]
 pub unsafe fn CfConnectSyncRoot<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(syncrootpath: Param0, callbacktable: *const CF_CALLBACK_REGISTRATION, callbackcontext: *const ::core::ffi::c_void, connectflags: CF_CONNECT_FLAGS) -> ::windows::core::Result<CF_CONNECTION_KEY> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CfConnectSyncRoot(syncrootpath: ::windows::core::PCWSTR, callbacktable: *const CF_CALLBACK_REGISTRATION, callbackcontext: *const ::core::ffi::c_void, connectflags: CF_CONNECT_FLAGS, connectionkey: *mut CF_CONNECTION_KEY) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<CF_CONNECTION_KEY>::zeroed();
-        CfConnectSyncRoot(syncrootpath.into_param().abi(), ::core::mem::transmute(callbacktable), ::core::mem::transmute(callbackcontext), ::core::mem::transmute(connectflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CF_CONNECTION_KEY>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CfConnectSyncRoot(syncrootpath: ::windows::core::PCWSTR, callbacktable: *const CF_CALLBACK_REGISTRATION, callbackcontext: *const ::core::ffi::c_void, connectflags: CF_CONNECT_FLAGS, connectionkey: *mut CF_CONNECTION_KEY) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<CF_CONNECTION_KEY>::zeroed();
+    CfConnectSyncRoot(syncrootpath.into_param().abi(), ::core::mem::transmute(callbacktable), ::core::mem::transmute(callbackcontext), ::core::mem::transmute(connectflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CF_CONNECTION_KEY>(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn CfConvertToPlaceholder<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, fileidentity: *const ::core::ffi::c_void, fileidentitylength: u32, convertflags: CF_CONVERT_FLAGS, convertusn: *mut i64, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CfConvertToPlaceholder(filehandle: super::super::Foundation::HANDLE, fileidentity: *const ::core::ffi::c_void, fileidentitylength: u32, convertflags: CF_CONVERT_FLAGS, convertusn: *mut i64, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::HRESULT;
-        }
-        CfConvertToPlaceholder(filehandle.into_param().abi(), ::core::mem::transmute(fileidentity), ::core::mem::transmute(fileidentitylength), ::core::mem::transmute(convertflags), ::core::mem::transmute(convertusn), ::core::mem::transmute(overlapped)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CfConvertToPlaceholder(filehandle: super::super::Foundation::HANDLE, fileidentity: *const ::core::ffi::c_void, fileidentitylength: u32, convertflags: CF_CONVERT_FLAGS, convertusn: *mut i64, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CfConvertToPlaceholder(filehandle.into_param().abi(), ::core::mem::transmute(fileidentity), ::core::mem::transmute(fileidentitylength), ::core::mem::transmute(convertflags), ::core::mem::transmute(convertusn), ::core::mem::transmute(overlapped)).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Storage_FileSystem\"`*"]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 #[inline]
 pub unsafe fn CfCreatePlaceholders<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(basedirectorypath: Param0, placeholderarray: &mut [CF_PLACEHOLDER_CREATE_INFO], createflags: CF_CREATE_FLAGS, entriesprocessed: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CfCreatePlaceholders(basedirectorypath: ::windows::core::PCWSTR, placeholderarray: *mut CF_PLACEHOLDER_CREATE_INFO, placeholdercount: u32, createflags: CF_CREATE_FLAGS, entriesprocessed: *mut u32) -> ::windows::core::HRESULT;
-        }
-        CfCreatePlaceholders(basedirectorypath.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(placeholderarray)), placeholderarray.len() as _, ::core::mem::transmute(createflags), ::core::mem::transmute(entriesprocessed)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CfCreatePlaceholders(basedirectorypath: ::windows::core::PCWSTR, placeholderarray: *mut CF_PLACEHOLDER_CREATE_INFO, placeholdercount: u32, createflags: CF_CREATE_FLAGS, entriesprocessed: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CfCreatePlaceholders(basedirectorypath.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(placeholderarray)), placeholderarray.len() as _, ::core::mem::transmute(createflags), ::core::mem::transmute(entriesprocessed)).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn CfDehydratePlaceholder<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, startingoffset: i64, length: i64, dehydrateflags: CF_DEHYDRATE_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CfDehydratePlaceholder(filehandle: super::super::Foundation::HANDLE, startingoffset: i64, length: i64, dehydrateflags: CF_DEHYDRATE_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::HRESULT;
-        }
-        CfDehydratePlaceholder(filehandle.into_param().abi(), ::core::mem::transmute(startingoffset), ::core::mem::transmute(length), ::core::mem::transmute(dehydrateflags), ::core::mem::transmute(overlapped)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CfDehydratePlaceholder(filehandle: super::super::Foundation::HANDLE, startingoffset: i64, length: i64, dehydrateflags: CF_DEHYDRATE_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CfDehydratePlaceholder(filehandle.into_param().abi(), ::core::mem::transmute(startingoffset), ::core::mem::transmute(length), ::core::mem::transmute(dehydrateflags), ::core::mem::transmute(overlapped)).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[inline]
 pub unsafe fn CfDisconnectSyncRoot<'a, Param0: ::windows::core::IntoParam<'a, CF_CONNECTION_KEY>>(connectionkey: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CfDisconnectSyncRoot(connectionkey: CF_CONNECTION_KEY) -> ::windows::core::HRESULT;
-        }
-        CfDisconnectSyncRoot(connectionkey.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CfDisconnectSyncRoot(connectionkey: CF_CONNECTION_KEY) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CfDisconnectSyncRoot(connectionkey.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_FileSystem\"`, `\"Win32_System_CorrelationVector\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_CorrelationVector"))]
 #[inline]
 pub unsafe fn CfExecute(opinfo: *const CF_OPERATION_INFO, opparams: *mut CF_OPERATION_PARAMETERS) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CfExecute(opinfo: *const CF_OPERATION_INFO, opparams: *mut CF_OPERATION_PARAMETERS) -> ::windows::core::HRESULT;
-        }
-        CfExecute(::core::mem::transmute(opinfo), ::core::mem::transmute(opparams)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CfExecute(opinfo: *const CF_OPERATION_INFO, opparams: *mut CF_OPERATION_PARAMETERS) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CfExecute(::core::mem::transmute(opinfo), ::core::mem::transmute(opparams)).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`, `\"Win32_System_CorrelationVector\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
 #[inline]
 pub unsafe fn CfGetCorrelationVector<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0) -> ::windows::core::Result<super::super::System::CorrelationVector::CORRELATION_VECTOR> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CfGetCorrelationVector(filehandle: super::super::Foundation::HANDLE, correlationvector: *mut super::super::System::CorrelationVector::CORRELATION_VECTOR) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::System::CorrelationVector::CORRELATION_VECTOR>::zeroed();
-        CfGetCorrelationVector(filehandle.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::CorrelationVector::CORRELATION_VECTOR>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CfGetCorrelationVector(filehandle: super::super::Foundation::HANDLE, correlationvector: *mut super::super::System::CorrelationVector::CORRELATION_VECTOR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::super::System::CorrelationVector::CORRELATION_VECTOR>::zeroed();
+    CfGetCorrelationVector(filehandle.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::CorrelationVector::CORRELATION_VECTOR>(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CfGetPlaceholderInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, infoclass: CF_PLACEHOLDER_INFO_CLASS, infobuffer: *mut ::core::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CfGetPlaceholderInfo(filehandle: super::super::Foundation::HANDLE, infoclass: CF_PLACEHOLDER_INFO_CLASS, infobuffer: *mut ::core::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> ::windows::core::HRESULT;
-        }
-        CfGetPlaceholderInfo(filehandle.into_param().abi(), ::core::mem::transmute(infoclass), ::core::mem::transmute(infobuffer), ::core::mem::transmute(infobufferlength), ::core::mem::transmute(returnedlength)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CfGetPlaceholderInfo(filehandle: super::super::Foundation::HANDLE, infoclass: CF_PLACEHOLDER_INFO_CLASS, infobuffer: *mut ::core::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CfGetPlaceholderInfo(filehandle.into_param().abi(), ::core::mem::transmute(infoclass), ::core::mem::transmute(infobuffer), ::core::mem::transmute(infobufferlength), ::core::mem::transmute(returnedlength)).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CfGetPlaceholderRangeInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, infoclass: CF_PLACEHOLDER_RANGE_INFO_CLASS, startingoffset: i64, length: i64, infobuffer: *mut ::core::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CfGetPlaceholderRangeInfo(filehandle: super::super::Foundation::HANDLE, infoclass: CF_PLACEHOLDER_RANGE_INFO_CLASS, startingoffset: i64, length: i64, infobuffer: *mut ::core::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> ::windows::core::HRESULT;
-        }
-        CfGetPlaceholderRangeInfo(filehandle.into_param().abi(), ::core::mem::transmute(infoclass), ::core::mem::transmute(startingoffset), ::core::mem::transmute(length), ::core::mem::transmute(infobuffer), ::core::mem::transmute(infobufferlength), ::core::mem::transmute(returnedlength)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CfGetPlaceholderRangeInfo(filehandle: super::super::Foundation::HANDLE, infoclass: CF_PLACEHOLDER_RANGE_INFO_CLASS, startingoffset: i64, length: i64, infobuffer: *mut ::core::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CfGetPlaceholderRangeInfo(filehandle.into_param().abi(), ::core::mem::transmute(infoclass), ::core::mem::transmute(startingoffset), ::core::mem::transmute(length), ::core::mem::transmute(infobuffer), ::core::mem::transmute(infobufferlength), ::core::mem::transmute(returnedlength)).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[inline]
 pub unsafe fn CfGetPlaceholderStateFromAttributeTag(fileattributes: u32, reparsetag: u32) -> CF_PLACEHOLDER_STATE {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CfGetPlaceholderStateFromAttributeTag(fileattributes: u32, reparsetag: u32) -> CF_PLACEHOLDER_STATE;
-        }
-        ::core::mem::transmute(CfGetPlaceholderStateFromAttributeTag(::core::mem::transmute(fileattributes), ::core::mem::transmute(reparsetag)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CfGetPlaceholderStateFromAttributeTag(fileattributes: u32, reparsetag: u32) -> CF_PLACEHOLDER_STATE;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CfGetPlaceholderStateFromAttributeTag(::core::mem::transmute(fileattributes), ::core::mem::transmute(reparsetag)))
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Storage_FileSystem\"`*"]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 #[inline]
 pub unsafe fn CfGetPlaceholderStateFromFileInfo(infobuffer: *const ::core::ffi::c_void, infoclass: super::FileSystem::FILE_INFO_BY_HANDLE_CLASS) -> CF_PLACEHOLDER_STATE {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CfGetPlaceholderStateFromFileInfo(infobuffer: *const ::core::ffi::c_void, infoclass: super::FileSystem::FILE_INFO_BY_HANDLE_CLASS) -> CF_PLACEHOLDER_STATE;
-        }
-        ::core::mem::transmute(CfGetPlaceholderStateFromFileInfo(::core::mem::transmute(infobuffer), ::core::mem::transmute(infoclass)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CfGetPlaceholderStateFromFileInfo(infobuffer: *const ::core::ffi::c_void, infoclass: super::FileSystem::FILE_INFO_BY_HANDLE_CLASS) -> CF_PLACEHOLDER_STATE;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CfGetPlaceholderStateFromFileInfo(::core::mem::transmute(infobuffer), ::core::mem::transmute(infoclass)))
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_FileSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 #[inline]
 pub unsafe fn CfGetPlaceholderStateFromFindData(finddata: *const super::FileSystem::WIN32_FIND_DATAA) -> CF_PLACEHOLDER_STATE {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CfGetPlaceholderStateFromFindData(finddata: *const super::FileSystem::WIN32_FIND_DATAA) -> CF_PLACEHOLDER_STATE;
-        }
-        ::core::mem::transmute(CfGetPlaceholderStateFromFindData(::core::mem::transmute(finddata)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CfGetPlaceholderStateFromFindData(finddata: *const super::FileSystem::WIN32_FIND_DATAA) -> CF_PLACEHOLDER_STATE;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CfGetPlaceholderStateFromFindData(::core::mem::transmute(finddata)))
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[inline]
 pub unsafe fn CfGetPlatformInfo() -> ::windows::core::Result<CF_PLATFORM_INFO> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CfGetPlatformInfo(platformversion: *mut CF_PLATFORM_INFO) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<CF_PLATFORM_INFO>::zeroed();
-        CfGetPlatformInfo(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CF_PLATFORM_INFO>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CfGetPlatformInfo(platformversion: *mut CF_PLATFORM_INFO) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<CF_PLATFORM_INFO>::zeroed();
+    CfGetPlatformInfo(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CF_PLATFORM_INFO>(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CfGetSyncRootInfoByHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, infoclass: CF_SYNC_ROOT_INFO_CLASS, infobuffer: *mut ::core::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CfGetSyncRootInfoByHandle(filehandle: super::super::Foundation::HANDLE, infoclass: CF_SYNC_ROOT_INFO_CLASS, infobuffer: *mut ::core::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> ::windows::core::HRESULT;
-        }
-        CfGetSyncRootInfoByHandle(filehandle.into_param().abi(), ::core::mem::transmute(infoclass), ::core::mem::transmute(infobuffer), ::core::mem::transmute(infobufferlength), ::core::mem::transmute(returnedlength)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CfGetSyncRootInfoByHandle(filehandle: super::super::Foundation::HANDLE, infoclass: CF_SYNC_ROOT_INFO_CLASS, infobuffer: *mut ::core::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CfGetSyncRootInfoByHandle(filehandle.into_param().abi(), ::core::mem::transmute(infoclass), ::core::mem::transmute(infobuffer), ::core::mem::transmute(infobufferlength), ::core::mem::transmute(returnedlength)).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[inline]
 pub unsafe fn CfGetSyncRootInfoByPath<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(filepath: Param0, infoclass: CF_SYNC_ROOT_INFO_CLASS, infobuffer: *mut ::core::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CfGetSyncRootInfoByPath(filepath: ::windows::core::PCWSTR, infoclass: CF_SYNC_ROOT_INFO_CLASS, infobuffer: *mut ::core::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> ::windows::core::HRESULT;
-        }
-        CfGetSyncRootInfoByPath(filepath.into_param().abi(), ::core::mem::transmute(infoclass), ::core::mem::transmute(infobuffer), ::core::mem::transmute(infobufferlength), ::core::mem::transmute(returnedlength)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CfGetSyncRootInfoByPath(filepath: ::windows::core::PCWSTR, infoclass: CF_SYNC_ROOT_INFO_CLASS, infobuffer: *mut ::core::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CfGetSyncRootInfoByPath(filepath.into_param().abi(), ::core::mem::transmute(infoclass), ::core::mem::transmute(infobuffer), ::core::mem::transmute(infobufferlength), ::core::mem::transmute(returnedlength)).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CfGetTransferKey<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0) -> ::windows::core::Result<i64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CfGetTransferKey(filehandle: super::super::Foundation::HANDLE, transferkey: *mut i64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
-        CfGetTransferKey(filehandle.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CfGetTransferKey(filehandle: super::super::Foundation::HANDLE, transferkey: *mut i64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
+    CfGetTransferKey(filehandle.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CfGetWin32HandleFromProtectedHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(protectedhandle: Param0) -> super::super::Foundation::HANDLE {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CfGetWin32HandleFromProtectedHandle(protectedhandle: super::super::Foundation::HANDLE) -> super::super::Foundation::HANDLE;
-        }
-        ::core::mem::transmute(CfGetWin32HandleFromProtectedHandle(protectedhandle.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CfGetWin32HandleFromProtectedHandle(protectedhandle: super::super::Foundation::HANDLE) -> super::super::Foundation::HANDLE;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CfGetWin32HandleFromProtectedHandle(protectedhandle.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn CfHydratePlaceholder<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, startingoffset: i64, length: i64, hydrateflags: CF_HYDRATE_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CfHydratePlaceholder(filehandle: super::super::Foundation::HANDLE, startingoffset: i64, length: i64, hydrateflags: CF_HYDRATE_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::HRESULT;
-        }
-        CfHydratePlaceholder(filehandle.into_param().abi(), ::core::mem::transmute(startingoffset), ::core::mem::transmute(length), ::core::mem::transmute(hydrateflags), ::core::mem::transmute(overlapped)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CfHydratePlaceholder(filehandle: super::super::Foundation::HANDLE, startingoffset: i64, length: i64, hydrateflags: CF_HYDRATE_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CfHydratePlaceholder(filehandle.into_param().abi(), ::core::mem::transmute(startingoffset), ::core::mem::transmute(length), ::core::mem::transmute(hydrateflags), ::core::mem::transmute(overlapped)).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CfOpenFileWithOplock<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(filepath: Param0, flags: CF_OPEN_FILE_FLAGS) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CfOpenFileWithOplock(filepath: ::windows::core::PCWSTR, flags: CF_OPEN_FILE_FLAGS, protectedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HANDLE>::zeroed();
-        CfOpenFileWithOplock(filepath.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CfOpenFileWithOplock(filepath: ::windows::core::PCWSTR, flags: CF_OPEN_FILE_FLAGS, protectedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HANDLE>::zeroed();
+    CfOpenFileWithOplock(filepath.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[inline]
 pub unsafe fn CfQuerySyncProviderStatus<'a, Param0: ::windows::core::IntoParam<'a, CF_CONNECTION_KEY>>(connectionkey: Param0) -> ::windows::core::Result<CF_SYNC_PROVIDER_STATUS> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CfQuerySyncProviderStatus(connectionkey: CF_CONNECTION_KEY, providerstatus: *mut CF_SYNC_PROVIDER_STATUS) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<CF_SYNC_PROVIDER_STATUS>::zeroed();
-        CfQuerySyncProviderStatus(connectionkey.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CF_SYNC_PROVIDER_STATUS>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CfQuerySyncProviderStatus(connectionkey: CF_CONNECTION_KEY, providerstatus: *mut CF_SYNC_PROVIDER_STATUS) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<CF_SYNC_PROVIDER_STATUS>::zeroed();
+    CfQuerySyncProviderStatus(connectionkey.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CF_SYNC_PROVIDER_STATUS>(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CfReferenceProtectedHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(protectedhandle: Param0) -> super::super::Foundation::BOOLEAN {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CfReferenceProtectedHandle(protectedhandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOLEAN;
-        }
-        ::core::mem::transmute(CfReferenceProtectedHandle(protectedhandle.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CfReferenceProtectedHandle(protectedhandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOLEAN;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CfReferenceProtectedHandle(protectedhandle.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[inline]
 pub unsafe fn CfRegisterSyncRoot<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(syncrootpath: Param0, registration: *const CF_SYNC_REGISTRATION, policies: *const CF_SYNC_POLICIES, registerflags: CF_REGISTER_FLAGS) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CfRegisterSyncRoot(syncrootpath: ::windows::core::PCWSTR, registration: *const CF_SYNC_REGISTRATION, policies: *const CF_SYNC_POLICIES, registerflags: CF_REGISTER_FLAGS) -> ::windows::core::HRESULT;
-        }
-        CfRegisterSyncRoot(syncrootpath.into_param().abi(), ::core::mem::transmute(registration), ::core::mem::transmute(policies), ::core::mem::transmute(registerflags)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CfRegisterSyncRoot(syncrootpath: ::windows::core::PCWSTR, registration: *const CF_SYNC_REGISTRATION, policies: *const CF_SYNC_POLICIES, registerflags: CF_REGISTER_FLAGS) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CfRegisterSyncRoot(syncrootpath.into_param().abi(), ::core::mem::transmute(registration), ::core::mem::transmute(policies), ::core::mem::transmute(registerflags)).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CfReleaseProtectedHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(protectedhandle: Param0) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CfReleaseProtectedHandle(protectedhandle: super::super::Foundation::HANDLE);
-        }
-        CfReleaseProtectedHandle(protectedhandle.into_param().abi())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CfReleaseProtectedHandle(protectedhandle: super::super::Foundation::HANDLE);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CfReleaseProtectedHandle(protectedhandle.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CfReleaseTransferKey<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, transferkey: *mut i64) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CfReleaseTransferKey(filehandle: super::super::Foundation::HANDLE, transferkey: *mut i64);
-        }
-        CfReleaseTransferKey(filehandle.into_param().abi(), ::core::mem::transmute(transferkey))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CfReleaseTransferKey(filehandle: super::super::Foundation::HANDLE, transferkey: *mut i64);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CfReleaseTransferKey(filehandle.into_param().abi(), ::core::mem::transmute(transferkey))
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[inline]
 pub unsafe fn CfReportProviderProgress<'a, Param0: ::windows::core::IntoParam<'a, CF_CONNECTION_KEY>>(connectionkey: Param0, transferkey: i64, providerprogresstotal: i64, providerprogresscompleted: i64) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CfReportProviderProgress(connectionkey: CF_CONNECTION_KEY, transferkey: i64, providerprogresstotal: i64, providerprogresscompleted: i64) -> ::windows::core::HRESULT;
-        }
-        CfReportProviderProgress(connectionkey.into_param().abi(), ::core::mem::transmute(transferkey), ::core::mem::transmute(providerprogresstotal), ::core::mem::transmute(providerprogresscompleted)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CfReportProviderProgress(connectionkey: CF_CONNECTION_KEY, transferkey: i64, providerprogresstotal: i64, providerprogresscompleted: i64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CfReportProviderProgress(connectionkey.into_param().abi(), ::core::mem::transmute(transferkey), ::core::mem::transmute(providerprogresstotal), ::core::mem::transmute(providerprogresscompleted)).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[inline]
 pub unsafe fn CfReportProviderProgress2<'a, Param0: ::windows::core::IntoParam<'a, CF_CONNECTION_KEY>>(connectionkey: Param0, transferkey: i64, requestkey: i64, providerprogresstotal: i64, providerprogresscompleted: i64, targetsessionid: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CfReportProviderProgress2(connectionkey: CF_CONNECTION_KEY, transferkey: i64, requestkey: i64, providerprogresstotal: i64, providerprogresscompleted: i64, targetsessionid: u32) -> ::windows::core::HRESULT;
-        }
-        CfReportProviderProgress2(connectionkey.into_param().abi(), ::core::mem::transmute(transferkey), ::core::mem::transmute(requestkey), ::core::mem::transmute(providerprogresstotal), ::core::mem::transmute(providerprogresscompleted), ::core::mem::transmute(targetsessionid)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CfReportProviderProgress2(connectionkey: CF_CONNECTION_KEY, transferkey: i64, requestkey: i64, providerprogresstotal: i64, providerprogresscompleted: i64, targetsessionid: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CfReportProviderProgress2(connectionkey.into_param().abi(), ::core::mem::transmute(transferkey), ::core::mem::transmute(requestkey), ::core::mem::transmute(providerprogresstotal), ::core::mem::transmute(providerprogresscompleted), ::core::mem::transmute(targetsessionid)).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[inline]
 pub unsafe fn CfReportSyncStatus<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(syncrootpath: Param0, syncstatus: *const CF_SYNC_STATUS) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CfReportSyncStatus(syncrootpath: ::windows::core::PCWSTR, syncstatus: *const CF_SYNC_STATUS) -> ::windows::core::HRESULT;
-        }
-        CfReportSyncStatus(syncrootpath.into_param().abi(), ::core::mem::transmute(syncstatus)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CfReportSyncStatus(syncrootpath: ::windows::core::PCWSTR, syncstatus: *const CF_SYNC_STATUS) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CfReportSyncStatus(syncrootpath.into_param().abi(), ::core::mem::transmute(syncstatus)).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn CfRevertPlaceholder<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, revertflags: CF_REVERT_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CfRevertPlaceholder(filehandle: super::super::Foundation::HANDLE, revertflags: CF_REVERT_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::HRESULT;
-        }
-        CfRevertPlaceholder(filehandle.into_param().abi(), ::core::mem::transmute(revertflags), ::core::mem::transmute(overlapped)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CfRevertPlaceholder(filehandle: super::super::Foundation::HANDLE, revertflags: CF_REVERT_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CfRevertPlaceholder(filehandle.into_param().abi(), ::core::mem::transmute(revertflags), ::core::mem::transmute(overlapped)).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`, `\"Win32_System_CorrelationVector\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
 #[inline]
 pub unsafe fn CfSetCorrelationVector<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, correlationvector: *const super::super::System::CorrelationVector::CORRELATION_VECTOR) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CfSetCorrelationVector(filehandle: super::super::Foundation::HANDLE, correlationvector: *const super::super::System::CorrelationVector::CORRELATION_VECTOR) -> ::windows::core::HRESULT;
-        }
-        CfSetCorrelationVector(filehandle.into_param().abi(), ::core::mem::transmute(correlationvector)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CfSetCorrelationVector(filehandle: super::super::Foundation::HANDLE, correlationvector: *const super::super::System::CorrelationVector::CORRELATION_VECTOR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CfSetCorrelationVector(filehandle.into_param().abi(), ::core::mem::transmute(correlationvector)).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CfSetInSyncState<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, insyncstate: CF_IN_SYNC_STATE, insyncflags: CF_SET_IN_SYNC_FLAGS, insyncusn: *mut i64) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CfSetInSyncState(filehandle: super::super::Foundation::HANDLE, insyncstate: CF_IN_SYNC_STATE, insyncflags: CF_SET_IN_SYNC_FLAGS, insyncusn: *mut i64) -> ::windows::core::HRESULT;
-        }
-        CfSetInSyncState(filehandle.into_param().abi(), ::core::mem::transmute(insyncstate), ::core::mem::transmute(insyncflags), ::core::mem::transmute(insyncusn)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CfSetInSyncState(filehandle: super::super::Foundation::HANDLE, insyncstate: CF_IN_SYNC_STATE, insyncflags: CF_SET_IN_SYNC_FLAGS, insyncusn: *mut i64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CfSetInSyncState(filehandle.into_param().abi(), ::core::mem::transmute(insyncstate), ::core::mem::transmute(insyncflags), ::core::mem::transmute(insyncusn)).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn CfSetPinState<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, pinstate: CF_PIN_STATE, pinflags: CF_SET_PIN_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CfSetPinState(filehandle: super::super::Foundation::HANDLE, pinstate: CF_PIN_STATE, pinflags: CF_SET_PIN_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::HRESULT;
-        }
-        CfSetPinState(filehandle.into_param().abi(), ::core::mem::transmute(pinstate), ::core::mem::transmute(pinflags), ::core::mem::transmute(overlapped)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CfSetPinState(filehandle: super::super::Foundation::HANDLE, pinstate: CF_PIN_STATE, pinflags: CF_SET_PIN_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CfSetPinState(filehandle.into_param().abi(), ::core::mem::transmute(pinstate), ::core::mem::transmute(pinflags), ::core::mem::transmute(overlapped)).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[inline]
 pub unsafe fn CfUnregisterSyncRoot<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(syncrootpath: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CfUnregisterSyncRoot(syncrootpath: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
-        }
-        CfUnregisterSyncRoot(syncrootpath.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CfUnregisterSyncRoot(syncrootpath: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CfUnregisterSyncRoot(syncrootpath.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_FileSystem\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn CfUpdatePlaceholder<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, fsmetadata: *const CF_FS_METADATA, fileidentity: *const ::core::ffi::c_void, fileidentitylength: u32, dehydraterangearray: &[CF_FILE_RANGE], updateflags: CF_UPDATE_FLAGS, updateusn: *mut i64, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CfUpdatePlaceholder(filehandle: super::super::Foundation::HANDLE, fsmetadata: *const CF_FS_METADATA, fileidentity: *const ::core::ffi::c_void, fileidentitylength: u32, dehydraterangearray: *const CF_FILE_RANGE, dehydraterangecount: u32, updateflags: CF_UPDATE_FLAGS, updateusn: *mut i64, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::HRESULT;
-        }
-        CfUpdatePlaceholder(filehandle.into_param().abi(), ::core::mem::transmute(fsmetadata), ::core::mem::transmute(fileidentity), ::core::mem::transmute(fileidentitylength), ::core::mem::transmute(::windows::core::as_ptr_or_null(dehydraterangearray)), dehydraterangearray.len() as _, ::core::mem::transmute(updateflags), ::core::mem::transmute(updateusn), ::core::mem::transmute(overlapped)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CfUpdatePlaceholder(filehandle: super::super::Foundation::HANDLE, fsmetadata: *const CF_FS_METADATA, fileidentity: *const ::core::ffi::c_void, fileidentitylength: u32, dehydraterangearray: *const CF_FILE_RANGE, dehydraterangecount: u32, updateflags: CF_UPDATE_FLAGS, updateusn: *mut i64, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CfUpdatePlaceholder(filehandle.into_param().abi(), ::core::mem::transmute(fsmetadata), ::core::mem::transmute(fileidentity), ::core::mem::transmute(fileidentitylength), ::core::mem::transmute(::windows::core::as_ptr_or_null(dehydraterangearray)), dehydraterangearray.len() as _, ::core::mem::transmute(updateflags), ::core::mem::transmute(updateusn), ::core::mem::transmute(overlapped)).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[inline]
 pub unsafe fn CfUpdateSyncProviderStatus<'a, Param0: ::windows::core::IntoParam<'a, CF_CONNECTION_KEY>>(connectionkey: Param0, providerstatus: CF_SYNC_PROVIDER_STATUS) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CfUpdateSyncProviderStatus(connectionkey: CF_CONNECTION_KEY, providerstatus: CF_SYNC_PROVIDER_STATUS) -> ::windows::core::HRESULT;
-        }
-        CfUpdateSyncProviderStatus(connectionkey.into_param().abi(), ::core::mem::transmute(providerstatus)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CfUpdateSyncProviderStatus(connectionkey: CF_CONNECTION_KEY, providerstatus: CF_SYNC_PROVIDER_STATUS) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CfUpdateSyncProviderStatus(connectionkey.into_param().abi(), ::core::mem::transmute(providerstatus)).ok()
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -2,345 +2,230 @@
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnableMouseInPointer<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(fenable: Param0) -> super::super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn EnableMouseInPointer(fenable: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(EnableMouseInPointer(fenable.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn EnableMouseInPointer(fenable: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(EnableMouseInPointer(fenable.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPointerCursorId(pointerid: u32, cursorid: *mut u32) -> super::super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetPointerCursorId(pointerid: u32, cursorid: *mut u32) -> super::super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetPointerCursorId(::core::mem::transmute(pointerid), ::core::mem::transmute(cursorid)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetPointerCursorId(pointerid: u32, cursorid: *mut u32) -> super::super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetPointerCursorId(::core::mem::transmute(pointerid), ::core::mem::transmute(cursorid)))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_Controls\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls"))]
 #[inline]
 pub unsafe fn GetPointerDevice<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(device: Param0, pointerdevice: *mut super::super::Controls::POINTER_DEVICE_INFO) -> super::super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetPointerDevice(device: super::super::super::Foundation::HANDLE, pointerdevice: *mut super::super::Controls::POINTER_DEVICE_INFO) -> super::super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetPointerDevice(device.into_param().abi(), ::core::mem::transmute(pointerdevice)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetPointerDevice(device: super::super::super::Foundation::HANDLE, pointerdevice: *mut super::super::Controls::POINTER_DEVICE_INFO) -> super::super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetPointerDevice(device.into_param().abi(), ::core::mem::transmute(pointerdevice)))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 #[inline]
 pub unsafe fn GetPointerDeviceCursors<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(device: Param0, cursorcount: *mut u32, devicecursors: *mut super::super::Controls::POINTER_DEVICE_CURSOR_INFO) -> super::super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetPointerDeviceCursors(device: super::super::super::Foundation::HANDLE, cursorcount: *mut u32, devicecursors: *mut super::super::Controls::POINTER_DEVICE_CURSOR_INFO) -> super::super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetPointerDeviceCursors(device.into_param().abi(), ::core::mem::transmute(cursorcount), ::core::mem::transmute(devicecursors)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetPointerDeviceCursors(device: super::super::super::Foundation::HANDLE, cursorcount: *mut u32, devicecursors: *mut super::super::Controls::POINTER_DEVICE_CURSOR_INFO) -> super::super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetPointerDeviceCursors(device.into_param().abi(), ::core::mem::transmute(cursorcount), ::core::mem::transmute(devicecursors)))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 #[inline]
 pub unsafe fn GetPointerDeviceProperties<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(device: Param0, propertycount: *mut u32, pointerproperties: *mut super::super::Controls::POINTER_DEVICE_PROPERTY) -> super::super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetPointerDeviceProperties(device: super::super::super::Foundation::HANDLE, propertycount: *mut u32, pointerproperties: *mut super::super::Controls::POINTER_DEVICE_PROPERTY) -> super::super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetPointerDeviceProperties(device.into_param().abi(), ::core::mem::transmute(propertycount), ::core::mem::transmute(pointerproperties)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetPointerDeviceProperties(device: super::super::super::Foundation::HANDLE, propertycount: *mut u32, pointerproperties: *mut super::super::Controls::POINTER_DEVICE_PROPERTY) -> super::super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetPointerDeviceProperties(device.into_param().abi(), ::core::mem::transmute(propertycount), ::core::mem::transmute(pointerproperties)))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPointerDeviceRects<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(device: Param0, pointerdevicerect: *mut super::super::super::Foundation::RECT, displayrect: *mut super::super::super::Foundation::RECT) -> super::super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetPointerDeviceRects(device: super::super::super::Foundation::HANDLE, pointerdevicerect: *mut super::super::super::Foundation::RECT, displayrect: *mut super::super::super::Foundation::RECT) -> super::super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetPointerDeviceRects(device.into_param().abi(), ::core::mem::transmute(pointerdevicerect), ::core::mem::transmute(displayrect)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetPointerDeviceRects(device: super::super::super::Foundation::HANDLE, pointerdevicerect: *mut super::super::super::Foundation::RECT, displayrect: *mut super::super::super::Foundation::RECT) -> super::super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetPointerDeviceRects(device.into_param().abi(), ::core::mem::transmute(pointerdevicerect), ::core::mem::transmute(displayrect)))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_Controls\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls"))]
 #[inline]
 pub unsafe fn GetPointerDevices(devicecount: *mut u32, pointerdevices: *mut super::super::Controls::POINTER_DEVICE_INFO) -> super::super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetPointerDevices(devicecount: *mut u32, pointerdevices: *mut super::super::Controls::POINTER_DEVICE_INFO) -> super::super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetPointerDevices(::core::mem::transmute(devicecount), ::core::mem::transmute(pointerdevices)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetPointerDevices(devicecount: *mut u32, pointerdevices: *mut super::super::Controls::POINTER_DEVICE_INFO) -> super::super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetPointerDevices(::core::mem::transmute(devicecount), ::core::mem::transmute(pointerdevices)))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn GetPointerFrameInfo(pointerid: u32, pointercount: *mut u32, pointerinfo: *mut POINTER_INFO) -> super::super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetPointerFrameInfo(pointerid: u32, pointercount: *mut u32, pointerinfo: *mut POINTER_INFO) -> super::super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetPointerFrameInfo(::core::mem::transmute(pointerid), ::core::mem::transmute(pointercount), ::core::mem::transmute(pointerinfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetPointerFrameInfo(pointerid: u32, pointercount: *mut u32, pointerinfo: *mut POINTER_INFO) -> super::super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetPointerFrameInfo(::core::mem::transmute(pointerid), ::core::mem::transmute(pointercount), ::core::mem::transmute(pointerinfo)))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn GetPointerFrameInfoHistory(pointerid: u32, entriescount: *mut u32, pointercount: *mut u32, pointerinfo: *mut POINTER_INFO) -> super::super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetPointerFrameInfoHistory(pointerid: u32, entriescount: *mut u32, pointercount: *mut u32, pointerinfo: *mut POINTER_INFO) -> super::super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetPointerFrameInfoHistory(::core::mem::transmute(pointerid), ::core::mem::transmute(entriescount), ::core::mem::transmute(pointercount), ::core::mem::transmute(pointerinfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetPointerFrameInfoHistory(pointerid: u32, entriescount: *mut u32, pointercount: *mut u32, pointerinfo: *mut POINTER_INFO) -> super::super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetPointerFrameInfoHistory(::core::mem::transmute(pointerid), ::core::mem::transmute(entriescount), ::core::mem::transmute(pointercount), ::core::mem::transmute(pointerinfo)))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn GetPointerFramePenInfo(pointerid: u32, pointercount: *mut u32, peninfo: *mut POINTER_PEN_INFO) -> super::super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetPointerFramePenInfo(pointerid: u32, pointercount: *mut u32, peninfo: *mut POINTER_PEN_INFO) -> super::super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetPointerFramePenInfo(::core::mem::transmute(pointerid), ::core::mem::transmute(pointercount), ::core::mem::transmute(peninfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetPointerFramePenInfo(pointerid: u32, pointercount: *mut u32, peninfo: *mut POINTER_PEN_INFO) -> super::super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetPointerFramePenInfo(::core::mem::transmute(pointerid), ::core::mem::transmute(pointercount), ::core::mem::transmute(peninfo)))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn GetPointerFramePenInfoHistory(pointerid: u32, entriescount: *mut u32, pointercount: *mut u32, peninfo: *mut POINTER_PEN_INFO) -> super::super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetPointerFramePenInfoHistory(pointerid: u32, entriescount: *mut u32, pointercount: *mut u32, peninfo: *mut POINTER_PEN_INFO) -> super::super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetPointerFramePenInfoHistory(::core::mem::transmute(pointerid), ::core::mem::transmute(entriescount), ::core::mem::transmute(pointercount), ::core::mem::transmute(peninfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetPointerFramePenInfoHistory(pointerid: u32, entriescount: *mut u32, pointercount: *mut u32, peninfo: *mut POINTER_PEN_INFO) -> super::super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetPointerFramePenInfoHistory(::core::mem::transmute(pointerid), ::core::mem::transmute(entriescount), ::core::mem::transmute(pointercount), ::core::mem::transmute(peninfo)))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn GetPointerFrameTouchInfo(pointerid: u32, pointercount: *mut u32, touchinfo: *mut POINTER_TOUCH_INFO) -> super::super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetPointerFrameTouchInfo(pointerid: u32, pointercount: *mut u32, touchinfo: *mut POINTER_TOUCH_INFO) -> super::super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetPointerFrameTouchInfo(::core::mem::transmute(pointerid), ::core::mem::transmute(pointercount), ::core::mem::transmute(touchinfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetPointerFrameTouchInfo(pointerid: u32, pointercount: *mut u32, touchinfo: *mut POINTER_TOUCH_INFO) -> super::super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetPointerFrameTouchInfo(::core::mem::transmute(pointerid), ::core::mem::transmute(pointercount), ::core::mem::transmute(touchinfo)))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn GetPointerFrameTouchInfoHistory(pointerid: u32, entriescount: *mut u32, pointercount: *mut u32, touchinfo: *mut POINTER_TOUCH_INFO) -> super::super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetPointerFrameTouchInfoHistory(pointerid: u32, entriescount: *mut u32, pointercount: *mut u32, touchinfo: *mut POINTER_TOUCH_INFO) -> super::super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetPointerFrameTouchInfoHistory(::core::mem::transmute(pointerid), ::core::mem::transmute(entriescount), ::core::mem::transmute(pointercount), ::core::mem::transmute(touchinfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetPointerFrameTouchInfoHistory(pointerid: u32, entriescount: *mut u32, pointercount: *mut u32, touchinfo: *mut POINTER_TOUCH_INFO) -> super::super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetPointerFrameTouchInfoHistory(::core::mem::transmute(pointerid), ::core::mem::transmute(entriescount), ::core::mem::transmute(pointercount), ::core::mem::transmute(touchinfo)))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn GetPointerInfo(pointerid: u32, pointerinfo: *mut POINTER_INFO) -> super::super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetPointerInfo(pointerid: u32, pointerinfo: *mut POINTER_INFO) -> super::super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetPointerInfo(::core::mem::transmute(pointerid), ::core::mem::transmute(pointerinfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetPointerInfo(pointerid: u32, pointerinfo: *mut POINTER_INFO) -> super::super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetPointerInfo(::core::mem::transmute(pointerid), ::core::mem::transmute(pointerinfo)))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn GetPointerInfoHistory(pointerid: u32, entriescount: *mut u32, pointerinfo: *mut POINTER_INFO) -> super::super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetPointerInfoHistory(pointerid: u32, entriescount: *mut u32, pointerinfo: *mut POINTER_INFO) -> super::super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetPointerInfoHistory(::core::mem::transmute(pointerid), ::core::mem::transmute(entriescount), ::core::mem::transmute(pointerinfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetPointerInfoHistory(pointerid: u32, entriescount: *mut u32, pointerinfo: *mut POINTER_INFO) -> super::super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetPointerInfoHistory(::core::mem::transmute(pointerid), ::core::mem::transmute(entriescount), ::core::mem::transmute(pointerinfo)))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPointerInputTransform(pointerid: u32, inputtransform: &mut [INPUT_TRANSFORM]) -> super::super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetPointerInputTransform(pointerid: u32, historycount: u32, inputtransform: *mut INPUT_TRANSFORM) -> super::super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetPointerInputTransform(::core::mem::transmute(pointerid), inputtransform.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(inputtransform))))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetPointerInputTransform(pointerid: u32, historycount: u32, inputtransform: *mut INPUT_TRANSFORM) -> super::super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetPointerInputTransform(::core::mem::transmute(pointerid), inputtransform.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(inputtransform))))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn GetPointerPenInfo(pointerid: u32, peninfo: *mut POINTER_PEN_INFO) -> super::super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetPointerPenInfo(pointerid: u32, peninfo: *mut POINTER_PEN_INFO) -> super::super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetPointerPenInfo(::core::mem::transmute(pointerid), ::core::mem::transmute(peninfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetPointerPenInfo(pointerid: u32, peninfo: *mut POINTER_PEN_INFO) -> super::super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetPointerPenInfo(::core::mem::transmute(pointerid), ::core::mem::transmute(peninfo)))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn GetPointerPenInfoHistory(pointerid: u32, entriescount: *mut u32, peninfo: *mut POINTER_PEN_INFO) -> super::super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetPointerPenInfoHistory(pointerid: u32, entriescount: *mut u32, peninfo: *mut POINTER_PEN_INFO) -> super::super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetPointerPenInfoHistory(::core::mem::transmute(pointerid), ::core::mem::transmute(entriescount), ::core::mem::transmute(peninfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetPointerPenInfoHistory(pointerid: u32, entriescount: *mut u32, peninfo: *mut POINTER_PEN_INFO) -> super::super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetPointerPenInfoHistory(::core::mem::transmute(pointerid), ::core::mem::transmute(entriescount), ::core::mem::transmute(peninfo)))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn GetPointerTouchInfo(pointerid: u32, touchinfo: *mut POINTER_TOUCH_INFO) -> super::super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetPointerTouchInfo(pointerid: u32, touchinfo: *mut POINTER_TOUCH_INFO) -> super::super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetPointerTouchInfo(::core::mem::transmute(pointerid), ::core::mem::transmute(touchinfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetPointerTouchInfo(pointerid: u32, touchinfo: *mut POINTER_TOUCH_INFO) -> super::super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetPointerTouchInfo(::core::mem::transmute(pointerid), ::core::mem::transmute(touchinfo)))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn GetPointerTouchInfoHistory(pointerid: u32, entriescount: *mut u32, touchinfo: *mut POINTER_TOUCH_INFO) -> super::super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetPointerTouchInfoHistory(pointerid: u32, entriescount: *mut u32, touchinfo: *mut POINTER_TOUCH_INFO) -> super::super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetPointerTouchInfoHistory(::core::mem::transmute(pointerid), ::core::mem::transmute(entriescount), ::core::mem::transmute(touchinfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetPointerTouchInfoHistory(pointerid: u32, entriescount: *mut u32, touchinfo: *mut POINTER_TOUCH_INFO) -> super::super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetPointerTouchInfoHistory(::core::mem::transmute(pointerid), ::core::mem::transmute(entriescount), ::core::mem::transmute(touchinfo)))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn GetPointerType(pointerid: u32, pointertype: *mut super::super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> super::super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetPointerType(pointerid: u32, pointertype: *mut super::super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> super::super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetPointerType(::core::mem::transmute(pointerid), ::core::mem::transmute(pointertype)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetPointerType(pointerid: u32, pointertype: *mut super::super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> super::super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetPointerType(::core::mem::transmute(pointerid), ::core::mem::transmute(pointertype)))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 #[inline]
 pub unsafe fn GetRawPointerDeviceData(pointerid: u32, historycount: u32, pproperties: &[super::super::Controls::POINTER_DEVICE_PROPERTY], pvalues: *mut i32) -> super::super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetRawPointerDeviceData(pointerid: u32, historycount: u32, propertiescount: u32, pproperties: *const super::super::Controls::POINTER_DEVICE_PROPERTY, pvalues: *mut i32) -> super::super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetRawPointerDeviceData(::core::mem::transmute(pointerid), ::core::mem::transmute(historycount), pproperties.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pproperties)), ::core::mem::transmute(pvalues)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetRawPointerDeviceData(pointerid: u32, historycount: u32, propertiescount: u32, pproperties: *const super::super::Controls::POINTER_DEVICE_PROPERTY, pvalues: *mut i32) -> super::super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetRawPointerDeviceData(::core::mem::transmute(pointerid), ::core::mem::transmute(historycount), pproperties.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pproperties)), ::core::mem::transmute(pvalues)))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
 #[inline]
 pub unsafe fn GetUnpredictedMessagePos() -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetUnpredictedMessagePos() -> u32;
-        }
-        ::core::mem::transmute(GetUnpredictedMessagePos())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetUnpredictedMessagePos() -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetUnpredictedMessagePos())
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
@@ -475,61 +360,41 @@ impl ::core::default::Default for INPUT_TRANSFORM_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn InitializeTouchInjection(maxcount: u32, dwmode: TOUCH_FEEDBACK_MODE) -> super::super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InitializeTouchInjection(maxcount: u32, dwmode: TOUCH_FEEDBACK_MODE) -> super::super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(InitializeTouchInjection(::core::mem::transmute(maxcount), ::core::mem::transmute(dwmode)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitializeTouchInjection(maxcount: u32, dwmode: TOUCH_FEEDBACK_MODE) -> super::super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(InitializeTouchInjection(::core::mem::transmute(maxcount), ::core::mem::transmute(dwmode)))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn InjectSyntheticPointerInput<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::HSYNTHETICPOINTERDEVICE>>(device: Param0, pointerinfo: &[super::super::Controls::POINTER_TYPE_INFO]) -> super::super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InjectSyntheticPointerInput(device: super::super::Controls::HSYNTHETICPOINTERDEVICE, pointerinfo: *const super::super::Controls::POINTER_TYPE_INFO, count: u32) -> super::super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(InjectSyntheticPointerInput(device.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pointerinfo)), pointerinfo.len() as _))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InjectSyntheticPointerInput(device: super::super::Controls::HSYNTHETICPOINTERDEVICE, pointerinfo: *const super::super::Controls::POINTER_TYPE_INFO, count: u32) -> super::super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(InjectSyntheticPointerInput(device.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pointerinfo)), pointerinfo.len() as _))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn InjectTouchInput(contacts: &[POINTER_TOUCH_INFO]) -> super::super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InjectTouchInput(count: u32, contacts: *const POINTER_TOUCH_INFO) -> super::super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(InjectTouchInput(contacts.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(contacts))))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InjectTouchInput(count: u32, contacts: *const POINTER_TOUCH_INFO) -> super::super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(InjectTouchInput(contacts.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(contacts))))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsMouseInPointerEnabled() -> super::super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn IsMouseInPointerEnabled() -> super::super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(IsMouseInPointerEnabled())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn IsMouseInPointerEnabled() -> super::super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(IsMouseInPointerEnabled())
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
 #[repr(transparent)]
@@ -827,16 +692,11 @@ impl ::core::default::Default for POINTER_TOUCH_INFO {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SkipPointerFrameMessages(pointerid: u32) -> super::super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SkipPointerFrameMessages(pointerid: u32) -> super::super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(SkipPointerFrameMessages(::core::mem::transmute(pointerid)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SkipPointerFrameMessages(pointerid: u32) -> super::super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SkipPointerFrameMessages(::core::mem::transmute(pointerid)))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
 #[repr(transparent)]

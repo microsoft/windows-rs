@@ -705,31 +705,21 @@ impl ::core::fmt::Debug for APPX_PACKAGING_CONTEXT_CHANGE_TYPE {
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[inline]
 pub unsafe fn ActivatePackageVirtualizationContext(context: *const PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__) -> ::windows::core::Result<usize> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ActivatePackageVirtualizationContext(context: *const PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__, cookie: *mut usize) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<usize>::zeroed();
-        ActivatePackageVirtualizationContext(::core::mem::transmute(context), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<usize>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ActivatePackageVirtualizationContext(context: *const PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__, cookie: *mut usize) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<usize>::zeroed();
+    ActivatePackageVirtualizationContext(::core::mem::transmute(context), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<usize>(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[inline]
 pub unsafe fn AddPackageDependency<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(packagedependencyid: Param0, rank: i32, options: AddPackageDependencyOptions, packagedependencycontext: *mut *mut PACKAGEDEPENDENCY_CONTEXT__, packagefullname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AddPackageDependency(packagedependencyid: ::windows::core::PCWSTR, rank: i32, options: AddPackageDependencyOptions, packagedependencycontext: *mut *mut PACKAGEDEPENDENCY_CONTEXT__, packagefullname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
-        }
-        AddPackageDependency(packagedependencyid.into_param().abi(), ::core::mem::transmute(rank), ::core::mem::transmute(options), ::core::mem::transmute(packagedependencycontext), ::core::mem::transmute(packagefullname)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AddPackageDependency(packagedependencyid: ::windows::core::PCWSTR, rank: i32, options: AddPackageDependencyOptions, packagedependencycontext: *mut *mut PACKAGEDEPENDENCY_CONTEXT__, packagefullname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    AddPackageDependency(packagedependencyid.into_param().abi(), ::core::mem::transmute(rank), ::core::mem::transmute(options), ::core::mem::transmute(packagedependencycontext), ::core::mem::transmute(packagefullname)).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
@@ -820,121 +810,81 @@ impl ::core::fmt::Debug for AppPolicyCreateFileAccess {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AppPolicyGetClrCompat<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(processtoken: Param0, policy: *mut AppPolicyClrCompat) -> super::super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AppPolicyGetClrCompat(processtoken: super::super::super::Foundation::HANDLE, policy: *mut AppPolicyClrCompat) -> super::super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(AppPolicyGetClrCompat(processtoken.into_param().abi(), ::core::mem::transmute(policy)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AppPolicyGetClrCompat(processtoken: super::super::super::Foundation::HANDLE, policy: *mut AppPolicyClrCompat) -> super::super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AppPolicyGetClrCompat(processtoken.into_param().abi(), ::core::mem::transmute(policy)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AppPolicyGetCreateFileAccess<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(processtoken: Param0, policy: *mut AppPolicyCreateFileAccess) -> super::super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AppPolicyGetCreateFileAccess(processtoken: super::super::super::Foundation::HANDLE, policy: *mut AppPolicyCreateFileAccess) -> super::super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(AppPolicyGetCreateFileAccess(processtoken.into_param().abi(), ::core::mem::transmute(policy)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AppPolicyGetCreateFileAccess(processtoken: super::super::super::Foundation::HANDLE, policy: *mut AppPolicyCreateFileAccess) -> super::super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AppPolicyGetCreateFileAccess(processtoken.into_param().abi(), ::core::mem::transmute(policy)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AppPolicyGetLifecycleManagement<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(processtoken: Param0, policy: *mut AppPolicyLifecycleManagement) -> super::super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AppPolicyGetLifecycleManagement(processtoken: super::super::super::Foundation::HANDLE, policy: *mut AppPolicyLifecycleManagement) -> super::super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(AppPolicyGetLifecycleManagement(processtoken.into_param().abi(), ::core::mem::transmute(policy)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AppPolicyGetLifecycleManagement(processtoken: super::super::super::Foundation::HANDLE, policy: *mut AppPolicyLifecycleManagement) -> super::super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AppPolicyGetLifecycleManagement(processtoken.into_param().abi(), ::core::mem::transmute(policy)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AppPolicyGetMediaFoundationCodecLoading<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(processtoken: Param0, policy: *mut AppPolicyMediaFoundationCodecLoading) -> super::super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AppPolicyGetMediaFoundationCodecLoading(processtoken: super::super::super::Foundation::HANDLE, policy: *mut AppPolicyMediaFoundationCodecLoading) -> super::super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(AppPolicyGetMediaFoundationCodecLoading(processtoken.into_param().abi(), ::core::mem::transmute(policy)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AppPolicyGetMediaFoundationCodecLoading(processtoken: super::super::super::Foundation::HANDLE, policy: *mut AppPolicyMediaFoundationCodecLoading) -> super::super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AppPolicyGetMediaFoundationCodecLoading(processtoken.into_param().abi(), ::core::mem::transmute(policy)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AppPolicyGetProcessTerminationMethod<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(processtoken: Param0, policy: *mut AppPolicyProcessTerminationMethod) -> super::super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AppPolicyGetProcessTerminationMethod(processtoken: super::super::super::Foundation::HANDLE, policy: *mut AppPolicyProcessTerminationMethod) -> super::super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(AppPolicyGetProcessTerminationMethod(processtoken.into_param().abi(), ::core::mem::transmute(policy)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AppPolicyGetProcessTerminationMethod(processtoken: super::super::super::Foundation::HANDLE, policy: *mut AppPolicyProcessTerminationMethod) -> super::super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AppPolicyGetProcessTerminationMethod(processtoken.into_param().abi(), ::core::mem::transmute(policy)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AppPolicyGetShowDeveloperDiagnostic<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(processtoken: Param0, policy: *mut AppPolicyShowDeveloperDiagnostic) -> super::super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AppPolicyGetShowDeveloperDiagnostic(processtoken: super::super::super::Foundation::HANDLE, policy: *mut AppPolicyShowDeveloperDiagnostic) -> super::super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(AppPolicyGetShowDeveloperDiagnostic(processtoken.into_param().abi(), ::core::mem::transmute(policy)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AppPolicyGetShowDeveloperDiagnostic(processtoken: super::super::super::Foundation::HANDLE, policy: *mut AppPolicyShowDeveloperDiagnostic) -> super::super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AppPolicyGetShowDeveloperDiagnostic(processtoken.into_param().abi(), ::core::mem::transmute(policy)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AppPolicyGetThreadInitializationType<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(processtoken: Param0, policy: *mut AppPolicyThreadInitializationType) -> super::super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AppPolicyGetThreadInitializationType(processtoken: super::super::super::Foundation::HANDLE, policy: *mut AppPolicyThreadInitializationType) -> super::super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(AppPolicyGetThreadInitializationType(processtoken.into_param().abi(), ::core::mem::transmute(policy)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AppPolicyGetThreadInitializationType(processtoken: super::super::super::Foundation::HANDLE, policy: *mut AppPolicyThreadInitializationType) -> super::super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AppPolicyGetThreadInitializationType(processtoken.into_param().abi(), ::core::mem::transmute(policy)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AppPolicyGetWindowingModel<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(processtoken: Param0, policy: *mut AppPolicyWindowingModel) -> super::super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AppPolicyGetWindowingModel(processtoken: super::super::super::Foundation::HANDLE, policy: *mut AppPolicyWindowingModel) -> super::super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(AppPolicyGetWindowingModel(processtoken.into_param().abi(), ::core::mem::transmute(policy)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AppPolicyGetWindowingModel(processtoken: super::super::super::Foundation::HANDLE, policy: *mut AppPolicyWindowingModel) -> super::super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AppPolicyGetWindowingModel(processtoken.into_param().abi(), ::core::mem::transmute(policy)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
@@ -1111,32 +1061,22 @@ pub const AppxPackagingDiagnosticEventSinkManager: ::windows::core::GUID = ::win
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CheckIsMSIXPackage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(packagefullname: Param0) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CheckIsMSIXPackage(packagefullname: ::windows::core::PCWSTR, ismsixpackage: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::BOOL>::zeroed();
-        CheckIsMSIXPackage(packagefullname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CheckIsMSIXPackage(packagefullname: ::windows::core::PCWSTR, ismsixpackage: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::BOOL>::zeroed();
+    CheckIsMSIXPackage(packagefullname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ClosePackageInfo(packageinforeference: *const _PACKAGE_INFO_REFERENCE) -> super::super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ClosePackageInfo(packageinforeference: *const _PACKAGE_INFO_REFERENCE) -> super::super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(ClosePackageInfo(::core::mem::transmute(packageinforeference)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ClosePackageInfo(packageinforeference: *const _PACKAGE_INFO_REFERENCE) -> super::super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(ClosePackageInfo(::core::mem::transmute(packageinforeference)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
@@ -1170,17 +1110,12 @@ impl ::core::fmt::Debug for CreatePackageDependencyOptions {
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[inline]
 pub unsafe fn CreatePackageVirtualizationContext<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(packagefamilyname: Param0) -> ::windows::core::Result<*mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreatePackageVirtualizationContext(packagefamilyname: ::windows::core::PCWSTR, context: *mut *mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__>::zeroed();
-        CreatePackageVirtualizationContext(packagefamilyname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreatePackageVirtualizationContext(packagefamilyname: ::windows::core::PCWSTR, context: *mut *mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__>::zeroed();
+    CreatePackageVirtualizationContext(packagefamilyname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__>(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
@@ -1216,509 +1151,339 @@ impl ::core::fmt::Debug for DX_FEATURE_LEVEL {
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[inline]
 pub unsafe fn DeactivatePackageVirtualizationContext(cookie: usize) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DeactivatePackageVirtualizationContext(cookie: usize);
-        }
-        DeactivatePackageVirtualizationContext(::core::mem::transmute(cookie))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DeactivatePackageVirtualizationContext(cookie: usize);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DeactivatePackageVirtualizationContext(::core::mem::transmute(cookie))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[inline]
 pub unsafe fn DeletePackageDependency<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(packagedependencyid: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DeletePackageDependency(packagedependencyid: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
-        }
-        DeletePackageDependency(packagedependencyid.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DeletePackageDependency(packagedependencyid: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DeletePackageDependency(packagedependencyid.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[inline]
 pub unsafe fn DuplicatePackageVirtualizationContext(sourcecontext: *const PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__) -> ::windows::core::Result<*mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DuplicatePackageVirtualizationContext(sourcecontext: *const PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__, destcontext: *mut *mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__>::zeroed();
-        DuplicatePackageVirtualizationContext(::core::mem::transmute(sourcecontext), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DuplicatePackageVirtualizationContext(sourcecontext: *const PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__, destcontext: *mut *mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__>::zeroed();
+    DuplicatePackageVirtualizationContext(::core::mem::transmute(sourcecontext), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__>(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindPackagesByPackageFamily<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(packagefamilyname: Param0, packagefilters: u32, count: *mut u32, packagefullnames: *mut ::windows::core::PWSTR, bufferlength: *mut u32, buffer: ::windows::core::PWSTR, packageproperties: *mut u32) -> super::super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn FindPackagesByPackageFamily(packagefamilyname: ::windows::core::PCWSTR, packagefilters: u32, count: *mut u32, packagefullnames: *mut ::windows::core::PWSTR, bufferlength: *mut u32, buffer: ::windows::core::PWSTR, packageproperties: *mut u32) -> super::super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(FindPackagesByPackageFamily(packagefamilyname.into_param().abi(), ::core::mem::transmute(packagefilters), ::core::mem::transmute(count), ::core::mem::transmute(packagefullnames), ::core::mem::transmute(bufferlength), ::core::mem::transmute(buffer), ::core::mem::transmute(packageproperties)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn FindPackagesByPackageFamily(packagefamilyname: ::windows::core::PCWSTR, packagefilters: u32, count: *mut u32, packagefullnames: *mut ::windows::core::PWSTR, bufferlength: *mut u32, buffer: ::windows::core::PWSTR, packageproperties: *mut u32) -> super::super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(FindPackagesByPackageFamily(packagefamilyname.into_param().abi(), ::core::mem::transmute(packagefilters), ::core::mem::transmute(count), ::core::mem::transmute(packagefullnames), ::core::mem::transmute(bufferlength), ::core::mem::transmute(buffer), ::core::mem::transmute(packageproperties)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FormatApplicationUserModelId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(packagefamilyname: Param0, packagerelativeapplicationid: Param1, applicationusermodelidlength: *mut u32, applicationusermodelid: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn FormatApplicationUserModelId(packagefamilyname: ::windows::core::PCWSTR, packagerelativeapplicationid: ::windows::core::PCWSTR, applicationusermodelidlength: *mut u32, applicationusermodelid: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(FormatApplicationUserModelId(packagefamilyname.into_param().abi(), packagerelativeapplicationid.into_param().abi(), ::core::mem::transmute(applicationusermodelidlength), ::core::mem::transmute(applicationusermodelid)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn FormatApplicationUserModelId(packagefamilyname: ::windows::core::PCWSTR, packagerelativeapplicationid: ::windows::core::PCWSTR, applicationusermodelidlength: *mut u32, applicationusermodelid: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(FormatApplicationUserModelId(packagefamilyname.into_param().abi(), packagerelativeapplicationid.into_param().abi(), ::core::mem::transmute(applicationusermodelidlength), ::core::mem::transmute(applicationusermodelid)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetApplicationUserModelId<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, applicationusermodelidlength: *mut u32, applicationusermodelid: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetApplicationUserModelId(hprocess: super::super::super::Foundation::HANDLE, applicationusermodelidlength: *mut u32, applicationusermodelid: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(GetApplicationUserModelId(hprocess.into_param().abi(), ::core::mem::transmute(applicationusermodelidlength), ::core::mem::transmute(applicationusermodelid)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetApplicationUserModelId(hprocess: super::super::super::Foundation::HANDLE, applicationusermodelidlength: *mut u32, applicationusermodelid: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetApplicationUserModelId(hprocess.into_param().abi(), ::core::mem::transmute(applicationusermodelidlength), ::core::mem::transmute(applicationusermodelid)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetApplicationUserModelIdFromToken<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(token: Param0, applicationusermodelidlength: *mut u32, applicationusermodelid: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetApplicationUserModelIdFromToken(token: super::super::super::Foundation::HANDLE, applicationusermodelidlength: *mut u32, applicationusermodelid: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(GetApplicationUserModelIdFromToken(token.into_param().abi(), ::core::mem::transmute(applicationusermodelidlength), ::core::mem::transmute(applicationusermodelid)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetApplicationUserModelIdFromToken(token: super::super::super::Foundation::HANDLE, applicationusermodelidlength: *mut u32, applicationusermodelid: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetApplicationUserModelIdFromToken(token.into_param().abi(), ::core::mem::transmute(applicationusermodelidlength), ::core::mem::transmute(applicationusermodelid)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCurrentApplicationUserModelId(applicationusermodelidlength: *mut u32, applicationusermodelid: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetCurrentApplicationUserModelId(applicationusermodelidlength: *mut u32, applicationusermodelid: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(GetCurrentApplicationUserModelId(::core::mem::transmute(applicationusermodelidlength), ::core::mem::transmute(applicationusermodelid)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetCurrentApplicationUserModelId(applicationusermodelidlength: *mut u32, applicationusermodelid: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetCurrentApplicationUserModelId(::core::mem::transmute(applicationusermodelidlength), ::core::mem::transmute(applicationusermodelid)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCurrentPackageFamilyName(packagefamilynamelength: *mut u32, packagefamilyname: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetCurrentPackageFamilyName(packagefamilynamelength: *mut u32, packagefamilyname: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(GetCurrentPackageFamilyName(::core::mem::transmute(packagefamilynamelength), ::core::mem::transmute(packagefamilyname)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetCurrentPackageFamilyName(packagefamilynamelength: *mut u32, packagefamilyname: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetCurrentPackageFamilyName(::core::mem::transmute(packagefamilynamelength), ::core::mem::transmute(packagefamilyname)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCurrentPackageFullName(packagefullnamelength: *mut u32, packagefullname: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetCurrentPackageFullName(packagefullnamelength: *mut u32, packagefullname: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(GetCurrentPackageFullName(::core::mem::transmute(packagefullnamelength), ::core::mem::transmute(packagefullname)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetCurrentPackageFullName(packagefullnamelength: *mut u32, packagefullname: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetCurrentPackageFullName(::core::mem::transmute(packagefullnamelength), ::core::mem::transmute(packagefullname)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCurrentPackageId(bufferlength: *mut u32, buffer: *mut u8) -> super::super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetCurrentPackageId(bufferlength: *mut u32, buffer: *mut u8) -> super::super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(GetCurrentPackageId(::core::mem::transmute(bufferlength), ::core::mem::transmute(buffer)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetCurrentPackageId(bufferlength: *mut u32, buffer: *mut u8) -> super::super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetCurrentPackageId(::core::mem::transmute(bufferlength), ::core::mem::transmute(buffer)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCurrentPackageInfo(flags: u32, bufferlength: *mut u32, buffer: *mut u8, count: *mut u32) -> super::super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetCurrentPackageInfo(flags: u32, bufferlength: *mut u32, buffer: *mut u8, count: *mut u32) -> super::super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(GetCurrentPackageInfo(::core::mem::transmute(flags), ::core::mem::transmute(bufferlength), ::core::mem::transmute(buffer), ::core::mem::transmute(count)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetCurrentPackageInfo(flags: u32, bufferlength: *mut u32, buffer: *mut u8, count: *mut u32) -> super::super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetCurrentPackageInfo(::core::mem::transmute(flags), ::core::mem::transmute(bufferlength), ::core::mem::transmute(buffer), ::core::mem::transmute(count)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCurrentPackageInfo2(flags: u32, packagepathtype: PackagePathType, bufferlength: *mut u32, buffer: *mut u8, count: *mut u32) -> super::super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetCurrentPackageInfo2(flags: u32, packagepathtype: PackagePathType, bufferlength: *mut u32, buffer: *mut u8, count: *mut u32) -> super::super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(GetCurrentPackageInfo2(::core::mem::transmute(flags), ::core::mem::transmute(packagepathtype), ::core::mem::transmute(bufferlength), ::core::mem::transmute(buffer), ::core::mem::transmute(count)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetCurrentPackageInfo2(flags: u32, packagepathtype: PackagePathType, bufferlength: *mut u32, buffer: *mut u8, count: *mut u32) -> super::super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetCurrentPackageInfo2(::core::mem::transmute(flags), ::core::mem::transmute(packagepathtype), ::core::mem::transmute(bufferlength), ::core::mem::transmute(buffer), ::core::mem::transmute(count)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCurrentPackagePath(pathlength: *mut u32, path: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetCurrentPackagePath(pathlength: *mut u32, path: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(GetCurrentPackagePath(::core::mem::transmute(pathlength), ::core::mem::transmute(path)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetCurrentPackagePath(pathlength: *mut u32, path: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetCurrentPackagePath(::core::mem::transmute(pathlength), ::core::mem::transmute(path)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCurrentPackagePath2(packagepathtype: PackagePathType, pathlength: *mut u32, path: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetCurrentPackagePath2(packagepathtype: PackagePathType, pathlength: *mut u32, path: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(GetCurrentPackagePath2(::core::mem::transmute(packagepathtype), ::core::mem::transmute(pathlength), ::core::mem::transmute(path)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetCurrentPackagePath2(packagepathtype: PackagePathType, pathlength: *mut u32, path: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetCurrentPackagePath2(::core::mem::transmute(packagepathtype), ::core::mem::transmute(pathlength), ::core::mem::transmute(path)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[inline]
 pub unsafe fn GetCurrentPackageVirtualizationContext() -> *mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetCurrentPackageVirtualizationContext() -> *mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__;
-        }
-        ::core::mem::transmute(GetCurrentPackageVirtualizationContext())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetCurrentPackageVirtualizationContext() -> *mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetCurrentPackageVirtualizationContext())
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[inline]
 pub unsafe fn GetIdForPackageDependencyContext(packagedependencycontext: *const PACKAGEDEPENDENCY_CONTEXT__) -> ::windows::core::Result<::windows::core::PWSTR> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetIdForPackageDependencyContext(packagedependencycontext: *const PACKAGEDEPENDENCY_CONTEXT__, packagedependencyid: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-        GetIdForPackageDependencyContext(::core::mem::transmute(packagedependencycontext), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetIdForPackageDependencyContext(packagedependencycontext: *const PACKAGEDEPENDENCY_CONTEXT__, packagedependencyid: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
+    GetIdForPackageDependencyContext(::core::mem::transmute(packagedependencycontext), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPackageApplicationIds(packageinforeference: *const _PACKAGE_INFO_REFERENCE, bufferlength: *mut u32, buffer: *mut u8, count: *mut u32) -> super::super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetPackageApplicationIds(packageinforeference: *const _PACKAGE_INFO_REFERENCE, bufferlength: *mut u32, buffer: *mut u8, count: *mut u32) -> super::super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(GetPackageApplicationIds(::core::mem::transmute(packageinforeference), ::core::mem::transmute(bufferlength), ::core::mem::transmute(buffer), ::core::mem::transmute(count)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetPackageApplicationIds(packageinforeference: *const _PACKAGE_INFO_REFERENCE, bufferlength: *mut u32, buffer: *mut u8, count: *mut u32) -> super::super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetPackageApplicationIds(::core::mem::transmute(packageinforeference), ::core::mem::transmute(bufferlength), ::core::mem::transmute(buffer), ::core::mem::transmute(count)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPackageFamilyName<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, packagefamilynamelength: *mut u32, packagefamilyname: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetPackageFamilyName(hprocess: super::super::super::Foundation::HANDLE, packagefamilynamelength: *mut u32, packagefamilyname: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(GetPackageFamilyName(hprocess.into_param().abi(), ::core::mem::transmute(packagefamilynamelength), ::core::mem::transmute(packagefamilyname)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetPackageFamilyName(hprocess: super::super::super::Foundation::HANDLE, packagefamilynamelength: *mut u32, packagefamilyname: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetPackageFamilyName(hprocess.into_param().abi(), ::core::mem::transmute(packagefamilynamelength), ::core::mem::transmute(packagefamilyname)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPackageFamilyNameFromToken<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(token: Param0, packagefamilynamelength: *mut u32, packagefamilyname: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetPackageFamilyNameFromToken(token: super::super::super::Foundation::HANDLE, packagefamilynamelength: *mut u32, packagefamilyname: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(GetPackageFamilyNameFromToken(token.into_param().abi(), ::core::mem::transmute(packagefamilynamelength), ::core::mem::transmute(packagefamilyname)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetPackageFamilyNameFromToken(token: super::super::super::Foundation::HANDLE, packagefamilynamelength: *mut u32, packagefamilyname: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetPackageFamilyNameFromToken(token.into_param().abi(), ::core::mem::transmute(packagefamilynamelength), ::core::mem::transmute(packagefamilyname)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPackageFullName<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, packagefullnamelength: *mut u32, packagefullname: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetPackageFullName(hprocess: super::super::super::Foundation::HANDLE, packagefullnamelength: *mut u32, packagefullname: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(GetPackageFullName(hprocess.into_param().abi(), ::core::mem::transmute(packagefullnamelength), ::core::mem::transmute(packagefullname)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetPackageFullName(hprocess: super::super::super::Foundation::HANDLE, packagefullnamelength: *mut u32, packagefullname: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetPackageFullName(hprocess.into_param().abi(), ::core::mem::transmute(packagefullnamelength), ::core::mem::transmute(packagefullname)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPackageFullNameFromToken<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(token: Param0, packagefullnamelength: *mut u32, packagefullname: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetPackageFullNameFromToken(token: super::super::super::Foundation::HANDLE, packagefullnamelength: *mut u32, packagefullname: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(GetPackageFullNameFromToken(token.into_param().abi(), ::core::mem::transmute(packagefullnamelength), ::core::mem::transmute(packagefullname)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetPackageFullNameFromToken(token: super::super::super::Foundation::HANDLE, packagefullnamelength: *mut u32, packagefullname: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetPackageFullNameFromToken(token.into_param().abi(), ::core::mem::transmute(packagefullnamelength), ::core::mem::transmute(packagefullname)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPackageId<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, bufferlength: *mut u32, buffer: *mut u8) -> super::super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetPackageId(hprocess: super::super::super::Foundation::HANDLE, bufferlength: *mut u32, buffer: *mut u8) -> super::super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(GetPackageId(hprocess.into_param().abi(), ::core::mem::transmute(bufferlength), ::core::mem::transmute(buffer)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetPackageId(hprocess: super::super::super::Foundation::HANDLE, bufferlength: *mut u32, buffer: *mut u8) -> super::super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetPackageId(hprocess.into_param().abi(), ::core::mem::transmute(bufferlength), ::core::mem::transmute(buffer)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPackageInfo(packageinforeference: *const _PACKAGE_INFO_REFERENCE, flags: u32, bufferlength: *mut u32, buffer: *mut u8, count: *mut u32) -> super::super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetPackageInfo(packageinforeference: *const _PACKAGE_INFO_REFERENCE, flags: u32, bufferlength: *mut u32, buffer: *mut u8, count: *mut u32) -> super::super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(GetPackageInfo(::core::mem::transmute(packageinforeference), ::core::mem::transmute(flags), ::core::mem::transmute(bufferlength), ::core::mem::transmute(buffer), ::core::mem::transmute(count)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetPackageInfo(packageinforeference: *const _PACKAGE_INFO_REFERENCE, flags: u32, bufferlength: *mut u32, buffer: *mut u8, count: *mut u32) -> super::super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetPackageInfo(::core::mem::transmute(packageinforeference), ::core::mem::transmute(flags), ::core::mem::transmute(bufferlength), ::core::mem::transmute(buffer), ::core::mem::transmute(count)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPackageInfo2(packageinforeference: *const _PACKAGE_INFO_REFERENCE, flags: u32, packagepathtype: PackagePathType, bufferlength: *mut u32, buffer: *mut u8, count: *mut u32) -> super::super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetPackageInfo2(packageinforeference: *const _PACKAGE_INFO_REFERENCE, flags: u32, packagepathtype: PackagePathType, bufferlength: *mut u32, buffer: *mut u8, count: *mut u32) -> super::super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(GetPackageInfo2(::core::mem::transmute(packageinforeference), ::core::mem::transmute(flags), ::core::mem::transmute(packagepathtype), ::core::mem::transmute(bufferlength), ::core::mem::transmute(buffer), ::core::mem::transmute(count)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetPackageInfo2(packageinforeference: *const _PACKAGE_INFO_REFERENCE, flags: u32, packagepathtype: PackagePathType, bufferlength: *mut u32, buffer: *mut u8, count: *mut u32) -> super::super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetPackageInfo2(::core::mem::transmute(packageinforeference), ::core::mem::transmute(flags), ::core::mem::transmute(packagepathtype), ::core::mem::transmute(bufferlength), ::core::mem::transmute(buffer), ::core::mem::transmute(count)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPackagePath(packageid: *const PACKAGE_ID, reserved: u32, pathlength: *mut u32, path: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetPackagePath(packageid: *const PACKAGE_ID, reserved: u32, pathlength: *mut u32, path: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(GetPackagePath(::core::mem::transmute(packageid), ::core::mem::transmute(reserved), ::core::mem::transmute(pathlength), ::core::mem::transmute(path)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetPackagePath(packageid: *const PACKAGE_ID, reserved: u32, pathlength: *mut u32, path: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetPackagePath(::core::mem::transmute(packageid), ::core::mem::transmute(reserved), ::core::mem::transmute(pathlength), ::core::mem::transmute(path)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPackagePathByFullName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(packagefullname: Param0, pathlength: *mut u32, path: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetPackagePathByFullName(packagefullname: ::windows::core::PCWSTR, pathlength: *mut u32, path: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(GetPackagePathByFullName(packagefullname.into_param().abi(), ::core::mem::transmute(pathlength), ::core::mem::transmute(path)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetPackagePathByFullName(packagefullname: ::windows::core::PCWSTR, pathlength: *mut u32, path: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetPackagePathByFullName(packagefullname.into_param().abi(), ::core::mem::transmute(pathlength), ::core::mem::transmute(path)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPackagePathByFullName2<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(packagefullname: Param0, packagepathtype: PackagePathType, pathlength: *mut u32, path: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetPackagePathByFullName2(packagefullname: ::windows::core::PCWSTR, packagepathtype: PackagePathType, pathlength: *mut u32, path: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(GetPackagePathByFullName2(packagefullname.into_param().abi(), ::core::mem::transmute(packagepathtype), ::core::mem::transmute(pathlength), ::core::mem::transmute(path)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetPackagePathByFullName2(packagefullname: ::windows::core::PCWSTR, packagepathtype: PackagePathType, pathlength: *mut u32, path: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetPackagePathByFullName2(packagefullname.into_param().abi(), ::core::mem::transmute(packagepathtype), ::core::mem::transmute(pathlength), ::core::mem::transmute(path)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPackagesByPackageFamily<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(packagefamilyname: Param0, count: *mut u32, packagefullnames: *mut ::windows::core::PWSTR, bufferlength: *mut u32, buffer: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetPackagesByPackageFamily(packagefamilyname: ::windows::core::PCWSTR, count: *mut u32, packagefullnames: *mut ::windows::core::PWSTR, bufferlength: *mut u32, buffer: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(GetPackagesByPackageFamily(packagefamilyname.into_param().abi(), ::core::mem::transmute(count), ::core::mem::transmute(packagefullnames), ::core::mem::transmute(bufferlength), ::core::mem::transmute(buffer)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetPackagesByPackageFamily(packagefamilyname: ::windows::core::PCWSTR, count: *mut u32, packagefullnames: *mut ::windows::core::PWSTR, bufferlength: *mut u32, buffer: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetPackagesByPackageFamily(packagefamilyname.into_param().abi(), ::core::mem::transmute(count), ::core::mem::transmute(packagefullnames), ::core::mem::transmute(bufferlength), ::core::mem::transmute(buffer)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetProcessesInVirtualizationContext<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(packagefamilyname: Param0, count: *mut u32, processes: *mut *mut super::super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetProcessesInVirtualizationContext(packagefamilyname: ::windows::core::PCWSTR, count: *mut u32, processes: *mut *mut super::super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
-        }
-        GetProcessesInVirtualizationContext(packagefamilyname.into_param().abi(), ::core::mem::transmute(count), ::core::mem::transmute(processes)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetProcessesInVirtualizationContext(packagefamilyname: ::windows::core::PCWSTR, count: *mut u32, processes: *mut *mut super::super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    GetProcessesInVirtualizationContext(packagefamilyname.into_param().abi(), ::core::mem::transmute(count), ::core::mem::transmute(processes)).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[inline]
 pub unsafe fn GetResolvedPackageFullNameForPackageDependency<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(packagedependencyid: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetResolvedPackageFullNameForPackageDependency(packagedependencyid: ::windows::core::PCWSTR, packagefullname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-        GetResolvedPackageFullNameForPackageDependency(packagedependencyid.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetResolvedPackageFullNameForPackageDependency(packagedependencyid: ::windows::core::PCWSTR, packagefullname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
+    GetResolvedPackageFullNameForPackageDependency(packagedependencyid.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetStagedPackageOrigin<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(packagefullname: Param0, origin: *mut PackageOrigin) -> super::super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetStagedPackageOrigin(packagefullname: ::windows::core::PCWSTR, origin: *mut PackageOrigin) -> super::super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(GetStagedPackageOrigin(packagefullname.into_param().abi(), ::core::mem::transmute(origin)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetStagedPackageOrigin(packagefullname: ::windows::core::PCWSTR, origin: *mut PackageOrigin) -> super::super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetStagedPackageOrigin(packagefullname.into_param().abi(), ::core::mem::transmute(origin)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetStagedPackagePathByFullName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(packagefullname: Param0, pathlength: *mut u32, path: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetStagedPackagePathByFullName(packagefullname: ::windows::core::PCWSTR, pathlength: *mut u32, path: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(GetStagedPackagePathByFullName(packagefullname.into_param().abi(), ::core::mem::transmute(pathlength), ::core::mem::transmute(path)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetStagedPackagePathByFullName(packagefullname: ::windows::core::PCWSTR, pathlength: *mut u32, path: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetStagedPackagePathByFullName(packagefullname.into_param().abi(), ::core::mem::transmute(pathlength), ::core::mem::transmute(path)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetStagedPackagePathByFullName2<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(packagefullname: Param0, packagepathtype: PackagePathType, pathlength: *mut u32, path: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetStagedPackagePathByFullName2(packagefullname: ::windows::core::PCWSTR, packagepathtype: PackagePathType, pathlength: *mut u32, path: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(GetStagedPackagePathByFullName2(packagefullname.into_param().abi(), ::core::mem::transmute(packagepathtype), ::core::mem::transmute(pathlength), ::core::mem::transmute(path)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetStagedPackagePathByFullName2(packagefullname: ::windows::core::PCWSTR, packagepathtype: PackagePathType, pathlength: *mut u32, path: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetStagedPackagePathByFullName2(packagefullname.into_param().abi(), ::core::mem::transmute(packagepathtype), ::core::mem::transmute(pathlength), ::core::mem::transmute(path)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
@@ -7830,31 +7595,21 @@ pub struct IAppxSourceContentGroupMapReader_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenPackageInfoByFullName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(packagefullname: Param0, reserved: u32, packageinforeference: *mut *mut _PACKAGE_INFO_REFERENCE) -> super::super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OpenPackageInfoByFullName(packagefullname: ::windows::core::PCWSTR, reserved: u32, packageinforeference: *mut *mut _PACKAGE_INFO_REFERENCE) -> super::super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(OpenPackageInfoByFullName(packagefullname.into_param().abi(), ::core::mem::transmute(reserved), ::core::mem::transmute(packageinforeference)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OpenPackageInfoByFullName(packagefullname: ::windows::core::PCWSTR, reserved: u32, packageinforeference: *mut *mut _PACKAGE_INFO_REFERENCE) -> super::super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(OpenPackageInfoByFullName(packagefullname.into_param().abi(), ::core::mem::transmute(reserved), ::core::mem::transmute(packageinforeference)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenPackageInfoByFullNameForUser<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSID>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(usersid: Param0, packagefullname: Param1, reserved: u32, packageinforeference: *mut *mut _PACKAGE_INFO_REFERENCE) -> super::super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OpenPackageInfoByFullNameForUser(usersid: super::super::super::Foundation::PSID, packagefullname: ::windows::core::PCWSTR, reserved: u32, packageinforeference: *mut *mut _PACKAGE_INFO_REFERENCE) -> super::super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(OpenPackageInfoByFullNameForUser(usersid.into_param().abi(), packagefullname.into_param().abi(), ::core::mem::transmute(reserved), ::core::mem::transmute(packageinforeference)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OpenPackageInfoByFullNameForUser(usersid: super::super::super::Foundation::PSID, packagefullname: ::windows::core::PCWSTR, reserved: u32, packageinforeference: *mut *mut _PACKAGE_INFO_REFERENCE) -> super::super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(OpenPackageInfoByFullNameForUser(usersid.into_param().abi(), packagefullname.into_param().abi(), ::core::mem::transmute(reserved), ::core::mem::transmute(packageinforeference)))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
@@ -8175,76 +7930,51 @@ impl ::core::fmt::Debug for PackageDependencyProcessorArchitectures {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PackageFamilyNameFromFullName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(packagefullname: Param0, packagefamilynamelength: *mut u32, packagefamilyname: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PackageFamilyNameFromFullName(packagefullname: ::windows::core::PCWSTR, packagefamilynamelength: *mut u32, packagefamilyname: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(PackageFamilyNameFromFullName(packagefullname.into_param().abi(), ::core::mem::transmute(packagefamilynamelength), ::core::mem::transmute(packagefamilyname)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PackageFamilyNameFromFullName(packagefullname: ::windows::core::PCWSTR, packagefamilynamelength: *mut u32, packagefamilyname: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PackageFamilyNameFromFullName(packagefullname.into_param().abi(), ::core::mem::transmute(packagefamilynamelength), ::core::mem::transmute(packagefamilyname)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PackageFamilyNameFromId(packageid: *const PACKAGE_ID, packagefamilynamelength: *mut u32, packagefamilyname: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PackageFamilyNameFromId(packageid: *const PACKAGE_ID, packagefamilynamelength: *mut u32, packagefamilyname: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(PackageFamilyNameFromId(::core::mem::transmute(packageid), ::core::mem::transmute(packagefamilynamelength), ::core::mem::transmute(packagefamilyname)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PackageFamilyNameFromId(packageid: *const PACKAGE_ID, packagefamilynamelength: *mut u32, packagefamilyname: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PackageFamilyNameFromId(::core::mem::transmute(packageid), ::core::mem::transmute(packagefamilynamelength), ::core::mem::transmute(packagefamilyname)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PackageFullNameFromId(packageid: *const PACKAGE_ID, packagefullnamelength: *mut u32, packagefullname: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PackageFullNameFromId(packageid: *const PACKAGE_ID, packagefullnamelength: *mut u32, packagefullname: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(PackageFullNameFromId(::core::mem::transmute(packageid), ::core::mem::transmute(packagefullnamelength), ::core::mem::transmute(packagefullname)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PackageFullNameFromId(packageid: *const PACKAGE_ID, packagefullnamelength: *mut u32, packagefullname: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PackageFullNameFromId(::core::mem::transmute(packageid), ::core::mem::transmute(packagefullnamelength), ::core::mem::transmute(packagefullname)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PackageIdFromFullName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(packagefullname: Param0, flags: u32, bufferlength: *mut u32, buffer: *mut u8) -> super::super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PackageIdFromFullName(packagefullname: ::windows::core::PCWSTR, flags: u32, bufferlength: *mut u32, buffer: *mut u8) -> super::super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(PackageIdFromFullName(packagefullname.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(bufferlength), ::core::mem::transmute(buffer)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PackageIdFromFullName(packagefullname: ::windows::core::PCWSTR, flags: u32, bufferlength: *mut u32, buffer: *mut u8) -> super::super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PackageIdFromFullName(packagefullname.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(bufferlength), ::core::mem::transmute(buffer)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PackageNameAndPublisherIdFromFamilyName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(packagefamilyname: Param0, packagenamelength: *mut u32, packagename: ::windows::core::PWSTR, packagepublisheridlength: *mut u32, packagepublisherid: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PackageNameAndPublisherIdFromFamilyName(packagefamilyname: ::windows::core::PCWSTR, packagenamelength: *mut u32, packagename: ::windows::core::PWSTR, packagepublisheridlength: *mut u32, packagepublisherid: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(PackageNameAndPublisherIdFromFamilyName(packagefamilyname.into_param().abi(), ::core::mem::transmute(packagenamelength), ::core::mem::transmute(packagename), ::core::mem::transmute(packagepublisheridlength), ::core::mem::transmute(packagepublisherid)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PackageNameAndPublisherIdFromFamilyName(packagefamilyname: ::windows::core::PCWSTR, packagenamelength: *mut u32, packagename: ::windows::core::PWSTR, packagepublisheridlength: *mut u32, packagepublisherid: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PackageNameAndPublisherIdFromFamilyName(packagefamilyname.into_param().abi(), ::core::mem::transmute(packagenamelength), ::core::mem::transmute(packagename), ::core::mem::transmute(packagepublisheridlength), ::core::mem::transmute(packagepublisherid)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
@@ -8322,135 +8052,90 @@ impl ::core::fmt::Debug for PackagePathType {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ParseApplicationUserModelId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(applicationusermodelid: Param0, packagefamilynamelength: *mut u32, packagefamilyname: ::windows::core::PWSTR, packagerelativeapplicationidlength: *mut u32, packagerelativeapplicationid: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ParseApplicationUserModelId(applicationusermodelid: ::windows::core::PCWSTR, packagefamilynamelength: *mut u32, packagefamilyname: ::windows::core::PWSTR, packagerelativeapplicationidlength: *mut u32, packagerelativeapplicationid: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(ParseApplicationUserModelId(applicationusermodelid.into_param().abi(), ::core::mem::transmute(packagefamilynamelength), ::core::mem::transmute(packagefamilyname), ::core::mem::transmute(packagerelativeapplicationidlength), ::core::mem::transmute(packagerelativeapplicationid)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ParseApplicationUserModelId(applicationusermodelid: ::windows::core::PCWSTR, packagefamilynamelength: *mut u32, packagefamilyname: ::windows::core::PWSTR, packagerelativeapplicationidlength: *mut u32, packagerelativeapplicationid: ::windows::core::PWSTR) -> super::super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(ParseApplicationUserModelId(applicationusermodelid.into_param().abi(), ::core::mem::transmute(packagefamilynamelength), ::core::mem::transmute(packagefamilyname), ::core::mem::transmute(packagerelativeapplicationidlength), ::core::mem::transmute(packagerelativeapplicationid)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[inline]
 pub unsafe fn ReleasePackageVirtualizationContext(context: *const PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ReleasePackageVirtualizationContext(context: *const PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__);
-        }
-        ReleasePackageVirtualizationContext(::core::mem::transmute(context))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ReleasePackageVirtualizationContext(context: *const PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ReleasePackageVirtualizationContext(::core::mem::transmute(context))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[inline]
 pub unsafe fn RemovePackageDependency(packagedependencycontext: *const PACKAGEDEPENDENCY_CONTEXT__) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RemovePackageDependency(packagedependencycontext: *const PACKAGEDEPENDENCY_CONTEXT__) -> ::windows::core::HRESULT;
-        }
-        RemovePackageDependency(::core::mem::transmute(packagedependencycontext)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RemovePackageDependency(packagedependencycontext: *const PACKAGEDEPENDENCY_CONTEXT__) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    RemovePackageDependency(::core::mem::transmute(packagedependencycontext)).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TryCreatePackageDependency<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSID>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, PACKAGE_VERSION>, Param5: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(user: Param0, packagefamilyname: Param1, minversion: Param2, packagedependencyprocessorarchitectures: PackageDependencyProcessorArchitectures, lifetimekind: PackageDependencyLifetimeKind, lifetimeartifact: Param5, options: CreatePackageDependencyOptions) -> ::windows::core::Result<::windows::core::PWSTR> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn TryCreatePackageDependency(user: super::super::super::Foundation::PSID, packagefamilyname: ::windows::core::PCWSTR, minversion: PACKAGE_VERSION, packagedependencyprocessorarchitectures: PackageDependencyProcessorArchitectures, lifetimekind: PackageDependencyLifetimeKind, lifetimeartifact: ::windows::core::PCWSTR, options: CreatePackageDependencyOptions, packagedependencyid: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-        TryCreatePackageDependency(user.into_param().abi(), packagefamilyname.into_param().abi(), minversion.into_param().abi(), ::core::mem::transmute(packagedependencyprocessorarchitectures), ::core::mem::transmute(lifetimekind), lifetimeartifact.into_param().abi(), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TryCreatePackageDependency(user: super::super::super::Foundation::PSID, packagefamilyname: ::windows::core::PCWSTR, minversion: PACKAGE_VERSION, packagedependencyprocessorarchitectures: PackageDependencyProcessorArchitectures, lifetimekind: PackageDependencyLifetimeKind, lifetimeartifact: ::windows::core::PCWSTR, options: CreatePackageDependencyOptions, packagedependencyid: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
+    TryCreatePackageDependency(user.into_param().abi(), packagefamilyname.into_param().abi(), minversion.into_param().abi(), ::core::mem::transmute(packagedependencyprocessorarchitectures), ::core::mem::transmute(lifetimekind), lifetimeartifact.into_param().abi(), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VerifyApplicationUserModelId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(applicationusermodelid: Param0) -> super::super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VerifyApplicationUserModelId(applicationusermodelid: ::windows::core::PCWSTR) -> super::super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(VerifyApplicationUserModelId(applicationusermodelid.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VerifyApplicationUserModelId(applicationusermodelid: ::windows::core::PCWSTR) -> super::super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(VerifyApplicationUserModelId(applicationusermodelid.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VerifyPackageFamilyName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(packagefamilyname: Param0) -> super::super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VerifyPackageFamilyName(packagefamilyname: ::windows::core::PCWSTR) -> super::super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(VerifyPackageFamilyName(packagefamilyname.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VerifyPackageFamilyName(packagefamilyname: ::windows::core::PCWSTR) -> super::super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(VerifyPackageFamilyName(packagefamilyname.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VerifyPackageFullName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(packagefullname: Param0) -> super::super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VerifyPackageFullName(packagefullname: ::windows::core::PCWSTR) -> super::super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(VerifyPackageFullName(packagefullname.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VerifyPackageFullName(packagefullname: ::windows::core::PCWSTR) -> super::super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(VerifyPackageFullName(packagefullname.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VerifyPackageId(packageid: *const PACKAGE_ID) -> super::super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VerifyPackageId(packageid: *const PACKAGE_ID) -> super::super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(VerifyPackageId(::core::mem::transmute(packageid)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VerifyPackageId(packageid: *const PACKAGE_ID) -> super::super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(VerifyPackageId(::core::mem::transmute(packageid)))
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VerifyPackageRelativeApplicationId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(packagerelativeapplicationid: Param0) -> super::super::super::Foundation::WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VerifyPackageRelativeApplicationId(packagerelativeapplicationid: ::windows::core::PCWSTR) -> super::super::super::Foundation::WIN32_ERROR;
-        }
-        ::core::mem::transmute(VerifyPackageRelativeApplicationId(packagerelativeapplicationid.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VerifyPackageRelativeApplicationId(packagerelativeapplicationid: ::windows::core::PCWSTR) -> super::super::super::Foundation::WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(VerifyPackageRelativeApplicationId(packagerelativeapplicationid.into_param().abi()))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]

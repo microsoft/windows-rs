@@ -253,450 +253,300 @@ pub const AUTH_REQ_VALIDATE_CLIENT: u32 = 128u32;
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn AcceptSecurityContext(phcredential: *const super::super::Credentials::SecHandle, phcontext: *const super::super::Credentials::SecHandle, pinput: *const SecBufferDesc, fcontextreq: ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ, targetdatarep: u32, phnewcontext: *mut super::super::Credentials::SecHandle, poutput: *mut SecBufferDesc, pfcontextattr: *mut u32, ptsexpiry: *mut i64) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AcceptSecurityContext(phcredential: *const super::super::Credentials::SecHandle, phcontext: *const super::super::Credentials::SecHandle, pinput: *const SecBufferDesc, fcontextreq: ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ, targetdatarep: u32, phnewcontext: *mut super::super::Credentials::SecHandle, poutput: *mut SecBufferDesc, pfcontextattr: *mut u32, ptsexpiry: *mut i64) -> ::windows::core::HRESULT;
-        }
-        AcceptSecurityContext(::core::mem::transmute(phcredential), ::core::mem::transmute(phcontext), ::core::mem::transmute(pinput), ::core::mem::transmute(fcontextreq), ::core::mem::transmute(targetdatarep), ::core::mem::transmute(phnewcontext), ::core::mem::transmute(poutput), ::core::mem::transmute(pfcontextattr), ::core::mem::transmute(ptsexpiry)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AcceptSecurityContext(phcredential: *const super::super::Credentials::SecHandle, phcontext: *const super::super::Credentials::SecHandle, pinput: *const SecBufferDesc, fcontextreq: ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ, targetdatarep: u32, phnewcontext: *mut super::super::Credentials::SecHandle, poutput: *mut SecBufferDesc, pfcontextattr: *mut u32, ptsexpiry: *mut i64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    AcceptSecurityContext(::core::mem::transmute(phcredential), ::core::mem::transmute(phcontext), ::core::mem::transmute(pinput), ::core::mem::transmute(fcontextreq), ::core::mem::transmute(targetdatarep), ::core::mem::transmute(phnewcontext), ::core::mem::transmute(poutput), ::core::mem::transmute(pfcontextattr), ::core::mem::transmute(ptsexpiry)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn AcquireCredentialsHandleA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(pszprincipal: Param0, pszpackage: Param1, fcredentialuse: SECPKG_CRED, pvlogonid: *const ::core::ffi::c_void, pauthdata: *const ::core::ffi::c_void, pgetkeyfn: SEC_GET_KEY_FN, pvgetkeyargument: *const ::core::ffi::c_void, phcredential: *mut super::super::Credentials::SecHandle, ptsexpiry: *mut i64) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AcquireCredentialsHandleA(pszprincipal: ::windows::core::PCSTR, pszpackage: ::windows::core::PCSTR, fcredentialuse: SECPKG_CRED, pvlogonid: *const ::core::ffi::c_void, pauthdata: *const ::core::ffi::c_void, pgetkeyfn: *mut ::core::ffi::c_void, pvgetkeyargument: *const ::core::ffi::c_void, phcredential: *mut super::super::Credentials::SecHandle, ptsexpiry: *mut i64) -> ::windows::core::HRESULT;
-        }
-        AcquireCredentialsHandleA(pszprincipal.into_param().abi(), pszpackage.into_param().abi(), ::core::mem::transmute(fcredentialuse), ::core::mem::transmute(pvlogonid), ::core::mem::transmute(pauthdata), ::core::mem::transmute(pgetkeyfn), ::core::mem::transmute(pvgetkeyargument), ::core::mem::transmute(phcredential), ::core::mem::transmute(ptsexpiry)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AcquireCredentialsHandleA(pszprincipal: ::windows::core::PCSTR, pszpackage: ::windows::core::PCSTR, fcredentialuse: SECPKG_CRED, pvlogonid: *const ::core::ffi::c_void, pauthdata: *const ::core::ffi::c_void, pgetkeyfn: *mut ::core::ffi::c_void, pvgetkeyargument: *const ::core::ffi::c_void, phcredential: *mut super::super::Credentials::SecHandle, ptsexpiry: *mut i64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    AcquireCredentialsHandleA(pszprincipal.into_param().abi(), pszpackage.into_param().abi(), ::core::mem::transmute(fcredentialuse), ::core::mem::transmute(pvlogonid), ::core::mem::transmute(pauthdata), ::core::mem::transmute(pgetkeyfn), ::core::mem::transmute(pvgetkeyargument), ::core::mem::transmute(phcredential), ::core::mem::transmute(ptsexpiry)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn AcquireCredentialsHandleW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pszprincipal: Param0, pszpackage: Param1, fcredentialuse: SECPKG_CRED, pvlogonid: *const ::core::ffi::c_void, pauthdata: *const ::core::ffi::c_void, pgetkeyfn: SEC_GET_KEY_FN, pvgetkeyargument: *const ::core::ffi::c_void, phcredential: *mut super::super::Credentials::SecHandle, ptsexpiry: *mut i64) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AcquireCredentialsHandleW(pszprincipal: ::windows::core::PCWSTR, pszpackage: ::windows::core::PCWSTR, fcredentialuse: SECPKG_CRED, pvlogonid: *const ::core::ffi::c_void, pauthdata: *const ::core::ffi::c_void, pgetkeyfn: *mut ::core::ffi::c_void, pvgetkeyargument: *const ::core::ffi::c_void, phcredential: *mut super::super::Credentials::SecHandle, ptsexpiry: *mut i64) -> ::windows::core::HRESULT;
-        }
-        AcquireCredentialsHandleW(pszprincipal.into_param().abi(), pszpackage.into_param().abi(), ::core::mem::transmute(fcredentialuse), ::core::mem::transmute(pvlogonid), ::core::mem::transmute(pauthdata), ::core::mem::transmute(pgetkeyfn), ::core::mem::transmute(pvgetkeyargument), ::core::mem::transmute(phcredential), ::core::mem::transmute(ptsexpiry)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AcquireCredentialsHandleW(pszprincipal: ::windows::core::PCWSTR, pszpackage: ::windows::core::PCWSTR, fcredentialuse: SECPKG_CRED, pvlogonid: *const ::core::ffi::c_void, pauthdata: *const ::core::ffi::c_void, pgetkeyfn: *mut ::core::ffi::c_void, pvgetkeyargument: *const ::core::ffi::c_void, phcredential: *mut super::super::Credentials::SecHandle, ptsexpiry: *mut i64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    AcquireCredentialsHandleW(pszprincipal.into_param().abi(), pszpackage.into_param().abi(), ::core::mem::transmute(fcredentialuse), ::core::mem::transmute(pvlogonid), ::core::mem::transmute(pauthdata), ::core::mem::transmute(pgetkeyfn), ::core::mem::transmute(pvgetkeyargument), ::core::mem::transmute(phcredential), ::core::mem::transmute(ptsexpiry)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn AddCredentialsA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hcredentials: *const super::super::Credentials::SecHandle, pszprincipal: Param1, pszpackage: Param2, fcredentialuse: u32, pauthdata: *const ::core::ffi::c_void, pgetkeyfn: SEC_GET_KEY_FN, pvgetkeyargument: *const ::core::ffi::c_void) -> ::windows::core::Result<i64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AddCredentialsA(hcredentials: *const super::super::Credentials::SecHandle, pszprincipal: ::windows::core::PCSTR, pszpackage: ::windows::core::PCSTR, fcredentialuse: u32, pauthdata: *const ::core::ffi::c_void, pgetkeyfn: *mut ::core::ffi::c_void, pvgetkeyargument: *const ::core::ffi::c_void, ptsexpiry: *mut i64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
-        AddCredentialsA(::core::mem::transmute(hcredentials), pszprincipal.into_param().abi(), pszpackage.into_param().abi(), ::core::mem::transmute(fcredentialuse), ::core::mem::transmute(pauthdata), ::core::mem::transmute(pgetkeyfn), ::core::mem::transmute(pvgetkeyargument), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AddCredentialsA(hcredentials: *const super::super::Credentials::SecHandle, pszprincipal: ::windows::core::PCSTR, pszpackage: ::windows::core::PCSTR, fcredentialuse: u32, pauthdata: *const ::core::ffi::c_void, pgetkeyfn: *mut ::core::ffi::c_void, pvgetkeyargument: *const ::core::ffi::c_void, ptsexpiry: *mut i64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
+    AddCredentialsA(::core::mem::transmute(hcredentials), pszprincipal.into_param().abi(), pszpackage.into_param().abi(), ::core::mem::transmute(fcredentialuse), ::core::mem::transmute(pauthdata), ::core::mem::transmute(pgetkeyfn), ::core::mem::transmute(pvgetkeyargument), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn AddCredentialsW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hcredentials: *const super::super::Credentials::SecHandle, pszprincipal: Param1, pszpackage: Param2, fcredentialuse: u32, pauthdata: *const ::core::ffi::c_void, pgetkeyfn: SEC_GET_KEY_FN, pvgetkeyargument: *const ::core::ffi::c_void) -> ::windows::core::Result<i64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AddCredentialsW(hcredentials: *const super::super::Credentials::SecHandle, pszprincipal: ::windows::core::PCWSTR, pszpackage: ::windows::core::PCWSTR, fcredentialuse: u32, pauthdata: *const ::core::ffi::c_void, pgetkeyfn: *mut ::core::ffi::c_void, pvgetkeyargument: *const ::core::ffi::c_void, ptsexpiry: *mut i64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
-        AddCredentialsW(::core::mem::transmute(hcredentials), pszprincipal.into_param().abi(), pszpackage.into_param().abi(), ::core::mem::transmute(fcredentialuse), ::core::mem::transmute(pauthdata), ::core::mem::transmute(pgetkeyfn), ::core::mem::transmute(pvgetkeyargument), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AddCredentialsW(hcredentials: *const super::super::Credentials::SecHandle, pszprincipal: ::windows::core::PCWSTR, pszpackage: ::windows::core::PCWSTR, fcredentialuse: u32, pauthdata: *const ::core::ffi::c_void, pgetkeyfn: *mut ::core::ffi::c_void, pvgetkeyargument: *const ::core::ffi::c_void, ptsexpiry: *mut i64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
+    AddCredentialsW(::core::mem::transmute(hcredentials), pszprincipal.into_param().abi(), pszpackage.into_param().abi(), ::core::mem::transmute(fcredentialuse), ::core::mem::transmute(pauthdata), ::core::mem::transmute(pgetkeyfn), ::core::mem::transmute(pvgetkeyargument), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn AddSecurityPackageA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(pszpackagename: Param0, poptions: *const SECURITY_PACKAGE_OPTIONS) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AddSecurityPackageA(pszpackagename: ::windows::core::PCSTR, poptions: *const SECURITY_PACKAGE_OPTIONS) -> ::windows::core::HRESULT;
-        }
-        AddSecurityPackageA(pszpackagename.into_param().abi(), ::core::mem::transmute(poptions)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AddSecurityPackageA(pszpackagename: ::windows::core::PCSTR, poptions: *const SECURITY_PACKAGE_OPTIONS) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    AddSecurityPackageA(pszpackagename.into_param().abi(), ::core::mem::transmute(poptions)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn AddSecurityPackageW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pszpackagename: Param0, poptions: *const SECURITY_PACKAGE_OPTIONS) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AddSecurityPackageW(pszpackagename: ::windows::core::PCWSTR, poptions: *const SECURITY_PACKAGE_OPTIONS) -> ::windows::core::HRESULT;
-        }
-        AddSecurityPackageW(pszpackagename.into_param().abi(), ::core::mem::transmute(poptions)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AddSecurityPackageW(pszpackagename: ::windows::core::PCWSTR, poptions: *const SECURITY_PACKAGE_OPTIONS) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    AddSecurityPackageW(pszpackagename.into_param().abi(), ::core::mem::transmute(poptions)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn ApplyControlToken(phcontext: *const super::super::Credentials::SecHandle, pinput: *const SecBufferDesc) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ApplyControlToken(phcontext: *const super::super::Credentials::SecHandle, pinput: *const SecBufferDesc) -> ::windows::core::HRESULT;
-        }
-        ApplyControlToken(::core::mem::transmute(phcontext), ::core::mem::transmute(pinput)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ApplyControlToken(phcontext: *const super::super::Credentials::SecHandle, pinput: *const SecBufferDesc) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ApplyControlToken(::core::mem::transmute(phcontext), ::core::mem::transmute(pinput)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AuditComputeEffectivePolicyBySid<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSID>>(psid: Param0, psubcategoryguids: &[::windows::core::GUID], ppauditpolicy: *mut *mut AUDIT_POLICY_INFORMATION) -> super::super::super::Foundation::BOOLEAN {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AuditComputeEffectivePolicyBySid(psid: super::super::super::Foundation::PSID, psubcategoryguids: *const ::windows::core::GUID, dwpolicycount: u32, ppauditpolicy: *mut *mut AUDIT_POLICY_INFORMATION) -> super::super::super::Foundation::BOOLEAN;
-        }
-        ::core::mem::transmute(AuditComputeEffectivePolicyBySid(psid.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(psubcategoryguids)), psubcategoryguids.len() as _, ::core::mem::transmute(ppauditpolicy)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AuditComputeEffectivePolicyBySid(psid: super::super::super::Foundation::PSID, psubcategoryguids: *const ::windows::core::GUID, dwpolicycount: u32, ppauditpolicy: *mut *mut AUDIT_POLICY_INFORMATION) -> super::super::super::Foundation::BOOLEAN;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AuditComputeEffectivePolicyBySid(psid.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(psubcategoryguids)), psubcategoryguids.len() as _, ::core::mem::transmute(ppauditpolicy)))
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AuditComputeEffectivePolicyByToken<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(htokenhandle: Param0, psubcategoryguids: &[::windows::core::GUID], ppauditpolicy: *mut *mut AUDIT_POLICY_INFORMATION) -> super::super::super::Foundation::BOOLEAN {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AuditComputeEffectivePolicyByToken(htokenhandle: super::super::super::Foundation::HANDLE, psubcategoryguids: *const ::windows::core::GUID, dwpolicycount: u32, ppauditpolicy: *mut *mut AUDIT_POLICY_INFORMATION) -> super::super::super::Foundation::BOOLEAN;
-        }
-        ::core::mem::transmute(AuditComputeEffectivePolicyByToken(htokenhandle.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(psubcategoryguids)), psubcategoryguids.len() as _, ::core::mem::transmute(ppauditpolicy)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AuditComputeEffectivePolicyByToken(htokenhandle: super::super::super::Foundation::HANDLE, psubcategoryguids: *const ::windows::core::GUID, dwpolicycount: u32, ppauditpolicy: *mut *mut AUDIT_POLICY_INFORMATION) -> super::super::super::Foundation::BOOLEAN;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AuditComputeEffectivePolicyByToken(htokenhandle.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(psubcategoryguids)), psubcategoryguids.len() as _, ::core::mem::transmute(ppauditpolicy)))
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AuditEnumerateCategories(ppauditcategoriesarray: *mut *mut ::windows::core::GUID, pdwcountreturned: *mut u32) -> super::super::super::Foundation::BOOLEAN {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AuditEnumerateCategories(ppauditcategoriesarray: *mut *mut ::windows::core::GUID, pdwcountreturned: *mut u32) -> super::super::super::Foundation::BOOLEAN;
-        }
-        ::core::mem::transmute(AuditEnumerateCategories(::core::mem::transmute(ppauditcategoriesarray), ::core::mem::transmute(pdwcountreturned)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AuditEnumerateCategories(ppauditcategoriesarray: *mut *mut ::windows::core::GUID, pdwcountreturned: *mut u32) -> super::super::super::Foundation::BOOLEAN;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AuditEnumerateCategories(::core::mem::transmute(ppauditcategoriesarray), ::core::mem::transmute(pdwcountreturned)))
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AuditEnumeratePerUserPolicy(ppauditsidarray: *mut *mut POLICY_AUDIT_SID_ARRAY) -> super::super::super::Foundation::BOOLEAN {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AuditEnumeratePerUserPolicy(ppauditsidarray: *mut *mut POLICY_AUDIT_SID_ARRAY) -> super::super::super::Foundation::BOOLEAN;
-        }
-        ::core::mem::transmute(AuditEnumeratePerUserPolicy(::core::mem::transmute(ppauditsidarray)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AuditEnumeratePerUserPolicy(ppauditsidarray: *mut *mut POLICY_AUDIT_SID_ARRAY) -> super::super::super::Foundation::BOOLEAN;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AuditEnumeratePerUserPolicy(::core::mem::transmute(ppauditsidarray)))
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AuditEnumerateSubCategories<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOLEAN>>(pauditcategoryguid: *const ::windows::core::GUID, bretrieveallsubcategories: Param1, ppauditsubcategoriesarray: *mut *mut ::windows::core::GUID, pdwcountreturned: *mut u32) -> super::super::super::Foundation::BOOLEAN {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AuditEnumerateSubCategories(pauditcategoryguid: *const ::windows::core::GUID, bretrieveallsubcategories: super::super::super::Foundation::BOOLEAN, ppauditsubcategoriesarray: *mut *mut ::windows::core::GUID, pdwcountreturned: *mut u32) -> super::super::super::Foundation::BOOLEAN;
-        }
-        ::core::mem::transmute(AuditEnumerateSubCategories(::core::mem::transmute(pauditcategoryguid), bretrieveallsubcategories.into_param().abi(), ::core::mem::transmute(ppauditsubcategoriesarray), ::core::mem::transmute(pdwcountreturned)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AuditEnumerateSubCategories(pauditcategoryguid: *const ::windows::core::GUID, bretrieveallsubcategories: super::super::super::Foundation::BOOLEAN, ppauditsubcategoriesarray: *mut *mut ::windows::core::GUID, pdwcountreturned: *mut u32) -> super::super::super::Foundation::BOOLEAN;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AuditEnumerateSubCategories(::core::mem::transmute(pauditcategoryguid), bretrieveallsubcategories.into_param().abi(), ::core::mem::transmute(ppauditsubcategoriesarray), ::core::mem::transmute(pdwcountreturned)))
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn AuditFree(buffer: *const ::core::ffi::c_void) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AuditFree(buffer: *const ::core::ffi::c_void);
-        }
-        AuditFree(::core::mem::transmute(buffer))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AuditFree(buffer: *const ::core::ffi::c_void);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    AuditFree(::core::mem::transmute(buffer))
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AuditLookupCategoryGuidFromCategoryId(auditcategoryid: POLICY_AUDIT_EVENT_TYPE, pauditcategoryguid: *mut ::windows::core::GUID) -> super::super::super::Foundation::BOOLEAN {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AuditLookupCategoryGuidFromCategoryId(auditcategoryid: POLICY_AUDIT_EVENT_TYPE, pauditcategoryguid: *mut ::windows::core::GUID) -> super::super::super::Foundation::BOOLEAN;
-        }
-        ::core::mem::transmute(AuditLookupCategoryGuidFromCategoryId(::core::mem::transmute(auditcategoryid), ::core::mem::transmute(pauditcategoryguid)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AuditLookupCategoryGuidFromCategoryId(auditcategoryid: POLICY_AUDIT_EVENT_TYPE, pauditcategoryguid: *mut ::windows::core::GUID) -> super::super::super::Foundation::BOOLEAN;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AuditLookupCategoryGuidFromCategoryId(::core::mem::transmute(auditcategoryid), ::core::mem::transmute(pauditcategoryguid)))
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AuditLookupCategoryIdFromCategoryGuid(pauditcategoryguid: *const ::windows::core::GUID, pauditcategoryid: *mut POLICY_AUDIT_EVENT_TYPE) -> super::super::super::Foundation::BOOLEAN {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AuditLookupCategoryIdFromCategoryGuid(pauditcategoryguid: *const ::windows::core::GUID, pauditcategoryid: *mut POLICY_AUDIT_EVENT_TYPE) -> super::super::super::Foundation::BOOLEAN;
-        }
-        ::core::mem::transmute(AuditLookupCategoryIdFromCategoryGuid(::core::mem::transmute(pauditcategoryguid), ::core::mem::transmute(pauditcategoryid)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AuditLookupCategoryIdFromCategoryGuid(pauditcategoryguid: *const ::windows::core::GUID, pauditcategoryid: *mut POLICY_AUDIT_EVENT_TYPE) -> super::super::super::Foundation::BOOLEAN;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AuditLookupCategoryIdFromCategoryGuid(::core::mem::transmute(pauditcategoryguid), ::core::mem::transmute(pauditcategoryid)))
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AuditLookupCategoryNameA(pauditcategoryguid: *const ::windows::core::GUID, ppszcategoryname: *mut ::windows::core::PSTR) -> super::super::super::Foundation::BOOLEAN {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AuditLookupCategoryNameA(pauditcategoryguid: *const ::windows::core::GUID, ppszcategoryname: *mut ::windows::core::PSTR) -> super::super::super::Foundation::BOOLEAN;
-        }
-        ::core::mem::transmute(AuditLookupCategoryNameA(::core::mem::transmute(pauditcategoryguid), ::core::mem::transmute(ppszcategoryname)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AuditLookupCategoryNameA(pauditcategoryguid: *const ::windows::core::GUID, ppszcategoryname: *mut ::windows::core::PSTR) -> super::super::super::Foundation::BOOLEAN;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AuditLookupCategoryNameA(::core::mem::transmute(pauditcategoryguid), ::core::mem::transmute(ppszcategoryname)))
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AuditLookupCategoryNameW(pauditcategoryguid: *const ::windows::core::GUID, ppszcategoryname: *mut ::windows::core::PWSTR) -> super::super::super::Foundation::BOOLEAN {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AuditLookupCategoryNameW(pauditcategoryguid: *const ::windows::core::GUID, ppszcategoryname: *mut ::windows::core::PWSTR) -> super::super::super::Foundation::BOOLEAN;
-        }
-        ::core::mem::transmute(AuditLookupCategoryNameW(::core::mem::transmute(pauditcategoryguid), ::core::mem::transmute(ppszcategoryname)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AuditLookupCategoryNameW(pauditcategoryguid: *const ::windows::core::GUID, ppszcategoryname: *mut ::windows::core::PWSTR) -> super::super::super::Foundation::BOOLEAN;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AuditLookupCategoryNameW(::core::mem::transmute(pauditcategoryguid), ::core::mem::transmute(ppszcategoryname)))
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AuditLookupSubCategoryNameA(pauditsubcategoryguid: *const ::windows::core::GUID, ppszsubcategoryname: *mut ::windows::core::PSTR) -> super::super::super::Foundation::BOOLEAN {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AuditLookupSubCategoryNameA(pauditsubcategoryguid: *const ::windows::core::GUID, ppszsubcategoryname: *mut ::windows::core::PSTR) -> super::super::super::Foundation::BOOLEAN;
-        }
-        ::core::mem::transmute(AuditLookupSubCategoryNameA(::core::mem::transmute(pauditsubcategoryguid), ::core::mem::transmute(ppszsubcategoryname)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AuditLookupSubCategoryNameA(pauditsubcategoryguid: *const ::windows::core::GUID, ppszsubcategoryname: *mut ::windows::core::PSTR) -> super::super::super::Foundation::BOOLEAN;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AuditLookupSubCategoryNameA(::core::mem::transmute(pauditsubcategoryguid), ::core::mem::transmute(ppszsubcategoryname)))
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AuditLookupSubCategoryNameW(pauditsubcategoryguid: *const ::windows::core::GUID, ppszsubcategoryname: *mut ::windows::core::PWSTR) -> super::super::super::Foundation::BOOLEAN {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AuditLookupSubCategoryNameW(pauditsubcategoryguid: *const ::windows::core::GUID, ppszsubcategoryname: *mut ::windows::core::PWSTR) -> super::super::super::Foundation::BOOLEAN;
-        }
-        ::core::mem::transmute(AuditLookupSubCategoryNameW(::core::mem::transmute(pauditsubcategoryguid), ::core::mem::transmute(ppszsubcategoryname)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AuditLookupSubCategoryNameW(pauditsubcategoryguid: *const ::windows::core::GUID, ppszsubcategoryname: *mut ::windows::core::PWSTR) -> super::super::super::Foundation::BOOLEAN;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AuditLookupSubCategoryNameW(::core::mem::transmute(pauditsubcategoryguid), ::core::mem::transmute(ppszsubcategoryname)))
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AuditQueryGlobalSaclA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(objecttypename: Param0, acl: *mut *mut super::super::ACL) -> super::super::super::Foundation::BOOLEAN {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AuditQueryGlobalSaclA(objecttypename: ::windows::core::PCSTR, acl: *mut *mut super::super::ACL) -> super::super::super::Foundation::BOOLEAN;
-        }
-        ::core::mem::transmute(AuditQueryGlobalSaclA(objecttypename.into_param().abi(), ::core::mem::transmute(acl)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AuditQueryGlobalSaclA(objecttypename: ::windows::core::PCSTR, acl: *mut *mut super::super::ACL) -> super::super::super::Foundation::BOOLEAN;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AuditQueryGlobalSaclA(objecttypename.into_param().abi(), ::core::mem::transmute(acl)))
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AuditQueryGlobalSaclW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(objecttypename: Param0, acl: *mut *mut super::super::ACL) -> super::super::super::Foundation::BOOLEAN {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AuditQueryGlobalSaclW(objecttypename: ::windows::core::PCWSTR, acl: *mut *mut super::super::ACL) -> super::super::super::Foundation::BOOLEAN;
-        }
-        ::core::mem::transmute(AuditQueryGlobalSaclW(objecttypename.into_param().abi(), ::core::mem::transmute(acl)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AuditQueryGlobalSaclW(objecttypename: ::windows::core::PCWSTR, acl: *mut *mut super::super::ACL) -> super::super::super::Foundation::BOOLEAN;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AuditQueryGlobalSaclW(objecttypename.into_param().abi(), ::core::mem::transmute(acl)))
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AuditQueryPerUserPolicy<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSID>>(psid: Param0, psubcategoryguids: &[::windows::core::GUID], ppauditpolicy: *mut *mut AUDIT_POLICY_INFORMATION) -> super::super::super::Foundation::BOOLEAN {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AuditQueryPerUserPolicy(psid: super::super::super::Foundation::PSID, psubcategoryguids: *const ::windows::core::GUID, dwpolicycount: u32, ppauditpolicy: *mut *mut AUDIT_POLICY_INFORMATION) -> super::super::super::Foundation::BOOLEAN;
-        }
-        ::core::mem::transmute(AuditQueryPerUserPolicy(psid.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(psubcategoryguids)), psubcategoryguids.len() as _, ::core::mem::transmute(ppauditpolicy)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AuditQueryPerUserPolicy(psid: super::super::super::Foundation::PSID, psubcategoryguids: *const ::windows::core::GUID, dwpolicycount: u32, ppauditpolicy: *mut *mut AUDIT_POLICY_INFORMATION) -> super::super::super::Foundation::BOOLEAN;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AuditQueryPerUserPolicy(psid.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(psubcategoryguids)), psubcategoryguids.len() as _, ::core::mem::transmute(ppauditpolicy)))
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AuditQuerySecurity(securityinformation: u32, ppsecuritydescriptor: *mut super::super::PSECURITY_DESCRIPTOR) -> super::super::super::Foundation::BOOLEAN {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AuditQuerySecurity(securityinformation: u32, ppsecuritydescriptor: *mut super::super::PSECURITY_DESCRIPTOR) -> super::super::super::Foundation::BOOLEAN;
-        }
-        ::core::mem::transmute(AuditQuerySecurity(::core::mem::transmute(securityinformation), ::core::mem::transmute(ppsecuritydescriptor)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AuditQuerySecurity(securityinformation: u32, ppsecuritydescriptor: *mut super::super::PSECURITY_DESCRIPTOR) -> super::super::super::Foundation::BOOLEAN;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AuditQuerySecurity(::core::mem::transmute(securityinformation), ::core::mem::transmute(ppsecuritydescriptor)))
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AuditQuerySystemPolicy(psubcategoryguids: &[::windows::core::GUID], ppauditpolicy: *mut *mut AUDIT_POLICY_INFORMATION) -> super::super::super::Foundation::BOOLEAN {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AuditQuerySystemPolicy(psubcategoryguids: *const ::windows::core::GUID, dwpolicycount: u32, ppauditpolicy: *mut *mut AUDIT_POLICY_INFORMATION) -> super::super::super::Foundation::BOOLEAN;
-        }
-        ::core::mem::transmute(AuditQuerySystemPolicy(::core::mem::transmute(::windows::core::as_ptr_or_null(psubcategoryguids)), psubcategoryguids.len() as _, ::core::mem::transmute(ppauditpolicy)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AuditQuerySystemPolicy(psubcategoryguids: *const ::windows::core::GUID, dwpolicycount: u32, ppauditpolicy: *mut *mut AUDIT_POLICY_INFORMATION) -> super::super::super::Foundation::BOOLEAN;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AuditQuerySystemPolicy(::core::mem::transmute(::windows::core::as_ptr_or_null(psubcategoryguids)), psubcategoryguids.len() as _, ::core::mem::transmute(ppauditpolicy)))
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AuditSetGlobalSaclA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(objecttypename: Param0, acl: *const super::super::ACL) -> super::super::super::Foundation::BOOLEAN {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AuditSetGlobalSaclA(objecttypename: ::windows::core::PCSTR, acl: *const super::super::ACL) -> super::super::super::Foundation::BOOLEAN;
-        }
-        ::core::mem::transmute(AuditSetGlobalSaclA(objecttypename.into_param().abi(), ::core::mem::transmute(acl)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AuditSetGlobalSaclA(objecttypename: ::windows::core::PCSTR, acl: *const super::super::ACL) -> super::super::super::Foundation::BOOLEAN;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AuditSetGlobalSaclA(objecttypename.into_param().abi(), ::core::mem::transmute(acl)))
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AuditSetGlobalSaclW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(objecttypename: Param0, acl: *const super::super::ACL) -> super::super::super::Foundation::BOOLEAN {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AuditSetGlobalSaclW(objecttypename: ::windows::core::PCWSTR, acl: *const super::super::ACL) -> super::super::super::Foundation::BOOLEAN;
-        }
-        ::core::mem::transmute(AuditSetGlobalSaclW(objecttypename.into_param().abi(), ::core::mem::transmute(acl)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AuditSetGlobalSaclW(objecttypename: ::windows::core::PCWSTR, acl: *const super::super::ACL) -> super::super::super::Foundation::BOOLEAN;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AuditSetGlobalSaclW(objecttypename.into_param().abi(), ::core::mem::transmute(acl)))
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AuditSetPerUserPolicy<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSID>>(psid: Param0, pauditpolicy: &[AUDIT_POLICY_INFORMATION]) -> super::super::super::Foundation::BOOLEAN {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AuditSetPerUserPolicy(psid: super::super::super::Foundation::PSID, pauditpolicy: *const AUDIT_POLICY_INFORMATION, dwpolicycount: u32) -> super::super::super::Foundation::BOOLEAN;
-        }
-        ::core::mem::transmute(AuditSetPerUserPolicy(psid.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pauditpolicy)), pauditpolicy.len() as _))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AuditSetPerUserPolicy(psid: super::super::super::Foundation::PSID, pauditpolicy: *const AUDIT_POLICY_INFORMATION, dwpolicycount: u32) -> super::super::super::Foundation::BOOLEAN;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AuditSetPerUserPolicy(psid.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pauditpolicy)), pauditpolicy.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AuditSetSecurity<'a, Param1: ::windows::core::IntoParam<'a, super::super::PSECURITY_DESCRIPTOR>>(securityinformation: u32, psecuritydescriptor: Param1) -> super::super::super::Foundation::BOOLEAN {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AuditSetSecurity(securityinformation: u32, psecuritydescriptor: super::super::PSECURITY_DESCRIPTOR) -> super::super::super::Foundation::BOOLEAN;
-        }
-        ::core::mem::transmute(AuditSetSecurity(::core::mem::transmute(securityinformation), psecuritydescriptor.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AuditSetSecurity(securityinformation: u32, psecuritydescriptor: super::super::PSECURITY_DESCRIPTOR) -> super::super::super::Foundation::BOOLEAN;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AuditSetSecurity(::core::mem::transmute(securityinformation), psecuritydescriptor.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AuditSetSystemPolicy(pauditpolicy: &[AUDIT_POLICY_INFORMATION]) -> super::super::super::Foundation::BOOLEAN {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AuditSetSystemPolicy(pauditpolicy: *const AUDIT_POLICY_INFORMATION, dwpolicycount: u32) -> super::super::super::Foundation::BOOLEAN;
-        }
-        ::core::mem::transmute(AuditSetSystemPolicy(::core::mem::transmute(::windows::core::as_ptr_or_null(pauditpolicy)), pauditpolicy.len() as _))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AuditSetSystemPolicy(pauditpolicy: *const AUDIT_POLICY_INFORMATION, dwpolicycount: u32) -> super::super::super::Foundation::BOOLEAN;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AuditSetSystemPolicy(::core::mem::transmute(::windows::core::as_ptr_or_null(pauditpolicy)), pauditpolicy.len() as _))
 }
 pub const Audit_AccountLogon: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69979850_797a_11d9_bed3_505054503030);
 pub const Audit_AccountLogon_CredentialValidation: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cce923f_69ae_11d9_bed3_505054503030);
@@ -967,31 +817,21 @@ pub const CYPHER_BLOCK_LENGTH: u32 = 8u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ChangeAccountPasswordA<'a, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOLEAN>>(pszpackagename: *const i8, pszdomainname: *const i8, pszaccountname: *const i8, pszoldpassword: *const i8, psznewpassword: *const i8, bimpersonating: Param5, dwreserved: u32, poutput: *mut SecBufferDesc) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ChangeAccountPasswordA(pszpackagename: *const i8, pszdomainname: *const i8, pszaccountname: *const i8, pszoldpassword: *const i8, psznewpassword: *const i8, bimpersonating: super::super::super::Foundation::BOOLEAN, dwreserved: u32, poutput: *mut SecBufferDesc) -> ::windows::core::HRESULT;
-        }
-        ChangeAccountPasswordA(::core::mem::transmute(pszpackagename), ::core::mem::transmute(pszdomainname), ::core::mem::transmute(pszaccountname), ::core::mem::transmute(pszoldpassword), ::core::mem::transmute(psznewpassword), bimpersonating.into_param().abi(), ::core::mem::transmute(dwreserved), ::core::mem::transmute(poutput)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ChangeAccountPasswordA(pszpackagename: *const i8, pszdomainname: *const i8, pszaccountname: *const i8, pszoldpassword: *const i8, psznewpassword: *const i8, bimpersonating: super::super::super::Foundation::BOOLEAN, dwreserved: u32, poutput: *mut SecBufferDesc) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ChangeAccountPasswordA(::core::mem::transmute(pszpackagename), ::core::mem::transmute(pszdomainname), ::core::mem::transmute(pszaccountname), ::core::mem::transmute(pszoldpassword), ::core::mem::transmute(psznewpassword), bimpersonating.into_param().abi(), ::core::mem::transmute(dwreserved), ::core::mem::transmute(poutput)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ChangeAccountPasswordW<'a, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOLEAN>>(pszpackagename: *const u16, pszdomainname: *const u16, pszaccountname: *const u16, pszoldpassword: *const u16, psznewpassword: *const u16, bimpersonating: Param5, dwreserved: u32, poutput: *mut SecBufferDesc) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ChangeAccountPasswordW(pszpackagename: *const u16, pszdomainname: *const u16, pszaccountname: *const u16, pszoldpassword: *const u16, psznewpassword: *const u16, bimpersonating: super::super::super::Foundation::BOOLEAN, dwreserved: u32, poutput: *mut SecBufferDesc) -> ::windows::core::HRESULT;
-        }
-        ChangeAccountPasswordW(::core::mem::transmute(pszpackagename), ::core::mem::transmute(pszdomainname), ::core::mem::transmute(pszaccountname), ::core::mem::transmute(pszoldpassword), ::core::mem::transmute(psznewpassword), bimpersonating.into_param().abi(), ::core::mem::transmute(dwreserved), ::core::mem::transmute(poutput)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ChangeAccountPasswordW(pszpackagename: *const u16, pszdomainname: *const u16, pszaccountname: *const u16, pszoldpassword: *const u16, psznewpassword: *const u16, bimpersonating: super::super::super::Foundation::BOOLEAN, dwreserved: u32, poutput: *mut SecBufferDesc) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ChangeAccountPasswordW(::core::mem::transmute(pszpackagename), ::core::mem::transmute(pszdomainname), ::core::mem::transmute(pszaccountname), ::core::mem::transmute(pszoldpassword), ::core::mem::transmute(psznewpassword), bimpersonating.into_param().abi(), ::core::mem::transmute(dwreserved), ::core::mem::transmute(poutput)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const ClOUDAP_NAME_A: &str = "CloudAP";
@@ -999,16 +839,11 @@ pub const ClOUDAP_NAME_A: &str = "CloudAP";
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn CompleteAuthToken(phcontext: *const super::super::Credentials::SecHandle, ptoken: *const SecBufferDesc) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CompleteAuthToken(phcontext: *const super::super::Credentials::SecHandle, ptoken: *const SecBufferDesc) -> ::windows::core::HRESULT;
-        }
-        CompleteAuthToken(::core::mem::transmute(phcontext), ::core::mem::transmute(ptoken)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CompleteAuthToken(phcontext: *const super::super::Credentials::SecHandle, ptoken: *const SecBufferDesc) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CompleteAuthToken(::core::mem::transmute(phcontext), ::core::mem::transmute(ptoken)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
@@ -1017,16 +852,11 @@ pub type CredFreeCredentialsFn = ::core::option::Option<unsafe extern "system" f
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 #[inline]
 pub unsafe fn CredMarshalTargetInfo(intargetinfo: *const super::super::Credentials::CREDENTIAL_TARGET_INFORMATIONW, buffer: *mut *mut u16, buffersize: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CredMarshalTargetInfo(intargetinfo: *const super::super::Credentials::CREDENTIAL_TARGET_INFORMATIONW, buffer: *mut *mut u16, buffersize: *mut u32) -> super::super::super::Foundation::NTSTATUS;
-        }
-        CredMarshalTargetInfo(::core::mem::transmute(intargetinfo), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CredMarshalTargetInfo(intargetinfo: *const super::super::Credentials::CREDENTIAL_TARGET_INFORMATIONW, buffer: *mut *mut u16, buffersize: *mut u32) -> super::super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CredMarshalTargetInfo(::core::mem::transmute(intargetinfo), ::core::mem::transmute(buffer), ::core::mem::transmute(buffersize)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
@@ -1038,16 +868,11 @@ pub type CredReadFn = ::core::option::Option<unsafe extern "system" fn(logonid: 
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 #[inline]
 pub unsafe fn CredUnmarshalTargetInfo(buffer: *const u16, buffersize: u32, rettargetinfo: *mut *mut super::super::Credentials::CREDENTIAL_TARGET_INFORMATIONW, retactualsize: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CredUnmarshalTargetInfo(buffer: *const u16, buffersize: u32, rettargetinfo: *mut *mut super::super::Credentials::CREDENTIAL_TARGET_INFORMATIONW, retactualsize: *mut u32) -> super::super::super::Foundation::NTSTATUS;
-        }
-        CredUnmarshalTargetInfo(::core::mem::transmute(buffer), ::core::mem::transmute(buffersize), ::core::mem::transmute(rettargetinfo), ::core::mem::transmute(retactualsize)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CredUnmarshalTargetInfo(buffer: *const u16, buffersize: u32, rettargetinfo: *mut *mut super::super::Credentials::CREDENTIAL_TARGET_INFORMATIONW, retactualsize: *mut u32) -> super::super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CredUnmarshalTargetInfo(::core::mem::transmute(buffer), ::core::mem::transmute(buffersize), ::core::mem::transmute(rettargetinfo), ::core::mem::transmute(retactualsize)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
@@ -1172,60 +997,40 @@ pub const DS_UNKNOWN_ADDRESS_TYPE: u32 = 0u32;
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn DecryptMessage(phcontext: *const super::super::Credentials::SecHandle, pmessage: *const SecBufferDesc, messageseqno: u32) -> ::windows::core::Result<u32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DecryptMessage(phcontext: *const super::super::Credentials::SecHandle, pmessage: *const SecBufferDesc, messageseqno: u32, pfqop: *mut u32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        DecryptMessage(::core::mem::transmute(phcontext), ::core::mem::transmute(pmessage), ::core::mem::transmute(messageseqno), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DecryptMessage(phcontext: *const super::super::Credentials::SecHandle, pmessage: *const SecBufferDesc, messageseqno: u32, pfqop: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+    DecryptMessage(::core::mem::transmute(phcontext), ::core::mem::transmute(pmessage), ::core::mem::transmute(messageseqno), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn DeleteSecurityContext(phcontext: *const super::super::Credentials::SecHandle) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DeleteSecurityContext(phcontext: *const super::super::Credentials::SecHandle) -> ::windows::core::HRESULT;
-        }
-        DeleteSecurityContext(::core::mem::transmute(phcontext)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DeleteSecurityContext(phcontext: *const super::super::Credentials::SecHandle) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DeleteSecurityContext(::core::mem::transmute(phcontext)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn DeleteSecurityPackageA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(pszpackagename: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DeleteSecurityPackageA(pszpackagename: ::windows::core::PCSTR) -> ::windows::core::HRESULT;
-        }
-        DeleteSecurityPackageA(pszpackagename.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DeleteSecurityPackageA(pszpackagename: ::windows::core::PCSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DeleteSecurityPackageA(pszpackagename.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn DeleteSecurityPackageW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pszpackagename: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DeleteSecurityPackageW(pszpackagename: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
-        }
-        DeleteSecurityPackageW(pszpackagename.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DeleteSecurityPackageW(pszpackagename: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DeleteSecurityPackageW(pszpackagename.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const ENABLE_TLS_CLIENT_EARLY_START: u32 = 1u32;
@@ -1388,59 +1193,39 @@ pub const E_RM_UNKNOWN_ERROR: ::windows::core::HRESULT = ::windows::core::HRESUL
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn EncryptMessage(phcontext: *const super::super::Credentials::SecHandle, fqop: u32, pmessage: *const SecBufferDesc, messageseqno: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn EncryptMessage(phcontext: *const super::super::Credentials::SecHandle, fqop: u32, pmessage: *const SecBufferDesc, messageseqno: u32) -> ::windows::core::HRESULT;
-        }
-        EncryptMessage(::core::mem::transmute(phcontext), ::core::mem::transmute(fqop), ::core::mem::transmute(pmessage), ::core::mem::transmute(messageseqno)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn EncryptMessage(phcontext: *const super::super::Credentials::SecHandle, fqop: u32, pmessage: *const SecBufferDesc, messageseqno: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    EncryptMessage(::core::mem::transmute(phcontext), ::core::mem::transmute(fqop), ::core::mem::transmute(pmessage), ::core::mem::transmute(messageseqno)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn EnumerateSecurityPackagesA(pcpackages: *mut u32, pppackageinfo: *mut *mut SecPkgInfoA) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn EnumerateSecurityPackagesA(pcpackages: *mut u32, pppackageinfo: *mut *mut SecPkgInfoA) -> ::windows::core::HRESULT;
-        }
-        EnumerateSecurityPackagesA(::core::mem::transmute(pcpackages), ::core::mem::transmute(pppackageinfo)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn EnumerateSecurityPackagesA(pcpackages: *mut u32, pppackageinfo: *mut *mut SecPkgInfoA) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    EnumerateSecurityPackagesA(::core::mem::transmute(pcpackages), ::core::mem::transmute(pppackageinfo)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn EnumerateSecurityPackagesW(pcpackages: *mut u32, pppackageinfo: *mut *mut SecPkgInfoW) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn EnumerateSecurityPackagesW(pcpackages: *mut u32, pppackageinfo: *mut *mut SecPkgInfoW) -> ::windows::core::HRESULT;
-        }
-        EnumerateSecurityPackagesW(::core::mem::transmute(pcpackages), ::core::mem::transmute(pppackageinfo)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn EnumerateSecurityPackagesW(pcpackages: *mut u32, pppackageinfo: *mut *mut SecPkgInfoW) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    EnumerateSecurityPackagesW(::core::mem::transmute(pcpackages), ::core::mem::transmute(pppackageinfo)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn ExportSecurityContext(phcontext: *const super::super::Credentials::SecHandle, fflags: EXPORT_SECURITY_CONTEXT_FLAGS, ppackedcontext: *mut SecBuffer, ptoken: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ExportSecurityContext(phcontext: *const super::super::Credentials::SecHandle, fflags: EXPORT_SECURITY_CONTEXT_FLAGS, ppackedcontext: *mut SecBuffer, ptoken: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        ExportSecurityContext(::core::mem::transmute(phcontext), ::core::mem::transmute(fflags), ::core::mem::transmute(ppackedcontext), ::core::mem::transmute(ptoken)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ExportSecurityContext(phcontext: *const super::super::Credentials::SecHandle, fflags: EXPORT_SECURITY_CONTEXT_FLAGS, ppackedcontext: *mut SecBuffer, ptoken: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ExportSecurityContext(::core::mem::transmute(phcontext), ::core::mem::transmute(fflags), ::core::mem::transmute(ppackedcontext), ::core::mem::transmute(ptoken)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const FACILITY_SL_ITF: u32 = 4u32;
@@ -1452,91 +1237,61 @@ pub type FREE_CREDENTIALS_HANDLE_FN = ::core::option::Option<unsafe extern "syst
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn FreeContextBuffer(pvcontextbuffer: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn FreeContextBuffer(pvcontextbuffer: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        FreeContextBuffer(::core::mem::transmute(pvcontextbuffer)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn FreeContextBuffer(pvcontextbuffer: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    FreeContextBuffer(::core::mem::transmute(pvcontextbuffer)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn FreeCredentialsHandle(phcredential: *const super::super::Credentials::SecHandle) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn FreeCredentialsHandle(phcredential: *const super::super::Credentials::SecHandle) -> ::windows::core::HRESULT;
-        }
-        FreeCredentialsHandle(::core::mem::transmute(phcredential)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn FreeCredentialsHandle(phcredential: *const super::super::Credentials::SecHandle) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    FreeCredentialsHandle(::core::mem::transmute(phcredential)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetComputerObjectNameA(nameformat: EXTENDED_NAME_FORMAT, lpnamebuffer: ::windows::core::PSTR, nsize: *mut u32) -> super::super::super::Foundation::BOOLEAN {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetComputerObjectNameA(nameformat: EXTENDED_NAME_FORMAT, lpnamebuffer: ::windows::core::PSTR, nsize: *mut u32) -> super::super::super::Foundation::BOOLEAN;
-        }
-        ::core::mem::transmute(GetComputerObjectNameA(::core::mem::transmute(nameformat), ::core::mem::transmute(lpnamebuffer), ::core::mem::transmute(nsize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetComputerObjectNameA(nameformat: EXTENDED_NAME_FORMAT, lpnamebuffer: ::windows::core::PSTR, nsize: *mut u32) -> super::super::super::Foundation::BOOLEAN;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetComputerObjectNameA(::core::mem::transmute(nameformat), ::core::mem::transmute(lpnamebuffer), ::core::mem::transmute(nsize)))
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetComputerObjectNameW(nameformat: EXTENDED_NAME_FORMAT, lpnamebuffer: ::windows::core::PWSTR, nsize: *mut u32) -> super::super::super::Foundation::BOOLEAN {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetComputerObjectNameW(nameformat: EXTENDED_NAME_FORMAT, lpnamebuffer: ::windows::core::PWSTR, nsize: *mut u32) -> super::super::super::Foundation::BOOLEAN;
-        }
-        ::core::mem::transmute(GetComputerObjectNameW(::core::mem::transmute(nameformat), ::core::mem::transmute(lpnamebuffer), ::core::mem::transmute(nsize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetComputerObjectNameW(nameformat: EXTENDED_NAME_FORMAT, lpnamebuffer: ::windows::core::PWSTR, nsize: *mut u32) -> super::super::super::Foundation::BOOLEAN;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetComputerObjectNameW(::core::mem::transmute(nameformat), ::core::mem::transmute(lpnamebuffer), ::core::mem::transmute(nsize)))
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetUserNameExA(nameformat: EXTENDED_NAME_FORMAT, lpnamebuffer: ::windows::core::PSTR, nsize: *mut u32) -> super::super::super::Foundation::BOOLEAN {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetUserNameExA(nameformat: EXTENDED_NAME_FORMAT, lpnamebuffer: ::windows::core::PSTR, nsize: *mut u32) -> super::super::super::Foundation::BOOLEAN;
-        }
-        ::core::mem::transmute(GetUserNameExA(::core::mem::transmute(nameformat), ::core::mem::transmute(lpnamebuffer), ::core::mem::transmute(nsize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetUserNameExA(nameformat: EXTENDED_NAME_FORMAT, lpnamebuffer: ::windows::core::PSTR, nsize: *mut u32) -> super::super::super::Foundation::BOOLEAN;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetUserNameExA(::core::mem::transmute(nameformat), ::core::mem::transmute(lpnamebuffer), ::core::mem::transmute(nsize)))
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetUserNameExW(nameformat: EXTENDED_NAME_FORMAT, lpnamebuffer: ::windows::core::PWSTR, nsize: *mut u32) -> super::super::super::Foundation::BOOLEAN {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetUserNameExW(nameformat: EXTENDED_NAME_FORMAT, lpnamebuffer: ::windows::core::PWSTR, nsize: *mut u32) -> super::super::super::Foundation::BOOLEAN;
-        }
-        ::core::mem::transmute(GetUserNameExW(::core::mem::transmute(nameformat), ::core::mem::transmute(lpnamebuffer), ::core::mem::transmute(nsize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetUserNameExW(nameformat: EXTENDED_NAME_FORMAT, lpnamebuffer: ::windows::core::PWSTR, nsize: *mut u32) -> super::super::super::Foundation::BOOLEAN;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetUserNameExW(::core::mem::transmute(nameformat), ::core::mem::transmute(lpnamebuffer), ::core::mem::transmute(nsize)))
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
@@ -1740,108 +1495,73 @@ pub const ISSP_MODE: u32 = 1u32;
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn ImpersonateSecurityContext(phcontext: *const super::super::Credentials::SecHandle) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ImpersonateSecurityContext(phcontext: *const super::super::Credentials::SecHandle) -> ::windows::core::HRESULT;
-        }
-        ImpersonateSecurityContext(::core::mem::transmute(phcontext)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ImpersonateSecurityContext(phcontext: *const super::super::Credentials::SecHandle) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ImpersonateSecurityContext(::core::mem::transmute(phcontext)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn ImportSecurityContextA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(pszpackage: Param0, ppackedcontext: *const SecBuffer, token: *const ::core::ffi::c_void) -> ::windows::core::Result<super::super::Credentials::SecHandle> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ImportSecurityContextA(pszpackage: ::windows::core::PCSTR, ppackedcontext: *const SecBuffer, token: *const ::core::ffi::c_void, phcontext: *mut super::super::Credentials::SecHandle) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::Credentials::SecHandle>::zeroed();
-        ImportSecurityContextA(pszpackage.into_param().abi(), ::core::mem::transmute(ppackedcontext), ::core::mem::transmute(token), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Credentials::SecHandle>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ImportSecurityContextA(pszpackage: ::windows::core::PCSTR, ppackedcontext: *const SecBuffer, token: *const ::core::ffi::c_void, phcontext: *mut super::super::Credentials::SecHandle) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::super::Credentials::SecHandle>::zeroed();
+    ImportSecurityContextA(pszpackage.into_param().abi(), ::core::mem::transmute(ppackedcontext), ::core::mem::transmute(token), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Credentials::SecHandle>(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn ImportSecurityContextW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pszpackage: Param0, ppackedcontext: *const SecBuffer, token: *const ::core::ffi::c_void) -> ::windows::core::Result<super::super::Credentials::SecHandle> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ImportSecurityContextW(pszpackage: ::windows::core::PCWSTR, ppackedcontext: *const SecBuffer, token: *const ::core::ffi::c_void, phcontext: *mut super::super::Credentials::SecHandle) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::Credentials::SecHandle>::zeroed();
-        ImportSecurityContextW(pszpackage.into_param().abi(), ::core::mem::transmute(ppackedcontext), ::core::mem::transmute(token), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Credentials::SecHandle>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ImportSecurityContextW(pszpackage: ::windows::core::PCWSTR, ppackedcontext: *const SecBuffer, token: *const ::core::ffi::c_void, phcontext: *mut super::super::Credentials::SecHandle) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::super::Credentials::SecHandle>::zeroed();
+    ImportSecurityContextW(pszpackage.into_param().abi(), ::core::mem::transmute(ppackedcontext), ::core::mem::transmute(token), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Credentials::SecHandle>(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 #[inline]
 pub unsafe fn InitSecurityInterfaceA() -> *mut SecurityFunctionTableA {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InitSecurityInterfaceA() -> *mut SecurityFunctionTableA;
-        }
-        ::core::mem::transmute(InitSecurityInterfaceA())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitSecurityInterfaceA() -> *mut SecurityFunctionTableA;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(InitSecurityInterfaceA())
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 #[inline]
 pub unsafe fn InitSecurityInterfaceW() -> *mut SecurityFunctionTableW {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InitSecurityInterfaceW() -> *mut SecurityFunctionTableW;
-        }
-        ::core::mem::transmute(InitSecurityInterfaceW())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitSecurityInterfaceW() -> *mut SecurityFunctionTableW;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(InitSecurityInterfaceW())
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn InitializeSecurityContextA(phcredential: *const super::super::Credentials::SecHandle, phcontext: *const super::super::Credentials::SecHandle, psztargetname: *const i8, fcontextreq: u32, reserved1: u32, targetdatarep: u32, pinput: *const SecBufferDesc, reserved2: u32, phnewcontext: *mut super::super::Credentials::SecHandle, poutput: *mut SecBufferDesc, pfcontextattr: *mut u32, ptsexpiry: *mut i64) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InitializeSecurityContextA(phcredential: *const super::super::Credentials::SecHandle, phcontext: *const super::super::Credentials::SecHandle, psztargetname: *const i8, fcontextreq: u32, reserved1: u32, targetdatarep: u32, pinput: *const SecBufferDesc, reserved2: u32, phnewcontext: *mut super::super::Credentials::SecHandle, poutput: *mut SecBufferDesc, pfcontextattr: *mut u32, ptsexpiry: *mut i64) -> ::windows::core::HRESULT;
-        }
-        InitializeSecurityContextA(::core::mem::transmute(phcredential), ::core::mem::transmute(phcontext), ::core::mem::transmute(psztargetname), ::core::mem::transmute(fcontextreq), ::core::mem::transmute(reserved1), ::core::mem::transmute(targetdatarep), ::core::mem::transmute(pinput), ::core::mem::transmute(reserved2), ::core::mem::transmute(phnewcontext), ::core::mem::transmute(poutput), ::core::mem::transmute(pfcontextattr), ::core::mem::transmute(ptsexpiry)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitializeSecurityContextA(phcredential: *const super::super::Credentials::SecHandle, phcontext: *const super::super::Credentials::SecHandle, psztargetname: *const i8, fcontextreq: u32, reserved1: u32, targetdatarep: u32, pinput: *const SecBufferDesc, reserved2: u32, phnewcontext: *mut super::super::Credentials::SecHandle, poutput: *mut SecBufferDesc, pfcontextattr: *mut u32, ptsexpiry: *mut i64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    InitializeSecurityContextA(::core::mem::transmute(phcredential), ::core::mem::transmute(phcontext), ::core::mem::transmute(psztargetname), ::core::mem::transmute(fcontextreq), ::core::mem::transmute(reserved1), ::core::mem::transmute(targetdatarep), ::core::mem::transmute(pinput), ::core::mem::transmute(reserved2), ::core::mem::transmute(phnewcontext), ::core::mem::transmute(poutput), ::core::mem::transmute(pfcontextattr), ::core::mem::transmute(ptsexpiry)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn InitializeSecurityContextW(phcredential: *const super::super::Credentials::SecHandle, phcontext: *const super::super::Credentials::SecHandle, psztargetname: *const u16, fcontextreq: u32, reserved1: u32, targetdatarep: u32, pinput: *const SecBufferDesc, reserved2: u32, phnewcontext: *mut super::super::Credentials::SecHandle, poutput: *mut SecBufferDesc, pfcontextattr: *mut u32, ptsexpiry: *mut i64) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InitializeSecurityContextW(phcredential: *const super::super::Credentials::SecHandle, phcontext: *const super::super::Credentials::SecHandle, psztargetname: *const u16, fcontextreq: u32, reserved1: u32, targetdatarep: u32, pinput: *const SecBufferDesc, reserved2: u32, phnewcontext: *mut super::super::Credentials::SecHandle, poutput: *mut SecBufferDesc, pfcontextattr: *mut u32, ptsexpiry: *mut i64) -> ::windows::core::HRESULT;
-        }
-        InitializeSecurityContextW(::core::mem::transmute(phcredential), ::core::mem::transmute(phcontext), ::core::mem::transmute(psztargetname), ::core::mem::transmute(fcontextreq), ::core::mem::transmute(reserved1), ::core::mem::transmute(targetdatarep), ::core::mem::transmute(pinput), ::core::mem::transmute(reserved2), ::core::mem::transmute(phnewcontext), ::core::mem::transmute(poutput), ::core::mem::transmute(pfcontextattr), ::core::mem::transmute(ptsexpiry)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitializeSecurityContextW(phcredential: *const super::super::Credentials::SecHandle, phcontext: *const super::super::Credentials::SecHandle, psztargetname: *const u16, fcontextreq: u32, reserved1: u32, targetdatarep: u32, pinput: *const SecBufferDesc, reserved2: u32, phnewcontext: *mut super::super::Credentials::SecHandle, poutput: *mut SecBufferDesc, pfcontextattr: *mut u32, ptsexpiry: *mut i64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    InitializeSecurityContextW(::core::mem::transmute(phcredential), ::core::mem::transmute(phcontext), ::core::mem::transmute(psztargetname), ::core::mem::transmute(fcontextreq), ::core::mem::transmute(reserved1), ::core::mem::transmute(targetdatarep), ::core::mem::transmute(pinput), ::core::mem::transmute(reserved2), ::core::mem::transmute(phnewcontext), ::core::mem::transmute(poutput), ::core::mem::transmute(pfcontextattr), ::core::mem::transmute(ptsexpiry)).ok()
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
@@ -6571,241 +6291,161 @@ impl ::core::default::Default for LSA_TRUST_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaAddAccountRights<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSID>>(policyhandle: *const ::core::ffi::c_void, accountsid: Param1, userrights: &[super::super::super::Foundation::UNICODE_STRING]) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LsaAddAccountRights(policyhandle: *const ::core::ffi::c_void, accountsid: super::super::super::Foundation::PSID, userrights: *const super::super::super::Foundation::UNICODE_STRING, countofrights: u32) -> super::super::super::Foundation::NTSTATUS;
-        }
-        LsaAddAccountRights(::core::mem::transmute(policyhandle), accountsid.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(userrights)), userrights.len() as _).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LsaAddAccountRights(policyhandle: *const ::core::ffi::c_void, accountsid: super::super::super::Foundation::PSID, userrights: *const super::super::super::Foundation::UNICODE_STRING, countofrights: u32) -> super::super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    LsaAddAccountRights(::core::mem::transmute(policyhandle), accountsid.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(userrights)), userrights.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaCallAuthenticationPackage<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(lsahandle: Param0, authenticationpackage: u32, protocolsubmitbuffer: *const ::core::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut ::core::ffi::c_void, returnbufferlength: *mut u32, protocolstatus: *mut i32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LsaCallAuthenticationPackage(lsahandle: super::super::super::Foundation::HANDLE, authenticationpackage: u32, protocolsubmitbuffer: *const ::core::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut ::core::ffi::c_void, returnbufferlength: *mut u32, protocolstatus: *mut i32) -> super::super::super::Foundation::NTSTATUS;
-        }
-        LsaCallAuthenticationPackage(lsahandle.into_param().abi(), ::core::mem::transmute(authenticationpackage), ::core::mem::transmute(protocolsubmitbuffer), ::core::mem::transmute(submitbufferlength), ::core::mem::transmute(protocolreturnbuffer), ::core::mem::transmute(returnbufferlength), ::core::mem::transmute(protocolstatus)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LsaCallAuthenticationPackage(lsahandle: super::super::super::Foundation::HANDLE, authenticationpackage: u32, protocolsubmitbuffer: *const ::core::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut ::core::ffi::c_void, returnbufferlength: *mut u32, protocolstatus: *mut i32) -> super::super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    LsaCallAuthenticationPackage(lsahandle.into_param().abi(), ::core::mem::transmute(authenticationpackage), ::core::mem::transmute(protocolsubmitbuffer), ::core::mem::transmute(submitbufferlength), ::core::mem::transmute(protocolreturnbuffer), ::core::mem::transmute(returnbufferlength), ::core::mem::transmute(protocolstatus)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaClose(objecthandle: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LsaClose(objecthandle: *const ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
-        }
-        LsaClose(::core::mem::transmute(objecthandle)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LsaClose(objecthandle: *const ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    LsaClose(::core::mem::transmute(objecthandle)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaConnectUntrusted(lsahandle: *mut super::super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LsaConnectUntrusted(lsahandle: *mut super::super::super::Foundation::HANDLE) -> super::super::super::Foundation::NTSTATUS;
-        }
-        LsaConnectUntrusted(::core::mem::transmute(lsahandle)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LsaConnectUntrusted(lsahandle: *mut super::super::super::Foundation::HANDLE) -> super::super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    LsaConnectUntrusted(::core::mem::transmute(lsahandle)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaCreateTrustedDomainEx(policyhandle: *const ::core::ffi::c_void, trusteddomaininformation: *const TRUSTED_DOMAIN_INFORMATION_EX, authenticationinformation: *const TRUSTED_DOMAIN_AUTH_INFORMATION, desiredaccess: u32, trusteddomainhandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LsaCreateTrustedDomainEx(policyhandle: *const ::core::ffi::c_void, trusteddomaininformation: *const TRUSTED_DOMAIN_INFORMATION_EX, authenticationinformation: *const TRUSTED_DOMAIN_AUTH_INFORMATION, desiredaccess: u32, trusteddomainhandle: *mut *mut ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
-        }
-        LsaCreateTrustedDomainEx(::core::mem::transmute(policyhandle), ::core::mem::transmute(trusteddomaininformation), ::core::mem::transmute(authenticationinformation), ::core::mem::transmute(desiredaccess), ::core::mem::transmute(trusteddomainhandle)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LsaCreateTrustedDomainEx(policyhandle: *const ::core::ffi::c_void, trusteddomaininformation: *const TRUSTED_DOMAIN_INFORMATION_EX, authenticationinformation: *const TRUSTED_DOMAIN_AUTH_INFORMATION, desiredaccess: u32, trusteddomainhandle: *mut *mut ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    LsaCreateTrustedDomainEx(::core::mem::transmute(policyhandle), ::core::mem::transmute(trusteddomaininformation), ::core::mem::transmute(authenticationinformation), ::core::mem::transmute(desiredaccess), ::core::mem::transmute(trusteddomainhandle)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaDeleteTrustedDomain<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSID>>(policyhandle: *const ::core::ffi::c_void, trusteddomainsid: Param1) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LsaDeleteTrustedDomain(policyhandle: *const ::core::ffi::c_void, trusteddomainsid: super::super::super::Foundation::PSID) -> super::super::super::Foundation::NTSTATUS;
-        }
-        LsaDeleteTrustedDomain(::core::mem::transmute(policyhandle), trusteddomainsid.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LsaDeleteTrustedDomain(policyhandle: *const ::core::ffi::c_void, trusteddomainsid: super::super::super::Foundation::PSID) -> super::super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    LsaDeleteTrustedDomain(::core::mem::transmute(policyhandle), trusteddomainsid.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaDeregisterLogonProcess<'a, Param0: ::windows::core::IntoParam<'a, LsaHandle>>(lsahandle: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LsaDeregisterLogonProcess(lsahandle: LsaHandle) -> super::super::super::Foundation::NTSTATUS;
-        }
-        LsaDeregisterLogonProcess(lsahandle.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LsaDeregisterLogonProcess(lsahandle: LsaHandle) -> super::super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    LsaDeregisterLogonProcess(lsahandle.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaEnumerateAccountRights<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSID>>(policyhandle: *const ::core::ffi::c_void, accountsid: Param1, userrights: *mut *mut super::super::super::Foundation::UNICODE_STRING, countofrights: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LsaEnumerateAccountRights(policyhandle: *const ::core::ffi::c_void, accountsid: super::super::super::Foundation::PSID, userrights: *mut *mut super::super::super::Foundation::UNICODE_STRING, countofrights: *mut u32) -> super::super::super::Foundation::NTSTATUS;
-        }
-        LsaEnumerateAccountRights(::core::mem::transmute(policyhandle), accountsid.into_param().abi(), ::core::mem::transmute(userrights), ::core::mem::transmute(countofrights)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LsaEnumerateAccountRights(policyhandle: *const ::core::ffi::c_void, accountsid: super::super::super::Foundation::PSID, userrights: *mut *mut super::super::super::Foundation::UNICODE_STRING, countofrights: *mut u32) -> super::super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    LsaEnumerateAccountRights(::core::mem::transmute(policyhandle), accountsid.into_param().abi(), ::core::mem::transmute(userrights), ::core::mem::transmute(countofrights)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaEnumerateAccountsWithUserRight(policyhandle: *const ::core::ffi::c_void, userright: *const super::super::super::Foundation::UNICODE_STRING, buffer: *mut *mut ::core::ffi::c_void, countreturned: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LsaEnumerateAccountsWithUserRight(policyhandle: *const ::core::ffi::c_void, userright: *const super::super::super::Foundation::UNICODE_STRING, buffer: *mut *mut ::core::ffi::c_void, countreturned: *mut u32) -> super::super::super::Foundation::NTSTATUS;
-        }
-        LsaEnumerateAccountsWithUserRight(::core::mem::transmute(policyhandle), ::core::mem::transmute(userright), ::core::mem::transmute(buffer), ::core::mem::transmute(countreturned)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LsaEnumerateAccountsWithUserRight(policyhandle: *const ::core::ffi::c_void, userright: *const super::super::super::Foundation::UNICODE_STRING, buffer: *mut *mut ::core::ffi::c_void, countreturned: *mut u32) -> super::super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    LsaEnumerateAccountsWithUserRight(::core::mem::transmute(policyhandle), ::core::mem::transmute(userright), ::core::mem::transmute(buffer), ::core::mem::transmute(countreturned)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaEnumerateLogonSessions(logonsessioncount: *mut u32, logonsessionlist: *mut *mut super::super::super::Foundation::LUID) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LsaEnumerateLogonSessions(logonsessioncount: *mut u32, logonsessionlist: *mut *mut super::super::super::Foundation::LUID) -> super::super::super::Foundation::NTSTATUS;
-        }
-        LsaEnumerateLogonSessions(::core::mem::transmute(logonsessioncount), ::core::mem::transmute(logonsessionlist)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LsaEnumerateLogonSessions(logonsessioncount: *mut u32, logonsessionlist: *mut *mut super::super::super::Foundation::LUID) -> super::super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    LsaEnumerateLogonSessions(::core::mem::transmute(logonsessioncount), ::core::mem::transmute(logonsessionlist)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaEnumerateTrustedDomains(policyhandle: *const ::core::ffi::c_void, enumerationcontext: *mut u32, buffer: *mut *mut ::core::ffi::c_void, preferedmaximumlength: u32, countreturned: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LsaEnumerateTrustedDomains(policyhandle: *const ::core::ffi::c_void, enumerationcontext: *mut u32, buffer: *mut *mut ::core::ffi::c_void, preferedmaximumlength: u32, countreturned: *mut u32) -> super::super::super::Foundation::NTSTATUS;
-        }
-        LsaEnumerateTrustedDomains(::core::mem::transmute(policyhandle), ::core::mem::transmute(enumerationcontext), ::core::mem::transmute(buffer), ::core::mem::transmute(preferedmaximumlength), ::core::mem::transmute(countreturned)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LsaEnumerateTrustedDomains(policyhandle: *const ::core::ffi::c_void, enumerationcontext: *mut u32, buffer: *mut *mut ::core::ffi::c_void, preferedmaximumlength: u32, countreturned: *mut u32) -> super::super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    LsaEnumerateTrustedDomains(::core::mem::transmute(policyhandle), ::core::mem::transmute(enumerationcontext), ::core::mem::transmute(buffer), ::core::mem::transmute(preferedmaximumlength), ::core::mem::transmute(countreturned)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaEnumerateTrustedDomainsEx(policyhandle: *const ::core::ffi::c_void, enumerationcontext: *mut u32, buffer: *mut *mut ::core::ffi::c_void, preferedmaximumlength: u32, countreturned: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LsaEnumerateTrustedDomainsEx(policyhandle: *const ::core::ffi::c_void, enumerationcontext: *mut u32, buffer: *mut *mut ::core::ffi::c_void, preferedmaximumlength: u32, countreturned: *mut u32) -> super::super::super::Foundation::NTSTATUS;
-        }
-        LsaEnumerateTrustedDomainsEx(::core::mem::transmute(policyhandle), ::core::mem::transmute(enumerationcontext), ::core::mem::transmute(buffer), ::core::mem::transmute(preferedmaximumlength), ::core::mem::transmute(countreturned)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LsaEnumerateTrustedDomainsEx(policyhandle: *const ::core::ffi::c_void, enumerationcontext: *mut u32, buffer: *mut *mut ::core::ffi::c_void, preferedmaximumlength: u32, countreturned: *mut u32) -> super::super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    LsaEnumerateTrustedDomainsEx(::core::mem::transmute(policyhandle), ::core::mem::transmute(enumerationcontext), ::core::mem::transmute(buffer), ::core::mem::transmute(preferedmaximumlength), ::core::mem::transmute(countreturned)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaFreeMemory(buffer: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LsaFreeMemory(buffer: *const ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
-        }
-        LsaFreeMemory(::core::mem::transmute(buffer)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LsaFreeMemory(buffer: *const ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    LsaFreeMemory(::core::mem::transmute(buffer)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaFreeReturnBuffer(buffer: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LsaFreeReturnBuffer(buffer: *const ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
-        }
-        LsaFreeReturnBuffer(::core::mem::transmute(buffer)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LsaFreeReturnBuffer(buffer: *const ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    LsaFreeReturnBuffer(::core::mem::transmute(buffer)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaGetAppliedCAPIDs(systemname: *const super::super::super::Foundation::UNICODE_STRING, capids: *mut *mut super::super::super::Foundation::PSID, capidcount: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LsaGetAppliedCAPIDs(systemname: *const super::super::super::Foundation::UNICODE_STRING, capids: *mut *mut super::super::super::Foundation::PSID, capidcount: *mut u32) -> super::super::super::Foundation::NTSTATUS;
-        }
-        LsaGetAppliedCAPIDs(::core::mem::transmute(systemname), ::core::mem::transmute(capids), ::core::mem::transmute(capidcount)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LsaGetAppliedCAPIDs(systemname: *const super::super::super::Foundation::UNICODE_STRING, capids: *mut *mut super::super::super::Foundation::PSID, capidcount: *mut u32) -> super::super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    LsaGetAppliedCAPIDs(::core::mem::transmute(systemname), ::core::mem::transmute(capids), ::core::mem::transmute(capidcount)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaGetLogonSessionData(logonid: *const super::super::super::Foundation::LUID, pplogonsessiondata: *mut *mut SECURITY_LOGON_SESSION_DATA) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LsaGetLogonSessionData(logonid: *const super::super::super::Foundation::LUID, pplogonsessiondata: *mut *mut SECURITY_LOGON_SESSION_DATA) -> super::super::super::Foundation::NTSTATUS;
-        }
-        LsaGetLogonSessionData(::core::mem::transmute(logonid), ::core::mem::transmute(pplogonsessiondata)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LsaGetLogonSessionData(logonid: *const super::super::super::Foundation::LUID, pplogonsessiondata: *mut *mut SECURITY_LOGON_SESSION_DATA) -> super::super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    LsaGetLogonSessionData(::core::mem::transmute(logonid), ::core::mem::transmute(pplogonsessiondata)).ok()
 }
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -6838,422 +6478,287 @@ unsafe impl ::windows::core::Abi for LsaHandle {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn LsaLogonUser<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(lsahandle: Param0, originname: *const super::super::super::System::Kernel::STRING, logontype: SECURITY_LOGON_TYPE, authenticationpackage: u32, authenticationinformation: *const ::core::ffi::c_void, authenticationinformationlength: u32, localgroups: *const super::super::TOKEN_GROUPS, sourcecontext: *const super::super::TOKEN_SOURCE, profilebuffer: *mut *mut ::core::ffi::c_void, profilebufferlength: *mut u32, logonid: *mut super::super::super::Foundation::LUID, token: *mut super::super::super::Foundation::HANDLE, quotas: *mut super::super::QUOTA_LIMITS, substatus: *mut i32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LsaLogonUser(lsahandle: super::super::super::Foundation::HANDLE, originname: *const super::super::super::System::Kernel::STRING, logontype: SECURITY_LOGON_TYPE, authenticationpackage: u32, authenticationinformation: *const ::core::ffi::c_void, authenticationinformationlength: u32, localgroups: *const super::super::TOKEN_GROUPS, sourcecontext: *const super::super::TOKEN_SOURCE, profilebuffer: *mut *mut ::core::ffi::c_void, profilebufferlength: *mut u32, logonid: *mut super::super::super::Foundation::LUID, token: *mut super::super::super::Foundation::HANDLE, quotas: *mut super::super::QUOTA_LIMITS, substatus: *mut i32) -> super::super::super::Foundation::NTSTATUS;
-        }
-        LsaLogonUser(
-            lsahandle.into_param().abi(),
-            ::core::mem::transmute(originname),
-            ::core::mem::transmute(logontype),
-            ::core::mem::transmute(authenticationpackage),
-            ::core::mem::transmute(authenticationinformation),
-            ::core::mem::transmute(authenticationinformationlength),
-            ::core::mem::transmute(localgroups),
-            ::core::mem::transmute(sourcecontext),
-            ::core::mem::transmute(profilebuffer),
-            ::core::mem::transmute(profilebufferlength),
-            ::core::mem::transmute(logonid),
-            ::core::mem::transmute(token),
-            ::core::mem::transmute(quotas),
-            ::core::mem::transmute(substatus),
-        )
-        .ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LsaLogonUser(lsahandle: super::super::super::Foundation::HANDLE, originname: *const super::super::super::System::Kernel::STRING, logontype: SECURITY_LOGON_TYPE, authenticationpackage: u32, authenticationinformation: *const ::core::ffi::c_void, authenticationinformationlength: u32, localgroups: *const super::super::TOKEN_GROUPS, sourcecontext: *const super::super::TOKEN_SOURCE, profilebuffer: *mut *mut ::core::ffi::c_void, profilebufferlength: *mut u32, logonid: *mut super::super::super::Foundation::LUID, token: *mut super::super::super::Foundation::HANDLE, quotas: *mut super::super::QUOTA_LIMITS, substatus: *mut i32) -> super::super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    LsaLogonUser(
+        lsahandle.into_param().abi(),
+        ::core::mem::transmute(originname),
+        ::core::mem::transmute(logontype),
+        ::core::mem::transmute(authenticationpackage),
+        ::core::mem::transmute(authenticationinformation),
+        ::core::mem::transmute(authenticationinformationlength),
+        ::core::mem::transmute(localgroups),
+        ::core::mem::transmute(sourcecontext),
+        ::core::mem::transmute(profilebuffer),
+        ::core::mem::transmute(profilebufferlength),
+        ::core::mem::transmute(logonid),
+        ::core::mem::transmute(token),
+        ::core::mem::transmute(quotas),
+        ::core::mem::transmute(substatus),
+    )
+    .ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn LsaLookupAuthenticationPackage<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(lsahandle: Param0, packagename: *const super::super::super::System::Kernel::STRING, authenticationpackage: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LsaLookupAuthenticationPackage(lsahandle: super::super::super::Foundation::HANDLE, packagename: *const super::super::super::System::Kernel::STRING, authenticationpackage: *mut u32) -> super::super::super::Foundation::NTSTATUS;
-        }
-        LsaLookupAuthenticationPackage(lsahandle.into_param().abi(), ::core::mem::transmute(packagename), ::core::mem::transmute(authenticationpackage)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LsaLookupAuthenticationPackage(lsahandle: super::super::super::Foundation::HANDLE, packagename: *const super::super::super::System::Kernel::STRING, authenticationpackage: *mut u32) -> super::super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    LsaLookupAuthenticationPackage(lsahandle.into_param().abi(), ::core::mem::transmute(packagename), ::core::mem::transmute(authenticationpackage)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaLookupNames(policyhandle: *const ::core::ffi::c_void, count: u32, names: *const super::super::super::Foundation::UNICODE_STRING, referenceddomains: *mut *mut LSA_REFERENCED_DOMAIN_LIST, sids: *mut *mut LSA_TRANSLATED_SID) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LsaLookupNames(policyhandle: *const ::core::ffi::c_void, count: u32, names: *const super::super::super::Foundation::UNICODE_STRING, referenceddomains: *mut *mut LSA_REFERENCED_DOMAIN_LIST, sids: *mut *mut LSA_TRANSLATED_SID) -> super::super::super::Foundation::NTSTATUS;
-        }
-        LsaLookupNames(::core::mem::transmute(policyhandle), ::core::mem::transmute(count), ::core::mem::transmute(names), ::core::mem::transmute(referenceddomains), ::core::mem::transmute(sids)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LsaLookupNames(policyhandle: *const ::core::ffi::c_void, count: u32, names: *const super::super::super::Foundation::UNICODE_STRING, referenceddomains: *mut *mut LSA_REFERENCED_DOMAIN_LIST, sids: *mut *mut LSA_TRANSLATED_SID) -> super::super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    LsaLookupNames(::core::mem::transmute(policyhandle), ::core::mem::transmute(count), ::core::mem::transmute(names), ::core::mem::transmute(referenceddomains), ::core::mem::transmute(sids)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaLookupNames2(policyhandle: *const ::core::ffi::c_void, flags: u32, count: u32, names: *const super::super::super::Foundation::UNICODE_STRING, referenceddomains: *mut *mut LSA_REFERENCED_DOMAIN_LIST, sids: *mut *mut LSA_TRANSLATED_SID2) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LsaLookupNames2(policyhandle: *const ::core::ffi::c_void, flags: u32, count: u32, names: *const super::super::super::Foundation::UNICODE_STRING, referenceddomains: *mut *mut LSA_REFERENCED_DOMAIN_LIST, sids: *mut *mut LSA_TRANSLATED_SID2) -> super::super::super::Foundation::NTSTATUS;
-        }
-        LsaLookupNames2(::core::mem::transmute(policyhandle), ::core::mem::transmute(flags), ::core::mem::transmute(count), ::core::mem::transmute(names), ::core::mem::transmute(referenceddomains), ::core::mem::transmute(sids)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LsaLookupNames2(policyhandle: *const ::core::ffi::c_void, flags: u32, count: u32, names: *const super::super::super::Foundation::UNICODE_STRING, referenceddomains: *mut *mut LSA_REFERENCED_DOMAIN_LIST, sids: *mut *mut LSA_TRANSLATED_SID2) -> super::super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    LsaLookupNames2(::core::mem::transmute(policyhandle), ::core::mem::transmute(flags), ::core::mem::transmute(count), ::core::mem::transmute(names), ::core::mem::transmute(referenceddomains), ::core::mem::transmute(sids)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaLookupSids(policyhandle: *const ::core::ffi::c_void, count: u32, sids: *const super::super::super::Foundation::PSID, referenceddomains: *mut *mut LSA_REFERENCED_DOMAIN_LIST, names: *mut *mut LSA_TRANSLATED_NAME) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LsaLookupSids(policyhandle: *const ::core::ffi::c_void, count: u32, sids: *const super::super::super::Foundation::PSID, referenceddomains: *mut *mut LSA_REFERENCED_DOMAIN_LIST, names: *mut *mut LSA_TRANSLATED_NAME) -> super::super::super::Foundation::NTSTATUS;
-        }
-        LsaLookupSids(::core::mem::transmute(policyhandle), ::core::mem::transmute(count), ::core::mem::transmute(sids), ::core::mem::transmute(referenceddomains), ::core::mem::transmute(names)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LsaLookupSids(policyhandle: *const ::core::ffi::c_void, count: u32, sids: *const super::super::super::Foundation::PSID, referenceddomains: *mut *mut LSA_REFERENCED_DOMAIN_LIST, names: *mut *mut LSA_TRANSLATED_NAME) -> super::super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    LsaLookupSids(::core::mem::transmute(policyhandle), ::core::mem::transmute(count), ::core::mem::transmute(sids), ::core::mem::transmute(referenceddomains), ::core::mem::transmute(names)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaLookupSids2(policyhandle: *const ::core::ffi::c_void, lookupoptions: u32, count: u32, sids: *const super::super::super::Foundation::PSID, referenceddomains: *mut *mut LSA_REFERENCED_DOMAIN_LIST, names: *mut *mut LSA_TRANSLATED_NAME) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LsaLookupSids2(policyhandle: *const ::core::ffi::c_void, lookupoptions: u32, count: u32, sids: *const super::super::super::Foundation::PSID, referenceddomains: *mut *mut LSA_REFERENCED_DOMAIN_LIST, names: *mut *mut LSA_TRANSLATED_NAME) -> super::super::super::Foundation::NTSTATUS;
-        }
-        LsaLookupSids2(::core::mem::transmute(policyhandle), ::core::mem::transmute(lookupoptions), ::core::mem::transmute(count), ::core::mem::transmute(sids), ::core::mem::transmute(referenceddomains), ::core::mem::transmute(names)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LsaLookupSids2(policyhandle: *const ::core::ffi::c_void, lookupoptions: u32, count: u32, sids: *const super::super::super::Foundation::PSID, referenceddomains: *mut *mut LSA_REFERENCED_DOMAIN_LIST, names: *mut *mut LSA_TRANSLATED_NAME) -> super::super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    LsaLookupSids2(::core::mem::transmute(policyhandle), ::core::mem::transmute(lookupoptions), ::core::mem::transmute(count), ::core::mem::transmute(sids), ::core::mem::transmute(referenceddomains), ::core::mem::transmute(names)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaNtStatusToWinError<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::NTSTATUS>>(status: Param0) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LsaNtStatusToWinError(status: super::super::super::Foundation::NTSTATUS) -> u32;
-        }
-        ::core::mem::transmute(LsaNtStatusToWinError(status.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LsaNtStatusToWinError(status: super::super::super::Foundation::NTSTATUS) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(LsaNtStatusToWinError(status.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`, `\"Win32_System_WindowsProgramming\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn LsaOpenPolicy(systemname: *const super::super::super::Foundation::UNICODE_STRING, objectattributes: *const super::super::super::System::WindowsProgramming::OBJECT_ATTRIBUTES, desiredaccess: u32, policyhandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LsaOpenPolicy(systemname: *const super::super::super::Foundation::UNICODE_STRING, objectattributes: *const super::super::super::System::WindowsProgramming::OBJECT_ATTRIBUTES, desiredaccess: u32, policyhandle: *mut *mut ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
-        }
-        LsaOpenPolicy(::core::mem::transmute(systemname), ::core::mem::transmute(objectattributes), ::core::mem::transmute(desiredaccess), ::core::mem::transmute(policyhandle)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LsaOpenPolicy(systemname: *const super::super::super::Foundation::UNICODE_STRING, objectattributes: *const super::super::super::System::WindowsProgramming::OBJECT_ATTRIBUTES, desiredaccess: u32, policyhandle: *mut *mut ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    LsaOpenPolicy(::core::mem::transmute(systemname), ::core::mem::transmute(objectattributes), ::core::mem::transmute(desiredaccess), ::core::mem::transmute(policyhandle)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaOpenTrustedDomainByName(policyhandle: *const ::core::ffi::c_void, trusteddomainname: *const super::super::super::Foundation::UNICODE_STRING, desiredaccess: u32, trusteddomainhandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LsaOpenTrustedDomainByName(policyhandle: *const ::core::ffi::c_void, trusteddomainname: *const super::super::super::Foundation::UNICODE_STRING, desiredaccess: u32, trusteddomainhandle: *mut *mut ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
-        }
-        LsaOpenTrustedDomainByName(::core::mem::transmute(policyhandle), ::core::mem::transmute(trusteddomainname), ::core::mem::transmute(desiredaccess), ::core::mem::transmute(trusteddomainhandle)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LsaOpenTrustedDomainByName(policyhandle: *const ::core::ffi::c_void, trusteddomainname: *const super::super::super::Foundation::UNICODE_STRING, desiredaccess: u32, trusteddomainhandle: *mut *mut ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    LsaOpenTrustedDomainByName(::core::mem::transmute(policyhandle), ::core::mem::transmute(trusteddomainname), ::core::mem::transmute(desiredaccess), ::core::mem::transmute(trusteddomainhandle)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaQueryCAPs(capids: &[super::super::super::Foundation::PSID], caps: *mut *mut CENTRAL_ACCESS_POLICY, capcount: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LsaQueryCAPs(capids: *const super::super::super::Foundation::PSID, capidcount: u32, caps: *mut *mut CENTRAL_ACCESS_POLICY, capcount: *mut u32) -> super::super::super::Foundation::NTSTATUS;
-        }
-        LsaQueryCAPs(::core::mem::transmute(::windows::core::as_ptr_or_null(capids)), capids.len() as _, ::core::mem::transmute(caps), ::core::mem::transmute(capcount)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LsaQueryCAPs(capids: *const super::super::super::Foundation::PSID, capidcount: u32, caps: *mut *mut CENTRAL_ACCESS_POLICY, capcount: *mut u32) -> super::super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    LsaQueryCAPs(::core::mem::transmute(::windows::core::as_ptr_or_null(capids)), capids.len() as _, ::core::mem::transmute(caps), ::core::mem::transmute(capcount)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaQueryDomainInformationPolicy(policyhandle: *const ::core::ffi::c_void, informationclass: POLICY_DOMAIN_INFORMATION_CLASS, buffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LsaQueryDomainInformationPolicy(policyhandle: *const ::core::ffi::c_void, informationclass: POLICY_DOMAIN_INFORMATION_CLASS, buffer: *mut *mut ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
-        }
-        LsaQueryDomainInformationPolicy(::core::mem::transmute(policyhandle), ::core::mem::transmute(informationclass), ::core::mem::transmute(buffer)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LsaQueryDomainInformationPolicy(policyhandle: *const ::core::ffi::c_void, informationclass: POLICY_DOMAIN_INFORMATION_CLASS, buffer: *mut *mut ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    LsaQueryDomainInformationPolicy(::core::mem::transmute(policyhandle), ::core::mem::transmute(informationclass), ::core::mem::transmute(buffer)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaQueryForestTrustInformation(policyhandle: *const ::core::ffi::c_void, trusteddomainname: *const super::super::super::Foundation::UNICODE_STRING, foresttrustinfo: *mut *mut LSA_FOREST_TRUST_INFORMATION) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LsaQueryForestTrustInformation(policyhandle: *const ::core::ffi::c_void, trusteddomainname: *const super::super::super::Foundation::UNICODE_STRING, foresttrustinfo: *mut *mut LSA_FOREST_TRUST_INFORMATION) -> super::super::super::Foundation::NTSTATUS;
-        }
-        LsaQueryForestTrustInformation(::core::mem::transmute(policyhandle), ::core::mem::transmute(trusteddomainname), ::core::mem::transmute(foresttrustinfo)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LsaQueryForestTrustInformation(policyhandle: *const ::core::ffi::c_void, trusteddomainname: *const super::super::super::Foundation::UNICODE_STRING, foresttrustinfo: *mut *mut LSA_FOREST_TRUST_INFORMATION) -> super::super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    LsaQueryForestTrustInformation(::core::mem::transmute(policyhandle), ::core::mem::transmute(trusteddomainname), ::core::mem::transmute(foresttrustinfo)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaQueryInformationPolicy(policyhandle: *const ::core::ffi::c_void, informationclass: POLICY_INFORMATION_CLASS, buffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LsaQueryInformationPolicy(policyhandle: *const ::core::ffi::c_void, informationclass: POLICY_INFORMATION_CLASS, buffer: *mut *mut ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
-        }
-        LsaQueryInformationPolicy(::core::mem::transmute(policyhandle), ::core::mem::transmute(informationclass), ::core::mem::transmute(buffer)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LsaQueryInformationPolicy(policyhandle: *const ::core::ffi::c_void, informationclass: POLICY_INFORMATION_CLASS, buffer: *mut *mut ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    LsaQueryInformationPolicy(::core::mem::transmute(policyhandle), ::core::mem::transmute(informationclass), ::core::mem::transmute(buffer)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaQueryTrustedDomainInfo<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSID>>(policyhandle: *const ::core::ffi::c_void, trusteddomainsid: Param1, informationclass: TRUSTED_INFORMATION_CLASS, buffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LsaQueryTrustedDomainInfo(policyhandle: *const ::core::ffi::c_void, trusteddomainsid: super::super::super::Foundation::PSID, informationclass: TRUSTED_INFORMATION_CLASS, buffer: *mut *mut ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
-        }
-        LsaQueryTrustedDomainInfo(::core::mem::transmute(policyhandle), trusteddomainsid.into_param().abi(), ::core::mem::transmute(informationclass), ::core::mem::transmute(buffer)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LsaQueryTrustedDomainInfo(policyhandle: *const ::core::ffi::c_void, trusteddomainsid: super::super::super::Foundation::PSID, informationclass: TRUSTED_INFORMATION_CLASS, buffer: *mut *mut ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    LsaQueryTrustedDomainInfo(::core::mem::transmute(policyhandle), trusteddomainsid.into_param().abi(), ::core::mem::transmute(informationclass), ::core::mem::transmute(buffer)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaQueryTrustedDomainInfoByName(policyhandle: *const ::core::ffi::c_void, trusteddomainname: *const super::super::super::Foundation::UNICODE_STRING, informationclass: TRUSTED_INFORMATION_CLASS, buffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LsaQueryTrustedDomainInfoByName(policyhandle: *const ::core::ffi::c_void, trusteddomainname: *const super::super::super::Foundation::UNICODE_STRING, informationclass: TRUSTED_INFORMATION_CLASS, buffer: *mut *mut ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
-        }
-        LsaQueryTrustedDomainInfoByName(::core::mem::transmute(policyhandle), ::core::mem::transmute(trusteddomainname), ::core::mem::transmute(informationclass), ::core::mem::transmute(buffer)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LsaQueryTrustedDomainInfoByName(policyhandle: *const ::core::ffi::c_void, trusteddomainname: *const super::super::super::Foundation::UNICODE_STRING, informationclass: TRUSTED_INFORMATION_CLASS, buffer: *mut *mut ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    LsaQueryTrustedDomainInfoByName(::core::mem::transmute(policyhandle), ::core::mem::transmute(trusteddomainname), ::core::mem::transmute(informationclass), ::core::mem::transmute(buffer)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn LsaRegisterLogonProcess(logonprocessname: *const super::super::super::System::Kernel::STRING, lsahandle: *mut LsaHandle, securitymode: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LsaRegisterLogonProcess(logonprocessname: *const super::super::super::System::Kernel::STRING, lsahandle: *mut LsaHandle, securitymode: *mut u32) -> super::super::super::Foundation::NTSTATUS;
-        }
-        LsaRegisterLogonProcess(::core::mem::transmute(logonprocessname), ::core::mem::transmute(lsahandle), ::core::mem::transmute(securitymode)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LsaRegisterLogonProcess(logonprocessname: *const super::super::super::System::Kernel::STRING, lsahandle: *mut LsaHandle, securitymode: *mut u32) -> super::super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    LsaRegisterLogonProcess(::core::mem::transmute(logonprocessname), ::core::mem::transmute(lsahandle), ::core::mem::transmute(securitymode)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaRegisterPolicyChangeNotification<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(informationclass: POLICY_NOTIFICATION_INFORMATION_CLASS, notificationeventhandle: Param1) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LsaRegisterPolicyChangeNotification(informationclass: POLICY_NOTIFICATION_INFORMATION_CLASS, notificationeventhandle: super::super::super::Foundation::HANDLE) -> super::super::super::Foundation::NTSTATUS;
-        }
-        LsaRegisterPolicyChangeNotification(::core::mem::transmute(informationclass), notificationeventhandle.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LsaRegisterPolicyChangeNotification(informationclass: POLICY_NOTIFICATION_INFORMATION_CLASS, notificationeventhandle: super::super::super::Foundation::HANDLE) -> super::super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    LsaRegisterPolicyChangeNotification(::core::mem::transmute(informationclass), notificationeventhandle.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaRemoveAccountRights<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSID>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOLEAN>>(policyhandle: *const ::core::ffi::c_void, accountsid: Param1, allrights: Param2, userrights: &[super::super::super::Foundation::UNICODE_STRING]) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LsaRemoveAccountRights(policyhandle: *const ::core::ffi::c_void, accountsid: super::super::super::Foundation::PSID, allrights: super::super::super::Foundation::BOOLEAN, userrights: *const super::super::super::Foundation::UNICODE_STRING, countofrights: u32) -> super::super::super::Foundation::NTSTATUS;
-        }
-        LsaRemoveAccountRights(::core::mem::transmute(policyhandle), accountsid.into_param().abi(), allrights.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(userrights)), userrights.len() as _).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LsaRemoveAccountRights(policyhandle: *const ::core::ffi::c_void, accountsid: super::super::super::Foundation::PSID, allrights: super::super::super::Foundation::BOOLEAN, userrights: *const super::super::super::Foundation::UNICODE_STRING, countofrights: u32) -> super::super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    LsaRemoveAccountRights(::core::mem::transmute(policyhandle), accountsid.into_param().abi(), allrights.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(userrights)), userrights.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaRetrievePrivateData(policyhandle: *const ::core::ffi::c_void, keyname: *const super::super::super::Foundation::UNICODE_STRING, privatedata: *mut *mut super::super::super::Foundation::UNICODE_STRING) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LsaRetrievePrivateData(policyhandle: *const ::core::ffi::c_void, keyname: *const super::super::super::Foundation::UNICODE_STRING, privatedata: *mut *mut super::super::super::Foundation::UNICODE_STRING) -> super::super::super::Foundation::NTSTATUS;
-        }
-        LsaRetrievePrivateData(::core::mem::transmute(policyhandle), ::core::mem::transmute(keyname), ::core::mem::transmute(privatedata)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LsaRetrievePrivateData(policyhandle: *const ::core::ffi::c_void, keyname: *const super::super::super::Foundation::UNICODE_STRING, privatedata: *mut *mut super::super::super::Foundation::UNICODE_STRING) -> super::super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    LsaRetrievePrivateData(::core::mem::transmute(policyhandle), ::core::mem::transmute(keyname), ::core::mem::transmute(privatedata)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaSetCAPs(capdns: &[super::super::super::Foundation::UNICODE_STRING], flags: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LsaSetCAPs(capdns: *const super::super::super::Foundation::UNICODE_STRING, capdncount: u32, flags: u32) -> super::super::super::Foundation::NTSTATUS;
-        }
-        LsaSetCAPs(::core::mem::transmute(::windows::core::as_ptr_or_null(capdns)), capdns.len() as _, ::core::mem::transmute(flags)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LsaSetCAPs(capdns: *const super::super::super::Foundation::UNICODE_STRING, capdncount: u32, flags: u32) -> super::super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    LsaSetCAPs(::core::mem::transmute(::windows::core::as_ptr_or_null(capdns)), capdns.len() as _, ::core::mem::transmute(flags)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaSetDomainInformationPolicy(policyhandle: *const ::core::ffi::c_void, informationclass: POLICY_DOMAIN_INFORMATION_CLASS, buffer: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LsaSetDomainInformationPolicy(policyhandle: *const ::core::ffi::c_void, informationclass: POLICY_DOMAIN_INFORMATION_CLASS, buffer: *const ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
-        }
-        LsaSetDomainInformationPolicy(::core::mem::transmute(policyhandle), ::core::mem::transmute(informationclass), ::core::mem::transmute(buffer)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LsaSetDomainInformationPolicy(policyhandle: *const ::core::ffi::c_void, informationclass: POLICY_DOMAIN_INFORMATION_CLASS, buffer: *const ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    LsaSetDomainInformationPolicy(::core::mem::transmute(policyhandle), ::core::mem::transmute(informationclass), ::core::mem::transmute(buffer)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaSetForestTrustInformation<'a, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOLEAN>>(policyhandle: *const ::core::ffi::c_void, trusteddomainname: *const super::super::super::Foundation::UNICODE_STRING, foresttrustinfo: *const LSA_FOREST_TRUST_INFORMATION, checkonly: Param3, collisioninfo: *mut *mut LSA_FOREST_TRUST_COLLISION_INFORMATION) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LsaSetForestTrustInformation(policyhandle: *const ::core::ffi::c_void, trusteddomainname: *const super::super::super::Foundation::UNICODE_STRING, foresttrustinfo: *const LSA_FOREST_TRUST_INFORMATION, checkonly: super::super::super::Foundation::BOOLEAN, collisioninfo: *mut *mut LSA_FOREST_TRUST_COLLISION_INFORMATION) -> super::super::super::Foundation::NTSTATUS;
-        }
-        LsaSetForestTrustInformation(::core::mem::transmute(policyhandle), ::core::mem::transmute(trusteddomainname), ::core::mem::transmute(foresttrustinfo), checkonly.into_param().abi(), ::core::mem::transmute(collisioninfo)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LsaSetForestTrustInformation(policyhandle: *const ::core::ffi::c_void, trusteddomainname: *const super::super::super::Foundation::UNICODE_STRING, foresttrustinfo: *const LSA_FOREST_TRUST_INFORMATION, checkonly: super::super::super::Foundation::BOOLEAN, collisioninfo: *mut *mut LSA_FOREST_TRUST_COLLISION_INFORMATION) -> super::super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    LsaSetForestTrustInformation(::core::mem::transmute(policyhandle), ::core::mem::transmute(trusteddomainname), ::core::mem::transmute(foresttrustinfo), checkonly.into_param().abi(), ::core::mem::transmute(collisioninfo)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaSetInformationPolicy(policyhandle: *const ::core::ffi::c_void, informationclass: POLICY_INFORMATION_CLASS, buffer: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LsaSetInformationPolicy(policyhandle: *const ::core::ffi::c_void, informationclass: POLICY_INFORMATION_CLASS, buffer: *const ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
-        }
-        LsaSetInformationPolicy(::core::mem::transmute(policyhandle), ::core::mem::transmute(informationclass), ::core::mem::transmute(buffer)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LsaSetInformationPolicy(policyhandle: *const ::core::ffi::c_void, informationclass: POLICY_INFORMATION_CLASS, buffer: *const ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    LsaSetInformationPolicy(::core::mem::transmute(policyhandle), ::core::mem::transmute(informationclass), ::core::mem::transmute(buffer)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaSetTrustedDomainInfoByName(policyhandle: *const ::core::ffi::c_void, trusteddomainname: *const super::super::super::Foundation::UNICODE_STRING, informationclass: TRUSTED_INFORMATION_CLASS, buffer: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LsaSetTrustedDomainInfoByName(policyhandle: *const ::core::ffi::c_void, trusteddomainname: *const super::super::super::Foundation::UNICODE_STRING, informationclass: TRUSTED_INFORMATION_CLASS, buffer: *const ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
-        }
-        LsaSetTrustedDomainInfoByName(::core::mem::transmute(policyhandle), ::core::mem::transmute(trusteddomainname), ::core::mem::transmute(informationclass), ::core::mem::transmute(buffer)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LsaSetTrustedDomainInfoByName(policyhandle: *const ::core::ffi::c_void, trusteddomainname: *const super::super::super::Foundation::UNICODE_STRING, informationclass: TRUSTED_INFORMATION_CLASS, buffer: *const ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    LsaSetTrustedDomainInfoByName(::core::mem::transmute(policyhandle), ::core::mem::transmute(trusteddomainname), ::core::mem::transmute(informationclass), ::core::mem::transmute(buffer)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaSetTrustedDomainInformation<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSID>>(policyhandle: *const ::core::ffi::c_void, trusteddomainsid: Param1, informationclass: TRUSTED_INFORMATION_CLASS, buffer: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LsaSetTrustedDomainInformation(policyhandle: *const ::core::ffi::c_void, trusteddomainsid: super::super::super::Foundation::PSID, informationclass: TRUSTED_INFORMATION_CLASS, buffer: *const ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
-        }
-        LsaSetTrustedDomainInformation(::core::mem::transmute(policyhandle), trusteddomainsid.into_param().abi(), ::core::mem::transmute(informationclass), ::core::mem::transmute(buffer)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LsaSetTrustedDomainInformation(policyhandle: *const ::core::ffi::c_void, trusteddomainsid: super::super::super::Foundation::PSID, informationclass: TRUSTED_INFORMATION_CLASS, buffer: *const ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    LsaSetTrustedDomainInformation(::core::mem::transmute(policyhandle), trusteddomainsid.into_param().abi(), ::core::mem::transmute(informationclass), ::core::mem::transmute(buffer)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaStorePrivateData(policyhandle: *const ::core::ffi::c_void, keyname: *const super::super::super::Foundation::UNICODE_STRING, privatedata: *const super::super::super::Foundation::UNICODE_STRING) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LsaStorePrivateData(policyhandle: *const ::core::ffi::c_void, keyname: *const super::super::super::Foundation::UNICODE_STRING, privatedata: *const super::super::super::Foundation::UNICODE_STRING) -> super::super::super::Foundation::NTSTATUS;
-        }
-        LsaStorePrivateData(::core::mem::transmute(policyhandle), ::core::mem::transmute(keyname), ::core::mem::transmute(privatedata)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LsaStorePrivateData(policyhandle: *const ::core::ffi::c_void, keyname: *const super::super::super::Foundation::UNICODE_STRING, privatedata: *const super::super::super::Foundation::UNICODE_STRING) -> super::super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    LsaStorePrivateData(::core::mem::transmute(policyhandle), ::core::mem::transmute(keyname), ::core::mem::transmute(privatedata)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaUnregisterPolicyChangeNotification<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(informationclass: POLICY_NOTIFICATION_INFORMATION_CLASS, notificationeventhandle: Param1) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LsaUnregisterPolicyChangeNotification(informationclass: POLICY_NOTIFICATION_INFORMATION_CLASS, notificationeventhandle: super::super::super::Foundation::HANDLE) -> super::super::super::Foundation::NTSTATUS;
-        }
-        LsaUnregisterPolicyChangeNotification(::core::mem::transmute(informationclass), notificationeventhandle.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LsaUnregisterPolicyChangeNotification(informationclass: POLICY_NOTIFICATION_INFORMATION_CLASS, notificationeventhandle: super::super::super::Foundation::HANDLE) -> super::super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    LsaUnregisterPolicyChangeNotification(::core::mem::transmute(informationclass), notificationeventhandle.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
@@ -8634,16 +8139,11 @@ impl ::core::ops::Not for MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS {
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn MakeSignature(phcontext: *const super::super::Credentials::SecHandle, fqop: u32, pmessage: *const SecBufferDesc, messageseqno: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MakeSignature(phcontext: *const super::super::Credentials::SecHandle, fqop: u32, pmessage: *const SecBufferDesc, messageseqno: u32) -> ::windows::core::HRESULT;
-        }
-        MakeSignature(::core::mem::transmute(phcontext), ::core::mem::transmute(fqop), ::core::mem::transmute(pmessage), ::core::mem::transmute(messageseqno)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MakeSignature(phcontext: *const super::super::Credentials::SecHandle, fqop: u32, pmessage: *const SecBufferDesc, messageseqno: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MakeSignature(::core::mem::transmute(phcontext), ::core::mem::transmute(fqop), ::core::mem::transmute(pmessage), ::core::mem::transmute(messageseqno)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const NEGOSSP_NAME: &str = "Negotiate";
@@ -10583,166 +10083,111 @@ pub type QUERY_SECURITY_PACKAGE_INFO_FN_W = ::core::option::Option<unsafe extern
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn QueryContextAttributesA(phcontext: *const super::super::Credentials::SecHandle, ulattribute: SECPKG_ATTR, pbuffer: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn QueryContextAttributesA(phcontext: *const super::super::Credentials::SecHandle, ulattribute: SECPKG_ATTR, pbuffer: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        QueryContextAttributesA(::core::mem::transmute(phcontext), ::core::mem::transmute(ulattribute), ::core::mem::transmute(pbuffer)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn QueryContextAttributesA(phcontext: *const super::super::Credentials::SecHandle, ulattribute: SECPKG_ATTR, pbuffer: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    QueryContextAttributesA(::core::mem::transmute(phcontext), ::core::mem::transmute(ulattribute), ::core::mem::transmute(pbuffer)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn QueryContextAttributesExA(phcontext: *const super::super::Credentials::SecHandle, ulattribute: SECPKG_ATTR, pbuffer: *mut ::core::ffi::c_void, cbbuffer: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn QueryContextAttributesExA(phcontext: *const super::super::Credentials::SecHandle, ulattribute: SECPKG_ATTR, pbuffer: *mut ::core::ffi::c_void, cbbuffer: u32) -> ::windows::core::HRESULT;
-        }
-        QueryContextAttributesExA(::core::mem::transmute(phcontext), ::core::mem::transmute(ulattribute), ::core::mem::transmute(pbuffer), ::core::mem::transmute(cbbuffer)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn QueryContextAttributesExA(phcontext: *const super::super::Credentials::SecHandle, ulattribute: SECPKG_ATTR, pbuffer: *mut ::core::ffi::c_void, cbbuffer: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    QueryContextAttributesExA(::core::mem::transmute(phcontext), ::core::mem::transmute(ulattribute), ::core::mem::transmute(pbuffer), ::core::mem::transmute(cbbuffer)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn QueryContextAttributesExW(phcontext: *const super::super::Credentials::SecHandle, ulattribute: SECPKG_ATTR, pbuffer: *mut ::core::ffi::c_void, cbbuffer: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn QueryContextAttributesExW(phcontext: *const super::super::Credentials::SecHandle, ulattribute: SECPKG_ATTR, pbuffer: *mut ::core::ffi::c_void, cbbuffer: u32) -> ::windows::core::HRESULT;
-        }
-        QueryContextAttributesExW(::core::mem::transmute(phcontext), ::core::mem::transmute(ulattribute), ::core::mem::transmute(pbuffer), ::core::mem::transmute(cbbuffer)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn QueryContextAttributesExW(phcontext: *const super::super::Credentials::SecHandle, ulattribute: SECPKG_ATTR, pbuffer: *mut ::core::ffi::c_void, cbbuffer: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    QueryContextAttributesExW(::core::mem::transmute(phcontext), ::core::mem::transmute(ulattribute), ::core::mem::transmute(pbuffer), ::core::mem::transmute(cbbuffer)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn QueryContextAttributesW(phcontext: *const super::super::Credentials::SecHandle, ulattribute: SECPKG_ATTR, pbuffer: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn QueryContextAttributesW(phcontext: *const super::super::Credentials::SecHandle, ulattribute: SECPKG_ATTR, pbuffer: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        QueryContextAttributesW(::core::mem::transmute(phcontext), ::core::mem::transmute(ulattribute), ::core::mem::transmute(pbuffer)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn QueryContextAttributesW(phcontext: *const super::super::Credentials::SecHandle, ulattribute: SECPKG_ATTR, pbuffer: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    QueryContextAttributesW(::core::mem::transmute(phcontext), ::core::mem::transmute(ulattribute), ::core::mem::transmute(pbuffer)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn QueryCredentialsAttributesA(phcredential: *const super::super::Credentials::SecHandle, ulattribute: u32, pbuffer: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn QueryCredentialsAttributesA(phcredential: *const super::super::Credentials::SecHandle, ulattribute: u32, pbuffer: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        QueryCredentialsAttributesA(::core::mem::transmute(phcredential), ::core::mem::transmute(ulattribute), ::core::mem::transmute(pbuffer)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn QueryCredentialsAttributesA(phcredential: *const super::super::Credentials::SecHandle, ulattribute: u32, pbuffer: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    QueryCredentialsAttributesA(::core::mem::transmute(phcredential), ::core::mem::transmute(ulattribute), ::core::mem::transmute(pbuffer)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn QueryCredentialsAttributesExA(phcredential: *const super::super::Credentials::SecHandle, ulattribute: u32, pbuffer: *mut ::core::ffi::c_void, cbbuffer: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn QueryCredentialsAttributesExA(phcredential: *const super::super::Credentials::SecHandle, ulattribute: u32, pbuffer: *mut ::core::ffi::c_void, cbbuffer: u32) -> ::windows::core::HRESULT;
-        }
-        QueryCredentialsAttributesExA(::core::mem::transmute(phcredential), ::core::mem::transmute(ulattribute), ::core::mem::transmute(pbuffer), ::core::mem::transmute(cbbuffer)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn QueryCredentialsAttributesExA(phcredential: *const super::super::Credentials::SecHandle, ulattribute: u32, pbuffer: *mut ::core::ffi::c_void, cbbuffer: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    QueryCredentialsAttributesExA(::core::mem::transmute(phcredential), ::core::mem::transmute(ulattribute), ::core::mem::transmute(pbuffer), ::core::mem::transmute(cbbuffer)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn QueryCredentialsAttributesExW(phcredential: *const super::super::Credentials::SecHandle, ulattribute: u32, pbuffer: *mut ::core::ffi::c_void, cbbuffer: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn QueryCredentialsAttributesExW(phcredential: *const super::super::Credentials::SecHandle, ulattribute: u32, pbuffer: *mut ::core::ffi::c_void, cbbuffer: u32) -> ::windows::core::HRESULT;
-        }
-        QueryCredentialsAttributesExW(::core::mem::transmute(phcredential), ::core::mem::transmute(ulattribute), ::core::mem::transmute(pbuffer), ::core::mem::transmute(cbbuffer)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn QueryCredentialsAttributesExW(phcredential: *const super::super::Credentials::SecHandle, ulattribute: u32, pbuffer: *mut ::core::ffi::c_void, cbbuffer: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    QueryCredentialsAttributesExW(::core::mem::transmute(phcredential), ::core::mem::transmute(ulattribute), ::core::mem::transmute(pbuffer), ::core::mem::transmute(cbbuffer)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn QueryCredentialsAttributesW(phcredential: *const super::super::Credentials::SecHandle, ulattribute: u32, pbuffer: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn QueryCredentialsAttributesW(phcredential: *const super::super::Credentials::SecHandle, ulattribute: u32, pbuffer: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        QueryCredentialsAttributesW(::core::mem::transmute(phcredential), ::core::mem::transmute(ulattribute), ::core::mem::transmute(pbuffer)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn QueryCredentialsAttributesW(phcredential: *const super::super::Credentials::SecHandle, ulattribute: u32, pbuffer: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    QueryCredentialsAttributesW(::core::mem::transmute(phcredential), ::core::mem::transmute(ulattribute), ::core::mem::transmute(pbuffer)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn QuerySecurityContextToken(phcontext: *const super::super::Credentials::SecHandle, token: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn QuerySecurityContextToken(phcontext: *const super::super::Credentials::SecHandle, token: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        QuerySecurityContextToken(::core::mem::transmute(phcontext), ::core::mem::transmute(token)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn QuerySecurityContextToken(phcontext: *const super::super::Credentials::SecHandle, token: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    QuerySecurityContextToken(::core::mem::transmute(phcontext), ::core::mem::transmute(token)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn QuerySecurityPackageInfoA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(pszpackagename: Param0) -> ::windows::core::Result<*mut SecPkgInfoA> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn QuerySecurityPackageInfoA(pszpackagename: ::windows::core::PCSTR, pppackageinfo: *mut *mut SecPkgInfoA) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut SecPkgInfoA>::zeroed();
-        QuerySecurityPackageInfoA(pszpackagename.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut SecPkgInfoA>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn QuerySecurityPackageInfoA(pszpackagename: ::windows::core::PCSTR, pppackageinfo: *mut *mut SecPkgInfoA) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut SecPkgInfoA>::zeroed();
+    QuerySecurityPackageInfoA(pszpackagename.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut SecPkgInfoA>(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn QuerySecurityPackageInfoW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pszpackagename: Param0) -> ::windows::core::Result<*mut SecPkgInfoW> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn QuerySecurityPackageInfoW(pszpackagename: ::windows::core::PCWSTR, pppackageinfo: *mut *mut SecPkgInfoW) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut SecPkgInfoW>::zeroed();
-        QuerySecurityPackageInfoW(pszpackagename.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut SecPkgInfoW>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn QuerySecurityPackageInfoW(pszpackagename: ::windows::core::PCWSTR, pppackageinfo: *mut *mut SecPkgInfoW) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut SecPkgInfoW>::zeroed();
+    QuerySecurityPackageInfoW(pszpackagename.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut SecPkgInfoW>(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const RCRED_CRED_EXISTS: u32 = 1u32;
@@ -10765,16 +10210,11 @@ pub const RTL_ENCRYPT_OPTION_SAME_LOGON: u32 = 2u32;
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn RevertSecurityContext(phcontext: *const super::super::Credentials::SecHandle) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RevertSecurityContext(phcontext: *const super::super::Credentials::SecHandle) -> ::windows::core::HRESULT;
-        }
-        RevertSecurityContext(::core::mem::transmute(phcontext)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RevertSecurityContext(phcontext: *const super::super::Credentials::SecHandle) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    RevertSecurityContext(::core::mem::transmute(phcontext)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const SAM_CREDENTIAL_UPDATE_FREE_ROUTINE: &str = "CredentialUpdateFree";
@@ -15312,58 +14752,38 @@ pub const SE_SERVICE_LOGON_NAME: &str = "SeServiceLogonRight";
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLAcquireGenuineTicket<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(ppticketblob: *mut *mut ::core::ffi::c_void, pcbticketblob: *mut u32, pwsztemplateid: Param2, pwszserverurl: Param3, pwszclienttoken: Param4) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SLAcquireGenuineTicket(ppticketblob: *mut *mut ::core::ffi::c_void, pcbticketblob: *mut u32, pwsztemplateid: ::windows::core::PCWSTR, pwszserverurl: ::windows::core::PCWSTR, pwszclienttoken: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
-        }
-        SLAcquireGenuineTicket(::core::mem::transmute(ppticketblob), ::core::mem::transmute(pcbticketblob), pwsztemplateid.into_param().abi(), pwszserverurl.into_param().abi(), pwszclienttoken.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SLAcquireGenuineTicket(ppticketblob: *mut *mut ::core::ffi::c_void, pcbticketblob: *mut u32, pwsztemplateid: ::windows::core::PCWSTR, pwszserverurl: ::windows::core::PCWSTR, pwszclienttoken: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SLAcquireGenuineTicket(::core::mem::transmute(ppticketblob), ::core::mem::transmute(pcbticketblob), pwsztemplateid.into_param().abi(), pwszserverurl.into_param().abi(), pwszclienttoken.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLActivateProduct<'a, Param5: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hslc: *const ::core::ffi::c_void, pproductskuid: *const ::windows::core::GUID, cbappspecificdata: u32, pvappspecificdata: *const ::core::ffi::c_void, pactivationinfo: *const SL_ACTIVATION_INFO_HEADER, pwszproxyserver: Param5, wproxyport: u16) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SLActivateProduct(hslc: *const ::core::ffi::c_void, pproductskuid: *const ::windows::core::GUID, cbappspecificdata: u32, pvappspecificdata: *const ::core::ffi::c_void, pactivationinfo: *const SL_ACTIVATION_INFO_HEADER, pwszproxyserver: ::windows::core::PCWSTR, wproxyport: u16) -> ::windows::core::HRESULT;
-        }
-        SLActivateProduct(::core::mem::transmute(hslc), ::core::mem::transmute(pproductskuid), ::core::mem::transmute(cbappspecificdata), ::core::mem::transmute(pvappspecificdata), ::core::mem::transmute(pactivationinfo), pwszproxyserver.into_param().abi(), ::core::mem::transmute(wproxyport)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SLActivateProduct(hslc: *const ::core::ffi::c_void, pproductskuid: *const ::windows::core::GUID, cbappspecificdata: u32, pvappspecificdata: *const ::core::ffi::c_void, pactivationinfo: *const SL_ACTIVATION_INFO_HEADER, pwszproxyserver: ::windows::core::PCWSTR, wproxyport: u16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SLActivateProduct(::core::mem::transmute(hslc), ::core::mem::transmute(pproductskuid), ::core::mem::transmute(cbappspecificdata), ::core::mem::transmute(pvappspecificdata), ::core::mem::transmute(pactivationinfo), pwszproxyserver.into_param().abi(), ::core::mem::transmute(wproxyport)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLClose(hslc: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SLClose(hslc: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        SLClose(::core::mem::transmute(hslc)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SLClose(hslc: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SLClose(::core::mem::transmute(hslc)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLConsumeRight<'a, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hslc: *const ::core::ffi::c_void, pappid: *const ::windows::core::GUID, pproductskuid: *const ::windows::core::GUID, pwszrightname: Param3, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SLConsumeRight(hslc: *const ::core::ffi::c_void, pappid: *const ::windows::core::GUID, pproductskuid: *const ::windows::core::GUID, pwszrightname: ::windows::core::PCWSTR, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        SLConsumeRight(::core::mem::transmute(hslc), ::core::mem::transmute(pappid), ::core::mem::transmute(pproductskuid), pwszrightname.into_param().abi(), ::core::mem::transmute(pvreserved)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SLConsumeRight(hslc: *const ::core::ffi::c_void, pappid: *const ::windows::core::GUID, pproductskuid: *const ::windows::core::GUID, pwszrightname: ::windows::core::PCWSTR, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SLConsumeRight(::core::mem::transmute(hslc), ::core::mem::transmute(pappid), ::core::mem::transmute(pproductskuid), pwszrightname.into_param().abi(), ::core::mem::transmute(pvreserved)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
@@ -15403,332 +14823,217 @@ impl ::core::fmt::Debug for SLDATATYPE {
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLDepositOfflineConfirmationId<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hslc: *const ::core::ffi::c_void, pproductskuid: *const ::windows::core::GUID, pwszinstallationid: Param2, pwszconfirmationid: Param3) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SLDepositOfflineConfirmationId(hslc: *const ::core::ffi::c_void, pproductskuid: *const ::windows::core::GUID, pwszinstallationid: ::windows::core::PCWSTR, pwszconfirmationid: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
-        }
-        SLDepositOfflineConfirmationId(::core::mem::transmute(hslc), ::core::mem::transmute(pproductskuid), pwszinstallationid.into_param().abi(), pwszconfirmationid.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SLDepositOfflineConfirmationId(hslc: *const ::core::ffi::c_void, pproductskuid: *const ::windows::core::GUID, pwszinstallationid: ::windows::core::PCWSTR, pwszconfirmationid: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SLDepositOfflineConfirmationId(::core::mem::transmute(hslc), ::core::mem::transmute(pproductskuid), pwszinstallationid.into_param().abi(), pwszconfirmationid.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLDepositOfflineConfirmationIdEx<'a, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hslc: *const ::core::ffi::c_void, pproductskuid: *const ::windows::core::GUID, pactivationinfo: *const SL_ACTIVATION_INFO_HEADER, pwszinstallationid: Param3, pwszconfirmationid: Param4) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SLDepositOfflineConfirmationIdEx(hslc: *const ::core::ffi::c_void, pproductskuid: *const ::windows::core::GUID, pactivationinfo: *const SL_ACTIVATION_INFO_HEADER, pwszinstallationid: ::windows::core::PCWSTR, pwszconfirmationid: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
-        }
-        SLDepositOfflineConfirmationIdEx(::core::mem::transmute(hslc), ::core::mem::transmute(pproductskuid), ::core::mem::transmute(pactivationinfo), pwszinstallationid.into_param().abi(), pwszconfirmationid.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SLDepositOfflineConfirmationIdEx(hslc: *const ::core::ffi::c_void, pproductskuid: *const ::windows::core::GUID, pactivationinfo: *const SL_ACTIVATION_INFO_HEADER, pwszinstallationid: ::windows::core::PCWSTR, pwszconfirmationid: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SLDepositOfflineConfirmationIdEx(::core::mem::transmute(hslc), ::core::mem::transmute(pproductskuid), ::core::mem::transmute(pactivationinfo), pwszinstallationid.into_param().abi(), pwszconfirmationid.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLFireEvent<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hslc: *const ::core::ffi::c_void, pwszeventid: Param1, papplicationid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SLFireEvent(hslc: *const ::core::ffi::c_void, pwszeventid: ::windows::core::PCWSTR, papplicationid: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
-        }
-        SLFireEvent(::core::mem::transmute(hslc), pwszeventid.into_param().abi(), ::core::mem::transmute(papplicationid)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SLFireEvent(hslc: *const ::core::ffi::c_void, pwszeventid: ::windows::core::PCWSTR, papplicationid: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SLFireEvent(::core::mem::transmute(hslc), pwszeventid.into_param().abi(), ::core::mem::transmute(papplicationid)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLGenerateOfflineInstallationId(hslc: *const ::core::ffi::c_void, pproductskuid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::PWSTR> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SLGenerateOfflineInstallationId(hslc: *const ::core::ffi::c_void, pproductskuid: *const ::windows::core::GUID, ppwszinstallationid: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-        SLGenerateOfflineInstallationId(::core::mem::transmute(hslc), ::core::mem::transmute(pproductskuid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SLGenerateOfflineInstallationId(hslc: *const ::core::ffi::c_void, pproductskuid: *const ::windows::core::GUID, ppwszinstallationid: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
+    SLGenerateOfflineInstallationId(::core::mem::transmute(hslc), ::core::mem::transmute(pproductskuid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLGenerateOfflineInstallationIdEx(hslc: *const ::core::ffi::c_void, pproductskuid: *const ::windows::core::GUID, pactivationinfo: *const SL_ACTIVATION_INFO_HEADER) -> ::windows::core::Result<::windows::core::PWSTR> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SLGenerateOfflineInstallationIdEx(hslc: *const ::core::ffi::c_void, pproductskuid: *const ::windows::core::GUID, pactivationinfo: *const SL_ACTIVATION_INFO_HEADER, ppwszinstallationid: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-        SLGenerateOfflineInstallationIdEx(::core::mem::transmute(hslc), ::core::mem::transmute(pproductskuid), ::core::mem::transmute(pactivationinfo), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SLGenerateOfflineInstallationIdEx(hslc: *const ::core::ffi::c_void, pproductskuid: *const ::windows::core::GUID, pactivationinfo: *const SL_ACTIVATION_INFO_HEADER, ppwszinstallationid: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
+    SLGenerateOfflineInstallationIdEx(::core::mem::transmute(hslc), ::core::mem::transmute(pproductskuid), ::core::mem::transmute(pactivationinfo), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLGetApplicationInformation<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hslc: *const ::core::ffi::c_void, papplicationid: *const ::windows::core::GUID, pwszvaluename: Param2, pedatatype: *mut SLDATATYPE, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SLGetApplicationInformation(hslc: *const ::core::ffi::c_void, papplicationid: *const ::windows::core::GUID, pwszvaluename: ::windows::core::PCWSTR, pedatatype: *mut SLDATATYPE, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> ::windows::core::HRESULT;
-        }
-        SLGetApplicationInformation(::core::mem::transmute(hslc), ::core::mem::transmute(papplicationid), pwszvaluename.into_param().abi(), ::core::mem::transmute(pedatatype), ::core::mem::transmute(pcbvalue), ::core::mem::transmute(ppbvalue)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SLGetApplicationInformation(hslc: *const ::core::ffi::c_void, papplicationid: *const ::windows::core::GUID, pwszvaluename: ::windows::core::PCWSTR, pedatatype: *mut SLDATATYPE, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SLGetApplicationInformation(::core::mem::transmute(hslc), ::core::mem::transmute(papplicationid), pwszvaluename.into_param().abi(), ::core::mem::transmute(pedatatype), ::core::mem::transmute(pcbvalue), ::core::mem::transmute(ppbvalue)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLGetGenuineInformation<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pqueryid: *const ::windows::core::GUID, pwszvaluename: Param1, pedatatype: *mut SLDATATYPE, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SLGetGenuineInformation(pqueryid: *const ::windows::core::GUID, pwszvaluename: ::windows::core::PCWSTR, pedatatype: *mut SLDATATYPE, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> ::windows::core::HRESULT;
-        }
-        SLGetGenuineInformation(::core::mem::transmute(pqueryid), pwszvaluename.into_param().abi(), ::core::mem::transmute(pedatatype), ::core::mem::transmute(pcbvalue), ::core::mem::transmute(ppbvalue)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SLGetGenuineInformation(pqueryid: *const ::windows::core::GUID, pwszvaluename: ::windows::core::PCWSTR, pedatatype: *mut SLDATATYPE, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SLGetGenuineInformation(::core::mem::transmute(pqueryid), pwszvaluename.into_param().abi(), ::core::mem::transmute(pedatatype), ::core::mem::transmute(pcbvalue), ::core::mem::transmute(ppbvalue)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLGetInstalledProductKeyIds(hslc: *const ::core::ffi::c_void, pproductskuid: *const ::windows::core::GUID, pnproductkeyids: *mut u32, ppproductkeyids: *mut *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SLGetInstalledProductKeyIds(hslc: *const ::core::ffi::c_void, pproductskuid: *const ::windows::core::GUID, pnproductkeyids: *mut u32, ppproductkeyids: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
-        }
-        SLGetInstalledProductKeyIds(::core::mem::transmute(hslc), ::core::mem::transmute(pproductskuid), ::core::mem::transmute(pnproductkeyids), ::core::mem::transmute(ppproductkeyids)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SLGetInstalledProductKeyIds(hslc: *const ::core::ffi::c_void, pproductskuid: *const ::windows::core::GUID, pnproductkeyids: *mut u32, ppproductkeyids: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SLGetInstalledProductKeyIds(::core::mem::transmute(hslc), ::core::mem::transmute(pproductskuid), ::core::mem::transmute(pnproductkeyids), ::core::mem::transmute(ppproductkeyids)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLGetLicense(hslc: *const ::core::ffi::c_void, plicensefileid: *const ::windows::core::GUID, pcblicensefile: *mut u32, ppblicensefile: *mut *mut u8) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SLGetLicense(hslc: *const ::core::ffi::c_void, plicensefileid: *const ::windows::core::GUID, pcblicensefile: *mut u32, ppblicensefile: *mut *mut u8) -> ::windows::core::HRESULT;
-        }
-        SLGetLicense(::core::mem::transmute(hslc), ::core::mem::transmute(plicensefileid), ::core::mem::transmute(pcblicensefile), ::core::mem::transmute(ppblicensefile)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SLGetLicense(hslc: *const ::core::ffi::c_void, plicensefileid: *const ::windows::core::GUID, pcblicensefile: *mut u32, ppblicensefile: *mut *mut u8) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SLGetLicense(::core::mem::transmute(hslc), ::core::mem::transmute(plicensefileid), ::core::mem::transmute(pcblicensefile), ::core::mem::transmute(ppblicensefile)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLGetLicenseFileId(hslc: *const ::core::ffi::c_void, cblicenseblob: u32, pblicenseblob: *const u8) -> ::windows::core::Result<::windows::core::GUID> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SLGetLicenseFileId(hslc: *const ::core::ffi::c_void, cblicenseblob: u32, pblicenseblob: *const u8, plicensefileid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
-        SLGetLicenseFileId(::core::mem::transmute(hslc), ::core::mem::transmute(cblicenseblob), ::core::mem::transmute(pblicenseblob), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SLGetLicenseFileId(hslc: *const ::core::ffi::c_void, cblicenseblob: u32, pblicenseblob: *const u8, plicensefileid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+    SLGetLicenseFileId(::core::mem::transmute(hslc), ::core::mem::transmute(cblicenseblob), ::core::mem::transmute(pblicenseblob), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLGetLicenseInformation<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hslc: *const ::core::ffi::c_void, psllicenseid: *const ::windows::core::GUID, pwszvaluename: Param2, pedatatype: *mut SLDATATYPE, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SLGetLicenseInformation(hslc: *const ::core::ffi::c_void, psllicenseid: *const ::windows::core::GUID, pwszvaluename: ::windows::core::PCWSTR, pedatatype: *mut SLDATATYPE, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> ::windows::core::HRESULT;
-        }
-        SLGetLicenseInformation(::core::mem::transmute(hslc), ::core::mem::transmute(psllicenseid), pwszvaluename.into_param().abi(), ::core::mem::transmute(pedatatype), ::core::mem::transmute(pcbvalue), ::core::mem::transmute(ppbvalue)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SLGetLicenseInformation(hslc: *const ::core::ffi::c_void, psllicenseid: *const ::windows::core::GUID, pwszvaluename: ::windows::core::PCWSTR, pedatatype: *mut SLDATATYPE, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SLGetLicenseInformation(::core::mem::transmute(hslc), ::core::mem::transmute(psllicenseid), pwszvaluename.into_param().abi(), ::core::mem::transmute(pedatatype), ::core::mem::transmute(pcbvalue), ::core::mem::transmute(ppbvalue)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLGetLicensingStatusInformation<'a, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hslc: *const ::core::ffi::c_void, pappid: *const ::windows::core::GUID, pproductskuid: *const ::windows::core::GUID, pwszrightname: Param3, pnstatuscount: *mut u32, pplicensingstatus: *mut *mut SL_LICENSING_STATUS) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SLGetLicensingStatusInformation(hslc: *const ::core::ffi::c_void, pappid: *const ::windows::core::GUID, pproductskuid: *const ::windows::core::GUID, pwszrightname: ::windows::core::PCWSTR, pnstatuscount: *mut u32, pplicensingstatus: *mut *mut SL_LICENSING_STATUS) -> ::windows::core::HRESULT;
-        }
-        SLGetLicensingStatusInformation(::core::mem::transmute(hslc), ::core::mem::transmute(pappid), ::core::mem::transmute(pproductskuid), pwszrightname.into_param().abi(), ::core::mem::transmute(pnstatuscount), ::core::mem::transmute(pplicensingstatus)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SLGetLicensingStatusInformation(hslc: *const ::core::ffi::c_void, pappid: *const ::windows::core::GUID, pproductskuid: *const ::windows::core::GUID, pwszrightname: ::windows::core::PCWSTR, pnstatuscount: *mut u32, pplicensingstatus: *mut *mut SL_LICENSING_STATUS) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SLGetLicensingStatusInformation(::core::mem::transmute(hslc), ::core::mem::transmute(pappid), ::core::mem::transmute(pproductskuid), pwszrightname.into_param().abi(), ::core::mem::transmute(pnstatuscount), ::core::mem::transmute(pplicensingstatus)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLGetPKeyId<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hslc: *const ::core::ffi::c_void, pwszpkeyalgorithm: Param1, pwszpkeystring: Param2, cbpkeyspecificdata: u32, pbpkeyspecificdata: *const u8) -> ::windows::core::Result<::windows::core::GUID> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SLGetPKeyId(hslc: *const ::core::ffi::c_void, pwszpkeyalgorithm: ::windows::core::PCWSTR, pwszpkeystring: ::windows::core::PCWSTR, cbpkeyspecificdata: u32, pbpkeyspecificdata: *const u8, ppkeyid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
-        SLGetPKeyId(::core::mem::transmute(hslc), pwszpkeyalgorithm.into_param().abi(), pwszpkeystring.into_param().abi(), ::core::mem::transmute(cbpkeyspecificdata), ::core::mem::transmute(pbpkeyspecificdata), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SLGetPKeyId(hslc: *const ::core::ffi::c_void, pwszpkeyalgorithm: ::windows::core::PCWSTR, pwszpkeystring: ::windows::core::PCWSTR, cbpkeyspecificdata: u32, pbpkeyspecificdata: *const u8, ppkeyid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+    SLGetPKeyId(::core::mem::transmute(hslc), pwszpkeyalgorithm.into_param().abi(), pwszpkeystring.into_param().abi(), ::core::mem::transmute(cbpkeyspecificdata), ::core::mem::transmute(pbpkeyspecificdata), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLGetPKeyInformation<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hslc: *const ::core::ffi::c_void, ppkeyid: *const ::windows::core::GUID, pwszvaluename: Param2, pedatatype: *mut SLDATATYPE, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SLGetPKeyInformation(hslc: *const ::core::ffi::c_void, ppkeyid: *const ::windows::core::GUID, pwszvaluename: ::windows::core::PCWSTR, pedatatype: *mut SLDATATYPE, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> ::windows::core::HRESULT;
-        }
-        SLGetPKeyInformation(::core::mem::transmute(hslc), ::core::mem::transmute(ppkeyid), pwszvaluename.into_param().abi(), ::core::mem::transmute(pedatatype), ::core::mem::transmute(pcbvalue), ::core::mem::transmute(ppbvalue)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SLGetPKeyInformation(hslc: *const ::core::ffi::c_void, ppkeyid: *const ::windows::core::GUID, pwszvaluename: ::windows::core::PCWSTR, pedatatype: *mut SLDATATYPE, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SLGetPKeyInformation(::core::mem::transmute(hslc), ::core::mem::transmute(ppkeyid), pwszvaluename.into_param().abi(), ::core::mem::transmute(pedatatype), ::core::mem::transmute(pcbvalue), ::core::mem::transmute(ppbvalue)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLGetPolicyInformation<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hslc: *const ::core::ffi::c_void, pwszvaluename: Param1, pedatatype: *mut SLDATATYPE, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SLGetPolicyInformation(hslc: *const ::core::ffi::c_void, pwszvaluename: ::windows::core::PCWSTR, pedatatype: *mut SLDATATYPE, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> ::windows::core::HRESULT;
-        }
-        SLGetPolicyInformation(::core::mem::transmute(hslc), pwszvaluename.into_param().abi(), ::core::mem::transmute(pedatatype), ::core::mem::transmute(pcbvalue), ::core::mem::transmute(ppbvalue)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SLGetPolicyInformation(hslc: *const ::core::ffi::c_void, pwszvaluename: ::windows::core::PCWSTR, pedatatype: *mut SLDATATYPE, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SLGetPolicyInformation(::core::mem::transmute(hslc), pwszvaluename.into_param().abi(), ::core::mem::transmute(pedatatype), ::core::mem::transmute(pcbvalue), ::core::mem::transmute(ppbvalue)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLGetPolicyInformationDWORD<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hslc: *const ::core::ffi::c_void, pwszvaluename: Param1) -> ::windows::core::Result<u32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SLGetPolicyInformationDWORD(hslc: *const ::core::ffi::c_void, pwszvaluename: ::windows::core::PCWSTR, pdwvalue: *mut u32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        SLGetPolicyInformationDWORD(::core::mem::transmute(hslc), pwszvaluename.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SLGetPolicyInformationDWORD(hslc: *const ::core::ffi::c_void, pwszvaluename: ::windows::core::PCWSTR, pdwvalue: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+    SLGetPolicyInformationDWORD(::core::mem::transmute(hslc), pwszvaluename.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLGetProductSkuInformation<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hslc: *const ::core::ffi::c_void, pproductskuid: *const ::windows::core::GUID, pwszvaluename: Param2, pedatatype: *mut SLDATATYPE, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SLGetProductSkuInformation(hslc: *const ::core::ffi::c_void, pproductskuid: *const ::windows::core::GUID, pwszvaluename: ::windows::core::PCWSTR, pedatatype: *mut SLDATATYPE, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> ::windows::core::HRESULT;
-        }
-        SLGetProductSkuInformation(::core::mem::transmute(hslc), ::core::mem::transmute(pproductskuid), pwszvaluename.into_param().abi(), ::core::mem::transmute(pedatatype), ::core::mem::transmute(pcbvalue), ::core::mem::transmute(ppbvalue)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SLGetProductSkuInformation(hslc: *const ::core::ffi::c_void, pproductskuid: *const ::windows::core::GUID, pwszvaluename: ::windows::core::PCWSTR, pedatatype: *mut SLDATATYPE, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SLGetProductSkuInformation(::core::mem::transmute(hslc), ::core::mem::transmute(pproductskuid), pwszvaluename.into_param().abi(), ::core::mem::transmute(pedatatype), ::core::mem::transmute(pcbvalue), ::core::mem::transmute(ppbvalue)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLGetReferralInformation<'a, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hslc: *const ::core::ffi::c_void, ereferraltype: SLREFERRALTYPE, pskuorappid: *const ::windows::core::GUID, pwszvaluename: Param3) -> ::windows::core::Result<::windows::core::PWSTR> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SLGetReferralInformation(hslc: *const ::core::ffi::c_void, ereferraltype: SLREFERRALTYPE, pskuorappid: *const ::windows::core::GUID, pwszvaluename: ::windows::core::PCWSTR, ppwszvalue: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-        SLGetReferralInformation(::core::mem::transmute(hslc), ::core::mem::transmute(ereferraltype), ::core::mem::transmute(pskuorappid), pwszvaluename.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SLGetReferralInformation(hslc: *const ::core::ffi::c_void, ereferraltype: SLREFERRALTYPE, pskuorappid: *const ::windows::core::GUID, pwszvaluename: ::windows::core::PCWSTR, ppwszvalue: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
+    SLGetReferralInformation(::core::mem::transmute(hslc), ::core::mem::transmute(ereferraltype), ::core::mem::transmute(pskuorappid), pwszvaluename.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLGetSLIDList(hslc: *const ::core::ffi::c_void, equeryidtype: SLIDTYPE, pqueryid: *const ::windows::core::GUID, ereturnidtype: SLIDTYPE, pnreturnids: *mut u32, ppreturnids: *mut *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SLGetSLIDList(hslc: *const ::core::ffi::c_void, equeryidtype: SLIDTYPE, pqueryid: *const ::windows::core::GUID, ereturnidtype: SLIDTYPE, pnreturnids: *mut u32, ppreturnids: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
-        }
-        SLGetSLIDList(::core::mem::transmute(hslc), ::core::mem::transmute(equeryidtype), ::core::mem::transmute(pqueryid), ::core::mem::transmute(ereturnidtype), ::core::mem::transmute(pnreturnids), ::core::mem::transmute(ppreturnids)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SLGetSLIDList(hslc: *const ::core::ffi::c_void, equeryidtype: SLIDTYPE, pqueryid: *const ::windows::core::GUID, ereturnidtype: SLIDTYPE, pnreturnids: *mut u32, ppreturnids: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SLGetSLIDList(::core::mem::transmute(hslc), ::core::mem::transmute(equeryidtype), ::core::mem::transmute(pqueryid), ::core::mem::transmute(ereturnidtype), ::core::mem::transmute(pnreturnids), ::core::mem::transmute(ppreturnids)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLGetServerStatus<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pwszserverurl: Param0, pwszacquisitiontype: Param1, pwszproxyserver: Param2, wproxyport: u16) -> ::windows::core::Result<::windows::core::HRESULT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SLGetServerStatus(pwszserverurl: ::windows::core::PCWSTR, pwszacquisitiontype: ::windows::core::PCWSTR, pwszproxyserver: ::windows::core::PCWSTR, wproxyport: u16, phrstatus: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::HRESULT>::zeroed();
-        SLGetServerStatus(pwszserverurl.into_param().abi(), pwszacquisitiontype.into_param().abi(), pwszproxyserver.into_param().abi(), ::core::mem::transmute(wproxyport), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HRESULT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SLGetServerStatus(pwszserverurl: ::windows::core::PCWSTR, pwszacquisitiontype: ::windows::core::PCWSTR, pwszproxyserver: ::windows::core::PCWSTR, wproxyport: u16, phrstatus: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::windows::core::HRESULT>::zeroed();
+    SLGetServerStatus(pwszserverurl.into_param().abi(), pwszacquisitiontype.into_param().abi(), pwszproxyserver.into_param().abi(), ::core::mem::transmute(wproxyport), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HRESULT>(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLGetServiceInformation<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hslc: *const ::core::ffi::c_void, pwszvaluename: Param1, pedatatype: *mut SLDATATYPE, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SLGetServiceInformation(hslc: *const ::core::ffi::c_void, pwszvaluename: ::windows::core::PCWSTR, pedatatype: *mut SLDATATYPE, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> ::windows::core::HRESULT;
-        }
-        SLGetServiceInformation(::core::mem::transmute(hslc), pwszvaluename.into_param().abi(), ::core::mem::transmute(pedatatype), ::core::mem::transmute(pcbvalue), ::core::mem::transmute(ppbvalue)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SLGetServiceInformation(hslc: *const ::core::ffi::c_void, pwszvaluename: ::windows::core::PCWSTR, pedatatype: *mut SLDATATYPE, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SLGetServiceInformation(::core::mem::transmute(hslc), pwszvaluename.into_param().abi(), ::core::mem::transmute(pedatatype), ::core::mem::transmute(pcbvalue), ::core::mem::transmute(ppbvalue)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLGetWindowsInformation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pwszvaluename: Param0, pedatatype: *mut SLDATATYPE, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SLGetWindowsInformation(pwszvaluename: ::windows::core::PCWSTR, pedatatype: *mut SLDATATYPE, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> ::windows::core::HRESULT;
-        }
-        SLGetWindowsInformation(pwszvaluename.into_param().abi(), ::core::mem::transmute(pedatatype), ::core::mem::transmute(pcbvalue), ::core::mem::transmute(ppbvalue)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SLGetWindowsInformation(pwszvaluename: ::windows::core::PCWSTR, pedatatype: *mut SLDATATYPE, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SLGetWindowsInformation(pwszvaluename.into_param().abi(), ::core::mem::transmute(pedatatype), ::core::mem::transmute(pcbvalue), ::core::mem::transmute(ppbvalue)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLGetWindowsInformationDWORD<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pwszvaluename: Param0) -> ::windows::core::Result<u32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SLGetWindowsInformationDWORD(pwszvaluename: ::windows::core::PCWSTR, pdwvalue: *mut u32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        SLGetWindowsInformationDWORD(pwszvaluename.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SLGetWindowsInformationDWORD(pwszvaluename: ::windows::core::PCWSTR, pdwvalue: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+    SLGetWindowsInformationDWORD(pwszvaluename.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
@@ -15774,46 +15079,31 @@ impl ::core::fmt::Debug for SLIDTYPE {
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLInstallLicense(hslc: *const ::core::ffi::c_void, cblicenseblob: u32, pblicenseblob: *const u8) -> ::windows::core::Result<::windows::core::GUID> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SLInstallLicense(hslc: *const ::core::ffi::c_void, cblicenseblob: u32, pblicenseblob: *const u8, plicensefileid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
-        SLInstallLicense(::core::mem::transmute(hslc), ::core::mem::transmute(cblicenseblob), ::core::mem::transmute(pblicenseblob), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SLInstallLicense(hslc: *const ::core::ffi::c_void, cblicenseblob: u32, pblicenseblob: *const u8, plicensefileid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+    SLInstallLicense(::core::mem::transmute(hslc), ::core::mem::transmute(cblicenseblob), ::core::mem::transmute(pblicenseblob), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLInstallProofOfPurchase<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hslc: *const ::core::ffi::c_void, pwszpkeyalgorithm: Param1, pwszpkeystring: Param2, cbpkeyspecificdata: u32, pbpkeyspecificdata: *const u8) -> ::windows::core::Result<::windows::core::GUID> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SLInstallProofOfPurchase(hslc: *const ::core::ffi::c_void, pwszpkeyalgorithm: ::windows::core::PCWSTR, pwszpkeystring: ::windows::core::PCWSTR, cbpkeyspecificdata: u32, pbpkeyspecificdata: *const u8, ppkeyid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
-        SLInstallProofOfPurchase(::core::mem::transmute(hslc), pwszpkeyalgorithm.into_param().abi(), pwszpkeystring.into_param().abi(), ::core::mem::transmute(cbpkeyspecificdata), ::core::mem::transmute(pbpkeyspecificdata), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SLInstallProofOfPurchase(hslc: *const ::core::ffi::c_void, pwszpkeyalgorithm: ::windows::core::PCWSTR, pwszpkeystring: ::windows::core::PCWSTR, cbpkeyspecificdata: u32, pbpkeyspecificdata: *const u8, ppkeyid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+    SLInstallProofOfPurchase(::core::mem::transmute(hslc), pwszpkeyalgorithm.into_param().abi(), pwszpkeystring.into_param().abi(), ::core::mem::transmute(cbpkeyspecificdata), ::core::mem::transmute(pbpkeyspecificdata), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLIsGenuineLocal(pappid: *const ::windows::core::GUID, pgenuinestate: *mut SL_GENUINE_STATE, puioptions: *mut SL_NONGENUINE_UI_OPTIONS) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SLIsGenuineLocal(pappid: *const ::windows::core::GUID, pgenuinestate: *mut SL_GENUINE_STATE, puioptions: *mut SL_NONGENUINE_UI_OPTIONS) -> ::windows::core::HRESULT;
-        }
-        SLIsGenuineLocal(::core::mem::transmute(pappid), ::core::mem::transmute(pgenuinestate), ::core::mem::transmute(puioptions)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SLIsGenuineLocal(pappid: *const ::windows::core::GUID, pgenuinestate: *mut SL_GENUINE_STATE, puioptions: *mut SL_NONGENUINE_UI_OPTIONS) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SLIsGenuineLocal(::core::mem::transmute(pappid), ::core::mem::transmute(pgenuinestate), ::core::mem::transmute(puioptions)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
@@ -15851,30 +15141,20 @@ impl ::core::fmt::Debug for SLLICENSINGSTATUS {
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLOpen(phslc: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SLOpen(phslc: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        SLOpen(::core::mem::transmute(phslc)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SLOpen(phslc: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SLOpen(::core::mem::transmute(phslc)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLQueryLicenseValueFromApp<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(valuename: Param0, valuetype: *mut u32, databuffer: *mut ::core::ffi::c_void, datasize: u32, resultdatasize: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SLQueryLicenseValueFromApp(valuename: ::windows::core::PCWSTR, valuetype: *mut u32, databuffer: *mut ::core::ffi::c_void, datasize: u32, resultdatasize: *mut u32) -> ::windows::core::HRESULT;
-        }
-        SLQueryLicenseValueFromApp(valuename.into_param().abi(), ::core::mem::transmute(valuetype), ::core::mem::transmute(databuffer), ::core::mem::transmute(datasize), ::core::mem::transmute(resultdatasize)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SLQueryLicenseValueFromApp(valuename: ::windows::core::PCWSTR, valuetype: *mut u32, databuffer: *mut ::core::ffi::c_void, datasize: u32, resultdatasize: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SLQueryLicenseValueFromApp(valuename.into_param().abi(), ::core::mem::transmute(valuetype), ::core::mem::transmute(databuffer), ::core::mem::transmute(datasize), ::core::mem::transmute(resultdatasize)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
@@ -15913,87 +15193,57 @@ impl ::core::fmt::Debug for SLREFERRALTYPE {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SLRegisterEvent<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hslc: *const ::core::ffi::c_void, pwszeventid: Param1, papplicationid: *const ::windows::core::GUID, hevent: Param3) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SLRegisterEvent(hslc: *const ::core::ffi::c_void, pwszeventid: ::windows::core::PCWSTR, papplicationid: *const ::windows::core::GUID, hevent: super::super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
-        }
-        SLRegisterEvent(::core::mem::transmute(hslc), pwszeventid.into_param().abi(), ::core::mem::transmute(papplicationid), hevent.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SLRegisterEvent(hslc: *const ::core::ffi::c_void, pwszeventid: ::windows::core::PCWSTR, papplicationid: *const ::windows::core::GUID, hevent: super::super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SLRegisterEvent(::core::mem::transmute(hslc), pwszeventid.into_param().abi(), ::core::mem::transmute(papplicationid), hevent.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLSetCurrentProductKey(hslc: *const ::core::ffi::c_void, pproductskuid: *const ::windows::core::GUID, pproductkeyid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SLSetCurrentProductKey(hslc: *const ::core::ffi::c_void, pproductskuid: *const ::windows::core::GUID, pproductkeyid: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
-        }
-        SLSetCurrentProductKey(::core::mem::transmute(hslc), ::core::mem::transmute(pproductskuid), ::core::mem::transmute(pproductkeyid)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SLSetCurrentProductKey(hslc: *const ::core::ffi::c_void, pproductskuid: *const ::windows::core::GUID, pproductkeyid: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SLSetCurrentProductKey(::core::mem::transmute(hslc), ::core::mem::transmute(pproductskuid), ::core::mem::transmute(pproductkeyid)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLSetGenuineInformation<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pqueryid: *const ::windows::core::GUID, pwszvaluename: Param1, edatatype: SLDATATYPE, cbvalue: u32, pbvalue: *const u8) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SLSetGenuineInformation(pqueryid: *const ::windows::core::GUID, pwszvaluename: ::windows::core::PCWSTR, edatatype: SLDATATYPE, cbvalue: u32, pbvalue: *const u8) -> ::windows::core::HRESULT;
-        }
-        SLSetGenuineInformation(::core::mem::transmute(pqueryid), pwszvaluename.into_param().abi(), ::core::mem::transmute(edatatype), ::core::mem::transmute(cbvalue), ::core::mem::transmute(pbvalue)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SLSetGenuineInformation(pqueryid: *const ::windows::core::GUID, pwszvaluename: ::windows::core::PCWSTR, edatatype: SLDATATYPE, cbvalue: u32, pbvalue: *const u8) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SLSetGenuineInformation(::core::mem::transmute(pqueryid), pwszvaluename.into_param().abi(), ::core::mem::transmute(edatatype), ::core::mem::transmute(cbvalue), ::core::mem::transmute(pbvalue)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLUninstallLicense(hslc: *const ::core::ffi::c_void, plicensefileid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SLUninstallLicense(hslc: *const ::core::ffi::c_void, plicensefileid: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
-        }
-        SLUninstallLicense(::core::mem::transmute(hslc), ::core::mem::transmute(plicensefileid)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SLUninstallLicense(hslc: *const ::core::ffi::c_void, plicensefileid: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SLUninstallLicense(::core::mem::transmute(hslc), ::core::mem::transmute(plicensefileid)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLUninstallProofOfPurchase(hslc: *const ::core::ffi::c_void, ppkeyid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SLUninstallProofOfPurchase(hslc: *const ::core::ffi::c_void, ppkeyid: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
-        }
-        SLUninstallProofOfPurchase(::core::mem::transmute(hslc), ::core::mem::transmute(ppkeyid)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SLUninstallProofOfPurchase(hslc: *const ::core::ffi::c_void, ppkeyid: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SLUninstallProofOfPurchase(::core::mem::transmute(hslc), ::core::mem::transmute(ppkeyid)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SLUnregisterEvent<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hslc: *const ::core::ffi::c_void, pwszeventid: Param1, papplicationid: *const ::windows::core::GUID, hevent: Param3) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SLUnregisterEvent(hslc: *const ::core::ffi::c_void, pwszeventid: ::windows::core::PCWSTR, papplicationid: *const ::windows::core::GUID, hevent: super::super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
-        }
-        SLUnregisterEvent(::core::mem::transmute(hslc), pwszeventid.into_param().abi(), ::core::mem::transmute(papplicationid), hevent.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SLUnregisterEvent(hslc: *const ::core::ffi::c_void, pwszeventid: ::windows::core::PCWSTR, papplicationid: *const ::windows::core::GUID, hevent: super::super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SLUnregisterEvent(::core::mem::transmute(hslc), pwszeventid.into_param().abi(), ::core::mem::transmute(papplicationid), hevent.into_param().abi()).ok()
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -17359,164 +16609,109 @@ pub const SZ_ALG_MAX_SIZE: u32 = 64u32;
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn SaslAcceptSecurityContext(phcredential: *const super::super::Credentials::SecHandle, phcontext: *const super::super::Credentials::SecHandle, pinput: *const SecBufferDesc, fcontextreq: u32, targetdatarep: u32, phnewcontext: *mut super::super::Credentials::SecHandle, poutput: *mut SecBufferDesc, pfcontextattr: *mut u32, ptsexpiry: *mut i64) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SaslAcceptSecurityContext(phcredential: *const super::super::Credentials::SecHandle, phcontext: *const super::super::Credentials::SecHandle, pinput: *const SecBufferDesc, fcontextreq: u32, targetdatarep: u32, phnewcontext: *mut super::super::Credentials::SecHandle, poutput: *mut SecBufferDesc, pfcontextattr: *mut u32, ptsexpiry: *mut i64) -> ::windows::core::HRESULT;
-        }
-        SaslAcceptSecurityContext(::core::mem::transmute(phcredential), ::core::mem::transmute(phcontext), ::core::mem::transmute(pinput), ::core::mem::transmute(fcontextreq), ::core::mem::transmute(targetdatarep), ::core::mem::transmute(phnewcontext), ::core::mem::transmute(poutput), ::core::mem::transmute(pfcontextattr), ::core::mem::transmute(ptsexpiry)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SaslAcceptSecurityContext(phcredential: *const super::super::Credentials::SecHandle, phcontext: *const super::super::Credentials::SecHandle, pinput: *const SecBufferDesc, fcontextreq: u32, targetdatarep: u32, phnewcontext: *mut super::super::Credentials::SecHandle, poutput: *mut SecBufferDesc, pfcontextattr: *mut u32, ptsexpiry: *mut i64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SaslAcceptSecurityContext(::core::mem::transmute(phcredential), ::core::mem::transmute(phcontext), ::core::mem::transmute(pinput), ::core::mem::transmute(fcontextreq), ::core::mem::transmute(targetdatarep), ::core::mem::transmute(phnewcontext), ::core::mem::transmute(poutput), ::core::mem::transmute(pfcontextattr), ::core::mem::transmute(ptsexpiry)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SaslEnumerateProfilesA(profilelist: *mut ::windows::core::PSTR, profilecount: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SaslEnumerateProfilesA(profilelist: *mut ::windows::core::PSTR, profilecount: *mut u32) -> ::windows::core::HRESULT;
-        }
-        SaslEnumerateProfilesA(::core::mem::transmute(profilelist), ::core::mem::transmute(profilecount)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SaslEnumerateProfilesA(profilelist: *mut ::windows::core::PSTR, profilecount: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SaslEnumerateProfilesA(::core::mem::transmute(profilelist), ::core::mem::transmute(profilecount)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SaslEnumerateProfilesW(profilelist: *mut ::windows::core::PWSTR, profilecount: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SaslEnumerateProfilesW(profilelist: *mut ::windows::core::PWSTR, profilecount: *mut u32) -> ::windows::core::HRESULT;
-        }
-        SaslEnumerateProfilesW(::core::mem::transmute(profilelist), ::core::mem::transmute(profilecount)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SaslEnumerateProfilesW(profilelist: *mut ::windows::core::PWSTR, profilecount: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SaslEnumerateProfilesW(::core::mem::transmute(profilelist), ::core::mem::transmute(profilecount)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn SaslGetContextOption(contexthandle: *const super::super::Credentials::SecHandle, option: u32, value: *mut ::core::ffi::c_void, size: u32, needed: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SaslGetContextOption(contexthandle: *const super::super::Credentials::SecHandle, option: u32, value: *mut ::core::ffi::c_void, size: u32, needed: *mut u32) -> ::windows::core::HRESULT;
-        }
-        SaslGetContextOption(::core::mem::transmute(contexthandle), ::core::mem::transmute(option), ::core::mem::transmute(value), ::core::mem::transmute(size), ::core::mem::transmute(needed)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SaslGetContextOption(contexthandle: *const super::super::Credentials::SecHandle, option: u32, value: *mut ::core::ffi::c_void, size: u32, needed: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SaslGetContextOption(::core::mem::transmute(contexthandle), ::core::mem::transmute(option), ::core::mem::transmute(value), ::core::mem::transmute(size), ::core::mem::transmute(needed)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SaslGetProfilePackageA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(profilename: Param0) -> ::windows::core::Result<*mut SecPkgInfoA> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SaslGetProfilePackageA(profilename: ::windows::core::PCSTR, packageinfo: *mut *mut SecPkgInfoA) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut SecPkgInfoA>::zeroed();
-        SaslGetProfilePackageA(profilename.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut SecPkgInfoA>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SaslGetProfilePackageA(profilename: ::windows::core::PCSTR, packageinfo: *mut *mut SecPkgInfoA) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut SecPkgInfoA>::zeroed();
+    SaslGetProfilePackageA(profilename.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut SecPkgInfoA>(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SaslGetProfilePackageW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(profilename: Param0) -> ::windows::core::Result<*mut SecPkgInfoW> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SaslGetProfilePackageW(profilename: ::windows::core::PCWSTR, packageinfo: *mut *mut SecPkgInfoW) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut SecPkgInfoW>::zeroed();
-        SaslGetProfilePackageW(profilename.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut SecPkgInfoW>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SaslGetProfilePackageW(profilename: ::windows::core::PCWSTR, packageinfo: *mut *mut SecPkgInfoW) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut SecPkgInfoW>::zeroed();
+    SaslGetProfilePackageW(profilename.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut SecPkgInfoW>(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SaslIdentifyPackageA(pinput: *const SecBufferDesc) -> ::windows::core::Result<*mut SecPkgInfoA> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SaslIdentifyPackageA(pinput: *const SecBufferDesc, packageinfo: *mut *mut SecPkgInfoA) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut SecPkgInfoA>::zeroed();
-        SaslIdentifyPackageA(::core::mem::transmute(pinput), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut SecPkgInfoA>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SaslIdentifyPackageA(pinput: *const SecBufferDesc, packageinfo: *mut *mut SecPkgInfoA) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut SecPkgInfoA>::zeroed();
+    SaslIdentifyPackageA(::core::mem::transmute(pinput), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut SecPkgInfoA>(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SaslIdentifyPackageW(pinput: *const SecBufferDesc) -> ::windows::core::Result<*mut SecPkgInfoW> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SaslIdentifyPackageW(pinput: *const SecBufferDesc, packageinfo: *mut *mut SecPkgInfoW) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut SecPkgInfoW>::zeroed();
-        SaslIdentifyPackageW(::core::mem::transmute(pinput), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut SecPkgInfoW>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SaslIdentifyPackageW(pinput: *const SecBufferDesc, packageinfo: *mut *mut SecPkgInfoW) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut SecPkgInfoW>::zeroed();
+    SaslIdentifyPackageW(::core::mem::transmute(pinput), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut SecPkgInfoW>(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn SaslInitializeSecurityContextA<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(phcredential: *const super::super::Credentials::SecHandle, phcontext: *const super::super::Credentials::SecHandle, psztargetname: Param2, fcontextreq: u32, reserved1: u32, targetdatarep: u32, pinput: *const SecBufferDesc, reserved2: u32, phnewcontext: *mut super::super::Credentials::SecHandle, poutput: *mut SecBufferDesc, pfcontextattr: *mut u32, ptsexpiry: *mut i64) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SaslInitializeSecurityContextA(phcredential: *const super::super::Credentials::SecHandle, phcontext: *const super::super::Credentials::SecHandle, psztargetname: ::windows::core::PCSTR, fcontextreq: u32, reserved1: u32, targetdatarep: u32, pinput: *const SecBufferDesc, reserved2: u32, phnewcontext: *mut super::super::Credentials::SecHandle, poutput: *mut SecBufferDesc, pfcontextattr: *mut u32, ptsexpiry: *mut i64) -> ::windows::core::HRESULT;
-        }
-        SaslInitializeSecurityContextA(::core::mem::transmute(phcredential), ::core::mem::transmute(phcontext), psztargetname.into_param().abi(), ::core::mem::transmute(fcontextreq), ::core::mem::transmute(reserved1), ::core::mem::transmute(targetdatarep), ::core::mem::transmute(pinput), ::core::mem::transmute(reserved2), ::core::mem::transmute(phnewcontext), ::core::mem::transmute(poutput), ::core::mem::transmute(pfcontextattr), ::core::mem::transmute(ptsexpiry)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SaslInitializeSecurityContextA(phcredential: *const super::super::Credentials::SecHandle, phcontext: *const super::super::Credentials::SecHandle, psztargetname: ::windows::core::PCSTR, fcontextreq: u32, reserved1: u32, targetdatarep: u32, pinput: *const SecBufferDesc, reserved2: u32, phnewcontext: *mut super::super::Credentials::SecHandle, poutput: *mut SecBufferDesc, pfcontextattr: *mut u32, ptsexpiry: *mut i64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SaslInitializeSecurityContextA(::core::mem::transmute(phcredential), ::core::mem::transmute(phcontext), psztargetname.into_param().abi(), ::core::mem::transmute(fcontextreq), ::core::mem::transmute(reserved1), ::core::mem::transmute(targetdatarep), ::core::mem::transmute(pinput), ::core::mem::transmute(reserved2), ::core::mem::transmute(phnewcontext), ::core::mem::transmute(poutput), ::core::mem::transmute(pfcontextattr), ::core::mem::transmute(ptsexpiry)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn SaslInitializeSecurityContextW<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(phcredential: *const super::super::Credentials::SecHandle, phcontext: *const super::super::Credentials::SecHandle, psztargetname: Param2, fcontextreq: u32, reserved1: u32, targetdatarep: u32, pinput: *const SecBufferDesc, reserved2: u32, phnewcontext: *mut super::super::Credentials::SecHandle, poutput: *mut SecBufferDesc, pfcontextattr: *mut u32, ptsexpiry: *mut i64) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SaslInitializeSecurityContextW(phcredential: *const super::super::Credentials::SecHandle, phcontext: *const super::super::Credentials::SecHandle, psztargetname: ::windows::core::PCWSTR, fcontextreq: u32, reserved1: u32, targetdatarep: u32, pinput: *const SecBufferDesc, reserved2: u32, phnewcontext: *mut super::super::Credentials::SecHandle, poutput: *mut SecBufferDesc, pfcontextattr: *mut u32, ptsexpiry: *mut i64) -> ::windows::core::HRESULT;
-        }
-        SaslInitializeSecurityContextW(::core::mem::transmute(phcredential), ::core::mem::transmute(phcontext), psztargetname.into_param().abi(), ::core::mem::transmute(fcontextreq), ::core::mem::transmute(reserved1), ::core::mem::transmute(targetdatarep), ::core::mem::transmute(pinput), ::core::mem::transmute(reserved2), ::core::mem::transmute(phnewcontext), ::core::mem::transmute(poutput), ::core::mem::transmute(pfcontextattr), ::core::mem::transmute(ptsexpiry)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SaslInitializeSecurityContextW(phcredential: *const super::super::Credentials::SecHandle, phcontext: *const super::super::Credentials::SecHandle, psztargetname: ::windows::core::PCWSTR, fcontextreq: u32, reserved1: u32, targetdatarep: u32, pinput: *const SecBufferDesc, reserved2: u32, phnewcontext: *mut super::super::Credentials::SecHandle, poutput: *mut SecBufferDesc, pfcontextattr: *mut u32, ptsexpiry: *mut i64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SaslInitializeSecurityContextW(::core::mem::transmute(phcredential), ::core::mem::transmute(phcontext), psztargetname.into_param().abi(), ::core::mem::transmute(fcontextreq), ::core::mem::transmute(reserved1), ::core::mem::transmute(targetdatarep), ::core::mem::transmute(pinput), ::core::mem::transmute(reserved2), ::core::mem::transmute(phnewcontext), ::core::mem::transmute(poutput), ::core::mem::transmute(pfcontextattr), ::core::mem::transmute(ptsexpiry)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn SaslSetContextOption(contexthandle: *const super::super::Credentials::SecHandle, option: u32, value: *const ::core::ffi::c_void, size: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SaslSetContextOption(contexthandle: *const super::super::Credentials::SecHandle, option: u32, value: *const ::core::ffi::c_void, size: u32) -> ::windows::core::HRESULT;
-        }
-        SaslSetContextOption(::core::mem::transmute(contexthandle), ::core::mem::transmute(option), ::core::mem::transmute(value), ::core::mem::transmute(size)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SaslSetContextOption(contexthandle: *const super::super::Credentials::SecHandle, option: u32, value: *const ::core::ffi::c_void, size: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SaslSetContextOption(::core::mem::transmute(contexthandle), ::core::mem::transmute(option), ::core::mem::transmute(value), ::core::mem::transmute(size)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
@@ -20383,61 +19578,41 @@ impl ::core::default::Default for SecurityFunctionTableW {
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn SetContextAttributesA(phcontext: *const super::super::Credentials::SecHandle, ulattribute: SECPKG_ATTR, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetContextAttributesA(phcontext: *const super::super::Credentials::SecHandle, ulattribute: SECPKG_ATTR, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32) -> ::windows::core::HRESULT;
-        }
-        SetContextAttributesA(::core::mem::transmute(phcontext), ::core::mem::transmute(ulattribute), ::core::mem::transmute(pbuffer), ::core::mem::transmute(cbbuffer)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetContextAttributesA(phcontext: *const super::super::Credentials::SecHandle, ulattribute: SECPKG_ATTR, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SetContextAttributesA(::core::mem::transmute(phcontext), ::core::mem::transmute(ulattribute), ::core::mem::transmute(pbuffer), ::core::mem::transmute(cbbuffer)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn SetContextAttributesW(phcontext: *const super::super::Credentials::SecHandle, ulattribute: SECPKG_ATTR, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetContextAttributesW(phcontext: *const super::super::Credentials::SecHandle, ulattribute: SECPKG_ATTR, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32) -> ::windows::core::HRESULT;
-        }
-        SetContextAttributesW(::core::mem::transmute(phcontext), ::core::mem::transmute(ulattribute), ::core::mem::transmute(pbuffer), ::core::mem::transmute(cbbuffer)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetContextAttributesW(phcontext: *const super::super::Credentials::SecHandle, ulattribute: SECPKG_ATTR, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SetContextAttributesW(::core::mem::transmute(phcontext), ::core::mem::transmute(ulattribute), ::core::mem::transmute(pbuffer), ::core::mem::transmute(cbbuffer)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn SetCredentialsAttributesA(phcredential: *const super::super::Credentials::SecHandle, ulattribute: u32, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetCredentialsAttributesA(phcredential: *const super::super::Credentials::SecHandle, ulattribute: u32, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32) -> ::windows::core::HRESULT;
-        }
-        SetCredentialsAttributesA(::core::mem::transmute(phcredential), ::core::mem::transmute(ulattribute), ::core::mem::transmute(pbuffer), ::core::mem::transmute(cbbuffer)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetCredentialsAttributesA(phcredential: *const super::super::Credentials::SecHandle, ulattribute: u32, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SetCredentialsAttributesA(::core::mem::transmute(phcredential), ::core::mem::transmute(ulattribute), ::core::mem::transmute(pbuffer), ::core::mem::transmute(cbbuffer)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn SetCredentialsAttributesW(phcredential: *const super::super::Credentials::SecHandle, ulattribute: u32, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetCredentialsAttributesW(phcredential: *const super::super::Credentials::SecHandle, ulattribute: u32, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32) -> ::windows::core::HRESULT;
-        }
-        SetCredentialsAttributesW(::core::mem::transmute(phcredential), ::core::mem::transmute(ulattribute), ::core::mem::transmute(pbuffer), ::core::mem::transmute(cbbuffer)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetCredentialsAttributesW(phcredential: *const super::super::Credentials::SecHandle, ulattribute: u32, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SetCredentialsAttributesW(::core::mem::transmute(phcredential), ::core::mem::transmute(ulattribute), ::core::mem::transmute(pbuffer), ::core::mem::transmute(cbbuffer)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -20578,119 +19753,79 @@ pub type SpVerifySignatureFn = ::core::option::Option<unsafe extern "system" fn(
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SslCrackCertificate(pbcertificate: *mut u8, cbcertificate: u32, dwflags: u32, ppcertificate: *mut *mut X509Certificate) -> super::super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SslCrackCertificate(pbcertificate: *mut u8, cbcertificate: u32, dwflags: u32, ppcertificate: *mut *mut X509Certificate) -> super::super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(SslCrackCertificate(::core::mem::transmute(pbcertificate), ::core::mem::transmute(cbcertificate), ::core::mem::transmute(dwflags), ::core::mem::transmute(ppcertificate)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SslCrackCertificate(pbcertificate: *mut u8, cbcertificate: u32, dwflags: u32, ppcertificate: *mut *mut X509Certificate) -> super::super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SslCrackCertificate(::core::mem::transmute(pbcertificate), ::core::mem::transmute(cbcertificate), ::core::mem::transmute(dwflags), ::core::mem::transmute(ppcertificate)))
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SslEmptyCacheA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(psztargetname: Param0, dwflags: u32) -> super::super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SslEmptyCacheA(psztargetname: ::windows::core::PCSTR, dwflags: u32) -> super::super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(SslEmptyCacheA(psztargetname.into_param().abi(), ::core::mem::transmute(dwflags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SslEmptyCacheA(psztargetname: ::windows::core::PCSTR, dwflags: u32) -> super::super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SslEmptyCacheA(psztargetname.into_param().abi(), ::core::mem::transmute(dwflags)))
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SslEmptyCacheW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(psztargetname: Param0, dwflags: u32) -> super::super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SslEmptyCacheW(psztargetname: ::windows::core::PCWSTR, dwflags: u32) -> super::super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(SslEmptyCacheW(psztargetname.into_param().abi(), ::core::mem::transmute(dwflags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SslEmptyCacheW(psztargetname: ::windows::core::PCWSTR, dwflags: u32) -> super::super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SslEmptyCacheW(psztargetname.into_param().abi(), ::core::mem::transmute(dwflags)))
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SslFreeCertificate(pcertificate: *mut X509Certificate) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SslFreeCertificate(pcertificate: *mut X509Certificate);
-        }
-        SslFreeCertificate(::core::mem::transmute(pcertificate))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SslFreeCertificate(pcertificate: *mut X509Certificate);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SslFreeCertificate(::core::mem::transmute(pcertificate))
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SslGenerateRandomBits(prandomdata: *mut u8, crandomdata: i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SslGenerateRandomBits(prandomdata: *mut u8, crandomdata: i32);
-        }
-        SslGenerateRandomBits(::core::mem::transmute(prandomdata), ::core::mem::transmute(crandomdata))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SslGenerateRandomBits(prandomdata: *mut u8, crandomdata: i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SslGenerateRandomBits(::core::mem::transmute(prandomdata), ::core::mem::transmute(crandomdata))
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SslGetExtensions(clienthello: &[u8], genericextensions: &mut [SCH_EXTENSION_DATA], bytestoread: *mut u32, flags: SchGetExtensionsOptions) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SslGetExtensions(clienthello: *const u8, clienthellobytesize: u32, genericextensions: *mut SCH_EXTENSION_DATA, genericextensionscount: u8, bytestoread: *mut u32, flags: SchGetExtensionsOptions) -> ::windows::core::HRESULT;
-        }
-        SslGetExtensions(::core::mem::transmute(::windows::core::as_ptr_or_null(clienthello)), clienthello.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(genericextensions)), genericextensions.len() as _, ::core::mem::transmute(bytestoread), ::core::mem::transmute(flags)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SslGetExtensions(clienthello: *const u8, clienthellobytesize: u32, genericextensions: *mut SCH_EXTENSION_DATA, genericextensionscount: u8, bytestoread: *mut u32, flags: SchGetExtensionsOptions) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SslGetExtensions(::core::mem::transmute(::windows::core::as_ptr_or_null(clienthello)), clienthello.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(genericextensions)), genericextensions.len() as _, ::core::mem::transmute(bytestoread), ::core::mem::transmute(flags)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub type SslGetExtensionsFn = ::core::option::Option<unsafe extern "system" fn(clienthello: *const u8, clienthellobytesize: u32, genericextensions: *mut SCH_EXTENSION_DATA, genericextensionscount: u8, bytestoread: *mut u32, flags: SchGetExtensionsOptions) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SslGetMaximumKeySize(reserved: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SslGetMaximumKeySize(reserved: u32) -> u32;
-        }
-        ::core::mem::transmute(SslGetMaximumKeySize(::core::mem::transmute(reserved)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SslGetMaximumKeySize(reserved: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SslGetMaximumKeySize(::core::mem::transmute(reserved)))
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SslGetServerIdentity(clienthello: *const u8, clienthellosize: u32, serveridentity: *mut *mut u8, serveridentitysize: *mut u32, flags: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SslGetServerIdentity(clienthello: *const u8, clienthellosize: u32, serveridentity: *mut *mut u8, serveridentitysize: *mut u32, flags: u32) -> ::windows::core::HRESULT;
-        }
-        SslGetServerIdentity(::core::mem::transmute(clienthello), ::core::mem::transmute(clienthellosize), ::core::mem::transmute(serveridentity), ::core::mem::transmute(serveridentitysize), ::core::mem::transmute(flags)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SslGetServerIdentity(clienthello: *const u8, clienthellosize: u32, serveridentity: *mut *mut u8, serveridentitysize: *mut u32, flags: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SslGetServerIdentity(::core::mem::transmute(clienthello), ::core::mem::transmute(clienthellosize), ::core::mem::transmute(serveridentity), ::core::mem::transmute(serveridentitysize), ::core::mem::transmute(flags)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub type SslGetServerIdentityFn = ::core::option::Option<unsafe extern "system" fn(clienthello: *const u8, clienthellosize: u32, serveridentity: *mut *mut u8, serveridentitysize: *mut u32, flags: u32) -> ::windows::core::HRESULT>;
@@ -20698,358 +19833,233 @@ pub type SslGetServerIdentityFn = ::core::option::Option<unsafe extern "system" 
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SspiCompareAuthIdentities(authidentity1: *const ::core::ffi::c_void, authidentity2: *const ::core::ffi::c_void, samesupplieduser: *mut super::super::super::Foundation::BOOLEAN, samesuppliedidentity: *mut super::super::super::Foundation::BOOLEAN) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SspiCompareAuthIdentities(authidentity1: *const ::core::ffi::c_void, authidentity2: *const ::core::ffi::c_void, samesupplieduser: *mut super::super::super::Foundation::BOOLEAN, samesuppliedidentity: *mut super::super::super::Foundation::BOOLEAN) -> ::windows::core::HRESULT;
-        }
-        SspiCompareAuthIdentities(::core::mem::transmute(authidentity1), ::core::mem::transmute(authidentity2), ::core::mem::transmute(samesupplieduser), ::core::mem::transmute(samesuppliedidentity)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SspiCompareAuthIdentities(authidentity1: *const ::core::ffi::c_void, authidentity2: *const ::core::ffi::c_void, samesupplieduser: *mut super::super::super::Foundation::BOOLEAN, samesuppliedidentity: *mut super::super::super::Foundation::BOOLEAN) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SspiCompareAuthIdentities(::core::mem::transmute(authidentity1), ::core::mem::transmute(authidentity2), ::core::mem::transmute(samesupplieduser), ::core::mem::transmute(samesuppliedidentity)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SspiCopyAuthIdentity(authdata: *const ::core::ffi::c_void, authdatacopy: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SspiCopyAuthIdentity(authdata: *const ::core::ffi::c_void, authdatacopy: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        SspiCopyAuthIdentity(::core::mem::transmute(authdata), ::core::mem::transmute(authdatacopy)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SspiCopyAuthIdentity(authdata: *const ::core::ffi::c_void, authdatacopy: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SspiCopyAuthIdentity(::core::mem::transmute(authdata), ::core::mem::transmute(authdatacopy)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SspiDecryptAuthIdentity(encryptedauthdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SspiDecryptAuthIdentity(encryptedauthdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        SspiDecryptAuthIdentity(::core::mem::transmute(encryptedauthdata)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SspiDecryptAuthIdentity(encryptedauthdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SspiDecryptAuthIdentity(::core::mem::transmute(encryptedauthdata)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SspiDecryptAuthIdentityEx(options: u32, encryptedauthdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SspiDecryptAuthIdentityEx(options: u32, encryptedauthdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        SspiDecryptAuthIdentityEx(::core::mem::transmute(options), ::core::mem::transmute(encryptedauthdata)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SspiDecryptAuthIdentityEx(options: u32, encryptedauthdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SspiDecryptAuthIdentityEx(::core::mem::transmute(options), ::core::mem::transmute(encryptedauthdata)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SspiEncodeAuthIdentityAsStrings(pauthidentity: *const ::core::ffi::c_void, ppszusername: *mut ::windows::core::PWSTR, ppszdomainname: *mut ::windows::core::PWSTR, ppszpackedcredentialsstring: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SspiEncodeAuthIdentityAsStrings(pauthidentity: *const ::core::ffi::c_void, ppszusername: *mut ::windows::core::PWSTR, ppszdomainname: *mut ::windows::core::PWSTR, ppszpackedcredentialsstring: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
-        }
-        SspiEncodeAuthIdentityAsStrings(::core::mem::transmute(pauthidentity), ::core::mem::transmute(ppszusername), ::core::mem::transmute(ppszdomainname), ::core::mem::transmute(ppszpackedcredentialsstring)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SspiEncodeAuthIdentityAsStrings(pauthidentity: *const ::core::ffi::c_void, ppszusername: *mut ::windows::core::PWSTR, ppszdomainname: *mut ::windows::core::PWSTR, ppszpackedcredentialsstring: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SspiEncodeAuthIdentityAsStrings(::core::mem::transmute(pauthidentity), ::core::mem::transmute(ppszusername), ::core::mem::transmute(ppszdomainname), ::core::mem::transmute(ppszpackedcredentialsstring)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SspiEncodeStringsAsAuthIdentity<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pszusername: Param0, pszdomainname: Param1, pszpackedcredentialsstring: Param2, ppauthidentity: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SspiEncodeStringsAsAuthIdentity(pszusername: ::windows::core::PCWSTR, pszdomainname: ::windows::core::PCWSTR, pszpackedcredentialsstring: ::windows::core::PCWSTR, ppauthidentity: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        SspiEncodeStringsAsAuthIdentity(pszusername.into_param().abi(), pszdomainname.into_param().abi(), pszpackedcredentialsstring.into_param().abi(), ::core::mem::transmute(ppauthidentity)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SspiEncodeStringsAsAuthIdentity(pszusername: ::windows::core::PCWSTR, pszdomainname: ::windows::core::PCWSTR, pszpackedcredentialsstring: ::windows::core::PCWSTR, ppauthidentity: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SspiEncodeStringsAsAuthIdentity(pszusername.into_param().abi(), pszdomainname.into_param().abi(), pszpackedcredentialsstring.into_param().abi(), ::core::mem::transmute(ppauthidentity)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SspiEncryptAuthIdentity(authdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SspiEncryptAuthIdentity(authdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        SspiEncryptAuthIdentity(::core::mem::transmute(authdata)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SspiEncryptAuthIdentity(authdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SspiEncryptAuthIdentity(::core::mem::transmute(authdata)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SspiEncryptAuthIdentityEx(options: u32, authdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SspiEncryptAuthIdentityEx(options: u32, authdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        SspiEncryptAuthIdentityEx(::core::mem::transmute(options), ::core::mem::transmute(authdata)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SspiEncryptAuthIdentityEx(options: u32, authdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SspiEncryptAuthIdentityEx(::core::mem::transmute(options), ::core::mem::transmute(authdata)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SspiExcludePackage<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(authidentity: *const ::core::ffi::c_void, pszpackagename: Param1, ppnewauthidentity: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SspiExcludePackage(authidentity: *const ::core::ffi::c_void, pszpackagename: ::windows::core::PCWSTR, ppnewauthidentity: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        SspiExcludePackage(::core::mem::transmute(authidentity), pszpackagename.into_param().abi(), ::core::mem::transmute(ppnewauthidentity)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SspiExcludePackage(authidentity: *const ::core::ffi::c_void, pszpackagename: ::windows::core::PCWSTR, ppnewauthidentity: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SspiExcludePackage(::core::mem::transmute(authidentity), pszpackagename.into_param().abi(), ::core::mem::transmute(ppnewauthidentity)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SspiFreeAuthIdentity(authdata: *const ::core::ffi::c_void) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SspiFreeAuthIdentity(authdata: *const ::core::ffi::c_void);
-        }
-        SspiFreeAuthIdentity(::core::mem::transmute(authdata))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SspiFreeAuthIdentity(authdata: *const ::core::ffi::c_void);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SspiFreeAuthIdentity(::core::mem::transmute(authdata))
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SspiGetTargetHostName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(psztargetname: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SspiGetTargetHostName(psztargetname: ::windows::core::PCWSTR, pszhostname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-        SspiGetTargetHostName(psztargetname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SspiGetTargetHostName(psztargetname: ::windows::core::PCWSTR, pszhostname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
+    SspiGetTargetHostName(psztargetname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SspiIsAuthIdentityEncrypted(encryptedauthdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOLEAN {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SspiIsAuthIdentityEncrypted(encryptedauthdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOLEAN;
-        }
-        ::core::mem::transmute(SspiIsAuthIdentityEncrypted(::core::mem::transmute(encryptedauthdata)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SspiIsAuthIdentityEncrypted(encryptedauthdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOLEAN;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SspiIsAuthIdentityEncrypted(::core::mem::transmute(encryptedauthdata)))
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SspiIsPromptingNeeded(errororntstatus: u32) -> super::super::super::Foundation::BOOLEAN {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SspiIsPromptingNeeded(errororntstatus: u32) -> super::super::super::Foundation::BOOLEAN;
-        }
-        ::core::mem::transmute(SspiIsPromptingNeeded(::core::mem::transmute(errororntstatus)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SspiIsPromptingNeeded(errororntstatus: u32) -> super::super::super::Foundation::BOOLEAN;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SspiIsPromptingNeeded(::core::mem::transmute(errororntstatus)))
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SspiLocalFree(databuffer: *const ::core::ffi::c_void) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SspiLocalFree(databuffer: *const ::core::ffi::c_void);
-        }
-        SspiLocalFree(::core::mem::transmute(databuffer))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SspiLocalFree(databuffer: *const ::core::ffi::c_void);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SspiLocalFree(::core::mem::transmute(databuffer))
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SspiMarshalAuthIdentity(authidentity: *const ::core::ffi::c_void, authidentitylength: *mut u32, authidentitybytearray: *mut *mut i8) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SspiMarshalAuthIdentity(authidentity: *const ::core::ffi::c_void, authidentitylength: *mut u32, authidentitybytearray: *mut *mut i8) -> ::windows::core::HRESULT;
-        }
-        SspiMarshalAuthIdentity(::core::mem::transmute(authidentity), ::core::mem::transmute(authidentitylength), ::core::mem::transmute(authidentitybytearray)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SspiMarshalAuthIdentity(authidentity: *const ::core::ffi::c_void, authidentitylength: *mut u32, authidentitybytearray: *mut *mut i8) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SspiMarshalAuthIdentity(::core::mem::transmute(authidentity), ::core::mem::transmute(authidentitylength), ::core::mem::transmute(authidentitybytearray)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SspiPrepareForCredRead<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(authidentity: *const ::core::ffi::c_void, psztargetname: Param1, pcredmancredentialtype: *mut u32, ppszcredmantargetname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SspiPrepareForCredRead(authidentity: *const ::core::ffi::c_void, psztargetname: ::windows::core::PCWSTR, pcredmancredentialtype: *mut u32, ppszcredmantargetname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
-        }
-        SspiPrepareForCredRead(::core::mem::transmute(authidentity), psztargetname.into_param().abi(), ::core::mem::transmute(pcredmancredentialtype), ::core::mem::transmute(ppszcredmantargetname)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SspiPrepareForCredRead(authidentity: *const ::core::ffi::c_void, psztargetname: ::windows::core::PCWSTR, pcredmancredentialtype: *mut u32, ppszcredmantargetname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SspiPrepareForCredRead(::core::mem::transmute(authidentity), psztargetname.into_param().abi(), ::core::mem::transmute(pcredmancredentialtype), ::core::mem::transmute(ppszcredmantargetname)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SspiPrepareForCredWrite<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(authidentity: *const ::core::ffi::c_void, psztargetname: Param1, pcredmancredentialtype: *mut u32, ppszcredmantargetname: *mut ::windows::core::PWSTR, ppszcredmanusername: *mut ::windows::core::PWSTR, ppcredentialblob: *mut *mut u8, pcredentialblobsize: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SspiPrepareForCredWrite(authidentity: *const ::core::ffi::c_void, psztargetname: ::windows::core::PCWSTR, pcredmancredentialtype: *mut u32, ppszcredmantargetname: *mut ::windows::core::PWSTR, ppszcredmanusername: *mut ::windows::core::PWSTR, ppcredentialblob: *mut *mut u8, pcredentialblobsize: *mut u32) -> ::windows::core::HRESULT;
-        }
-        SspiPrepareForCredWrite(::core::mem::transmute(authidentity), psztargetname.into_param().abi(), ::core::mem::transmute(pcredmancredentialtype), ::core::mem::transmute(ppszcredmantargetname), ::core::mem::transmute(ppszcredmanusername), ::core::mem::transmute(ppcredentialblob), ::core::mem::transmute(pcredentialblobsize)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SspiPrepareForCredWrite(authidentity: *const ::core::ffi::c_void, psztargetname: ::windows::core::PCWSTR, pcredmancredentialtype: *mut u32, ppszcredmantargetname: *mut ::windows::core::PWSTR, ppszcredmanusername: *mut ::windows::core::PWSTR, ppcredentialblob: *mut *mut u8, pcredentialblobsize: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SspiPrepareForCredWrite(::core::mem::transmute(authidentity), psztargetname.into_param().abi(), ::core::mem::transmute(pcredmancredentialtype), ::core::mem::transmute(ppszcredmantargetname), ::core::mem::transmute(ppszcredmanusername), ::core::mem::transmute(ppcredentialblob), ::core::mem::transmute(pcredentialblobsize)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SspiPromptForCredentialsA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(psztargetname: Param0, puiinfo: *const ::core::ffi::c_void, dwautherror: u32, pszpackage: Param3, pinputauthidentity: *const ::core::ffi::c_void, ppauthidentity: *mut *mut ::core::ffi::c_void, pfsave: *mut i32, dwflags: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SspiPromptForCredentialsA(psztargetname: ::windows::core::PCSTR, puiinfo: *const ::core::ffi::c_void, dwautherror: u32, pszpackage: ::windows::core::PCSTR, pinputauthidentity: *const ::core::ffi::c_void, ppauthidentity: *mut *mut ::core::ffi::c_void, pfsave: *mut i32, dwflags: u32) -> u32;
-        }
-        ::core::mem::transmute(SspiPromptForCredentialsA(psztargetname.into_param().abi(), ::core::mem::transmute(puiinfo), ::core::mem::transmute(dwautherror), pszpackage.into_param().abi(), ::core::mem::transmute(pinputauthidentity), ::core::mem::transmute(ppauthidentity), ::core::mem::transmute(pfsave), ::core::mem::transmute(dwflags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SspiPromptForCredentialsA(psztargetname: ::windows::core::PCSTR, puiinfo: *const ::core::ffi::c_void, dwautherror: u32, pszpackage: ::windows::core::PCSTR, pinputauthidentity: *const ::core::ffi::c_void, ppauthidentity: *mut *mut ::core::ffi::c_void, pfsave: *mut i32, dwflags: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SspiPromptForCredentialsA(psztargetname.into_param().abi(), ::core::mem::transmute(puiinfo), ::core::mem::transmute(dwautherror), pszpackage.into_param().abi(), ::core::mem::transmute(pinputauthidentity), ::core::mem::transmute(ppauthidentity), ::core::mem::transmute(pfsave), ::core::mem::transmute(dwflags)))
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SspiPromptForCredentialsW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(psztargetname: Param0, puiinfo: *const ::core::ffi::c_void, dwautherror: u32, pszpackage: Param3, pinputauthidentity: *const ::core::ffi::c_void, ppauthidentity: *mut *mut ::core::ffi::c_void, pfsave: *mut i32, dwflags: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SspiPromptForCredentialsW(psztargetname: ::windows::core::PCWSTR, puiinfo: *const ::core::ffi::c_void, dwautherror: u32, pszpackage: ::windows::core::PCWSTR, pinputauthidentity: *const ::core::ffi::c_void, ppauthidentity: *mut *mut ::core::ffi::c_void, pfsave: *mut i32, dwflags: u32) -> u32;
-        }
-        ::core::mem::transmute(SspiPromptForCredentialsW(psztargetname.into_param().abi(), ::core::mem::transmute(puiinfo), ::core::mem::transmute(dwautherror), pszpackage.into_param().abi(), ::core::mem::transmute(pinputauthidentity), ::core::mem::transmute(ppauthidentity), ::core::mem::transmute(pfsave), ::core::mem::transmute(dwflags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SspiPromptForCredentialsW(psztargetname: ::windows::core::PCWSTR, puiinfo: *const ::core::ffi::c_void, dwautherror: u32, pszpackage: ::windows::core::PCWSTR, pinputauthidentity: *const ::core::ffi::c_void, ppauthidentity: *mut *mut ::core::ffi::c_void, pfsave: *mut i32, dwflags: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SspiPromptForCredentialsW(psztargetname.into_param().abi(), ::core::mem::transmute(puiinfo), ::core::mem::transmute(dwautherror), pszpackage.into_param().abi(), ::core::mem::transmute(pinputauthidentity), ::core::mem::transmute(ppauthidentity), ::core::mem::transmute(pfsave), ::core::mem::transmute(dwflags)))
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SspiUnmarshalAuthIdentity<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(authidentitylength: u32, authidentitybytearray: Param1, ppauthidentity: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SspiUnmarshalAuthIdentity(authidentitylength: u32, authidentitybytearray: ::windows::core::PCSTR, ppauthidentity: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        SspiUnmarshalAuthIdentity(::core::mem::transmute(authidentitylength), authidentitybytearray.into_param().abi(), ::core::mem::transmute(ppauthidentity)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SspiUnmarshalAuthIdentity(authidentitylength: u32, authidentitybytearray: ::windows::core::PCSTR, ppauthidentity: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SspiUnmarshalAuthIdentity(::core::mem::transmute(authidentitylength), authidentitybytearray.into_param().abi(), ::core::mem::transmute(ppauthidentity)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SspiValidateAuthIdentity(authdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SspiValidateAuthIdentity(authdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        SspiValidateAuthIdentity(::core::mem::transmute(authdata)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SspiValidateAuthIdentity(authdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SspiValidateAuthIdentity(::core::mem::transmute(authdata)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SspiZeroAuthIdentity(authdata: *const ::core::ffi::c_void) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SspiZeroAuthIdentity(authdata: *const ::core::ffi::c_void);
-        }
-        SspiZeroAuthIdentity(::core::mem::transmute(authdata))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SspiZeroAuthIdentity(authdata: *const ::core::ffi::c_void);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SspiZeroAuthIdentity(::core::mem::transmute(authdata))
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SystemFunction036(randombuffer: *mut ::core::ffi::c_void, randombufferlength: u32) -> super::super::super::Foundation::BOOLEAN {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SystemFunction036(randombuffer: *mut ::core::ffi::c_void, randombufferlength: u32) -> super::super::super::Foundation::BOOLEAN;
-        }
-        ::core::mem::transmute(SystemFunction036(::core::mem::transmute(randombuffer), ::core::mem::transmute(randombufferlength)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SystemFunction036(randombuffer: *mut ::core::ffi::c_void, randombufferlength: u32) -> super::super::super::Foundation::BOOLEAN;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SystemFunction036(::core::mem::transmute(randombuffer), ::core::mem::transmute(randombufferlength)))
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SystemFunction040(memory: *mut ::core::ffi::c_void, memorysize: u32, optionflags: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SystemFunction040(memory: *mut ::core::ffi::c_void, memorysize: u32, optionflags: u32) -> super::super::super::Foundation::NTSTATUS;
-        }
-        SystemFunction040(::core::mem::transmute(memory), ::core::mem::transmute(memorysize), ::core::mem::transmute(optionflags)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SystemFunction040(memory: *mut ::core::ffi::c_void, memorysize: u32, optionflags: u32) -> super::super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SystemFunction040(::core::mem::transmute(memory), ::core::mem::transmute(memorysize), ::core::mem::transmute(optionflags)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SystemFunction041(memory: *mut ::core::ffi::c_void, memorysize: u32, optionflags: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SystemFunction041(memory: *mut ::core::ffi::c_void, memorysize: u32, optionflags: u32) -> super::super::super::Foundation::NTSTATUS;
-        }
-        SystemFunction041(::core::mem::transmute(memory), ::core::mem::transmute(memorysize), ::core::mem::transmute(optionflags)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SystemFunction041(memory: *mut ::core::ffi::c_void, memorysize: u32, optionflags: u32) -> super::super::super::Foundation::NTSTATUS;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SystemFunction041(::core::mem::transmute(memory), ::core::mem::transmute(memorysize), ::core::mem::transmute(optionflags)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const TLS1SP_NAME: &str = "Microsoft TLS 1.0";
@@ -21923,177 +20933,117 @@ pub const TRUST_ATTRIBUTE_TRUST_USES_RC4_ENCRYPTION: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn TokenBindingDeleteAllBindings() -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn TokenBindingDeleteAllBindings() -> ::windows::core::HRESULT;
-        }
-        TokenBindingDeleteAllBindings().ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TokenBindingDeleteAllBindings() -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    TokenBindingDeleteAllBindings().ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn TokenBindingDeleteBinding<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(targeturl: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn TokenBindingDeleteBinding(targeturl: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
-        }
-        TokenBindingDeleteBinding(targeturl.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TokenBindingDeleteBinding(targeturl: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    TokenBindingDeleteBinding(targeturl.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn TokenBindingGenerateBinding<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(keytype: TOKENBINDING_KEY_PARAMETERS_TYPE, targeturl: Param1, bindingtype: TOKENBINDING_TYPE, tlsekm: *const ::core::ffi::c_void, tlsekmsize: u32, extensionformat: TOKENBINDING_EXTENSION_FORMAT, extensiondata: *const ::core::ffi::c_void, tokenbinding: *mut *mut ::core::ffi::c_void, tokenbindingsize: *mut u32, resultdata: *mut *mut TOKENBINDING_RESULT_DATA) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn TokenBindingGenerateBinding(keytype: TOKENBINDING_KEY_PARAMETERS_TYPE, targeturl: ::windows::core::PCWSTR, bindingtype: TOKENBINDING_TYPE, tlsekm: *const ::core::ffi::c_void, tlsekmsize: u32, extensionformat: TOKENBINDING_EXTENSION_FORMAT, extensiondata: *const ::core::ffi::c_void, tokenbinding: *mut *mut ::core::ffi::c_void, tokenbindingsize: *mut u32, resultdata: *mut *mut TOKENBINDING_RESULT_DATA) -> ::windows::core::HRESULT;
-        }
-        TokenBindingGenerateBinding(::core::mem::transmute(keytype), targeturl.into_param().abi(), ::core::mem::transmute(bindingtype), ::core::mem::transmute(tlsekm), ::core::mem::transmute(tlsekmsize), ::core::mem::transmute(extensionformat), ::core::mem::transmute(extensiondata), ::core::mem::transmute(tokenbinding), ::core::mem::transmute(tokenbindingsize), ::core::mem::transmute(resultdata)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TokenBindingGenerateBinding(keytype: TOKENBINDING_KEY_PARAMETERS_TYPE, targeturl: ::windows::core::PCWSTR, bindingtype: TOKENBINDING_TYPE, tlsekm: *const ::core::ffi::c_void, tlsekmsize: u32, extensionformat: TOKENBINDING_EXTENSION_FORMAT, extensiondata: *const ::core::ffi::c_void, tokenbinding: *mut *mut ::core::ffi::c_void, tokenbindingsize: *mut u32, resultdata: *mut *mut TOKENBINDING_RESULT_DATA) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    TokenBindingGenerateBinding(::core::mem::transmute(keytype), targeturl.into_param().abi(), ::core::mem::transmute(bindingtype), ::core::mem::transmute(tlsekm), ::core::mem::transmute(tlsekmsize), ::core::mem::transmute(extensionformat), ::core::mem::transmute(extensiondata), ::core::mem::transmute(tokenbinding), ::core::mem::transmute(tokenbindingsize), ::core::mem::transmute(resultdata)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn TokenBindingGenerateID(keytype: TOKENBINDING_KEY_PARAMETERS_TYPE, publickey: *const ::core::ffi::c_void, publickeysize: u32) -> ::windows::core::Result<*mut TOKENBINDING_RESULT_DATA> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn TokenBindingGenerateID(keytype: TOKENBINDING_KEY_PARAMETERS_TYPE, publickey: *const ::core::ffi::c_void, publickeysize: u32, resultdata: *mut *mut TOKENBINDING_RESULT_DATA) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut TOKENBINDING_RESULT_DATA>::zeroed();
-        TokenBindingGenerateID(::core::mem::transmute(keytype), ::core::mem::transmute(publickey), ::core::mem::transmute(publickeysize), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut TOKENBINDING_RESULT_DATA>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TokenBindingGenerateID(keytype: TOKENBINDING_KEY_PARAMETERS_TYPE, publickey: *const ::core::ffi::c_void, publickeysize: u32, resultdata: *mut *mut TOKENBINDING_RESULT_DATA) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut TOKENBINDING_RESULT_DATA>::zeroed();
+    TokenBindingGenerateID(::core::mem::transmute(keytype), ::core::mem::transmute(publickey), ::core::mem::transmute(publickeysize), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut TOKENBINDING_RESULT_DATA>(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn TokenBindingGenerateIDForUri<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(keytype: TOKENBINDING_KEY_PARAMETERS_TYPE, targeturi: Param1) -> ::windows::core::Result<*mut TOKENBINDING_RESULT_DATA> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn TokenBindingGenerateIDForUri(keytype: TOKENBINDING_KEY_PARAMETERS_TYPE, targeturi: ::windows::core::PCWSTR, resultdata: *mut *mut TOKENBINDING_RESULT_DATA) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut TOKENBINDING_RESULT_DATA>::zeroed();
-        TokenBindingGenerateIDForUri(::core::mem::transmute(keytype), targeturi.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut TOKENBINDING_RESULT_DATA>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TokenBindingGenerateIDForUri(keytype: TOKENBINDING_KEY_PARAMETERS_TYPE, targeturi: ::windows::core::PCWSTR, resultdata: *mut *mut TOKENBINDING_RESULT_DATA) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut TOKENBINDING_RESULT_DATA>::zeroed();
+    TokenBindingGenerateIDForUri(::core::mem::transmute(keytype), targeturi.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut TOKENBINDING_RESULT_DATA>(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn TokenBindingGenerateMessage(tokenbindings: *const *const ::core::ffi::c_void, tokenbindingssize: *const u32, tokenbindingscount: u32, tokenbindingmessage: *mut *mut ::core::ffi::c_void, tokenbindingmessagesize: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn TokenBindingGenerateMessage(tokenbindings: *const *const ::core::ffi::c_void, tokenbindingssize: *const u32, tokenbindingscount: u32, tokenbindingmessage: *mut *mut ::core::ffi::c_void, tokenbindingmessagesize: *mut u32) -> ::windows::core::HRESULT;
-        }
-        TokenBindingGenerateMessage(::core::mem::transmute(tokenbindings), ::core::mem::transmute(tokenbindingssize), ::core::mem::transmute(tokenbindingscount), ::core::mem::transmute(tokenbindingmessage), ::core::mem::transmute(tokenbindingmessagesize)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TokenBindingGenerateMessage(tokenbindings: *const *const ::core::ffi::c_void, tokenbindingssize: *const u32, tokenbindingscount: u32, tokenbindingmessage: *mut *mut ::core::ffi::c_void, tokenbindingmessagesize: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    TokenBindingGenerateMessage(::core::mem::transmute(tokenbindings), ::core::mem::transmute(tokenbindingssize), ::core::mem::transmute(tokenbindingscount), ::core::mem::transmute(tokenbindingmessage), ::core::mem::transmute(tokenbindingmessagesize)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn TokenBindingGetHighestSupportedVersion(majorversion: *mut u8, minorversion: *mut u8) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn TokenBindingGetHighestSupportedVersion(majorversion: *mut u8, minorversion: *mut u8) -> ::windows::core::HRESULT;
-        }
-        TokenBindingGetHighestSupportedVersion(::core::mem::transmute(majorversion), ::core::mem::transmute(minorversion)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TokenBindingGetHighestSupportedVersion(majorversion: *mut u8, minorversion: *mut u8) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    TokenBindingGetHighestSupportedVersion(::core::mem::transmute(majorversion), ::core::mem::transmute(minorversion)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn TokenBindingGetKeyTypesClient() -> ::windows::core::Result<*mut TOKENBINDING_KEY_TYPES> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn TokenBindingGetKeyTypesClient(keytypes: *mut *mut TOKENBINDING_KEY_TYPES) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut TOKENBINDING_KEY_TYPES>::zeroed();
-        TokenBindingGetKeyTypesClient(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut TOKENBINDING_KEY_TYPES>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TokenBindingGetKeyTypesClient(keytypes: *mut *mut TOKENBINDING_KEY_TYPES) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut TOKENBINDING_KEY_TYPES>::zeroed();
+    TokenBindingGetKeyTypesClient(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut TOKENBINDING_KEY_TYPES>(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn TokenBindingGetKeyTypesServer() -> ::windows::core::Result<*mut TOKENBINDING_KEY_TYPES> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn TokenBindingGetKeyTypesServer(keytypes: *mut *mut TOKENBINDING_KEY_TYPES) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut TOKENBINDING_KEY_TYPES>::zeroed();
-        TokenBindingGetKeyTypesServer(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut TOKENBINDING_KEY_TYPES>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TokenBindingGetKeyTypesServer(keytypes: *mut *mut TOKENBINDING_KEY_TYPES) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut TOKENBINDING_KEY_TYPES>::zeroed();
+    TokenBindingGetKeyTypesServer(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut TOKENBINDING_KEY_TYPES>(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn TokenBindingVerifyMessage(tokenbindingmessage: *const ::core::ffi::c_void, tokenbindingmessagesize: u32, keytype: TOKENBINDING_KEY_PARAMETERS_TYPE, tlsekm: *const ::core::ffi::c_void, tlsekmsize: u32) -> ::windows::core::Result<*mut TOKENBINDING_RESULT_LIST> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn TokenBindingVerifyMessage(tokenbindingmessage: *const ::core::ffi::c_void, tokenbindingmessagesize: u32, keytype: TOKENBINDING_KEY_PARAMETERS_TYPE, tlsekm: *const ::core::ffi::c_void, tlsekmsize: u32, resultlist: *mut *mut TOKENBINDING_RESULT_LIST) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut TOKENBINDING_RESULT_LIST>::zeroed();
-        TokenBindingVerifyMessage(::core::mem::transmute(tokenbindingmessage), ::core::mem::transmute(tokenbindingmessagesize), ::core::mem::transmute(keytype), ::core::mem::transmute(tlsekm), ::core::mem::transmute(tlsekmsize), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut TOKENBINDING_RESULT_LIST>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TokenBindingVerifyMessage(tokenbindingmessage: *const ::core::ffi::c_void, tokenbindingmessagesize: u32, keytype: TOKENBINDING_KEY_PARAMETERS_TYPE, tlsekm: *const ::core::ffi::c_void, tlsekmsize: u32, resultlist: *mut *mut TOKENBINDING_RESULT_LIST) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut TOKENBINDING_RESULT_LIST>::zeroed();
+    TokenBindingVerifyMessage(::core::mem::transmute(tokenbindingmessage), ::core::mem::transmute(tokenbindingmessagesize), ::core::mem::transmute(keytype), ::core::mem::transmute(tlsekm), ::core::mem::transmute(tlsekmsize), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut TOKENBINDING_RESULT_LIST>(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TranslateNameA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lpaccountname: Param0, accountnameformat: EXTENDED_NAME_FORMAT, desirednameformat: EXTENDED_NAME_FORMAT, lptranslatedname: ::windows::core::PSTR, nsize: *mut u32) -> super::super::super::Foundation::BOOLEAN {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn TranslateNameA(lpaccountname: ::windows::core::PCSTR, accountnameformat: EXTENDED_NAME_FORMAT, desirednameformat: EXTENDED_NAME_FORMAT, lptranslatedname: ::windows::core::PSTR, nsize: *mut u32) -> super::super::super::Foundation::BOOLEAN;
-        }
-        ::core::mem::transmute(TranslateNameA(lpaccountname.into_param().abi(), ::core::mem::transmute(accountnameformat), ::core::mem::transmute(desirednameformat), ::core::mem::transmute(lptranslatedname), ::core::mem::transmute(nsize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TranslateNameA(lpaccountname: ::windows::core::PCSTR, accountnameformat: EXTENDED_NAME_FORMAT, desirednameformat: EXTENDED_NAME_FORMAT, lptranslatedname: ::windows::core::PSTR, nsize: *mut u32) -> super::super::super::Foundation::BOOLEAN;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(TranslateNameA(lpaccountname.into_param().abi(), ::core::mem::transmute(accountnameformat), ::core::mem::transmute(desirednameformat), ::core::mem::transmute(lptranslatedname), ::core::mem::transmute(nsize)))
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TranslateNameW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpaccountname: Param0, accountnameformat: EXTENDED_NAME_FORMAT, desirednameformat: EXTENDED_NAME_FORMAT, lptranslatedname: ::windows::core::PWSTR, nsize: *mut u32) -> super::super::super::Foundation::BOOLEAN {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn TranslateNameW(lpaccountname: ::windows::core::PCWSTR, accountnameformat: EXTENDED_NAME_FORMAT, desirednameformat: EXTENDED_NAME_FORMAT, lptranslatedname: ::windows::core::PWSTR, nsize: *mut u32) -> super::super::super::Foundation::BOOLEAN;
-        }
-        ::core::mem::transmute(TranslateNameW(lpaccountname.into_param().abi(), ::core::mem::transmute(accountnameformat), ::core::mem::transmute(desirednameformat), ::core::mem::transmute(lptranslatedname), ::core::mem::transmute(nsize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TranslateNameW(lpaccountname: ::windows::core::PCWSTR, accountnameformat: EXTENDED_NAME_FORMAT, desirednameformat: EXTENDED_NAME_FORMAT, lptranslatedname: ::windows::core::PWSTR, nsize: *mut u32) -> super::super::super::Foundation::BOOLEAN;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(TranslateNameW(lpaccountname.into_param().abi(), ::core::mem::transmute(accountnameformat), ::core::mem::transmute(desirednameformat), ::core::mem::transmute(lptranslatedname), ::core::mem::transmute(nsize)))
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const UNDERSTANDS_LONG_NAMES: u32 = 1u32;
@@ -22260,17 +21210,12 @@ pub type VERIFY_SIGNATURE_FN = ::core::option::Option<unsafe extern "system" fn(
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn VerifySignature(phcontext: *const super::super::Credentials::SecHandle, pmessage: *const SecBufferDesc, messageseqno: u32) -> ::windows::core::Result<u32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VerifySignature(phcontext: *const super::super::Credentials::SecHandle, pmessage: *const SecBufferDesc, messageseqno: u32, pfqop: *mut u32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        VerifySignature(::core::mem::transmute(phcontext), ::core::mem::transmute(pmessage), ::core::mem::transmute(messageseqno), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VerifySignature(phcontext: *const super::super::Credentials::SecHandle, pmessage: *const SecBufferDesc, messageseqno: u32, pfqop: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+    VerifySignature(::core::mem::transmute(phcontext), ::core::mem::transmute(pmessage), ::core::mem::transmute(messageseqno), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const WDIGEST_SP_NAME: &str = "WDigest";

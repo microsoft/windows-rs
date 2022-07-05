@@ -2,31 +2,21 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn ClearPropVariantArray(rgpropvar: &mut [super::super::super::System::Com::StructuredStorage::PROPVARIANT]) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ClearPropVariantArray(rgpropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT, cvars: u32);
-        }
-        ClearPropVariantArray(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgpropvar)), rgpropvar.len() as _)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ClearPropVariantArray(rgpropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT, cvars: u32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ClearPropVariantArray(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgpropvar)), rgpropvar.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn ClearVariantArray(pvars: &mut [super::super::super::System::Com::VARIANT]) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ClearVariantArray(pvars: *mut super::super::super::System::Com::VARIANT, cvars: u32);
-        }
-        ClearVariantArray(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pvars)), pvars.len() as _)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ClearVariantArray(pvars: *mut super::super::super::System::Com::VARIANT, cvars: u32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ClearVariantArray(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pvars)), pvars.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
@@ -2792,560 +2782,385 @@ pub const InMemoryPropertyStoreMarshalByValue: ::windows::core::GUID = ::windows
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn InitPropVariantFromBooleanVector(prgf: &[super::super::super::Foundation::BOOL]) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InitPropVariantFromBooleanVector(prgf: *const super::super::super::Foundation::BOOL, celems: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>>::zeroed();
-        InitPropVariantFromBooleanVector(::core::mem::transmute(::windows::core::as_ptr_or_null(prgf)), prgf.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitPropVariantFromBooleanVector(prgf: *const super::super::super::Foundation::BOOL, celems: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>>::zeroed();
+    InitPropVariantFromBooleanVector(::core::mem::transmute(::windows::core::as_ptr_or_null(prgf)), prgf.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn InitPropVariantFromBuffer(pv: *const ::core::ffi::c_void, cb: u32) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InitPropVariantFromBuffer(pv: *const ::core::ffi::c_void, cb: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>>::zeroed();
-        InitPropVariantFromBuffer(::core::mem::transmute(pv), ::core::mem::transmute(cb), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitPropVariantFromBuffer(pv: *const ::core::ffi::c_void, cb: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>>::zeroed();
+    InitPropVariantFromBuffer(::core::mem::transmute(pv), ::core::mem::transmute(cb), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn InitPropVariantFromCLSID(clsid: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InitPropVariantFromCLSID(clsid: *const ::windows::core::GUID, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>>::zeroed();
-        InitPropVariantFromCLSID(::core::mem::transmute(clsid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitPropVariantFromCLSID(clsid: *const ::windows::core::GUID, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>>::zeroed();
+    InitPropVariantFromCLSID(::core::mem::transmute(clsid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn InitPropVariantFromDoubleVector(prgn: &[f64]) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InitPropVariantFromDoubleVector(prgn: *const f64, celems: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>>::zeroed();
-        InitPropVariantFromDoubleVector(::core::mem::transmute(::windows::core::as_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitPropVariantFromDoubleVector(prgn: *const f64, celems: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>>::zeroed();
+    InitPropVariantFromDoubleVector(::core::mem::transmute(::windows::core::as_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn InitPropVariantFromFileTime(pftin: *const super::super::super::Foundation::FILETIME) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InitPropVariantFromFileTime(pftin: *const super::super::super::Foundation::FILETIME, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>>::zeroed();
-        InitPropVariantFromFileTime(::core::mem::transmute(pftin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitPropVariantFromFileTime(pftin: *const super::super::super::Foundation::FILETIME, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>>::zeroed();
+    InitPropVariantFromFileTime(::core::mem::transmute(pftin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn InitPropVariantFromFileTimeVector(prgft: &[super::super::super::Foundation::FILETIME]) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InitPropVariantFromFileTimeVector(prgft: *const super::super::super::Foundation::FILETIME, celems: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>>::zeroed();
-        InitPropVariantFromFileTimeVector(::core::mem::transmute(::windows::core::as_ptr_or_null(prgft)), prgft.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitPropVariantFromFileTimeVector(prgft: *const super::super::super::Foundation::FILETIME, celems: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>>::zeroed();
+    InitPropVariantFromFileTimeVector(::core::mem::transmute(::windows::core::as_ptr_or_null(prgft)), prgft.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn InitPropVariantFromGUIDAsString(guid: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InitPropVariantFromGUIDAsString(guid: *const ::windows::core::GUID, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>>::zeroed();
-        InitPropVariantFromGUIDAsString(::core::mem::transmute(guid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitPropVariantFromGUIDAsString(guid: *const ::windows::core::GUID, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>>::zeroed();
+    InitPropVariantFromGUIDAsString(::core::mem::transmute(guid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn InitPropVariantFromInt16Vector(prgn: &[i16]) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InitPropVariantFromInt16Vector(prgn: *const i16, celems: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>>::zeroed();
-        InitPropVariantFromInt16Vector(::core::mem::transmute(::windows::core::as_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitPropVariantFromInt16Vector(prgn: *const i16, celems: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>>::zeroed();
+    InitPropVariantFromInt16Vector(::core::mem::transmute(::windows::core::as_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn InitPropVariantFromInt32Vector(prgn: &[i32]) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InitPropVariantFromInt32Vector(prgn: *const i32, celems: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>>::zeroed();
-        InitPropVariantFromInt32Vector(::core::mem::transmute(::windows::core::as_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitPropVariantFromInt32Vector(prgn: *const i32, celems: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>>::zeroed();
+    InitPropVariantFromInt32Vector(::core::mem::transmute(::windows::core::as_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn InitPropVariantFromInt64Vector(prgn: &[i64]) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InitPropVariantFromInt64Vector(prgn: *const i64, celems: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>>::zeroed();
-        InitPropVariantFromInt64Vector(::core::mem::transmute(::windows::core::as_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitPropVariantFromInt64Vector(prgn: *const i64, celems: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>>::zeroed();
+    InitPropVariantFromInt64Vector(::core::mem::transmute(::windows::core::as_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn InitPropVariantFromPropVariantVectorElem(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InitPropVariantFromPropVariantVectorElem(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>>::zeroed();
-        InitPropVariantFromPropVariantVectorElem(::core::mem::transmute(propvarin), ::core::mem::transmute(ielem), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitPropVariantFromPropVariantVectorElem(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>>::zeroed();
+    InitPropVariantFromPropVariantVectorElem(::core::mem::transmute(propvarin), ::core::mem::transmute(ielem), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn InitPropVariantFromResource<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HINSTANCE>>(hinst: Param0, id: u32) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InitPropVariantFromResource(hinst: super::super::super::Foundation::HINSTANCE, id: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>>::zeroed();
-        InitPropVariantFromResource(hinst.into_param().abi(), ::core::mem::transmute(id), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitPropVariantFromResource(hinst: super::super::super::Foundation::HINSTANCE, id: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>>::zeroed();
+    InitPropVariantFromResource(hinst.into_param().abi(), ::core::mem::transmute(id), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_Common\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_Common"))]
 #[inline]
 pub unsafe fn InitPropVariantFromStrRet(pstrret: *mut super::Common::STRRET, pidl: *const super::Common::ITEMIDLIST, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InitPropVariantFromStrRet(pstrret: *mut super::Common::STRRET, pidl: *const super::Common::ITEMIDLIST, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
-        }
-        InitPropVariantFromStrRet(::core::mem::transmute(pstrret), ::core::mem::transmute(pidl), ::core::mem::transmute(ppropvar)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitPropVariantFromStrRet(pstrret: *mut super::Common::STRRET, pidl: *const super::Common::ITEMIDLIST, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    InitPropVariantFromStrRet(::core::mem::transmute(pstrret), ::core::mem::transmute(pidl), ::core::mem::transmute(ppropvar)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn InitPropVariantFromStringAsVector<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(psz: Param0) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InitPropVariantFromStringAsVector(psz: ::windows::core::PCWSTR, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>>::zeroed();
-        InitPropVariantFromStringAsVector(psz.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitPropVariantFromStringAsVector(psz: ::windows::core::PCWSTR, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>>::zeroed();
+    InitPropVariantFromStringAsVector(psz.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn InitPropVariantFromStringVector(prgsz: &[::windows::core::PWSTR]) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InitPropVariantFromStringVector(prgsz: *const ::windows::core::PWSTR, celems: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>>::zeroed();
-        InitPropVariantFromStringVector(::core::mem::transmute(::windows::core::as_ptr_or_null(prgsz)), prgsz.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitPropVariantFromStringVector(prgsz: *const ::windows::core::PWSTR, celems: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>>::zeroed();
+    InitPropVariantFromStringVector(::core::mem::transmute(::windows::core::as_ptr_or_null(prgsz)), prgsz.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn InitPropVariantFromUInt16Vector(prgn: &[u16]) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InitPropVariantFromUInt16Vector(prgn: *const u16, celems: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>>::zeroed();
-        InitPropVariantFromUInt16Vector(::core::mem::transmute(::windows::core::as_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitPropVariantFromUInt16Vector(prgn: *const u16, celems: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>>::zeroed();
+    InitPropVariantFromUInt16Vector(::core::mem::transmute(::windows::core::as_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn InitPropVariantFromUInt32Vector(prgn: &[u32]) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InitPropVariantFromUInt32Vector(prgn: *const u32, celems: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>>::zeroed();
-        InitPropVariantFromUInt32Vector(::core::mem::transmute(::windows::core::as_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitPropVariantFromUInt32Vector(prgn: *const u32, celems: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>>::zeroed();
+    InitPropVariantFromUInt32Vector(::core::mem::transmute(::windows::core::as_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn InitPropVariantFromUInt64Vector(prgn: &[u64]) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InitPropVariantFromUInt64Vector(prgn: *const u64, celems: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>>::zeroed();
-        InitPropVariantFromUInt64Vector(::core::mem::transmute(::windows::core::as_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitPropVariantFromUInt64Vector(prgn: *const u64, celems: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>>::zeroed();
+    InitPropVariantFromUInt64Vector(::core::mem::transmute(::windows::core::as_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn InitPropVariantVectorFromPropVariant(propvarsingle: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InitPropVariantVectorFromPropVariant(propvarsingle: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ppropvarvector: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>>::zeroed();
-        InitPropVariantVectorFromPropVariant(::core::mem::transmute(propvarsingle), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitPropVariantVectorFromPropVariant(propvarsingle: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ppropvarvector: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>>::zeroed();
+    InitPropVariantVectorFromPropVariant(::core::mem::transmute(propvarsingle), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn InitVariantFromBooleanArray(prgf: &[super::super::super::Foundation::BOOL]) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InitVariantFromBooleanArray(prgf: *const super::super::super::Foundation::BOOL, celems: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
-        InitVariantFromBooleanArray(::core::mem::transmute(::windows::core::as_ptr_or_null(prgf)), prgf.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitVariantFromBooleanArray(prgf: *const super::super::super::Foundation::BOOL, celems: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
+    InitVariantFromBooleanArray(::core::mem::transmute(::windows::core::as_ptr_or_null(prgf)), prgf.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn InitVariantFromBuffer(pv: *const ::core::ffi::c_void, cb: u32) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InitVariantFromBuffer(pv: *const ::core::ffi::c_void, cb: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
-        InitVariantFromBuffer(::core::mem::transmute(pv), ::core::mem::transmute(cb), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitVariantFromBuffer(pv: *const ::core::ffi::c_void, cb: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
+    InitVariantFromBuffer(::core::mem::transmute(pv), ::core::mem::transmute(cb), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn InitVariantFromDoubleArray(prgn: &[f64]) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InitVariantFromDoubleArray(prgn: *const f64, celems: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
-        InitVariantFromDoubleArray(::core::mem::transmute(::windows::core::as_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitVariantFromDoubleArray(prgn: *const f64, celems: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
+    InitVariantFromDoubleArray(::core::mem::transmute(::windows::core::as_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn InitVariantFromFileTime(pft: *const super::super::super::Foundation::FILETIME) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InitVariantFromFileTime(pft: *const super::super::super::Foundation::FILETIME, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
-        InitVariantFromFileTime(::core::mem::transmute(pft), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitVariantFromFileTime(pft: *const super::super::super::Foundation::FILETIME, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
+    InitVariantFromFileTime(::core::mem::transmute(pft), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn InitVariantFromFileTimeArray(prgft: &[super::super::super::Foundation::FILETIME]) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InitVariantFromFileTimeArray(prgft: *const super::super::super::Foundation::FILETIME, celems: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
-        InitVariantFromFileTimeArray(::core::mem::transmute(::windows::core::as_ptr_or_null(prgft)), prgft.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitVariantFromFileTimeArray(prgft: *const super::super::super::Foundation::FILETIME, celems: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
+    InitVariantFromFileTimeArray(::core::mem::transmute(::windows::core::as_ptr_or_null(prgft)), prgft.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn InitVariantFromGUIDAsString(guid: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InitVariantFromGUIDAsString(guid: *const ::windows::core::GUID, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
-        InitVariantFromGUIDAsString(::core::mem::transmute(guid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitVariantFromGUIDAsString(guid: *const ::windows::core::GUID, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
+    InitVariantFromGUIDAsString(::core::mem::transmute(guid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn InitVariantFromInt16Array(prgn: &[i16]) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InitVariantFromInt16Array(prgn: *const i16, celems: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
-        InitVariantFromInt16Array(::core::mem::transmute(::windows::core::as_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitVariantFromInt16Array(prgn: *const i16, celems: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
+    InitVariantFromInt16Array(::core::mem::transmute(::windows::core::as_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn InitVariantFromInt32Array(prgn: &[i32]) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InitVariantFromInt32Array(prgn: *const i32, celems: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
-        InitVariantFromInt32Array(::core::mem::transmute(::windows::core::as_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitVariantFromInt32Array(prgn: *const i32, celems: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
+    InitVariantFromInt32Array(::core::mem::transmute(::windows::core::as_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn InitVariantFromInt64Array(prgn: &[i64]) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InitVariantFromInt64Array(prgn: *const i64, celems: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
-        InitVariantFromInt64Array(::core::mem::transmute(::windows::core::as_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitVariantFromInt64Array(prgn: *const i64, celems: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
+    InitVariantFromInt64Array(::core::mem::transmute(::windows::core::as_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn InitVariantFromResource<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HINSTANCE>>(hinst: Param0, id: u32) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InitVariantFromResource(hinst: super::super::super::Foundation::HINSTANCE, id: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
-        InitVariantFromResource(hinst.into_param().abi(), ::core::mem::transmute(id), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitVariantFromResource(hinst: super::super::super::Foundation::HINSTANCE, id: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
+    InitVariantFromResource(hinst.into_param().abi(), ::core::mem::transmute(id), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_UI_Shell_Common\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
 #[inline]
 pub unsafe fn InitVariantFromStrRet(pstrret: *const super::Common::STRRET, pidl: *const super::Common::ITEMIDLIST) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InitVariantFromStrRet(pstrret: *const super::Common::STRRET, pidl: *const super::Common::ITEMIDLIST, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
-        InitVariantFromStrRet(::core::mem::transmute(pstrret), ::core::mem::transmute(pidl), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitVariantFromStrRet(pstrret: *const super::Common::STRRET, pidl: *const super::Common::ITEMIDLIST, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
+    InitVariantFromStrRet(::core::mem::transmute(pstrret), ::core::mem::transmute(pidl), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn InitVariantFromStringArray(prgsz: &[::windows::core::PWSTR]) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InitVariantFromStringArray(prgsz: *const ::windows::core::PWSTR, celems: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
-        InitVariantFromStringArray(::core::mem::transmute(::windows::core::as_ptr_or_null(prgsz)), prgsz.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitVariantFromStringArray(prgsz: *const ::windows::core::PWSTR, celems: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
+    InitVariantFromStringArray(::core::mem::transmute(::windows::core::as_ptr_or_null(prgsz)), prgsz.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn InitVariantFromUInt16Array(prgn: &[u16]) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InitVariantFromUInt16Array(prgn: *const u16, celems: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
-        InitVariantFromUInt16Array(::core::mem::transmute(::windows::core::as_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitVariantFromUInt16Array(prgn: *const u16, celems: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
+    InitVariantFromUInt16Array(::core::mem::transmute(::windows::core::as_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn InitVariantFromUInt32Array(prgn: &[u32]) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InitVariantFromUInt32Array(prgn: *const u32, celems: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
-        InitVariantFromUInt32Array(::core::mem::transmute(::windows::core::as_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitVariantFromUInt32Array(prgn: *const u32, celems: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
+    InitVariantFromUInt32Array(::core::mem::transmute(::windows::core::as_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn InitVariantFromUInt64Array(prgn: &[u64]) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InitVariantFromUInt64Array(prgn: *const u64, celems: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
-        InitVariantFromUInt64Array(::core::mem::transmute(::windows::core::as_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitVariantFromUInt64Array(prgn: *const u64, celems: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
+    InitVariantFromUInt64Array(::core::mem::transmute(::windows::core::as_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn InitVariantFromVariantArrayElem(varin: *const super::super::super::System::Com::VARIANT, ielem: u32) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InitVariantFromVariantArrayElem(varin: *const super::super::super::System::Com::VARIANT, ielem: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
-        InitVariantFromVariantArrayElem(::core::mem::transmute(varin), ::core::mem::transmute(ielem), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitVariantFromVariantArrayElem(varin: *const super::super::super::System::Com::VARIANT, ielem: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
+    InitVariantFromVariantArrayElem(::core::mem::transmute(varin), ::core::mem::transmute(ielem), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
@@ -4582,967 +4397,647 @@ impl ::core::fmt::Debug for PSC_STATE {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PSCoerceToCanonicalValue(key: *const PROPERTYKEY, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSCoerceToCanonicalValue(key: *const PROPERTYKEY, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
-        }
-        PSCoerceToCanonicalValue(::core::mem::transmute(key), ::core::mem::transmute(ppropvar)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSCoerceToCanonicalValue(key: *const PROPERTYKEY, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PSCoerceToCanonicalValue(::core::mem::transmute(key), ::core::mem::transmute(ppropvar)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
 pub unsafe fn PSCreateAdapterFromPropertyStore<'a, Param0: ::windows::core::IntoParam<'a, IPropertyStore>>(pps: Param0, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSCreateAdapterFromPropertyStore(pps: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        PSCreateAdapterFromPropertyStore(pps.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSCreateAdapterFromPropertyStore(pps: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PSCreateAdapterFromPropertyStore(pps.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
 pub unsafe fn PSCreateDelayedMultiplexPropertyStore<'a, Param1: ::windows::core::IntoParam<'a, IDelayedPropertyStoreFactory>>(flags: GETPROPERTYSTOREFLAGS, pdpsf: Param1, rgstoreids: &[u32], riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSCreateDelayedMultiplexPropertyStore(flags: GETPROPERTYSTOREFLAGS, pdpsf: *mut ::core::ffi::c_void, rgstoreids: *const u32, cstores: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        PSCreateDelayedMultiplexPropertyStore(::core::mem::transmute(flags), pdpsf.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgstoreids)), rgstoreids.len() as _, ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSCreateDelayedMultiplexPropertyStore(flags: GETPROPERTYSTOREFLAGS, pdpsf: *mut ::core::ffi::c_void, rgstoreids: *const u32, cstores: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PSCreateDelayedMultiplexPropertyStore(::core::mem::transmute(flags), pdpsf.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgstoreids)), rgstoreids.len() as _, ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
 pub unsafe fn PSCreateMemoryPropertyStore(riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSCreateMemoryPropertyStore(riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        PSCreateMemoryPropertyStore(::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSCreateMemoryPropertyStore(riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PSCreateMemoryPropertyStore(::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
 pub unsafe fn PSCreateMultiplexPropertyStore(prgpunkstores: &[::core::option::Option<::windows::core::IUnknown>], riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSCreateMultiplexPropertyStore(prgpunkstores: *const *mut ::core::ffi::c_void, cstores: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        PSCreateMultiplexPropertyStore(::core::mem::transmute(::windows::core::as_ptr_or_null(prgpunkstores)), prgpunkstores.len() as _, ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSCreateMultiplexPropertyStore(prgpunkstores: *const *mut ::core::ffi::c_void, cstores: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PSCreateMultiplexPropertyStore(::core::mem::transmute(::windows::core::as_ptr_or_null(prgpunkstores)), prgpunkstores.len() as _, ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PSCreatePropertyChangeArray(rgpropkey: *const PROPERTYKEY, rgflags: *const PKA_FLAGS, rgpropvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, cchanges: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSCreatePropertyChangeArray(rgpropkey: *const PROPERTYKEY, rgflags: *const PKA_FLAGS, rgpropvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, cchanges: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        PSCreatePropertyChangeArray(::core::mem::transmute(rgpropkey), ::core::mem::transmute(rgflags), ::core::mem::transmute(rgpropvar), ::core::mem::transmute(cchanges), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSCreatePropertyChangeArray(rgpropkey: *const PROPERTYKEY, rgflags: *const PKA_FLAGS, rgpropvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, cchanges: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PSCreatePropertyChangeArray(::core::mem::transmute(rgpropkey), ::core::mem::transmute(rgflags), ::core::mem::transmute(rgpropvar), ::core::mem::transmute(cchanges), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
 pub unsafe fn PSCreatePropertyStoreFromObject<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(punk: Param0, grfmode: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSCreatePropertyStoreFromObject(punk: *mut ::core::ffi::c_void, grfmode: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        PSCreatePropertyStoreFromObject(punk.into_param().abi(), ::core::mem::transmute(grfmode), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSCreatePropertyStoreFromObject(punk: *mut ::core::ffi::c_void, grfmode: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PSCreatePropertyStoreFromObject(punk.into_param().abi(), ::core::mem::transmute(grfmode), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn PSCreatePropertyStoreFromPropertySetStorage<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertySetStorage>>(ppss: Param0, grfmode: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSCreatePropertyStoreFromPropertySetStorage(ppss: *mut ::core::ffi::c_void, grfmode: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        PSCreatePropertyStoreFromPropertySetStorage(ppss.into_param().abi(), ::core::mem::transmute(grfmode), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSCreatePropertyStoreFromPropertySetStorage(ppss: *mut ::core::ffi::c_void, grfmode: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PSCreatePropertyStoreFromPropertySetStorage(ppss.into_param().abi(), ::core::mem::transmute(grfmode), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PSCreateSimplePropertyChange(flags: PKA_FLAGS, key: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSCreateSimplePropertyChange(flags: PKA_FLAGS, key: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        PSCreateSimplePropertyChange(::core::mem::transmute(flags), ::core::mem::transmute(key), ::core::mem::transmute(propvar), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSCreateSimplePropertyChange(flags: PKA_FLAGS, key: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PSCreateSimplePropertyChange(::core::mem::transmute(flags), ::core::mem::transmute(key), ::core::mem::transmute(propvar), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
 pub unsafe fn PSEnumeratePropertyDescriptions(filteron: PROPDESC_ENUMFILTER, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSEnumeratePropertyDescriptions(filteron: PROPDESC_ENUMFILTER, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        PSEnumeratePropertyDescriptions(::core::mem::transmute(filteron), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSEnumeratePropertyDescriptions(filteron: PROPDESC_ENUMFILTER, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PSEnumeratePropertyDescriptions(::core::mem::transmute(filteron), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PSFormatForDisplay(propkey: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdfflags: PROPDESC_FORMAT_FLAGS, pwsztext: &mut [u16]) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSFormatForDisplay(propkey: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdfflags: PROPDESC_FORMAT_FLAGS, pwsztext: ::windows::core::PWSTR, cchtext: u32) -> ::windows::core::HRESULT;
-        }
-        PSFormatForDisplay(::core::mem::transmute(propkey), ::core::mem::transmute(propvar), ::core::mem::transmute(pdfflags), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwsztext)), pwsztext.len() as _).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSFormatForDisplay(propkey: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdfflags: PROPDESC_FORMAT_FLAGS, pwsztext: ::windows::core::PWSTR, cchtext: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PSFormatForDisplay(::core::mem::transmute(propkey), ::core::mem::transmute(propvar), ::core::mem::transmute(pdfflags), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwsztext)), pwsztext.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PSFormatForDisplayAlloc(key: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdff: PROPDESC_FORMAT_FLAGS) -> ::windows::core::Result<::windows::core::PWSTR> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSFormatForDisplayAlloc(key: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdff: PROPDESC_FORMAT_FLAGS, ppszdisplay: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-        PSFormatForDisplayAlloc(::core::mem::transmute(key), ::core::mem::transmute(propvar), ::core::mem::transmute(pdff), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSFormatForDisplayAlloc(key: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdff: PROPDESC_FORMAT_FLAGS, ppszdisplay: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
+    PSFormatForDisplayAlloc(::core::mem::transmute(key), ::core::mem::transmute(propvar), ::core::mem::transmute(pdff), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
 pub unsafe fn PSFormatPropertyValue<'a, Param0: ::windows::core::IntoParam<'a, IPropertyStore>, Param1: ::windows::core::IntoParam<'a, IPropertyDescription>>(pps: Param0, ppd: Param1, pdff: PROPDESC_FORMAT_FLAGS) -> ::windows::core::Result<::windows::core::PWSTR> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSFormatPropertyValue(pps: *mut ::core::ffi::c_void, ppd: *mut ::core::ffi::c_void, pdff: PROPDESC_FORMAT_FLAGS, ppszdisplay: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-        PSFormatPropertyValue(pps.into_param().abi(), ppd.into_param().abi(), ::core::mem::transmute(pdff), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSFormatPropertyValue(pps: *mut ::core::ffi::c_void, ppd: *mut ::core::ffi::c_void, pdff: PROPDESC_FORMAT_FLAGS, ppszdisplay: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
+    PSFormatPropertyValue(pps.into_param().abi(), ppd.into_param().abi(), ::core::mem::transmute(pdff), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PSGetImageReferenceForValue(propkey: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<::windows::core::PWSTR> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSGetImageReferenceForValue(propkey: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ppszimageres: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-        PSGetImageReferenceForValue(::core::mem::transmute(propkey), ::core::mem::transmute(propvar), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSGetImageReferenceForValue(propkey: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ppszimageres: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
+    PSGetImageReferenceForValue(::core::mem::transmute(propkey), ::core::mem::transmute(propvar), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PSGetItemPropertyHandler<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(punkitem: Param0, freadwrite: Param1, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSGetItemPropertyHandler(punkitem: *mut ::core::ffi::c_void, freadwrite: super::super::super::Foundation::BOOL, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        PSGetItemPropertyHandler(punkitem.into_param().abi(), freadwrite.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSGetItemPropertyHandler(punkitem: *mut ::core::ffi::c_void, freadwrite: super::super::super::Foundation::BOOL, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PSGetItemPropertyHandler(punkitem.into_param().abi(), freadwrite.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PSGetItemPropertyHandlerWithCreateObject<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(punkitem: Param0, freadwrite: Param1, punkcreateobject: Param2, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSGetItemPropertyHandlerWithCreateObject(punkitem: *mut ::core::ffi::c_void, freadwrite: super::super::super::Foundation::BOOL, punkcreateobject: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        PSGetItemPropertyHandlerWithCreateObject(punkitem.into_param().abi(), freadwrite.into_param().abi(), punkcreateobject.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSGetItemPropertyHandlerWithCreateObject(punkitem: *mut ::core::ffi::c_void, freadwrite: super::super::super::Foundation::BOOL, punkcreateobject: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PSGetItemPropertyHandlerWithCreateObject(punkitem.into_param().abi(), freadwrite.into_param().abi(), punkcreateobject.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
 pub unsafe fn PSGetNameFromPropertyKey(propkey: *const PROPERTYKEY) -> ::windows::core::Result<::windows::core::PWSTR> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSGetNameFromPropertyKey(propkey: *const PROPERTYKEY, ppszcanonicalname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-        PSGetNameFromPropertyKey(::core::mem::transmute(propkey), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSGetNameFromPropertyKey(propkey: *const PROPERTYKEY, ppszcanonicalname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
+    PSGetNameFromPropertyKey(::core::mem::transmute(propkey), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PSGetNamedPropertyFromPropertyStorage<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(psps: *const SERIALIZEDPROPSTORAGE, cb: u32, pszname: Param2) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSGetNamedPropertyFromPropertyStorage(psps: *const SERIALIZEDPROPSTORAGE, cb: u32, pszname: ::windows::core::PCWSTR, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>>::zeroed();
-        PSGetNamedPropertyFromPropertyStorage(::core::mem::transmute(psps), ::core::mem::transmute(cb), pszname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSGetNamedPropertyFromPropertyStorage(psps: *const SERIALIZEDPROPSTORAGE, cb: u32, pszname: ::windows::core::PCWSTR, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>>::zeroed();
+    PSGetNamedPropertyFromPropertyStorage(::core::mem::transmute(psps), ::core::mem::transmute(cb), pszname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
 pub unsafe fn PSGetPropertyDescription(propkey: *const PROPERTYKEY, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSGetPropertyDescription(propkey: *const PROPERTYKEY, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        PSGetPropertyDescription(::core::mem::transmute(propkey), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSGetPropertyDescription(propkey: *const PROPERTYKEY, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PSGetPropertyDescription(::core::mem::transmute(propkey), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
 pub unsafe fn PSGetPropertyDescriptionByName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pszcanonicalname: Param0, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSGetPropertyDescriptionByName(pszcanonicalname: ::windows::core::PCWSTR, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        PSGetPropertyDescriptionByName(pszcanonicalname.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSGetPropertyDescriptionByName(pszcanonicalname: ::windows::core::PCWSTR, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PSGetPropertyDescriptionByName(pszcanonicalname.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
 pub unsafe fn PSGetPropertyDescriptionListFromString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pszproplist: Param0, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSGetPropertyDescriptionListFromString(pszproplist: ::windows::core::PCWSTR, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        PSGetPropertyDescriptionListFromString(pszproplist.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSGetPropertyDescriptionListFromString(pszproplist: ::windows::core::PCWSTR, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PSGetPropertyDescriptionListFromString(pszproplist.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PSGetPropertyFromPropertyStorage(psps: *const SERIALIZEDPROPSTORAGE, cb: u32, rpkey: *const PROPERTYKEY) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSGetPropertyFromPropertyStorage(psps: *const SERIALIZEDPROPSTORAGE, cb: u32, rpkey: *const PROPERTYKEY, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>>::zeroed();
-        PSGetPropertyFromPropertyStorage(::core::mem::transmute(psps), ::core::mem::transmute(cb), ::core::mem::transmute(rpkey), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSGetPropertyFromPropertyStorage(psps: *const SERIALIZEDPROPSTORAGE, cb: u32, rpkey: *const PROPERTYKEY, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>>::zeroed();
+    PSGetPropertyFromPropertyStorage(::core::mem::transmute(psps), ::core::mem::transmute(cb), ::core::mem::transmute(rpkey), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
 pub unsafe fn PSGetPropertyKeyFromName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pszname: Param0) -> ::windows::core::Result<PROPERTYKEY> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSGetPropertyKeyFromName(pszname: ::windows::core::PCWSTR, ppropkey: *mut PROPERTYKEY) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<PROPERTYKEY>::zeroed();
-        PSGetPropertyKeyFromName(pszname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PROPERTYKEY>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSGetPropertyKeyFromName(pszname: ::windows::core::PCWSTR, ppropkey: *mut PROPERTYKEY) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<PROPERTYKEY>::zeroed();
+    PSGetPropertyKeyFromName(pszname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PROPERTYKEY>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
 pub unsafe fn PSGetPropertySystem(riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSGetPropertySystem(riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        PSGetPropertySystem(::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSGetPropertySystem(riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PSGetPropertySystem(::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PSGetPropertyValue<'a, Param0: ::windows::core::IntoParam<'a, IPropertyStore>, Param1: ::windows::core::IntoParam<'a, IPropertyDescription>>(pps: Param0, ppd: Param1) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSGetPropertyValue(pps: *mut ::core::ffi::c_void, ppd: *mut ::core::ffi::c_void, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>>::zeroed();
-        PSGetPropertyValue(pps.into_param().abi(), ppd.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSGetPropertyValue(pps: *mut ::core::ffi::c_void, ppd: *mut ::core::ffi::c_void, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>>::zeroed();
+    PSGetPropertyValue(pps.into_param().abi(), ppd.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
 pub unsafe fn PSLookupPropertyHandlerCLSID<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pszfilepath: Param0) -> ::windows::core::Result<::windows::core::GUID> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSLookupPropertyHandlerCLSID(pszfilepath: ::windows::core::PCWSTR, pclsid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
-        PSLookupPropertyHandlerCLSID(pszfilepath.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSLookupPropertyHandlerCLSID(pszfilepath: ::windows::core::PCWSTR, pclsid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+    PSLookupPropertyHandlerCLSID(pszfilepath.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn PSPropertyBag_Delete<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(propbag: Param0, propname: Param1) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSPropertyBag_Delete(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
-        }
-        PSPropertyBag_Delete(propbag.into_param().abi(), propname.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSPropertyBag_Delete(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PSPropertyBag_Delete(propbag.into_param().abi(), propname.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PSPropertyBag_ReadBOOL<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(propbag: Param0, propname: Param1) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSPropertyBag_ReadBOOL(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, value: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::BOOL>::zeroed();
-        PSPropertyBag_ReadBOOL(propbag.into_param().abi(), propname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSPropertyBag_ReadBOOL(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, value: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::BOOL>::zeroed();
+    PSPropertyBag_ReadBOOL(propbag.into_param().abi(), propname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PSPropertyBag_ReadBSTR<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(propbag: Param0, propname: Param1) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSPropertyBag_ReadBSTR(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, value: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        PSPropertyBag_ReadBSTR(propbag.into_param().abi(), propname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSPropertyBag_ReadBSTR(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, value: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+    PSPropertyBag_ReadBSTR(propbag.into_param().abi(), propname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn PSPropertyBag_ReadDWORD<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(propbag: Param0, propname: Param1) -> ::windows::core::Result<u32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSPropertyBag_ReadDWORD(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, value: *mut u32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        PSPropertyBag_ReadDWORD(propbag.into_param().abi(), propname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSPropertyBag_ReadDWORD(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, value: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+    PSPropertyBag_ReadDWORD(propbag.into_param().abi(), propname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn PSPropertyBag_ReadGUID<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(propbag: Param0, propname: Param1) -> ::windows::core::Result<::windows::core::GUID> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSPropertyBag_ReadGUID(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, value: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
-        PSPropertyBag_ReadGUID(propbag.into_param().abi(), propname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSPropertyBag_ReadGUID(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, value: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+    PSPropertyBag_ReadGUID(propbag.into_param().abi(), propname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn PSPropertyBag_ReadInt<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(propbag: Param0, propname: Param1) -> ::windows::core::Result<i32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSPropertyBag_ReadInt(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, value: *mut i32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        PSPropertyBag_ReadInt(propbag.into_param().abi(), propname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSPropertyBag_ReadInt(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, value: *mut i32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+    PSPropertyBag_ReadInt(propbag.into_param().abi(), propname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn PSPropertyBag_ReadLONG<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(propbag: Param0, propname: Param1) -> ::windows::core::Result<i32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSPropertyBag_ReadLONG(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, value: *mut i32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        PSPropertyBag_ReadLONG(propbag.into_param().abi(), propname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSPropertyBag_ReadLONG(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, value: *mut i32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+    PSPropertyBag_ReadLONG(propbag.into_param().abi(), propname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PSPropertyBag_ReadPOINTL<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(propbag: Param0, propname: Param1) -> ::windows::core::Result<super::super::super::Foundation::POINTL> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSPropertyBag_ReadPOINTL(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, value: *mut super::super::super::Foundation::POINTL) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::POINTL>::zeroed();
-        PSPropertyBag_ReadPOINTL(propbag.into_param().abi(), propname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::POINTL>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSPropertyBag_ReadPOINTL(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, value: *mut super::super::super::Foundation::POINTL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::POINTL>::zeroed();
+    PSPropertyBag_ReadPOINTL(propbag.into_param().abi(), propname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::POINTL>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PSPropertyBag_ReadPOINTS<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(propbag: Param0, propname: Param1) -> ::windows::core::Result<super::super::super::Foundation::POINTS> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSPropertyBag_ReadPOINTS(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, value: *mut super::super::super::Foundation::POINTS) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::POINTS>::zeroed();
-        PSPropertyBag_ReadPOINTS(propbag.into_param().abi(), propname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::POINTS>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSPropertyBag_ReadPOINTS(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, value: *mut super::super::super::Foundation::POINTS) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::POINTS>::zeroed();
+    PSPropertyBag_ReadPOINTS(propbag.into_param().abi(), propname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::POINTS>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn PSPropertyBag_ReadPropertyKey<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(propbag: Param0, propname: Param1) -> ::windows::core::Result<PROPERTYKEY> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSPropertyBag_ReadPropertyKey(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, value: *mut PROPERTYKEY) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<PROPERTYKEY>::zeroed();
-        PSPropertyBag_ReadPropertyKey(propbag.into_param().abi(), propname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PROPERTYKEY>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSPropertyBag_ReadPropertyKey(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, value: *mut PROPERTYKEY) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<PROPERTYKEY>::zeroed();
+    PSPropertyBag_ReadPropertyKey(propbag.into_param().abi(), propname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PROPERTYKEY>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PSPropertyBag_ReadRECTL<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(propbag: Param0, propname: Param1) -> ::windows::core::Result<super::super::super::Foundation::RECTL> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSPropertyBag_ReadRECTL(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, value: *mut super::super::super::Foundation::RECTL) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::RECTL>::zeroed();
-        PSPropertyBag_ReadRECTL(propbag.into_param().abi(), propname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::RECTL>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSPropertyBag_ReadRECTL(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, value: *mut super::super::super::Foundation::RECTL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::RECTL>::zeroed();
+    PSPropertyBag_ReadRECTL(propbag.into_param().abi(), propname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::RECTL>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn PSPropertyBag_ReadSHORT<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(propbag: Param0, propname: Param1) -> ::windows::core::Result<i16> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSPropertyBag_ReadSHORT(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, value: *mut i16) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        PSPropertyBag_ReadSHORT(propbag.into_param().abi(), propname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSPropertyBag_ReadSHORT(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, value: *mut i16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+    PSPropertyBag_ReadSHORT(propbag.into_param().abi(), propname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn PSPropertyBag_ReadStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(propbag: Param0, propname: Param1, value: &mut [u16]) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSPropertyBag_ReadStr(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, value: ::windows::core::PWSTR, charactercount: i32) -> ::windows::core::HRESULT;
-        }
-        PSPropertyBag_ReadStr(propbag.into_param().abi(), propname.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(value)), value.len() as _).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSPropertyBag_ReadStr(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, value: ::windows::core::PWSTR, charactercount: i32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PSPropertyBag_ReadStr(propbag.into_param().abi(), propname.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(value)), value.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn PSPropertyBag_ReadStrAlloc<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(propbag: Param0, propname: Param1) -> ::windows::core::Result<::windows::core::PWSTR> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSPropertyBag_ReadStrAlloc(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, value: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-        PSPropertyBag_ReadStrAlloc(propbag.into_param().abi(), propname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSPropertyBag_ReadStrAlloc(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, value: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
+    PSPropertyBag_ReadStrAlloc(propbag.into_param().abi(), propname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn PSPropertyBag_ReadStream<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(propbag: Param0, propname: Param1) -> ::windows::core::Result<super::super::super::System::Com::IStream> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSPropertyBag_ReadStream(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        PSPropertyBag_ReadStream(propbag.into_param().abi(), propname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::IStream>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSPropertyBag_ReadStream(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    PSPropertyBag_ReadStream(propbag.into_param().abi(), propname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::IStream>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn PSPropertyBag_ReadType<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(propbag: Param0, propname: Param1, var: *mut super::super::super::System::Com::VARIANT, r#type: u16) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSPropertyBag_ReadType(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, var: *mut super::super::super::System::Com::VARIANT, r#type: u16) -> ::windows::core::HRESULT;
-        }
-        PSPropertyBag_ReadType(propbag.into_param().abi(), propname.into_param().abi(), ::core::mem::transmute(var), ::core::mem::transmute(r#type)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSPropertyBag_ReadType(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, var: *mut super::super::super::System::Com::VARIANT, r#type: u16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PSPropertyBag_ReadType(propbag.into_param().abi(), propname.into_param().abi(), ::core::mem::transmute(var), ::core::mem::transmute(r#type)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn PSPropertyBag_ReadULONGLONG<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(propbag: Param0, propname: Param1) -> ::windows::core::Result<u64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSPropertyBag_ReadULONGLONG(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, value: *mut u64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-        PSPropertyBag_ReadULONGLONG(propbag.into_param().abi(), propname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSPropertyBag_ReadULONGLONG(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, value: *mut u64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
+    PSPropertyBag_ReadULONGLONG(propbag.into_param().abi(), propname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn PSPropertyBag_ReadUnknown<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(propbag: Param0, propname: Param1, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSPropertyBag_ReadUnknown(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        PSPropertyBag_ReadUnknown(propbag.into_param().abi(), propname.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSPropertyBag_ReadUnknown(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PSPropertyBag_ReadUnknown(propbag.into_param().abi(), propname.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PSPropertyBag_WriteBOOL<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(propbag: Param0, propname: Param1, value: Param2) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSPropertyBag_WriteBOOL(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, value: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
-        }
-        PSPropertyBag_WriteBOOL(propbag.into_param().abi(), propname.into_param().abi(), value.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSPropertyBag_WriteBOOL(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, value: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PSPropertyBag_WriteBOOL(propbag.into_param().abi(), propname.into_param().abi(), value.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PSPropertyBag_WriteBSTR<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(propbag: Param0, propname: Param1, value: Param2) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSPropertyBag_WriteBSTR(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, value: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT;
-        }
-        PSPropertyBag_WriteBSTR(propbag.into_param().abi(), propname.into_param().abi(), value.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSPropertyBag_WriteBSTR(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, value: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PSPropertyBag_WriteBSTR(propbag.into_param().abi(), propname.into_param().abi(), value.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn PSPropertyBag_WriteDWORD<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(propbag: Param0, propname: Param1, value: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSPropertyBag_WriteDWORD(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, value: u32) -> ::windows::core::HRESULT;
-        }
-        PSPropertyBag_WriteDWORD(propbag.into_param().abi(), propname.into_param().abi(), ::core::mem::transmute(value)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSPropertyBag_WriteDWORD(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, value: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PSPropertyBag_WriteDWORD(propbag.into_param().abi(), propname.into_param().abi(), ::core::mem::transmute(value)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn PSPropertyBag_WriteGUID<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(propbag: Param0, propname: Param1, value: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSPropertyBag_WriteGUID(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, value: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
-        }
-        PSPropertyBag_WriteGUID(propbag.into_param().abi(), propname.into_param().abi(), ::core::mem::transmute(value)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSPropertyBag_WriteGUID(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, value: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PSPropertyBag_WriteGUID(propbag.into_param().abi(), propname.into_param().abi(), ::core::mem::transmute(value)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn PSPropertyBag_WriteInt<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(propbag: Param0, propname: Param1, value: i32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSPropertyBag_WriteInt(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, value: i32) -> ::windows::core::HRESULT;
-        }
-        PSPropertyBag_WriteInt(propbag.into_param().abi(), propname.into_param().abi(), ::core::mem::transmute(value)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSPropertyBag_WriteInt(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, value: i32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PSPropertyBag_WriteInt(propbag.into_param().abi(), propname.into_param().abi(), ::core::mem::transmute(value)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn PSPropertyBag_WriteLONG<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(propbag: Param0, propname: Param1, value: i32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSPropertyBag_WriteLONG(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, value: i32) -> ::windows::core::HRESULT;
-        }
-        PSPropertyBag_WriteLONG(propbag.into_param().abi(), propname.into_param().abi(), ::core::mem::transmute(value)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSPropertyBag_WriteLONG(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, value: i32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PSPropertyBag_WriteLONG(propbag.into_param().abi(), propname.into_param().abi(), ::core::mem::transmute(value)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PSPropertyBag_WritePOINTL<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(propbag: Param0, propname: Param1, value: *const super::super::super::Foundation::POINTL) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSPropertyBag_WritePOINTL(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, value: *const super::super::super::Foundation::POINTL) -> ::windows::core::HRESULT;
-        }
-        PSPropertyBag_WritePOINTL(propbag.into_param().abi(), propname.into_param().abi(), ::core::mem::transmute(value)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSPropertyBag_WritePOINTL(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, value: *const super::super::super::Foundation::POINTL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PSPropertyBag_WritePOINTL(propbag.into_param().abi(), propname.into_param().abi(), ::core::mem::transmute(value)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PSPropertyBag_WritePOINTS<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(propbag: Param0, propname: Param1, value: *const super::super::super::Foundation::POINTS) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSPropertyBag_WritePOINTS(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, value: *const super::super::super::Foundation::POINTS) -> ::windows::core::HRESULT;
-        }
-        PSPropertyBag_WritePOINTS(propbag.into_param().abi(), propname.into_param().abi(), ::core::mem::transmute(value)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSPropertyBag_WritePOINTS(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, value: *const super::super::super::Foundation::POINTS) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PSPropertyBag_WritePOINTS(propbag.into_param().abi(), propname.into_param().abi(), ::core::mem::transmute(value)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn PSPropertyBag_WritePropertyKey<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(propbag: Param0, propname: Param1, value: *const PROPERTYKEY) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSPropertyBag_WritePropertyKey(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, value: *const PROPERTYKEY) -> ::windows::core::HRESULT;
-        }
-        PSPropertyBag_WritePropertyKey(propbag.into_param().abi(), propname.into_param().abi(), ::core::mem::transmute(value)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSPropertyBag_WritePropertyKey(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, value: *const PROPERTYKEY) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PSPropertyBag_WritePropertyKey(propbag.into_param().abi(), propname.into_param().abi(), ::core::mem::transmute(value)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PSPropertyBag_WriteRECTL<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(propbag: Param0, propname: Param1, value: *const super::super::super::Foundation::RECTL) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSPropertyBag_WriteRECTL(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, value: *const super::super::super::Foundation::RECTL) -> ::windows::core::HRESULT;
-        }
-        PSPropertyBag_WriteRECTL(propbag.into_param().abi(), propname.into_param().abi(), ::core::mem::transmute(value)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSPropertyBag_WriteRECTL(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, value: *const super::super::super::Foundation::RECTL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PSPropertyBag_WriteRECTL(propbag.into_param().abi(), propname.into_param().abi(), ::core::mem::transmute(value)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn PSPropertyBag_WriteSHORT<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(propbag: Param0, propname: Param1, value: i16) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSPropertyBag_WriteSHORT(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, value: i16) -> ::windows::core::HRESULT;
-        }
-        PSPropertyBag_WriteSHORT(propbag.into_param().abi(), propname.into_param().abi(), ::core::mem::transmute(value)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSPropertyBag_WriteSHORT(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, value: i16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PSPropertyBag_WriteSHORT(propbag.into_param().abi(), propname.into_param().abi(), ::core::mem::transmute(value)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn PSPropertyBag_WriteStr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(propbag: Param0, propname: Param1, value: Param2) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSPropertyBag_WriteStr(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, value: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
-        }
-        PSPropertyBag_WriteStr(propbag.into_param().abi(), propname.into_param().abi(), value.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSPropertyBag_WriteStr(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, value: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PSPropertyBag_WriteStr(propbag.into_param().abi(), propname.into_param().abi(), value.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn PSPropertyBag_WriteStream<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(propbag: Param0, propname: Param1, value: Param2) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSPropertyBag_WriteStream(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        PSPropertyBag_WriteStream(propbag.into_param().abi(), propname.into_param().abi(), value.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSPropertyBag_WriteStream(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PSPropertyBag_WriteStream(propbag.into_param().abi(), propname.into_param().abi(), value.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn PSPropertyBag_WriteULONGLONG<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(propbag: Param0, propname: Param1, value: u64) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSPropertyBag_WriteULONGLONG(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, value: u64) -> ::windows::core::HRESULT;
-        }
-        PSPropertyBag_WriteULONGLONG(propbag.into_param().abi(), propname.into_param().abi(), ::core::mem::transmute(value)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSPropertyBag_WriteULONGLONG(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, value: u64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PSPropertyBag_WriteULONGLONG(propbag.into_param().abi(), propname.into_param().abi(), ::core::mem::transmute(value)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn PSPropertyBag_WriteUnknown<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(propbag: Param0, propname: Param1, punk: Param2) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSPropertyBag_WriteUnknown(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        PSPropertyBag_WriteUnknown(propbag.into_param().abi(), propname.into_param().abi(), punk.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSPropertyBag_WriteUnknown(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PSPropertyBag_WriteUnknown(propbag.into_param().abi(), propname.into_param().abi(), punk.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
 pub unsafe fn PSPropertyKeyFromString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pszstring: Param0) -> ::windows::core::Result<PROPERTYKEY> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSPropertyKeyFromString(pszstring: ::windows::core::PCWSTR, pkey: *mut PROPERTYKEY) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<PROPERTYKEY>::zeroed();
-        PSPropertyKeyFromString(pszstring.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PROPERTYKEY>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSPropertyKeyFromString(pszstring: ::windows::core::PCWSTR, pkey: *mut PROPERTYKEY) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<PROPERTYKEY>::zeroed();
+    PSPropertyKeyFromString(pszstring.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PROPERTYKEY>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
 pub unsafe fn PSRefreshPropertySchema() -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSRefreshPropertySchema() -> ::windows::core::HRESULT;
-        }
-        PSRefreshPropertySchema().ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSRefreshPropertySchema() -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PSRefreshPropertySchema().ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
 pub unsafe fn PSRegisterPropertySchema<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pszpath: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSRegisterPropertySchema(pszpath: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
-        }
-        PSRegisterPropertySchema(pszpath.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSRegisterPropertySchema(pszpath: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PSRegisterPropertySchema(pszpath.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PSSetPropertyValue<'a, Param0: ::windows::core::IntoParam<'a, IPropertyStore>, Param1: ::windows::core::IntoParam<'a, IPropertyDescription>>(pps: Param0, ppd: Param1, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSSetPropertyValue(pps: *mut ::core::ffi::c_void, ppd: *mut ::core::ffi::c_void, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
-        }
-        PSSetPropertyValue(pps.into_param().abi(), ppd.into_param().abi(), ::core::mem::transmute(propvar)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSSetPropertyValue(pps: *mut ::core::ffi::c_void, ppd: *mut ::core::ffi::c_void, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PSSetPropertyValue(pps.into_param().abi(), ppd.into_param().abi(), ::core::mem::transmute(propvar)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
 pub unsafe fn PSStringFromPropertyKey(pkey: *const PROPERTYKEY, psz: &mut [u16]) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSStringFromPropertyKey(pkey: *const PROPERTYKEY, psz: ::windows::core::PWSTR, cch: u32) -> ::windows::core::HRESULT;
-        }
-        PSStringFromPropertyKey(::core::mem::transmute(pkey), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(psz)), psz.len() as _).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSStringFromPropertyKey(pkey: *const PROPERTYKEY, psz: ::windows::core::PWSTR, cch: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PSStringFromPropertyKey(::core::mem::transmute(pkey), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(psz)), psz.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
@@ -5602,985 +5097,665 @@ impl ::core::ops::Not for PSTIME_FLAGS {
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
 pub unsafe fn PSUnregisterPropertySchema<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pszpath: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PSUnregisterPropertySchema(pszpath: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
-        }
-        PSUnregisterPropertySchema(pszpath.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PSUnregisterPropertySchema(pszpath: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PSUnregisterPropertySchema(pszpath.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PifMgr_CloseProperties<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprops: Param0, flopt: u32) -> super::super::super::Foundation::HANDLE {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PifMgr_CloseProperties(hprops: super::super::super::Foundation::HANDLE, flopt: u32) -> super::super::super::Foundation::HANDLE;
-        }
-        ::core::mem::transmute(PifMgr_CloseProperties(hprops.into_param().abi(), ::core::mem::transmute(flopt)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PifMgr_CloseProperties(hprops: super::super::super::Foundation::HANDLE, flopt: u32) -> super::super::super::Foundation::HANDLE;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PifMgr_CloseProperties(hprops.into_param().abi(), ::core::mem::transmute(flopt)))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PifMgr_GetProperties<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hprops: Param0, pszgroup: Param1, lpprops: *mut ::core::ffi::c_void, cbprops: i32, flopt: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PifMgr_GetProperties(hprops: super::super::super::Foundation::HANDLE, pszgroup: ::windows::core::PCSTR, lpprops: *mut ::core::ffi::c_void, cbprops: i32, flopt: u32) -> i32;
-        }
-        ::core::mem::transmute(PifMgr_GetProperties(hprops.into_param().abi(), pszgroup.into_param().abi(), ::core::mem::transmute(lpprops), ::core::mem::transmute(cbprops), ::core::mem::transmute(flopt)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PifMgr_GetProperties(hprops: super::super::super::Foundation::HANDLE, pszgroup: ::windows::core::PCSTR, lpprops: *mut ::core::ffi::c_void, cbprops: i32, flopt: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PifMgr_GetProperties(hprops.into_param().abi(), pszgroup.into_param().abi(), ::core::mem::transmute(lpprops), ::core::mem::transmute(cbprops), ::core::mem::transmute(flopt)))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PifMgr_OpenProperties<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pszapp: Param0, pszpif: Param1, hinf: u32, flopt: u32) -> super::super::super::Foundation::HANDLE {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PifMgr_OpenProperties(pszapp: ::windows::core::PCWSTR, pszpif: ::windows::core::PCWSTR, hinf: u32, flopt: u32) -> super::super::super::Foundation::HANDLE;
-        }
-        ::core::mem::transmute(PifMgr_OpenProperties(pszapp.into_param().abi(), pszpif.into_param().abi(), ::core::mem::transmute(hinf), ::core::mem::transmute(flopt)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PifMgr_OpenProperties(pszapp: ::windows::core::PCWSTR, pszpif: ::windows::core::PCWSTR, hinf: u32, flopt: u32) -> super::super::super::Foundation::HANDLE;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PifMgr_OpenProperties(pszapp.into_param().abi(), pszpif.into_param().abi(), ::core::mem::transmute(hinf), ::core::mem::transmute(flopt)))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PifMgr_SetProperties<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hprops: Param0, pszgroup: Param1, lpprops: *const ::core::ffi::c_void, cbprops: i32, flopt: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PifMgr_SetProperties(hprops: super::super::super::Foundation::HANDLE, pszgroup: ::windows::core::PCSTR, lpprops: *const ::core::ffi::c_void, cbprops: i32, flopt: u32) -> i32;
-        }
-        ::core::mem::transmute(PifMgr_SetProperties(hprops.into_param().abi(), pszgroup.into_param().abi(), ::core::mem::transmute(lpprops), ::core::mem::transmute(cbprops), ::core::mem::transmute(flopt)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PifMgr_SetProperties(hprops: super::super::super::Foundation::HANDLE, pszgroup: ::windows::core::PCSTR, lpprops: *const ::core::ffi::c_void, cbprops: i32, flopt: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PifMgr_SetProperties(hprops.into_param().abi(), pszgroup.into_param().abi(), ::core::mem::transmute(lpprops), ::core::mem::transmute(cbprops), ::core::mem::transmute(flopt)))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantChangeType(ppropvardest: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT, propvarsrc: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, flags: PROPVAR_CHANGE_FLAGS, vt: u16) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PropVariantChangeType(ppropvardest: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT, propvarsrc: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, flags: PROPVAR_CHANGE_FLAGS, vt: u16) -> ::windows::core::HRESULT;
-        }
-        PropVariantChangeType(::core::mem::transmute(ppropvardest), ::core::mem::transmute(propvarsrc), ::core::mem::transmute(flags), ::core::mem::transmute(vt)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantChangeType(ppropvardest: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT, propvarsrc: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, flags: PROPVAR_CHANGE_FLAGS, vt: u16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PropVariantChangeType(::core::mem::transmute(ppropvardest), ::core::mem::transmute(propvarsrc), ::core::mem::transmute(flags), ::core::mem::transmute(vt)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantCompareEx(propvar1: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, propvar2: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, unit: PROPVAR_COMPARE_UNIT, flags: PROPVAR_COMPARE_FLAGS) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PropVariantCompareEx(propvar1: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, propvar2: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, unit: PROPVAR_COMPARE_UNIT, flags: PROPVAR_COMPARE_FLAGS) -> i32;
-        }
-        ::core::mem::transmute(PropVariantCompareEx(::core::mem::transmute(propvar1), ::core::mem::transmute(propvar2), ::core::mem::transmute(unit), ::core::mem::transmute(flags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantCompareEx(propvar1: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, propvar2: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, unit: PROPVAR_COMPARE_UNIT, flags: PROPVAR_COMPARE_FLAGS) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PropVariantCompareEx(::core::mem::transmute(propvar1), ::core::mem::transmute(propvar2), ::core::mem::transmute(unit), ::core::mem::transmute(flags)))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantGetBooleanElem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PropVariantGetBooleanElem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32, pfval: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::BOOL>::zeroed();
-        PropVariantGetBooleanElem(::core::mem::transmute(propvar), ::core::mem::transmute(ielem), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantGetBooleanElem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32, pfval: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::BOOL>::zeroed();
+    PropVariantGetBooleanElem(::core::mem::transmute(propvar), ::core::mem::transmute(ielem), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantGetDoubleElem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32) -> ::windows::core::Result<f64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PropVariantGetDoubleElem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32, pnval: *mut f64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
-        PropVariantGetDoubleElem(::core::mem::transmute(propvar), ::core::mem::transmute(ielem), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantGetDoubleElem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32, pnval: *mut f64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+    PropVariantGetDoubleElem(::core::mem::transmute(propvar), ::core::mem::transmute(ielem), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantGetElementCount(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PropVariantGetElementCount(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> u32;
-        }
-        ::core::mem::transmute(PropVariantGetElementCount(::core::mem::transmute(propvar)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantGetElementCount(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PropVariantGetElementCount(::core::mem::transmute(propvar)))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantGetFileTimeElem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32) -> ::windows::core::Result<super::super::super::Foundation::FILETIME> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PropVariantGetFileTimeElem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32, pftval: *mut super::super::super::Foundation::FILETIME) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::FILETIME>::zeroed();
-        PropVariantGetFileTimeElem(::core::mem::transmute(propvar), ::core::mem::transmute(ielem), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::FILETIME>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantGetFileTimeElem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32, pftval: *mut super::super::super::Foundation::FILETIME) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::FILETIME>::zeroed();
+    PropVariantGetFileTimeElem(::core::mem::transmute(propvar), ::core::mem::transmute(ielem), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::FILETIME>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantGetInt16Elem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32) -> ::windows::core::Result<i16> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PropVariantGetInt16Elem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32, pnval: *mut i16) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        PropVariantGetInt16Elem(::core::mem::transmute(propvar), ::core::mem::transmute(ielem), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantGetInt16Elem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32, pnval: *mut i16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+    PropVariantGetInt16Elem(::core::mem::transmute(propvar), ::core::mem::transmute(ielem), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantGetInt32Elem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32) -> ::windows::core::Result<i32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PropVariantGetInt32Elem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32, pnval: *mut i32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        PropVariantGetInt32Elem(::core::mem::transmute(propvar), ::core::mem::transmute(ielem), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantGetInt32Elem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32, pnval: *mut i32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+    PropVariantGetInt32Elem(::core::mem::transmute(propvar), ::core::mem::transmute(ielem), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantGetInt64Elem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32) -> ::windows::core::Result<i64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PropVariantGetInt64Elem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32, pnval: *mut i64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
-        PropVariantGetInt64Elem(::core::mem::transmute(propvar), ::core::mem::transmute(ielem), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantGetInt64Elem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32, pnval: *mut i64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
+    PropVariantGetInt64Elem(::core::mem::transmute(propvar), ::core::mem::transmute(ielem), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantGetStringElem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32) -> ::windows::core::Result<::windows::core::PWSTR> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PropVariantGetStringElem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32, ppszval: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-        PropVariantGetStringElem(::core::mem::transmute(propvar), ::core::mem::transmute(ielem), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantGetStringElem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32, ppszval: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
+    PropVariantGetStringElem(::core::mem::transmute(propvar), ::core::mem::transmute(ielem), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantGetUInt16Elem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32) -> ::windows::core::Result<u16> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PropVariantGetUInt16Elem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32, pnval: *mut u16) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
-        PropVariantGetUInt16Elem(::core::mem::transmute(propvar), ::core::mem::transmute(ielem), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantGetUInt16Elem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32, pnval: *mut u16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
+    PropVariantGetUInt16Elem(::core::mem::transmute(propvar), ::core::mem::transmute(ielem), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantGetUInt32Elem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32) -> ::windows::core::Result<u32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PropVariantGetUInt32Elem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32, pnval: *mut u32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        PropVariantGetUInt32Elem(::core::mem::transmute(propvar), ::core::mem::transmute(ielem), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantGetUInt32Elem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32, pnval: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+    PropVariantGetUInt32Elem(::core::mem::transmute(propvar), ::core::mem::transmute(ielem), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantGetUInt64Elem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32) -> ::windows::core::Result<u64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PropVariantGetUInt64Elem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32, pnval: *mut u64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-        PropVariantGetUInt64Elem(::core::mem::transmute(propvar), ::core::mem::transmute(ielem), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantGetUInt64Elem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32, pnval: *mut u64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
+    PropVariantGetUInt64Elem(::core::mem::transmute(propvar), ::core::mem::transmute(ielem), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToBSTR(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PropVariantToBSTR(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pbstrout: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
-        PropVariantToBSTR(::core::mem::transmute(propvar), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantToBSTR(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pbstrout: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>>::zeroed();
+    PropVariantToBSTR(::core::mem::transmute(propvar), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToBoolean(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PropVariantToBoolean(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pfret: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::BOOL>::zeroed();
-        PropVariantToBoolean(::core::mem::transmute(propvarin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantToBoolean(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pfret: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::BOOL>::zeroed();
+    PropVariantToBoolean(::core::mem::transmute(propvarin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToBooleanVector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgf: &mut [super::super::super::Foundation::BOOL], pcelem: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PropVariantToBooleanVector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgf: *mut super::super::super::Foundation::BOOL, crgf: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
-        }
-        PropVariantToBooleanVector(::core::mem::transmute(propvar), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgf)), prgf.len() as _, ::core::mem::transmute(pcelem)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantToBooleanVector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgf: *mut super::super::super::Foundation::BOOL, crgf: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PropVariantToBooleanVector(::core::mem::transmute(propvar), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgf)), prgf.len() as _, ::core::mem::transmute(pcelem)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToBooleanVectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgf: *mut *mut super::super::super::Foundation::BOOL, pcelem: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PropVariantToBooleanVectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgf: *mut *mut super::super::super::Foundation::BOOL, pcelem: *mut u32) -> ::windows::core::HRESULT;
-        }
-        PropVariantToBooleanVectorAlloc(::core::mem::transmute(propvar), ::core::mem::transmute(pprgf), ::core::mem::transmute(pcelem)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantToBooleanVectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgf: *mut *mut super::super::super::Foundation::BOOL, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PropVariantToBooleanVectorAlloc(::core::mem::transmute(propvar), ::core::mem::transmute(pprgf), ::core::mem::transmute(pcelem)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToBooleanWithDefault<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, fdefault: Param1) -> super::super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PropVariantToBooleanWithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, fdefault: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(PropVariantToBooleanWithDefault(::core::mem::transmute(propvarin), fdefault.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantToBooleanWithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, fdefault: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PropVariantToBooleanWithDefault(::core::mem::transmute(propvarin), fdefault.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToBuffer(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pv: *mut ::core::ffi::c_void, cb: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PropVariantToBuffer(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pv: *mut ::core::ffi::c_void, cb: u32) -> ::windows::core::HRESULT;
-        }
-        PropVariantToBuffer(::core::mem::transmute(propvar), ::core::mem::transmute(pv), ::core::mem::transmute(cb)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantToBuffer(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pv: *mut ::core::ffi::c_void, cb: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PropVariantToBuffer(::core::mem::transmute(propvar), ::core::mem::transmute(pv), ::core::mem::transmute(cb)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToDouble(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<f64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PropVariantToDouble(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdblret: *mut f64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
-        PropVariantToDouble(::core::mem::transmute(propvarin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantToDouble(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdblret: *mut f64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+    PropVariantToDouble(::core::mem::transmute(propvarin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToDoubleVector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: &mut [f64], pcelem: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PropVariantToDoubleVector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: *mut f64, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
-        }
-        PropVariantToDoubleVector(::core::mem::transmute(propvar), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantToDoubleVector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: *mut f64, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PropVariantToDoubleVector(::core::mem::transmute(propvar), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToDoubleVectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgn: *mut *mut f64, pcelem: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PropVariantToDoubleVectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgn: *mut *mut f64, pcelem: *mut u32) -> ::windows::core::HRESULT;
-        }
-        PropVariantToDoubleVectorAlloc(::core::mem::transmute(propvar), ::core::mem::transmute(pprgn), ::core::mem::transmute(pcelem)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantToDoubleVectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgn: *mut *mut f64, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PropVariantToDoubleVectorAlloc(::core::mem::transmute(propvar), ::core::mem::transmute(pprgn), ::core::mem::transmute(pcelem)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToDoubleWithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, dbldefault: f64) -> f64 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PropVariantToDoubleWithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, dbldefault: f64) -> f64;
-        }
-        ::core::mem::transmute(PropVariantToDoubleWithDefault(::core::mem::transmute(propvarin), ::core::mem::transmute(dbldefault)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantToDoubleWithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, dbldefault: f64) -> f64;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PropVariantToDoubleWithDefault(::core::mem::transmute(propvarin), ::core::mem::transmute(dbldefault)))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToFileTime(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pstfout: PSTIME_FLAGS) -> ::windows::core::Result<super::super::super::Foundation::FILETIME> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PropVariantToFileTime(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pstfout: PSTIME_FLAGS, pftout: *mut super::super::super::Foundation::FILETIME) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::FILETIME>::zeroed();
-        PropVariantToFileTime(::core::mem::transmute(propvar), ::core::mem::transmute(pstfout), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::FILETIME>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantToFileTime(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pstfout: PSTIME_FLAGS, pftout: *mut super::super::super::Foundation::FILETIME) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::FILETIME>::zeroed();
+    PropVariantToFileTime(::core::mem::transmute(propvar), ::core::mem::transmute(pstfout), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::FILETIME>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToFileTimeVector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgft: &mut [super::super::super::Foundation::FILETIME], pcelem: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PropVariantToFileTimeVector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgft: *mut super::super::super::Foundation::FILETIME, crgft: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
-        }
-        PropVariantToFileTimeVector(::core::mem::transmute(propvar), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgft)), prgft.len() as _, ::core::mem::transmute(pcelem)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantToFileTimeVector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgft: *mut super::super::super::Foundation::FILETIME, crgft: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PropVariantToFileTimeVector(::core::mem::transmute(propvar), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgft)), prgft.len() as _, ::core::mem::transmute(pcelem)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToFileTimeVectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgft: *mut *mut super::super::super::Foundation::FILETIME, pcelem: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PropVariantToFileTimeVectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgft: *mut *mut super::super::super::Foundation::FILETIME, pcelem: *mut u32) -> ::windows::core::HRESULT;
-        }
-        PropVariantToFileTimeVectorAlloc(::core::mem::transmute(propvar), ::core::mem::transmute(pprgft), ::core::mem::transmute(pcelem)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantToFileTimeVectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgft: *mut *mut super::super::super::Foundation::FILETIME, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PropVariantToFileTimeVectorAlloc(::core::mem::transmute(propvar), ::core::mem::transmute(pprgft), ::core::mem::transmute(pcelem)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToGUID(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<::windows::core::GUID> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PropVariantToGUID(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
-        PropVariantToGUID(::core::mem::transmute(propvar), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantToGUID(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+    PropVariantToGUID(::core::mem::transmute(propvar), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToInt16(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<i16> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PropVariantToInt16(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, piret: *mut i16) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        PropVariantToInt16(::core::mem::transmute(propvarin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantToInt16(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, piret: *mut i16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+    PropVariantToInt16(::core::mem::transmute(propvarin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToInt16Vector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: &mut [i16], pcelem: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PropVariantToInt16Vector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: *mut i16, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
-        }
-        PropVariantToInt16Vector(::core::mem::transmute(propvar), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantToInt16Vector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: *mut i16, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PropVariantToInt16Vector(::core::mem::transmute(propvar), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToInt16VectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgn: *mut *mut i16, pcelem: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PropVariantToInt16VectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgn: *mut *mut i16, pcelem: *mut u32) -> ::windows::core::HRESULT;
-        }
-        PropVariantToInt16VectorAlloc(::core::mem::transmute(propvar), ::core::mem::transmute(pprgn), ::core::mem::transmute(pcelem)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantToInt16VectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgn: *mut *mut i16, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PropVariantToInt16VectorAlloc(::core::mem::transmute(propvar), ::core::mem::transmute(pprgn), ::core::mem::transmute(pcelem)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToInt16WithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, idefault: i16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PropVariantToInt16WithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, idefault: i16) -> i16;
-        }
-        ::core::mem::transmute(PropVariantToInt16WithDefault(::core::mem::transmute(propvarin), ::core::mem::transmute(idefault)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantToInt16WithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, idefault: i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PropVariantToInt16WithDefault(::core::mem::transmute(propvarin), ::core::mem::transmute(idefault)))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToInt32(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<i32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PropVariantToInt32(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, plret: *mut i32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        PropVariantToInt32(::core::mem::transmute(propvarin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantToInt32(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, plret: *mut i32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+    PropVariantToInt32(::core::mem::transmute(propvarin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToInt32Vector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: &mut [i32], pcelem: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PropVariantToInt32Vector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: *mut i32, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
-        }
-        PropVariantToInt32Vector(::core::mem::transmute(propvar), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantToInt32Vector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: *mut i32, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PropVariantToInt32Vector(::core::mem::transmute(propvar), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToInt32VectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgn: *mut *mut i32, pcelem: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PropVariantToInt32VectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgn: *mut *mut i32, pcelem: *mut u32) -> ::windows::core::HRESULT;
-        }
-        PropVariantToInt32VectorAlloc(::core::mem::transmute(propvar), ::core::mem::transmute(pprgn), ::core::mem::transmute(pcelem)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantToInt32VectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgn: *mut *mut i32, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PropVariantToInt32VectorAlloc(::core::mem::transmute(propvar), ::core::mem::transmute(pprgn), ::core::mem::transmute(pcelem)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToInt32WithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ldefault: i32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PropVariantToInt32WithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ldefault: i32) -> i32;
-        }
-        ::core::mem::transmute(PropVariantToInt32WithDefault(::core::mem::transmute(propvarin), ::core::mem::transmute(ldefault)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantToInt32WithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ldefault: i32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PropVariantToInt32WithDefault(::core::mem::transmute(propvarin), ::core::mem::transmute(ldefault)))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToInt64(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<i64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PropVariantToInt64(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pllret: *mut i64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
-        PropVariantToInt64(::core::mem::transmute(propvarin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantToInt64(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pllret: *mut i64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
+    PropVariantToInt64(::core::mem::transmute(propvarin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToInt64Vector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: &mut [i64], pcelem: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PropVariantToInt64Vector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: *mut i64, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
-        }
-        PropVariantToInt64Vector(::core::mem::transmute(propvar), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantToInt64Vector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: *mut i64, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PropVariantToInt64Vector(::core::mem::transmute(propvar), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToInt64VectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgn: *mut *mut i64, pcelem: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PropVariantToInt64VectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgn: *mut *mut i64, pcelem: *mut u32) -> ::windows::core::HRESULT;
-        }
-        PropVariantToInt64VectorAlloc(::core::mem::transmute(propvar), ::core::mem::transmute(pprgn), ::core::mem::transmute(pcelem)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantToInt64VectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgn: *mut *mut i64, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PropVariantToInt64VectorAlloc(::core::mem::transmute(propvar), ::core::mem::transmute(pprgn), ::core::mem::transmute(pcelem)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToInt64WithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, lldefault: i64) -> i64 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PropVariantToInt64WithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, lldefault: i64) -> i64;
-        }
-        ::core::mem::transmute(PropVariantToInt64WithDefault(::core::mem::transmute(propvarin), ::core::mem::transmute(lldefault)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantToInt64WithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, lldefault: i64) -> i64;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PropVariantToInt64WithDefault(::core::mem::transmute(propvarin), ::core::mem::transmute(lldefault)))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_Common\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_Common"))]
 #[inline]
 pub unsafe fn PropVariantToStrRet(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::Common::STRRET> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PropVariantToStrRet(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pstrret: *mut super::Common::STRRET) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::Common::STRRET>::zeroed();
-        PropVariantToStrRet(::core::mem::transmute(propvar), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Common::STRRET>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantToStrRet(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pstrret: *mut super::Common::STRRET) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::Common::STRRET>::zeroed();
+    PropVariantToStrRet(::core::mem::transmute(propvar), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Common::STRRET>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToString(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, psz: &mut [u16]) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PropVariantToString(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, psz: ::windows::core::PWSTR, cch: u32) -> ::windows::core::HRESULT;
-        }
-        PropVariantToString(::core::mem::transmute(propvar), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(psz)), psz.len() as _).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantToString(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, psz: ::windows::core::PWSTR, cch: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PropVariantToString(::core::mem::transmute(propvar), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(psz)), psz.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToStringAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<::windows::core::PWSTR> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PropVariantToStringAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ppszout: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-        PropVariantToStringAlloc(::core::mem::transmute(propvar), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantToStringAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ppszout: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
+    PropVariantToStringAlloc(::core::mem::transmute(propvar), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToStringVector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgsz: &mut [::windows::core::PWSTR], pcelem: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PropVariantToStringVector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgsz: *mut ::windows::core::PWSTR, crgsz: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
-        }
-        PropVariantToStringVector(::core::mem::transmute(propvar), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgsz)), prgsz.len() as _, ::core::mem::transmute(pcelem)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantToStringVector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgsz: *mut ::windows::core::PWSTR, crgsz: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PropVariantToStringVector(::core::mem::transmute(propvar), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgsz)), prgsz.len() as _, ::core::mem::transmute(pcelem)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToStringVectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgsz: *mut *mut ::windows::core::PWSTR, pcelem: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PropVariantToStringVectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgsz: *mut *mut ::windows::core::PWSTR, pcelem: *mut u32) -> ::windows::core::HRESULT;
-        }
-        PropVariantToStringVectorAlloc(::core::mem::transmute(propvar), ::core::mem::transmute(pprgsz), ::core::mem::transmute(pcelem)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantToStringVectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgsz: *mut *mut ::windows::core::PWSTR, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PropVariantToStringVectorAlloc(::core::mem::transmute(propvar), ::core::mem::transmute(pprgsz), ::core::mem::transmute(pcelem)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToStringWithDefault<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pszdefault: Param1) -> ::windows::core::PWSTR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PropVariantToStringWithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pszdefault: ::windows::core::PCWSTR) -> ::windows::core::PWSTR;
-        }
-        ::core::mem::transmute(PropVariantToStringWithDefault(::core::mem::transmute(propvarin), pszdefault.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantToStringWithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pszdefault: ::windows::core::PCWSTR) -> ::windows::core::PWSTR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PropVariantToStringWithDefault(::core::mem::transmute(propvarin), pszdefault.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToUInt16(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<u16> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PropVariantToUInt16(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, puiret: *mut u16) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
-        PropVariantToUInt16(::core::mem::transmute(propvarin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantToUInt16(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, puiret: *mut u16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
+    PropVariantToUInt16(::core::mem::transmute(propvarin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToUInt16Vector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: &mut [u16], pcelem: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PropVariantToUInt16Vector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: *mut u16, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
-        }
-        PropVariantToUInt16Vector(::core::mem::transmute(propvar), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantToUInt16Vector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: *mut u16, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PropVariantToUInt16Vector(::core::mem::transmute(propvar), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToUInt16VectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgn: *mut *mut u16, pcelem: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PropVariantToUInt16VectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgn: *mut *mut u16, pcelem: *mut u32) -> ::windows::core::HRESULT;
-        }
-        PropVariantToUInt16VectorAlloc(::core::mem::transmute(propvar), ::core::mem::transmute(pprgn), ::core::mem::transmute(pcelem)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantToUInt16VectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgn: *mut *mut u16, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PropVariantToUInt16VectorAlloc(::core::mem::transmute(propvar), ::core::mem::transmute(pprgn), ::core::mem::transmute(pcelem)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToUInt16WithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, uidefault: u16) -> u16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PropVariantToUInt16WithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, uidefault: u16) -> u16;
-        }
-        ::core::mem::transmute(PropVariantToUInt16WithDefault(::core::mem::transmute(propvarin), ::core::mem::transmute(uidefault)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantToUInt16WithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, uidefault: u16) -> u16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PropVariantToUInt16WithDefault(::core::mem::transmute(propvarin), ::core::mem::transmute(uidefault)))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToUInt32(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<u32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PropVariantToUInt32(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pulret: *mut u32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        PropVariantToUInt32(::core::mem::transmute(propvarin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantToUInt32(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pulret: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+    PropVariantToUInt32(::core::mem::transmute(propvarin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToUInt32Vector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: &mut [u32], pcelem: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PropVariantToUInt32Vector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: *mut u32, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
-        }
-        PropVariantToUInt32Vector(::core::mem::transmute(propvar), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantToUInt32Vector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: *mut u32, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PropVariantToUInt32Vector(::core::mem::transmute(propvar), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToUInt32VectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgn: *mut *mut u32, pcelem: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PropVariantToUInt32VectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgn: *mut *mut u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
-        }
-        PropVariantToUInt32VectorAlloc(::core::mem::transmute(propvar), ::core::mem::transmute(pprgn), ::core::mem::transmute(pcelem)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantToUInt32VectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgn: *mut *mut u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PropVariantToUInt32VectorAlloc(::core::mem::transmute(propvar), ::core::mem::transmute(pprgn), ::core::mem::transmute(pcelem)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToUInt32WithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, uldefault: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PropVariantToUInt32WithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, uldefault: u32) -> u32;
-        }
-        ::core::mem::transmute(PropVariantToUInt32WithDefault(::core::mem::transmute(propvarin), ::core::mem::transmute(uldefault)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantToUInt32WithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, uldefault: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PropVariantToUInt32WithDefault(::core::mem::transmute(propvarin), ::core::mem::transmute(uldefault)))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToUInt64(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<u64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PropVariantToUInt64(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pullret: *mut u64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-        PropVariantToUInt64(::core::mem::transmute(propvarin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantToUInt64(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pullret: *mut u64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
+    PropVariantToUInt64(::core::mem::transmute(propvarin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToUInt64Vector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: &mut [u64], pcelem: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PropVariantToUInt64Vector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: *mut u64, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
-        }
-        PropVariantToUInt64Vector(::core::mem::transmute(propvar), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantToUInt64Vector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: *mut u64, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PropVariantToUInt64Vector(::core::mem::transmute(propvar), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToUInt64VectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgn: *mut *mut u64, pcelem: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PropVariantToUInt64VectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgn: *mut *mut u64, pcelem: *mut u32) -> ::windows::core::HRESULT;
-        }
-        PropVariantToUInt64VectorAlloc(::core::mem::transmute(propvar), ::core::mem::transmute(pprgn), ::core::mem::transmute(pcelem)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantToUInt64VectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgn: *mut *mut u64, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PropVariantToUInt64VectorAlloc(::core::mem::transmute(propvar), ::core::mem::transmute(pprgn), ::core::mem::transmute(pcelem)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToUInt64WithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ulldefault: u64) -> u64 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PropVariantToUInt64WithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ulldefault: u64) -> u64;
-        }
-        ::core::mem::transmute(PropVariantToUInt64WithDefault(::core::mem::transmute(propvarin), ::core::mem::transmute(ulldefault)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantToUInt64WithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ulldefault: u64) -> u64;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PropVariantToUInt64WithDefault(::core::mem::transmute(propvarin), ::core::mem::transmute(ulldefault)))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn PropVariantToVariant(ppropvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PropVariantToVariant(ppropvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
-        PropVariantToVariant(::core::mem::transmute(ppropvar), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantToVariant(ppropvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>>::zeroed();
+    PropVariantToVariant(::core::mem::transmute(ppropvar), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToWinRTPropertyValue<T: ::windows::core::Interface>(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PropVariantToWinRTPropertyValue(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        PropVariantToWinRTPropertyValue(::core::mem::transmute(propvar), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantToWinRTPropertyValue(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    PropVariantToWinRTPropertyValue(::core::mem::transmute(propvar), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
 }
 pub const PropertySystem: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8967f85_58ae_4f46_9fb2_5d7904798f4b);
 #[repr(C)]
@@ -6588,107 +5763,72 @@ pub struct SERIALIZEDPROPSTORAGE(pub u8);
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
 pub unsafe fn SHAddDefaultPropertiesByExt<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, IPropertyStore>>(pszext: Param0, ppropstore: Param1) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SHAddDefaultPropertiesByExt(pszext: ::windows::core::PCWSTR, ppropstore: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        SHAddDefaultPropertiesByExt(pszext.into_param().abi(), ppropstore.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SHAddDefaultPropertiesByExt(pszext: ::windows::core::PCWSTR, ppropstore: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SHAddDefaultPropertiesByExt(pszext.into_param().abi(), ppropstore.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHGetPropertyStoreForWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(hwnd: Param0, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SHGetPropertyStoreForWindow(hwnd: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        SHGetPropertyStoreForWindow(hwnd.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SHGetPropertyStoreForWindow(hwnd: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SHGetPropertyStoreForWindow(hwnd.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_UI_Shell_Common\"`*"]
 #[cfg(feature = "Win32_UI_Shell_Common")]
 #[inline]
 pub unsafe fn SHGetPropertyStoreFromIDList(pidl: *const super::Common::ITEMIDLIST, flags: GETPROPERTYSTOREFLAGS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SHGetPropertyStoreFromIDList(pidl: *const super::Common::ITEMIDLIST, flags: GETPROPERTYSTOREFLAGS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        SHGetPropertyStoreFromIDList(::core::mem::transmute(pidl), ::core::mem::transmute(flags), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SHGetPropertyStoreFromIDList(pidl: *const super::Common::ITEMIDLIST, flags: GETPROPERTYSTOREFLAGS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SHGetPropertyStoreFromIDList(::core::mem::transmute(pidl), ::core::mem::transmute(flags), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn SHGetPropertyStoreFromParsingName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::IBindCtx>>(pszpath: Param0, pbc: Param1, flags: GETPROPERTYSTOREFLAGS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SHGetPropertyStoreFromParsingName(pszpath: ::windows::core::PCWSTR, pbc: *mut ::core::ffi::c_void, flags: GETPROPERTYSTOREFLAGS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        SHGetPropertyStoreFromParsingName(pszpath.into_param().abi(), pbc.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SHGetPropertyStoreFromParsingName(pszpath: ::windows::core::PCWSTR, pbc: *mut ::core::ffi::c_void, flags: GETPROPERTYSTOREFLAGS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SHGetPropertyStoreFromParsingName(pszpath.into_param().abi(), pbc.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn SHPropStgCreate<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertySetStorage>>(psstg: Param0, fmtid: *const ::windows::core::GUID, pclsid: *const ::windows::core::GUID, grfflags: u32, grfmode: u32, dwdisposition: u32, ppstg: *mut ::core::option::Option<super::super::super::System::Com::StructuredStorage::IPropertyStorage>, pucodepage: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SHPropStgCreate(psstg: *mut ::core::ffi::c_void, fmtid: *const ::windows::core::GUID, pclsid: *const ::windows::core::GUID, grfflags: u32, grfmode: u32, dwdisposition: u32, ppstg: *mut *mut ::core::ffi::c_void, pucodepage: *mut u32) -> ::windows::core::HRESULT;
-        }
-        SHPropStgCreate(psstg.into_param().abi(), ::core::mem::transmute(fmtid), ::core::mem::transmute(pclsid), ::core::mem::transmute(grfflags), ::core::mem::transmute(grfmode), ::core::mem::transmute(dwdisposition), ::core::mem::transmute(ppstg), ::core::mem::transmute(pucodepage)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SHPropStgCreate(psstg: *mut ::core::ffi::c_void, fmtid: *const ::windows::core::GUID, pclsid: *const ::windows::core::GUID, grfflags: u32, grfmode: u32, dwdisposition: u32, ppstg: *mut *mut ::core::ffi::c_void, pucodepage: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SHPropStgCreate(psstg.into_param().abi(), ::core::mem::transmute(fmtid), ::core::mem::transmute(pclsid), ::core::mem::transmute(grfflags), ::core::mem::transmute(grfmode), ::core::mem::transmute(dwdisposition), ::core::mem::transmute(ppstg), ::core::mem::transmute(pucodepage)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn SHPropStgReadMultiple<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyStorage>>(pps: Param0, ucodepage: u32, rgpspec: &[super::super::super::System::Com::StructuredStorage::PROPSPEC]) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SHPropStgReadMultiple(pps: *mut ::core::ffi::c_void, ucodepage: u32, cpspec: u32, rgpspec: *const super::super::super::System::Com::StructuredStorage::PROPSPEC, rgvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>>::zeroed();
-        SHPropStgReadMultiple(pps.into_param().abi(), ::core::mem::transmute(ucodepage), rgpspec.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpspec)), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SHPropStgReadMultiple(pps: *mut ::core::ffi::c_void, ucodepage: u32, cpspec: u32, rgpspec: *const super::super::super::System::Com::StructuredStorage::PROPSPEC, rgvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>>::zeroed();
+    SHPropStgReadMultiple(pps.into_param().abi(), ::core::mem::transmute(ucodepage), rgpspec.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpspec)), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn SHPropStgWriteMultiple<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyStorage>>(pps: Param0, pucodepage: *mut u32, cpspec: u32, rgpspec: *const super::super::super::System::Com::StructuredStorage::PROPSPEC, rgvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT, propidnamefirst: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SHPropStgWriteMultiple(pps: *mut ::core::ffi::c_void, pucodepage: *mut u32, cpspec: u32, rgpspec: *const super::super::super::System::Com::StructuredStorage::PROPSPEC, rgvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT, propidnamefirst: u32) -> ::windows::core::HRESULT;
-        }
-        SHPropStgWriteMultiple(pps.into_param().abi(), ::core::mem::transmute(pucodepage), ::core::mem::transmute(cpspec), ::core::mem::transmute(rgpspec), ::core::mem::transmute(rgvar), ::core::mem::transmute(propidnamefirst)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SHPropStgWriteMultiple(pps: *mut ::core::ffi::c_void, pucodepage: *mut u32, cpspec: u32, rgpspec: *const super::super::super::System::Com::StructuredStorage::PROPSPEC, rgvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT, propidnamefirst: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SHPropStgWriteMultiple(pps.into_param().abi(), ::core::mem::transmute(pucodepage), ::core::mem::transmute(cpspec), ::core::mem::transmute(rgpspec), ::core::mem::transmute(rgvar), ::core::mem::transmute(propidnamefirst)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
@@ -6842,849 +5982,574 @@ impl ::core::ops::Not for SYNC_TRANSFER_STATUS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantCompare(var1: *const super::super::super::System::Com::VARIANT, var2: *const super::super::super::System::Com::VARIANT) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantCompare(var1: *const super::super::super::System::Com::VARIANT, var2: *const super::super::super::System::Com::VARIANT) -> i32;
-        }
-        ::core::mem::transmute(VariantCompare(::core::mem::transmute(var1), ::core::mem::transmute(var2)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantCompare(var1: *const super::super::super::System::Com::VARIANT, var2: *const super::super::super::System::Com::VARIANT) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(VariantCompare(::core::mem::transmute(var1), ::core::mem::transmute(var2)))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantGetBooleanElem(var: *const super::super::super::System::Com::VARIANT, ielem: u32) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantGetBooleanElem(var: *const super::super::super::System::Com::VARIANT, ielem: u32, pfval: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::BOOL>::zeroed();
-        VariantGetBooleanElem(::core::mem::transmute(var), ::core::mem::transmute(ielem), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantGetBooleanElem(var: *const super::super::super::System::Com::VARIANT, ielem: u32, pfval: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::BOOL>::zeroed();
+    VariantGetBooleanElem(::core::mem::transmute(var), ::core::mem::transmute(ielem), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantGetDoubleElem(var: *const super::super::super::System::Com::VARIANT, ielem: u32) -> ::windows::core::Result<f64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantGetDoubleElem(var: *const super::super::super::System::Com::VARIANT, ielem: u32, pnval: *mut f64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
-        VariantGetDoubleElem(::core::mem::transmute(var), ::core::mem::transmute(ielem), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantGetDoubleElem(var: *const super::super::super::System::Com::VARIANT, ielem: u32, pnval: *mut f64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+    VariantGetDoubleElem(::core::mem::transmute(var), ::core::mem::transmute(ielem), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantGetElementCount(varin: *const super::super::super::System::Com::VARIANT) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantGetElementCount(varin: *const super::super::super::System::Com::VARIANT) -> u32;
-        }
-        ::core::mem::transmute(VariantGetElementCount(::core::mem::transmute(varin)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantGetElementCount(varin: *const super::super::super::System::Com::VARIANT) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(VariantGetElementCount(::core::mem::transmute(varin)))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantGetInt16Elem(var: *const super::super::super::System::Com::VARIANT, ielem: u32) -> ::windows::core::Result<i16> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantGetInt16Elem(var: *const super::super::super::System::Com::VARIANT, ielem: u32, pnval: *mut i16) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        VariantGetInt16Elem(::core::mem::transmute(var), ::core::mem::transmute(ielem), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantGetInt16Elem(var: *const super::super::super::System::Com::VARIANT, ielem: u32, pnval: *mut i16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+    VariantGetInt16Elem(::core::mem::transmute(var), ::core::mem::transmute(ielem), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantGetInt32Elem(var: *const super::super::super::System::Com::VARIANT, ielem: u32) -> ::windows::core::Result<i32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantGetInt32Elem(var: *const super::super::super::System::Com::VARIANT, ielem: u32, pnval: *mut i32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        VariantGetInt32Elem(::core::mem::transmute(var), ::core::mem::transmute(ielem), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantGetInt32Elem(var: *const super::super::super::System::Com::VARIANT, ielem: u32, pnval: *mut i32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+    VariantGetInt32Elem(::core::mem::transmute(var), ::core::mem::transmute(ielem), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantGetInt64Elem(var: *const super::super::super::System::Com::VARIANT, ielem: u32) -> ::windows::core::Result<i64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantGetInt64Elem(var: *const super::super::super::System::Com::VARIANT, ielem: u32, pnval: *mut i64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
-        VariantGetInt64Elem(::core::mem::transmute(var), ::core::mem::transmute(ielem), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantGetInt64Elem(var: *const super::super::super::System::Com::VARIANT, ielem: u32, pnval: *mut i64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
+    VariantGetInt64Elem(::core::mem::transmute(var), ::core::mem::transmute(ielem), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantGetStringElem(var: *const super::super::super::System::Com::VARIANT, ielem: u32) -> ::windows::core::Result<::windows::core::PWSTR> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantGetStringElem(var: *const super::super::super::System::Com::VARIANT, ielem: u32, ppszval: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-        VariantGetStringElem(::core::mem::transmute(var), ::core::mem::transmute(ielem), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantGetStringElem(var: *const super::super::super::System::Com::VARIANT, ielem: u32, ppszval: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
+    VariantGetStringElem(::core::mem::transmute(var), ::core::mem::transmute(ielem), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantGetUInt16Elem(var: *const super::super::super::System::Com::VARIANT, ielem: u32) -> ::windows::core::Result<u16> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantGetUInt16Elem(var: *const super::super::super::System::Com::VARIANT, ielem: u32, pnval: *mut u16) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
-        VariantGetUInt16Elem(::core::mem::transmute(var), ::core::mem::transmute(ielem), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantGetUInt16Elem(var: *const super::super::super::System::Com::VARIANT, ielem: u32, pnval: *mut u16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
+    VariantGetUInt16Elem(::core::mem::transmute(var), ::core::mem::transmute(ielem), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantGetUInt32Elem(var: *const super::super::super::System::Com::VARIANT, ielem: u32) -> ::windows::core::Result<u32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantGetUInt32Elem(var: *const super::super::super::System::Com::VARIANT, ielem: u32, pnval: *mut u32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        VariantGetUInt32Elem(::core::mem::transmute(var), ::core::mem::transmute(ielem), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantGetUInt32Elem(var: *const super::super::super::System::Com::VARIANT, ielem: u32, pnval: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+    VariantGetUInt32Elem(::core::mem::transmute(var), ::core::mem::transmute(ielem), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantGetUInt64Elem(var: *const super::super::super::System::Com::VARIANT, ielem: u32) -> ::windows::core::Result<u64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantGetUInt64Elem(var: *const super::super::super::System::Com::VARIANT, ielem: u32, pnval: *mut u64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-        VariantGetUInt64Elem(::core::mem::transmute(var), ::core::mem::transmute(ielem), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantGetUInt64Elem(var: *const super::super::super::System::Com::VARIANT, ielem: u32, pnval: *mut u64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
+    VariantGetUInt64Elem(::core::mem::transmute(var), ::core::mem::transmute(ielem), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToBoolean(varin: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantToBoolean(varin: *const super::super::super::System::Com::VARIANT, pfret: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::BOOL>::zeroed();
-        VariantToBoolean(::core::mem::transmute(varin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantToBoolean(varin: *const super::super::super::System::Com::VARIANT, pfret: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::BOOL>::zeroed();
+    VariantToBoolean(::core::mem::transmute(varin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToBooleanArray(var: *const super::super::super::System::Com::VARIANT, prgf: &mut [super::super::super::Foundation::BOOL], pcelem: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantToBooleanArray(var: *const super::super::super::System::Com::VARIANT, prgf: *mut super::super::super::Foundation::BOOL, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
-        }
-        VariantToBooleanArray(::core::mem::transmute(var), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgf)), prgf.len() as _, ::core::mem::transmute(pcelem)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantToBooleanArray(var: *const super::super::super::System::Com::VARIANT, prgf: *mut super::super::super::Foundation::BOOL, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    VariantToBooleanArray(::core::mem::transmute(var), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgf)), prgf.len() as _, ::core::mem::transmute(pcelem)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToBooleanArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgf: *mut *mut super::super::super::Foundation::BOOL, pcelem: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantToBooleanArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgf: *mut *mut super::super::super::Foundation::BOOL, pcelem: *mut u32) -> ::windows::core::HRESULT;
-        }
-        VariantToBooleanArrayAlloc(::core::mem::transmute(var), ::core::mem::transmute(pprgf), ::core::mem::transmute(pcelem)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantToBooleanArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgf: *mut *mut super::super::super::Foundation::BOOL, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    VariantToBooleanArrayAlloc(::core::mem::transmute(var), ::core::mem::transmute(pprgf), ::core::mem::transmute(pcelem)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToBooleanWithDefault<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(varin: *const super::super::super::System::Com::VARIANT, fdefault: Param1) -> super::super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantToBooleanWithDefault(varin: *const super::super::super::System::Com::VARIANT, fdefault: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(VariantToBooleanWithDefault(::core::mem::transmute(varin), fdefault.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantToBooleanWithDefault(varin: *const super::super::super::System::Com::VARIANT, fdefault: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(VariantToBooleanWithDefault(::core::mem::transmute(varin), fdefault.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToBuffer(varin: *const super::super::super::System::Com::VARIANT, pv: *mut ::core::ffi::c_void, cb: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantToBuffer(varin: *const super::super::super::System::Com::VARIANT, pv: *mut ::core::ffi::c_void, cb: u32) -> ::windows::core::HRESULT;
-        }
-        VariantToBuffer(::core::mem::transmute(varin), ::core::mem::transmute(pv), ::core::mem::transmute(cb)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantToBuffer(varin: *const super::super::super::System::Com::VARIANT, pv: *mut ::core::ffi::c_void, cb: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    VariantToBuffer(::core::mem::transmute(varin), ::core::mem::transmute(pv), ::core::mem::transmute(cb)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToDosDateTime(varin: *const super::super::super::System::Com::VARIANT, pwdate: *mut u16, pwtime: *mut u16) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantToDosDateTime(varin: *const super::super::super::System::Com::VARIANT, pwdate: *mut u16, pwtime: *mut u16) -> ::windows::core::HRESULT;
-        }
-        VariantToDosDateTime(::core::mem::transmute(varin), ::core::mem::transmute(pwdate), ::core::mem::transmute(pwtime)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantToDosDateTime(varin: *const super::super::super::System::Com::VARIANT, pwdate: *mut u16, pwtime: *mut u16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    VariantToDosDateTime(::core::mem::transmute(varin), ::core::mem::transmute(pwdate), ::core::mem::transmute(pwtime)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToDouble(varin: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<f64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantToDouble(varin: *const super::super::super::System::Com::VARIANT, pdblret: *mut f64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
-        VariantToDouble(::core::mem::transmute(varin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantToDouble(varin: *const super::super::super::System::Com::VARIANT, pdblret: *mut f64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+    VariantToDouble(::core::mem::transmute(varin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToDoubleArray(var: *const super::super::super::System::Com::VARIANT, prgn: &mut [f64], pcelem: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantToDoubleArray(var: *const super::super::super::System::Com::VARIANT, prgn: *mut f64, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
-        }
-        VariantToDoubleArray(::core::mem::transmute(var), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantToDoubleArray(var: *const super::super::super::System::Com::VARIANT, prgn: *mut f64, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    VariantToDoubleArray(::core::mem::transmute(var), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToDoubleArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgn: *mut *mut f64, pcelem: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantToDoubleArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgn: *mut *mut f64, pcelem: *mut u32) -> ::windows::core::HRESULT;
-        }
-        VariantToDoubleArrayAlloc(::core::mem::transmute(var), ::core::mem::transmute(pprgn), ::core::mem::transmute(pcelem)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantToDoubleArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgn: *mut *mut f64, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    VariantToDoubleArrayAlloc(::core::mem::transmute(var), ::core::mem::transmute(pprgn), ::core::mem::transmute(pcelem)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToDoubleWithDefault(varin: *const super::super::super::System::Com::VARIANT, dbldefault: f64) -> f64 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantToDoubleWithDefault(varin: *const super::super::super::System::Com::VARIANT, dbldefault: f64) -> f64;
-        }
-        ::core::mem::transmute(VariantToDoubleWithDefault(::core::mem::transmute(varin), ::core::mem::transmute(dbldefault)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantToDoubleWithDefault(varin: *const super::super::super::System::Com::VARIANT, dbldefault: f64) -> f64;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(VariantToDoubleWithDefault(::core::mem::transmute(varin), ::core::mem::transmute(dbldefault)))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToFileTime(varin: *const super::super::super::System::Com::VARIANT, stfout: PSTIME_FLAGS) -> ::windows::core::Result<super::super::super::Foundation::FILETIME> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantToFileTime(varin: *const super::super::super::System::Com::VARIANT, stfout: PSTIME_FLAGS, pftout: *mut super::super::super::Foundation::FILETIME) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::FILETIME>::zeroed();
-        VariantToFileTime(::core::mem::transmute(varin), ::core::mem::transmute(stfout), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::FILETIME>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantToFileTime(varin: *const super::super::super::System::Com::VARIANT, stfout: PSTIME_FLAGS, pftout: *mut super::super::super::Foundation::FILETIME) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::FILETIME>::zeroed();
+    VariantToFileTime(::core::mem::transmute(varin), ::core::mem::transmute(stfout), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::FILETIME>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToGUID(varin: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<::windows::core::GUID> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantToGUID(varin: *const super::super::super::System::Com::VARIANT, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
-        VariantToGUID(::core::mem::transmute(varin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantToGUID(varin: *const super::super::super::System::Com::VARIANT, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+    VariantToGUID(::core::mem::transmute(varin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToInt16(varin: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<i16> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantToInt16(varin: *const super::super::super::System::Com::VARIANT, piret: *mut i16) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        VariantToInt16(::core::mem::transmute(varin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantToInt16(varin: *const super::super::super::System::Com::VARIANT, piret: *mut i16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+    VariantToInt16(::core::mem::transmute(varin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToInt16Array(var: *const super::super::super::System::Com::VARIANT, prgn: &mut [i16], pcelem: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantToInt16Array(var: *const super::super::super::System::Com::VARIANT, prgn: *mut i16, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
-        }
-        VariantToInt16Array(::core::mem::transmute(var), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantToInt16Array(var: *const super::super::super::System::Com::VARIANT, prgn: *mut i16, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    VariantToInt16Array(::core::mem::transmute(var), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToInt16ArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgn: *mut *mut i16, pcelem: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantToInt16ArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgn: *mut *mut i16, pcelem: *mut u32) -> ::windows::core::HRESULT;
-        }
-        VariantToInt16ArrayAlloc(::core::mem::transmute(var), ::core::mem::transmute(pprgn), ::core::mem::transmute(pcelem)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantToInt16ArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgn: *mut *mut i16, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    VariantToInt16ArrayAlloc(::core::mem::transmute(var), ::core::mem::transmute(pprgn), ::core::mem::transmute(pcelem)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToInt16WithDefault(varin: *const super::super::super::System::Com::VARIANT, idefault: i16) -> i16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantToInt16WithDefault(varin: *const super::super::super::System::Com::VARIANT, idefault: i16) -> i16;
-        }
-        ::core::mem::transmute(VariantToInt16WithDefault(::core::mem::transmute(varin), ::core::mem::transmute(idefault)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantToInt16WithDefault(varin: *const super::super::super::System::Com::VARIANT, idefault: i16) -> i16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(VariantToInt16WithDefault(::core::mem::transmute(varin), ::core::mem::transmute(idefault)))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToInt32(varin: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<i32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantToInt32(varin: *const super::super::super::System::Com::VARIANT, plret: *mut i32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        VariantToInt32(::core::mem::transmute(varin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantToInt32(varin: *const super::super::super::System::Com::VARIANT, plret: *mut i32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+    VariantToInt32(::core::mem::transmute(varin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToInt32Array(var: *const super::super::super::System::Com::VARIANT, prgn: &mut [i32], pcelem: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantToInt32Array(var: *const super::super::super::System::Com::VARIANT, prgn: *mut i32, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
-        }
-        VariantToInt32Array(::core::mem::transmute(var), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantToInt32Array(var: *const super::super::super::System::Com::VARIANT, prgn: *mut i32, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    VariantToInt32Array(::core::mem::transmute(var), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToInt32ArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgn: *mut *mut i32, pcelem: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantToInt32ArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgn: *mut *mut i32, pcelem: *mut u32) -> ::windows::core::HRESULT;
-        }
-        VariantToInt32ArrayAlloc(::core::mem::transmute(var), ::core::mem::transmute(pprgn), ::core::mem::transmute(pcelem)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantToInt32ArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgn: *mut *mut i32, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    VariantToInt32ArrayAlloc(::core::mem::transmute(var), ::core::mem::transmute(pprgn), ::core::mem::transmute(pcelem)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToInt32WithDefault(varin: *const super::super::super::System::Com::VARIANT, ldefault: i32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantToInt32WithDefault(varin: *const super::super::super::System::Com::VARIANT, ldefault: i32) -> i32;
-        }
-        ::core::mem::transmute(VariantToInt32WithDefault(::core::mem::transmute(varin), ::core::mem::transmute(ldefault)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantToInt32WithDefault(varin: *const super::super::super::System::Com::VARIANT, ldefault: i32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(VariantToInt32WithDefault(::core::mem::transmute(varin), ::core::mem::transmute(ldefault)))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToInt64(varin: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<i64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantToInt64(varin: *const super::super::super::System::Com::VARIANT, pllret: *mut i64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
-        VariantToInt64(::core::mem::transmute(varin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantToInt64(varin: *const super::super::super::System::Com::VARIANT, pllret: *mut i64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
+    VariantToInt64(::core::mem::transmute(varin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToInt64Array(var: *const super::super::super::System::Com::VARIANT, prgn: &mut [i64], pcelem: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantToInt64Array(var: *const super::super::super::System::Com::VARIANT, prgn: *mut i64, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
-        }
-        VariantToInt64Array(::core::mem::transmute(var), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantToInt64Array(var: *const super::super::super::System::Com::VARIANT, prgn: *mut i64, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    VariantToInt64Array(::core::mem::transmute(var), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToInt64ArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgn: *mut *mut i64, pcelem: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantToInt64ArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgn: *mut *mut i64, pcelem: *mut u32) -> ::windows::core::HRESULT;
-        }
-        VariantToInt64ArrayAlloc(::core::mem::transmute(var), ::core::mem::transmute(pprgn), ::core::mem::transmute(pcelem)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantToInt64ArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgn: *mut *mut i64, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    VariantToInt64ArrayAlloc(::core::mem::transmute(var), ::core::mem::transmute(pprgn), ::core::mem::transmute(pcelem)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToInt64WithDefault(varin: *const super::super::super::System::Com::VARIANT, lldefault: i64) -> i64 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantToInt64WithDefault(varin: *const super::super::super::System::Com::VARIANT, lldefault: i64) -> i64;
-        }
-        ::core::mem::transmute(VariantToInt64WithDefault(::core::mem::transmute(varin), ::core::mem::transmute(lldefault)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantToInt64WithDefault(varin: *const super::super::super::System::Com::VARIANT, lldefault: i64) -> i64;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(VariantToInt64WithDefault(::core::mem::transmute(varin), ::core::mem::transmute(lldefault)))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToPropVariant(pvar: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantToPropVariant(pvar: *const super::super::super::System::Com::VARIANT, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>>::zeroed();
-        VariantToPropVariant(::core::mem::transmute(pvar), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantToPropVariant(pvar: *const super::super::super::System::Com::VARIANT, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>>::zeroed();
+    VariantToPropVariant(::core::mem::transmute(pvar), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_UI_Shell_Common\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
 #[inline]
 pub unsafe fn VariantToStrRet(varin: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<super::Common::STRRET> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantToStrRet(varin: *const super::super::super::System::Com::VARIANT, pstrret: *mut super::Common::STRRET) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::Common::STRRET>::zeroed();
-        VariantToStrRet(::core::mem::transmute(varin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Common::STRRET>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantToStrRet(varin: *const super::super::super::System::Com::VARIANT, pstrret: *mut super::Common::STRRET) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::Common::STRRET>::zeroed();
+    VariantToStrRet(::core::mem::transmute(varin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Common::STRRET>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToString(varin: *const super::super::super::System::Com::VARIANT, pszbuf: &mut [u16]) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantToString(varin: *const super::super::super::System::Com::VARIANT, pszbuf: ::windows::core::PWSTR, cchbuf: u32) -> ::windows::core::HRESULT;
-        }
-        VariantToString(::core::mem::transmute(varin), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszbuf)), pszbuf.len() as _).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantToString(varin: *const super::super::super::System::Com::VARIANT, pszbuf: ::windows::core::PWSTR, cchbuf: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    VariantToString(::core::mem::transmute(varin), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszbuf)), pszbuf.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToStringAlloc(varin: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<::windows::core::PWSTR> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantToStringAlloc(varin: *const super::super::super::System::Com::VARIANT, ppszbuf: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-        VariantToStringAlloc(::core::mem::transmute(varin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantToStringAlloc(varin: *const super::super::super::System::Com::VARIANT, ppszbuf: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
+    VariantToStringAlloc(::core::mem::transmute(varin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToStringArray(var: *const super::super::super::System::Com::VARIANT, prgsz: &mut [::windows::core::PWSTR], pcelem: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantToStringArray(var: *const super::super::super::System::Com::VARIANT, prgsz: *mut ::windows::core::PWSTR, crgsz: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
-        }
-        VariantToStringArray(::core::mem::transmute(var), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgsz)), prgsz.len() as _, ::core::mem::transmute(pcelem)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantToStringArray(var: *const super::super::super::System::Com::VARIANT, prgsz: *mut ::windows::core::PWSTR, crgsz: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    VariantToStringArray(::core::mem::transmute(var), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgsz)), prgsz.len() as _, ::core::mem::transmute(pcelem)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToStringArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgsz: *mut *mut ::windows::core::PWSTR, pcelem: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantToStringArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgsz: *mut *mut ::windows::core::PWSTR, pcelem: *mut u32) -> ::windows::core::HRESULT;
-        }
-        VariantToStringArrayAlloc(::core::mem::transmute(var), ::core::mem::transmute(pprgsz), ::core::mem::transmute(pcelem)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantToStringArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgsz: *mut *mut ::windows::core::PWSTR, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    VariantToStringArrayAlloc(::core::mem::transmute(var), ::core::mem::transmute(pprgsz), ::core::mem::transmute(pcelem)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToStringWithDefault<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(varin: *const super::super::super::System::Com::VARIANT, pszdefault: Param1) -> ::windows::core::PWSTR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantToStringWithDefault(varin: *const super::super::super::System::Com::VARIANT, pszdefault: ::windows::core::PCWSTR) -> ::windows::core::PWSTR;
-        }
-        ::core::mem::transmute(VariantToStringWithDefault(::core::mem::transmute(varin), pszdefault.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantToStringWithDefault(varin: *const super::super::super::System::Com::VARIANT, pszdefault: ::windows::core::PCWSTR) -> ::windows::core::PWSTR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(VariantToStringWithDefault(::core::mem::transmute(varin), pszdefault.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToUInt16(varin: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<u16> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantToUInt16(varin: *const super::super::super::System::Com::VARIANT, puiret: *mut u16) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
-        VariantToUInt16(::core::mem::transmute(varin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantToUInt16(varin: *const super::super::super::System::Com::VARIANT, puiret: *mut u16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
+    VariantToUInt16(::core::mem::transmute(varin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToUInt16Array(var: *const super::super::super::System::Com::VARIANT, prgn: &mut [u16], pcelem: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantToUInt16Array(var: *const super::super::super::System::Com::VARIANT, prgn: *mut u16, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
-        }
-        VariantToUInt16Array(::core::mem::transmute(var), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantToUInt16Array(var: *const super::super::super::System::Com::VARIANT, prgn: *mut u16, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    VariantToUInt16Array(::core::mem::transmute(var), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToUInt16ArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgn: *mut *mut u16, pcelem: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantToUInt16ArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgn: *mut *mut u16, pcelem: *mut u32) -> ::windows::core::HRESULT;
-        }
-        VariantToUInt16ArrayAlloc(::core::mem::transmute(var), ::core::mem::transmute(pprgn), ::core::mem::transmute(pcelem)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantToUInt16ArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgn: *mut *mut u16, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    VariantToUInt16ArrayAlloc(::core::mem::transmute(var), ::core::mem::transmute(pprgn), ::core::mem::transmute(pcelem)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToUInt16WithDefault(varin: *const super::super::super::System::Com::VARIANT, uidefault: u16) -> u16 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantToUInt16WithDefault(varin: *const super::super::super::System::Com::VARIANT, uidefault: u16) -> u16;
-        }
-        ::core::mem::transmute(VariantToUInt16WithDefault(::core::mem::transmute(varin), ::core::mem::transmute(uidefault)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantToUInt16WithDefault(varin: *const super::super::super::System::Com::VARIANT, uidefault: u16) -> u16;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(VariantToUInt16WithDefault(::core::mem::transmute(varin), ::core::mem::transmute(uidefault)))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToUInt32(varin: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<u32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantToUInt32(varin: *const super::super::super::System::Com::VARIANT, pulret: *mut u32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        VariantToUInt32(::core::mem::transmute(varin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantToUInt32(varin: *const super::super::super::System::Com::VARIANT, pulret: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+    VariantToUInt32(::core::mem::transmute(varin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToUInt32Array(var: *const super::super::super::System::Com::VARIANT, prgn: &mut [u32], pcelem: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantToUInt32Array(var: *const super::super::super::System::Com::VARIANT, prgn: *mut u32, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
-        }
-        VariantToUInt32Array(::core::mem::transmute(var), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantToUInt32Array(var: *const super::super::super::System::Com::VARIANT, prgn: *mut u32, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    VariantToUInt32Array(::core::mem::transmute(var), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToUInt32ArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgn: *mut *mut u32, pcelem: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantToUInt32ArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgn: *mut *mut u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
-        }
-        VariantToUInt32ArrayAlloc(::core::mem::transmute(var), ::core::mem::transmute(pprgn), ::core::mem::transmute(pcelem)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantToUInt32ArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgn: *mut *mut u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    VariantToUInt32ArrayAlloc(::core::mem::transmute(var), ::core::mem::transmute(pprgn), ::core::mem::transmute(pcelem)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToUInt32WithDefault(varin: *const super::super::super::System::Com::VARIANT, uldefault: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantToUInt32WithDefault(varin: *const super::super::super::System::Com::VARIANT, uldefault: u32) -> u32;
-        }
-        ::core::mem::transmute(VariantToUInt32WithDefault(::core::mem::transmute(varin), ::core::mem::transmute(uldefault)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantToUInt32WithDefault(varin: *const super::super::super::System::Com::VARIANT, uldefault: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(VariantToUInt32WithDefault(::core::mem::transmute(varin), ::core::mem::transmute(uldefault)))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToUInt64(varin: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<u64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantToUInt64(varin: *const super::super::super::System::Com::VARIANT, pullret: *mut u64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-        VariantToUInt64(::core::mem::transmute(varin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantToUInt64(varin: *const super::super::super::System::Com::VARIANT, pullret: *mut u64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
+    VariantToUInt64(::core::mem::transmute(varin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToUInt64Array(var: *const super::super::super::System::Com::VARIANT, prgn: &mut [u64], pcelem: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantToUInt64Array(var: *const super::super::super::System::Com::VARIANT, prgn: *mut u64, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
-        }
-        VariantToUInt64Array(::core::mem::transmute(var), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantToUInt64Array(var: *const super::super::super::System::Com::VARIANT, prgn: *mut u64, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    VariantToUInt64Array(::core::mem::transmute(var), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prgn)), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToUInt64ArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgn: *mut *mut u64, pcelem: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantToUInt64ArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgn: *mut *mut u64, pcelem: *mut u32) -> ::windows::core::HRESULT;
-        }
-        VariantToUInt64ArrayAlloc(::core::mem::transmute(var), ::core::mem::transmute(pprgn), ::core::mem::transmute(pcelem)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantToUInt64ArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgn: *mut *mut u64, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    VariantToUInt64ArrayAlloc(::core::mem::transmute(var), ::core::mem::transmute(pprgn), ::core::mem::transmute(pcelem)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToUInt64WithDefault(varin: *const super::super::super::System::Com::VARIANT, ulldefault: u64) -> u64 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantToUInt64WithDefault(varin: *const super::super::super::System::Com::VARIANT, ulldefault: u64) -> u64;
-        }
-        ::core::mem::transmute(VariantToUInt64WithDefault(::core::mem::transmute(varin), ::core::mem::transmute(ulldefault)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantToUInt64WithDefault(varin: *const super::super::super::System::Com::VARIANT, ulldefault: u64) -> u64;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(VariantToUInt64WithDefault(::core::mem::transmute(varin), ::core::mem::transmute(ulldefault)))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn WinRTPropertyValueToPropVariant<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(punkpropertyvalue: Param0) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WinRTPropertyValueToPropVariant(punkpropertyvalue: *mut ::core::ffi::c_void, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>>::zeroed();
-        WinRTPropertyValueToPropVariant(punkpropertyvalue.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WinRTPropertyValueToPropVariant(punkpropertyvalue: *mut ::core::ffi::c_void, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>>::zeroed();
+    WinRTPropertyValueToPropVariant(punkpropertyvalue.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]

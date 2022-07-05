@@ -6,7 +6,7 @@ pub mod Certificates;
 pub mod Sip;
 #[cfg(feature = "Win32_Security_Cryptography_UI")]
 pub mod UI;
-#[link(name = "windows")]
+#[cfg_attr(windows, link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]

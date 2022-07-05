@@ -1,4 +1,4 @@
-#[link(name = "windows")]
+#[cfg_attr(windows, link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub fn GetNetScheduleAccountInformation(pwszservername: ::windows_sys::core::PCWSTR, ccaccount: u32, wszaccount: ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT;

@@ -1374,144 +1374,94 @@ impl ::core::fmt::Debug for PSS_WALK_INFORMATION_CLASS {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PssCaptureSnapshot<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(processhandle: Param0, captureflags: PSS_CAPTURE_FLAGS, threadcontextflags: u32, snapshothandle: *mut HPSS) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PssCaptureSnapshot(processhandle: super::super::super::Foundation::HANDLE, captureflags: PSS_CAPTURE_FLAGS, threadcontextflags: u32, snapshothandle: *mut HPSS) -> u32;
-        }
-        ::core::mem::transmute(PssCaptureSnapshot(processhandle.into_param().abi(), ::core::mem::transmute(captureflags), ::core::mem::transmute(threadcontextflags), ::core::mem::transmute(snapshothandle)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PssCaptureSnapshot(processhandle: super::super::super::Foundation::HANDLE, captureflags: PSS_CAPTURE_FLAGS, threadcontextflags: u32, snapshothandle: *mut HPSS) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PssCaptureSnapshot(processhandle.into_param().abi(), ::core::mem::transmute(captureflags), ::core::mem::transmute(threadcontextflags), ::core::mem::transmute(snapshothandle)))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PssDuplicateSnapshot<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, HPSS>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(sourceprocesshandle: Param0, snapshothandle: Param1, targetprocesshandle: Param2, targetsnapshothandle: *mut HPSS, flags: PSS_DUPLICATE_FLAGS) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PssDuplicateSnapshot(sourceprocesshandle: super::super::super::Foundation::HANDLE, snapshothandle: HPSS, targetprocesshandle: super::super::super::Foundation::HANDLE, targetsnapshothandle: *mut HPSS, flags: PSS_DUPLICATE_FLAGS) -> u32;
-        }
-        ::core::mem::transmute(PssDuplicateSnapshot(sourceprocesshandle.into_param().abi(), snapshothandle.into_param().abi(), targetprocesshandle.into_param().abi(), ::core::mem::transmute(targetsnapshothandle), ::core::mem::transmute(flags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PssDuplicateSnapshot(sourceprocesshandle: super::super::super::Foundation::HANDLE, snapshothandle: HPSS, targetprocesshandle: super::super::super::Foundation::HANDLE, targetsnapshothandle: *mut HPSS, flags: PSS_DUPLICATE_FLAGS) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PssDuplicateSnapshot(sourceprocesshandle.into_param().abi(), snapshothandle.into_param().abi(), targetprocesshandle.into_param().abi(), ::core::mem::transmute(targetsnapshothandle), ::core::mem::transmute(flags)))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PssFreeSnapshot<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, HPSS>>(processhandle: Param0, snapshothandle: Param1) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PssFreeSnapshot(processhandle: super::super::super::Foundation::HANDLE, snapshothandle: HPSS) -> u32;
-        }
-        ::core::mem::transmute(PssFreeSnapshot(processhandle.into_param().abi(), snapshothandle.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PssFreeSnapshot(processhandle: super::super::super::Foundation::HANDLE, snapshothandle: HPSS) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PssFreeSnapshot(processhandle.into_param().abi(), snapshothandle.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 #[inline]
 pub unsafe fn PssQuerySnapshot<'a, Param0: ::windows::core::IntoParam<'a, HPSS>>(snapshothandle: Param0, informationclass: PSS_QUERY_INFORMATION_CLASS, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PssQuerySnapshot(snapshothandle: HPSS, informationclass: PSS_QUERY_INFORMATION_CLASS, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> u32;
-        }
-        ::core::mem::transmute(PssQuerySnapshot(snapshothandle.into_param().abi(), ::core::mem::transmute(informationclass), ::core::mem::transmute(buffer), ::core::mem::transmute(bufferlength)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PssQuerySnapshot(snapshothandle: HPSS, informationclass: PSS_QUERY_INFORMATION_CLASS, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PssQuerySnapshot(snapshothandle.into_param().abi(), ::core::mem::transmute(informationclass), ::core::mem::transmute(buffer), ::core::mem::transmute(bufferlength)))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 #[inline]
 pub unsafe fn PssWalkMarkerCreate(allocator: *const PSS_ALLOCATOR, walkmarkerhandle: *mut HPSSWALK) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PssWalkMarkerCreate(allocator: *const PSS_ALLOCATOR, walkmarkerhandle: *mut HPSSWALK) -> u32;
-        }
-        ::core::mem::transmute(PssWalkMarkerCreate(::core::mem::transmute(allocator), ::core::mem::transmute(walkmarkerhandle)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PssWalkMarkerCreate(allocator: *const PSS_ALLOCATOR, walkmarkerhandle: *mut HPSSWALK) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PssWalkMarkerCreate(::core::mem::transmute(allocator), ::core::mem::transmute(walkmarkerhandle)))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 #[inline]
 pub unsafe fn PssWalkMarkerFree<'a, Param0: ::windows::core::IntoParam<'a, HPSSWALK>>(walkmarkerhandle: Param0) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PssWalkMarkerFree(walkmarkerhandle: HPSSWALK) -> u32;
-        }
-        ::core::mem::transmute(PssWalkMarkerFree(walkmarkerhandle.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PssWalkMarkerFree(walkmarkerhandle: HPSSWALK) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PssWalkMarkerFree(walkmarkerhandle.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 #[inline]
 pub unsafe fn PssWalkMarkerGetPosition<'a, Param0: ::windows::core::IntoParam<'a, HPSSWALK>>(walkmarkerhandle: Param0, position: *mut usize) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PssWalkMarkerGetPosition(walkmarkerhandle: HPSSWALK, position: *mut usize) -> u32;
-        }
-        ::core::mem::transmute(PssWalkMarkerGetPosition(walkmarkerhandle.into_param().abi(), ::core::mem::transmute(position)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PssWalkMarkerGetPosition(walkmarkerhandle: HPSSWALK, position: *mut usize) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PssWalkMarkerGetPosition(walkmarkerhandle.into_param().abi(), ::core::mem::transmute(position)))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 #[inline]
 pub unsafe fn PssWalkMarkerSeekToBeginning<'a, Param0: ::windows::core::IntoParam<'a, HPSSWALK>>(walkmarkerhandle: Param0) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PssWalkMarkerSeekToBeginning(walkmarkerhandle: HPSSWALK) -> u32;
-        }
-        ::core::mem::transmute(PssWalkMarkerSeekToBeginning(walkmarkerhandle.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PssWalkMarkerSeekToBeginning(walkmarkerhandle: HPSSWALK) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PssWalkMarkerSeekToBeginning(walkmarkerhandle.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 #[inline]
 pub unsafe fn PssWalkMarkerSetPosition<'a, Param0: ::windows::core::IntoParam<'a, HPSSWALK>>(walkmarkerhandle: Param0, position: usize) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PssWalkMarkerSetPosition(walkmarkerhandle: HPSSWALK, position: usize) -> u32;
-        }
-        ::core::mem::transmute(PssWalkMarkerSetPosition(walkmarkerhandle.into_param().abi(), ::core::mem::transmute(position)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PssWalkMarkerSetPosition(walkmarkerhandle: HPSSWALK, position: usize) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PssWalkMarkerSetPosition(walkmarkerhandle.into_param().abi(), ::core::mem::transmute(position)))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 #[inline]
 pub unsafe fn PssWalkSnapshot<'a, Param0: ::windows::core::IntoParam<'a, HPSS>, Param2: ::windows::core::IntoParam<'a, HPSSWALK>>(snapshothandle: Param0, informationclass: PSS_WALK_INFORMATION_CLASS, walkmarkerhandle: Param2, buffer: &mut [u8]) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PssWalkSnapshot(snapshothandle: HPSS, informationclass: PSS_WALK_INFORMATION_CLASS, walkmarkerhandle: HPSSWALK, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> u32;
-        }
-        ::core::mem::transmute(PssWalkSnapshot(snapshothandle.into_param().abi(), ::core::mem::transmute(informationclass), walkmarkerhandle.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(buffer)), buffer.len() as _))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PssWalkSnapshot(snapshothandle: HPSS, informationclass: PSS_WALK_INFORMATION_CLASS, walkmarkerhandle: HPSSWALK, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PssWalkSnapshot(snapshothandle.into_param().abi(), ::core::mem::transmute(informationclass), walkmarkerhandle.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(buffer)), buffer.len() as _))
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

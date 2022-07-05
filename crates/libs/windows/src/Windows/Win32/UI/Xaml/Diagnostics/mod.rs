@@ -962,30 +962,20 @@ pub struct IXamlDiagnostics_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 #[inline]
 pub unsafe fn InitializeXamlDiagnostic<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(endpointname: Param0, pid: u32, wszdllxamldiagnostics: Param2, wsztapdllname: Param3, tapclsid: Param4) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InitializeXamlDiagnostic(endpointname: ::windows::core::PCWSTR, pid: u32, wszdllxamldiagnostics: ::windows::core::PCWSTR, wsztapdllname: ::windows::core::PCWSTR, tapclsid: ::windows::core::GUID) -> ::windows::core::HRESULT;
-        }
-        InitializeXamlDiagnostic(endpointname.into_param().abi(), ::core::mem::transmute(pid), wszdllxamldiagnostics.into_param().abi(), wsztapdllname.into_param().abi(), tapclsid.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitializeXamlDiagnostic(endpointname: ::windows::core::PCWSTR, pid: u32, wszdllxamldiagnostics: ::windows::core::PCWSTR, wsztapdllname: ::windows::core::PCWSTR, tapclsid: ::windows::core::GUID) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    InitializeXamlDiagnostic(endpointname.into_param().abi(), ::core::mem::transmute(pid), wszdllxamldiagnostics.into_param().abi(), wsztapdllname.into_param().abi(), tapclsid.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 #[inline]
 pub unsafe fn InitializeXamlDiagnosticsEx<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param5: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(endpointname: Param0, pid: u32, wszdllxamldiagnostics: Param2, wsztapdllname: Param3, tapclsid: Param4, wszinitializationdata: Param5) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InitializeXamlDiagnosticsEx(endpointname: ::windows::core::PCWSTR, pid: u32, wszdllxamldiagnostics: ::windows::core::PCWSTR, wsztapdllname: ::windows::core::PCWSTR, tapclsid: ::windows::core::GUID, wszinitializationdata: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
-        }
-        InitializeXamlDiagnosticsEx(endpointname.into_param().abi(), ::core::mem::transmute(pid), wszdllxamldiagnostics.into_param().abi(), wsztapdllname.into_param().abi(), tapclsid.into_param().abi(), wszinitializationdata.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitializeXamlDiagnosticsEx(endpointname: ::windows::core::PCWSTR, pid: u32, wszdllxamldiagnostics: ::windows::core::PCWSTR, wsztapdllname: ::windows::core::PCWSTR, tapclsid: ::windows::core::GUID, wszinitializationdata: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    InitializeXamlDiagnosticsEx(endpointname.into_param().abi(), ::core::mem::transmute(pid), wszdllxamldiagnostics.into_param().abi(), wsztapdllname.into_param().abi(), tapclsid.into_param().abi(), wszinitializationdata.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 #[repr(transparent)]

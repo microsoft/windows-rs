@@ -158,17 +158,12 @@ pub const BZ_NOTRESPONDINGDIALOG: i32 = 8i32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn BstrFromVector(psa: *const super::Com::SAFEARRAY) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn BstrFromVector(psa: *const super::Com::SAFEARRAY, pbstr: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        BstrFromVector(::core::mem::transmute(psa), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn BstrFromVector(psa: *const super::Com::SAFEARRAY, pbstr: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+    BstrFromVector(::core::mem::transmute(psa), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -466,108 +461,73 @@ impl ::core::fmt::Debug for CTRLINFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn ClearCustData(pcustdata: *mut super::Com::CUSTDATA) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ClearCustData(pcustdata: *mut super::Com::CUSTDATA);
-        }
-        ClearCustData(::core::mem::transmute(pcustdata))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ClearCustData(pcustdata: *mut super::Com::CUSTDATA);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ClearCustData(::core::mem::transmute(pcustdata))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn CreateDispTypeInfo(pidata: *mut INTERFACEDATA, lcid: u32, pptinfo: *mut ::core::option::Option<super::Com::ITypeInfo>) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateDispTypeInfo(pidata: *mut INTERFACEDATA, lcid: u32, pptinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        CreateDispTypeInfo(::core::mem::transmute(pidata), ::core::mem::transmute(lcid), ::core::mem::transmute(pptinfo)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateDispTypeInfo(pidata: *mut INTERFACEDATA, lcid: u32, pptinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CreateDispTypeInfo(::core::mem::transmute(pidata), ::core::mem::transmute(lcid), ::core::mem::transmute(pptinfo)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn CreateErrorInfo() -> ::windows::core::Result<ICreateErrorInfo> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateErrorInfo(pperrinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        CreateErrorInfo(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICreateErrorInfo>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateErrorInfo(pperrinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    CreateErrorInfo(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICreateErrorInfo>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn CreateOleAdviseHolder() -> ::windows::core::Result<IOleAdviseHolder> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateOleAdviseHolder(ppoaholder: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        CreateOleAdviseHolder(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOleAdviseHolder>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateOleAdviseHolder(ppoaholder: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    CreateOleAdviseHolder(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOleAdviseHolder>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn CreateStdDispatch<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param2: ::windows::core::IntoParam<'a, super::Com::ITypeInfo>>(punkouter: Param0, pvthis: *mut ::core::ffi::c_void, ptinfo: Param2, ppunkstddisp: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateStdDispatch(punkouter: *mut ::core::ffi::c_void, pvthis: *mut ::core::ffi::c_void, ptinfo: *mut ::core::ffi::c_void, ppunkstddisp: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        CreateStdDispatch(punkouter.into_param().abi(), ::core::mem::transmute(pvthis), ptinfo.into_param().abi(), ::core::mem::transmute(ppunkstddisp)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateStdDispatch(punkouter: *mut ::core::ffi::c_void, pvthis: *mut ::core::ffi::c_void, ptinfo: *mut ::core::ffi::c_void, ppunkstddisp: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CreateStdDispatch(punkouter.into_param().abi(), ::core::mem::transmute(pvthis), ptinfo.into_param().abi(), ::core::mem::transmute(ppunkstddisp)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn CreateTypeLib<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(syskind: super::Com::SYSKIND, szfile: Param1) -> ::windows::core::Result<ICreateTypeLib> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateTypeLib(syskind: super::Com::SYSKIND, szfile: ::windows::core::PCWSTR, ppctlib: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        CreateTypeLib(::core::mem::transmute(syskind), szfile.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICreateTypeLib>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateTypeLib(syskind: super::Com::SYSKIND, szfile: ::windows::core::PCWSTR, ppctlib: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    CreateTypeLib(::core::mem::transmute(syskind), szfile.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICreateTypeLib>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn CreateTypeLib2<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(syskind: super::Com::SYSKIND, szfile: Param1) -> ::windows::core::Result<ICreateTypeLib2> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateTypeLib2(syskind: super::Com::SYSKIND, szfile: ::windows::core::PCWSTR, ppctlib: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        CreateTypeLib2(::core::mem::transmute(syskind), szfile.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICreateTypeLib2>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateTypeLib2(syskind: super::Com::SYSKIND, szfile: ::windows::core::PCWSTR, ppctlib: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    CreateTypeLib2(::core::mem::transmute(syskind), szfile.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICreateTypeLib2>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const DD_DEFDRAGDELAY: u32 = 200u32;
@@ -922,91 +882,61 @@ impl ::core::fmt::Debug for DVASPECT2 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn DispCallFunc(pvinstance: *const ::core::ffi::c_void, ovft: usize, cc: super::Com::CALLCONV, vtreturn: u16, cactuals: u32, prgvt: *const u16, prgpvarg: *const *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DispCallFunc(pvinstance: *const ::core::ffi::c_void, ovft: usize, cc: super::Com::CALLCONV, vtreturn: u16, cactuals: u32, prgvt: *const u16, prgpvarg: *const *const super::Com::VARIANT, pvargresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
-        DispCallFunc(::core::mem::transmute(pvinstance), ::core::mem::transmute(ovft), ::core::mem::transmute(cc), ::core::mem::transmute(vtreturn), ::core::mem::transmute(cactuals), ::core::mem::transmute(prgvt), ::core::mem::transmute(prgpvarg), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DispCallFunc(pvinstance: *const ::core::ffi::c_void, ovft: usize, cc: super::Com::CALLCONV, vtreturn: u16, cactuals: u32, prgvt: *const u16, prgpvarg: *const *const super::Com::VARIANT, pvargresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
+    DispCallFunc(::core::mem::transmute(pvinstance), ::core::mem::transmute(ovft), ::core::mem::transmute(cc), ::core::mem::transmute(vtreturn), ::core::mem::transmute(cactuals), ::core::mem::transmute(prgvt), ::core::mem::transmute(prgpvarg), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn DispGetIDsOfNames<'a, Param0: ::windows::core::IntoParam<'a, super::Com::ITypeInfo>>(ptinfo: Param0, rgsznames: *const ::windows::core::PWSTR, cnames: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DispGetIDsOfNames(ptinfo: *mut ::core::ffi::c_void, rgsznames: *const ::windows::core::PWSTR, cnames: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT;
-        }
-        DispGetIDsOfNames(ptinfo.into_param().abi(), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(rgdispid)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DispGetIDsOfNames(ptinfo: *mut ::core::ffi::c_void, rgsznames: *const ::windows::core::PWSTR, cnames: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DispGetIDsOfNames(ptinfo.into_param().abi(), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(rgdispid)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn DispGetParam(pdispparams: *const super::Com::DISPPARAMS, position: u32, vttarg: u16, pvarresult: *mut super::Com::VARIANT, puargerr: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DispGetParam(pdispparams: *const super::Com::DISPPARAMS, position: u32, vttarg: u16, pvarresult: *mut super::Com::VARIANT, puargerr: *mut u32) -> ::windows::core::HRESULT;
-        }
-        DispGetParam(::core::mem::transmute(pdispparams), ::core::mem::transmute(position), ::core::mem::transmute(vttarg), ::core::mem::transmute(pvarresult), ::core::mem::transmute(puargerr)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DispGetParam(pdispparams: *const super::Com::DISPPARAMS, position: u32, vttarg: u16, pvarresult: *mut super::Com::VARIANT, puargerr: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DispGetParam(::core::mem::transmute(pdispparams), ::core::mem::transmute(position), ::core::mem::transmute(vttarg), ::core::mem::transmute(pvarresult), ::core::mem::transmute(puargerr)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn DispInvoke<'a, Param1: ::windows::core::IntoParam<'a, super::Com::ITypeInfo>>(_this: *mut ::core::ffi::c_void, ptinfo: Param1, dispidmember: i32, wflags: u16, pparams: *mut super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DispInvoke(_this: *mut ::core::ffi::c_void, ptinfo: *mut ::core::ffi::c_void, dispidmember: i32, wflags: u16, pparams: *mut super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::HRESULT;
-        }
-        DispInvoke(::core::mem::transmute(_this), ptinfo.into_param().abi(), ::core::mem::transmute(dispidmember), ::core::mem::transmute(wflags), ::core::mem::transmute(pparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DispInvoke(_this: *mut ::core::ffi::c_void, ptinfo: *mut ::core::ffi::c_void, dispidmember: i32, wflags: u16, pparams: *mut super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DispInvoke(::core::mem::transmute(_this), ptinfo.into_param().abi(), ::core::mem::transmute(dispidmember), ::core::mem::transmute(wflags), ::core::mem::transmute(pparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn DoDragDrop<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDataObject>, Param1: ::windows::core::IntoParam<'a, IDropSource>>(pdataobj: Param0, pdropsource: Param1, dwokeffects: u32, pdweffect: *mut u32) -> ::windows::core::HRESULT {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DoDragDrop(pdataobj: *mut ::core::ffi::c_void, pdropsource: *mut ::core::ffi::c_void, dwokeffects: u32, pdweffect: *mut u32) -> ::windows::core::HRESULT;
-        }
-        ::core::mem::transmute(DoDragDrop(pdataobj.into_param().abi(), pdropsource.into_param().abi(), ::core::mem::transmute(dwokeffects), ::core::mem::transmute(pdweffect)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DoDragDrop(pdataobj: *mut ::core::ffi::c_void, pdropsource: *mut ::core::ffi::c_void, dwokeffects: u32, pdweffect: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(DoDragDrop(pdataobj.into_param().abi(), pdropsource.into_param().abi(), ::core::mem::transmute(dwokeffects), ::core::mem::transmute(pdweffect)))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn DosDateTimeToVariantTime(wdosdate: u16, wdostime: u16, pvtime: *mut f64) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DosDateTimeToVariantTime(wdosdate: u16, wdostime: u16, pvtime: *mut f64) -> i32;
-        }
-        ::core::mem::transmute(DosDateTimeToVariantTime(::core::mem::transmute(wdosdate), ::core::mem::transmute(wdostime), ::core::mem::transmute(pvtime)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DosDateTimeToVariantTime(wdosdate: u16, wdostime: u16, pvtime: *mut f64) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(DosDateTimeToVariantTime(::core::mem::transmute(wdosdate), ::core::mem::transmute(wdostime), ::core::mem::transmute(pvtime)))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const ELF_DISABLECANCELLINK: i32 = 16i32;
@@ -1294,62 +1224,42 @@ pub const GUID_YSIZEPIXEL: ::windows::core::GUID = ::windows::core::GUID::from_u
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn GetActiveObject(rclsid: *const ::windows::core::GUID, pvreserved: *mut ::core::ffi::c_void, ppunk: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetActiveObject(rclsid: *const ::windows::core::GUID, pvreserved: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        GetActiveObject(::core::mem::transmute(rclsid), ::core::mem::transmute(pvreserved), ::core::mem::transmute(ppunk)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetActiveObject(rclsid: *const ::windows::core::GUID, pvreserved: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    GetActiveObject(::core::mem::transmute(rclsid), ::core::mem::transmute(pvreserved), ::core::mem::transmute(ppunk)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn GetAltMonthNames(lcid: u32) -> ::windows::core::Result<*mut ::windows::core::PWSTR> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetAltMonthNames(lcid: u32, prgp: *mut *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::windows::core::PWSTR>::zeroed();
-        GetAltMonthNames(::core::mem::transmute(lcid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut ::windows::core::PWSTR>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetAltMonthNames(lcid: u32, prgp: *mut *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::windows::core::PWSTR>::zeroed();
+    GetAltMonthNames(::core::mem::transmute(lcid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut ::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn GetRecordInfoFromGuids(rguidtypelib: *const ::windows::core::GUID, uvermajor: u32, uverminor: u32, lcid: u32, rguidtypeinfo: *const ::windows::core::GUID) -> ::windows::core::Result<IRecordInfo> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetRecordInfoFromGuids(rguidtypelib: *const ::windows::core::GUID, uvermajor: u32, uverminor: u32, lcid: u32, rguidtypeinfo: *const ::windows::core::GUID, pprecinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        GetRecordInfoFromGuids(::core::mem::transmute(rguidtypelib), ::core::mem::transmute(uvermajor), ::core::mem::transmute(uverminor), ::core::mem::transmute(lcid), ::core::mem::transmute(rguidtypeinfo), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRecordInfo>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetRecordInfoFromGuids(rguidtypelib: *const ::windows::core::GUID, uvermajor: u32, uverminor: u32, lcid: u32, rguidtypeinfo: *const ::windows::core::GUID, pprecinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    GetRecordInfoFromGuids(::core::mem::transmute(rguidtypelib), ::core::mem::transmute(uvermajor), ::core::mem::transmute(uverminor), ::core::mem::transmute(lcid), ::core::mem::transmute(rguidtypeinfo), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRecordInfo>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn GetRecordInfoFromTypeInfo<'a, Param0: ::windows::core::IntoParam<'a, super::Com::ITypeInfo>>(ptypeinfo: Param0) -> ::windows::core::Result<IRecordInfo> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetRecordInfoFromTypeInfo(ptypeinfo: *mut ::core::ffi::c_void, pprecinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        GetRecordInfoFromTypeInfo(ptypeinfo.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRecordInfo>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetRecordInfoFromTypeInfo(ptypeinfo: *mut ::core::ffi::c_void, pprecinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    GetRecordInfoFromTypeInfo(ptypeinfo.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRecordInfo>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
@@ -1386,121 +1296,81 @@ impl ::core::fmt::Debug for HITRESULT {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HRGN_UserFree(param0: *const u32, param1: *const super::super::Graphics::Gdi::HRGN) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn HRGN_UserFree(param0: *const u32, param1: *const super::super::Graphics::Gdi::HRGN);
-        }
-        HRGN_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn HRGN_UserFree(param0: *const u32, param1: *const super::super::Graphics::Gdi::HRGN);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    HRGN_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HRGN_UserFree64(param0: *const u32, param1: *const super::super::Graphics::Gdi::HRGN) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn HRGN_UserFree64(param0: *const u32, param1: *const super::super::Graphics::Gdi::HRGN);
-        }
-        HRGN_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn HRGN_UserFree64(param0: *const u32, param1: *const super::super::Graphics::Gdi::HRGN);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    HRGN_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HRGN_UserMarshal(param0: *const u32, param1: *mut u8, param2: *const super::super::Graphics::Gdi::HRGN) -> *mut u8 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn HRGN_UserMarshal(param0: *const u32, param1: *mut u8, param2: *const super::super::Graphics::Gdi::HRGN) -> *mut u8;
-        }
-        ::core::mem::transmute(HRGN_UserMarshal(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn HRGN_UserMarshal(param0: *const u32, param1: *mut u8, param2: *const super::super::Graphics::Gdi::HRGN) -> *mut u8;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(HRGN_UserMarshal(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HRGN_UserMarshal64(param0: *const u32, param1: *mut u8, param2: *const super::super::Graphics::Gdi::HRGN) -> *mut u8 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn HRGN_UserMarshal64(param0: *const u32, param1: *mut u8, param2: *const super::super::Graphics::Gdi::HRGN) -> *mut u8;
-        }
-        ::core::mem::transmute(HRGN_UserMarshal64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn HRGN_UserMarshal64(param0: *const u32, param1: *mut u8, param2: *const super::super::Graphics::Gdi::HRGN) -> *mut u8;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(HRGN_UserMarshal64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HRGN_UserSize(param0: *const u32, param1: u32, param2: *const super::super::Graphics::Gdi::HRGN) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn HRGN_UserSize(param0: *const u32, param1: u32, param2: *const super::super::Graphics::Gdi::HRGN) -> u32;
-        }
-        ::core::mem::transmute(HRGN_UserSize(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn HRGN_UserSize(param0: *const u32, param1: u32, param2: *const super::super::Graphics::Gdi::HRGN) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(HRGN_UserSize(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HRGN_UserSize64(param0: *const u32, param1: u32, param2: *const super::super::Graphics::Gdi::HRGN) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn HRGN_UserSize64(param0: *const u32, param1: u32, param2: *const super::super::Graphics::Gdi::HRGN) -> u32;
-        }
-        ::core::mem::transmute(HRGN_UserSize64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn HRGN_UserSize64(param0: *const u32, param1: u32, param2: *const super::super::Graphics::Gdi::HRGN) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(HRGN_UserSize64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HRGN_UserUnmarshal(param0: *const u32, param1: *const u8, param2: *mut super::super::Graphics::Gdi::HRGN) -> *mut u8 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn HRGN_UserUnmarshal(param0: *const u32, param1: *const u8, param2: *mut super::super::Graphics::Gdi::HRGN) -> *mut u8;
-        }
-        ::core::mem::transmute(HRGN_UserUnmarshal(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn HRGN_UserUnmarshal(param0: *const u32, param1: *const u8, param2: *mut super::super::Graphics::Gdi::HRGN) -> *mut u8;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(HRGN_UserUnmarshal(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HRGN_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut super::super::Graphics::Gdi::HRGN) -> *mut u8 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn HRGN_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut super::super::Graphics::Gdi::HRGN) -> *mut u8;
-        }
-        ::core::mem::transmute(HRGN_UserUnmarshal64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn HRGN_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut super::super::Graphics::Gdi::HRGN) -> *mut u8;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(HRGN_UserUnmarshal64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -11214,46 +11084,31 @@ pub struct IZoomEvents_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn IsAccelerator<'a, Param0: ::windows::core::IntoParam<'a, super::super::UI::WindowsAndMessaging::HACCEL>>(haccel: Param0, caccelentries: i32, lpmsg: *mut super::super::UI::WindowsAndMessaging::MSG, lpwcmd: *mut u16) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn IsAccelerator(haccel: super::super::UI::WindowsAndMessaging::HACCEL, caccelentries: i32, lpmsg: *mut super::super::UI::WindowsAndMessaging::MSG, lpwcmd: *mut u16) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(IsAccelerator(haccel.into_param().abi(), ::core::mem::transmute(caccelentries), ::core::mem::transmute(lpmsg), ::core::mem::transmute(lpwcmd)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn IsAccelerator(haccel: super::super::UI::WindowsAndMessaging::HACCEL, caccelentries: i32, lpmsg: *mut super::super::UI::WindowsAndMessaging::MSG, lpwcmd: *mut u16) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(IsAccelerator(haccel.into_param().abi(), ::core::mem::transmute(caccelentries), ::core::mem::transmute(lpmsg), ::core::mem::transmute(lpwcmd)))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn LHashValOfNameSys<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(syskind: super::Com::SYSKIND, lcid: u32, szname: Param2) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LHashValOfNameSys(syskind: super::Com::SYSKIND, lcid: u32, szname: ::windows::core::PCWSTR) -> u32;
-        }
-        ::core::mem::transmute(LHashValOfNameSys(::core::mem::transmute(syskind), ::core::mem::transmute(lcid), szname.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LHashValOfNameSys(syskind: super::Com::SYSKIND, lcid: u32, szname: ::windows::core::PCWSTR) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(LHashValOfNameSys(::core::mem::transmute(syskind), ::core::mem::transmute(lcid), szname.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn LHashValOfNameSysA<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(syskind: super::Com::SYSKIND, lcid: u32, szname: Param2) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LHashValOfNameSysA(syskind: super::Com::SYSKIND, lcid: u32, szname: ::windows::core::PCSTR) -> u32;
-        }
-        ::core::mem::transmute(LHashValOfNameSysA(::core::mem::transmute(syskind), ::core::mem::transmute(lcid), szname.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LHashValOfNameSysA(syskind: super::Com::SYSKIND, lcid: u32, szname: ::windows::core::PCSTR) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(LHashValOfNameSysA(::core::mem::transmute(syskind), ::core::mem::transmute(lcid), szname.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
@@ -11347,49 +11202,34 @@ pub const LP_VGACOLOR: u32 = 2u32;
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn LoadRegTypeLib(rguid: *const ::windows::core::GUID, wvermajor: u16, wverminor: u16, lcid: u32) -> ::windows::core::Result<super::Com::ITypeLib> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LoadRegTypeLib(rguid: *const ::windows::core::GUID, wvermajor: u16, wverminor: u16, lcid: u32, pptlib: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        LoadRegTypeLib(::core::mem::transmute(rguid), ::core::mem::transmute(wvermajor), ::core::mem::transmute(wverminor), ::core::mem::transmute(lcid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::ITypeLib>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LoadRegTypeLib(rguid: *const ::windows::core::GUID, wvermajor: u16, wverminor: u16, lcid: u32, pptlib: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    LoadRegTypeLib(::core::mem::transmute(rguid), ::core::mem::transmute(wvermajor), ::core::mem::transmute(wverminor), ::core::mem::transmute(lcid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::ITypeLib>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn LoadTypeLib<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(szfile: Param0) -> ::windows::core::Result<super::Com::ITypeLib> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LoadTypeLib(szfile: ::windows::core::PCWSTR, pptlib: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        LoadTypeLib(szfile.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::ITypeLib>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LoadTypeLib(szfile: ::windows::core::PCWSTR, pptlib: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    LoadTypeLib(szfile.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::ITypeLib>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn LoadTypeLibEx<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(szfile: Param0, regkind: REGKIND) -> ::windows::core::Result<super::Com::ITypeLib> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LoadTypeLibEx(szfile: ::windows::core::PCWSTR, regkind: REGKIND, pptlib: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        LoadTypeLibEx(szfile.into_param().abi(), ::core::mem::transmute(regkind), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::ITypeLib>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LoadTypeLibEx(szfile: ::windows::core::PCWSTR, regkind: REGKIND, pptlib: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    LoadTypeLibEx(szfile.into_param().abi(), ::core::mem::transmute(regkind), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::ITypeLib>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
@@ -14652,671 +14492,446 @@ pub const OT_STATIC: i32 = 3i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn OaBuildVersion() -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OaBuildVersion() -> u32;
-        }
-        ::core::mem::transmute(OaBuildVersion())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OaBuildVersion() -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(OaBuildVersion())
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn OaEnablePerUserTLibRegistration() {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OaEnablePerUserTLibRegistration();
-        }
-        OaEnablePerUserTLibRegistration()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OaEnablePerUserTLibRegistration();
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    OaEnablePerUserTLibRegistration()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn OleBuildVersion() -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleBuildVersion() -> u32;
-        }
-        ::core::mem::transmute(OleBuildVersion())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleBuildVersion() -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(OleBuildVersion())
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn OleCreate<'a, Param4: ::windows::core::IntoParam<'a, IOleClientSite>, Param5: ::windows::core::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, renderopt: u32, pformatetc: *mut super::Com::FORMATETC, pclientsite: Param4, pstg: Param5, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleCreate(rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, renderopt: u32, pformatetc: *mut super::Com::FORMATETC, pclientsite: *mut ::core::ffi::c_void, pstg: *mut ::core::ffi::c_void, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        OleCreate(::core::mem::transmute(rclsid), ::core::mem::transmute(riid), ::core::mem::transmute(renderopt), ::core::mem::transmute(pformatetc), pclientsite.into_param().abi(), pstg.into_param().abi(), ::core::mem::transmute(ppvobj)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleCreate(rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, renderopt: u32, pformatetc: *mut super::Com::FORMATETC, pclientsite: *mut ::core::ffi::c_void, pstg: *mut ::core::ffi::c_void, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    OleCreate(::core::mem::transmute(rclsid), ::core::mem::transmute(riid), ::core::mem::transmute(renderopt), ::core::mem::transmute(pformatetc), pclientsite.into_param().abi(), pstg.into_param().abi(), ::core::mem::transmute(ppvobj)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn OleCreateDefaultHandler<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(clsid: *const ::windows::core::GUID, punkouter: Param1, riid: *const ::windows::core::GUID, lplpobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleCreateDefaultHandler(clsid: *const ::windows::core::GUID, punkouter: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, lplpobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        OleCreateDefaultHandler(::core::mem::transmute(clsid), punkouter.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(lplpobj)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleCreateDefaultHandler(clsid: *const ::windows::core::GUID, punkouter: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, lplpobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    OleCreateDefaultHandler(::core::mem::transmute(clsid), punkouter.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(lplpobj)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn OleCreateEmbeddingHelper<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param3: ::windows::core::IntoParam<'a, super::Com::IClassFactory>>(clsid: *const ::windows::core::GUID, punkouter: Param1, flags: u32, pcf: Param3, riid: *const ::windows::core::GUID, lplpobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleCreateEmbeddingHelper(clsid: *const ::windows::core::GUID, punkouter: *mut ::core::ffi::c_void, flags: u32, pcf: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, lplpobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        OleCreateEmbeddingHelper(::core::mem::transmute(clsid), punkouter.into_param().abi(), ::core::mem::transmute(flags), pcf.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(lplpobj)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleCreateEmbeddingHelper(clsid: *const ::windows::core::GUID, punkouter: *mut ::core::ffi::c_void, flags: u32, pcf: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, lplpobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    OleCreateEmbeddingHelper(::core::mem::transmute(clsid), punkouter.into_param().abi(), ::core::mem::transmute(flags), pcf.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(lplpobj)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn OleCreateEx<'a, Param7: ::windows::core::IntoParam<'a, super::Com::IAdviseSink>, Param9: ::windows::core::IntoParam<'a, IOleClientSite>, Param10: ::windows::core::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, dwflags: u32, renderopt: u32, cformats: u32, rgadvf: *mut u32, rgformatetc: *mut super::Com::FORMATETC, lpadvisesink: Param7, rgdwconnection: *mut u32, pclientsite: Param9, pstg: Param10, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleCreateEx(rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, dwflags: u32, renderopt: u32, cformats: u32, rgadvf: *mut u32, rgformatetc: *mut super::Com::FORMATETC, lpadvisesink: *mut ::core::ffi::c_void, rgdwconnection: *mut u32, pclientsite: *mut ::core::ffi::c_void, pstg: *mut ::core::ffi::c_void, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        OleCreateEx(::core::mem::transmute(rclsid), ::core::mem::transmute(riid), ::core::mem::transmute(dwflags), ::core::mem::transmute(renderopt), ::core::mem::transmute(cformats), ::core::mem::transmute(rgadvf), ::core::mem::transmute(rgformatetc), lpadvisesink.into_param().abi(), ::core::mem::transmute(rgdwconnection), pclientsite.into_param().abi(), pstg.into_param().abi(), ::core::mem::transmute(ppvobj)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleCreateEx(rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, dwflags: u32, renderopt: u32, cformats: u32, rgadvf: *mut u32, rgformatetc: *mut super::Com::FORMATETC, lpadvisesink: *mut ::core::ffi::c_void, rgdwconnection: *mut u32, pclientsite: *mut ::core::ffi::c_void, pstg: *mut ::core::ffi::c_void, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    OleCreateEx(::core::mem::transmute(rclsid), ::core::mem::transmute(riid), ::core::mem::transmute(dwflags), ::core::mem::transmute(renderopt), ::core::mem::transmute(cformats), ::core::mem::transmute(rgadvf), ::core::mem::transmute(rgformatetc), lpadvisesink.into_param().abi(), ::core::mem::transmute(rgdwconnection), pclientsite.into_param().abi(), pstg.into_param().abi(), ::core::mem::transmute(ppvobj)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn OleCreateFontIndirect(lpfontdesc: *mut FONTDESC, riid: *const ::windows::core::GUID, lplpvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleCreateFontIndirect(lpfontdesc: *mut FONTDESC, riid: *const ::windows::core::GUID, lplpvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        OleCreateFontIndirect(::core::mem::transmute(lpfontdesc), ::core::mem::transmute(riid), ::core::mem::transmute(lplpvobj)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleCreateFontIndirect(lpfontdesc: *mut FONTDESC, riid: *const ::windows::core::GUID, lplpvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    OleCreateFontIndirect(::core::mem::transmute(lpfontdesc), ::core::mem::transmute(riid), ::core::mem::transmute(lplpvobj)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn OleCreateFromData<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDataObject>, Param4: ::windows::core::IntoParam<'a, IOleClientSite>, Param5: ::windows::core::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(psrcdataobj: Param0, riid: *const ::windows::core::GUID, renderopt: u32, pformatetc: *mut super::Com::FORMATETC, pclientsite: Param4, pstg: Param5, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleCreateFromData(psrcdataobj: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, renderopt: u32, pformatetc: *mut super::Com::FORMATETC, pclientsite: *mut ::core::ffi::c_void, pstg: *mut ::core::ffi::c_void, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        OleCreateFromData(psrcdataobj.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(renderopt), ::core::mem::transmute(pformatetc), pclientsite.into_param().abi(), pstg.into_param().abi(), ::core::mem::transmute(ppvobj)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleCreateFromData(psrcdataobj: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, renderopt: u32, pformatetc: *mut super::Com::FORMATETC, pclientsite: *mut ::core::ffi::c_void, pstg: *mut ::core::ffi::c_void, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    OleCreateFromData(psrcdataobj.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(renderopt), ::core::mem::transmute(pformatetc), pclientsite.into_param().abi(), pstg.into_param().abi(), ::core::mem::transmute(ppvobj)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn OleCreateFromDataEx<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDataObject>, Param7: ::windows::core::IntoParam<'a, super::Com::IAdviseSink>, Param9: ::windows::core::IntoParam<'a, IOleClientSite>, Param10: ::windows::core::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(psrcdataobj: Param0, riid: *const ::windows::core::GUID, dwflags: u32, renderopt: u32, cformats: u32, rgadvf: *mut u32, rgformatetc: *mut super::Com::FORMATETC, lpadvisesink: Param7, rgdwconnection: *mut u32, pclientsite: Param9, pstg: Param10, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleCreateFromDataEx(psrcdataobj: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, dwflags: u32, renderopt: u32, cformats: u32, rgadvf: *mut u32, rgformatetc: *mut super::Com::FORMATETC, lpadvisesink: *mut ::core::ffi::c_void, rgdwconnection: *mut u32, pclientsite: *mut ::core::ffi::c_void, pstg: *mut ::core::ffi::c_void, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        OleCreateFromDataEx(psrcdataobj.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(dwflags), ::core::mem::transmute(renderopt), ::core::mem::transmute(cformats), ::core::mem::transmute(rgadvf), ::core::mem::transmute(rgformatetc), lpadvisesink.into_param().abi(), ::core::mem::transmute(rgdwconnection), pclientsite.into_param().abi(), pstg.into_param().abi(), ::core::mem::transmute(ppvobj)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleCreateFromDataEx(psrcdataobj: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, dwflags: u32, renderopt: u32, cformats: u32, rgadvf: *mut u32, rgformatetc: *mut super::Com::FORMATETC, lpadvisesink: *mut ::core::ffi::c_void, rgdwconnection: *mut u32, pclientsite: *mut ::core::ffi::c_void, pstg: *mut ::core::ffi::c_void, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    OleCreateFromDataEx(psrcdataobj.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(dwflags), ::core::mem::transmute(renderopt), ::core::mem::transmute(cformats), ::core::mem::transmute(rgadvf), ::core::mem::transmute(rgformatetc), lpadvisesink.into_param().abi(), ::core::mem::transmute(rgdwconnection), pclientsite.into_param().abi(), pstg.into_param().abi(), ::core::mem::transmute(ppvobj)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn OleCreateFromFile<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param5: ::windows::core::IntoParam<'a, IOleClientSite>, Param6: ::windows::core::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(rclsid: *const ::windows::core::GUID, lpszfilename: Param1, riid: *const ::windows::core::GUID, renderopt: u32, lpformatetc: *mut super::Com::FORMATETC, pclientsite: Param5, pstg: Param6, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleCreateFromFile(rclsid: *const ::windows::core::GUID, lpszfilename: ::windows::core::PCWSTR, riid: *const ::windows::core::GUID, renderopt: u32, lpformatetc: *mut super::Com::FORMATETC, pclientsite: *mut ::core::ffi::c_void, pstg: *mut ::core::ffi::c_void, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        OleCreateFromFile(::core::mem::transmute(rclsid), lpszfilename.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(renderopt), ::core::mem::transmute(lpformatetc), pclientsite.into_param().abi(), pstg.into_param().abi(), ::core::mem::transmute(ppvobj)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleCreateFromFile(rclsid: *const ::windows::core::GUID, lpszfilename: ::windows::core::PCWSTR, riid: *const ::windows::core::GUID, renderopt: u32, lpformatetc: *mut super::Com::FORMATETC, pclientsite: *mut ::core::ffi::c_void, pstg: *mut ::core::ffi::c_void, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    OleCreateFromFile(::core::mem::transmute(rclsid), lpszfilename.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(renderopt), ::core::mem::transmute(lpformatetc), pclientsite.into_param().abi(), pstg.into_param().abi(), ::core::mem::transmute(ppvobj)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn OleCreateFromFileEx<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param8: ::windows::core::IntoParam<'a, super::Com::IAdviseSink>, Param10: ::windows::core::IntoParam<'a, IOleClientSite>, Param11: ::windows::core::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(rclsid: *const ::windows::core::GUID, lpszfilename: Param1, riid: *const ::windows::core::GUID, dwflags: u32, renderopt: u32, cformats: u32, rgadvf: *mut u32, rgformatetc: *mut super::Com::FORMATETC, lpadvisesink: Param8, rgdwconnection: *mut u32, pclientsite: Param10, pstg: Param11, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleCreateFromFileEx(rclsid: *const ::windows::core::GUID, lpszfilename: ::windows::core::PCWSTR, riid: *const ::windows::core::GUID, dwflags: u32, renderopt: u32, cformats: u32, rgadvf: *mut u32, rgformatetc: *mut super::Com::FORMATETC, lpadvisesink: *mut ::core::ffi::c_void, rgdwconnection: *mut u32, pclientsite: *mut ::core::ffi::c_void, pstg: *mut ::core::ffi::c_void, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        OleCreateFromFileEx(::core::mem::transmute(rclsid), lpszfilename.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(dwflags), ::core::mem::transmute(renderopt), ::core::mem::transmute(cformats), ::core::mem::transmute(rgadvf), ::core::mem::transmute(rgformatetc), lpadvisesink.into_param().abi(), ::core::mem::transmute(rgdwconnection), pclientsite.into_param().abi(), pstg.into_param().abi(), ::core::mem::transmute(ppvobj)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleCreateFromFileEx(rclsid: *const ::windows::core::GUID, lpszfilename: ::windows::core::PCWSTR, riid: *const ::windows::core::GUID, dwflags: u32, renderopt: u32, cformats: u32, rgadvf: *mut u32, rgformatetc: *mut super::Com::FORMATETC, lpadvisesink: *mut ::core::ffi::c_void, rgdwconnection: *mut u32, pclientsite: *mut ::core::ffi::c_void, pstg: *mut ::core::ffi::c_void, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    OleCreateFromFileEx(::core::mem::transmute(rclsid), lpszfilename.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(dwflags), ::core::mem::transmute(renderopt), ::core::mem::transmute(cformats), ::core::mem::transmute(rgadvf), ::core::mem::transmute(rgformatetc), lpadvisesink.into_param().abi(), ::core::mem::transmute(rgdwconnection), pclientsite.into_param().abi(), pstg.into_param().abi(), ::core::mem::transmute(ppvobj)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn OleCreateLink<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IMoniker>, Param4: ::windows::core::IntoParam<'a, IOleClientSite>, Param5: ::windows::core::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(pmklinksrc: Param0, riid: *const ::windows::core::GUID, renderopt: u32, lpformatetc: *mut super::Com::FORMATETC, pclientsite: Param4, pstg: Param5, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleCreateLink(pmklinksrc: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, renderopt: u32, lpformatetc: *mut super::Com::FORMATETC, pclientsite: *mut ::core::ffi::c_void, pstg: *mut ::core::ffi::c_void, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        OleCreateLink(pmklinksrc.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(renderopt), ::core::mem::transmute(lpformatetc), pclientsite.into_param().abi(), pstg.into_param().abi(), ::core::mem::transmute(ppvobj)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleCreateLink(pmklinksrc: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, renderopt: u32, lpformatetc: *mut super::Com::FORMATETC, pclientsite: *mut ::core::ffi::c_void, pstg: *mut ::core::ffi::c_void, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    OleCreateLink(pmklinksrc.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(renderopt), ::core::mem::transmute(lpformatetc), pclientsite.into_param().abi(), pstg.into_param().abi(), ::core::mem::transmute(ppvobj)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn OleCreateLinkEx<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IMoniker>, Param7: ::windows::core::IntoParam<'a, super::Com::IAdviseSink>, Param9: ::windows::core::IntoParam<'a, IOleClientSite>, Param10: ::windows::core::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(pmklinksrc: Param0, riid: *const ::windows::core::GUID, dwflags: u32, renderopt: u32, cformats: u32, rgadvf: *mut u32, rgformatetc: *mut super::Com::FORMATETC, lpadvisesink: Param7, rgdwconnection: *mut u32, pclientsite: Param9, pstg: Param10, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleCreateLinkEx(pmklinksrc: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, dwflags: u32, renderopt: u32, cformats: u32, rgadvf: *mut u32, rgformatetc: *mut super::Com::FORMATETC, lpadvisesink: *mut ::core::ffi::c_void, rgdwconnection: *mut u32, pclientsite: *mut ::core::ffi::c_void, pstg: *mut ::core::ffi::c_void, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        OleCreateLinkEx(pmklinksrc.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(dwflags), ::core::mem::transmute(renderopt), ::core::mem::transmute(cformats), ::core::mem::transmute(rgadvf), ::core::mem::transmute(rgformatetc), lpadvisesink.into_param().abi(), ::core::mem::transmute(rgdwconnection), pclientsite.into_param().abi(), pstg.into_param().abi(), ::core::mem::transmute(ppvobj)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleCreateLinkEx(pmklinksrc: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, dwflags: u32, renderopt: u32, cformats: u32, rgadvf: *mut u32, rgformatetc: *mut super::Com::FORMATETC, lpadvisesink: *mut ::core::ffi::c_void, rgdwconnection: *mut u32, pclientsite: *mut ::core::ffi::c_void, pstg: *mut ::core::ffi::c_void, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    OleCreateLinkEx(pmklinksrc.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(dwflags), ::core::mem::transmute(renderopt), ::core::mem::transmute(cformats), ::core::mem::transmute(rgadvf), ::core::mem::transmute(rgformatetc), lpadvisesink.into_param().abi(), ::core::mem::transmute(rgdwconnection), pclientsite.into_param().abi(), pstg.into_param().abi(), ::core::mem::transmute(ppvobj)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn OleCreateLinkFromData<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDataObject>, Param4: ::windows::core::IntoParam<'a, IOleClientSite>, Param5: ::windows::core::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(psrcdataobj: Param0, riid: *const ::windows::core::GUID, renderopt: u32, pformatetc: *mut super::Com::FORMATETC, pclientsite: Param4, pstg: Param5, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleCreateLinkFromData(psrcdataobj: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, renderopt: u32, pformatetc: *mut super::Com::FORMATETC, pclientsite: *mut ::core::ffi::c_void, pstg: *mut ::core::ffi::c_void, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        OleCreateLinkFromData(psrcdataobj.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(renderopt), ::core::mem::transmute(pformatetc), pclientsite.into_param().abi(), pstg.into_param().abi(), ::core::mem::transmute(ppvobj)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleCreateLinkFromData(psrcdataobj: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, renderopt: u32, pformatetc: *mut super::Com::FORMATETC, pclientsite: *mut ::core::ffi::c_void, pstg: *mut ::core::ffi::c_void, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    OleCreateLinkFromData(psrcdataobj.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(renderopt), ::core::mem::transmute(pformatetc), pclientsite.into_param().abi(), pstg.into_param().abi(), ::core::mem::transmute(ppvobj)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn OleCreateLinkFromDataEx<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDataObject>, Param7: ::windows::core::IntoParam<'a, super::Com::IAdviseSink>, Param9: ::windows::core::IntoParam<'a, IOleClientSite>, Param10: ::windows::core::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(psrcdataobj: Param0, riid: *const ::windows::core::GUID, dwflags: u32, renderopt: u32, cformats: u32, rgadvf: *mut u32, rgformatetc: *mut super::Com::FORMATETC, lpadvisesink: Param7, rgdwconnection: *mut u32, pclientsite: Param9, pstg: Param10, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleCreateLinkFromDataEx(psrcdataobj: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, dwflags: u32, renderopt: u32, cformats: u32, rgadvf: *mut u32, rgformatetc: *mut super::Com::FORMATETC, lpadvisesink: *mut ::core::ffi::c_void, rgdwconnection: *mut u32, pclientsite: *mut ::core::ffi::c_void, pstg: *mut ::core::ffi::c_void, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        OleCreateLinkFromDataEx(psrcdataobj.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(dwflags), ::core::mem::transmute(renderopt), ::core::mem::transmute(cformats), ::core::mem::transmute(rgadvf), ::core::mem::transmute(rgformatetc), lpadvisesink.into_param().abi(), ::core::mem::transmute(rgdwconnection), pclientsite.into_param().abi(), pstg.into_param().abi(), ::core::mem::transmute(ppvobj)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleCreateLinkFromDataEx(psrcdataobj: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, dwflags: u32, renderopt: u32, cformats: u32, rgadvf: *mut u32, rgformatetc: *mut super::Com::FORMATETC, lpadvisesink: *mut ::core::ffi::c_void, rgdwconnection: *mut u32, pclientsite: *mut ::core::ffi::c_void, pstg: *mut ::core::ffi::c_void, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    OleCreateLinkFromDataEx(psrcdataobj.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(dwflags), ::core::mem::transmute(renderopt), ::core::mem::transmute(cformats), ::core::mem::transmute(rgadvf), ::core::mem::transmute(rgformatetc), lpadvisesink.into_param().abi(), ::core::mem::transmute(rgdwconnection), pclientsite.into_param().abi(), pstg.into_param().abi(), ::core::mem::transmute(ppvobj)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn OleCreateLinkToFile<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, IOleClientSite>, Param5: ::windows::core::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(lpszfilename: Param0, riid: *const ::windows::core::GUID, renderopt: u32, lpformatetc: *mut super::Com::FORMATETC, pclientsite: Param4, pstg: Param5, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleCreateLinkToFile(lpszfilename: ::windows::core::PCWSTR, riid: *const ::windows::core::GUID, renderopt: u32, lpformatetc: *mut super::Com::FORMATETC, pclientsite: *mut ::core::ffi::c_void, pstg: *mut ::core::ffi::c_void, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        OleCreateLinkToFile(lpszfilename.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(renderopt), ::core::mem::transmute(lpformatetc), pclientsite.into_param().abi(), pstg.into_param().abi(), ::core::mem::transmute(ppvobj)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleCreateLinkToFile(lpszfilename: ::windows::core::PCWSTR, riid: *const ::windows::core::GUID, renderopt: u32, lpformatetc: *mut super::Com::FORMATETC, pclientsite: *mut ::core::ffi::c_void, pstg: *mut ::core::ffi::c_void, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    OleCreateLinkToFile(lpszfilename.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(renderopt), ::core::mem::transmute(lpformatetc), pclientsite.into_param().abi(), pstg.into_param().abi(), ::core::mem::transmute(ppvobj)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn OleCreateLinkToFileEx<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param7: ::windows::core::IntoParam<'a, super::Com::IAdviseSink>, Param9: ::windows::core::IntoParam<'a, IOleClientSite>, Param10: ::windows::core::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(lpszfilename: Param0, riid: *const ::windows::core::GUID, dwflags: u32, renderopt: u32, cformats: u32, rgadvf: *mut u32, rgformatetc: *mut super::Com::FORMATETC, lpadvisesink: Param7, rgdwconnection: *mut u32, pclientsite: Param9, pstg: Param10, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleCreateLinkToFileEx(lpszfilename: ::windows::core::PCWSTR, riid: *const ::windows::core::GUID, dwflags: u32, renderopt: u32, cformats: u32, rgadvf: *mut u32, rgformatetc: *mut super::Com::FORMATETC, lpadvisesink: *mut ::core::ffi::c_void, rgdwconnection: *mut u32, pclientsite: *mut ::core::ffi::c_void, pstg: *mut ::core::ffi::c_void, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        OleCreateLinkToFileEx(lpszfilename.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(dwflags), ::core::mem::transmute(renderopt), ::core::mem::transmute(cformats), ::core::mem::transmute(rgadvf), ::core::mem::transmute(rgformatetc), lpadvisesink.into_param().abi(), ::core::mem::transmute(rgdwconnection), pclientsite.into_param().abi(), pstg.into_param().abi(), ::core::mem::transmute(ppvobj)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleCreateLinkToFileEx(lpszfilename: ::windows::core::PCWSTR, riid: *const ::windows::core::GUID, dwflags: u32, renderopt: u32, cformats: u32, rgadvf: *mut u32, rgformatetc: *mut super::Com::FORMATETC, lpadvisesink: *mut ::core::ffi::c_void, rgdwconnection: *mut u32, pclientsite: *mut ::core::ffi::c_void, pstg: *mut ::core::ffi::c_void, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    OleCreateLinkToFileEx(lpszfilename.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(dwflags), ::core::mem::transmute(renderopt), ::core::mem::transmute(cformats), ::core::mem::transmute(rgadvf), ::core::mem::transmute(rgformatetc), lpadvisesink.into_param().abi(), ::core::mem::transmute(rgdwconnection), pclientsite.into_param().abi(), pstg.into_param().abi(), ::core::mem::transmute(ppvobj)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn OleCreateMenuDescriptor<'a, Param0: ::windows::core::IntoParam<'a, super::super::UI::WindowsAndMessaging::HMENU>>(hmenucombined: Param0, lpmenuwidths: *mut OleMenuGroupWidths) -> isize {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleCreateMenuDescriptor(hmenucombined: super::super::UI::WindowsAndMessaging::HMENU, lpmenuwidths: *mut OleMenuGroupWidths) -> isize;
-        }
-        ::core::mem::transmute(OleCreateMenuDescriptor(hmenucombined.into_param().abi(), ::core::mem::transmute(lpmenuwidths)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleCreateMenuDescriptor(hmenucombined: super::super::UI::WindowsAndMessaging::HMENU, lpmenuwidths: *mut OleMenuGroupWidths) -> isize;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(OleCreateMenuDescriptor(hmenucombined.into_param().abi(), ::core::mem::transmute(lpmenuwidths)))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn OleCreatePictureIndirect<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(lppictdesc: *mut PICTDESC, riid: *const ::windows::core::GUID, fown: Param2, lplpvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleCreatePictureIndirect(lppictdesc: *mut PICTDESC, riid: *const ::windows::core::GUID, fown: super::super::Foundation::BOOL, lplpvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        OleCreatePictureIndirect(::core::mem::transmute(lppictdesc), ::core::mem::transmute(riid), fown.into_param().abi(), ::core::mem::transmute(lplpvobj)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleCreatePictureIndirect(lppictdesc: *mut PICTDESC, riid: *const ::windows::core::GUID, fown: super::super::Foundation::BOOL, lplpvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    OleCreatePictureIndirect(::core::mem::transmute(lppictdesc), ::core::mem::transmute(riid), fown.into_param().abi(), ::core::mem::transmute(lplpvobj)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OleCreatePropertyFrame<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hwndowner: Param0, x: u32, y: u32, lpszcaption: Param3, cobjects: u32, ppunk: *mut ::core::option::Option<::windows::core::IUnknown>, cpages: u32, ppageclsid: *mut ::windows::core::GUID, lcid: u32, dwreserved: u32, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleCreatePropertyFrame(hwndowner: super::super::Foundation::HWND, x: u32, y: u32, lpszcaption: ::windows::core::PCWSTR, cobjects: u32, ppunk: *mut *mut ::core::ffi::c_void, cpages: u32, ppageclsid: *mut ::windows::core::GUID, lcid: u32, dwreserved: u32, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        OleCreatePropertyFrame(hwndowner.into_param().abi(), ::core::mem::transmute(x), ::core::mem::transmute(y), lpszcaption.into_param().abi(), ::core::mem::transmute(cobjects), ::core::mem::transmute(ppunk), ::core::mem::transmute(cpages), ::core::mem::transmute(ppageclsid), ::core::mem::transmute(lcid), ::core::mem::transmute(dwreserved), ::core::mem::transmute(pvreserved)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleCreatePropertyFrame(hwndowner: super::super::Foundation::HWND, x: u32, y: u32, lpszcaption: ::windows::core::PCWSTR, cobjects: u32, ppunk: *mut *mut ::core::ffi::c_void, cpages: u32, ppageclsid: *mut ::windows::core::GUID, lcid: u32, dwreserved: u32, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    OleCreatePropertyFrame(hwndowner.into_param().abi(), ::core::mem::transmute(x), ::core::mem::transmute(y), lpszcaption.into_param().abi(), ::core::mem::transmute(cobjects), ::core::mem::transmute(ppunk), ::core::mem::transmute(cpages), ::core::mem::transmute(ppageclsid), ::core::mem::transmute(lcid), ::core::mem::transmute(dwreserved), ::core::mem::transmute(pvreserved)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OleCreatePropertyFrameIndirect(lpparams: *mut OCPFIPARAMS) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleCreatePropertyFrameIndirect(lpparams: *mut OCPFIPARAMS) -> ::windows::core::HRESULT;
-        }
-        OleCreatePropertyFrameIndirect(::core::mem::transmute(lpparams)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleCreatePropertyFrameIndirect(lpparams: *mut OCPFIPARAMS) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    OleCreatePropertyFrameIndirect(::core::mem::transmute(lpparams)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn OleCreateStaticFromData<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDataObject>, Param4: ::windows::core::IntoParam<'a, IOleClientSite>, Param5: ::windows::core::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(psrcdataobj: Param0, iid: *const ::windows::core::GUID, renderopt: u32, pformatetc: *mut super::Com::FORMATETC, pclientsite: Param4, pstg: Param5, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleCreateStaticFromData(psrcdataobj: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, renderopt: u32, pformatetc: *mut super::Com::FORMATETC, pclientsite: *mut ::core::ffi::c_void, pstg: *mut ::core::ffi::c_void, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        OleCreateStaticFromData(psrcdataobj.into_param().abi(), ::core::mem::transmute(iid), ::core::mem::transmute(renderopt), ::core::mem::transmute(pformatetc), pclientsite.into_param().abi(), pstg.into_param().abi(), ::core::mem::transmute(ppvobj)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleCreateStaticFromData(psrcdataobj: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, renderopt: u32, pformatetc: *mut super::Com::FORMATETC, pclientsite: *mut ::core::ffi::c_void, pstg: *mut ::core::ffi::c_void, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    OleCreateStaticFromData(psrcdataobj.into_param().abi(), ::core::mem::transmute(iid), ::core::mem::transmute(renderopt), ::core::mem::transmute(pformatetc), pclientsite.into_param().abi(), pstg.into_param().abi(), ::core::mem::transmute(ppvobj)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn OleDestroyMenuDescriptor(holemenu: isize) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleDestroyMenuDescriptor(holemenu: isize) -> ::windows::core::HRESULT;
-        }
-        OleDestroyMenuDescriptor(::core::mem::transmute(holemenu)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleDestroyMenuDescriptor(holemenu: isize) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    OleDestroyMenuDescriptor(::core::mem::transmute(holemenu)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn OleDoAutoConvert<'a, Param0: ::windows::core::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(pstg: Param0, pclsidnew: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleDoAutoConvert(pstg: *mut ::core::ffi::c_void, pclsidnew: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
-        }
-        OleDoAutoConvert(pstg.into_param().abi(), ::core::mem::transmute(pclsidnew)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleDoAutoConvert(pstg: *mut ::core::ffi::c_void, pclsidnew: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    OleDoAutoConvert(pstg.into_param().abi(), ::core::mem::transmute(pclsidnew)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn OleDraw<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param2: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(punknown: Param0, dwaspect: u32, hdcdraw: Param2, lprcbounds: *mut super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleDraw(punknown: *mut ::core::ffi::c_void, dwaspect: u32, hdcdraw: super::super::Graphics::Gdi::HDC, lprcbounds: *mut super::super::Foundation::RECT) -> ::windows::core::HRESULT;
-        }
-        OleDraw(punknown.into_param().abi(), ::core::mem::transmute(dwaspect), hdcdraw.into_param().abi(), ::core::mem::transmute(lprcbounds)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleDraw(punknown: *mut ::core::ffi::c_void, dwaspect: u32, hdcdraw: super::super::Graphics::Gdi::HDC, lprcbounds: *mut super::super::Foundation::RECT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    OleDraw(punknown.into_param().abi(), ::core::mem::transmute(dwaspect), hdcdraw.into_param().abi(), ::core::mem::transmute(lprcbounds)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OleDuplicateData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hsrc: Param0, cfformat: u16, uiflags: u32) -> super::super::Foundation::HANDLE {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleDuplicateData(hsrc: super::super::Foundation::HANDLE, cfformat: u16, uiflags: u32) -> super::super::Foundation::HANDLE;
-        }
-        ::core::mem::transmute(OleDuplicateData(hsrc.into_param().abi(), ::core::mem::transmute(cfformat), ::core::mem::transmute(uiflags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleDuplicateData(hsrc: super::super::Foundation::HANDLE, cfformat: u16, uiflags: u32) -> super::super::Foundation::HANDLE;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(OleDuplicateData(hsrc.into_param().abi(), ::core::mem::transmute(cfformat), ::core::mem::transmute(uiflags)))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn OleFlushClipboard() -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleFlushClipboard() -> ::windows::core::HRESULT;
-        }
-        OleFlushClipboard().ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleFlushClipboard() -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    OleFlushClipboard().ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn OleGetAutoConvert(clsidold: *const ::windows::core::GUID, pclsidnew: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleGetAutoConvert(clsidold: *const ::windows::core::GUID, pclsidnew: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
-        }
-        OleGetAutoConvert(::core::mem::transmute(clsidold), ::core::mem::transmute(pclsidnew)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleGetAutoConvert(clsidold: *const ::windows::core::GUID, pclsidnew: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    OleGetAutoConvert(::core::mem::transmute(clsidold), ::core::mem::transmute(pclsidnew)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn OleGetClipboard() -> ::windows::core::Result<super::Com::IDataObject> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleGetClipboard(ppdataobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        OleGetClipboard(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IDataObject>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleGetClipboard(ppdataobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    OleGetClipboard(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IDataObject>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn OleGetClipboardWithEnterpriseInfo(dataobject: *mut ::core::option::Option<super::Com::IDataObject>, dataenterpriseid: *mut ::windows::core::PWSTR, sourcedescription: *mut ::windows::core::PWSTR, targetdescription: *mut ::windows::core::PWSTR, datadescription: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleGetClipboardWithEnterpriseInfo(dataobject: *mut *mut ::core::ffi::c_void, dataenterpriseid: *mut ::windows::core::PWSTR, sourcedescription: *mut ::windows::core::PWSTR, targetdescription: *mut ::windows::core::PWSTR, datadescription: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
-        }
-        OleGetClipboardWithEnterpriseInfo(::core::mem::transmute(dataobject), ::core::mem::transmute(dataenterpriseid), ::core::mem::transmute(sourcedescription), ::core::mem::transmute(targetdescription), ::core::mem::transmute(datadescription)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleGetClipboardWithEnterpriseInfo(dataobject: *mut *mut ::core::ffi::c_void, dataenterpriseid: *mut ::windows::core::PWSTR, sourcedescription: *mut ::windows::core::PWSTR, targetdescription: *mut ::windows::core::PWSTR, datadescription: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    OleGetClipboardWithEnterpriseInfo(::core::mem::transmute(dataobject), ::core::mem::transmute(dataenterpriseid), ::core::mem::transmute(sourcedescription), ::core::mem::transmute(targetdescription), ::core::mem::transmute(datadescription)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OleGetIconOfClass<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(rclsid: *const ::windows::core::GUID, lpszlabel: Param1, fusetypeaslabel: Param2) -> isize {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleGetIconOfClass(rclsid: *const ::windows::core::GUID, lpszlabel: ::windows::core::PCWSTR, fusetypeaslabel: super::super::Foundation::BOOL) -> isize;
-        }
-        ::core::mem::transmute(OleGetIconOfClass(::core::mem::transmute(rclsid), lpszlabel.into_param().abi(), fusetypeaslabel.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleGetIconOfClass(rclsid: *const ::windows::core::GUID, lpszlabel: ::windows::core::PCWSTR, fusetypeaslabel: super::super::Foundation::BOOL) -> isize;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(OleGetIconOfClass(::core::mem::transmute(rclsid), lpszlabel.into_param().abi(), fusetypeaslabel.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OleGetIconOfFile<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(lpszpath: Param0, fusefileaslabel: Param1) -> isize {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleGetIconOfFile(lpszpath: ::windows::core::PCWSTR, fusefileaslabel: super::super::Foundation::BOOL) -> isize;
-        }
-        ::core::mem::transmute(OleGetIconOfFile(lpszpath.into_param().abi(), fusefileaslabel.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleGetIconOfFile(lpszpath: ::windows::core::PCWSTR, fusefileaslabel: super::super::Foundation::BOOL) -> isize;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(OleGetIconOfFile(lpszpath.into_param().abi(), fusefileaslabel.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn OleIconToCursor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::core::IntoParam<'a, super::super::UI::WindowsAndMessaging::HICON>>(hinstexe: Param0, hicon: Param1) -> super::super::UI::WindowsAndMessaging::HCURSOR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleIconToCursor(hinstexe: super::super::Foundation::HINSTANCE, hicon: super::super::UI::WindowsAndMessaging::HICON) -> super::super::UI::WindowsAndMessaging::HCURSOR;
-        }
-        ::core::mem::transmute(OleIconToCursor(hinstexe.into_param().abi(), hicon.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleIconToCursor(hinstexe: super::super::Foundation::HINSTANCE, hicon: super::super::UI::WindowsAndMessaging::HICON) -> super::super::UI::WindowsAndMessaging::HCURSOR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(OleIconToCursor(hinstexe.into_param().abi(), hicon.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn OleInitialize(pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleInitialize(pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        OleInitialize(::core::mem::transmute(pvreserved)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleInitialize(pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    OleInitialize(::core::mem::transmute(pvreserved)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn OleIsCurrentClipboard<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDataObject>>(pdataobj: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleIsCurrentClipboard(pdataobj: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        OleIsCurrentClipboard(pdataobj.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleIsCurrentClipboard(pdataobj: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    OleIsCurrentClipboard(pdataobj.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OleIsRunning<'a, Param0: ::windows::core::IntoParam<'a, IOleObject>>(pobject: Param0) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleIsRunning(pobject: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(OleIsRunning(pobject.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleIsRunning(pobject: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(OleIsRunning(pobject.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn OleLoad<'a, Param0: ::windows::core::IntoParam<'a, super::Com::StructuredStorage::IStorage>, Param2: ::windows::core::IntoParam<'a, IOleClientSite>>(pstg: Param0, riid: *const ::windows::core::GUID, pclientsite: Param2, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleLoad(pstg: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, pclientsite: *mut ::core::ffi::c_void, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        OleLoad(pstg.into_param().abi(), ::core::mem::transmute(riid), pclientsite.into_param().abi(), ::core::mem::transmute(ppvobj)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleLoad(pstg: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, pclientsite: *mut ::core::ffi::c_void, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    OleLoad(pstg.into_param().abi(), ::core::mem::transmute(riid), pclientsite.into_param().abi(), ::core::mem::transmute(ppvobj)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn OleLoadFromStream<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IStream>>(pstm: Param0, iidinterface: *const ::windows::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleLoadFromStream(pstm: *mut ::core::ffi::c_void, iidinterface: *const ::windows::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        OleLoadFromStream(pstm.into_param().abi(), ::core::mem::transmute(iidinterface), ::core::mem::transmute(ppvobj)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleLoadFromStream(pstm: *mut ::core::ffi::c_void, iidinterface: *const ::windows::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    OleLoadFromStream(pstm.into_param().abi(), ::core::mem::transmute(iidinterface), ::core::mem::transmute(ppvobj)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn OleLoadPicture<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IStream>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(lpstream: Param0, lsize: i32, frunmode: Param2, riid: *const ::windows::core::GUID, lplpvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleLoadPicture(lpstream: *mut ::core::ffi::c_void, lsize: i32, frunmode: super::super::Foundation::BOOL, riid: *const ::windows::core::GUID, lplpvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        OleLoadPicture(lpstream.into_param().abi(), ::core::mem::transmute(lsize), frunmode.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(lplpvobj)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleLoadPicture(lpstream: *mut ::core::ffi::c_void, lsize: i32, frunmode: super::super::Foundation::BOOL, riid: *const ::windows::core::GUID, lplpvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    OleLoadPicture(lpstream.into_param().abi(), ::core::mem::transmute(lsize), frunmode.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(lplpvobj)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn OleLoadPictureEx<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IStream>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(lpstream: Param0, lsize: i32, frunmode: Param2, riid: *const ::windows::core::GUID, xsizedesired: u32, ysizedesired: u32, dwflags: u32, lplpvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleLoadPictureEx(lpstream: *mut ::core::ffi::c_void, lsize: i32, frunmode: super::super::Foundation::BOOL, riid: *const ::windows::core::GUID, xsizedesired: u32, ysizedesired: u32, dwflags: u32, lplpvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        OleLoadPictureEx(lpstream.into_param().abi(), ::core::mem::transmute(lsize), frunmode.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(xsizedesired), ::core::mem::transmute(ysizedesired), ::core::mem::transmute(dwflags), ::core::mem::transmute(lplpvobj)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleLoadPictureEx(lpstream: *mut ::core::ffi::c_void, lsize: i32, frunmode: super::super::Foundation::BOOL, riid: *const ::windows::core::GUID, xsizedesired: u32, ysizedesired: u32, dwflags: u32, lplpvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    OleLoadPictureEx(lpstream.into_param().abi(), ::core::mem::transmute(lsize), frunmode.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(xsizedesired), ::core::mem::transmute(ysizedesired), ::core::mem::transmute(dwflags), ::core::mem::transmute(lplpvobj)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn OleLoadPictureFile<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(varfilename: Param0) -> ::windows::core::Result<super::Com::IDispatch> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleLoadPictureFile(varfilename: ::core::mem::ManuallyDrop<super::Com::VARIANT>, lplpdisppicture: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        OleLoadPictureFile(varfilename.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IDispatch>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleLoadPictureFile(varfilename: ::core::mem::ManuallyDrop<super::Com::VARIANT>, lplpdisppicture: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    OleLoadPictureFile(varfilename.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IDispatch>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn OleLoadPictureFileEx<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(varfilename: Param0, xsizedesired: u32, ysizedesired: u32, dwflags: u32) -> ::windows::core::Result<super::Com::IDispatch> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleLoadPictureFileEx(varfilename: ::core::mem::ManuallyDrop<super::Com::VARIANT>, xsizedesired: u32, ysizedesired: u32, dwflags: u32, lplpdisppicture: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        OleLoadPictureFileEx(varfilename.into_param().abi(), ::core::mem::transmute(xsizedesired), ::core::mem::transmute(ysizedesired), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IDispatch>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleLoadPictureFileEx(varfilename: ::core::mem::ManuallyDrop<super::Com::VARIANT>, xsizedesired: u32, ysizedesired: u32, dwflags: u32, lplpdisppicture: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    OleLoadPictureFileEx(varfilename.into_param().abi(), ::core::mem::transmute(xsizedesired), ::core::mem::transmute(ysizedesired), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IDispatch>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn OleLoadPicturePath<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(szurlorpath: Param0, punkcaller: Param1, dwreserved: u32, clrreserved: u32, riid: *const ::windows::core::GUID, ppvret: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleLoadPicturePath(szurlorpath: ::windows::core::PCWSTR, punkcaller: *mut ::core::ffi::c_void, dwreserved: u32, clrreserved: u32, riid: *const ::windows::core::GUID, ppvret: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        OleLoadPicturePath(szurlorpath.into_param().abi(), punkcaller.into_param().abi(), ::core::mem::transmute(dwreserved), ::core::mem::transmute(clrreserved), ::core::mem::transmute(riid), ::core::mem::transmute(ppvret)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleLoadPicturePath(szurlorpath: ::windows::core::PCWSTR, punkcaller: *mut ::core::ffi::c_void, dwreserved: u32, clrreserved: u32, riid: *const ::windows::core::GUID, ppvret: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    OleLoadPicturePath(szurlorpath.into_param().abi(), punkcaller.into_param().abi(), ::core::mem::transmute(dwreserved), ::core::mem::transmute(clrreserved), ::core::mem::transmute(riid), ::core::mem::transmute(ppvret)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OleLockRunning<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(punknown: Param0, flock: Param1, flastunlockcloses: Param2) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleLockRunning(punknown: *mut ::core::ffi::c_void, flock: super::super::Foundation::BOOL, flastunlockcloses: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
-        }
-        OleLockRunning(punknown.into_param().abi(), flock.into_param().abi(), flastunlockcloses.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleLockRunning(punknown: *mut ::core::ffi::c_void, flock: super::super::Foundation::BOOL, flastunlockcloses: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    OleLockRunning(punknown.into_param().abi(), flock.into_param().abi(), flastunlockcloses.into_param().abi()).ok()
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -15352,628 +14967,418 @@ impl ::core::default::Default for OleMenuGroupWidths {
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn OleMetafilePictFromIconAndLabel<'a, Param0: ::windows::core::IntoParam<'a, super::super::UI::WindowsAndMessaging::HICON>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hicon: Param0, lpszlabel: Param1, lpszsourcefile: Param2, iiconindex: u32) -> isize {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleMetafilePictFromIconAndLabel(hicon: super::super::UI::WindowsAndMessaging::HICON, lpszlabel: ::windows::core::PCWSTR, lpszsourcefile: ::windows::core::PCWSTR, iiconindex: u32) -> isize;
-        }
-        ::core::mem::transmute(OleMetafilePictFromIconAndLabel(hicon.into_param().abi(), lpszlabel.into_param().abi(), lpszsourcefile.into_param().abi(), ::core::mem::transmute(iiconindex)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleMetafilePictFromIconAndLabel(hicon: super::super::UI::WindowsAndMessaging::HICON, lpszlabel: ::windows::core::PCWSTR, lpszsourcefile: ::windows::core::PCWSTR, iiconindex: u32) -> isize;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(OleMetafilePictFromIconAndLabel(hicon.into_param().abi(), lpszlabel.into_param().abi(), lpszsourcefile.into_param().abi(), ::core::mem::transmute(iiconindex)))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OleNoteObjectVisible<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(punknown: Param0, fvisible: Param1) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleNoteObjectVisible(punknown: *mut ::core::ffi::c_void, fvisible: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
-        }
-        OleNoteObjectVisible(punknown.into_param().abi(), fvisible.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleNoteObjectVisible(punknown: *mut ::core::ffi::c_void, fvisible: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    OleNoteObjectVisible(punknown.into_param().abi(), fvisible.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn OleQueryCreateFromData<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDataObject>>(psrcdataobject: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleQueryCreateFromData(psrcdataobject: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        OleQueryCreateFromData(psrcdataobject.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleQueryCreateFromData(psrcdataobject: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    OleQueryCreateFromData(psrcdataobject.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn OleQueryLinkFromData<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDataObject>>(psrcdataobject: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleQueryLinkFromData(psrcdataobject: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        OleQueryLinkFromData(psrcdataobject.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleQueryLinkFromData(psrcdataobject: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    OleQueryLinkFromData(psrcdataobject.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn OleRegEnumFormatEtc(clsid: *const ::windows::core::GUID, dwdirection: u32) -> ::windows::core::Result<super::Com::IEnumFORMATETC> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleRegEnumFormatEtc(clsid: *const ::windows::core::GUID, dwdirection: u32, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        OleRegEnumFormatEtc(::core::mem::transmute(clsid), ::core::mem::transmute(dwdirection), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IEnumFORMATETC>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleRegEnumFormatEtc(clsid: *const ::windows::core::GUID, dwdirection: u32, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    OleRegEnumFormatEtc(::core::mem::transmute(clsid), ::core::mem::transmute(dwdirection), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IEnumFORMATETC>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn OleRegEnumVerbs(clsid: *const ::windows::core::GUID) -> ::windows::core::Result<IEnumOLEVERB> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleRegEnumVerbs(clsid: *const ::windows::core::GUID, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        OleRegEnumVerbs(::core::mem::transmute(clsid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumOLEVERB>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleRegEnumVerbs(clsid: *const ::windows::core::GUID, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    OleRegEnumVerbs(::core::mem::transmute(clsid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumOLEVERB>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn OleRegGetMiscStatus(clsid: *const ::windows::core::GUID, dwaspect: u32, pdwstatus: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleRegGetMiscStatus(clsid: *const ::windows::core::GUID, dwaspect: u32, pdwstatus: *mut u32) -> ::windows::core::HRESULT;
-        }
-        OleRegGetMiscStatus(::core::mem::transmute(clsid), ::core::mem::transmute(dwaspect), ::core::mem::transmute(pdwstatus)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleRegGetMiscStatus(clsid: *const ::windows::core::GUID, dwaspect: u32, pdwstatus: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    OleRegGetMiscStatus(::core::mem::transmute(clsid), ::core::mem::transmute(dwaspect), ::core::mem::transmute(pdwstatus)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn OleRegGetUserType(clsid: *const ::windows::core::GUID, dwformoftype: u32) -> ::windows::core::Result<::windows::core::PWSTR> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleRegGetUserType(clsid: *const ::windows::core::GUID, dwformoftype: u32, pszusertype: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-        OleRegGetUserType(::core::mem::transmute(clsid), ::core::mem::transmute(dwformoftype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleRegGetUserType(clsid: *const ::windows::core::GUID, dwformoftype: u32, pszusertype: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
+    OleRegGetUserType(::core::mem::transmute(clsid), ::core::mem::transmute(dwformoftype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn OleRun<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(punknown: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleRun(punknown: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        OleRun(punknown.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleRun(punknown: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    OleRun(punknown.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn OleSave<'a, Param0: ::windows::core::IntoParam<'a, super::Com::StructuredStorage::IPersistStorage>, Param1: ::windows::core::IntoParam<'a, super::Com::StructuredStorage::IStorage>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(pps: Param0, pstg: Param1, fsameasload: Param2) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleSave(pps: *mut ::core::ffi::c_void, pstg: *mut ::core::ffi::c_void, fsameasload: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
-        }
-        OleSave(pps.into_param().abi(), pstg.into_param().abi(), fsameasload.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleSave(pps: *mut ::core::ffi::c_void, pstg: *mut ::core::ffi::c_void, fsameasload: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    OleSave(pps.into_param().abi(), pstg.into_param().abi(), fsameasload.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn OleSavePictureFile<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(lpdisppicture: Param0, bstrfilename: Param1) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleSavePictureFile(lpdisppicture: *mut ::core::ffi::c_void, bstrfilename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT;
-        }
-        OleSavePictureFile(lpdisppicture.into_param().abi(), bstrfilename.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleSavePictureFile(lpdisppicture: *mut ::core::ffi::c_void, bstrfilename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    OleSavePictureFile(lpdisppicture.into_param().abi(), bstrfilename.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn OleSaveToStream<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IPersistStream>, Param1: ::windows::core::IntoParam<'a, super::Com::IStream>>(ppstm: Param0, pstm: Param1) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleSaveToStream(ppstm: *mut ::core::ffi::c_void, pstm: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        OleSaveToStream(ppstm.into_param().abi(), pstm.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleSaveToStream(ppstm: *mut ::core::ffi::c_void, pstm: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    OleSaveToStream(ppstm.into_param().abi(), pstm.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn OleSetAutoConvert(clsidold: *const ::windows::core::GUID, clsidnew: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleSetAutoConvert(clsidold: *const ::windows::core::GUID, clsidnew: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
-        }
-        OleSetAutoConvert(::core::mem::transmute(clsidold), ::core::mem::transmute(clsidnew)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleSetAutoConvert(clsidold: *const ::windows::core::GUID, clsidnew: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    OleSetAutoConvert(::core::mem::transmute(clsidold), ::core::mem::transmute(clsidnew)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn OleSetClipboard<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDataObject>>(pdataobj: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleSetClipboard(pdataobj: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        OleSetClipboard(pdataobj.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleSetClipboard(pdataobj: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    OleSetClipboard(pdataobj.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OleSetContainedObject<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(punknown: Param0, fcontained: Param1) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleSetContainedObject(punknown: *mut ::core::ffi::c_void, fcontained: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
-        }
-        OleSetContainedObject(punknown.into_param().abi(), fcontained.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleSetContainedObject(punknown: *mut ::core::ffi::c_void, fcontained: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    OleSetContainedObject(punknown.into_param().abi(), fcontained.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OleSetMenuDescriptor<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::core::IntoParam<'a, IOleInPlaceFrame>, Param4: ::windows::core::IntoParam<'a, IOleInPlaceActiveObject>>(holemenu: isize, hwndframe: Param1, hwndactiveobject: Param2, lpframe: Param3, lpactiveobj: Param4) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleSetMenuDescriptor(holemenu: isize, hwndframe: super::super::Foundation::HWND, hwndactiveobject: super::super::Foundation::HWND, lpframe: *mut ::core::ffi::c_void, lpactiveobj: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        OleSetMenuDescriptor(::core::mem::transmute(holemenu), hwndframe.into_param().abi(), hwndactiveobject.into_param().abi(), lpframe.into_param().abi(), lpactiveobj.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleSetMenuDescriptor(holemenu: isize, hwndframe: super::super::Foundation::HWND, hwndactiveobject: super::super::Foundation::HWND, lpframe: *mut ::core::ffi::c_void, lpactiveobj: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    OleSetMenuDescriptor(::core::mem::transmute(holemenu), hwndframe.into_param().abi(), hwndactiveobject.into_param().abi(), lpframe.into_param().abi(), lpactiveobj.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn OleTranslateAccelerator<'a, Param0: ::windows::core::IntoParam<'a, IOleInPlaceFrame>>(lpframe: Param0, lpframeinfo: *mut OIFI, lpmsg: *mut super::super::UI::WindowsAndMessaging::MSG) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleTranslateAccelerator(lpframe: *mut ::core::ffi::c_void, lpframeinfo: *mut OIFI, lpmsg: *mut super::super::UI::WindowsAndMessaging::MSG) -> ::windows::core::HRESULT;
-        }
-        OleTranslateAccelerator(lpframe.into_param().abi(), ::core::mem::transmute(lpframeinfo), ::core::mem::transmute(lpmsg)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleTranslateAccelerator(lpframe: *mut ::core::ffi::c_void, lpframeinfo: *mut OIFI, lpmsg: *mut super::super::UI::WindowsAndMessaging::MSG) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    OleTranslateAccelerator(lpframe.into_param().abi(), ::core::mem::transmute(lpframeinfo), ::core::mem::transmute(lpmsg)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn OleTranslateColor<'a, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HPALETTE>>(clr: u32, hpal: Param1, lpcolorref: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleTranslateColor(clr: u32, hpal: super::super::Graphics::Gdi::HPALETTE, lpcolorref: *mut u32) -> ::windows::core::HRESULT;
-        }
-        OleTranslateColor(::core::mem::transmute(clr), hpal.into_param().abi(), ::core::mem::transmute(lpcolorref)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleTranslateColor(clr: u32, hpal: super::super::Graphics::Gdi::HPALETTE, lpcolorref: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    OleTranslateColor(::core::mem::transmute(clr), hpal.into_param().abi(), ::core::mem::transmute(lpcolorref)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn OleUIAddVerbMenuA<'a, Param0: ::windows::core::IntoParam<'a, IOleObject>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, super::super::UI::WindowsAndMessaging::HMENU>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(lpoleobj: Param0, lpszshorttype: Param1, hmenu: Param2, upos: u32, uidverbmin: u32, uidverbmax: u32, baddconvert: Param6, idconvert: u32, lphmenu: *mut super::super::UI::WindowsAndMessaging::HMENU) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleUIAddVerbMenuA(lpoleobj: *mut ::core::ffi::c_void, lpszshorttype: ::windows::core::PCSTR, hmenu: super::super::UI::WindowsAndMessaging::HMENU, upos: u32, uidverbmin: u32, uidverbmax: u32, baddconvert: super::super::Foundation::BOOL, idconvert: u32, lphmenu: *mut super::super::UI::WindowsAndMessaging::HMENU) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(OleUIAddVerbMenuA(lpoleobj.into_param().abi(), lpszshorttype.into_param().abi(), hmenu.into_param().abi(), ::core::mem::transmute(upos), ::core::mem::transmute(uidverbmin), ::core::mem::transmute(uidverbmax), baddconvert.into_param().abi(), ::core::mem::transmute(idconvert), ::core::mem::transmute(lphmenu)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleUIAddVerbMenuA(lpoleobj: *mut ::core::ffi::c_void, lpszshorttype: ::windows::core::PCSTR, hmenu: super::super::UI::WindowsAndMessaging::HMENU, upos: u32, uidverbmin: u32, uidverbmax: u32, baddconvert: super::super::Foundation::BOOL, idconvert: u32, lphmenu: *mut super::super::UI::WindowsAndMessaging::HMENU) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(OleUIAddVerbMenuA(lpoleobj.into_param().abi(), lpszshorttype.into_param().abi(), hmenu.into_param().abi(), ::core::mem::transmute(upos), ::core::mem::transmute(uidverbmin), ::core::mem::transmute(uidverbmax), baddconvert.into_param().abi(), ::core::mem::transmute(idconvert), ::core::mem::transmute(lphmenu)))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn OleUIAddVerbMenuW<'a, Param0: ::windows::core::IntoParam<'a, IOleObject>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::UI::WindowsAndMessaging::HMENU>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(lpoleobj: Param0, lpszshorttype: Param1, hmenu: Param2, upos: u32, uidverbmin: u32, uidverbmax: u32, baddconvert: Param6, idconvert: u32, lphmenu: *mut super::super::UI::WindowsAndMessaging::HMENU) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleUIAddVerbMenuW(lpoleobj: *mut ::core::ffi::c_void, lpszshorttype: ::windows::core::PCWSTR, hmenu: super::super::UI::WindowsAndMessaging::HMENU, upos: u32, uidverbmin: u32, uidverbmax: u32, baddconvert: super::super::Foundation::BOOL, idconvert: u32, lphmenu: *mut super::super::UI::WindowsAndMessaging::HMENU) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(OleUIAddVerbMenuW(lpoleobj.into_param().abi(), lpszshorttype.into_param().abi(), hmenu.into_param().abi(), ::core::mem::transmute(upos), ::core::mem::transmute(uidverbmin), ::core::mem::transmute(uidverbmax), baddconvert.into_param().abi(), ::core::mem::transmute(idconvert), ::core::mem::transmute(lphmenu)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleUIAddVerbMenuW(lpoleobj: *mut ::core::ffi::c_void, lpszshorttype: ::windows::core::PCWSTR, hmenu: super::super::UI::WindowsAndMessaging::HMENU, upos: u32, uidverbmin: u32, uidverbmax: u32, baddconvert: super::super::Foundation::BOOL, idconvert: u32, lphmenu: *mut super::super::UI::WindowsAndMessaging::HMENU) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(OleUIAddVerbMenuW(lpoleobj.into_param().abi(), lpszshorttype.into_param().abi(), hmenu.into_param().abi(), ::core::mem::transmute(upos), ::core::mem::transmute(uidverbmin), ::core::mem::transmute(uidverbmax), baddconvert.into_param().abi(), ::core::mem::transmute(idconvert), ::core::mem::transmute(lphmenu)))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_Media\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media"))]
 #[inline]
 pub unsafe fn OleUIBusyA(param0: *const OLEUIBUSYA) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleUIBusyA(param0: *const OLEUIBUSYA) -> u32;
-        }
-        ::core::mem::transmute(OleUIBusyA(::core::mem::transmute(param0)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleUIBusyA(param0: *const OLEUIBUSYA) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(OleUIBusyA(::core::mem::transmute(param0)))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_Media\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media"))]
 #[inline]
 pub unsafe fn OleUIBusyW(param0: *const OLEUIBUSYW) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleUIBusyW(param0: *const OLEUIBUSYW) -> u32;
-        }
-        ::core::mem::transmute(OleUIBusyW(::core::mem::transmute(param0)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleUIBusyW(param0: *const OLEUIBUSYW) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(OleUIBusyW(::core::mem::transmute(param0)))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OleUICanConvertOrActivateAs<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(rclsid: *const ::windows::core::GUID, fislinkedobject: Param1, wformat: u16) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleUICanConvertOrActivateAs(rclsid: *const ::windows::core::GUID, fislinkedobject: super::super::Foundation::BOOL, wformat: u16) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(OleUICanConvertOrActivateAs(::core::mem::transmute(rclsid), fislinkedobject.into_param().abi(), ::core::mem::transmute(wformat)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleUICanConvertOrActivateAs(rclsid: *const ::windows::core::GUID, fislinkedobject: super::super::Foundation::BOOL, wformat: u16) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(OleUICanConvertOrActivateAs(::core::mem::transmute(rclsid), fislinkedobject.into_param().abi(), ::core::mem::transmute(wformat)))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OleUIChangeIconA(param0: *const OLEUICHANGEICONA) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleUIChangeIconA(param0: *const OLEUICHANGEICONA) -> u32;
-        }
-        ::core::mem::transmute(OleUIChangeIconA(::core::mem::transmute(param0)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleUIChangeIconA(param0: *const OLEUICHANGEICONA) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(OleUIChangeIconA(::core::mem::transmute(param0)))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OleUIChangeIconW(param0: *const OLEUICHANGEICONW) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleUIChangeIconW(param0: *const OLEUICHANGEICONW) -> u32;
-        }
-        ::core::mem::transmute(OleUIChangeIconW(::core::mem::transmute(param0)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleUIChangeIconW(param0: *const OLEUICHANGEICONW) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(OleUIChangeIconW(::core::mem::transmute(param0)))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Controls_Dialogs\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls_Dialogs"))]
 #[inline]
 pub unsafe fn OleUIChangeSourceA(param0: *const OLEUICHANGESOURCEA) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleUIChangeSourceA(param0: *const OLEUICHANGESOURCEA) -> u32;
-        }
-        ::core::mem::transmute(OleUIChangeSourceA(::core::mem::transmute(param0)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleUIChangeSourceA(param0: *const OLEUICHANGESOURCEA) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(OleUIChangeSourceA(::core::mem::transmute(param0)))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Controls_Dialogs\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls_Dialogs"))]
 #[inline]
 pub unsafe fn OleUIChangeSourceW(param0: *const OLEUICHANGESOURCEW) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleUIChangeSourceW(param0: *const OLEUICHANGESOURCEW) -> u32;
-        }
-        ::core::mem::transmute(OleUIChangeSourceW(::core::mem::transmute(param0)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleUIChangeSourceW(param0: *const OLEUICHANGESOURCEW) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(OleUIChangeSourceW(::core::mem::transmute(param0)))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OleUIConvertA(param0: *const OLEUICONVERTA) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleUIConvertA(param0: *const OLEUICONVERTA) -> u32;
-        }
-        ::core::mem::transmute(OleUIConvertA(::core::mem::transmute(param0)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleUIConvertA(param0: *const OLEUICONVERTA) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(OleUIConvertA(::core::mem::transmute(param0)))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OleUIConvertW(param0: *const OLEUICONVERTW) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleUIConvertW(param0: *const OLEUICONVERTW) -> u32;
-        }
-        ::core::mem::transmute(OleUIConvertW(::core::mem::transmute(param0)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleUIConvertW(param0: *const OLEUICONVERTW) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(OleUIConvertW(::core::mem::transmute(param0)))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OleUIEditLinksA(param0: *const OLEUIEDITLINKSA) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleUIEditLinksA(param0: *const OLEUIEDITLINKSA) -> u32;
-        }
-        ::core::mem::transmute(OleUIEditLinksA(::core::mem::transmute(param0)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleUIEditLinksA(param0: *const OLEUIEDITLINKSA) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(OleUIEditLinksA(::core::mem::transmute(param0)))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OleUIEditLinksW(param0: *const OLEUIEDITLINKSW) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleUIEditLinksW(param0: *const OLEUIEDITLINKSW) -> u32;
-        }
-        ::core::mem::transmute(OleUIEditLinksW(::core::mem::transmute(param0)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleUIEditLinksW(param0: *const OLEUIEDITLINKSW) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(OleUIEditLinksW(::core::mem::transmute(param0)))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn OleUIInsertObjectA(param0: *const OLEUIINSERTOBJECTA) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleUIInsertObjectA(param0: *const OLEUIINSERTOBJECTA) -> u32;
-        }
-        ::core::mem::transmute(OleUIInsertObjectA(::core::mem::transmute(param0)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleUIInsertObjectA(param0: *const OLEUIINSERTOBJECTA) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(OleUIInsertObjectA(::core::mem::transmute(param0)))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn OleUIInsertObjectW(param0: *const OLEUIINSERTOBJECTW) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleUIInsertObjectW(param0: *const OLEUIINSERTOBJECTW) -> u32;
-        }
-        ::core::mem::transmute(OleUIInsertObjectW(::core::mem::transmute(param0)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleUIInsertObjectW(param0: *const OLEUIINSERTOBJECTW) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(OleUIInsertObjectW(::core::mem::transmute(param0)))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_Controls\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn OleUIObjectPropertiesA(param0: *const OLEUIOBJECTPROPSA) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleUIObjectPropertiesA(param0: *const OLEUIOBJECTPROPSA) -> u32;
-        }
-        ::core::mem::transmute(OleUIObjectPropertiesA(::core::mem::transmute(param0)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleUIObjectPropertiesA(param0: *const OLEUIOBJECTPROPSA) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(OleUIObjectPropertiesA(::core::mem::transmute(param0)))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_Controls\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn OleUIObjectPropertiesW(param0: *const OLEUIOBJECTPROPSW) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleUIObjectPropertiesW(param0: *const OLEUIOBJECTPROPSW) -> u32;
-        }
-        ::core::mem::transmute(OleUIObjectPropertiesW(::core::mem::transmute(param0)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleUIObjectPropertiesW(param0: *const OLEUIOBJECTPROPSW) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(OleUIObjectPropertiesW(::core::mem::transmute(param0)))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn OleUIPasteSpecialA(param0: *const OLEUIPASTESPECIALA) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleUIPasteSpecialA(param0: *const OLEUIPASTESPECIALA) -> u32;
-        }
-        ::core::mem::transmute(OleUIPasteSpecialA(::core::mem::transmute(param0)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleUIPasteSpecialA(param0: *const OLEUIPASTESPECIALA) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(OleUIPasteSpecialA(::core::mem::transmute(param0)))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn OleUIPasteSpecialW(param0: *const OLEUIPASTESPECIALW) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleUIPasteSpecialW(param0: *const OLEUIPASTESPECIALW) -> u32;
-        }
-        ::core::mem::transmute(OleUIPasteSpecialW(::core::mem::transmute(param0)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleUIPasteSpecialW(param0: *const OLEUIPASTESPECIALW) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(OleUIPasteSpecialW(::core::mem::transmute(param0)))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OleUIPromptUserA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(ntemplate: i32, hwndparent: Param1) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleUIPromptUserA(ntemplate: i32, hwndparent: super::super::Foundation::HWND) -> i32;
-        }
-        ::core::mem::transmute(OleUIPromptUserA(::core::mem::transmute(ntemplate), hwndparent.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleUIPromptUserA(ntemplate: i32, hwndparent: super::super::Foundation::HWND) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(OleUIPromptUserA(::core::mem::transmute(ntemplate), hwndparent.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OleUIPromptUserW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(ntemplate: i32, hwndparent: Param1) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleUIPromptUserW(ntemplate: i32, hwndparent: super::super::Foundation::HWND) -> i32;
-        }
-        ::core::mem::transmute(OleUIPromptUserW(::core::mem::transmute(ntemplate), hwndparent.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleUIPromptUserW(ntemplate: i32, hwndparent: super::super::Foundation::HWND) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(OleUIPromptUserW(::core::mem::transmute(ntemplate), hwndparent.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OleUIUpdateLinksA<'a, Param0: ::windows::core::IntoParam<'a, IOleUILinkContainerA>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lpoleuilinkcntr: Param0, hwndparent: Param1, lpsztitle: Param2, clinks: i32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleUIUpdateLinksA(lpoleuilinkcntr: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, lpsztitle: ::windows::core::PCSTR, clinks: i32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(OleUIUpdateLinksA(lpoleuilinkcntr.into_param().abi(), hwndparent.into_param().abi(), lpsztitle.into_param().abi(), ::core::mem::transmute(clinks)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleUIUpdateLinksA(lpoleuilinkcntr: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, lpsztitle: ::windows::core::PCSTR, clinks: i32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(OleUIUpdateLinksA(lpoleuilinkcntr.into_param().abi(), hwndparent.into_param().abi(), lpsztitle.into_param().abi(), ::core::mem::transmute(clinks)))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OleUIUpdateLinksW<'a, Param0: ::windows::core::IntoParam<'a, IOleUILinkContainerW>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpoleuilinkcntr: Param0, hwndparent: Param1, lpsztitle: Param2, clinks: i32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleUIUpdateLinksW(lpoleuilinkcntr: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, lpsztitle: ::windows::core::PCWSTR, clinks: i32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(OleUIUpdateLinksW(lpoleuilinkcntr.into_param().abi(), hwndparent.into_param().abi(), lpsztitle.into_param().abi(), ::core::mem::transmute(clinks)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleUIUpdateLinksW(lpoleuilinkcntr: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, lpsztitle: ::windows::core::PCWSTR, clinks: i32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(OleUIUpdateLinksW(lpoleuilinkcntr.into_param().abi(), hwndparent.into_param().abi(), lpsztitle.into_param().abi(), ::core::mem::transmute(clinks)))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn OleUninitialize() {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OleUninitialize();
-        }
-        OleUninitialize()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleUninitialize();
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    OleUninitialize()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
@@ -16885,17 +16290,12 @@ impl ::core::default::Default for QACONTROL {
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn QueryPathOfRegTypeLib(guid: *const ::windows::core::GUID, wmaj: u16, wmin: u16, lcid: u32) -> ::windows::core::Result<*mut u16> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn QueryPathOfRegTypeLib(guid: *const ::windows::core::GUID, wmaj: u16, wmin: u16, lcid: u32, lpbstrpathname: *mut *mut u16) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut u16>::zeroed();
-        QueryPathOfRegTypeLib(::core::mem::transmute(guid), ::core::mem::transmute(wmaj), ::core::mem::transmute(wmin), ::core::mem::transmute(lcid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut u16>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn QueryPathOfRegTypeLib(guid: *const ::windows::core::GUID, wmaj: u16, wmin: u16, lcid: u32, lpbstrpathname: *mut *mut u16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut u16>::zeroed();
+    QueryPathOfRegTypeLib(::core::mem::transmute(guid), ::core::mem::transmute(wmaj), ::core::mem::transmute(wmin), ::core::mem::transmute(lcid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut u16>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
@@ -16962,105 +16362,70 @@ impl ::core::fmt::Debug for REGKIND {
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn RegisterActiveObject<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(punk: Param0, rclsid: *const ::windows::core::GUID, dwflags: u32, pdwregister: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RegisterActiveObject(punk: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID, dwflags: u32, pdwregister: *mut u32) -> ::windows::core::HRESULT;
-        }
-        RegisterActiveObject(punk.into_param().abi(), ::core::mem::transmute(rclsid), ::core::mem::transmute(dwflags), ::core::mem::transmute(pdwregister)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RegisterActiveObject(punk: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID, dwflags: u32, pdwregister: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    RegisterActiveObject(punk.into_param().abi(), ::core::mem::transmute(rclsid), ::core::mem::transmute(dwflags), ::core::mem::transmute(pdwregister)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegisterDragDrop<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, IDropTarget>>(hwnd: Param0, pdroptarget: Param1) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RegisterDragDrop(hwnd: super::super::Foundation::HWND, pdroptarget: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        RegisterDragDrop(hwnd.into_param().abi(), pdroptarget.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RegisterDragDrop(hwnd: super::super::Foundation::HWND, pdroptarget: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    RegisterDragDrop(hwnd.into_param().abi(), pdroptarget.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn RegisterTypeLib<'a, Param0: ::windows::core::IntoParam<'a, super::Com::ITypeLib>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(ptlib: Param0, szfullpath: Param1, szhelpdir: Param2) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RegisterTypeLib(ptlib: *mut ::core::ffi::c_void, szfullpath: ::windows::core::PCWSTR, szhelpdir: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
-        }
-        RegisterTypeLib(ptlib.into_param().abi(), szfullpath.into_param().abi(), szhelpdir.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RegisterTypeLib(ptlib: *mut ::core::ffi::c_void, szfullpath: ::windows::core::PCWSTR, szhelpdir: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    RegisterTypeLib(ptlib.into_param().abi(), szfullpath.into_param().abi(), szhelpdir.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn RegisterTypeLibForUser<'a, Param0: ::windows::core::IntoParam<'a, super::Com::ITypeLib>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(ptlib: Param0, szfullpath: Param1, szhelpdir: Param2) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RegisterTypeLibForUser(ptlib: *mut ::core::ffi::c_void, szfullpath: ::windows::core::PCWSTR, szhelpdir: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
-        }
-        RegisterTypeLibForUser(ptlib.into_param().abi(), szfullpath.into_param().abi(), szhelpdir.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RegisterTypeLibForUser(ptlib: *mut ::core::ffi::c_void, szfullpath: ::windows::core::PCWSTR, szhelpdir: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    RegisterTypeLibForUser(ptlib.into_param().abi(), szfullpath.into_param().abi(), szhelpdir.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn ReleaseStgMedium(param0: *mut super::Com::STGMEDIUM) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ReleaseStgMedium(param0: *mut super::Com::STGMEDIUM);
-        }
-        ReleaseStgMedium(::core::mem::transmute(param0))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ReleaseStgMedium(param0: *mut super::Com::STGMEDIUM);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ReleaseStgMedium(::core::mem::transmute(param0))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn RevokeActiveObject(dwregister: u32, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RevokeActiveObject(dwregister: u32, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        RevokeActiveObject(::core::mem::transmute(dwregister), ::core::mem::transmute(pvreserved)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RevokeActiveObject(dwregister: u32, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    RevokeActiveObject(::core::mem::transmute(dwregister), ::core::mem::transmute(pvreserved)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RevokeDragDrop<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RevokeDragDrop(hwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT;
-        }
-        RevokeDragDrop(hwnd.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RevokeDragDrop(hwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    RevokeDragDrop(hwnd.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const SELFREG_E_CLASS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220991i32);
@@ -17160,503 +16525,338 @@ pub const SZOLEUI_MSG_HELP: &str = "OLEUI_MSG_HELP";
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn SafeArrayAccessData(psa: *const super::Com::SAFEARRAY, ppvdata: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SafeArrayAccessData(psa: *const super::Com::SAFEARRAY, ppvdata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        SafeArrayAccessData(::core::mem::transmute(psa), ::core::mem::transmute(ppvdata)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SafeArrayAccessData(psa: *const super::Com::SAFEARRAY, ppvdata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SafeArrayAccessData(::core::mem::transmute(psa), ::core::mem::transmute(ppvdata)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn SafeArrayAddRef(psa: *const super::Com::SAFEARRAY, ppdatatorelease: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SafeArrayAddRef(psa: *const super::Com::SAFEARRAY, ppdatatorelease: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        SafeArrayAddRef(::core::mem::transmute(psa), ::core::mem::transmute(ppdatatorelease)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SafeArrayAddRef(psa: *const super::Com::SAFEARRAY, ppdatatorelease: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SafeArrayAddRef(::core::mem::transmute(psa), ::core::mem::transmute(ppdatatorelease)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn SafeArrayAllocData(psa: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SafeArrayAllocData(psa: *const super::Com::SAFEARRAY) -> ::windows::core::HRESULT;
-        }
-        SafeArrayAllocData(::core::mem::transmute(psa)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SafeArrayAllocData(psa: *const super::Com::SAFEARRAY) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SafeArrayAllocData(::core::mem::transmute(psa)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn SafeArrayAllocDescriptor(cdims: u32) -> ::windows::core::Result<*mut super::Com::SAFEARRAY> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SafeArrayAllocDescriptor(cdims: u32, ppsaout: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut super::Com::SAFEARRAY>::zeroed();
-        SafeArrayAllocDescriptor(::core::mem::transmute(cdims), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::Com::SAFEARRAY>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SafeArrayAllocDescriptor(cdims: u32, ppsaout: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut super::Com::SAFEARRAY>::zeroed();
+    SafeArrayAllocDescriptor(::core::mem::transmute(cdims), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::Com::SAFEARRAY>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn SafeArrayAllocDescriptorEx(vt: u16, cdims: u32) -> ::windows::core::Result<*mut super::Com::SAFEARRAY> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SafeArrayAllocDescriptorEx(vt: u16, cdims: u32, ppsaout: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut super::Com::SAFEARRAY>::zeroed();
-        SafeArrayAllocDescriptorEx(::core::mem::transmute(vt), ::core::mem::transmute(cdims), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::Com::SAFEARRAY>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SafeArrayAllocDescriptorEx(vt: u16, cdims: u32, ppsaout: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut super::Com::SAFEARRAY>::zeroed();
+    SafeArrayAllocDescriptorEx(::core::mem::transmute(vt), ::core::mem::transmute(cdims), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::Com::SAFEARRAY>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn SafeArrayCopy(psa: *const super::Com::SAFEARRAY) -> ::windows::core::Result<*mut super::Com::SAFEARRAY> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SafeArrayCopy(psa: *const super::Com::SAFEARRAY, ppsaout: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut super::Com::SAFEARRAY>::zeroed();
-        SafeArrayCopy(::core::mem::transmute(psa), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::Com::SAFEARRAY>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SafeArrayCopy(psa: *const super::Com::SAFEARRAY, ppsaout: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut super::Com::SAFEARRAY>::zeroed();
+    SafeArrayCopy(::core::mem::transmute(psa), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::Com::SAFEARRAY>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn SafeArrayCopyData(psasource: *const super::Com::SAFEARRAY, psatarget: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SafeArrayCopyData(psasource: *const super::Com::SAFEARRAY, psatarget: *const super::Com::SAFEARRAY) -> ::windows::core::HRESULT;
-        }
-        SafeArrayCopyData(::core::mem::transmute(psasource), ::core::mem::transmute(psatarget)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SafeArrayCopyData(psasource: *const super::Com::SAFEARRAY, psatarget: *const super::Com::SAFEARRAY) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SafeArrayCopyData(::core::mem::transmute(psasource), ::core::mem::transmute(psatarget)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn SafeArrayCreate(vt: u16, cdims: u32, rgsabound: *const super::Com::SAFEARRAYBOUND) -> *mut super::Com::SAFEARRAY {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SafeArrayCreate(vt: u16, cdims: u32, rgsabound: *const super::Com::SAFEARRAYBOUND) -> *mut super::Com::SAFEARRAY;
-        }
-        ::core::mem::transmute(SafeArrayCreate(::core::mem::transmute(vt), ::core::mem::transmute(cdims), ::core::mem::transmute(rgsabound)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SafeArrayCreate(vt: u16, cdims: u32, rgsabound: *const super::Com::SAFEARRAYBOUND) -> *mut super::Com::SAFEARRAY;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SafeArrayCreate(::core::mem::transmute(vt), ::core::mem::transmute(cdims), ::core::mem::transmute(rgsabound)))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn SafeArrayCreateEx(vt: u16, cdims: u32, rgsabound: *const super::Com::SAFEARRAYBOUND, pvextra: *const ::core::ffi::c_void) -> *mut super::Com::SAFEARRAY {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SafeArrayCreateEx(vt: u16, cdims: u32, rgsabound: *const super::Com::SAFEARRAYBOUND, pvextra: *const ::core::ffi::c_void) -> *mut super::Com::SAFEARRAY;
-        }
-        ::core::mem::transmute(SafeArrayCreateEx(::core::mem::transmute(vt), ::core::mem::transmute(cdims), ::core::mem::transmute(rgsabound), ::core::mem::transmute(pvextra)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SafeArrayCreateEx(vt: u16, cdims: u32, rgsabound: *const super::Com::SAFEARRAYBOUND, pvextra: *const ::core::ffi::c_void) -> *mut super::Com::SAFEARRAY;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SafeArrayCreateEx(::core::mem::transmute(vt), ::core::mem::transmute(cdims), ::core::mem::transmute(rgsabound), ::core::mem::transmute(pvextra)))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn SafeArrayCreateVector(vt: u16, llbound: i32, celements: u32) -> *mut super::Com::SAFEARRAY {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SafeArrayCreateVector(vt: u16, llbound: i32, celements: u32) -> *mut super::Com::SAFEARRAY;
-        }
-        ::core::mem::transmute(SafeArrayCreateVector(::core::mem::transmute(vt), ::core::mem::transmute(llbound), ::core::mem::transmute(celements)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SafeArrayCreateVector(vt: u16, llbound: i32, celements: u32) -> *mut super::Com::SAFEARRAY;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SafeArrayCreateVector(::core::mem::transmute(vt), ::core::mem::transmute(llbound), ::core::mem::transmute(celements)))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn SafeArrayCreateVectorEx(vt: u16, llbound: i32, celements: u32, pvextra: *const ::core::ffi::c_void) -> *mut super::Com::SAFEARRAY {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SafeArrayCreateVectorEx(vt: u16, llbound: i32, celements: u32, pvextra: *const ::core::ffi::c_void) -> *mut super::Com::SAFEARRAY;
-        }
-        ::core::mem::transmute(SafeArrayCreateVectorEx(::core::mem::transmute(vt), ::core::mem::transmute(llbound), ::core::mem::transmute(celements), ::core::mem::transmute(pvextra)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SafeArrayCreateVectorEx(vt: u16, llbound: i32, celements: u32, pvextra: *const ::core::ffi::c_void) -> *mut super::Com::SAFEARRAY;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SafeArrayCreateVectorEx(::core::mem::transmute(vt), ::core::mem::transmute(llbound), ::core::mem::transmute(celements), ::core::mem::transmute(pvextra)))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn SafeArrayDestroy(psa: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SafeArrayDestroy(psa: *const super::Com::SAFEARRAY) -> ::windows::core::HRESULT;
-        }
-        SafeArrayDestroy(::core::mem::transmute(psa)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SafeArrayDestroy(psa: *const super::Com::SAFEARRAY) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SafeArrayDestroy(::core::mem::transmute(psa)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn SafeArrayDestroyData(psa: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SafeArrayDestroyData(psa: *const super::Com::SAFEARRAY) -> ::windows::core::HRESULT;
-        }
-        SafeArrayDestroyData(::core::mem::transmute(psa)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SafeArrayDestroyData(psa: *const super::Com::SAFEARRAY) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SafeArrayDestroyData(::core::mem::transmute(psa)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn SafeArrayDestroyDescriptor(psa: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SafeArrayDestroyDescriptor(psa: *const super::Com::SAFEARRAY) -> ::windows::core::HRESULT;
-        }
-        SafeArrayDestroyDescriptor(::core::mem::transmute(psa)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SafeArrayDestroyDescriptor(psa: *const super::Com::SAFEARRAY) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SafeArrayDestroyDescriptor(::core::mem::transmute(psa)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn SafeArrayGetDim(psa: *const super::Com::SAFEARRAY) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SafeArrayGetDim(psa: *const super::Com::SAFEARRAY) -> u32;
-        }
-        ::core::mem::transmute(SafeArrayGetDim(::core::mem::transmute(psa)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SafeArrayGetDim(psa: *const super::Com::SAFEARRAY) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SafeArrayGetDim(::core::mem::transmute(psa)))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn SafeArrayGetElement(psa: *const super::Com::SAFEARRAY, rgindices: *const i32, pv: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SafeArrayGetElement(psa: *const super::Com::SAFEARRAY, rgindices: *const i32, pv: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        SafeArrayGetElement(::core::mem::transmute(psa), ::core::mem::transmute(rgindices), ::core::mem::transmute(pv)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SafeArrayGetElement(psa: *const super::Com::SAFEARRAY, rgindices: *const i32, pv: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SafeArrayGetElement(::core::mem::transmute(psa), ::core::mem::transmute(rgindices), ::core::mem::transmute(pv)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn SafeArrayGetElemsize(psa: *const super::Com::SAFEARRAY) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SafeArrayGetElemsize(psa: *const super::Com::SAFEARRAY) -> u32;
-        }
-        ::core::mem::transmute(SafeArrayGetElemsize(::core::mem::transmute(psa)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SafeArrayGetElemsize(psa: *const super::Com::SAFEARRAY) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SafeArrayGetElemsize(::core::mem::transmute(psa)))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn SafeArrayGetIID(psa: *const super::Com::SAFEARRAY) -> ::windows::core::Result<::windows::core::GUID> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SafeArrayGetIID(psa: *const super::Com::SAFEARRAY, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
-        SafeArrayGetIID(::core::mem::transmute(psa), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SafeArrayGetIID(psa: *const super::Com::SAFEARRAY, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+    SafeArrayGetIID(::core::mem::transmute(psa), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn SafeArrayGetLBound(psa: *const super::Com::SAFEARRAY, ndim: u32) -> ::windows::core::Result<i32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SafeArrayGetLBound(psa: *const super::Com::SAFEARRAY, ndim: u32, pllbound: *mut i32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        SafeArrayGetLBound(::core::mem::transmute(psa), ::core::mem::transmute(ndim), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SafeArrayGetLBound(psa: *const super::Com::SAFEARRAY, ndim: u32, pllbound: *mut i32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+    SafeArrayGetLBound(::core::mem::transmute(psa), ::core::mem::transmute(ndim), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn SafeArrayGetRecordInfo(psa: *const super::Com::SAFEARRAY) -> ::windows::core::Result<IRecordInfo> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SafeArrayGetRecordInfo(psa: *const super::Com::SAFEARRAY, prinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        SafeArrayGetRecordInfo(::core::mem::transmute(psa), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRecordInfo>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SafeArrayGetRecordInfo(psa: *const super::Com::SAFEARRAY, prinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    SafeArrayGetRecordInfo(::core::mem::transmute(psa), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRecordInfo>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn SafeArrayGetUBound(psa: *const super::Com::SAFEARRAY, ndim: u32) -> ::windows::core::Result<i32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SafeArrayGetUBound(psa: *const super::Com::SAFEARRAY, ndim: u32, plubound: *mut i32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        SafeArrayGetUBound(::core::mem::transmute(psa), ::core::mem::transmute(ndim), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SafeArrayGetUBound(psa: *const super::Com::SAFEARRAY, ndim: u32, plubound: *mut i32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+    SafeArrayGetUBound(::core::mem::transmute(psa), ::core::mem::transmute(ndim), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn SafeArrayGetVartype(psa: *const super::Com::SAFEARRAY) -> ::windows::core::Result<u16> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SafeArrayGetVartype(psa: *const super::Com::SAFEARRAY, pvt: *mut u16) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
-        SafeArrayGetVartype(::core::mem::transmute(psa), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SafeArrayGetVartype(psa: *const super::Com::SAFEARRAY, pvt: *mut u16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
+    SafeArrayGetVartype(::core::mem::transmute(psa), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn SafeArrayLock(psa: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SafeArrayLock(psa: *const super::Com::SAFEARRAY) -> ::windows::core::HRESULT;
-        }
-        SafeArrayLock(::core::mem::transmute(psa)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SafeArrayLock(psa: *const super::Com::SAFEARRAY) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SafeArrayLock(::core::mem::transmute(psa)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn SafeArrayPtrOfIndex(psa: *const super::Com::SAFEARRAY, rgindices: *const i32, ppvdata: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SafeArrayPtrOfIndex(psa: *const super::Com::SAFEARRAY, rgindices: *const i32, ppvdata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        SafeArrayPtrOfIndex(::core::mem::transmute(psa), ::core::mem::transmute(rgindices), ::core::mem::transmute(ppvdata)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SafeArrayPtrOfIndex(psa: *const super::Com::SAFEARRAY, rgindices: *const i32, ppvdata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SafeArrayPtrOfIndex(::core::mem::transmute(psa), ::core::mem::transmute(rgindices), ::core::mem::transmute(ppvdata)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn SafeArrayPutElement(psa: *const super::Com::SAFEARRAY, rgindices: *const i32, pv: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SafeArrayPutElement(psa: *const super::Com::SAFEARRAY, rgindices: *const i32, pv: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        SafeArrayPutElement(::core::mem::transmute(psa), ::core::mem::transmute(rgindices), ::core::mem::transmute(pv)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SafeArrayPutElement(psa: *const super::Com::SAFEARRAY, rgindices: *const i32, pv: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SafeArrayPutElement(::core::mem::transmute(psa), ::core::mem::transmute(rgindices), ::core::mem::transmute(pv)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn SafeArrayRedim(psa: *mut super::Com::SAFEARRAY, psaboundnew: *const super::Com::SAFEARRAYBOUND) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SafeArrayRedim(psa: *mut super::Com::SAFEARRAY, psaboundnew: *const super::Com::SAFEARRAYBOUND) -> ::windows::core::HRESULT;
-        }
-        SafeArrayRedim(::core::mem::transmute(psa), ::core::mem::transmute(psaboundnew)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SafeArrayRedim(psa: *mut super::Com::SAFEARRAY, psaboundnew: *const super::Com::SAFEARRAYBOUND) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SafeArrayRedim(::core::mem::transmute(psa), ::core::mem::transmute(psaboundnew)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn SafeArrayReleaseData(pdata: *const ::core::ffi::c_void) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SafeArrayReleaseData(pdata: *const ::core::ffi::c_void);
-        }
-        SafeArrayReleaseData(::core::mem::transmute(pdata))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SafeArrayReleaseData(pdata: *const ::core::ffi::c_void);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SafeArrayReleaseData(::core::mem::transmute(pdata))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn SafeArrayReleaseDescriptor(psa: *const super::Com::SAFEARRAY) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SafeArrayReleaseDescriptor(psa: *const super::Com::SAFEARRAY);
-        }
-        SafeArrayReleaseDescriptor(::core::mem::transmute(psa))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SafeArrayReleaseDescriptor(psa: *const super::Com::SAFEARRAY);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SafeArrayReleaseDescriptor(::core::mem::transmute(psa))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn SafeArraySetIID(psa: *const super::Com::SAFEARRAY, guid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SafeArraySetIID(psa: *const super::Com::SAFEARRAY, guid: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
-        }
-        SafeArraySetIID(::core::mem::transmute(psa), ::core::mem::transmute(guid)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SafeArraySetIID(psa: *const super::Com::SAFEARRAY, guid: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SafeArraySetIID(::core::mem::transmute(psa), ::core::mem::transmute(guid)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn SafeArraySetRecordInfo<'a, Param1: ::windows::core::IntoParam<'a, IRecordInfo>>(psa: *const super::Com::SAFEARRAY, prinfo: Param1) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SafeArraySetRecordInfo(psa: *const super::Com::SAFEARRAY, prinfo: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        SafeArraySetRecordInfo(::core::mem::transmute(psa), prinfo.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SafeArraySetRecordInfo(psa: *const super::Com::SAFEARRAY, prinfo: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SafeArraySetRecordInfo(::core::mem::transmute(psa), prinfo.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn SafeArrayUnaccessData(psa: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SafeArrayUnaccessData(psa: *const super::Com::SAFEARRAY) -> ::windows::core::HRESULT;
-        }
-        SafeArrayUnaccessData(::core::mem::transmute(psa)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SafeArrayUnaccessData(psa: *const super::Com::SAFEARRAY) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SafeArrayUnaccessData(::core::mem::transmute(psa)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn SafeArrayUnlock(psa: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SafeArrayUnlock(psa: *const super::Com::SAFEARRAY) -> ::windows::core::HRESULT;
-        }
-        SafeArrayUnlock(::core::mem::transmute(psa)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SafeArrayUnlock(psa: *const super::Com::SAFEARRAY) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SafeArrayUnlock(::core::mem::transmute(psa)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SystemTimeToVariantTime(lpsystemtime: *const super::super::Foundation::SYSTEMTIME, pvtime: *mut f64) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SystemTimeToVariantTime(lpsystemtime: *const super::super::Foundation::SYSTEMTIME, pvtime: *mut f64) -> i32;
-        }
-        ::core::mem::transmute(SystemTimeToVariantTime(::core::mem::transmute(lpsystemtime), ::core::mem::transmute(pvtime)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SystemTimeToVariantTime(lpsystemtime: *const super::super::Foundation::SYSTEMTIME, pvtime: *mut f64) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SystemTimeToVariantTime(::core::mem::transmute(lpsystemtime), ::core::mem::transmute(pvtime)))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const TIFLAGS_EXTENDDISPATCHONLY: u32 = 1u32;
@@ -17885,31 +17085,21 @@ impl ::core::fmt::Debug for USERCLASSTYPE {
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn UnRegisterTypeLib(libid: *const ::windows::core::GUID, wvermajor: u16, wverminor: u16, lcid: u32, syskind: super::Com::SYSKIND) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UnRegisterTypeLib(libid: *const ::windows::core::GUID, wvermajor: u16, wverminor: u16, lcid: u32, syskind: super::Com::SYSKIND) -> ::windows::core::HRESULT;
-        }
-        UnRegisterTypeLib(::core::mem::transmute(libid), ::core::mem::transmute(wvermajor), ::core::mem::transmute(wverminor), ::core::mem::transmute(lcid), ::core::mem::transmute(syskind)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UnRegisterTypeLib(libid: *const ::windows::core::GUID, wvermajor: u16, wverminor: u16, lcid: u32, syskind: super::Com::SYSKIND) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    UnRegisterTypeLib(::core::mem::transmute(libid), ::core::mem::transmute(wvermajor), ::core::mem::transmute(wverminor), ::core::mem::transmute(lcid), ::core::mem::transmute(syskind)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn UnRegisterTypeLibForUser(libid: *const ::windows::core::GUID, wmajorvernum: u16, wminorvernum: u16, lcid: u32, syskind: super::Com::SYSKIND) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UnRegisterTypeLibForUser(libid: *const ::windows::core::GUID, wmajorvernum: u16, wminorvernum: u16, lcid: u32, syskind: super::Com::SYSKIND) -> ::windows::core::HRESULT;
-        }
-        UnRegisterTypeLibForUser(::core::mem::transmute(libid), ::core::mem::transmute(wmajorvernum), ::core::mem::transmute(wminorvernum), ::core::mem::transmute(lcid), ::core::mem::transmute(syskind)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UnRegisterTypeLibForUser(libid: *const ::windows::core::GUID, wmajorvernum: u16, wminorvernum: u16, lcid: u32, syskind: super::Com::SYSKIND) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    UnRegisterTypeLibForUser(::core::mem::transmute(libid), ::core::mem::transmute(wmajorvernum), ::core::mem::transmute(wminorvernum), ::core::mem::transmute(lcid), ::core::mem::transmute(syskind)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const VARCMP_EQ: u32 = 1u32;
@@ -18168,4530 +17358,3060 @@ pub const VT_VERBOSE_ENUM: u32 = 76u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VarAbs(pvarin: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarAbs(pvarin: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
-        VarAbs(::core::mem::transmute(pvarin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarAbs(pvarin: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
+    VarAbs(::core::mem::transmute(pvarin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VarAdd(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarAdd(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
-        VarAdd(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarAdd(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
+    VarAdd(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VarAnd(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarAnd(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
-        VarAnd(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarAnd(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
+    VarAnd(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn VarBoolFromCy<'a, Param0: ::windows::core::IntoParam<'a, super::Com::CY>>(cyin: Param0) -> ::windows::core::Result<i16> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarBoolFromCy(cyin: super::Com::CY, pboolout: *mut i16) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        VarBoolFromCy(cyin.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarBoolFromCy(cyin: super::Com::CY, pboolout: *mut i16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+    VarBoolFromCy(cyin.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarBoolFromDate(datein: f64) -> ::windows::core::Result<i16> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarBoolFromDate(datein: f64, pboolout: *mut i16) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        VarBoolFromDate(::core::mem::transmute(datein), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarBoolFromDate(datein: f64, pboolout: *mut i16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+    VarBoolFromDate(::core::mem::transmute(datein), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarBoolFromDec(pdecin: *const super::super::Foundation::DECIMAL) -> ::windows::core::Result<i16> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarBoolFromDec(pdecin: *const super::super::Foundation::DECIMAL, pboolout: *mut i16) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        VarBoolFromDec(::core::mem::transmute(pdecin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarBoolFromDec(pdecin: *const super::super::Foundation::DECIMAL, pboolout: *mut i16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+    VarBoolFromDec(::core::mem::transmute(pdecin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn VarBoolFromDisp<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(pdispin: Param0, lcid: u32) -> ::windows::core::Result<i16> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarBoolFromDisp(pdispin: *mut ::core::ffi::c_void, lcid: u32, pboolout: *mut i16) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        VarBoolFromDisp(pdispin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarBoolFromDisp(pdispin: *mut ::core::ffi::c_void, lcid: u32, pboolout: *mut i16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+    VarBoolFromDisp(pdispin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarBoolFromI1<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::CHAR>>(cin: Param0) -> ::windows::core::Result<i16> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarBoolFromI1(cin: super::super::Foundation::CHAR, pboolout: *mut i16) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        VarBoolFromI1(cin.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarBoolFromI1(cin: super::super::Foundation::CHAR, pboolout: *mut i16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+    VarBoolFromI1(cin.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarBoolFromI2(sin: i16) -> ::windows::core::Result<i16> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarBoolFromI2(sin: i16, pboolout: *mut i16) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        VarBoolFromI2(::core::mem::transmute(sin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarBoolFromI2(sin: i16, pboolout: *mut i16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+    VarBoolFromI2(::core::mem::transmute(sin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarBoolFromI4(lin: i32) -> ::windows::core::Result<i16> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarBoolFromI4(lin: i32, pboolout: *mut i16) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        VarBoolFromI4(::core::mem::transmute(lin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarBoolFromI4(lin: i32, pboolout: *mut i16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+    VarBoolFromI4(::core::mem::transmute(lin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarBoolFromI8(i64in: i64) -> ::windows::core::Result<i16> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarBoolFromI8(i64in: i64, pboolout: *mut i16) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        VarBoolFromI8(::core::mem::transmute(i64in), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarBoolFromI8(i64in: i64, pboolout: *mut i16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+    VarBoolFromI8(::core::mem::transmute(i64in), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarBoolFromR4(fltin: f32) -> ::windows::core::Result<i16> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarBoolFromR4(fltin: f32, pboolout: *mut i16) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        VarBoolFromR4(::core::mem::transmute(fltin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarBoolFromR4(fltin: f32, pboolout: *mut i16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+    VarBoolFromR4(::core::mem::transmute(fltin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarBoolFromR8(dblin: f64) -> ::windows::core::Result<i16> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarBoolFromR8(dblin: f64, pboolout: *mut i16) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        VarBoolFromR8(::core::mem::transmute(dblin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarBoolFromR8(dblin: f64, pboolout: *mut i16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+    VarBoolFromR8(::core::mem::transmute(dblin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarBoolFromStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(strin: Param0, lcid: u32, dwflags: u32) -> ::windows::core::Result<i16> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarBoolFromStr(strin: ::windows::core::PCWSTR, lcid: u32, dwflags: u32, pboolout: *mut i16) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        VarBoolFromStr(strin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarBoolFromStr(strin: ::windows::core::PCWSTR, lcid: u32, dwflags: u32, pboolout: *mut i16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+    VarBoolFromStr(strin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarBoolFromUI1(bin: u8) -> ::windows::core::Result<i16> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarBoolFromUI1(bin: u8, pboolout: *mut i16) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        VarBoolFromUI1(::core::mem::transmute(bin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarBoolFromUI1(bin: u8, pboolout: *mut i16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+    VarBoolFromUI1(::core::mem::transmute(bin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarBoolFromUI2(uiin: u16) -> ::windows::core::Result<i16> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarBoolFromUI2(uiin: u16, pboolout: *mut i16) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        VarBoolFromUI2(::core::mem::transmute(uiin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarBoolFromUI2(uiin: u16, pboolout: *mut i16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+    VarBoolFromUI2(::core::mem::transmute(uiin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarBoolFromUI4(ulin: u32) -> ::windows::core::Result<i16> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarBoolFromUI4(ulin: u32, pboolout: *mut i16) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        VarBoolFromUI4(::core::mem::transmute(ulin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarBoolFromUI4(ulin: u32, pboolout: *mut i16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+    VarBoolFromUI4(::core::mem::transmute(ulin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarBoolFromUI8(i64in: u64) -> ::windows::core::Result<i16> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarBoolFromUI8(i64in: u64, pboolout: *mut i16) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        VarBoolFromUI8(::core::mem::transmute(i64in), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarBoolFromUI8(i64in: u64, pboolout: *mut i16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+    VarBoolFromUI8(::core::mem::transmute(i64in), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarBstrCat<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(bstrleft: Param0, bstrright: Param1) -> ::windows::core::Result<*mut u16> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarBstrCat(bstrleft: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrright: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrresult: *mut *mut u16) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut u16>::zeroed();
-        VarBstrCat(bstrleft.into_param().abi(), bstrright.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut u16>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarBstrCat(bstrleft: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrright: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrresult: *mut *mut u16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut u16>::zeroed();
+    VarBstrCat(bstrleft.into_param().abi(), bstrright.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut u16>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarBstrCmp<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(bstrleft: Param0, bstrright: Param1, lcid: u32, dwflags: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarBstrCmp(bstrleft: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrright: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lcid: u32, dwflags: u32) -> ::windows::core::HRESULT;
-        }
-        VarBstrCmp(bstrleft.into_param().abi(), bstrright.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarBstrCmp(bstrleft: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrright: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lcid: u32, dwflags: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    VarBstrCmp(bstrleft.into_param().abi(), bstrright.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarBstrFromBool(boolin: i16, lcid: u32, dwflags: u32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarBstrFromBool(boolin: i16, lcid: u32, dwflags: u32, pbstrout: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        VarBstrFromBool(::core::mem::transmute(boolin), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarBstrFromBool(boolin: i16, lcid: u32, dwflags: u32, pbstrout: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+    VarBstrFromBool(::core::mem::transmute(boolin), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VarBstrFromCy<'a, Param0: ::windows::core::IntoParam<'a, super::Com::CY>>(cyin: Param0, lcid: u32, dwflags: u32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarBstrFromCy(cyin: super::Com::CY, lcid: u32, dwflags: u32, pbstrout: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        VarBstrFromCy(cyin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarBstrFromCy(cyin: super::Com::CY, lcid: u32, dwflags: u32, pbstrout: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+    VarBstrFromCy(cyin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarBstrFromDate(datein: f64, lcid: u32, dwflags: u32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarBstrFromDate(datein: f64, lcid: u32, dwflags: u32, pbstrout: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        VarBstrFromDate(::core::mem::transmute(datein), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarBstrFromDate(datein: f64, lcid: u32, dwflags: u32, pbstrout: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+    VarBstrFromDate(::core::mem::transmute(datein), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarBstrFromDec(pdecin: *const super::super::Foundation::DECIMAL, lcid: u32, dwflags: u32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarBstrFromDec(pdecin: *const super::super::Foundation::DECIMAL, lcid: u32, dwflags: u32, pbstrout: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        VarBstrFromDec(::core::mem::transmute(pdecin), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarBstrFromDec(pdecin: *const super::super::Foundation::DECIMAL, lcid: u32, dwflags: u32, pbstrout: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+    VarBstrFromDec(::core::mem::transmute(pdecin), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VarBstrFromDisp<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(pdispin: Param0, lcid: u32, dwflags: u32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarBstrFromDisp(pdispin: *mut ::core::ffi::c_void, lcid: u32, dwflags: u32, pbstrout: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        VarBstrFromDisp(pdispin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarBstrFromDisp(pdispin: *mut ::core::ffi::c_void, lcid: u32, dwflags: u32, pbstrout: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+    VarBstrFromDisp(pdispin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarBstrFromI1<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::CHAR>>(cin: Param0, lcid: u32, dwflags: u32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarBstrFromI1(cin: super::super::Foundation::CHAR, lcid: u32, dwflags: u32, pbstrout: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        VarBstrFromI1(cin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarBstrFromI1(cin: super::super::Foundation::CHAR, lcid: u32, dwflags: u32, pbstrout: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+    VarBstrFromI1(cin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarBstrFromI2(ival: i16, lcid: u32, dwflags: u32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarBstrFromI2(ival: i16, lcid: u32, dwflags: u32, pbstrout: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        VarBstrFromI2(::core::mem::transmute(ival), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarBstrFromI2(ival: i16, lcid: u32, dwflags: u32, pbstrout: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+    VarBstrFromI2(::core::mem::transmute(ival), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarBstrFromI4(lin: i32, lcid: u32, dwflags: u32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarBstrFromI4(lin: i32, lcid: u32, dwflags: u32, pbstrout: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        VarBstrFromI4(::core::mem::transmute(lin), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarBstrFromI4(lin: i32, lcid: u32, dwflags: u32, pbstrout: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+    VarBstrFromI4(::core::mem::transmute(lin), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarBstrFromI8(i64in: i64, lcid: u32, dwflags: u32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarBstrFromI8(i64in: i64, lcid: u32, dwflags: u32, pbstrout: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        VarBstrFromI8(::core::mem::transmute(i64in), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarBstrFromI8(i64in: i64, lcid: u32, dwflags: u32, pbstrout: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+    VarBstrFromI8(::core::mem::transmute(i64in), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarBstrFromR4(fltin: f32, lcid: u32, dwflags: u32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarBstrFromR4(fltin: f32, lcid: u32, dwflags: u32, pbstrout: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        VarBstrFromR4(::core::mem::transmute(fltin), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarBstrFromR4(fltin: f32, lcid: u32, dwflags: u32, pbstrout: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+    VarBstrFromR4(::core::mem::transmute(fltin), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarBstrFromR8(dblin: f64, lcid: u32, dwflags: u32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarBstrFromR8(dblin: f64, lcid: u32, dwflags: u32, pbstrout: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        VarBstrFromR8(::core::mem::transmute(dblin), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarBstrFromR8(dblin: f64, lcid: u32, dwflags: u32, pbstrout: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+    VarBstrFromR8(::core::mem::transmute(dblin), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarBstrFromUI1(bval: u8, lcid: u32, dwflags: u32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarBstrFromUI1(bval: u8, lcid: u32, dwflags: u32, pbstrout: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        VarBstrFromUI1(::core::mem::transmute(bval), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarBstrFromUI1(bval: u8, lcid: u32, dwflags: u32, pbstrout: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+    VarBstrFromUI1(::core::mem::transmute(bval), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarBstrFromUI2(uiin: u16, lcid: u32, dwflags: u32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarBstrFromUI2(uiin: u16, lcid: u32, dwflags: u32, pbstrout: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        VarBstrFromUI2(::core::mem::transmute(uiin), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarBstrFromUI2(uiin: u16, lcid: u32, dwflags: u32, pbstrout: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+    VarBstrFromUI2(::core::mem::transmute(uiin), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarBstrFromUI4(ulin: u32, lcid: u32, dwflags: u32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarBstrFromUI4(ulin: u32, lcid: u32, dwflags: u32, pbstrout: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        VarBstrFromUI4(::core::mem::transmute(ulin), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarBstrFromUI4(ulin: u32, lcid: u32, dwflags: u32, pbstrout: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+    VarBstrFromUI4(::core::mem::transmute(ulin), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarBstrFromUI8(ui64in: u64, lcid: u32, dwflags: u32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarBstrFromUI8(ui64in: u64, lcid: u32, dwflags: u32, pbstrout: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        VarBstrFromUI8(::core::mem::transmute(ui64in), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarBstrFromUI8(ui64in: u64, lcid: u32, dwflags: u32, pbstrout: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+    VarBstrFromUI8(::core::mem::transmute(ui64in), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VarCat(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarCat(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
-        VarCat(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarCat(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
+    VarCat(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VarCmp(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT, lcid: u32, dwflags: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarCmp(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT, lcid: u32, dwflags: u32) -> ::windows::core::HRESULT;
-        }
-        VarCmp(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarCmp(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT, lcid: u32, dwflags: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    VarCmp(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn VarCyAbs<'a, Param0: ::windows::core::IntoParam<'a, super::Com::CY>>(cyin: Param0) -> ::windows::core::Result<super::Com::CY> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarCyAbs(cyin: super::Com::CY, pcyresult: *mut super::Com::CY) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::Com::CY>::zeroed();
-        VarCyAbs(cyin.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarCyAbs(cyin: super::Com::CY, pcyresult: *mut super::Com::CY) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::Com::CY>::zeroed();
+    VarCyAbs(cyin.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn VarCyAdd<'a, Param0: ::windows::core::IntoParam<'a, super::Com::CY>, Param1: ::windows::core::IntoParam<'a, super::Com::CY>>(cyleft: Param0, cyright: Param1) -> ::windows::core::Result<super::Com::CY> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarCyAdd(cyleft: super::Com::CY, cyright: super::Com::CY, pcyresult: *mut super::Com::CY) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::Com::CY>::zeroed();
-        VarCyAdd(cyleft.into_param().abi(), cyright.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarCyAdd(cyleft: super::Com::CY, cyright: super::Com::CY, pcyresult: *mut super::Com::CY) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::Com::CY>::zeroed();
+    VarCyAdd(cyleft.into_param().abi(), cyright.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn VarCyCmp<'a, Param0: ::windows::core::IntoParam<'a, super::Com::CY>, Param1: ::windows::core::IntoParam<'a, super::Com::CY>>(cyleft: Param0, cyright: Param1) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarCyCmp(cyleft: super::Com::CY, cyright: super::Com::CY) -> ::windows::core::HRESULT;
-        }
-        VarCyCmp(cyleft.into_param().abi(), cyright.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarCyCmp(cyleft: super::Com::CY, cyright: super::Com::CY) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    VarCyCmp(cyleft.into_param().abi(), cyright.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn VarCyCmpR8<'a, Param0: ::windows::core::IntoParam<'a, super::Com::CY>>(cyleft: Param0, dblright: f64) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarCyCmpR8(cyleft: super::Com::CY, dblright: f64) -> ::windows::core::HRESULT;
-        }
-        VarCyCmpR8(cyleft.into_param().abi(), ::core::mem::transmute(dblright)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarCyCmpR8(cyleft: super::Com::CY, dblright: f64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    VarCyCmpR8(cyleft.into_param().abi(), ::core::mem::transmute(dblright)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn VarCyFix<'a, Param0: ::windows::core::IntoParam<'a, super::Com::CY>>(cyin: Param0) -> ::windows::core::Result<super::Com::CY> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarCyFix(cyin: super::Com::CY, pcyresult: *mut super::Com::CY) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::Com::CY>::zeroed();
-        VarCyFix(cyin.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarCyFix(cyin: super::Com::CY, pcyresult: *mut super::Com::CY) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::Com::CY>::zeroed();
+    VarCyFix(cyin.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn VarCyFromBool(boolin: i16) -> ::windows::core::Result<super::Com::CY> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarCyFromBool(boolin: i16, pcyout: *mut super::Com::CY) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::Com::CY>::zeroed();
-        VarCyFromBool(::core::mem::transmute(boolin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarCyFromBool(boolin: i16, pcyout: *mut super::Com::CY) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::Com::CY>::zeroed();
+    VarCyFromBool(::core::mem::transmute(boolin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn VarCyFromDate(datein: f64) -> ::windows::core::Result<super::Com::CY> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarCyFromDate(datein: f64, pcyout: *mut super::Com::CY) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::Com::CY>::zeroed();
-        VarCyFromDate(::core::mem::transmute(datein), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarCyFromDate(datein: f64, pcyout: *mut super::Com::CY) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::Com::CY>::zeroed();
+    VarCyFromDate(::core::mem::transmute(datein), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VarCyFromDec(pdecin: *const super::super::Foundation::DECIMAL) -> ::windows::core::Result<super::Com::CY> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarCyFromDec(pdecin: *const super::super::Foundation::DECIMAL, pcyout: *mut super::Com::CY) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::Com::CY>::zeroed();
-        VarCyFromDec(::core::mem::transmute(pdecin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarCyFromDec(pdecin: *const super::super::Foundation::DECIMAL, pcyout: *mut super::Com::CY) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::Com::CY>::zeroed();
+    VarCyFromDec(::core::mem::transmute(pdecin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn VarCyFromDisp<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(pdispin: Param0, lcid: u32) -> ::windows::core::Result<super::Com::CY> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarCyFromDisp(pdispin: *mut ::core::ffi::c_void, lcid: u32, pcyout: *mut super::Com::CY) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::Com::CY>::zeroed();
-        VarCyFromDisp(pdispin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarCyFromDisp(pdispin: *mut ::core::ffi::c_void, lcid: u32, pcyout: *mut super::Com::CY) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::Com::CY>::zeroed();
+    VarCyFromDisp(pdispin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VarCyFromI1<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::CHAR>>(cin: Param0) -> ::windows::core::Result<super::Com::CY> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarCyFromI1(cin: super::super::Foundation::CHAR, pcyout: *mut super::Com::CY) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::Com::CY>::zeroed();
-        VarCyFromI1(cin.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarCyFromI1(cin: super::super::Foundation::CHAR, pcyout: *mut super::Com::CY) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::Com::CY>::zeroed();
+    VarCyFromI1(cin.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn VarCyFromI2(sin: i16) -> ::windows::core::Result<super::Com::CY> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarCyFromI2(sin: i16, pcyout: *mut super::Com::CY) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::Com::CY>::zeroed();
-        VarCyFromI2(::core::mem::transmute(sin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarCyFromI2(sin: i16, pcyout: *mut super::Com::CY) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::Com::CY>::zeroed();
+    VarCyFromI2(::core::mem::transmute(sin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn VarCyFromI4(lin: i32) -> ::windows::core::Result<super::Com::CY> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarCyFromI4(lin: i32, pcyout: *mut super::Com::CY) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::Com::CY>::zeroed();
-        VarCyFromI4(::core::mem::transmute(lin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarCyFromI4(lin: i32, pcyout: *mut super::Com::CY) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::Com::CY>::zeroed();
+    VarCyFromI4(::core::mem::transmute(lin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn VarCyFromI8(i64in: i64) -> ::windows::core::Result<super::Com::CY> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarCyFromI8(i64in: i64, pcyout: *mut super::Com::CY) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::Com::CY>::zeroed();
-        VarCyFromI8(::core::mem::transmute(i64in), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarCyFromI8(i64in: i64, pcyout: *mut super::Com::CY) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::Com::CY>::zeroed();
+    VarCyFromI8(::core::mem::transmute(i64in), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn VarCyFromR4(fltin: f32) -> ::windows::core::Result<super::Com::CY> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarCyFromR4(fltin: f32, pcyout: *mut super::Com::CY) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::Com::CY>::zeroed();
-        VarCyFromR4(::core::mem::transmute(fltin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarCyFromR4(fltin: f32, pcyout: *mut super::Com::CY) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::Com::CY>::zeroed();
+    VarCyFromR4(::core::mem::transmute(fltin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn VarCyFromR8(dblin: f64) -> ::windows::core::Result<super::Com::CY> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarCyFromR8(dblin: f64, pcyout: *mut super::Com::CY) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::Com::CY>::zeroed();
-        VarCyFromR8(::core::mem::transmute(dblin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarCyFromR8(dblin: f64, pcyout: *mut super::Com::CY) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::Com::CY>::zeroed();
+    VarCyFromR8(::core::mem::transmute(dblin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn VarCyFromStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(strin: Param0, lcid: u32, dwflags: u32) -> ::windows::core::Result<super::Com::CY> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarCyFromStr(strin: ::windows::core::PCWSTR, lcid: u32, dwflags: u32, pcyout: *mut super::Com::CY) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::Com::CY>::zeroed();
-        VarCyFromStr(strin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarCyFromStr(strin: ::windows::core::PCWSTR, lcid: u32, dwflags: u32, pcyout: *mut super::Com::CY) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::Com::CY>::zeroed();
+    VarCyFromStr(strin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn VarCyFromUI1(bin: u8) -> ::windows::core::Result<super::Com::CY> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarCyFromUI1(bin: u8, pcyout: *mut super::Com::CY) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::Com::CY>::zeroed();
-        VarCyFromUI1(::core::mem::transmute(bin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarCyFromUI1(bin: u8, pcyout: *mut super::Com::CY) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::Com::CY>::zeroed();
+    VarCyFromUI1(::core::mem::transmute(bin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn VarCyFromUI2(uiin: u16) -> ::windows::core::Result<super::Com::CY> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarCyFromUI2(uiin: u16, pcyout: *mut super::Com::CY) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::Com::CY>::zeroed();
-        VarCyFromUI2(::core::mem::transmute(uiin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarCyFromUI2(uiin: u16, pcyout: *mut super::Com::CY) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::Com::CY>::zeroed();
+    VarCyFromUI2(::core::mem::transmute(uiin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn VarCyFromUI4(ulin: u32) -> ::windows::core::Result<super::Com::CY> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarCyFromUI4(ulin: u32, pcyout: *mut super::Com::CY) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::Com::CY>::zeroed();
-        VarCyFromUI4(::core::mem::transmute(ulin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarCyFromUI4(ulin: u32, pcyout: *mut super::Com::CY) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::Com::CY>::zeroed();
+    VarCyFromUI4(::core::mem::transmute(ulin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn VarCyFromUI8(ui64in: u64) -> ::windows::core::Result<super::Com::CY> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarCyFromUI8(ui64in: u64, pcyout: *mut super::Com::CY) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::Com::CY>::zeroed();
-        VarCyFromUI8(::core::mem::transmute(ui64in), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarCyFromUI8(ui64in: u64, pcyout: *mut super::Com::CY) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::Com::CY>::zeroed();
+    VarCyFromUI8(::core::mem::transmute(ui64in), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn VarCyInt<'a, Param0: ::windows::core::IntoParam<'a, super::Com::CY>>(cyin: Param0) -> ::windows::core::Result<super::Com::CY> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarCyInt(cyin: super::Com::CY, pcyresult: *mut super::Com::CY) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::Com::CY>::zeroed();
-        VarCyInt(cyin.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarCyInt(cyin: super::Com::CY, pcyresult: *mut super::Com::CY) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::Com::CY>::zeroed();
+    VarCyInt(cyin.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn VarCyMul<'a, Param0: ::windows::core::IntoParam<'a, super::Com::CY>, Param1: ::windows::core::IntoParam<'a, super::Com::CY>>(cyleft: Param0, cyright: Param1) -> ::windows::core::Result<super::Com::CY> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarCyMul(cyleft: super::Com::CY, cyright: super::Com::CY, pcyresult: *mut super::Com::CY) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::Com::CY>::zeroed();
-        VarCyMul(cyleft.into_param().abi(), cyright.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarCyMul(cyleft: super::Com::CY, cyright: super::Com::CY, pcyresult: *mut super::Com::CY) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::Com::CY>::zeroed();
+    VarCyMul(cyleft.into_param().abi(), cyright.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn VarCyMulI4<'a, Param0: ::windows::core::IntoParam<'a, super::Com::CY>>(cyleft: Param0, lright: i32) -> ::windows::core::Result<super::Com::CY> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarCyMulI4(cyleft: super::Com::CY, lright: i32, pcyresult: *mut super::Com::CY) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::Com::CY>::zeroed();
-        VarCyMulI4(cyleft.into_param().abi(), ::core::mem::transmute(lright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarCyMulI4(cyleft: super::Com::CY, lright: i32, pcyresult: *mut super::Com::CY) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::Com::CY>::zeroed();
+    VarCyMulI4(cyleft.into_param().abi(), ::core::mem::transmute(lright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn VarCyMulI8<'a, Param0: ::windows::core::IntoParam<'a, super::Com::CY>>(cyleft: Param0, lright: i64) -> ::windows::core::Result<super::Com::CY> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarCyMulI8(cyleft: super::Com::CY, lright: i64, pcyresult: *mut super::Com::CY) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::Com::CY>::zeroed();
-        VarCyMulI8(cyleft.into_param().abi(), ::core::mem::transmute(lright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarCyMulI8(cyleft: super::Com::CY, lright: i64, pcyresult: *mut super::Com::CY) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::Com::CY>::zeroed();
+    VarCyMulI8(cyleft.into_param().abi(), ::core::mem::transmute(lright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn VarCyNeg<'a, Param0: ::windows::core::IntoParam<'a, super::Com::CY>>(cyin: Param0) -> ::windows::core::Result<super::Com::CY> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarCyNeg(cyin: super::Com::CY, pcyresult: *mut super::Com::CY) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::Com::CY>::zeroed();
-        VarCyNeg(cyin.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarCyNeg(cyin: super::Com::CY, pcyresult: *mut super::Com::CY) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::Com::CY>::zeroed();
+    VarCyNeg(cyin.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn VarCyRound<'a, Param0: ::windows::core::IntoParam<'a, super::Com::CY>>(cyin: Param0, cdecimals: i32) -> ::windows::core::Result<super::Com::CY> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarCyRound(cyin: super::Com::CY, cdecimals: i32, pcyresult: *mut super::Com::CY) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::Com::CY>::zeroed();
-        VarCyRound(cyin.into_param().abi(), ::core::mem::transmute(cdecimals), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarCyRound(cyin: super::Com::CY, cdecimals: i32, pcyresult: *mut super::Com::CY) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::Com::CY>::zeroed();
+    VarCyRound(cyin.into_param().abi(), ::core::mem::transmute(cdecimals), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn VarCySub<'a, Param0: ::windows::core::IntoParam<'a, super::Com::CY>, Param1: ::windows::core::IntoParam<'a, super::Com::CY>>(cyleft: Param0, cyright: Param1) -> ::windows::core::Result<super::Com::CY> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarCySub(cyleft: super::Com::CY, cyright: super::Com::CY, pcyresult: *mut super::Com::CY) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::Com::CY>::zeroed();
-        VarCySub(cyleft.into_param().abi(), cyright.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarCySub(cyleft: super::Com::CY, cyright: super::Com::CY, pcyresult: *mut super::Com::CY) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::Com::CY>::zeroed();
+    VarCySub(cyleft.into_param().abi(), cyright.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarDateFromBool(boolin: i16) -> ::windows::core::Result<f64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarDateFromBool(boolin: i16, pdateout: *mut f64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
-        VarDateFromBool(::core::mem::transmute(boolin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarDateFromBool(boolin: i16, pdateout: *mut f64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+    VarDateFromBool(::core::mem::transmute(boolin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn VarDateFromCy<'a, Param0: ::windows::core::IntoParam<'a, super::Com::CY>>(cyin: Param0) -> ::windows::core::Result<f64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarDateFromCy(cyin: super::Com::CY, pdateout: *mut f64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
-        VarDateFromCy(cyin.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarDateFromCy(cyin: super::Com::CY, pdateout: *mut f64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+    VarDateFromCy(cyin.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarDateFromDec(pdecin: *const super::super::Foundation::DECIMAL) -> ::windows::core::Result<f64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarDateFromDec(pdecin: *const super::super::Foundation::DECIMAL, pdateout: *mut f64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
-        VarDateFromDec(::core::mem::transmute(pdecin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarDateFromDec(pdecin: *const super::super::Foundation::DECIMAL, pdateout: *mut f64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+    VarDateFromDec(::core::mem::transmute(pdecin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn VarDateFromDisp<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(pdispin: Param0, lcid: u32) -> ::windows::core::Result<f64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarDateFromDisp(pdispin: *mut ::core::ffi::c_void, lcid: u32, pdateout: *mut f64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
-        VarDateFromDisp(pdispin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarDateFromDisp(pdispin: *mut ::core::ffi::c_void, lcid: u32, pdateout: *mut f64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+    VarDateFromDisp(pdispin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarDateFromI1<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::CHAR>>(cin: Param0) -> ::windows::core::Result<f64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarDateFromI1(cin: super::super::Foundation::CHAR, pdateout: *mut f64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
-        VarDateFromI1(cin.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarDateFromI1(cin: super::super::Foundation::CHAR, pdateout: *mut f64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+    VarDateFromI1(cin.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarDateFromI2(sin: i16) -> ::windows::core::Result<f64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarDateFromI2(sin: i16, pdateout: *mut f64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
-        VarDateFromI2(::core::mem::transmute(sin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarDateFromI2(sin: i16, pdateout: *mut f64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+    VarDateFromI2(::core::mem::transmute(sin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarDateFromI4(lin: i32) -> ::windows::core::Result<f64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarDateFromI4(lin: i32, pdateout: *mut f64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
-        VarDateFromI4(::core::mem::transmute(lin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarDateFromI4(lin: i32, pdateout: *mut f64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+    VarDateFromI4(::core::mem::transmute(lin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarDateFromI8(i64in: i64) -> ::windows::core::Result<f64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarDateFromI8(i64in: i64, pdateout: *mut f64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
-        VarDateFromI8(::core::mem::transmute(i64in), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarDateFromI8(i64in: i64, pdateout: *mut f64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+    VarDateFromI8(::core::mem::transmute(i64in), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarDateFromR4(fltin: f32) -> ::windows::core::Result<f64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarDateFromR4(fltin: f32, pdateout: *mut f64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
-        VarDateFromR4(::core::mem::transmute(fltin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarDateFromR4(fltin: f32, pdateout: *mut f64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+    VarDateFromR4(::core::mem::transmute(fltin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarDateFromR8(dblin: f64) -> ::windows::core::Result<f64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarDateFromR8(dblin: f64, pdateout: *mut f64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
-        VarDateFromR8(::core::mem::transmute(dblin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarDateFromR8(dblin: f64, pdateout: *mut f64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+    VarDateFromR8(::core::mem::transmute(dblin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarDateFromStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(strin: Param0, lcid: u32, dwflags: u32) -> ::windows::core::Result<f64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarDateFromStr(strin: ::windows::core::PCWSTR, lcid: u32, dwflags: u32, pdateout: *mut f64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
-        VarDateFromStr(strin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarDateFromStr(strin: ::windows::core::PCWSTR, lcid: u32, dwflags: u32, pdateout: *mut f64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+    VarDateFromStr(strin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarDateFromUI1(bin: u8) -> ::windows::core::Result<f64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarDateFromUI1(bin: u8, pdateout: *mut f64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
-        VarDateFromUI1(::core::mem::transmute(bin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarDateFromUI1(bin: u8, pdateout: *mut f64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+    VarDateFromUI1(::core::mem::transmute(bin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarDateFromUI2(uiin: u16) -> ::windows::core::Result<f64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarDateFromUI2(uiin: u16, pdateout: *mut f64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
-        VarDateFromUI2(::core::mem::transmute(uiin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarDateFromUI2(uiin: u16, pdateout: *mut f64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+    VarDateFromUI2(::core::mem::transmute(uiin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarDateFromUI4(ulin: u32) -> ::windows::core::Result<f64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarDateFromUI4(ulin: u32, pdateout: *mut f64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
-        VarDateFromUI4(::core::mem::transmute(ulin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarDateFromUI4(ulin: u32, pdateout: *mut f64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+    VarDateFromUI4(::core::mem::transmute(ulin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarDateFromUI8(ui64in: u64) -> ::windows::core::Result<f64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarDateFromUI8(ui64in: u64, pdateout: *mut f64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
-        VarDateFromUI8(::core::mem::transmute(ui64in), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarDateFromUI8(ui64in: u64, pdateout: *mut f64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+    VarDateFromUI8(::core::mem::transmute(ui64in), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarDateFromUdate(pudatein: *const UDATE, dwflags: u32) -> ::windows::core::Result<f64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarDateFromUdate(pudatein: *const UDATE, dwflags: u32, pdateout: *mut f64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
-        VarDateFromUdate(::core::mem::transmute(pudatein), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarDateFromUdate(pudatein: *const UDATE, dwflags: u32, pdateout: *mut f64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+    VarDateFromUdate(::core::mem::transmute(pudatein), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarDateFromUdateEx(pudatein: *const UDATE, lcid: u32, dwflags: u32) -> ::windows::core::Result<f64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarDateFromUdateEx(pudatein: *const UDATE, lcid: u32, dwflags: u32, pdateout: *mut f64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
-        VarDateFromUdateEx(::core::mem::transmute(pudatein), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarDateFromUdateEx(pudatein: *const UDATE, lcid: u32, dwflags: u32, pdateout: *mut f64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+    VarDateFromUdateEx(::core::mem::transmute(pudatein), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarDecAbs(pdecin: *const super::super::Foundation::DECIMAL) -> ::windows::core::Result<super::super::Foundation::DECIMAL> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarDecAbs(pdecin: *const super::super::Foundation::DECIMAL, pdecresult: *mut super::super::Foundation::DECIMAL) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::DECIMAL>::zeroed();
-        VarDecAbs(::core::mem::transmute(pdecin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarDecAbs(pdecin: *const super::super::Foundation::DECIMAL, pdecresult: *mut super::super::Foundation::DECIMAL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::DECIMAL>::zeroed();
+    VarDecAbs(::core::mem::transmute(pdecin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarDecAdd(pdecleft: *const super::super::Foundation::DECIMAL, pdecright: *const super::super::Foundation::DECIMAL) -> ::windows::core::Result<super::super::Foundation::DECIMAL> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarDecAdd(pdecleft: *const super::super::Foundation::DECIMAL, pdecright: *const super::super::Foundation::DECIMAL, pdecresult: *mut super::super::Foundation::DECIMAL) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::DECIMAL>::zeroed();
-        VarDecAdd(::core::mem::transmute(pdecleft), ::core::mem::transmute(pdecright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarDecAdd(pdecleft: *const super::super::Foundation::DECIMAL, pdecright: *const super::super::Foundation::DECIMAL, pdecresult: *mut super::super::Foundation::DECIMAL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::DECIMAL>::zeroed();
+    VarDecAdd(::core::mem::transmute(pdecleft), ::core::mem::transmute(pdecright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarDecCmp(pdecleft: *const super::super::Foundation::DECIMAL, pdecright: *const super::super::Foundation::DECIMAL) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarDecCmp(pdecleft: *const super::super::Foundation::DECIMAL, pdecright: *const super::super::Foundation::DECIMAL) -> ::windows::core::HRESULT;
-        }
-        VarDecCmp(::core::mem::transmute(pdecleft), ::core::mem::transmute(pdecright)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarDecCmp(pdecleft: *const super::super::Foundation::DECIMAL, pdecright: *const super::super::Foundation::DECIMAL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    VarDecCmp(::core::mem::transmute(pdecleft), ::core::mem::transmute(pdecright)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarDecCmpR8(pdecleft: *const super::super::Foundation::DECIMAL, dblright: f64) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarDecCmpR8(pdecleft: *const super::super::Foundation::DECIMAL, dblright: f64) -> ::windows::core::HRESULT;
-        }
-        VarDecCmpR8(::core::mem::transmute(pdecleft), ::core::mem::transmute(dblright)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarDecCmpR8(pdecleft: *const super::super::Foundation::DECIMAL, dblright: f64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    VarDecCmpR8(::core::mem::transmute(pdecleft), ::core::mem::transmute(dblright)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarDecDiv(pdecleft: *const super::super::Foundation::DECIMAL, pdecright: *const super::super::Foundation::DECIMAL) -> ::windows::core::Result<super::super::Foundation::DECIMAL> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarDecDiv(pdecleft: *const super::super::Foundation::DECIMAL, pdecright: *const super::super::Foundation::DECIMAL, pdecresult: *mut super::super::Foundation::DECIMAL) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::DECIMAL>::zeroed();
-        VarDecDiv(::core::mem::transmute(pdecleft), ::core::mem::transmute(pdecright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarDecDiv(pdecleft: *const super::super::Foundation::DECIMAL, pdecright: *const super::super::Foundation::DECIMAL, pdecresult: *mut super::super::Foundation::DECIMAL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::DECIMAL>::zeroed();
+    VarDecDiv(::core::mem::transmute(pdecleft), ::core::mem::transmute(pdecright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarDecFix(pdecin: *const super::super::Foundation::DECIMAL) -> ::windows::core::Result<super::super::Foundation::DECIMAL> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarDecFix(pdecin: *const super::super::Foundation::DECIMAL, pdecresult: *mut super::super::Foundation::DECIMAL) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::DECIMAL>::zeroed();
-        VarDecFix(::core::mem::transmute(pdecin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarDecFix(pdecin: *const super::super::Foundation::DECIMAL, pdecresult: *mut super::super::Foundation::DECIMAL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::DECIMAL>::zeroed();
+    VarDecFix(::core::mem::transmute(pdecin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarDecFromBool(boolin: i16) -> ::windows::core::Result<super::super::Foundation::DECIMAL> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarDecFromBool(boolin: i16, pdecout: *mut super::super::Foundation::DECIMAL) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::DECIMAL>::zeroed();
-        VarDecFromBool(::core::mem::transmute(boolin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarDecFromBool(boolin: i16, pdecout: *mut super::super::Foundation::DECIMAL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::DECIMAL>::zeroed();
+    VarDecFromBool(::core::mem::transmute(boolin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VarDecFromCy<'a, Param0: ::windows::core::IntoParam<'a, super::Com::CY>>(cyin: Param0) -> ::windows::core::Result<super::super::Foundation::DECIMAL> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarDecFromCy(cyin: super::Com::CY, pdecout: *mut super::super::Foundation::DECIMAL) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::DECIMAL>::zeroed();
-        VarDecFromCy(cyin.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarDecFromCy(cyin: super::Com::CY, pdecout: *mut super::super::Foundation::DECIMAL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::DECIMAL>::zeroed();
+    VarDecFromCy(cyin.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarDecFromDate(datein: f64) -> ::windows::core::Result<super::super::Foundation::DECIMAL> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarDecFromDate(datein: f64, pdecout: *mut super::super::Foundation::DECIMAL) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::DECIMAL>::zeroed();
-        VarDecFromDate(::core::mem::transmute(datein), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarDecFromDate(datein: f64, pdecout: *mut super::super::Foundation::DECIMAL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::DECIMAL>::zeroed();
+    VarDecFromDate(::core::mem::transmute(datein), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VarDecFromDisp<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(pdispin: Param0, lcid: u32) -> ::windows::core::Result<super::super::Foundation::DECIMAL> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarDecFromDisp(pdispin: *mut ::core::ffi::c_void, lcid: u32, pdecout: *mut super::super::Foundation::DECIMAL) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::DECIMAL>::zeroed();
-        VarDecFromDisp(pdispin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarDecFromDisp(pdispin: *mut ::core::ffi::c_void, lcid: u32, pdecout: *mut super::super::Foundation::DECIMAL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::DECIMAL>::zeroed();
+    VarDecFromDisp(pdispin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarDecFromI1<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::CHAR>>(cin: Param0) -> ::windows::core::Result<super::super::Foundation::DECIMAL> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarDecFromI1(cin: super::super::Foundation::CHAR, pdecout: *mut super::super::Foundation::DECIMAL) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::DECIMAL>::zeroed();
-        VarDecFromI1(cin.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarDecFromI1(cin: super::super::Foundation::CHAR, pdecout: *mut super::super::Foundation::DECIMAL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::DECIMAL>::zeroed();
+    VarDecFromI1(cin.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarDecFromI2(uiin: i16) -> ::windows::core::Result<super::super::Foundation::DECIMAL> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarDecFromI2(uiin: i16, pdecout: *mut super::super::Foundation::DECIMAL) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::DECIMAL>::zeroed();
-        VarDecFromI2(::core::mem::transmute(uiin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarDecFromI2(uiin: i16, pdecout: *mut super::super::Foundation::DECIMAL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::DECIMAL>::zeroed();
+    VarDecFromI2(::core::mem::transmute(uiin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarDecFromI4(lin: i32) -> ::windows::core::Result<super::super::Foundation::DECIMAL> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarDecFromI4(lin: i32, pdecout: *mut super::super::Foundation::DECIMAL) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::DECIMAL>::zeroed();
-        VarDecFromI4(::core::mem::transmute(lin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarDecFromI4(lin: i32, pdecout: *mut super::super::Foundation::DECIMAL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::DECIMAL>::zeroed();
+    VarDecFromI4(::core::mem::transmute(lin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarDecFromI8(i64in: i64) -> ::windows::core::Result<super::super::Foundation::DECIMAL> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarDecFromI8(i64in: i64, pdecout: *mut super::super::Foundation::DECIMAL) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::DECIMAL>::zeroed();
-        VarDecFromI8(::core::mem::transmute(i64in), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarDecFromI8(i64in: i64, pdecout: *mut super::super::Foundation::DECIMAL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::DECIMAL>::zeroed();
+    VarDecFromI8(::core::mem::transmute(i64in), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarDecFromR4(fltin: f32) -> ::windows::core::Result<super::super::Foundation::DECIMAL> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarDecFromR4(fltin: f32, pdecout: *mut super::super::Foundation::DECIMAL) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::DECIMAL>::zeroed();
-        VarDecFromR4(::core::mem::transmute(fltin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarDecFromR4(fltin: f32, pdecout: *mut super::super::Foundation::DECIMAL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::DECIMAL>::zeroed();
+    VarDecFromR4(::core::mem::transmute(fltin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarDecFromR8(dblin: f64) -> ::windows::core::Result<super::super::Foundation::DECIMAL> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarDecFromR8(dblin: f64, pdecout: *mut super::super::Foundation::DECIMAL) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::DECIMAL>::zeroed();
-        VarDecFromR8(::core::mem::transmute(dblin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarDecFromR8(dblin: f64, pdecout: *mut super::super::Foundation::DECIMAL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::DECIMAL>::zeroed();
+    VarDecFromR8(::core::mem::transmute(dblin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarDecFromStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(strin: Param0, lcid: u32, dwflags: u32) -> ::windows::core::Result<super::super::Foundation::DECIMAL> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarDecFromStr(strin: ::windows::core::PCWSTR, lcid: u32, dwflags: u32, pdecout: *mut super::super::Foundation::DECIMAL) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::DECIMAL>::zeroed();
-        VarDecFromStr(strin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarDecFromStr(strin: ::windows::core::PCWSTR, lcid: u32, dwflags: u32, pdecout: *mut super::super::Foundation::DECIMAL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::DECIMAL>::zeroed();
+    VarDecFromStr(strin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarDecFromUI1(bin: u8) -> ::windows::core::Result<super::super::Foundation::DECIMAL> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarDecFromUI1(bin: u8, pdecout: *mut super::super::Foundation::DECIMAL) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::DECIMAL>::zeroed();
-        VarDecFromUI1(::core::mem::transmute(bin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarDecFromUI1(bin: u8, pdecout: *mut super::super::Foundation::DECIMAL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::DECIMAL>::zeroed();
+    VarDecFromUI1(::core::mem::transmute(bin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarDecFromUI2(uiin: u16) -> ::windows::core::Result<super::super::Foundation::DECIMAL> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarDecFromUI2(uiin: u16, pdecout: *mut super::super::Foundation::DECIMAL) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::DECIMAL>::zeroed();
-        VarDecFromUI2(::core::mem::transmute(uiin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarDecFromUI2(uiin: u16, pdecout: *mut super::super::Foundation::DECIMAL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::DECIMAL>::zeroed();
+    VarDecFromUI2(::core::mem::transmute(uiin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarDecFromUI4(ulin: u32) -> ::windows::core::Result<super::super::Foundation::DECIMAL> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarDecFromUI4(ulin: u32, pdecout: *mut super::super::Foundation::DECIMAL) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::DECIMAL>::zeroed();
-        VarDecFromUI4(::core::mem::transmute(ulin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarDecFromUI4(ulin: u32, pdecout: *mut super::super::Foundation::DECIMAL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::DECIMAL>::zeroed();
+    VarDecFromUI4(::core::mem::transmute(ulin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarDecFromUI8(ui64in: u64) -> ::windows::core::Result<super::super::Foundation::DECIMAL> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarDecFromUI8(ui64in: u64, pdecout: *mut super::super::Foundation::DECIMAL) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::DECIMAL>::zeroed();
-        VarDecFromUI8(::core::mem::transmute(ui64in), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarDecFromUI8(ui64in: u64, pdecout: *mut super::super::Foundation::DECIMAL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::DECIMAL>::zeroed();
+    VarDecFromUI8(::core::mem::transmute(ui64in), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarDecInt(pdecin: *const super::super::Foundation::DECIMAL) -> ::windows::core::Result<super::super::Foundation::DECIMAL> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarDecInt(pdecin: *const super::super::Foundation::DECIMAL, pdecresult: *mut super::super::Foundation::DECIMAL) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::DECIMAL>::zeroed();
-        VarDecInt(::core::mem::transmute(pdecin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarDecInt(pdecin: *const super::super::Foundation::DECIMAL, pdecresult: *mut super::super::Foundation::DECIMAL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::DECIMAL>::zeroed();
+    VarDecInt(::core::mem::transmute(pdecin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarDecMul(pdecleft: *const super::super::Foundation::DECIMAL, pdecright: *const super::super::Foundation::DECIMAL) -> ::windows::core::Result<super::super::Foundation::DECIMAL> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarDecMul(pdecleft: *const super::super::Foundation::DECIMAL, pdecright: *const super::super::Foundation::DECIMAL, pdecresult: *mut super::super::Foundation::DECIMAL) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::DECIMAL>::zeroed();
-        VarDecMul(::core::mem::transmute(pdecleft), ::core::mem::transmute(pdecright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarDecMul(pdecleft: *const super::super::Foundation::DECIMAL, pdecright: *const super::super::Foundation::DECIMAL, pdecresult: *mut super::super::Foundation::DECIMAL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::DECIMAL>::zeroed();
+    VarDecMul(::core::mem::transmute(pdecleft), ::core::mem::transmute(pdecright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarDecNeg(pdecin: *const super::super::Foundation::DECIMAL) -> ::windows::core::Result<super::super::Foundation::DECIMAL> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarDecNeg(pdecin: *const super::super::Foundation::DECIMAL, pdecresult: *mut super::super::Foundation::DECIMAL) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::DECIMAL>::zeroed();
-        VarDecNeg(::core::mem::transmute(pdecin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarDecNeg(pdecin: *const super::super::Foundation::DECIMAL, pdecresult: *mut super::super::Foundation::DECIMAL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::DECIMAL>::zeroed();
+    VarDecNeg(::core::mem::transmute(pdecin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarDecRound(pdecin: *const super::super::Foundation::DECIMAL, cdecimals: i32) -> ::windows::core::Result<super::super::Foundation::DECIMAL> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarDecRound(pdecin: *const super::super::Foundation::DECIMAL, cdecimals: i32, pdecresult: *mut super::super::Foundation::DECIMAL) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::DECIMAL>::zeroed();
-        VarDecRound(::core::mem::transmute(pdecin), ::core::mem::transmute(cdecimals), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarDecRound(pdecin: *const super::super::Foundation::DECIMAL, cdecimals: i32, pdecresult: *mut super::super::Foundation::DECIMAL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::DECIMAL>::zeroed();
+    VarDecRound(::core::mem::transmute(pdecin), ::core::mem::transmute(cdecimals), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarDecSub(pdecleft: *const super::super::Foundation::DECIMAL, pdecright: *const super::super::Foundation::DECIMAL) -> ::windows::core::Result<super::super::Foundation::DECIMAL> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarDecSub(pdecleft: *const super::super::Foundation::DECIMAL, pdecright: *const super::super::Foundation::DECIMAL, pdecresult: *mut super::super::Foundation::DECIMAL) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::DECIMAL>::zeroed();
-        VarDecSub(::core::mem::transmute(pdecleft), ::core::mem::transmute(pdecright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarDecSub(pdecleft: *const super::super::Foundation::DECIMAL, pdecright: *const super::super::Foundation::DECIMAL, pdecresult: *mut super::super::Foundation::DECIMAL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::DECIMAL>::zeroed();
+    VarDecSub(::core::mem::transmute(pdecleft), ::core::mem::transmute(pdecright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VarDiv(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarDiv(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
-        VarDiv(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarDiv(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
+    VarDiv(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VarEqv(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarEqv(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
-        VarEqv(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarEqv(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
+    VarEqv(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VarFix(pvarin: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarFix(pvarin: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
-        VarFix(::core::mem::transmute(pvarin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarFix(pvarin: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
+    VarFix(::core::mem::transmute(pvarin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VarFormat<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pvarin: *const super::Com::VARIANT, pstrformat: Param1, ifirstday: i32, ifirstweek: i32, dwflags: u32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarFormat(pvarin: *const super::Com::VARIANT, pstrformat: ::windows::core::PCWSTR, ifirstday: i32, ifirstweek: i32, dwflags: u32, pbstrout: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        VarFormat(::core::mem::transmute(pvarin), pstrformat.into_param().abi(), ::core::mem::transmute(ifirstday), ::core::mem::transmute(ifirstweek), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarFormat(pvarin: *const super::Com::VARIANT, pstrformat: ::windows::core::PCWSTR, ifirstday: i32, ifirstweek: i32, dwflags: u32, pbstrout: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+    VarFormat(::core::mem::transmute(pvarin), pstrformat.into_param().abi(), ::core::mem::transmute(ifirstday), ::core::mem::transmute(ifirstweek), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VarFormatCurrency(pvarin: *const super::Com::VARIANT, inumdig: i32, iinclead: i32, iuseparens: i32, igroup: i32, dwflags: u32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarFormatCurrency(pvarin: *const super::Com::VARIANT, inumdig: i32, iinclead: i32, iuseparens: i32, igroup: i32, dwflags: u32, pbstrout: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        VarFormatCurrency(::core::mem::transmute(pvarin), ::core::mem::transmute(inumdig), ::core::mem::transmute(iinclead), ::core::mem::transmute(iuseparens), ::core::mem::transmute(igroup), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarFormatCurrency(pvarin: *const super::Com::VARIANT, inumdig: i32, iinclead: i32, iuseparens: i32, igroup: i32, dwflags: u32, pbstrout: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+    VarFormatCurrency(::core::mem::transmute(pvarin), ::core::mem::transmute(inumdig), ::core::mem::transmute(iinclead), ::core::mem::transmute(iuseparens), ::core::mem::transmute(igroup), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VarFormatDateTime(pvarin: *const super::Com::VARIANT, inamedformat: i32, dwflags: u32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarFormatDateTime(pvarin: *const super::Com::VARIANT, inamedformat: i32, dwflags: u32, pbstrout: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        VarFormatDateTime(::core::mem::transmute(pvarin), ::core::mem::transmute(inamedformat), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarFormatDateTime(pvarin: *const super::Com::VARIANT, inamedformat: i32, dwflags: u32, pbstrout: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+    VarFormatDateTime(::core::mem::transmute(pvarin), ::core::mem::transmute(inamedformat), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VarFormatFromTokens<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pvarin: *const super::Com::VARIANT, pstrformat: Param1, pbtokcur: *const u8, dwflags: u32, pbstrout: *mut super::super::Foundation::BSTR, lcid: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarFormatFromTokens(pvarin: *const super::Com::VARIANT, pstrformat: ::windows::core::PCWSTR, pbtokcur: *const u8, dwflags: u32, pbstrout: *mut super::super::Foundation::BSTR, lcid: u32) -> ::windows::core::HRESULT;
-        }
-        VarFormatFromTokens(::core::mem::transmute(pvarin), pstrformat.into_param().abi(), ::core::mem::transmute(pbtokcur), ::core::mem::transmute(dwflags), ::core::mem::transmute(pbstrout), ::core::mem::transmute(lcid)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarFormatFromTokens(pvarin: *const super::Com::VARIANT, pstrformat: ::windows::core::PCWSTR, pbtokcur: *const u8, dwflags: u32, pbstrout: *mut super::super::Foundation::BSTR, lcid: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    VarFormatFromTokens(::core::mem::transmute(pvarin), pstrformat.into_param().abi(), ::core::mem::transmute(pbtokcur), ::core::mem::transmute(dwflags), ::core::mem::transmute(pbstrout), ::core::mem::transmute(lcid)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VarFormatNumber(pvarin: *const super::Com::VARIANT, inumdig: i32, iinclead: i32, iuseparens: i32, igroup: i32, dwflags: u32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarFormatNumber(pvarin: *const super::Com::VARIANT, inumdig: i32, iinclead: i32, iuseparens: i32, igroup: i32, dwflags: u32, pbstrout: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        VarFormatNumber(::core::mem::transmute(pvarin), ::core::mem::transmute(inumdig), ::core::mem::transmute(iinclead), ::core::mem::transmute(iuseparens), ::core::mem::transmute(igroup), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarFormatNumber(pvarin: *const super::Com::VARIANT, inumdig: i32, iinclead: i32, iuseparens: i32, igroup: i32, dwflags: u32, pbstrout: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+    VarFormatNumber(::core::mem::transmute(pvarin), ::core::mem::transmute(inumdig), ::core::mem::transmute(iinclead), ::core::mem::transmute(iuseparens), ::core::mem::transmute(igroup), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VarFormatPercent(pvarin: *const super::Com::VARIANT, inumdig: i32, iinclead: i32, iuseparens: i32, igroup: i32, dwflags: u32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarFormatPercent(pvarin: *const super::Com::VARIANT, inumdig: i32, iinclead: i32, iuseparens: i32, igroup: i32, dwflags: u32, pbstrout: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        VarFormatPercent(::core::mem::transmute(pvarin), ::core::mem::transmute(inumdig), ::core::mem::transmute(iinclead), ::core::mem::transmute(iuseparens), ::core::mem::transmute(igroup), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarFormatPercent(pvarin: *const super::Com::VARIANT, inumdig: i32, iinclead: i32, iuseparens: i32, igroup: i32, dwflags: u32, pbstrout: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+    VarFormatPercent(::core::mem::transmute(pvarin), ::core::mem::transmute(inumdig), ::core::mem::transmute(iinclead), ::core::mem::transmute(iuseparens), ::core::mem::transmute(igroup), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI1FromBool(boolin: i16, pcout: ::windows::core::PSTR) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarI1FromBool(boolin: i16, pcout: ::windows::core::PSTR) -> ::windows::core::HRESULT;
-        }
-        VarI1FromBool(::core::mem::transmute(boolin), ::core::mem::transmute(pcout)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarI1FromBool(boolin: i16, pcout: ::windows::core::PSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    VarI1FromBool(::core::mem::transmute(boolin), ::core::mem::transmute(pcout)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn VarI1FromCy<'a, Param0: ::windows::core::IntoParam<'a, super::Com::CY>>(cyin: Param0, pcout: ::windows::core::PSTR) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarI1FromCy(cyin: super::Com::CY, pcout: ::windows::core::PSTR) -> ::windows::core::HRESULT;
-        }
-        VarI1FromCy(cyin.into_param().abi(), ::core::mem::transmute(pcout)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarI1FromCy(cyin: super::Com::CY, pcout: ::windows::core::PSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    VarI1FromCy(cyin.into_param().abi(), ::core::mem::transmute(pcout)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI1FromDate(datein: f64, pcout: ::windows::core::PSTR) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarI1FromDate(datein: f64, pcout: ::windows::core::PSTR) -> ::windows::core::HRESULT;
-        }
-        VarI1FromDate(::core::mem::transmute(datein), ::core::mem::transmute(pcout)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarI1FromDate(datein: f64, pcout: ::windows::core::PSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    VarI1FromDate(::core::mem::transmute(datein), ::core::mem::transmute(pcout)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarI1FromDec(pdecin: *const super::super::Foundation::DECIMAL, pcout: ::windows::core::PSTR) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarI1FromDec(pdecin: *const super::super::Foundation::DECIMAL, pcout: ::windows::core::PSTR) -> ::windows::core::HRESULT;
-        }
-        VarI1FromDec(::core::mem::transmute(pdecin), ::core::mem::transmute(pcout)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarI1FromDec(pdecin: *const super::super::Foundation::DECIMAL, pcout: ::windows::core::PSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    VarI1FromDec(::core::mem::transmute(pdecin), ::core::mem::transmute(pcout)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn VarI1FromDisp<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(pdispin: Param0, lcid: u32, pcout: ::windows::core::PSTR) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarI1FromDisp(pdispin: *mut ::core::ffi::c_void, lcid: u32, pcout: ::windows::core::PSTR) -> ::windows::core::HRESULT;
-        }
-        VarI1FromDisp(pdispin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(pcout)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarI1FromDisp(pdispin: *mut ::core::ffi::c_void, lcid: u32, pcout: ::windows::core::PSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    VarI1FromDisp(pdispin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(pcout)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI1FromI2(uiin: i16, pcout: ::windows::core::PSTR) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarI1FromI2(uiin: i16, pcout: ::windows::core::PSTR) -> ::windows::core::HRESULT;
-        }
-        VarI1FromI2(::core::mem::transmute(uiin), ::core::mem::transmute(pcout)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarI1FromI2(uiin: i16, pcout: ::windows::core::PSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    VarI1FromI2(::core::mem::transmute(uiin), ::core::mem::transmute(pcout)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI1FromI4(lin: i32, pcout: ::windows::core::PSTR) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarI1FromI4(lin: i32, pcout: ::windows::core::PSTR) -> ::windows::core::HRESULT;
-        }
-        VarI1FromI4(::core::mem::transmute(lin), ::core::mem::transmute(pcout)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarI1FromI4(lin: i32, pcout: ::windows::core::PSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    VarI1FromI4(::core::mem::transmute(lin), ::core::mem::transmute(pcout)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI1FromI8(i64in: i64, pcout: ::windows::core::PSTR) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarI1FromI8(i64in: i64, pcout: ::windows::core::PSTR) -> ::windows::core::HRESULT;
-        }
-        VarI1FromI8(::core::mem::transmute(i64in), ::core::mem::transmute(pcout)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarI1FromI8(i64in: i64, pcout: ::windows::core::PSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    VarI1FromI8(::core::mem::transmute(i64in), ::core::mem::transmute(pcout)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI1FromR4(fltin: f32, pcout: ::windows::core::PSTR) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarI1FromR4(fltin: f32, pcout: ::windows::core::PSTR) -> ::windows::core::HRESULT;
-        }
-        VarI1FromR4(::core::mem::transmute(fltin), ::core::mem::transmute(pcout)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarI1FromR4(fltin: f32, pcout: ::windows::core::PSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    VarI1FromR4(::core::mem::transmute(fltin), ::core::mem::transmute(pcout)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI1FromR8(dblin: f64, pcout: ::windows::core::PSTR) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarI1FromR8(dblin: f64, pcout: ::windows::core::PSTR) -> ::windows::core::HRESULT;
-        }
-        VarI1FromR8(::core::mem::transmute(dblin), ::core::mem::transmute(pcout)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarI1FromR8(dblin: f64, pcout: ::windows::core::PSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    VarI1FromR8(::core::mem::transmute(dblin), ::core::mem::transmute(pcout)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI1FromStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(strin: Param0, lcid: u32, dwflags: u32, pcout: ::windows::core::PSTR) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarI1FromStr(strin: ::windows::core::PCWSTR, lcid: u32, dwflags: u32, pcout: ::windows::core::PSTR) -> ::windows::core::HRESULT;
-        }
-        VarI1FromStr(strin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(pcout)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarI1FromStr(strin: ::windows::core::PCWSTR, lcid: u32, dwflags: u32, pcout: ::windows::core::PSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    VarI1FromStr(strin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(pcout)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI1FromUI1(bin: u8, pcout: ::windows::core::PSTR) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarI1FromUI1(bin: u8, pcout: ::windows::core::PSTR) -> ::windows::core::HRESULT;
-        }
-        VarI1FromUI1(::core::mem::transmute(bin), ::core::mem::transmute(pcout)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarI1FromUI1(bin: u8, pcout: ::windows::core::PSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    VarI1FromUI1(::core::mem::transmute(bin), ::core::mem::transmute(pcout)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI1FromUI2(uiin: u16, pcout: ::windows::core::PSTR) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarI1FromUI2(uiin: u16, pcout: ::windows::core::PSTR) -> ::windows::core::HRESULT;
-        }
-        VarI1FromUI2(::core::mem::transmute(uiin), ::core::mem::transmute(pcout)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarI1FromUI2(uiin: u16, pcout: ::windows::core::PSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    VarI1FromUI2(::core::mem::transmute(uiin), ::core::mem::transmute(pcout)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI1FromUI4(ulin: u32, pcout: ::windows::core::PSTR) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarI1FromUI4(ulin: u32, pcout: ::windows::core::PSTR) -> ::windows::core::HRESULT;
-        }
-        VarI1FromUI4(::core::mem::transmute(ulin), ::core::mem::transmute(pcout)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarI1FromUI4(ulin: u32, pcout: ::windows::core::PSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    VarI1FromUI4(::core::mem::transmute(ulin), ::core::mem::transmute(pcout)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI1FromUI8(i64in: u64, pcout: ::windows::core::PSTR) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarI1FromUI8(i64in: u64, pcout: ::windows::core::PSTR) -> ::windows::core::HRESULT;
-        }
-        VarI1FromUI8(::core::mem::transmute(i64in), ::core::mem::transmute(pcout)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarI1FromUI8(i64in: u64, pcout: ::windows::core::PSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    VarI1FromUI8(::core::mem::transmute(i64in), ::core::mem::transmute(pcout)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI2FromBool(boolin: i16) -> ::windows::core::Result<i16> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarI2FromBool(boolin: i16, psout: *mut i16) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        VarI2FromBool(::core::mem::transmute(boolin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarI2FromBool(boolin: i16, psout: *mut i16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+    VarI2FromBool(::core::mem::transmute(boolin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn VarI2FromCy<'a, Param0: ::windows::core::IntoParam<'a, super::Com::CY>>(cyin: Param0, psout: *mut i16) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarI2FromCy(cyin: super::Com::CY, psout: *mut i16) -> ::windows::core::HRESULT;
-        }
-        VarI2FromCy(cyin.into_param().abi(), ::core::mem::transmute(psout)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarI2FromCy(cyin: super::Com::CY, psout: *mut i16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    VarI2FromCy(cyin.into_param().abi(), ::core::mem::transmute(psout)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI2FromDate(datein: f64) -> ::windows::core::Result<i16> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarI2FromDate(datein: f64, psout: *mut i16) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        VarI2FromDate(::core::mem::transmute(datein), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarI2FromDate(datein: f64, psout: *mut i16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+    VarI2FromDate(::core::mem::transmute(datein), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarI2FromDec(pdecin: *const super::super::Foundation::DECIMAL) -> ::windows::core::Result<i16> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarI2FromDec(pdecin: *const super::super::Foundation::DECIMAL, psout: *mut i16) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        VarI2FromDec(::core::mem::transmute(pdecin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarI2FromDec(pdecin: *const super::super::Foundation::DECIMAL, psout: *mut i16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+    VarI2FromDec(::core::mem::transmute(pdecin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn VarI2FromDisp<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(pdispin: Param0, lcid: u32) -> ::windows::core::Result<i16> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarI2FromDisp(pdispin: *mut ::core::ffi::c_void, lcid: u32, psout: *mut i16) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        VarI2FromDisp(pdispin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarI2FromDisp(pdispin: *mut ::core::ffi::c_void, lcid: u32, psout: *mut i16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+    VarI2FromDisp(pdispin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarI2FromI1<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::CHAR>>(cin: Param0) -> ::windows::core::Result<i16> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarI2FromI1(cin: super::super::Foundation::CHAR, psout: *mut i16) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        VarI2FromI1(cin.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarI2FromI1(cin: super::super::Foundation::CHAR, psout: *mut i16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+    VarI2FromI1(cin.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI2FromI4(lin: i32) -> ::windows::core::Result<i16> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarI2FromI4(lin: i32, psout: *mut i16) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        VarI2FromI4(::core::mem::transmute(lin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarI2FromI4(lin: i32, psout: *mut i16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+    VarI2FromI4(::core::mem::transmute(lin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI2FromI8(i64in: i64) -> ::windows::core::Result<i16> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarI2FromI8(i64in: i64, psout: *mut i16) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        VarI2FromI8(::core::mem::transmute(i64in), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarI2FromI8(i64in: i64, psout: *mut i16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+    VarI2FromI8(::core::mem::transmute(i64in), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI2FromR4(fltin: f32) -> ::windows::core::Result<i16> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarI2FromR4(fltin: f32, psout: *mut i16) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        VarI2FromR4(::core::mem::transmute(fltin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarI2FromR4(fltin: f32, psout: *mut i16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+    VarI2FromR4(::core::mem::transmute(fltin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI2FromR8(dblin: f64) -> ::windows::core::Result<i16> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarI2FromR8(dblin: f64, psout: *mut i16) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        VarI2FromR8(::core::mem::transmute(dblin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarI2FromR8(dblin: f64, psout: *mut i16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+    VarI2FromR8(::core::mem::transmute(dblin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI2FromStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(strin: Param0, lcid: u32, dwflags: u32) -> ::windows::core::Result<i16> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarI2FromStr(strin: ::windows::core::PCWSTR, lcid: u32, dwflags: u32, psout: *mut i16) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        VarI2FromStr(strin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarI2FromStr(strin: ::windows::core::PCWSTR, lcid: u32, dwflags: u32, psout: *mut i16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+    VarI2FromStr(strin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI2FromUI1(bin: u8) -> ::windows::core::Result<i16> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarI2FromUI1(bin: u8, psout: *mut i16) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        VarI2FromUI1(::core::mem::transmute(bin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarI2FromUI1(bin: u8, psout: *mut i16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+    VarI2FromUI1(::core::mem::transmute(bin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI2FromUI2(uiin: u16) -> ::windows::core::Result<i16> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarI2FromUI2(uiin: u16, psout: *mut i16) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        VarI2FromUI2(::core::mem::transmute(uiin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarI2FromUI2(uiin: u16, psout: *mut i16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+    VarI2FromUI2(::core::mem::transmute(uiin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI2FromUI4(ulin: u32) -> ::windows::core::Result<i16> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarI2FromUI4(ulin: u32, psout: *mut i16) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        VarI2FromUI4(::core::mem::transmute(ulin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarI2FromUI4(ulin: u32, psout: *mut i16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+    VarI2FromUI4(::core::mem::transmute(ulin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI2FromUI8(ui64in: u64) -> ::windows::core::Result<i16> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarI2FromUI8(ui64in: u64, psout: *mut i16) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        VarI2FromUI8(::core::mem::transmute(ui64in), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarI2FromUI8(ui64in: u64, psout: *mut i16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+    VarI2FromUI8(::core::mem::transmute(ui64in), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI4FromBool(boolin: i16) -> ::windows::core::Result<i32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarI4FromBool(boolin: i16, plout: *mut i32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        VarI4FromBool(::core::mem::transmute(boolin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarI4FromBool(boolin: i16, plout: *mut i32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+    VarI4FromBool(::core::mem::transmute(boolin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn VarI4FromCy<'a, Param0: ::windows::core::IntoParam<'a, super::Com::CY>>(cyin: Param0) -> ::windows::core::Result<i32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarI4FromCy(cyin: super::Com::CY, plout: *mut i32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        VarI4FromCy(cyin.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarI4FromCy(cyin: super::Com::CY, plout: *mut i32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+    VarI4FromCy(cyin.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI4FromDate(datein: f64) -> ::windows::core::Result<i32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarI4FromDate(datein: f64, plout: *mut i32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        VarI4FromDate(::core::mem::transmute(datein), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarI4FromDate(datein: f64, plout: *mut i32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+    VarI4FromDate(::core::mem::transmute(datein), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarI4FromDec(pdecin: *const super::super::Foundation::DECIMAL) -> ::windows::core::Result<i32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarI4FromDec(pdecin: *const super::super::Foundation::DECIMAL, plout: *mut i32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        VarI4FromDec(::core::mem::transmute(pdecin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarI4FromDec(pdecin: *const super::super::Foundation::DECIMAL, plout: *mut i32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+    VarI4FromDec(::core::mem::transmute(pdecin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn VarI4FromDisp<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(pdispin: Param0, lcid: u32) -> ::windows::core::Result<i32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarI4FromDisp(pdispin: *mut ::core::ffi::c_void, lcid: u32, plout: *mut i32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        VarI4FromDisp(pdispin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarI4FromDisp(pdispin: *mut ::core::ffi::c_void, lcid: u32, plout: *mut i32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+    VarI4FromDisp(pdispin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarI4FromI1<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::CHAR>>(cin: Param0) -> ::windows::core::Result<i32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarI4FromI1(cin: super::super::Foundation::CHAR, plout: *mut i32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        VarI4FromI1(cin.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarI4FromI1(cin: super::super::Foundation::CHAR, plout: *mut i32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+    VarI4FromI1(cin.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI4FromI2(sin: i16) -> ::windows::core::Result<i32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarI4FromI2(sin: i16, plout: *mut i32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        VarI4FromI2(::core::mem::transmute(sin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarI4FromI2(sin: i16, plout: *mut i32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+    VarI4FromI2(::core::mem::transmute(sin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI4FromI8(i64in: i64) -> ::windows::core::Result<i32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarI4FromI8(i64in: i64, plout: *mut i32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        VarI4FromI8(::core::mem::transmute(i64in), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarI4FromI8(i64in: i64, plout: *mut i32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+    VarI4FromI8(::core::mem::transmute(i64in), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI4FromR4(fltin: f32) -> ::windows::core::Result<i32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarI4FromR4(fltin: f32, plout: *mut i32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        VarI4FromR4(::core::mem::transmute(fltin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarI4FromR4(fltin: f32, plout: *mut i32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+    VarI4FromR4(::core::mem::transmute(fltin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI4FromR8(dblin: f64) -> ::windows::core::Result<i32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarI4FromR8(dblin: f64, plout: *mut i32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        VarI4FromR8(::core::mem::transmute(dblin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarI4FromR8(dblin: f64, plout: *mut i32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+    VarI4FromR8(::core::mem::transmute(dblin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI4FromStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(strin: Param0, lcid: u32, dwflags: u32) -> ::windows::core::Result<i32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarI4FromStr(strin: ::windows::core::PCWSTR, lcid: u32, dwflags: u32, plout: *mut i32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        VarI4FromStr(strin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarI4FromStr(strin: ::windows::core::PCWSTR, lcid: u32, dwflags: u32, plout: *mut i32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+    VarI4FromStr(strin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI4FromUI1(bin: u8) -> ::windows::core::Result<i32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarI4FromUI1(bin: u8, plout: *mut i32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        VarI4FromUI1(::core::mem::transmute(bin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarI4FromUI1(bin: u8, plout: *mut i32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+    VarI4FromUI1(::core::mem::transmute(bin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI4FromUI2(uiin: u16) -> ::windows::core::Result<i32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarI4FromUI2(uiin: u16, plout: *mut i32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        VarI4FromUI2(::core::mem::transmute(uiin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarI4FromUI2(uiin: u16, plout: *mut i32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+    VarI4FromUI2(::core::mem::transmute(uiin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI4FromUI4(ulin: u32) -> ::windows::core::Result<i32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarI4FromUI4(ulin: u32, plout: *mut i32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        VarI4FromUI4(::core::mem::transmute(ulin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarI4FromUI4(ulin: u32, plout: *mut i32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+    VarI4FromUI4(::core::mem::transmute(ulin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI4FromUI8(ui64in: u64) -> ::windows::core::Result<i32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarI4FromUI8(ui64in: u64, plout: *mut i32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        VarI4FromUI8(::core::mem::transmute(ui64in), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarI4FromUI8(ui64in: u64, plout: *mut i32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+    VarI4FromUI8(::core::mem::transmute(ui64in), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI8FromBool(boolin: i16) -> ::windows::core::Result<i64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarI8FromBool(boolin: i16, pi64out: *mut i64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
-        VarI8FromBool(::core::mem::transmute(boolin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarI8FromBool(boolin: i16, pi64out: *mut i64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
+    VarI8FromBool(::core::mem::transmute(boolin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn VarI8FromCy<'a, Param0: ::windows::core::IntoParam<'a, super::Com::CY>>(cyin: Param0) -> ::windows::core::Result<i64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarI8FromCy(cyin: super::Com::CY, pi64out: *mut i64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
-        VarI8FromCy(cyin.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarI8FromCy(cyin: super::Com::CY, pi64out: *mut i64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
+    VarI8FromCy(cyin.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI8FromDate(datein: f64) -> ::windows::core::Result<i64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarI8FromDate(datein: f64, pi64out: *mut i64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
-        VarI8FromDate(::core::mem::transmute(datein), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarI8FromDate(datein: f64, pi64out: *mut i64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
+    VarI8FromDate(::core::mem::transmute(datein), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarI8FromDec(pdecin: *const super::super::Foundation::DECIMAL) -> ::windows::core::Result<i64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarI8FromDec(pdecin: *const super::super::Foundation::DECIMAL, pi64out: *mut i64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
-        VarI8FromDec(::core::mem::transmute(pdecin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarI8FromDec(pdecin: *const super::super::Foundation::DECIMAL, pi64out: *mut i64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
+    VarI8FromDec(::core::mem::transmute(pdecin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn VarI8FromDisp<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(pdispin: Param0, lcid: u32) -> ::windows::core::Result<i64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarI8FromDisp(pdispin: *mut ::core::ffi::c_void, lcid: u32, pi64out: *mut i64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
-        VarI8FromDisp(pdispin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarI8FromDisp(pdispin: *mut ::core::ffi::c_void, lcid: u32, pi64out: *mut i64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
+    VarI8FromDisp(pdispin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarI8FromI1<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::CHAR>>(cin: Param0) -> ::windows::core::Result<i64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarI8FromI1(cin: super::super::Foundation::CHAR, pi64out: *mut i64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
-        VarI8FromI1(cin.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarI8FromI1(cin: super::super::Foundation::CHAR, pi64out: *mut i64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
+    VarI8FromI1(cin.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI8FromI2(sin: i16) -> ::windows::core::Result<i64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarI8FromI2(sin: i16, pi64out: *mut i64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
-        VarI8FromI2(::core::mem::transmute(sin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarI8FromI2(sin: i16, pi64out: *mut i64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
+    VarI8FromI2(::core::mem::transmute(sin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI8FromR4(fltin: f32) -> ::windows::core::Result<i64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarI8FromR4(fltin: f32, pi64out: *mut i64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
-        VarI8FromR4(::core::mem::transmute(fltin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarI8FromR4(fltin: f32, pi64out: *mut i64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
+    VarI8FromR4(::core::mem::transmute(fltin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI8FromR8(dblin: f64) -> ::windows::core::Result<i64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarI8FromR8(dblin: f64, pi64out: *mut i64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
-        VarI8FromR8(::core::mem::transmute(dblin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarI8FromR8(dblin: f64, pi64out: *mut i64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
+    VarI8FromR8(::core::mem::transmute(dblin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI8FromStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(strin: Param0, lcid: u32, dwflags: u32) -> ::windows::core::Result<i64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarI8FromStr(strin: ::windows::core::PCWSTR, lcid: u32, dwflags: u32, pi64out: *mut i64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
-        VarI8FromStr(strin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarI8FromStr(strin: ::windows::core::PCWSTR, lcid: u32, dwflags: u32, pi64out: *mut i64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
+    VarI8FromStr(strin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI8FromUI1(bin: u8) -> ::windows::core::Result<i64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarI8FromUI1(bin: u8, pi64out: *mut i64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
-        VarI8FromUI1(::core::mem::transmute(bin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarI8FromUI1(bin: u8, pi64out: *mut i64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
+    VarI8FromUI1(::core::mem::transmute(bin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI8FromUI2(uiin: u16) -> ::windows::core::Result<i64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarI8FromUI2(uiin: u16, pi64out: *mut i64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
-        VarI8FromUI2(::core::mem::transmute(uiin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarI8FromUI2(uiin: u16, pi64out: *mut i64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
+    VarI8FromUI2(::core::mem::transmute(uiin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI8FromUI4(ulin: u32) -> ::windows::core::Result<i64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarI8FromUI4(ulin: u32, pi64out: *mut i64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
-        VarI8FromUI4(::core::mem::transmute(ulin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarI8FromUI4(ulin: u32, pi64out: *mut i64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
+    VarI8FromUI4(::core::mem::transmute(ulin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarI8FromUI8(ui64in: u64) -> ::windows::core::Result<i64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarI8FromUI8(ui64in: u64, pi64out: *mut i64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
-        VarI8FromUI8(::core::mem::transmute(ui64in), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarI8FromUI8(ui64in: u64, pi64out: *mut i64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
+    VarI8FromUI8(::core::mem::transmute(ui64in), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VarIdiv(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarIdiv(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
-        VarIdiv(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarIdiv(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
+    VarIdiv(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VarImp(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarImp(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
-        VarImp(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarImp(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
+    VarImp(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VarInt(pvarin: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarInt(pvarin: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
-        VarInt(::core::mem::transmute(pvarin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarInt(pvarin: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
+    VarInt(::core::mem::transmute(pvarin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VarMod(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarMod(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
-        VarMod(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarMod(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
+    VarMod(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarMonthName(imonth: i32, fabbrev: i32, dwflags: u32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarMonthName(imonth: i32, fabbrev: i32, dwflags: u32, pbstrout: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        VarMonthName(::core::mem::transmute(imonth), ::core::mem::transmute(fabbrev), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarMonthName(imonth: i32, fabbrev: i32, dwflags: u32, pbstrout: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+    VarMonthName(::core::mem::transmute(imonth), ::core::mem::transmute(fabbrev), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VarMul(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarMul(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
-        VarMul(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarMul(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
+    VarMul(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VarNeg(pvarin: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarNeg(pvarin: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
-        VarNeg(::core::mem::transmute(pvarin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarNeg(pvarin: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
+    VarNeg(::core::mem::transmute(pvarin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VarNot(pvarin: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarNot(pvarin: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
-        VarNot(::core::mem::transmute(pvarin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarNot(pvarin: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
+    VarNot(::core::mem::transmute(pvarin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VarNumFromParseNum(pnumprs: *const NUMPARSE, rgbdig: *const u8, dwvtbits: u32) -> ::windows::core::Result<super::Com::VARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarNumFromParseNum(pnumprs: *const NUMPARSE, rgbdig: *const u8, dwvtbits: u32, pvar: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
-        VarNumFromParseNum(::core::mem::transmute(pnumprs), ::core::mem::transmute(rgbdig), ::core::mem::transmute(dwvtbits), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarNumFromParseNum(pnumprs: *const NUMPARSE, rgbdig: *const u8, dwvtbits: u32, pvar: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
+    VarNumFromParseNum(::core::mem::transmute(pnumprs), ::core::mem::transmute(rgbdig), ::core::mem::transmute(dwvtbits), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VarOr(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarOr(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
-        VarOr(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarOr(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
+    VarOr(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarParseNumFromStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(strin: Param0, lcid: u32, dwflags: u32, pnumprs: *mut NUMPARSE, rgbdig: *mut u8) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarParseNumFromStr(strin: ::windows::core::PCWSTR, lcid: u32, dwflags: u32, pnumprs: *mut NUMPARSE, rgbdig: *mut u8) -> ::windows::core::HRESULT;
-        }
-        VarParseNumFromStr(strin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(pnumprs), ::core::mem::transmute(rgbdig)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarParseNumFromStr(strin: ::windows::core::PCWSTR, lcid: u32, dwflags: u32, pnumprs: *mut NUMPARSE, rgbdig: *mut u8) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    VarParseNumFromStr(strin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(pnumprs), ::core::mem::transmute(rgbdig)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VarPow(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarPow(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
-        VarPow(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarPow(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
+    VarPow(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarR4CmpR8(fltleft: f32, dblright: f64) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarR4CmpR8(fltleft: f32, dblright: f64) -> ::windows::core::HRESULT;
-        }
-        VarR4CmpR8(::core::mem::transmute(fltleft), ::core::mem::transmute(dblright)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarR4CmpR8(fltleft: f32, dblright: f64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    VarR4CmpR8(::core::mem::transmute(fltleft), ::core::mem::transmute(dblright)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarR4FromBool(boolin: i16) -> ::windows::core::Result<f32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarR4FromBool(boolin: i16, pfltout: *mut f32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<f32>::zeroed();
-        VarR4FromBool(::core::mem::transmute(boolin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarR4FromBool(boolin: i16, pfltout: *mut f32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<f32>::zeroed();
+    VarR4FromBool(::core::mem::transmute(boolin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn VarR4FromCy<'a, Param0: ::windows::core::IntoParam<'a, super::Com::CY>>(cyin: Param0, pfltout: *mut f32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarR4FromCy(cyin: super::Com::CY, pfltout: *mut f32) -> ::windows::core::HRESULT;
-        }
-        VarR4FromCy(cyin.into_param().abi(), ::core::mem::transmute(pfltout)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarR4FromCy(cyin: super::Com::CY, pfltout: *mut f32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    VarR4FromCy(cyin.into_param().abi(), ::core::mem::transmute(pfltout)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarR4FromDate(datein: f64) -> ::windows::core::Result<f32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarR4FromDate(datein: f64, pfltout: *mut f32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<f32>::zeroed();
-        VarR4FromDate(::core::mem::transmute(datein), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarR4FromDate(datein: f64, pfltout: *mut f32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<f32>::zeroed();
+    VarR4FromDate(::core::mem::transmute(datein), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarR4FromDec(pdecin: *const super::super::Foundation::DECIMAL) -> ::windows::core::Result<f32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarR4FromDec(pdecin: *const super::super::Foundation::DECIMAL, pfltout: *mut f32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<f32>::zeroed();
-        VarR4FromDec(::core::mem::transmute(pdecin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarR4FromDec(pdecin: *const super::super::Foundation::DECIMAL, pfltout: *mut f32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<f32>::zeroed();
+    VarR4FromDec(::core::mem::transmute(pdecin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn VarR4FromDisp<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(pdispin: Param0, lcid: u32) -> ::windows::core::Result<f32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarR4FromDisp(pdispin: *mut ::core::ffi::c_void, lcid: u32, pfltout: *mut f32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<f32>::zeroed();
-        VarR4FromDisp(pdispin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarR4FromDisp(pdispin: *mut ::core::ffi::c_void, lcid: u32, pfltout: *mut f32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<f32>::zeroed();
+    VarR4FromDisp(pdispin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarR4FromI1<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::CHAR>>(cin: Param0) -> ::windows::core::Result<f32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarR4FromI1(cin: super::super::Foundation::CHAR, pfltout: *mut f32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<f32>::zeroed();
-        VarR4FromI1(cin.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarR4FromI1(cin: super::super::Foundation::CHAR, pfltout: *mut f32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<f32>::zeroed();
+    VarR4FromI1(cin.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarR4FromI2(sin: i16) -> ::windows::core::Result<f32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarR4FromI2(sin: i16, pfltout: *mut f32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<f32>::zeroed();
-        VarR4FromI2(::core::mem::transmute(sin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarR4FromI2(sin: i16, pfltout: *mut f32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<f32>::zeroed();
+    VarR4FromI2(::core::mem::transmute(sin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarR4FromI4(lin: i32) -> ::windows::core::Result<f32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarR4FromI4(lin: i32, pfltout: *mut f32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<f32>::zeroed();
-        VarR4FromI4(::core::mem::transmute(lin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarR4FromI4(lin: i32, pfltout: *mut f32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<f32>::zeroed();
+    VarR4FromI4(::core::mem::transmute(lin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarR4FromI8(i64in: i64) -> ::windows::core::Result<f32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarR4FromI8(i64in: i64, pfltout: *mut f32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<f32>::zeroed();
-        VarR4FromI8(::core::mem::transmute(i64in), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarR4FromI8(i64in: i64, pfltout: *mut f32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<f32>::zeroed();
+    VarR4FromI8(::core::mem::transmute(i64in), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarR4FromR8(dblin: f64) -> ::windows::core::Result<f32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarR4FromR8(dblin: f64, pfltout: *mut f32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<f32>::zeroed();
-        VarR4FromR8(::core::mem::transmute(dblin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarR4FromR8(dblin: f64, pfltout: *mut f32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<f32>::zeroed();
+    VarR4FromR8(::core::mem::transmute(dblin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarR4FromStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(strin: Param0, lcid: u32, dwflags: u32) -> ::windows::core::Result<f32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarR4FromStr(strin: ::windows::core::PCWSTR, lcid: u32, dwflags: u32, pfltout: *mut f32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<f32>::zeroed();
-        VarR4FromStr(strin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarR4FromStr(strin: ::windows::core::PCWSTR, lcid: u32, dwflags: u32, pfltout: *mut f32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<f32>::zeroed();
+    VarR4FromStr(strin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarR4FromUI1(bin: u8) -> ::windows::core::Result<f32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarR4FromUI1(bin: u8, pfltout: *mut f32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<f32>::zeroed();
-        VarR4FromUI1(::core::mem::transmute(bin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarR4FromUI1(bin: u8, pfltout: *mut f32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<f32>::zeroed();
+    VarR4FromUI1(::core::mem::transmute(bin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarR4FromUI2(uiin: u16) -> ::windows::core::Result<f32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarR4FromUI2(uiin: u16, pfltout: *mut f32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<f32>::zeroed();
-        VarR4FromUI2(::core::mem::transmute(uiin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarR4FromUI2(uiin: u16, pfltout: *mut f32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<f32>::zeroed();
+    VarR4FromUI2(::core::mem::transmute(uiin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarR4FromUI4(ulin: u32) -> ::windows::core::Result<f32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarR4FromUI4(ulin: u32, pfltout: *mut f32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<f32>::zeroed();
-        VarR4FromUI4(::core::mem::transmute(ulin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarR4FromUI4(ulin: u32, pfltout: *mut f32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<f32>::zeroed();
+    VarR4FromUI4(::core::mem::transmute(ulin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarR4FromUI8(ui64in: u64) -> ::windows::core::Result<f32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarR4FromUI8(ui64in: u64, pfltout: *mut f32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<f32>::zeroed();
-        VarR4FromUI8(::core::mem::transmute(ui64in), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarR4FromUI8(ui64in: u64, pfltout: *mut f32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<f32>::zeroed();
+    VarR4FromUI8(::core::mem::transmute(ui64in), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarR8FromBool(boolin: i16) -> ::windows::core::Result<f64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarR8FromBool(boolin: i16, pdblout: *mut f64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
-        VarR8FromBool(::core::mem::transmute(boolin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarR8FromBool(boolin: i16, pdblout: *mut f64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+    VarR8FromBool(::core::mem::transmute(boolin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn VarR8FromCy<'a, Param0: ::windows::core::IntoParam<'a, super::Com::CY>>(cyin: Param0, pdblout: *mut f64) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarR8FromCy(cyin: super::Com::CY, pdblout: *mut f64) -> ::windows::core::HRESULT;
-        }
-        VarR8FromCy(cyin.into_param().abi(), ::core::mem::transmute(pdblout)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarR8FromCy(cyin: super::Com::CY, pdblout: *mut f64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    VarR8FromCy(cyin.into_param().abi(), ::core::mem::transmute(pdblout)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarR8FromDate(datein: f64) -> ::windows::core::Result<f64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarR8FromDate(datein: f64, pdblout: *mut f64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
-        VarR8FromDate(::core::mem::transmute(datein), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarR8FromDate(datein: f64, pdblout: *mut f64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+    VarR8FromDate(::core::mem::transmute(datein), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarR8FromDec(pdecin: *const super::super::Foundation::DECIMAL) -> ::windows::core::Result<f64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarR8FromDec(pdecin: *const super::super::Foundation::DECIMAL, pdblout: *mut f64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
-        VarR8FromDec(::core::mem::transmute(pdecin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarR8FromDec(pdecin: *const super::super::Foundation::DECIMAL, pdblout: *mut f64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+    VarR8FromDec(::core::mem::transmute(pdecin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn VarR8FromDisp<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(pdispin: Param0, lcid: u32) -> ::windows::core::Result<f64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarR8FromDisp(pdispin: *mut ::core::ffi::c_void, lcid: u32, pdblout: *mut f64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
-        VarR8FromDisp(pdispin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarR8FromDisp(pdispin: *mut ::core::ffi::c_void, lcid: u32, pdblout: *mut f64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+    VarR8FromDisp(pdispin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarR8FromI1<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::CHAR>>(cin: Param0, pdblout: *mut f64) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarR8FromI1(cin: super::super::Foundation::CHAR, pdblout: *mut f64) -> ::windows::core::HRESULT;
-        }
-        VarR8FromI1(cin.into_param().abi(), ::core::mem::transmute(pdblout)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarR8FromI1(cin: super::super::Foundation::CHAR, pdblout: *mut f64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    VarR8FromI1(cin.into_param().abi(), ::core::mem::transmute(pdblout)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarR8FromI2(sin: i16) -> ::windows::core::Result<f64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarR8FromI2(sin: i16, pdblout: *mut f64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
-        VarR8FromI2(::core::mem::transmute(sin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarR8FromI2(sin: i16, pdblout: *mut f64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+    VarR8FromI2(::core::mem::transmute(sin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarR8FromI4(lin: i32) -> ::windows::core::Result<f64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarR8FromI4(lin: i32, pdblout: *mut f64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
-        VarR8FromI4(::core::mem::transmute(lin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarR8FromI4(lin: i32, pdblout: *mut f64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+    VarR8FromI4(::core::mem::transmute(lin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarR8FromI8(i64in: i64) -> ::windows::core::Result<f64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarR8FromI8(i64in: i64, pdblout: *mut f64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
-        VarR8FromI8(::core::mem::transmute(i64in), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarR8FromI8(i64in: i64, pdblout: *mut f64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+    VarR8FromI8(::core::mem::transmute(i64in), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarR8FromR4(fltin: f32) -> ::windows::core::Result<f64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarR8FromR4(fltin: f32, pdblout: *mut f64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
-        VarR8FromR4(::core::mem::transmute(fltin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarR8FromR4(fltin: f32, pdblout: *mut f64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+    VarR8FromR4(::core::mem::transmute(fltin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarR8FromStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(strin: Param0, lcid: u32, dwflags: u32) -> ::windows::core::Result<f64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarR8FromStr(strin: ::windows::core::PCWSTR, lcid: u32, dwflags: u32, pdblout: *mut f64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
-        VarR8FromStr(strin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarR8FromStr(strin: ::windows::core::PCWSTR, lcid: u32, dwflags: u32, pdblout: *mut f64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+    VarR8FromStr(strin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarR8FromUI1(bin: u8) -> ::windows::core::Result<f64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarR8FromUI1(bin: u8, pdblout: *mut f64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
-        VarR8FromUI1(::core::mem::transmute(bin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarR8FromUI1(bin: u8, pdblout: *mut f64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+    VarR8FromUI1(::core::mem::transmute(bin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarR8FromUI2(uiin: u16) -> ::windows::core::Result<f64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarR8FromUI2(uiin: u16, pdblout: *mut f64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
-        VarR8FromUI2(::core::mem::transmute(uiin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarR8FromUI2(uiin: u16, pdblout: *mut f64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+    VarR8FromUI2(::core::mem::transmute(uiin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarR8FromUI4(ulin: u32) -> ::windows::core::Result<f64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarR8FromUI4(ulin: u32, pdblout: *mut f64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
-        VarR8FromUI4(::core::mem::transmute(ulin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarR8FromUI4(ulin: u32, pdblout: *mut f64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+    VarR8FromUI4(::core::mem::transmute(ulin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarR8FromUI8(ui64in: u64) -> ::windows::core::Result<f64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarR8FromUI8(ui64in: u64, pdblout: *mut f64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
-        VarR8FromUI8(::core::mem::transmute(ui64in), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarR8FromUI8(ui64in: u64, pdblout: *mut f64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+    VarR8FromUI8(::core::mem::transmute(ui64in), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarR8Pow(dblleft: f64, dblright: f64) -> ::windows::core::Result<f64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarR8Pow(dblleft: f64, dblright: f64, pdblresult: *mut f64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
-        VarR8Pow(::core::mem::transmute(dblleft), ::core::mem::transmute(dblright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarR8Pow(dblleft: f64, dblright: f64, pdblresult: *mut f64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+    VarR8Pow(::core::mem::transmute(dblleft), ::core::mem::transmute(dblright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarR8Round(dblin: f64, cdecimals: i32) -> ::windows::core::Result<f64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarR8Round(dblin: f64, cdecimals: i32, pdblresult: *mut f64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
-        VarR8Round(::core::mem::transmute(dblin), ::core::mem::transmute(cdecimals), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarR8Round(dblin: f64, cdecimals: i32, pdblresult: *mut f64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+    VarR8Round(::core::mem::transmute(dblin), ::core::mem::transmute(cdecimals), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VarRound(pvarin: *const super::Com::VARIANT, cdecimals: i32) -> ::windows::core::Result<super::Com::VARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarRound(pvarin: *const super::Com::VARIANT, cdecimals: i32, pvarresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
-        VarRound(::core::mem::transmute(pvarin), ::core::mem::transmute(cdecimals), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarRound(pvarin: *const super::Com::VARIANT, cdecimals: i32, pvarresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
+    VarRound(::core::mem::transmute(pvarin), ::core::mem::transmute(cdecimals), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VarSub(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarSub(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
-        VarSub(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarSub(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
+    VarSub(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarTokenizeFormatString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pstrformat: Param0, rgbtok: &mut [u8], ifirstday: i32, ifirstweek: i32, lcid: u32, pcbactual: *const i32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarTokenizeFormatString(pstrformat: ::windows::core::PCWSTR, rgbtok: *mut u8, cbtok: i32, ifirstday: i32, ifirstweek: i32, lcid: u32, pcbactual: *const i32) -> ::windows::core::HRESULT;
-        }
-        VarTokenizeFormatString(pstrformat.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgbtok)), rgbtok.len() as _, ::core::mem::transmute(ifirstday), ::core::mem::transmute(ifirstweek), ::core::mem::transmute(lcid), ::core::mem::transmute(pcbactual)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarTokenizeFormatString(pstrformat: ::windows::core::PCWSTR, rgbtok: *mut u8, cbtok: i32, ifirstday: i32, ifirstweek: i32, lcid: u32, pcbactual: *const i32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    VarTokenizeFormatString(pstrformat.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgbtok)), rgbtok.len() as _, ::core::mem::transmute(ifirstday), ::core::mem::transmute(ifirstweek), ::core::mem::transmute(lcid), ::core::mem::transmute(pcbactual)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI1FromBool(boolin: i16) -> ::windows::core::Result<u8> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUI1FromBool(boolin: i16, pbout: *mut u8) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
-        VarUI1FromBool(::core::mem::transmute(boolin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUI1FromBool(boolin: i16, pbout: *mut u8) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+    VarUI1FromBool(::core::mem::transmute(boolin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn VarUI1FromCy<'a, Param0: ::windows::core::IntoParam<'a, super::Com::CY>>(cyin: Param0) -> ::windows::core::Result<u8> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUI1FromCy(cyin: super::Com::CY, pbout: *mut u8) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
-        VarUI1FromCy(cyin.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUI1FromCy(cyin: super::Com::CY, pbout: *mut u8) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+    VarUI1FromCy(cyin.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI1FromDate(datein: f64) -> ::windows::core::Result<u8> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUI1FromDate(datein: f64, pbout: *mut u8) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
-        VarUI1FromDate(::core::mem::transmute(datein), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUI1FromDate(datein: f64, pbout: *mut u8) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+    VarUI1FromDate(::core::mem::transmute(datein), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarUI1FromDec(pdecin: *const super::super::Foundation::DECIMAL) -> ::windows::core::Result<u8> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUI1FromDec(pdecin: *const super::super::Foundation::DECIMAL, pbout: *mut u8) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
-        VarUI1FromDec(::core::mem::transmute(pdecin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUI1FromDec(pdecin: *const super::super::Foundation::DECIMAL, pbout: *mut u8) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+    VarUI1FromDec(::core::mem::transmute(pdecin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn VarUI1FromDisp<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(pdispin: Param0, lcid: u32) -> ::windows::core::Result<u8> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUI1FromDisp(pdispin: *mut ::core::ffi::c_void, lcid: u32, pbout: *mut u8) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
-        VarUI1FromDisp(pdispin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUI1FromDisp(pdispin: *mut ::core::ffi::c_void, lcid: u32, pbout: *mut u8) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+    VarUI1FromDisp(pdispin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarUI1FromI1<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::CHAR>>(cin: Param0) -> ::windows::core::Result<u8> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUI1FromI1(cin: super::super::Foundation::CHAR, pbout: *mut u8) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
-        VarUI1FromI1(cin.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUI1FromI1(cin: super::super::Foundation::CHAR, pbout: *mut u8) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+    VarUI1FromI1(cin.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI1FromI2(sin: i16) -> ::windows::core::Result<u8> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUI1FromI2(sin: i16, pbout: *mut u8) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
-        VarUI1FromI2(::core::mem::transmute(sin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUI1FromI2(sin: i16, pbout: *mut u8) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+    VarUI1FromI2(::core::mem::transmute(sin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI1FromI4(lin: i32) -> ::windows::core::Result<u8> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUI1FromI4(lin: i32, pbout: *mut u8) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
-        VarUI1FromI4(::core::mem::transmute(lin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUI1FromI4(lin: i32, pbout: *mut u8) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+    VarUI1FromI4(::core::mem::transmute(lin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI1FromI8(i64in: i64) -> ::windows::core::Result<u8> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUI1FromI8(i64in: i64, pbout: *mut u8) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
-        VarUI1FromI8(::core::mem::transmute(i64in), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUI1FromI8(i64in: i64, pbout: *mut u8) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+    VarUI1FromI8(::core::mem::transmute(i64in), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI1FromR4(fltin: f32) -> ::windows::core::Result<u8> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUI1FromR4(fltin: f32, pbout: *mut u8) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
-        VarUI1FromR4(::core::mem::transmute(fltin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUI1FromR4(fltin: f32, pbout: *mut u8) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+    VarUI1FromR4(::core::mem::transmute(fltin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI1FromR8(dblin: f64) -> ::windows::core::Result<u8> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUI1FromR8(dblin: f64, pbout: *mut u8) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
-        VarUI1FromR8(::core::mem::transmute(dblin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUI1FromR8(dblin: f64, pbout: *mut u8) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+    VarUI1FromR8(::core::mem::transmute(dblin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI1FromStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(strin: Param0, lcid: u32, dwflags: u32) -> ::windows::core::Result<u8> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUI1FromStr(strin: ::windows::core::PCWSTR, lcid: u32, dwflags: u32, pbout: *mut u8) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
-        VarUI1FromStr(strin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUI1FromStr(strin: ::windows::core::PCWSTR, lcid: u32, dwflags: u32, pbout: *mut u8) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+    VarUI1FromStr(strin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI1FromUI2(uiin: u16) -> ::windows::core::Result<u8> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUI1FromUI2(uiin: u16, pbout: *mut u8) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
-        VarUI1FromUI2(::core::mem::transmute(uiin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUI1FromUI2(uiin: u16, pbout: *mut u8) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+    VarUI1FromUI2(::core::mem::transmute(uiin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI1FromUI4(ulin: u32) -> ::windows::core::Result<u8> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUI1FromUI4(ulin: u32, pbout: *mut u8) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
-        VarUI1FromUI4(::core::mem::transmute(ulin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUI1FromUI4(ulin: u32, pbout: *mut u8) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+    VarUI1FromUI4(::core::mem::transmute(ulin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI1FromUI8(ui64in: u64) -> ::windows::core::Result<u8> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUI1FromUI8(ui64in: u64, pbout: *mut u8) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
-        VarUI1FromUI8(::core::mem::transmute(ui64in), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUI1FromUI8(ui64in: u64, pbout: *mut u8) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+    VarUI1FromUI8(::core::mem::transmute(ui64in), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI2FromBool(boolin: i16) -> ::windows::core::Result<u16> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUI2FromBool(boolin: i16, puiout: *mut u16) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
-        VarUI2FromBool(::core::mem::transmute(boolin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUI2FromBool(boolin: i16, puiout: *mut u16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
+    VarUI2FromBool(::core::mem::transmute(boolin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn VarUI2FromCy<'a, Param0: ::windows::core::IntoParam<'a, super::Com::CY>>(cyin: Param0) -> ::windows::core::Result<u16> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUI2FromCy(cyin: super::Com::CY, puiout: *mut u16) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
-        VarUI2FromCy(cyin.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUI2FromCy(cyin: super::Com::CY, puiout: *mut u16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
+    VarUI2FromCy(cyin.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI2FromDate(datein: f64) -> ::windows::core::Result<u16> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUI2FromDate(datein: f64, puiout: *mut u16) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
-        VarUI2FromDate(::core::mem::transmute(datein), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUI2FromDate(datein: f64, puiout: *mut u16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
+    VarUI2FromDate(::core::mem::transmute(datein), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarUI2FromDec(pdecin: *const super::super::Foundation::DECIMAL) -> ::windows::core::Result<u16> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUI2FromDec(pdecin: *const super::super::Foundation::DECIMAL, puiout: *mut u16) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
-        VarUI2FromDec(::core::mem::transmute(pdecin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUI2FromDec(pdecin: *const super::super::Foundation::DECIMAL, puiout: *mut u16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
+    VarUI2FromDec(::core::mem::transmute(pdecin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn VarUI2FromDisp<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(pdispin: Param0, lcid: u32) -> ::windows::core::Result<u16> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUI2FromDisp(pdispin: *mut ::core::ffi::c_void, lcid: u32, puiout: *mut u16) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
-        VarUI2FromDisp(pdispin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUI2FromDisp(pdispin: *mut ::core::ffi::c_void, lcid: u32, puiout: *mut u16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
+    VarUI2FromDisp(pdispin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarUI2FromI1<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::CHAR>>(cin: Param0) -> ::windows::core::Result<u16> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUI2FromI1(cin: super::super::Foundation::CHAR, puiout: *mut u16) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
-        VarUI2FromI1(cin.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUI2FromI1(cin: super::super::Foundation::CHAR, puiout: *mut u16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
+    VarUI2FromI1(cin.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI2FromI2(uiin: i16) -> ::windows::core::Result<u16> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUI2FromI2(uiin: i16, puiout: *mut u16) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
-        VarUI2FromI2(::core::mem::transmute(uiin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUI2FromI2(uiin: i16, puiout: *mut u16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
+    VarUI2FromI2(::core::mem::transmute(uiin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI2FromI4(lin: i32) -> ::windows::core::Result<u16> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUI2FromI4(lin: i32, puiout: *mut u16) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
-        VarUI2FromI4(::core::mem::transmute(lin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUI2FromI4(lin: i32, puiout: *mut u16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
+    VarUI2FromI4(::core::mem::transmute(lin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI2FromI8(i64in: i64) -> ::windows::core::Result<u16> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUI2FromI8(i64in: i64, puiout: *mut u16) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
-        VarUI2FromI8(::core::mem::transmute(i64in), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUI2FromI8(i64in: i64, puiout: *mut u16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
+    VarUI2FromI8(::core::mem::transmute(i64in), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI2FromR4(fltin: f32) -> ::windows::core::Result<u16> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUI2FromR4(fltin: f32, puiout: *mut u16) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
-        VarUI2FromR4(::core::mem::transmute(fltin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUI2FromR4(fltin: f32, puiout: *mut u16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
+    VarUI2FromR4(::core::mem::transmute(fltin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI2FromR8(dblin: f64, puiout: *mut u16) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUI2FromR8(dblin: f64, puiout: *mut u16) -> ::windows::core::HRESULT;
-        }
-        VarUI2FromR8(::core::mem::transmute(dblin), ::core::mem::transmute(puiout)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUI2FromR8(dblin: f64, puiout: *mut u16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    VarUI2FromR8(::core::mem::transmute(dblin), ::core::mem::transmute(puiout)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI2FromStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(strin: Param0, lcid: u32, dwflags: u32) -> ::windows::core::Result<u16> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUI2FromStr(strin: ::windows::core::PCWSTR, lcid: u32, dwflags: u32, puiout: *mut u16) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
-        VarUI2FromStr(strin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUI2FromStr(strin: ::windows::core::PCWSTR, lcid: u32, dwflags: u32, puiout: *mut u16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
+    VarUI2FromStr(strin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI2FromUI1(bin: u8) -> ::windows::core::Result<u16> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUI2FromUI1(bin: u8, puiout: *mut u16) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
-        VarUI2FromUI1(::core::mem::transmute(bin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUI2FromUI1(bin: u8, puiout: *mut u16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
+    VarUI2FromUI1(::core::mem::transmute(bin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI2FromUI4(ulin: u32) -> ::windows::core::Result<u16> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUI2FromUI4(ulin: u32, puiout: *mut u16) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
-        VarUI2FromUI4(::core::mem::transmute(ulin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUI2FromUI4(ulin: u32, puiout: *mut u16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
+    VarUI2FromUI4(::core::mem::transmute(ulin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI2FromUI8(i64in: u64) -> ::windows::core::Result<u16> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUI2FromUI8(i64in: u64, puiout: *mut u16) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
-        VarUI2FromUI8(::core::mem::transmute(i64in), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUI2FromUI8(i64in: u64, puiout: *mut u16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
+    VarUI2FromUI8(::core::mem::transmute(i64in), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI4FromBool(boolin: i16) -> ::windows::core::Result<u32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUI4FromBool(boolin: i16, pulout: *mut u32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        VarUI4FromBool(::core::mem::transmute(boolin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUI4FromBool(boolin: i16, pulout: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+    VarUI4FromBool(::core::mem::transmute(boolin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn VarUI4FromCy<'a, Param0: ::windows::core::IntoParam<'a, super::Com::CY>>(cyin: Param0) -> ::windows::core::Result<u32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUI4FromCy(cyin: super::Com::CY, pulout: *mut u32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        VarUI4FromCy(cyin.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUI4FromCy(cyin: super::Com::CY, pulout: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+    VarUI4FromCy(cyin.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI4FromDate(datein: f64) -> ::windows::core::Result<u32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUI4FromDate(datein: f64, pulout: *mut u32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        VarUI4FromDate(::core::mem::transmute(datein), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUI4FromDate(datein: f64, pulout: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+    VarUI4FromDate(::core::mem::transmute(datein), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarUI4FromDec(pdecin: *const super::super::Foundation::DECIMAL) -> ::windows::core::Result<u32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUI4FromDec(pdecin: *const super::super::Foundation::DECIMAL, pulout: *mut u32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        VarUI4FromDec(::core::mem::transmute(pdecin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUI4FromDec(pdecin: *const super::super::Foundation::DECIMAL, pulout: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+    VarUI4FromDec(::core::mem::transmute(pdecin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn VarUI4FromDisp<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(pdispin: Param0, lcid: u32) -> ::windows::core::Result<u32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUI4FromDisp(pdispin: *mut ::core::ffi::c_void, lcid: u32, pulout: *mut u32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        VarUI4FromDisp(pdispin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUI4FromDisp(pdispin: *mut ::core::ffi::c_void, lcid: u32, pulout: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+    VarUI4FromDisp(pdispin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarUI4FromI1<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::CHAR>>(cin: Param0) -> ::windows::core::Result<u32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUI4FromI1(cin: super::super::Foundation::CHAR, pulout: *mut u32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        VarUI4FromI1(cin.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUI4FromI1(cin: super::super::Foundation::CHAR, pulout: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+    VarUI4FromI1(cin.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI4FromI2(uiin: i16) -> ::windows::core::Result<u32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUI4FromI2(uiin: i16, pulout: *mut u32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        VarUI4FromI2(::core::mem::transmute(uiin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUI4FromI2(uiin: i16, pulout: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+    VarUI4FromI2(::core::mem::transmute(uiin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI4FromI4(lin: i32) -> ::windows::core::Result<u32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUI4FromI4(lin: i32, pulout: *mut u32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        VarUI4FromI4(::core::mem::transmute(lin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUI4FromI4(lin: i32, pulout: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+    VarUI4FromI4(::core::mem::transmute(lin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI4FromI8(i64in: i64) -> ::windows::core::Result<u32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUI4FromI8(i64in: i64, plout: *mut u32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        VarUI4FromI8(::core::mem::transmute(i64in), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUI4FromI8(i64in: i64, plout: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+    VarUI4FromI8(::core::mem::transmute(i64in), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI4FromR4(fltin: f32) -> ::windows::core::Result<u32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUI4FromR4(fltin: f32, pulout: *mut u32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        VarUI4FromR4(::core::mem::transmute(fltin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUI4FromR4(fltin: f32, pulout: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+    VarUI4FromR4(::core::mem::transmute(fltin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI4FromR8(dblin: f64) -> ::windows::core::Result<u32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUI4FromR8(dblin: f64, pulout: *mut u32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        VarUI4FromR8(::core::mem::transmute(dblin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUI4FromR8(dblin: f64, pulout: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+    VarUI4FromR8(::core::mem::transmute(dblin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI4FromStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(strin: Param0, lcid: u32, dwflags: u32) -> ::windows::core::Result<u32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUI4FromStr(strin: ::windows::core::PCWSTR, lcid: u32, dwflags: u32, pulout: *mut u32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        VarUI4FromStr(strin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUI4FromStr(strin: ::windows::core::PCWSTR, lcid: u32, dwflags: u32, pulout: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+    VarUI4FromStr(strin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI4FromUI1(bin: u8) -> ::windows::core::Result<u32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUI4FromUI1(bin: u8, pulout: *mut u32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        VarUI4FromUI1(::core::mem::transmute(bin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUI4FromUI1(bin: u8, pulout: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+    VarUI4FromUI1(::core::mem::transmute(bin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI4FromUI2(uiin: u16) -> ::windows::core::Result<u32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUI4FromUI2(uiin: u16, pulout: *mut u32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        VarUI4FromUI2(::core::mem::transmute(uiin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUI4FromUI2(uiin: u16, pulout: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+    VarUI4FromUI2(::core::mem::transmute(uiin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI4FromUI8(ui64in: u64) -> ::windows::core::Result<u32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUI4FromUI8(ui64in: u64, plout: *mut u32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        VarUI4FromUI8(::core::mem::transmute(ui64in), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUI4FromUI8(ui64in: u64, plout: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+    VarUI4FromUI8(::core::mem::transmute(ui64in), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI8FromBool(boolin: i16) -> ::windows::core::Result<u64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUI8FromBool(boolin: i16, pi64out: *mut u64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-        VarUI8FromBool(::core::mem::transmute(boolin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUI8FromBool(boolin: i16, pi64out: *mut u64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
+    VarUI8FromBool(::core::mem::transmute(boolin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn VarUI8FromCy<'a, Param0: ::windows::core::IntoParam<'a, super::Com::CY>>(cyin: Param0) -> ::windows::core::Result<u64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUI8FromCy(cyin: super::Com::CY, pi64out: *mut u64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-        VarUI8FromCy(cyin.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUI8FromCy(cyin: super::Com::CY, pi64out: *mut u64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
+    VarUI8FromCy(cyin.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI8FromDate(datein: f64) -> ::windows::core::Result<u64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUI8FromDate(datein: f64, pi64out: *mut u64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-        VarUI8FromDate(::core::mem::transmute(datein), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUI8FromDate(datein: f64, pi64out: *mut u64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
+    VarUI8FromDate(::core::mem::transmute(datein), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarUI8FromDec(pdecin: *const super::super::Foundation::DECIMAL) -> ::windows::core::Result<u64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUI8FromDec(pdecin: *const super::super::Foundation::DECIMAL, pi64out: *mut u64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-        VarUI8FromDec(::core::mem::transmute(pdecin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUI8FromDec(pdecin: *const super::super::Foundation::DECIMAL, pi64out: *mut u64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
+    VarUI8FromDec(::core::mem::transmute(pdecin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn VarUI8FromDisp<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(pdispin: Param0, lcid: u32) -> ::windows::core::Result<u64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUI8FromDisp(pdispin: *mut ::core::ffi::c_void, lcid: u32, pi64out: *mut u64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-        VarUI8FromDisp(pdispin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUI8FromDisp(pdispin: *mut ::core::ffi::c_void, lcid: u32, pi64out: *mut u64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
+    VarUI8FromDisp(pdispin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarUI8FromI1<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::CHAR>>(cin: Param0) -> ::windows::core::Result<u64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUI8FromI1(cin: super::super::Foundation::CHAR, pi64out: *mut u64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-        VarUI8FromI1(cin.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUI8FromI1(cin: super::super::Foundation::CHAR, pi64out: *mut u64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
+    VarUI8FromI1(cin.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI8FromI2(sin: i16) -> ::windows::core::Result<u64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUI8FromI2(sin: i16, pi64out: *mut u64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-        VarUI8FromI2(::core::mem::transmute(sin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUI8FromI2(sin: i16, pi64out: *mut u64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
+    VarUI8FromI2(::core::mem::transmute(sin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI8FromI8(ui64in: i64) -> ::windows::core::Result<u64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUI8FromI8(ui64in: i64, pi64out: *mut u64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-        VarUI8FromI8(::core::mem::transmute(ui64in), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUI8FromI8(ui64in: i64, pi64out: *mut u64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
+    VarUI8FromI8(::core::mem::transmute(ui64in), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI8FromR4(fltin: f32) -> ::windows::core::Result<u64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUI8FromR4(fltin: f32, pi64out: *mut u64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-        VarUI8FromR4(::core::mem::transmute(fltin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUI8FromR4(fltin: f32, pi64out: *mut u64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
+    VarUI8FromR4(::core::mem::transmute(fltin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI8FromR8(dblin: f64) -> ::windows::core::Result<u64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUI8FromR8(dblin: f64, pi64out: *mut u64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-        VarUI8FromR8(::core::mem::transmute(dblin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUI8FromR8(dblin: f64, pi64out: *mut u64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
+    VarUI8FromR8(::core::mem::transmute(dblin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI8FromStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(strin: Param0, lcid: u32, dwflags: u32) -> ::windows::core::Result<u64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUI8FromStr(strin: ::windows::core::PCWSTR, lcid: u32, dwflags: u32, pi64out: *mut u64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-        VarUI8FromStr(strin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUI8FromStr(strin: ::windows::core::PCWSTR, lcid: u32, dwflags: u32, pi64out: *mut u64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
+    VarUI8FromStr(strin.into_param().abi(), ::core::mem::transmute(lcid), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI8FromUI1(bin: u8) -> ::windows::core::Result<u64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUI8FromUI1(bin: u8, pi64out: *mut u64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-        VarUI8FromUI1(::core::mem::transmute(bin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUI8FromUI1(bin: u8, pi64out: *mut u64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
+    VarUI8FromUI1(::core::mem::transmute(bin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI8FromUI2(uiin: u16) -> ::windows::core::Result<u64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUI8FromUI2(uiin: u16, pi64out: *mut u64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-        VarUI8FromUI2(::core::mem::transmute(uiin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUI8FromUI2(uiin: u16, pi64out: *mut u64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
+    VarUI8FromUI2(::core::mem::transmute(uiin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VarUI8FromUI4(ulin: u32) -> ::windows::core::Result<u64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUI8FromUI4(ulin: u32, pi64out: *mut u64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-        VarUI8FromUI4(::core::mem::transmute(ulin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUI8FromUI4(ulin: u32, pi64out: *mut u64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
+    VarUI8FromUI4(::core::mem::transmute(ulin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarUdateFromDate(datein: f64, dwflags: u32) -> ::windows::core::Result<UDATE> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarUdateFromDate(datein: f64, dwflags: u32, pudateout: *mut UDATE) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<UDATE>::zeroed();
-        VarUdateFromDate(::core::mem::transmute(datein), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UDATE>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarUdateFromDate(datein: f64, dwflags: u32, pudateout: *mut UDATE) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<UDATE>::zeroed();
+    VarUdateFromDate(::core::mem::transmute(datein), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UDATE>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VarWeekdayName(iweekday: i32, fabbrev: i32, ifirstday: i32, dwflags: u32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarWeekdayName(iweekday: i32, fabbrev: i32, ifirstday: i32, dwflags: u32, pbstrout: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        VarWeekdayName(::core::mem::transmute(iweekday), ::core::mem::transmute(fabbrev), ::core::mem::transmute(ifirstday), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarWeekdayName(iweekday: i32, fabbrev: i32, ifirstday: i32, dwflags: u32, pbstrout: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
+    VarWeekdayName(::core::mem::transmute(iweekday), ::core::mem::transmute(fabbrev), ::core::mem::transmute(ifirstday), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VarXor(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VarXor(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
-        VarXor(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarXor(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
+    VarXor(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VariantChangeType(pvargdest: *mut super::Com::VARIANT, pvarsrc: *const super::Com::VARIANT, wflags: u16, vt: u16) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantChangeType(pvargdest: *mut super::Com::VARIANT, pvarsrc: *const super::Com::VARIANT, wflags: u16, vt: u16) -> ::windows::core::HRESULT;
-        }
-        VariantChangeType(::core::mem::transmute(pvargdest), ::core::mem::transmute(pvarsrc), ::core::mem::transmute(wflags), ::core::mem::transmute(vt)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantChangeType(pvargdest: *mut super::Com::VARIANT, pvarsrc: *const super::Com::VARIANT, wflags: u16, vt: u16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    VariantChangeType(::core::mem::transmute(pvargdest), ::core::mem::transmute(pvarsrc), ::core::mem::transmute(wflags), ::core::mem::transmute(vt)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VariantChangeTypeEx(pvargdest: *mut super::Com::VARIANT, pvarsrc: *const super::Com::VARIANT, lcid: u32, wflags: u16, vt: u16) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantChangeTypeEx(pvargdest: *mut super::Com::VARIANT, pvarsrc: *const super::Com::VARIANT, lcid: u32, wflags: u16, vt: u16) -> ::windows::core::HRESULT;
-        }
-        VariantChangeTypeEx(::core::mem::transmute(pvargdest), ::core::mem::transmute(pvarsrc), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(vt)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantChangeTypeEx(pvargdest: *mut super::Com::VARIANT, pvarsrc: *const super::Com::VARIANT, lcid: u32, wflags: u16, vt: u16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    VariantChangeTypeEx(::core::mem::transmute(pvargdest), ::core::mem::transmute(pvarsrc), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(vt)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VariantClear(pvarg: *mut super::Com::VARIANT) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantClear(pvarg: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
-        }
-        VariantClear(::core::mem::transmute(pvarg)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantClear(pvarg: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    VariantClear(::core::mem::transmute(pvarg)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VariantCopy(pvargdest: *mut super::Com::VARIANT, pvargsrc: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantCopy(pvargdest: *mut super::Com::VARIANT, pvargsrc: *const super::Com::VARIANT) -> ::windows::core::HRESULT;
-        }
-        VariantCopy(::core::mem::transmute(pvargdest), ::core::mem::transmute(pvargsrc)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantCopy(pvargdest: *mut super::Com::VARIANT, pvargsrc: *const super::Com::VARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    VariantCopy(::core::mem::transmute(pvargdest), ::core::mem::transmute(pvargsrc)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VariantCopyInd(pvardest: *mut super::Com::VARIANT, pvargsrc: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantCopyInd(pvardest: *mut super::Com::VARIANT, pvargsrc: *const super::Com::VARIANT) -> ::windows::core::HRESULT;
-        }
-        VariantCopyInd(::core::mem::transmute(pvardest), ::core::mem::transmute(pvargsrc)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantCopyInd(pvardest: *mut super::Com::VARIANT, pvargsrc: *const super::Com::VARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    VariantCopyInd(::core::mem::transmute(pvardest), ::core::mem::transmute(pvargsrc)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VariantInit(pvarg: *mut super::Com::VARIANT) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantInit(pvarg: *mut super::Com::VARIANT);
-        }
-        VariantInit(::core::mem::transmute(pvarg))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantInit(pvarg: *mut super::Com::VARIANT);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    VariantInit(::core::mem::transmute(pvarg))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
 pub unsafe fn VariantTimeToDosDateTime(vtime: f64, pwdosdate: *mut u16, pwdostime: *mut u16) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantTimeToDosDateTime(vtime: f64, pwdosdate: *mut u16, pwdostime: *mut u16) -> i32;
-        }
-        ::core::mem::transmute(VariantTimeToDosDateTime(::core::mem::transmute(vtime), ::core::mem::transmute(pwdosdate), ::core::mem::transmute(pwdostime)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantTimeToDosDateTime(vtime: f64, pwdosdate: *mut u16, pwdostime: *mut u16) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(VariantTimeToDosDateTime(::core::mem::transmute(vtime), ::core::mem::transmute(pwdosdate), ::core::mem::transmute(pwdostime)))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VariantTimeToSystemTime(vtime: f64, lpsystemtime: *mut super::super::Foundation::SYSTEMTIME) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VariantTimeToSystemTime(vtime: f64, lpsystemtime: *mut super::super::Foundation::SYSTEMTIME) -> i32;
-        }
-        ::core::mem::transmute(VariantTimeToSystemTime(::core::mem::transmute(vtime), ::core::mem::transmute(lpsystemtime)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VariantTimeToSystemTime(vtime: f64, lpsystemtime: *mut super::super::Foundation::SYSTEMTIME) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(VariantTimeToSystemTime(::core::mem::transmute(vtime), ::core::mem::transmute(lpsystemtime)))
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn VectorFromBstr<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(bstr: Param0) -> ::windows::core::Result<*mut super::Com::SAFEARRAY> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VectorFromBstr(bstr: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppsa: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut super::Com::SAFEARRAY>::zeroed();
-        VectorFromBstr(bstr.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::Com::SAFEARRAY>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VectorFromBstr(bstr: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppsa: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut super::Com::SAFEARRAY>::zeroed();
+    VectorFromBstr(bstr.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::Com::SAFEARRAY>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const WIN32: u32 = 100u32;

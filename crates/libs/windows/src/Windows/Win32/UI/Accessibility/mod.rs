@@ -95,31 +95,21 @@ pub const ANRUS_PRIORITY_AUDIO_DYNAMIC_DUCK: u32 = 16u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AccNotifyTouchInteraction<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::POINT>>(hwndapp: Param0, hwndtarget: Param1, pttarget: Param2) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AccNotifyTouchInteraction(hwndapp: super::super::Foundation::HWND, hwndtarget: super::super::Foundation::HWND, pttarget: super::super::Foundation::POINT) -> ::windows::core::HRESULT;
-        }
-        AccNotifyTouchInteraction(hwndapp.into_param().abi(), hwndtarget.into_param().abi(), pttarget.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AccNotifyTouchInteraction(hwndapp: super::super::Foundation::HWND, hwndtarget: super::super::Foundation::HWND, pttarget: super::super::Foundation::POINT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    AccNotifyTouchInteraction(hwndapp.into_param().abi(), hwndtarget.into_param().abi(), pttarget.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AccSetRunningUtilityState<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwndapp: Param0, dwutilitystatemask: u32, dwutilitystate: ACC_UTILITY_STATE_FLAGS) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AccSetRunningUtilityState(hwndapp: super::super::Foundation::HWND, dwutilitystatemask: u32, dwutilitystate: ACC_UTILITY_STATE_FLAGS) -> ::windows::core::HRESULT;
-        }
-        AccSetRunningUtilityState(hwndapp.into_param().abi(), ::core::mem::transmute(dwutilitystatemask), ::core::mem::transmute(dwutilitystate)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AccSetRunningUtilityState(hwndapp: super::super::Foundation::HWND, dwutilitystatemask: u32, dwutilitystate: ACC_UTILITY_STATE_FLAGS) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    AccSetRunningUtilityState(hwndapp.into_param().abi(), ::core::mem::transmute(dwutilitystatemask), ::core::mem::transmute(dwutilitystate)).ok()
 }
 pub const AcceleratorKey_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x514865df_2557_4cb9_aeed_6ced084ce52c);
 pub const AccessKey_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x06827b12_a7f9_4a15_917c_ffa5ad3eb0a7);
@@ -127,61 +117,41 @@ pub const AccessKey_Property_GUID: ::windows::core::GUID = ::windows::core::GUID
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn AccessibleChildren<'a, Param0: ::windows::core::IntoParam<'a, IAccessible>>(pacccontainer: Param0, ichildstart: i32, rgvarchildren: &mut [super::super::System::Com::VARIANT], pcobtained: *mut i32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AccessibleChildren(pacccontainer: *mut ::core::ffi::c_void, ichildstart: i32, cchildren: i32, rgvarchildren: *mut super::super::System::Com::VARIANT, pcobtained: *mut i32) -> ::windows::core::HRESULT;
-        }
-        AccessibleChildren(pacccontainer.into_param().abi(), ::core::mem::transmute(ichildstart), rgvarchildren.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgvarchildren)), ::core::mem::transmute(pcobtained)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AccessibleChildren(pacccontainer: *mut ::core::ffi::c_void, ichildstart: i32, cchildren: i32, rgvarchildren: *mut super::super::System::Com::VARIANT, pcobtained: *mut i32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    AccessibleChildren(pacccontainer.into_param().abi(), ::core::mem::transmute(ichildstart), rgvarchildren.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgvarchildren)), ::core::mem::transmute(pcobtained)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn AccessibleObjectFromEvent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, dwid: u32, dwchildid: u32, ppacc: *mut ::core::option::Option<IAccessible>, pvarchild: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AccessibleObjectFromEvent(hwnd: super::super::Foundation::HWND, dwid: u32, dwchildid: u32, ppacc: *mut *mut ::core::ffi::c_void, pvarchild: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
-        }
-        AccessibleObjectFromEvent(hwnd.into_param().abi(), ::core::mem::transmute(dwid), ::core::mem::transmute(dwchildid), ::core::mem::transmute(ppacc), ::core::mem::transmute(pvarchild)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AccessibleObjectFromEvent(hwnd: super::super::Foundation::HWND, dwid: u32, dwchildid: u32, ppacc: *mut *mut ::core::ffi::c_void, pvarchild: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    AccessibleObjectFromEvent(hwnd.into_param().abi(), ::core::mem::transmute(dwid), ::core::mem::transmute(dwchildid), ::core::mem::transmute(ppacc), ::core::mem::transmute(pvarchild)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn AccessibleObjectFromPoint<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::POINT>>(ptscreen: Param0, ppacc: *mut ::core::option::Option<IAccessible>, pvarchild: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AccessibleObjectFromPoint(ptscreen: super::super::Foundation::POINT, ppacc: *mut *mut ::core::ffi::c_void, pvarchild: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
-        }
-        AccessibleObjectFromPoint(ptscreen.into_param().abi(), ::core::mem::transmute(ppacc), ::core::mem::transmute(pvarchild)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AccessibleObjectFromPoint(ptscreen: super::super::Foundation::POINT, ppacc: *mut *mut ::core::ffi::c_void, pvarchild: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    AccessibleObjectFromPoint(ptscreen.into_param().abi(), ::core::mem::transmute(ppacc), ::core::mem::transmute(pvarchild)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AccessibleObjectFromWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, dwid: u32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AccessibleObjectFromWindow(hwnd: super::super::Foundation::HWND, dwid: u32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        AccessibleObjectFromWindow(hwnd.into_param().abi(), ::core::mem::transmute(dwid), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AccessibleObjectFromWindow(hwnd: super::super::Foundation::HWND, dwid: u32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    AccessibleObjectFromWindow(hwnd.into_param().abi(), ::core::mem::transmute(dwid), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
@@ -708,46 +678,31 @@ pub const ControllerFor_Property_GUID: ::windows::core::GUID = ::windows::core::
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateStdAccessibleObject<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, idobject: i32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateStdAccessibleObject(hwnd: super::super::Foundation::HWND, idobject: i32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        CreateStdAccessibleObject(hwnd.into_param().abi(), ::core::mem::transmute(idobject), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateStdAccessibleObject(hwnd: super::super::Foundation::HWND, idobject: i32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CreateStdAccessibleObject(hwnd.into_param().abi(), ::core::mem::transmute(idobject), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateStdAccessibleProxyA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hwnd: Param0, pclassname: Param1, idobject: i32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateStdAccessibleProxyA(hwnd: super::super::Foundation::HWND, pclassname: ::windows::core::PCSTR, idobject: i32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        CreateStdAccessibleProxyA(hwnd.into_param().abi(), pclassname.into_param().abi(), ::core::mem::transmute(idobject), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateStdAccessibleProxyA(hwnd: super::super::Foundation::HWND, pclassname: ::windows::core::PCSTR, idobject: i32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CreateStdAccessibleProxyA(hwnd.into_param().abi(), pclassname.into_param().abi(), ::core::mem::transmute(idobject), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateStdAccessibleProxyW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hwnd: Param0, pclassname: Param1, idobject: i32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateStdAccessibleProxyW(hwnd: super::super::Foundation::HWND, pclassname: ::windows::core::PCWSTR, idobject: i32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        CreateStdAccessibleProxyW(hwnd.into_param().abi(), pclassname.into_param().abi(), ::core::mem::transmute(idobject), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateStdAccessibleProxyW(hwnd: super::super::Foundation::HWND, pclassname: ::windows::core::PCWSTR, idobject: i32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CreateStdAccessibleProxyW(hwnd.into_param().abi(), pclassname.into_param().abi(), ::core::mem::transmute(idobject), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
 }
 pub const Culture_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2d74f27_3d79_4dc2_b88b_3044963a8afb);
 pub const CustomNavigation_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xafea938a_621e_4054_bb2c_2f46114dac3f);
@@ -796,16 +751,11 @@ pub const DescribedBy_Property_GUID: ::windows::core::GUID = ::windows::core::GU
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn DockPattern_SetDockPosition<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0, dockposition: DockPosition) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DockPattern_SetDockPosition(hobj: HUIAPATTERNOBJECT, dockposition: DockPosition) -> ::windows::core::HRESULT;
-        }
-        DockPattern_SetDockPosition(hobj.into_param().abi(), ::core::mem::transmute(dockposition)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DockPattern_SetDockPosition(hobj: HUIAPATTERNOBJECT, dockposition: DockPosition) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DockPattern_SetDockPosition(hobj.into_param().abi(), ::core::mem::transmute(dockposition)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
@@ -906,30 +856,20 @@ impl ::core::fmt::Debug for EventArgsType {
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn ExpandCollapsePattern_Collapse<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ExpandCollapsePattern_Collapse(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
-        }
-        ExpandCollapsePattern_Collapse(hobj.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ExpandCollapsePattern_Collapse(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ExpandCollapsePattern_Collapse(hobj.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn ExpandCollapsePattern_Expand<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ExpandCollapsePattern_Expand(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
-        }
-        ExpandCollapsePattern_Expand(hobj.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ExpandCollapsePattern_Expand(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ExpandCollapsePattern_Expand(hobj.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
@@ -1109,72 +1049,47 @@ pub const FullDescription_Property_GUID: ::windows::core::GUID = ::windows::core
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn GetOleaccVersionInfo(pver: *mut u32, pbuild: *mut u32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetOleaccVersionInfo(pver: *mut u32, pbuild: *mut u32);
-        }
-        GetOleaccVersionInfo(::core::mem::transmute(pver), ::core::mem::transmute(pbuild))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetOleaccVersionInfo(pver: *mut u32, pbuild: *mut u32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    GetOleaccVersionInfo(::core::mem::transmute(pver), ::core::mem::transmute(pbuild))
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn GetRoleTextA(lrole: u32, lpszrole: &mut [u8]) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetRoleTextA(lrole: u32, lpszrole: ::windows::core::PSTR, cchrolemax: u32) -> u32;
-        }
-        ::core::mem::transmute(GetRoleTextA(::core::mem::transmute(lrole), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszrole)), lpszrole.len() as _))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetRoleTextA(lrole: u32, lpszrole: ::windows::core::PSTR, cchrolemax: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetRoleTextA(::core::mem::transmute(lrole), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszrole)), lpszrole.len() as _))
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn GetRoleTextW(lrole: u32, lpszrole: &mut [u16]) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetRoleTextW(lrole: u32, lpszrole: ::windows::core::PWSTR, cchrolemax: u32) -> u32;
-        }
-        ::core::mem::transmute(GetRoleTextW(::core::mem::transmute(lrole), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszrole)), lpszrole.len() as _))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetRoleTextW(lrole: u32, lpszrole: ::windows::core::PWSTR, cchrolemax: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetRoleTextW(::core::mem::transmute(lrole), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszrole)), lpszrole.len() as _))
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn GetStateTextA(lstatebit: u32, lpszstate: &mut [u8]) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetStateTextA(lstatebit: u32, lpszstate: ::windows::core::PSTR, cchstate: u32) -> u32;
-        }
-        ::core::mem::transmute(GetStateTextA(::core::mem::transmute(lstatebit), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszstate)), lpszstate.len() as _))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetStateTextA(lstatebit: u32, lpszstate: ::windows::core::PSTR, cchstate: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetStateTextA(::core::mem::transmute(lstatebit), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszstate)), lpszstate.len() as _))
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn GetStateTextW(lstatebit: u32, lpszstate: &mut [u16]) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetStateTextW(lstatebit: u32, lpszstate: ::windows::core::PWSTR, cchstate: u32) -> u32;
-        }
-        ::core::mem::transmute(GetStateTextW(::core::mem::transmute(lstatebit), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszstate)), lpszstate.len() as _))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetStateTextW(lstatebit: u32, lpszstate: ::windows::core::PWSTR, cchstate: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetStateTextW(::core::mem::transmute(lstatebit), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszstate)), lpszstate.len() as _))
 }
 pub const GridItem_ColumnSpan_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x583ea3f5_86d0_4b08_a6ec_2c5463ffc109);
 pub const GridItem_Column_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc774c15c_62c0_4519_8bdc_47be573c8ad5);
@@ -1185,16 +1100,11 @@ pub const GridItem_Row_Property_GUID: ::windows::core::GUID = ::windows::core::G
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn GridPattern_GetItem<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0, row: i32, column: i32, presult: *mut HUIANODE) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GridPattern_GetItem(hobj: HUIAPATTERNOBJECT, row: i32, column: i32, presult: *mut HUIANODE) -> ::windows::core::HRESULT;
-        }
-        GridPattern_GetItem(hobj.into_param().abi(), ::core::mem::transmute(row), ::core::mem::transmute(column), ::core::mem::transmute(presult)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GridPattern_GetItem(hobj: HUIAPATTERNOBJECT, row: i32, column: i32, presult: *mut HUIANODE) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    GridPattern_GetItem(hobj.into_param().abi(), ::core::mem::transmute(row), ::core::mem::transmute(column), ::core::mem::transmute(presult)).ok()
 }
 pub const Grid_ColumnCount_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe96f375_44aa_4536_ac7a_2a75d71a3efc);
 pub const Grid_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x260a2ccb_93a8_4e44_a4c1_3df397f2b02b);
@@ -21965,16 +21875,11 @@ pub const InputReachedTarget_Event_GUID: ::windows::core::GUID = ::windows::core
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn InvokePattern_Invoke<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InvokePattern_Invoke(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
-        }
-        InvokePattern_Invoke(hobj.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InvokePattern_Invoke(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    InvokePattern_Invoke(hobj.into_param().abi()).ok()
 }
 pub const Invoke_Invoked_Event_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdfd699f0_c915_49dd_b422_dde785c3d24b);
 pub const Invoke_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd976c2fc_66ea_4a6e_b28f_c24c7546ad37);
@@ -22027,32 +21932,22 @@ pub const IsVirtualizedItemPatternAvailable_Property_GUID: ::windows::core::GUID
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsWinEventHookInstalled(event: u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn IsWinEventHookInstalled(event: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(IsWinEventHookInstalled(::core::mem::transmute(event)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn IsWinEventHookInstalled(event: u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(IsWinEventHookInstalled(::core::mem::transmute(event)))
 }
 pub const IsWindowPatternAvailable_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7a57bb1_5888_4155_98dc_b422fd57f2bc);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn ItemContainerPattern_FindItemByProperty<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>, Param1: ::windows::core::IntoParam<'a, HUIANODE>, Param3: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(hobj: Param0, hnodestartafter: Param1, propertyid: i32, value: Param3, pfound: *mut HUIANODE) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ItemContainerPattern_FindItemByProperty(hobj: HUIAPATTERNOBJECT, hnodestartafter: HUIANODE, propertyid: i32, value: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pfound: *mut HUIANODE) -> ::windows::core::HRESULT;
-        }
-        ItemContainerPattern_FindItemByProperty(hobj.into_param().abi(), hnodestartafter.into_param().abi(), ::core::mem::transmute(propertyid), value.into_param().abi(), ::core::mem::transmute(pfound)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ItemContainerPattern_FindItemByProperty(hobj: HUIAPATTERNOBJECT, hnodestartafter: HUIANODE, propertyid: i32, value: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pfound: *mut HUIANODE) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ItemContainerPattern_FindItemByProperty(hobj.into_param().abi(), hnodestartafter.into_param().abi(), ::core::mem::transmute(propertyid), value.into_param().abi(), ::core::mem::transmute(pfound)).ok()
 }
 pub const ItemContainer_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d13da0f_8b9a_4a99_85fa_c5c9a69f1ed4);
 pub const ItemStatus_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x51de0321_3973_43e7_8913_0b08e813c37f);
@@ -22082,60 +21977,40 @@ pub const LayoutInvalidated_Event_GUID: ::windows::core::GUID = ::windows::core:
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn LegacyIAccessiblePattern_DoDefaultAction<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LegacyIAccessiblePattern_DoDefaultAction(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
-        }
-        LegacyIAccessiblePattern_DoDefaultAction(hobj.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LegacyIAccessiblePattern_DoDefaultAction(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    LegacyIAccessiblePattern_DoDefaultAction(hobj.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn LegacyIAccessiblePattern_GetIAccessible<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0) -> ::windows::core::Result<IAccessible> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LegacyIAccessiblePattern_GetIAccessible(hobj: HUIAPATTERNOBJECT, paccessible: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        LegacyIAccessiblePattern_GetIAccessible(hobj.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAccessible>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LegacyIAccessiblePattern_GetIAccessible(hobj: HUIAPATTERNOBJECT, paccessible: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    LegacyIAccessiblePattern_GetIAccessible(hobj.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAccessible>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn LegacyIAccessiblePattern_Select<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0, flagsselect: i32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LegacyIAccessiblePattern_Select(hobj: HUIAPATTERNOBJECT, flagsselect: i32) -> ::windows::core::HRESULT;
-        }
-        LegacyIAccessiblePattern_Select(hobj.into_param().abi(), ::core::mem::transmute(flagsselect)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LegacyIAccessiblePattern_Select(hobj: HUIAPATTERNOBJECT, flagsselect: i32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    LegacyIAccessiblePattern_Select(hobj.into_param().abi(), ::core::mem::transmute(flagsselect)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn LegacyIAccessiblePattern_SetValue<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hobj: Param0, szvalue: Param1) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LegacyIAccessiblePattern_SetValue(hobj: HUIAPATTERNOBJECT, szvalue: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
-        }
-        LegacyIAccessiblePattern_SetValue(hobj.into_param().abi(), szvalue.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LegacyIAccessiblePattern_SetValue(hobj: HUIAPATTERNOBJECT, szvalue: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    LegacyIAccessiblePattern_SetValue(hobj.into_param().abi(), szvalue.into_param().abi()).ok()
 }
 pub const LegacyIAccessible_ChildId_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a191b5d_9ef2_4787_a459_dcde885dd4e8);
 pub const LegacyIAccessible_DefaultAction_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b331729_eaad_4502_b85f_92615622913c);
@@ -22188,16 +22063,11 @@ pub const LocalizedLandmarkType_Property_GUID: ::windows::core::GUID = ::windows
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LresultFromObject<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(riid: *const ::windows::core::GUID, wparam: Param1, punk: Param2) -> super::super::Foundation::LRESULT {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LresultFromObject(riid: *const ::windows::core::GUID, wparam: super::super::Foundation::WPARAM, punk: *mut ::core::ffi::c_void) -> super::super::Foundation::LRESULT;
-        }
-        ::core::mem::transmute(LresultFromObject(::core::mem::transmute(riid), wparam.into_param().abi(), punk.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LresultFromObject(riid: *const ::windows::core::GUID, wparam: super::super::Foundation::WPARAM, punk: *mut ::core::ffi::c_void) -> super::super::Foundation::LRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(LresultFromObject(::core::mem::transmute(riid), wparam.into_param().abi(), punk.into_param().abi()))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -22280,30 +22150,20 @@ pub const Menu_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MultipleViewPattern_GetViewName<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0, viewid: i32, ppstr: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MultipleViewPattern_GetViewName(hobj: HUIAPATTERNOBJECT, viewid: i32, ppstr: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
-        }
-        MultipleViewPattern_GetViewName(hobj.into_param().abi(), ::core::mem::transmute(viewid), ::core::mem::transmute(ppstr)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MultipleViewPattern_GetViewName(hobj: HUIAPATTERNOBJECT, viewid: i32, ppstr: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MultipleViewPattern_GetViewName(hobj.into_param().abi(), ::core::mem::transmute(viewid), ::core::mem::transmute(ppstr)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn MultipleViewPattern_SetCurrentView<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0, viewid: i32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MultipleViewPattern_SetCurrentView(hobj: HUIAPATTERNOBJECT, viewid: i32) -> ::windows::core::HRESULT;
-        }
-        MultipleViewPattern_SetCurrentView(hobj.into_param().abi(), ::core::mem::transmute(viewid)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MultipleViewPattern_SetCurrentView(hobj: HUIAPATTERNOBJECT, viewid: i32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MultipleViewPattern_SetCurrentView(hobj.into_param().abi(), ::core::mem::transmute(viewid)).ok()
 }
 pub const MultipleView_CurrentView_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a81a67a_b94f_4875_918b_65c8d2f998e5);
 pub const MultipleView_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x547a6ae4_113f_47c4_850f_db4dfa466b1d);
@@ -22463,31 +22323,21 @@ pub const Notification_Event_GUID: ::windows::core::GUID = ::windows::core::GUID
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NotifyWinEvent<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(event: u32, hwnd: Param1, idobject: i32, idchild: i32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn NotifyWinEvent(event: u32, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32);
-        }
-        NotifyWinEvent(::core::mem::transmute(event), hwnd.into_param().abi(), ::core::mem::transmute(idobject), ::core::mem::transmute(idchild))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NotifyWinEvent(event: u32, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    NotifyWinEvent(::core::mem::transmute(event), hwnd.into_param().abi(), ::core::mem::transmute(idobject), ::core::mem::transmute(idchild))
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ObjectFromLresult<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::LRESULT>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>>(lresult: Param0, riid: *const ::windows::core::GUID, wparam: Param2, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ObjectFromLresult(lresult: super::super::Foundation::LRESULT, riid: *const ::windows::core::GUID, wparam: super::super::Foundation::WPARAM, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        ObjectFromLresult(lresult.into_param().abi(), ::core::mem::transmute(riid), wparam.into_param().abi(), ::core::mem::transmute(ppvobject)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ObjectFromLresult(lresult: super::super::Foundation::LRESULT, riid: *const ::windows::core::GUID, wparam: super::super::Foundation::WPARAM, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ObjectFromLresult(lresult.into_param().abi(), ::core::mem::transmute(riid), wparam.into_param().abi(), ::core::mem::transmute(ppvobject)).ok()
 }
 pub const ObjectModel_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e04acfe_08fc_47ec_96bc_353fa3b34aa7);
 pub const OptimizeForVisualContent_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a852250_c75a_4e5d_b858_e381b0f78861);
@@ -22817,16 +22667,11 @@ pub const RadioButton_Control_GUID: ::windows::core::GUID = ::windows::core::GUI
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn RangeValuePattern_SetValue<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0, val: f64) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RangeValuePattern_SetValue(hobj: HUIAPATTERNOBJECT, val: f64) -> ::windows::core::HRESULT;
-        }
-        RangeValuePattern_SetValue(hobj.into_param().abi(), ::core::mem::transmute(val)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RangeValuePattern_SetValue(hobj: HUIAPATTERNOBJECT, val: f64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    RangeValuePattern_SetValue(hobj.into_param().abi(), ::core::mem::transmute(val)).ok()
 }
 pub const RangeValue_IsReadOnly_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25fa1055_debf_4373_a79e_1f1a1908d3c4);
 pub const RangeValue_LargeChange_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1f96325_3a3d_4b44_8e1f_4a46d9844019);
@@ -22839,31 +22684,21 @@ pub const RangeValue_Value_Property_GUID: ::windows::core::GUID = ::windows::cor
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn RegisterPointerInputTarget<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RegisterPointerInputTarget(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(RegisterPointerInputTarget(hwnd.into_param().abi(), ::core::mem::transmute(pointertype)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RegisterPointerInputTarget(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RegisterPointerInputTarget(hwnd.into_param().abi(), ::core::mem::transmute(pointertype)))
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn RegisterPointerInputTargetEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hwnd: Param0, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE, fobserve: Param2) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RegisterPointerInputTargetEx(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE, fobserve: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(RegisterPointerInputTargetEx(hwnd.into_param().abi(), ::core::mem::transmute(pointertype), fobserve.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RegisterPointerInputTargetEx(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE, fobserve: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RegisterPointerInputTargetEx(hwnd.into_param().abi(), ::core::mem::transmute(pointertype), fobserve.into_param().abi()))
 }
 pub const Rotation_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x767cdc7d_aec0_4110_ad32_30edd403492e);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -23547,45 +23382,30 @@ pub const ScrollBar_Control_GUID: ::windows::core::GUID = ::windows::core::GUID:
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn ScrollItemPattern_ScrollIntoView<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ScrollItemPattern_ScrollIntoView(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
-        }
-        ScrollItemPattern_ScrollIntoView(hobj.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ScrollItemPattern_ScrollIntoView(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ScrollItemPattern_ScrollIntoView(hobj.into_param().abi()).ok()
 }
 pub const ScrollItem_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4591d005_a803_4d5c_b4d5_8d2800f906a7);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn ScrollPattern_Scroll<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0, horizontalamount: ScrollAmount, verticalamount: ScrollAmount) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ScrollPattern_Scroll(hobj: HUIAPATTERNOBJECT, horizontalamount: ScrollAmount, verticalamount: ScrollAmount) -> ::windows::core::HRESULT;
-        }
-        ScrollPattern_Scroll(hobj.into_param().abi(), ::core::mem::transmute(horizontalamount), ::core::mem::transmute(verticalamount)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ScrollPattern_Scroll(hobj: HUIAPATTERNOBJECT, horizontalamount: ScrollAmount, verticalamount: ScrollAmount) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ScrollPattern_Scroll(hobj.into_param().abi(), ::core::mem::transmute(horizontalamount), ::core::mem::transmute(verticalamount)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn ScrollPattern_SetScrollPercent<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0, horizontalpercent: f64, verticalpercent: f64) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ScrollPattern_SetScrollPercent(hobj: HUIAPATTERNOBJECT, horizontalpercent: f64, verticalpercent: f64) -> ::windows::core::HRESULT;
-        }
-        ScrollPattern_SetScrollPercent(hobj.into_param().abi(), ::core::mem::transmute(horizontalpercent), ::core::mem::transmute(verticalpercent)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ScrollPattern_SetScrollPercent(hobj: HUIAPATTERNOBJECT, horizontalpercent: f64, verticalpercent: f64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ScrollPattern_SetScrollPercent(hobj.into_param().abi(), ::core::mem::transmute(horizontalpercent), ::core::mem::transmute(verticalpercent)).ok()
 }
 pub const Scroll_HorizontalScrollPercent_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc7c13c0e_eb21_47ff_acc4_b5a3350f5191);
 pub const Scroll_HorizontalViewSize_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70c2e5d4_fcb0_4713_a9aa_af92ff79e4cd);
@@ -23601,44 +23421,29 @@ pub const Selection2_LastSelectedItem_Property_GUID: ::windows::core::GUID = ::w
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn SelectionItemPattern_AddToSelection<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SelectionItemPattern_AddToSelection(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
-        }
-        SelectionItemPattern_AddToSelection(hobj.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SelectionItemPattern_AddToSelection(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SelectionItemPattern_AddToSelection(hobj.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn SelectionItemPattern_RemoveFromSelection<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SelectionItemPattern_RemoveFromSelection(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
-        }
-        SelectionItemPattern_RemoveFromSelection(hobj.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SelectionItemPattern_RemoveFromSelection(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SelectionItemPattern_RemoveFromSelection(hobj.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn SelectionItemPattern_Select<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SelectionItemPattern_Select(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
-        }
-        SelectionItemPattern_Select(hobj.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SelectionItemPattern_Select(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SelectionItemPattern_Select(hobj.into_param().abi()).ok()
 }
 pub const SelectionItem_ElementAddedToSelectionEvent_Event_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c822dd1_c407_4dba_91dd_79d4aed0aec6);
 pub const SelectionItem_ElementRemovedFromSelectionEvent_Event_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x097fa8a9_7079_41af_8b9c_0934d8305e5c);
@@ -23658,16 +23463,11 @@ pub const Separator_Control_GUID: ::windows::core::GUID = ::windows::core::GUID:
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetWinEventHook<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(eventmin: u32, eventmax: u32, hmodwineventproc: Param2, pfnwineventproc: WINEVENTPROC, idprocess: u32, idthread: u32, dwflags: u32) -> HWINEVENTHOOK {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetWinEventHook(eventmin: u32, eventmax: u32, hmodwineventproc: super::super::Foundation::HINSTANCE, pfnwineventproc: *mut ::core::ffi::c_void, idprocess: u32, idthread: u32, dwflags: u32) -> HWINEVENTHOOK;
-        }
-        ::core::mem::transmute(SetWinEventHook(::core::mem::transmute(eventmin), ::core::mem::transmute(eventmax), hmodwineventproc.into_param().abi(), ::core::mem::transmute(pfnwineventproc), ::core::mem::transmute(idprocess), ::core::mem::transmute(idthread), ::core::mem::transmute(dwflags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetWinEventHook(eventmin: u32, eventmax: u32, hmodwineventproc: super::super::Foundation::HINSTANCE, pfnwineventproc: *mut ::core::ffi::c_void, idprocess: u32, idthread: u32, dwflags: u32) -> HWINEVENTHOOK;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetWinEventHook(::core::mem::transmute(eventmin), ::core::mem::transmute(eventmax), hmodwineventproc.into_param().abi(), ::core::mem::transmute(pfnwineventproc), ::core::mem::transmute(idprocess), ::core::mem::transmute(idthread), ::core::mem::transmute(dwflags)))
 }
 pub const SizeOfSet_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1600d33c_3b9f_4369_9431_aa293f344cf1);
 pub const Size_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b5f761d_f885_4404_973f_9b1d98e36d8f);
@@ -23811,30 +23611,20 @@ impl ::core::fmt::Debug for SupportedTextSelection {
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn SynchronizedInputPattern_Cancel<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SynchronizedInputPattern_Cancel(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
-        }
-        SynchronizedInputPattern_Cancel(hobj.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SynchronizedInputPattern_Cancel(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SynchronizedInputPattern_Cancel(hobj.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn SynchronizedInputPattern_StartListening<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0, inputtype: SynchronizedInputType) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SynchronizedInputPattern_StartListening(hobj: HUIAPATTERNOBJECT, inputtype: SynchronizedInputType) -> ::windows::core::HRESULT;
-        }
-        SynchronizedInputPattern_StartListening(hobj.into_param().abi(), ::core::mem::transmute(inputtype)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SynchronizedInputPattern_StartListening(hobj: HUIAPATTERNOBJECT, inputtype: SynchronizedInputType) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SynchronizedInputPattern_StartListening(hobj.into_param().abi(), ::core::mem::transmute(inputtype)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
@@ -24043,347 +23833,227 @@ impl ::core::fmt::Debug for TextPatternRangeEndpoint {
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn TextPattern_GetSelection<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn TextPattern_GetSelection(hobj: HUIAPATTERNOBJECT, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT;
-        }
-        TextPattern_GetSelection(hobj.into_param().abi(), ::core::mem::transmute(pretval)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TextPattern_GetSelection(hobj: HUIAPATTERNOBJECT, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    TextPattern_GetSelection(hobj.into_param().abi(), ::core::mem::transmute(pretval)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn TextPattern_GetVisibleRanges<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn TextPattern_GetVisibleRanges(hobj: HUIAPATTERNOBJECT, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT;
-        }
-        TextPattern_GetVisibleRanges(hobj.into_param().abi(), ::core::mem::transmute(pretval)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TextPattern_GetVisibleRanges(hobj: HUIAPATTERNOBJECT, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    TextPattern_GetVisibleRanges(hobj.into_param().abi(), ::core::mem::transmute(pretval)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn TextPattern_RangeFromChild<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>, Param1: ::windows::core::IntoParam<'a, HUIANODE>>(hobj: Param0, hnodechild: Param1, pretval: *mut HUIATEXTRANGE) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn TextPattern_RangeFromChild(hobj: HUIAPATTERNOBJECT, hnodechild: HUIANODE, pretval: *mut HUIATEXTRANGE) -> ::windows::core::HRESULT;
-        }
-        TextPattern_RangeFromChild(hobj.into_param().abi(), hnodechild.into_param().abi(), ::core::mem::transmute(pretval)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TextPattern_RangeFromChild(hobj: HUIAPATTERNOBJECT, hnodechild: HUIANODE, pretval: *mut HUIATEXTRANGE) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    TextPattern_RangeFromChild(hobj.into_param().abi(), hnodechild.into_param().abi(), ::core::mem::transmute(pretval)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn TextPattern_RangeFromPoint<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>, Param1: ::windows::core::IntoParam<'a, UiaPoint>>(hobj: Param0, point: Param1, pretval: *mut HUIATEXTRANGE) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn TextPattern_RangeFromPoint(hobj: HUIAPATTERNOBJECT, point: UiaPoint, pretval: *mut HUIATEXTRANGE) -> ::windows::core::HRESULT;
-        }
-        TextPattern_RangeFromPoint(hobj.into_param().abi(), point.into_param().abi(), ::core::mem::transmute(pretval)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TextPattern_RangeFromPoint(hobj: HUIAPATTERNOBJECT, point: UiaPoint, pretval: *mut HUIATEXTRANGE) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    TextPattern_RangeFromPoint(hobj.into_param().abi(), point.into_param().abi(), ::core::mem::transmute(pretval)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn TextPattern_get_DocumentRange<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0, pretval: *mut HUIATEXTRANGE) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn TextPattern_get_DocumentRange(hobj: HUIAPATTERNOBJECT, pretval: *mut HUIATEXTRANGE) -> ::windows::core::HRESULT;
-        }
-        TextPattern_get_DocumentRange(hobj.into_param().abi(), ::core::mem::transmute(pretval)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TextPattern_get_DocumentRange(hobj: HUIAPATTERNOBJECT, pretval: *mut HUIATEXTRANGE) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    TextPattern_get_DocumentRange(hobj.into_param().abi(), ::core::mem::transmute(pretval)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn TextPattern_get_SupportedTextSelection<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0, pretval: *mut SupportedTextSelection) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn TextPattern_get_SupportedTextSelection(hobj: HUIAPATTERNOBJECT, pretval: *mut SupportedTextSelection) -> ::windows::core::HRESULT;
-        }
-        TextPattern_get_SupportedTextSelection(hobj.into_param().abi(), ::core::mem::transmute(pretval)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TextPattern_get_SupportedTextSelection(hobj: HUIAPATTERNOBJECT, pretval: *mut SupportedTextSelection) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    TextPattern_get_SupportedTextSelection(hobj.into_param().abi(), ::core::mem::transmute(pretval)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn TextRange_AddToSelection<'a, Param0: ::windows::core::IntoParam<'a, HUIATEXTRANGE>>(hobj: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn TextRange_AddToSelection(hobj: HUIATEXTRANGE) -> ::windows::core::HRESULT;
-        }
-        TextRange_AddToSelection(hobj.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TextRange_AddToSelection(hobj: HUIATEXTRANGE) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    TextRange_AddToSelection(hobj.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn TextRange_Clone<'a, Param0: ::windows::core::IntoParam<'a, HUIATEXTRANGE>>(hobj: Param0, pretval: *mut HUIATEXTRANGE) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn TextRange_Clone(hobj: HUIATEXTRANGE, pretval: *mut HUIATEXTRANGE) -> ::windows::core::HRESULT;
-        }
-        TextRange_Clone(hobj.into_param().abi(), ::core::mem::transmute(pretval)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TextRange_Clone(hobj: HUIATEXTRANGE, pretval: *mut HUIATEXTRANGE) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    TextRange_Clone(hobj.into_param().abi(), ::core::mem::transmute(pretval)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TextRange_Compare<'a, Param0: ::windows::core::IntoParam<'a, HUIATEXTRANGE>, Param1: ::windows::core::IntoParam<'a, HUIATEXTRANGE>>(hobj: Param0, range: Param1, pretval: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn TextRange_Compare(hobj: HUIATEXTRANGE, range: HUIATEXTRANGE, pretval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
-        }
-        TextRange_Compare(hobj.into_param().abi(), range.into_param().abi(), ::core::mem::transmute(pretval)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TextRange_Compare(hobj: HUIATEXTRANGE, range: HUIATEXTRANGE, pretval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    TextRange_Compare(hobj.into_param().abi(), range.into_param().abi(), ::core::mem::transmute(pretval)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn TextRange_CompareEndpoints<'a, Param0: ::windows::core::IntoParam<'a, HUIATEXTRANGE>, Param2: ::windows::core::IntoParam<'a, HUIATEXTRANGE>>(hobj: Param0, endpoint: TextPatternRangeEndpoint, targetrange: Param2, targetendpoint: TextPatternRangeEndpoint, pretval: *mut i32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn TextRange_CompareEndpoints(hobj: HUIATEXTRANGE, endpoint: TextPatternRangeEndpoint, targetrange: HUIATEXTRANGE, targetendpoint: TextPatternRangeEndpoint, pretval: *mut i32) -> ::windows::core::HRESULT;
-        }
-        TextRange_CompareEndpoints(hobj.into_param().abi(), ::core::mem::transmute(endpoint), targetrange.into_param().abi(), ::core::mem::transmute(targetendpoint), ::core::mem::transmute(pretval)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TextRange_CompareEndpoints(hobj: HUIATEXTRANGE, endpoint: TextPatternRangeEndpoint, targetrange: HUIATEXTRANGE, targetendpoint: TextPatternRangeEndpoint, pretval: *mut i32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    TextRange_CompareEndpoints(hobj.into_param().abi(), ::core::mem::transmute(endpoint), targetrange.into_param().abi(), ::core::mem::transmute(targetendpoint), ::core::mem::transmute(pretval)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn TextRange_ExpandToEnclosingUnit<'a, Param0: ::windows::core::IntoParam<'a, HUIATEXTRANGE>>(hobj: Param0, unit: TextUnit) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn TextRange_ExpandToEnclosingUnit(hobj: HUIATEXTRANGE, unit: TextUnit) -> ::windows::core::HRESULT;
-        }
-        TextRange_ExpandToEnclosingUnit(hobj.into_param().abi(), ::core::mem::transmute(unit)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TextRange_ExpandToEnclosingUnit(hobj: HUIATEXTRANGE, unit: TextUnit) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    TextRange_ExpandToEnclosingUnit(hobj.into_param().abi(), ::core::mem::transmute(unit)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn TextRange_FindAttribute<'a, Param0: ::windows::core::IntoParam<'a, HUIATEXTRANGE>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hobj: Param0, attributeid: i32, val: Param2, backward: Param3, pretval: *mut HUIATEXTRANGE) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn TextRange_FindAttribute(hobj: HUIATEXTRANGE, attributeid: i32, val: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, backward: super::super::Foundation::BOOL, pretval: *mut HUIATEXTRANGE) -> ::windows::core::HRESULT;
-        }
-        TextRange_FindAttribute(hobj.into_param().abi(), ::core::mem::transmute(attributeid), val.into_param().abi(), backward.into_param().abi(), ::core::mem::transmute(pretval)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TextRange_FindAttribute(hobj: HUIATEXTRANGE, attributeid: i32, val: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, backward: super::super::Foundation::BOOL, pretval: *mut HUIATEXTRANGE) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    TextRange_FindAttribute(hobj.into_param().abi(), ::core::mem::transmute(attributeid), val.into_param().abi(), backward.into_param().abi(), ::core::mem::transmute(pretval)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TextRange_FindText<'a, Param0: ::windows::core::IntoParam<'a, HUIATEXTRANGE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hobj: Param0, text: Param1, backward: Param2, ignorecase: Param3, pretval: *mut HUIATEXTRANGE) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn TextRange_FindText(hobj: HUIATEXTRANGE, text: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, backward: super::super::Foundation::BOOL, ignorecase: super::super::Foundation::BOOL, pretval: *mut HUIATEXTRANGE) -> ::windows::core::HRESULT;
-        }
-        TextRange_FindText(hobj.into_param().abi(), text.into_param().abi(), backward.into_param().abi(), ignorecase.into_param().abi(), ::core::mem::transmute(pretval)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TextRange_FindText(hobj: HUIATEXTRANGE, text: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, backward: super::super::Foundation::BOOL, ignorecase: super::super::Foundation::BOOL, pretval: *mut HUIATEXTRANGE) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    TextRange_FindText(hobj.into_param().abi(), text.into_param().abi(), backward.into_param().abi(), ignorecase.into_param().abi(), ::core::mem::transmute(pretval)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn TextRange_GetAttributeValue<'a, Param0: ::windows::core::IntoParam<'a, HUIATEXTRANGE>>(hobj: Param0, attributeid: i32, pretval: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn TextRange_GetAttributeValue(hobj: HUIATEXTRANGE, attributeid: i32, pretval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
-        }
-        TextRange_GetAttributeValue(hobj.into_param().abi(), ::core::mem::transmute(attributeid), ::core::mem::transmute(pretval)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TextRange_GetAttributeValue(hobj: HUIATEXTRANGE, attributeid: i32, pretval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    TextRange_GetAttributeValue(hobj.into_param().abi(), ::core::mem::transmute(attributeid), ::core::mem::transmute(pretval)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn TextRange_GetBoundingRectangles<'a, Param0: ::windows::core::IntoParam<'a, HUIATEXTRANGE>>(hobj: Param0, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn TextRange_GetBoundingRectangles(hobj: HUIATEXTRANGE, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT;
-        }
-        TextRange_GetBoundingRectangles(hobj.into_param().abi(), ::core::mem::transmute(pretval)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TextRange_GetBoundingRectangles(hobj: HUIATEXTRANGE, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    TextRange_GetBoundingRectangles(hobj.into_param().abi(), ::core::mem::transmute(pretval)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn TextRange_GetChildren<'a, Param0: ::windows::core::IntoParam<'a, HUIATEXTRANGE>>(hobj: Param0, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn TextRange_GetChildren(hobj: HUIATEXTRANGE, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT;
-        }
-        TextRange_GetChildren(hobj.into_param().abi(), ::core::mem::transmute(pretval)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TextRange_GetChildren(hobj: HUIATEXTRANGE, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    TextRange_GetChildren(hobj.into_param().abi(), ::core::mem::transmute(pretval)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn TextRange_GetEnclosingElement<'a, Param0: ::windows::core::IntoParam<'a, HUIATEXTRANGE>>(hobj: Param0, pretval: *mut HUIANODE) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn TextRange_GetEnclosingElement(hobj: HUIATEXTRANGE, pretval: *mut HUIANODE) -> ::windows::core::HRESULT;
-        }
-        TextRange_GetEnclosingElement(hobj.into_param().abi(), ::core::mem::transmute(pretval)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TextRange_GetEnclosingElement(hobj: HUIATEXTRANGE, pretval: *mut HUIANODE) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    TextRange_GetEnclosingElement(hobj.into_param().abi(), ::core::mem::transmute(pretval)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TextRange_GetText<'a, Param0: ::windows::core::IntoParam<'a, HUIATEXTRANGE>>(hobj: Param0, maxlength: i32, pretval: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn TextRange_GetText(hobj: HUIATEXTRANGE, maxlength: i32, pretval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
-        }
-        TextRange_GetText(hobj.into_param().abi(), ::core::mem::transmute(maxlength), ::core::mem::transmute(pretval)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TextRange_GetText(hobj: HUIATEXTRANGE, maxlength: i32, pretval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    TextRange_GetText(hobj.into_param().abi(), ::core::mem::transmute(maxlength), ::core::mem::transmute(pretval)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn TextRange_Move<'a, Param0: ::windows::core::IntoParam<'a, HUIATEXTRANGE>>(hobj: Param0, unit: TextUnit, count: i32, pretval: *mut i32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn TextRange_Move(hobj: HUIATEXTRANGE, unit: TextUnit, count: i32, pretval: *mut i32) -> ::windows::core::HRESULT;
-        }
-        TextRange_Move(hobj.into_param().abi(), ::core::mem::transmute(unit), ::core::mem::transmute(count), ::core::mem::transmute(pretval)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TextRange_Move(hobj: HUIATEXTRANGE, unit: TextUnit, count: i32, pretval: *mut i32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    TextRange_Move(hobj.into_param().abi(), ::core::mem::transmute(unit), ::core::mem::transmute(count), ::core::mem::transmute(pretval)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn TextRange_MoveEndpointByRange<'a, Param0: ::windows::core::IntoParam<'a, HUIATEXTRANGE>, Param2: ::windows::core::IntoParam<'a, HUIATEXTRANGE>>(hobj: Param0, endpoint: TextPatternRangeEndpoint, targetrange: Param2, targetendpoint: TextPatternRangeEndpoint) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn TextRange_MoveEndpointByRange(hobj: HUIATEXTRANGE, endpoint: TextPatternRangeEndpoint, targetrange: HUIATEXTRANGE, targetendpoint: TextPatternRangeEndpoint) -> ::windows::core::HRESULT;
-        }
-        TextRange_MoveEndpointByRange(hobj.into_param().abi(), ::core::mem::transmute(endpoint), targetrange.into_param().abi(), ::core::mem::transmute(targetendpoint)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TextRange_MoveEndpointByRange(hobj: HUIATEXTRANGE, endpoint: TextPatternRangeEndpoint, targetrange: HUIATEXTRANGE, targetendpoint: TextPatternRangeEndpoint) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    TextRange_MoveEndpointByRange(hobj.into_param().abi(), ::core::mem::transmute(endpoint), targetrange.into_param().abi(), ::core::mem::transmute(targetendpoint)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn TextRange_MoveEndpointByUnit<'a, Param0: ::windows::core::IntoParam<'a, HUIATEXTRANGE>>(hobj: Param0, endpoint: TextPatternRangeEndpoint, unit: TextUnit, count: i32, pretval: *mut i32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn TextRange_MoveEndpointByUnit(hobj: HUIATEXTRANGE, endpoint: TextPatternRangeEndpoint, unit: TextUnit, count: i32, pretval: *mut i32) -> ::windows::core::HRESULT;
-        }
-        TextRange_MoveEndpointByUnit(hobj.into_param().abi(), ::core::mem::transmute(endpoint), ::core::mem::transmute(unit), ::core::mem::transmute(count), ::core::mem::transmute(pretval)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TextRange_MoveEndpointByUnit(hobj: HUIATEXTRANGE, endpoint: TextPatternRangeEndpoint, unit: TextUnit, count: i32, pretval: *mut i32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    TextRange_MoveEndpointByUnit(hobj.into_param().abi(), ::core::mem::transmute(endpoint), ::core::mem::transmute(unit), ::core::mem::transmute(count), ::core::mem::transmute(pretval)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn TextRange_RemoveFromSelection<'a, Param0: ::windows::core::IntoParam<'a, HUIATEXTRANGE>>(hobj: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn TextRange_RemoveFromSelection(hobj: HUIATEXTRANGE) -> ::windows::core::HRESULT;
-        }
-        TextRange_RemoveFromSelection(hobj.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TextRange_RemoveFromSelection(hobj: HUIATEXTRANGE) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    TextRange_RemoveFromSelection(hobj.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TextRange_ScrollIntoView<'a, Param0: ::windows::core::IntoParam<'a, HUIATEXTRANGE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hobj: Param0, aligntotop: Param1) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn TextRange_ScrollIntoView(hobj: HUIATEXTRANGE, aligntotop: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
-        }
-        TextRange_ScrollIntoView(hobj.into_param().abi(), aligntotop.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TextRange_ScrollIntoView(hobj: HUIATEXTRANGE, aligntotop: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    TextRange_ScrollIntoView(hobj.into_param().abi(), aligntotop.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn TextRange_Select<'a, Param0: ::windows::core::IntoParam<'a, HUIATEXTRANGE>>(hobj: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn TextRange_Select(hobj: HUIATEXTRANGE) -> ::windows::core::HRESULT;
-        }
-        TextRange_Select(hobj.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TextRange_Select(hobj: HUIATEXTRANGE) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    TextRange_Select(hobj.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
@@ -24478,16 +24148,11 @@ pub const TitleBar_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn TogglePattern_Toggle<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn TogglePattern_Toggle(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
-        }
-        TogglePattern_Toggle(hobj.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TogglePattern_Toggle(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    TogglePattern_Toggle(hobj.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
@@ -24532,44 +24197,29 @@ pub const Transform2_ZoomMinimum_Property_GUID: ::windows::core::GUID = ::window
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn TransformPattern_Move<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0, x: f64, y: f64) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn TransformPattern_Move(hobj: HUIAPATTERNOBJECT, x: f64, y: f64) -> ::windows::core::HRESULT;
-        }
-        TransformPattern_Move(hobj.into_param().abi(), ::core::mem::transmute(x), ::core::mem::transmute(y)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TransformPattern_Move(hobj: HUIAPATTERNOBJECT, x: f64, y: f64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    TransformPattern_Move(hobj.into_param().abi(), ::core::mem::transmute(x), ::core::mem::transmute(y)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn TransformPattern_Resize<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0, width: f64, height: f64) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn TransformPattern_Resize(hobj: HUIAPATTERNOBJECT, width: f64, height: f64) -> ::windows::core::HRESULT;
-        }
-        TransformPattern_Resize(hobj.into_param().abi(), ::core::mem::transmute(width), ::core::mem::transmute(height)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TransformPattern_Resize(hobj: HUIAPATTERNOBJECT, width: f64, height: f64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    TransformPattern_Resize(hobj.into_param().abi(), ::core::mem::transmute(width), ::core::mem::transmute(height)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn TransformPattern_Rotate<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0, degrees: f64) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn TransformPattern_Rotate(hobj: HUIAPATTERNOBJECT, degrees: f64) -> ::windows::core::HRESULT;
-        }
-        TransformPattern_Rotate(hobj.into_param().abi(), ::core::mem::transmute(degrees)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TransformPattern_Rotate(hobj: HUIAPATTERNOBJECT, degrees: f64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    TransformPattern_Rotate(hobj.into_param().abi(), ::core::mem::transmute(degrees)).ok()
 }
 pub const Transform_CanMove_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b75824d_208b_4fdf_bccd_f1f4e5741f4f);
 pub const Transform_CanResize_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb98dca5_4c1a_41d4_a4f6_ebc128644180);
@@ -25639,16 +25289,11 @@ impl ::core::fmt::Debug for UIAutomationType {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn UiaAddEvent<'a, Param0: ::windows::core::IntoParam<'a, HUIANODE>>(hnode: Param0, eventid: i32, pcallback: *mut UiaEventCallback, scope: TreeScope, pproperties: *mut i32, cproperties: i32, prequest: *mut UiaCacheRequest, phevent: *mut HUIAEVENT) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UiaAddEvent(hnode: HUIANODE, eventid: i32, pcallback: *mut *mut ::core::ffi::c_void, scope: TreeScope, pproperties: *mut i32, cproperties: i32, prequest: *mut UiaCacheRequest, phevent: *mut HUIAEVENT) -> ::windows::core::HRESULT;
-        }
-        UiaAddEvent(hnode.into_param().abi(), ::core::mem::transmute(eventid), ::core::mem::transmute(pcallback), ::core::mem::transmute(scope), ::core::mem::transmute(pproperties), ::core::mem::transmute(cproperties), ::core::mem::transmute(prequest), ::core::mem::transmute(phevent)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaAddEvent(hnode: HUIANODE, eventid: i32, pcallback: *mut *mut ::core::ffi::c_void, scope: TreeScope, pproperties: *mut i32, cproperties: i32, prequest: *mut UiaCacheRequest, phevent: *mut HUIAEVENT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    UiaAddEvent(hnode.into_param().abi(), ::core::mem::transmute(eventid), ::core::mem::transmute(pcallback), ::core::mem::transmute(scope), ::core::mem::transmute(pproperties), ::core::mem::transmute(cproperties), ::core::mem::transmute(prequest), ::core::mem::transmute(phevent)).ok()
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -25830,16 +25475,11 @@ impl ::core::default::Default for UiaChangesEventArgs {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UiaClientsAreListening() -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UiaClientsAreListening() -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(UiaClientsAreListening())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaClientsAreListening() -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(UiaClientsAreListening())
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -25874,45 +25514,30 @@ impl ::core::default::Default for UiaCondition {
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn UiaDisconnectAllProviders() -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UiaDisconnectAllProviders() -> ::windows::core::HRESULT;
-        }
-        UiaDisconnectAllProviders().ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaDisconnectAllProviders() -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    UiaDisconnectAllProviders().ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn UiaDisconnectProvider<'a, Param0: ::windows::core::IntoParam<'a, IRawElementProviderSimple>>(pprovider: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UiaDisconnectProvider(pprovider: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        UiaDisconnectProvider(pprovider.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaDisconnectProvider(pprovider: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    UiaDisconnectProvider(pprovider.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UiaEventAddWindow<'a, Param0: ::windows::core::IntoParam<'a, HUIAEVENT>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hevent: Param0, hwnd: Param1) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UiaEventAddWindow(hevent: HUIAEVENT, hwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT;
-        }
-        UiaEventAddWindow(hevent.into_param().abi(), hwnd.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaEventAddWindow(hevent: HUIAEVENT, hwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    UiaEventAddWindow(hevent.into_param().abi(), hwnd.into_param().abi()).ok()
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -25952,31 +25577,21 @@ pub type UiaEventCallback = ::core::option::Option<unsafe extern "system" fn(par
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UiaEventRemoveWindow<'a, Param0: ::windows::core::IntoParam<'a, HUIAEVENT>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hevent: Param0, hwnd: Param1) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UiaEventRemoveWindow(hevent: HUIAEVENT, hwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT;
-        }
-        UiaEventRemoveWindow(hevent.into_param().abi(), hwnd.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaEventRemoveWindow(hevent: HUIAEVENT, hwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    UiaEventRemoveWindow(hevent.into_param().abi(), hwnd.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn UiaFind<'a, Param0: ::windows::core::IntoParam<'a, HUIANODE>>(hnode: Param0, pparams: *mut UiaFindParams, prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, ppoffsets: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructures: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UiaFind(hnode: HUIANODE, pparams: *mut UiaFindParams, prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, ppoffsets: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructures: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT;
-        }
-        UiaFind(hnode.into_param().abi(), ::core::mem::transmute(pparams), ::core::mem::transmute(prequest), ::core::mem::transmute(pprequesteddata), ::core::mem::transmute(ppoffsets), ::core::mem::transmute(pptreestructures)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaFind(hnode: HUIANODE, pparams: *mut UiaFindParams, prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, ppoffsets: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructures: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    UiaFind(hnode.into_param().abi(), ::core::mem::transmute(pparams), ::core::mem::transmute(prequest), ::core::mem::transmute(pprequesteddata), ::core::mem::transmute(ppoffsets), ::core::mem::transmute(pptreestructures)).ok()
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
@@ -26023,313 +25638,208 @@ impl ::core::default::Default for UiaFindParams {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UiaGetErrorDescription(pdescription: *mut super::super::Foundation::BSTR) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UiaGetErrorDescription(pdescription: *mut super::super::Foundation::BSTR) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(UiaGetErrorDescription(::core::mem::transmute(pdescription)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaGetErrorDescription(pdescription: *mut super::super::Foundation::BSTR) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(UiaGetErrorDescription(::core::mem::transmute(pdescription)))
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn UiaGetPatternProvider<'a, Param0: ::windows::core::IntoParam<'a, HUIANODE>>(hnode: Param0, patternid: i32, phobj: *mut HUIAPATTERNOBJECT) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UiaGetPatternProvider(hnode: HUIANODE, patternid: i32, phobj: *mut HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
-        }
-        UiaGetPatternProvider(hnode.into_param().abi(), ::core::mem::transmute(patternid), ::core::mem::transmute(phobj)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaGetPatternProvider(hnode: HUIANODE, patternid: i32, phobj: *mut HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    UiaGetPatternProvider(hnode.into_param().abi(), ::core::mem::transmute(patternid), ::core::mem::transmute(phobj)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn UiaGetPropertyValue<'a, Param0: ::windows::core::IntoParam<'a, HUIANODE>>(hnode: Param0, propertyid: i32, pvalue: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UiaGetPropertyValue(hnode: HUIANODE, propertyid: i32, pvalue: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
-        }
-        UiaGetPropertyValue(hnode.into_param().abi(), ::core::mem::transmute(propertyid), ::core::mem::transmute(pvalue)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaGetPropertyValue(hnode: HUIANODE, propertyid: i32, pvalue: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    UiaGetPropertyValue(hnode.into_param().abi(), ::core::mem::transmute(propertyid), ::core::mem::transmute(pvalue)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn UiaGetReservedMixedAttributeValue() -> ::windows::core::Result<::windows::core::IUnknown> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UiaGetReservedMixedAttributeValue(punkmixedattributevalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        UiaGetReservedMixedAttributeValue(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaGetReservedMixedAttributeValue(punkmixedattributevalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    UiaGetReservedMixedAttributeValue(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn UiaGetReservedNotSupportedValue() -> ::windows::core::Result<::windows::core::IUnknown> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UiaGetReservedNotSupportedValue(punknotsupportedvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        UiaGetReservedNotSupportedValue(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaGetReservedNotSupportedValue(punknotsupportedvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    UiaGetReservedNotSupportedValue(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn UiaGetRootNode(phnode: *mut HUIANODE) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UiaGetRootNode(phnode: *mut HUIANODE) -> ::windows::core::HRESULT;
-        }
-        UiaGetRootNode(::core::mem::transmute(phnode)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaGetRootNode(phnode: *mut HUIANODE) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    UiaGetRootNode(::core::mem::transmute(phnode)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn UiaGetRuntimeId<'a, Param0: ::windows::core::IntoParam<'a, HUIANODE>>(hnode: Param0, pruntimeid: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UiaGetRuntimeId(hnode: HUIANODE, pruntimeid: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT;
-        }
-        UiaGetRuntimeId(hnode.into_param().abi(), ::core::mem::transmute(pruntimeid)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaGetRuntimeId(hnode: HUIANODE, pruntimeid: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    UiaGetRuntimeId(hnode.into_param().abi(), ::core::mem::transmute(pruntimeid)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn UiaGetUpdatedCache<'a, Param0: ::windows::core::IntoParam<'a, HUIANODE>>(hnode: Param0, prequest: *mut UiaCacheRequest, normalizestate: NormalizeState, pnormalizecondition: *mut UiaCondition, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UiaGetUpdatedCache(hnode: HUIANODE, prequest: *mut UiaCacheRequest, normalizestate: NormalizeState, pnormalizecondition: *mut UiaCondition, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
-        }
-        UiaGetUpdatedCache(hnode.into_param().abi(), ::core::mem::transmute(prequest), ::core::mem::transmute(normalizestate), ::core::mem::transmute(pnormalizecondition), ::core::mem::transmute(pprequesteddata), ::core::mem::transmute(pptreestructure)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaGetUpdatedCache(hnode: HUIANODE, prequest: *mut UiaCacheRequest, normalizestate: NormalizeState, pnormalizecondition: *mut UiaCondition, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    UiaGetUpdatedCache(hnode.into_param().abi(), ::core::mem::transmute(prequest), ::core::mem::transmute(normalizestate), ::core::mem::transmute(pnormalizecondition), ::core::mem::transmute(pprequesteddata), ::core::mem::transmute(pptreestructure)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn UiaHPatternObjectFromVariant(pvar: *mut super::super::System::Com::VARIANT, phobj: *mut HUIAPATTERNOBJECT) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UiaHPatternObjectFromVariant(pvar: *mut super::super::System::Com::VARIANT, phobj: *mut HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
-        }
-        UiaHPatternObjectFromVariant(::core::mem::transmute(pvar), ::core::mem::transmute(phobj)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaHPatternObjectFromVariant(pvar: *mut super::super::System::Com::VARIANT, phobj: *mut HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    UiaHPatternObjectFromVariant(::core::mem::transmute(pvar), ::core::mem::transmute(phobj)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn UiaHTextRangeFromVariant(pvar: *mut super::super::System::Com::VARIANT, phtextrange: *mut HUIATEXTRANGE) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UiaHTextRangeFromVariant(pvar: *mut super::super::System::Com::VARIANT, phtextrange: *mut HUIATEXTRANGE) -> ::windows::core::HRESULT;
-        }
-        UiaHTextRangeFromVariant(::core::mem::transmute(pvar), ::core::mem::transmute(phtextrange)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaHTextRangeFromVariant(pvar: *mut super::super::System::Com::VARIANT, phtextrange: *mut HUIATEXTRANGE) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    UiaHTextRangeFromVariant(::core::mem::transmute(pvar), ::core::mem::transmute(phtextrange)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn UiaHUiaNodeFromVariant(pvar: *mut super::super::System::Com::VARIANT, phnode: *mut HUIANODE) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UiaHUiaNodeFromVariant(pvar: *mut super::super::System::Com::VARIANT, phnode: *mut HUIANODE) -> ::windows::core::HRESULT;
-        }
-        UiaHUiaNodeFromVariant(::core::mem::transmute(pvar), ::core::mem::transmute(phnode)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaHUiaNodeFromVariant(pvar: *mut super::super::System::Com::VARIANT, phnode: *mut HUIANODE) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    UiaHUiaNodeFromVariant(::core::mem::transmute(pvar), ::core::mem::transmute(phnode)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UiaHasServerSideProvider<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UiaHasServerSideProvider(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(UiaHasServerSideProvider(hwnd.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaHasServerSideProvider(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(UiaHasServerSideProvider(hwnd.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UiaHostProviderFromHwnd<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> ::windows::core::Result<IRawElementProviderSimple> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UiaHostProviderFromHwnd(hwnd: super::super::Foundation::HWND, ppprovider: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        UiaHostProviderFromHwnd(hwnd.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRawElementProviderSimple>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaHostProviderFromHwnd(hwnd: super::super::Foundation::HWND, ppprovider: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    UiaHostProviderFromHwnd(hwnd.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRawElementProviderSimple>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn UiaIAccessibleFromProvider<'a, Param0: ::windows::core::IntoParam<'a, IRawElementProviderSimple>>(pprovider: Param0, dwflags: u32, ppaccessible: *mut ::core::option::Option<IAccessible>, pvarchild: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UiaIAccessibleFromProvider(pprovider: *mut ::core::ffi::c_void, dwflags: u32, ppaccessible: *mut *mut ::core::ffi::c_void, pvarchild: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
-        }
-        UiaIAccessibleFromProvider(pprovider.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(ppaccessible), ::core::mem::transmute(pvarchild)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaIAccessibleFromProvider(pprovider: *mut ::core::ffi::c_void, dwflags: u32, ppaccessible: *mut *mut ::core::ffi::c_void, pvarchild: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    UiaIAccessibleFromProvider(pprovider.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(ppaccessible), ::core::mem::transmute(pvarchild)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn UiaLookupId(r#type: AutomationIdentifierType, pguid: *const ::windows::core::GUID) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UiaLookupId(r#type: AutomationIdentifierType, pguid: *const ::windows::core::GUID) -> i32;
-        }
-        ::core::mem::transmute(UiaLookupId(::core::mem::transmute(r#type), ::core::mem::transmute(pguid)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaLookupId(r#type: AutomationIdentifierType, pguid: *const ::windows::core::GUID) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(UiaLookupId(::core::mem::transmute(r#type), ::core::mem::transmute(pguid)))
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn UiaNavigate<'a, Param0: ::windows::core::IntoParam<'a, HUIANODE>>(hnode: Param0, direction: NavigateDirection, pcondition: *mut UiaCondition, prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UiaNavigate(hnode: HUIANODE, direction: NavigateDirection, pcondition: *mut UiaCondition, prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
-        }
-        UiaNavigate(hnode.into_param().abi(), ::core::mem::transmute(direction), ::core::mem::transmute(pcondition), ::core::mem::transmute(prequest), ::core::mem::transmute(pprequesteddata), ::core::mem::transmute(pptreestructure)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaNavigate(hnode: HUIANODE, direction: NavigateDirection, pcondition: *mut UiaCondition, prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    UiaNavigate(hnode.into_param().abi(), ::core::mem::transmute(direction), ::core::mem::transmute(pcondition), ::core::mem::transmute(prequest), ::core::mem::transmute(pprequesteddata), ::core::mem::transmute(pptreestructure)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn UiaNodeFromFocus(prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UiaNodeFromFocus(prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
-        }
-        UiaNodeFromFocus(::core::mem::transmute(prequest), ::core::mem::transmute(pprequesteddata), ::core::mem::transmute(pptreestructure)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaNodeFromFocus(prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    UiaNodeFromFocus(::core::mem::transmute(prequest), ::core::mem::transmute(pprequesteddata), ::core::mem::transmute(pptreestructure)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UiaNodeFromHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, phnode: *mut HUIANODE) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UiaNodeFromHandle(hwnd: super::super::Foundation::HWND, phnode: *mut HUIANODE) -> ::windows::core::HRESULT;
-        }
-        UiaNodeFromHandle(hwnd.into_param().abi(), ::core::mem::transmute(phnode)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaNodeFromHandle(hwnd: super::super::Foundation::HWND, phnode: *mut HUIANODE) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    UiaNodeFromHandle(hwnd.into_param().abi(), ::core::mem::transmute(phnode)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn UiaNodeFromPoint(x: f64, y: f64, prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UiaNodeFromPoint(x: f64, y: f64, prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
-        }
-        UiaNodeFromPoint(::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(prequest), ::core::mem::transmute(pprequesteddata), ::core::mem::transmute(pptreestructure)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaNodeFromPoint(x: f64, y: f64, prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    UiaNodeFromPoint(::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(prequest), ::core::mem::transmute(pprequesteddata), ::core::mem::transmute(pptreestructure)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn UiaNodeFromProvider<'a, Param0: ::windows::core::IntoParam<'a, IRawElementProviderSimple>>(pprovider: Param0, phnode: *mut HUIANODE) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UiaNodeFromProvider(pprovider: *mut ::core::ffi::c_void, phnode: *mut HUIANODE) -> ::windows::core::HRESULT;
-        }
-        UiaNodeFromProvider(pprovider.into_param().abi(), ::core::mem::transmute(phnode)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaNodeFromProvider(pprovider: *mut ::core::ffi::c_void, phnode: *mut HUIANODE) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    UiaNodeFromProvider(pprovider.into_param().abi(), ::core::mem::transmute(phnode)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UiaNodeRelease<'a, Param0: ::windows::core::IntoParam<'a, HUIANODE>>(hnode: Param0) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UiaNodeRelease(hnode: HUIANODE) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(UiaNodeRelease(hnode.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaNodeRelease(hnode: HUIANODE) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(UiaNodeRelease(hnode.into_param().abi()))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -26366,16 +25876,11 @@ impl ::core::default::Default for UiaNotCondition {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UiaPatternRelease<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UiaPatternRelease(hobj: HUIAPATTERNOBJECT) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(UiaPatternRelease(hobj.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaPatternRelease(hobj: HUIAPATTERNOBJECT) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(UiaPatternRelease(hobj.into_param().abi()))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -26482,149 +25987,99 @@ pub type UiaProviderCallback = ::core::option::Option<unsafe extern "system" fn(
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UiaProviderForNonClient<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, idobject: i32, idchild: i32) -> ::windows::core::Result<IRawElementProviderSimple> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UiaProviderForNonClient(hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32, ppprovider: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        UiaProviderForNonClient(hwnd.into_param().abi(), ::core::mem::transmute(idobject), ::core::mem::transmute(idchild), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRawElementProviderSimple>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaProviderForNonClient(hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32, ppprovider: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    UiaProviderForNonClient(hwnd.into_param().abi(), ::core::mem::transmute(idobject), ::core::mem::transmute(idchild), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRawElementProviderSimple>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn UiaProviderFromIAccessible<'a, Param0: ::windows::core::IntoParam<'a, IAccessible>>(paccessible: Param0, idchild: i32, dwflags: u32) -> ::windows::core::Result<IRawElementProviderSimple> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UiaProviderFromIAccessible(paccessible: *mut ::core::ffi::c_void, idchild: i32, dwflags: u32, ppprovider: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        UiaProviderFromIAccessible(paccessible.into_param().abi(), ::core::mem::transmute(idchild), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRawElementProviderSimple>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaProviderFromIAccessible(paccessible: *mut ::core::ffi::c_void, idchild: i32, dwflags: u32, ppprovider: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    UiaProviderFromIAccessible(paccessible.into_param().abi(), ::core::mem::transmute(idchild), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRawElementProviderSimple>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn UiaRaiseActiveTextPositionChangedEvent<'a, Param0: ::windows::core::IntoParam<'a, IRawElementProviderSimple>, Param1: ::windows::core::IntoParam<'a, ITextRangeProvider>>(provider: Param0, textrange: Param1) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UiaRaiseActiveTextPositionChangedEvent(provider: *mut ::core::ffi::c_void, textrange: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        UiaRaiseActiveTextPositionChangedEvent(provider.into_param().abi(), textrange.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaRaiseActiveTextPositionChangedEvent(provider: *mut ::core::ffi::c_void, textrange: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    UiaRaiseActiveTextPositionChangedEvent(provider.into_param().abi(), textrange.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn UiaRaiseAsyncContentLoadedEvent<'a, Param0: ::windows::core::IntoParam<'a, IRawElementProviderSimple>>(pprovider: Param0, asynccontentloadedstate: AsyncContentLoadedState, percentcomplete: f64) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UiaRaiseAsyncContentLoadedEvent(pprovider: *mut ::core::ffi::c_void, asynccontentloadedstate: AsyncContentLoadedState, percentcomplete: f64) -> ::windows::core::HRESULT;
-        }
-        UiaRaiseAsyncContentLoadedEvent(pprovider.into_param().abi(), ::core::mem::transmute(asynccontentloadedstate), ::core::mem::transmute(percentcomplete)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaRaiseAsyncContentLoadedEvent(pprovider: *mut ::core::ffi::c_void, asynccontentloadedstate: AsyncContentLoadedState, percentcomplete: f64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    UiaRaiseAsyncContentLoadedEvent(pprovider.into_param().abi(), ::core::mem::transmute(asynccontentloadedstate), ::core::mem::transmute(percentcomplete)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn UiaRaiseAutomationEvent<'a, Param0: ::windows::core::IntoParam<'a, IRawElementProviderSimple>>(pprovider: Param0, id: i32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UiaRaiseAutomationEvent(pprovider: *mut ::core::ffi::c_void, id: i32) -> ::windows::core::HRESULT;
-        }
-        UiaRaiseAutomationEvent(pprovider.into_param().abi(), ::core::mem::transmute(id)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaRaiseAutomationEvent(pprovider: *mut ::core::ffi::c_void, id: i32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    UiaRaiseAutomationEvent(pprovider.into_param().abi(), ::core::mem::transmute(id)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn UiaRaiseAutomationPropertyChangedEvent<'a, Param0: ::windows::core::IntoParam<'a, IRawElementProviderSimple>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>, Param3: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(pprovider: Param0, id: i32, oldvalue: Param2, newvalue: Param3) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UiaRaiseAutomationPropertyChangedEvent(pprovider: *mut ::core::ffi::c_void, id: i32, oldvalue: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, newvalue: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT;
-        }
-        UiaRaiseAutomationPropertyChangedEvent(pprovider.into_param().abi(), ::core::mem::transmute(id), oldvalue.into_param().abi(), newvalue.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaRaiseAutomationPropertyChangedEvent(pprovider: *mut ::core::ffi::c_void, id: i32, oldvalue: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, newvalue: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    UiaRaiseAutomationPropertyChangedEvent(pprovider.into_param().abi(), ::core::mem::transmute(id), oldvalue.into_param().abi(), newvalue.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn UiaRaiseChangesEvent<'a, Param0: ::windows::core::IntoParam<'a, IRawElementProviderSimple>>(pprovider: Param0, eventidcount: i32, puiachanges: *mut UiaChangeInfo) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UiaRaiseChangesEvent(pprovider: *mut ::core::ffi::c_void, eventidcount: i32, puiachanges: *mut UiaChangeInfo) -> ::windows::core::HRESULT;
-        }
-        UiaRaiseChangesEvent(pprovider.into_param().abi(), ::core::mem::transmute(eventidcount), ::core::mem::transmute(puiachanges)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaRaiseChangesEvent(pprovider: *mut ::core::ffi::c_void, eventidcount: i32, puiachanges: *mut UiaChangeInfo) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    UiaRaiseChangesEvent(pprovider.into_param().abi(), ::core::mem::transmute(eventidcount), ::core::mem::transmute(puiachanges)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UiaRaiseNotificationEvent<'a, Param0: ::windows::core::IntoParam<'a, IRawElementProviderSimple>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(provider: Param0, notificationkind: NotificationKind, notificationprocessing: NotificationProcessing, displaystring: Param3, activityid: Param4) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UiaRaiseNotificationEvent(provider: *mut ::core::ffi::c_void, notificationkind: NotificationKind, notificationprocessing: NotificationProcessing, displaystring: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, activityid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT;
-        }
-        UiaRaiseNotificationEvent(provider.into_param().abi(), ::core::mem::transmute(notificationkind), ::core::mem::transmute(notificationprocessing), displaystring.into_param().abi(), activityid.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaRaiseNotificationEvent(provider: *mut ::core::ffi::c_void, notificationkind: NotificationKind, notificationprocessing: NotificationProcessing, displaystring: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, activityid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    UiaRaiseNotificationEvent(provider.into_param().abi(), ::core::mem::transmute(notificationkind), ::core::mem::transmute(notificationprocessing), displaystring.into_param().abi(), activityid.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn UiaRaiseStructureChangedEvent<'a, Param0: ::windows::core::IntoParam<'a, IRawElementProviderSimple>>(pprovider: Param0, structurechangetype: StructureChangeType, pruntimeid: *mut i32, cruntimeidlen: i32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UiaRaiseStructureChangedEvent(pprovider: *mut ::core::ffi::c_void, structurechangetype: StructureChangeType, pruntimeid: *mut i32, cruntimeidlen: i32) -> ::windows::core::HRESULT;
-        }
-        UiaRaiseStructureChangedEvent(pprovider.into_param().abi(), ::core::mem::transmute(structurechangetype), ::core::mem::transmute(pruntimeid), ::core::mem::transmute(cruntimeidlen)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaRaiseStructureChangedEvent(pprovider: *mut ::core::ffi::c_void, structurechangetype: StructureChangeType, pruntimeid: *mut i32, cruntimeidlen: i32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    UiaRaiseStructureChangedEvent(pprovider.into_param().abi(), ::core::mem::transmute(structurechangetype), ::core::mem::transmute(pruntimeid), ::core::mem::transmute(cruntimeidlen)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn UiaRaiseTextEditTextChangedEvent<'a, Param0: ::windows::core::IntoParam<'a, IRawElementProviderSimple>>(pprovider: Param0, texteditchangetype: TextEditChangeType, pchangeddata: *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UiaRaiseTextEditTextChangedEvent(pprovider: *mut ::core::ffi::c_void, texteditchangetype: TextEditChangeType, pchangeddata: *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT;
-        }
-        UiaRaiseTextEditTextChangedEvent(pprovider.into_param().abi(), ::core::mem::transmute(texteditchangetype), ::core::mem::transmute(pchangeddata)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaRaiseTextEditTextChangedEvent(pprovider: *mut ::core::ffi::c_void, texteditchangetype: TextEditChangeType, pchangeddata: *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    UiaRaiseTextEditTextChangedEvent(pprovider.into_param().abi(), ::core::mem::transmute(texteditchangetype), ::core::mem::transmute(pchangeddata)).ok()
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -26663,61 +26118,41 @@ impl ::core::default::Default for UiaRect {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn UiaRegisterProviderCallback(pcallback: *mut UiaProviderCallback) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UiaRegisterProviderCallback(pcallback: *mut *mut ::core::ffi::c_void);
-        }
-        UiaRegisterProviderCallback(::core::mem::transmute(pcallback))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaRegisterProviderCallback(pcallback: *mut *mut ::core::ffi::c_void);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    UiaRegisterProviderCallback(::core::mem::transmute(pcallback))
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn UiaRemoveEvent<'a, Param0: ::windows::core::IntoParam<'a, HUIAEVENT>>(hevent: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UiaRemoveEvent(hevent: HUIAEVENT) -> ::windows::core::HRESULT;
-        }
-        UiaRemoveEvent(hevent.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaRemoveEvent(hevent: HUIAEVENT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    UiaRemoveEvent(hevent.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UiaReturnRawElementProvider<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>, Param3: ::windows::core::IntoParam<'a, IRawElementProviderSimple>>(hwnd: Param0, wparam: Param1, lparam: Param2, el: Param3) -> super::super::Foundation::LRESULT {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UiaReturnRawElementProvider(hwnd: super::super::Foundation::HWND, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, el: *mut ::core::ffi::c_void) -> super::super::Foundation::LRESULT;
-        }
-        ::core::mem::transmute(UiaReturnRawElementProvider(hwnd.into_param().abi(), wparam.into_param().abi(), lparam.into_param().abi(), el.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaReturnRawElementProvider(hwnd: super::super::Foundation::HWND, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, el: *mut ::core::ffi::c_void) -> super::super::Foundation::LRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(UiaReturnRawElementProvider(hwnd.into_param().abi(), wparam.into_param().abi(), lparam.into_param().abi(), el.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UiaRootObjectId: i32 = -25i32;
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn UiaSetFocus<'a, Param0: ::windows::core::IntoParam<'a, HUIANODE>>(hnode: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UiaSetFocus(hnode: HUIANODE) -> ::windows::core::HRESULT;
-        }
-        UiaSetFocus(hnode.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaSetFocus(hnode: HUIANODE) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    UiaSetFocus(hnode.into_param().abi()).ok()
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -26798,16 +26233,11 @@ impl ::core::default::Default for UiaTextEditTextChangedEventArgs {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UiaTextRangeRelease<'a, Param0: ::windows::core::IntoParam<'a, HUIATEXTRANGE>>(hobj: Param0) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UiaTextRangeRelease(hobj: HUIATEXTRANGE) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(UiaTextRangeRelease(hobj.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaTextRangeRelease(hobj: HUIATEXTRANGE) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(UiaTextRangeRelease(hobj.into_param().abi()))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -26846,60 +26276,40 @@ impl ::core::default::Default for UiaWindowClosedEventArgs {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UnhookWinEvent<'a, Param0: ::windows::core::IntoParam<'a, HWINEVENTHOOK>>(hwineventhook: Param0) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UnhookWinEvent(hwineventhook: HWINEVENTHOOK) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(UnhookWinEvent(hwineventhook.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UnhookWinEvent(hwineventhook: HWINEVENTHOOK) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(UnhookWinEvent(hwineventhook.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn UnregisterPointerInputTarget<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UnregisterPointerInputTarget(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(UnregisterPointerInputTarget(hwnd.into_param().abi(), ::core::mem::transmute(pointertype)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UnregisterPointerInputTarget(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(UnregisterPointerInputTarget(hwnd.into_param().abi(), ::core::mem::transmute(pointertype)))
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn UnregisterPointerInputTargetEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UnregisterPointerInputTargetEx(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(UnregisterPointerInputTargetEx(hwnd.into_param().abi(), ::core::mem::transmute(pointertype)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UnregisterPointerInputTargetEx(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(UnregisterPointerInputTargetEx(hwnd.into_param().abi(), ::core::mem::transmute(pointertype)))
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn ValuePattern_SetValue<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hobj: Param0, pval: Param1) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ValuePattern_SetValue(hobj: HUIAPATTERNOBJECT, pval: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
-        }
-        ValuePattern_SetValue(hobj.into_param().abi(), pval.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ValuePattern_SetValue(hobj: HUIAPATTERNOBJECT, pval: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ValuePattern_SetValue(hobj.into_param().abi(), pval.into_param().abi()).ok()
 }
 pub const Value_IsReadOnly_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb090f30_e24c_4799_a705_0d247bc037f8);
 pub const Value_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17faad9e_c877_475b_b933_77332779b637);
@@ -26907,16 +26317,11 @@ pub const Value_Value_Property_GUID: ::windows::core::GUID = ::windows::core::GU
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn VirtualizedItemPattern_Realize<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn VirtualizedItemPattern_Realize(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
-        }
-        VirtualizedItemPattern_Realize(hobj.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VirtualizedItemPattern_Realize(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    VirtualizedItemPattern_Realize(hobj.into_param().abi()).ok()
 }
 pub const VirtualizedItem_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf510173e_2e71_45e9_a6e5_62f6ed8289d5);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -26962,17 +26367,12 @@ pub type WINEVENTPROC = ::core::option::Option<unsafe extern "system" fn(hwineve
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn WindowFromAccessibleObject<'a, Param0: ::windows::core::IntoParam<'a, IAccessible>>(param0: Param0) -> ::windows::core::Result<super::super::Foundation::HWND> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WindowFromAccessibleObject(param0: *mut ::core::ffi::c_void, phwnd: *mut super::super::Foundation::HWND) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HWND>::zeroed();
-        WindowFromAccessibleObject(param0.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HWND>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WindowFromAccessibleObject(param0: *mut ::core::ffi::c_void, phwnd: *mut super::super::Foundation::HWND) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HWND>::zeroed();
+    WindowFromAccessibleObject(param0.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HWND>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
@@ -27010,45 +26410,30 @@ impl ::core::fmt::Debug for WindowInteractionState {
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn WindowPattern_Close<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WindowPattern_Close(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
-        }
-        WindowPattern_Close(hobj.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WindowPattern_Close(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    WindowPattern_Close(hobj.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn WindowPattern_SetWindowVisualState<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0, state: WindowVisualState) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WindowPattern_SetWindowVisualState(hobj: HUIAPATTERNOBJECT, state: WindowVisualState) -> ::windows::core::HRESULT;
-        }
-        WindowPattern_SetWindowVisualState(hobj.into_param().abi(), ::core::mem::transmute(state)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WindowPattern_SetWindowVisualState(hobj: HUIAPATTERNOBJECT, state: WindowVisualState) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    WindowPattern_SetWindowVisualState(hobj.into_param().abi(), ::core::mem::transmute(state)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WindowPattern_WaitForInputIdle<'a, Param0: ::windows::core::IntoParam<'a, HUIAPATTERNOBJECT>>(hobj: Param0, milliseconds: i32, presult: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WindowPattern_WaitForInputIdle(hobj: HUIAPATTERNOBJECT, milliseconds: i32, presult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
-        }
-        WindowPattern_WaitForInputIdle(hobj.into_param().abi(), ::core::mem::transmute(milliseconds), ::core::mem::transmute(presult)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WindowPattern_WaitForInputIdle(hobj: HUIAPATTERNOBJECT, milliseconds: i32, presult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    WindowPattern_WaitForInputIdle(hobj.into_param().abi(), ::core::mem::transmute(milliseconds), ::core::mem::transmute(presult)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]

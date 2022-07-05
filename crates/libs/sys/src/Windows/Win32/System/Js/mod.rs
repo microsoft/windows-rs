@@ -1,4 +1,4 @@
-#[link(name = "windows")]
+#[cfg_attr(windows, link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: `\"Win32_System_Js\"`*"]
     pub fn JsAddRef(r#ref: *const ::core::ffi::c_void, count: *mut u32) -> JsErrorCode;

@@ -1,4 +1,4 @@
-#[link(name = "windows")]
+#[cfg_attr(windows, link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: `\"Win32_Devices_DeviceAccess\"`*"]
     pub fn CreateDeviceAccessInstance(deviceinterfacepath: ::windows_sys::core::PCWSTR, desiredaccess: u32, createasync: *mut ICreateDeviceAccessAsync) -> ::windows_sys::core::HRESULT;

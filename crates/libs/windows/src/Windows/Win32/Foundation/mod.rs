@@ -1368,30 +1368,20 @@ pub const CS_E_SCHEMA_MISMATCH: ::windows::core::HRESULT = ::windows::core::HRES
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
 pub unsafe fn CloseHandle<'a, Param0: ::windows::core::IntoParam<'a, HANDLE>>(hobject: Param0) -> BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CloseHandle(hobject: HANDLE) -> BOOL;
-        }
-        ::core::mem::transmute(CloseHandle(hobject.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CloseHandle(hobject: HANDLE) -> BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CloseHandle(hobject.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
 pub unsafe fn CompareObjectHandles<'a, Param0: ::windows::core::IntoParam<'a, HANDLE>, Param1: ::windows::core::IntoParam<'a, HANDLE>>(hfirstobjecthandle: Param0, hsecondobjecthandle: Param1) -> BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CompareObjectHandles(hfirstobjecthandle: HANDLE, hsecondobjecthandle: HANDLE) -> BOOL;
-        }
-        ::core::mem::transmute(CompareObjectHandles(hfirstobjecthandle.into_param().abi(), hsecondobjecthandle.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CompareObjectHandles(hfirstobjecthandle: HANDLE, hsecondobjecthandle: HANDLE) -> BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CompareObjectHandles(hfirstobjecthandle.into_param().abi(), hsecondobjecthandle.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const D2DERR_BAD_NUMBER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003238895i32);
@@ -1947,16 +1937,11 @@ pub const DXGI_STATUS_UNOCCLUDED: ::windows::core::HRESULT = ::windows::core::HR
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
 pub unsafe fn DuplicateHandle<'a, Param0: ::windows::core::IntoParam<'a, HANDLE>, Param1: ::windows::core::IntoParam<'a, HANDLE>, Param2: ::windows::core::IntoParam<'a, HANDLE>, Param5: ::windows::core::IntoParam<'a, BOOL>>(hsourceprocesshandle: Param0, hsourcehandle: Param1, htargetprocesshandle: Param2, lptargethandle: *mut HANDLE, dwdesiredaccess: u32, binherithandle: Param5, dwoptions: DUPLICATE_HANDLE_OPTIONS) -> BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DuplicateHandle(hsourceprocesshandle: HANDLE, hsourcehandle: HANDLE, htargetprocesshandle: HANDLE, lptargethandle: *mut HANDLE, dwdesiredaccess: u32, binherithandle: BOOL, dwoptions: DUPLICATE_HANDLE_OPTIONS) -> BOOL;
-        }
-        ::core::mem::transmute(DuplicateHandle(hsourceprocesshandle.into_param().abi(), hsourcehandle.into_param().abi(), htargetprocesshandle.into_param().abi(), ::core::mem::transmute(lptargethandle), ::core::mem::transmute(dwdesiredaccess), binherithandle.into_param().abi(), ::core::mem::transmute(dwoptions)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DuplicateHandle(hsourceprocesshandle: HANDLE, hsourcehandle: HANDLE, htargetprocesshandle: HANDLE, lptargethandle: *mut HANDLE, dwdesiredaccess: u32, binherithandle: BOOL, dwoptions: DUPLICATE_HANDLE_OPTIONS) -> BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(DuplicateHandle(hsourceprocesshandle.into_param().abi(), hsourcehandle.into_param().abi(), htargetprocesshandle.into_param().abi(), ::core::mem::transmute(lptargethandle), ::core::mem::transmute(dwdesiredaccess), binherithandle.into_param().abi(), ::core::mem::transmute(dwoptions)))
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const EAS_E_ADMINS_CANNOT_CHANGE_PASSWORD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141913080i32);
@@ -3861,30 +3846,20 @@ pub const GCN_E_RUNTIMEKEYS_FAILED: ::windows::core::HRESULT = ::windows::core::
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
 pub unsafe fn GetHandleInformation<'a, Param0: ::windows::core::IntoParam<'a, HANDLE>>(hobject: Param0, lpdwflags: *mut u32) -> BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetHandleInformation(hobject: HANDLE, lpdwflags: *mut u32) -> BOOL;
-        }
-        ::core::mem::transmute(GetHandleInformation(hobject.into_param().abi(), ::core::mem::transmute(lpdwflags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetHandleInformation(hobject: HANDLE, lpdwflags: *mut u32) -> BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetHandleInformation(hobject.into_param().abi(), ::core::mem::transmute(lpdwflags)))
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
 pub unsafe fn GetLastError() -> WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetLastError() -> WIN32_ERROR;
-        }
-        ::core::mem::transmute(GetLastError())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetLastError() -> WIN32_ERROR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetLastError())
 }
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -6388,16 +6363,11 @@ pub const RPC_X_WRONG_STUB_VERSION: i32 = 1829i32;
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
 pub unsafe fn RtlNtStatusToDosError<'a, Param0: ::windows::core::IntoParam<'a, NTSTATUS>>(status: Param0) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RtlNtStatusToDosError(status: NTSTATUS) -> u32;
-        }
-        ::core::mem::transmute(RtlNtStatusToDosError(status.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtlNtStatusToDosError(status: NTSTATUS) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RtlNtStatusToDosError(status.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const SCARD_E_BAD_SEEK: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146435031i32);
@@ -12790,184 +12760,119 @@ pub const S_STORE_LAUNCHED_FOR_REMEDIATION: ::windows::core::HRESULT = ::windows
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
 pub unsafe fn SetHandleInformation<'a, Param0: ::windows::core::IntoParam<'a, HANDLE>>(hobject: Param0, dwmask: u32, dwflags: HANDLE_FLAGS) -> BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetHandleInformation(hobject: HANDLE, dwmask: u32, dwflags: HANDLE_FLAGS) -> BOOL;
-        }
-        ::core::mem::transmute(SetHandleInformation(hobject.into_param().abi(), ::core::mem::transmute(dwmask), ::core::mem::transmute(dwflags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetHandleInformation(hobject: HANDLE, dwmask: u32, dwflags: HANDLE_FLAGS) -> BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetHandleInformation(hobject.into_param().abi(), ::core::mem::transmute(dwmask), ::core::mem::transmute(dwflags)))
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
 pub unsafe fn SetLastError(dwerrcode: WIN32_ERROR) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetLastError(dwerrcode: WIN32_ERROR);
-        }
-        SetLastError(::core::mem::transmute(dwerrcode))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetLastError(dwerrcode: WIN32_ERROR);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SetLastError(::core::mem::transmute(dwerrcode))
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
 pub unsafe fn SetLastErrorEx(dwerrcode: WIN32_ERROR, dwtype: u32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetLastErrorEx(dwerrcode: WIN32_ERROR, dwtype: u32);
-        }
-        SetLastErrorEx(::core::mem::transmute(dwerrcode), ::core::mem::transmute(dwtype))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetLastErrorEx(dwerrcode: WIN32_ERROR, dwtype: u32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SetLastErrorEx(::core::mem::transmute(dwerrcode), ::core::mem::transmute(dwtype))
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
 pub unsafe fn SysAddRefString<'a, Param0: ::windows::core::IntoParam<'a, BSTR>>(bstrstring: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SysAddRefString(bstrstring: ::core::mem::ManuallyDrop<BSTR>) -> ::windows::core::HRESULT;
-        }
-        SysAddRefString(bstrstring.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SysAddRefString(bstrstring: ::core::mem::ManuallyDrop<BSTR>) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SysAddRefString(bstrstring.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
 pub unsafe fn SysAllocString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(psz: Param0) -> BSTR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SysAllocString(psz: ::windows::core::PCWSTR) -> BSTR;
-        }
-        ::core::mem::transmute(SysAllocString(psz.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SysAllocString(psz: ::windows::core::PCWSTR) -> BSTR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SysAllocString(psz.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
 pub unsafe fn SysAllocStringByteLen<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(psz: Param0, len: u32) -> BSTR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SysAllocStringByteLen(psz: ::windows::core::PCSTR, len: u32) -> BSTR;
-        }
-        ::core::mem::transmute(SysAllocStringByteLen(psz.into_param().abi(), ::core::mem::transmute(len)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SysAllocStringByteLen(psz: ::windows::core::PCSTR, len: u32) -> BSTR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SysAllocStringByteLen(psz.into_param().abi(), ::core::mem::transmute(len)))
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
 pub unsafe fn SysAllocStringLen(strin: &[u16]) -> BSTR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SysAllocStringLen(strin: ::windows::core::PCWSTR, ui: u32) -> BSTR;
-        }
-        ::core::mem::transmute(SysAllocStringLen(::core::mem::transmute(::windows::core::as_ptr_or_null(strin)), strin.len() as _))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SysAllocStringLen(strin: ::windows::core::PCWSTR, ui: u32) -> BSTR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SysAllocStringLen(::core::mem::transmute(::windows::core::as_ptr_or_null(strin)), strin.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
 pub unsafe fn SysFreeString<'a, Param0: ::windows::core::IntoParam<'a, BSTR>>(bstrstring: Param0) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SysFreeString(bstrstring: ::core::mem::ManuallyDrop<BSTR>);
-        }
-        SysFreeString(bstrstring.into_param().abi())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SysFreeString(bstrstring: ::core::mem::ManuallyDrop<BSTR>);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SysFreeString(bstrstring.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
 pub unsafe fn SysReAllocString<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pbstr: *mut BSTR, psz: Param1) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SysReAllocString(pbstr: *mut BSTR, psz: ::windows::core::PCWSTR) -> i32;
-        }
-        ::core::mem::transmute(SysReAllocString(::core::mem::transmute(pbstr), psz.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SysReAllocString(pbstr: *mut BSTR, psz: ::windows::core::PCWSTR) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SysReAllocString(::core::mem::transmute(pbstr), psz.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
 pub unsafe fn SysReAllocStringLen<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pbstr: *mut BSTR, psz: Param1, len: u32) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SysReAllocStringLen(pbstr: *mut BSTR, psz: ::windows::core::PCWSTR, len: u32) -> i32;
-        }
-        ::core::mem::transmute(SysReAllocStringLen(::core::mem::transmute(pbstr), psz.into_param().abi(), ::core::mem::transmute(len)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SysReAllocStringLen(pbstr: *mut BSTR, psz: ::windows::core::PCWSTR, len: u32) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SysReAllocStringLen(::core::mem::transmute(pbstr), psz.into_param().abi(), ::core::mem::transmute(len)))
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
 pub unsafe fn SysReleaseString<'a, Param0: ::windows::core::IntoParam<'a, BSTR>>(bstrstring: Param0) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SysReleaseString(bstrstring: ::core::mem::ManuallyDrop<BSTR>);
-        }
-        SysReleaseString(bstrstring.into_param().abi())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SysReleaseString(bstrstring: ::core::mem::ManuallyDrop<BSTR>);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SysReleaseString(bstrstring.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
 pub unsafe fn SysStringByteLen<'a, Param0: ::windows::core::IntoParam<'a, BSTR>>(bstr: Param0) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SysStringByteLen(bstr: ::core::mem::ManuallyDrop<BSTR>) -> u32;
-        }
-        ::core::mem::transmute(SysStringByteLen(bstr.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SysStringByteLen(bstr: ::core::mem::ManuallyDrop<BSTR>) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SysStringByteLen(bstr.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
 pub unsafe fn SysStringLen<'a, Param0: ::windows::core::IntoParam<'a, BSTR>>(pbstr: Param0) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SysStringLen(pbstr: ::core::mem::ManuallyDrop<BSTR>) -> u32;
-        }
-        ::core::mem::transmute(SysStringLen(pbstr.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SysStringLen(pbstr: ::core::mem::ManuallyDrop<BSTR>) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SysStringLen(pbstr.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const TBSIMP_E_BUFFER_TOO_SMALL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144796160i32);

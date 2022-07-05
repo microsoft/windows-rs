@@ -1,4 +1,4 @@
-#[link(name = "windows")]
+#[cfg_attr(windows, link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_Storage_StructuredStorage")]

@@ -2,31 +2,21 @@
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DisableThreadProfiling<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(performancedatahandle: Param0) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DisableThreadProfiling(performancedatahandle: super::super::super::Foundation::HANDLE) -> u32;
-        }
-        ::core::mem::transmute(DisableThreadProfiling(performancedatahandle.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DisableThreadProfiling(performancedatahandle: super::super::super::Foundation::HANDLE) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(DisableThreadProfiling(performancedatahandle.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Performance_HardwareCounterProfiling\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnableThreadProfiling<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(threadhandle: Param0, flags: u32, hardwarecounters: u64, performancedatahandle: *mut super::super::super::Foundation::HANDLE) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn EnableThreadProfiling(threadhandle: super::super::super::Foundation::HANDLE, flags: u32, hardwarecounters: u64, performancedatahandle: *mut super::super::super::Foundation::HANDLE) -> u32;
-        }
-        ::core::mem::transmute(EnableThreadProfiling(threadhandle.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(hardwarecounters), ::core::mem::transmute(performancedatahandle)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn EnableThreadProfiling(threadhandle: super::super::super::Foundation::HANDLE, flags: u32, hardwarecounters: u64, performancedatahandle: *mut super::super::super::Foundation::HANDLE) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(EnableThreadProfiling(threadhandle.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(hardwarecounters), ::core::mem::transmute(performancedatahandle)))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Performance_HardwareCounterProfiling\"`*"]
@@ -129,31 +119,21 @@ impl ::core::default::Default for PERFORMANCE_DATA {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn QueryThreadProfiling<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(threadhandle: Param0, enabled: *mut super::super::super::Foundation::BOOLEAN) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn QueryThreadProfiling(threadhandle: super::super::super::Foundation::HANDLE, enabled: *mut super::super::super::Foundation::BOOLEAN) -> u32;
-        }
-        ::core::mem::transmute(QueryThreadProfiling(threadhandle.into_param().abi(), ::core::mem::transmute(enabled)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn QueryThreadProfiling(threadhandle: super::super::super::Foundation::HANDLE, enabled: *mut super::super::super::Foundation::BOOLEAN) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(QueryThreadProfiling(threadhandle.into_param().abi(), ::core::mem::transmute(enabled)))
 }
 #[doc = "*Required features: `\"Win32_System_Performance_HardwareCounterProfiling\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReadThreadProfilingData<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(performancedatahandle: Param0, flags: u32, performancedata: *mut PERFORMANCE_DATA) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ReadThreadProfilingData(performancedatahandle: super::super::super::Foundation::HANDLE, flags: u32, performancedata: *mut PERFORMANCE_DATA) -> u32;
-        }
-        ::core::mem::transmute(ReadThreadProfilingData(performancedatahandle.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(performancedata)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ReadThreadProfilingData(performancedatahandle: super::super::super::Foundation::HANDLE, flags: u32, performancedata: *mut PERFORMANCE_DATA) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(ReadThreadProfilingData(performancedatahandle.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(performancedata)))
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -6,31 +6,21 @@ pub const ATTRIB_TRANSPARENCY: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AssociateColorProfileWithDeviceA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(pmachinename: Param0, pprofilename: Param1, pdevicename: Param2) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AssociateColorProfileWithDeviceA(pmachinename: ::windows::core::PCSTR, pprofilename: ::windows::core::PCSTR, pdevicename: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(AssociateColorProfileWithDeviceA(pmachinename.into_param().abi(), pprofilename.into_param().abi(), pdevicename.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AssociateColorProfileWithDeviceA(pmachinename: ::windows::core::PCSTR, pprofilename: ::windows::core::PCSTR, pdevicename: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AssociateColorProfileWithDeviceA(pmachinename.into_param().abi(), pprofilename.into_param().abi(), pdevicename.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AssociateColorProfileWithDeviceW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pmachinename: Param0, pprofilename: Param1, pdevicename: Param2) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AssociateColorProfileWithDeviceW(pmachinename: ::windows::core::PCWSTR, pprofilename: ::windows::core::PCWSTR, pdevicename: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(AssociateColorProfileWithDeviceW(pmachinename.into_param().abi(), pprofilename.into_param().abi(), pdevicename.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AssociateColorProfileWithDeviceW(pmachinename: ::windows::core::PCWSTR, pprofilename: ::windows::core::PCWSTR, pdevicename: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(AssociateColorProfileWithDeviceW(pmachinename.into_param().abi(), pprofilename.into_param().abi(), pdevicename.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 pub const BEST_MODE: u32 = 3u32;
@@ -183,254 +173,169 @@ pub const CATID_WcsPlugin: ::windows::core::GUID = ::windows::core::GUID::from_u
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CMCheckColors(hcmtransform: isize, lpainputcolors: *const COLOR, ncolors: u32, ctinput: COLORTYPE, lparesult: *mut u8) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CMCheckColors(hcmtransform: isize, lpainputcolors: *const COLOR, ncolors: u32, ctinput: COLORTYPE, lparesult: *mut u8) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(CMCheckColors(::core::mem::transmute(hcmtransform), ::core::mem::transmute(lpainputcolors), ::core::mem::transmute(ncolors), ::core::mem::transmute(ctinput), ::core::mem::transmute(lparesult)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CMCheckColors(hcmtransform: isize, lpainputcolors: *const COLOR, ncolors: u32, ctinput: COLORTYPE, lparesult: *mut u8) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CMCheckColors(::core::mem::transmute(hcmtransform), ::core::mem::transmute(lpainputcolors), ::core::mem::transmute(ncolors), ::core::mem::transmute(ctinput), ::core::mem::transmute(lparesult)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn CMCheckColorsInGamut(hcmtransform: isize, lpargbtriple: &[super::super::Graphics::Gdi::RGBTRIPLE], lparesult: *mut u8) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CMCheckColorsInGamut(hcmtransform: isize, lpargbtriple: *const super::super::Graphics::Gdi::RGBTRIPLE, lparesult: *mut u8, ncount: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(CMCheckColorsInGamut(::core::mem::transmute(hcmtransform), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpargbtriple)), ::core::mem::transmute(lparesult), lpargbtriple.len() as _))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CMCheckColorsInGamut(hcmtransform: isize, lpargbtriple: *const super::super::Graphics::Gdi::RGBTRIPLE, lparesult: *mut u8, ncount: u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CMCheckColorsInGamut(::core::mem::transmute(hcmtransform), ::core::mem::transmute(::windows::core::as_ptr_or_null(lpargbtriple)), ::core::mem::transmute(lparesult), lpargbtriple.len() as _))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CMCheckRGBs<'a, Param8: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hcmtransform: isize, lpsrcbits: *const ::core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwstride: u32, lparesult: *mut u8, pfncallback: LPBMCALLBACKFN, ulcallbackdata: Param8) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CMCheckRGBs(hcmtransform: isize, lpsrcbits: *const ::core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwstride: u32, lparesult: *mut u8, pfncallback: *mut ::core::ffi::c_void, ulcallbackdata: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(CMCheckRGBs(::core::mem::transmute(hcmtransform), ::core::mem::transmute(lpsrcbits), ::core::mem::transmute(bminput), ::core::mem::transmute(dwwidth), ::core::mem::transmute(dwheight), ::core::mem::transmute(dwstride), ::core::mem::transmute(lparesult), ::core::mem::transmute(pfncallback), ulcallbackdata.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CMCheckRGBs(hcmtransform: isize, lpsrcbits: *const ::core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwstride: u32, lparesult: *mut u8, pfncallback: *mut ::core::ffi::c_void, ulcallbackdata: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CMCheckRGBs(::core::mem::transmute(hcmtransform), ::core::mem::transmute(lpsrcbits), ::core::mem::transmute(bminput), ::core::mem::transmute(dwwidth), ::core::mem::transmute(dwheight), ::core::mem::transmute(dwstride), ::core::mem::transmute(lparesult), ::core::mem::transmute(pfncallback), ulcallbackdata.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CMConvertColorNameToIndex(hprofile: isize, pacolorname: *const *const i8, paindex: *mut u32, dwcount: u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CMConvertColorNameToIndex(hprofile: isize, pacolorname: *const *const i8, paindex: *mut u32, dwcount: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(CMConvertColorNameToIndex(::core::mem::transmute(hprofile), ::core::mem::transmute(pacolorname), ::core::mem::transmute(paindex), ::core::mem::transmute(dwcount)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CMConvertColorNameToIndex(hprofile: isize, pacolorname: *const *const i8, paindex: *mut u32, dwcount: u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CMConvertColorNameToIndex(::core::mem::transmute(hprofile), ::core::mem::transmute(pacolorname), ::core::mem::transmute(paindex), ::core::mem::transmute(dwcount)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CMConvertIndexToColorName(hprofile: isize, paindex: *const u32, pacolorname: *mut *mut i8, dwcount: u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CMConvertIndexToColorName(hprofile: isize, paindex: *const u32, pacolorname: *mut *mut i8, dwcount: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(CMConvertIndexToColorName(::core::mem::transmute(hprofile), ::core::mem::transmute(paindex), ::core::mem::transmute(pacolorname), ::core::mem::transmute(dwcount)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CMConvertIndexToColorName(hprofile: isize, paindex: *const u32, pacolorname: *mut *mut i8, dwcount: u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CMConvertIndexToColorName(::core::mem::transmute(hprofile), ::core::mem::transmute(paindex), ::core::mem::transmute(pacolorname), ::core::mem::transmute(dwcount)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CMCreateDeviceLinkProfile(pahprofiles: &[isize], padwintents: &[u32], dwflags: u32, lpprofiledata: *mut *mut u8) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CMCreateDeviceLinkProfile(pahprofiles: *const isize, nprofiles: u32, padwintents: *const u32, nintents: u32, dwflags: u32, lpprofiledata: *mut *mut u8) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(CMCreateDeviceLinkProfile(::core::mem::transmute(::windows::core::as_ptr_or_null(pahprofiles)), pahprofiles.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(padwintents)), padwintents.len() as _, ::core::mem::transmute(dwflags), ::core::mem::transmute(lpprofiledata)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CMCreateDeviceLinkProfile(pahprofiles: *const isize, nprofiles: u32, padwintents: *const u32, nintents: u32, dwflags: u32, lpprofiledata: *mut *mut u8) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CMCreateDeviceLinkProfile(::core::mem::transmute(::windows::core::as_ptr_or_null(pahprofiles)), pahprofiles.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(padwintents)), padwintents.len() as _, ::core::mem::transmute(dwflags), ::core::mem::transmute(lpprofiledata)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 #[inline]
 pub unsafe fn CMCreateMultiProfileTransform(pahprofiles: &[isize], padwintents: &[u32], dwflags: u32) -> isize {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CMCreateMultiProfileTransform(pahprofiles: *const isize, nprofiles: u32, padwintents: *const u32, nintents: u32, dwflags: u32) -> isize;
-        }
-        ::core::mem::transmute(CMCreateMultiProfileTransform(::core::mem::transmute(::windows::core::as_ptr_or_null(pahprofiles)), pahprofiles.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(padwintents)), padwintents.len() as _, ::core::mem::transmute(dwflags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CMCreateMultiProfileTransform(pahprofiles: *const isize, nprofiles: u32, padwintents: *const u32, nintents: u32, dwflags: u32) -> isize;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CMCreateMultiProfileTransform(::core::mem::transmute(::windows::core::as_ptr_or_null(pahprofiles)), pahprofiles.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(padwintents)), padwintents.len() as _, ::core::mem::transmute(dwflags)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn CMCreateProfile(lpcolorspace: *mut LOGCOLORSPACEA, lpprofiledata: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CMCreateProfile(lpcolorspace: *mut LOGCOLORSPACEA, lpprofiledata: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(CMCreateProfile(::core::mem::transmute(lpcolorspace), ::core::mem::transmute(lpprofiledata)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CMCreateProfile(lpcolorspace: *mut LOGCOLORSPACEA, lpprofiledata: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CMCreateProfile(::core::mem::transmute(lpcolorspace), ::core::mem::transmute(lpprofiledata)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn CMCreateProfileW(lpcolorspace: *mut LOGCOLORSPACEW, lpprofiledata: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CMCreateProfileW(lpcolorspace: *mut LOGCOLORSPACEW, lpprofiledata: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(CMCreateProfileW(::core::mem::transmute(lpcolorspace), ::core::mem::transmute(lpprofiledata)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CMCreateProfileW(lpcolorspace: *mut LOGCOLORSPACEW, lpprofiledata: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CMCreateProfileW(::core::mem::transmute(lpcolorspace), ::core::mem::transmute(lpprofiledata)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn CMCreateTransform(lpcolorspace: *const LOGCOLORSPACEA, lpdevcharacter: *const ::core::ffi::c_void, lptargetdevcharacter: *const ::core::ffi::c_void) -> isize {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CMCreateTransform(lpcolorspace: *const LOGCOLORSPACEA, lpdevcharacter: *const ::core::ffi::c_void, lptargetdevcharacter: *const ::core::ffi::c_void) -> isize;
-        }
-        ::core::mem::transmute(CMCreateTransform(::core::mem::transmute(lpcolorspace), ::core::mem::transmute(lpdevcharacter), ::core::mem::transmute(lptargetdevcharacter)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CMCreateTransform(lpcolorspace: *const LOGCOLORSPACEA, lpdevcharacter: *const ::core::ffi::c_void, lptargetdevcharacter: *const ::core::ffi::c_void) -> isize;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CMCreateTransform(::core::mem::transmute(lpcolorspace), ::core::mem::transmute(lpdevcharacter), ::core::mem::transmute(lptargetdevcharacter)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn CMCreateTransformExt(lpcolorspace: *const LOGCOLORSPACEA, lpdevcharacter: *const ::core::ffi::c_void, lptargetdevcharacter: *const ::core::ffi::c_void, dwflags: u32) -> isize {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CMCreateTransformExt(lpcolorspace: *const LOGCOLORSPACEA, lpdevcharacter: *const ::core::ffi::c_void, lptargetdevcharacter: *const ::core::ffi::c_void, dwflags: u32) -> isize;
-        }
-        ::core::mem::transmute(CMCreateTransformExt(::core::mem::transmute(lpcolorspace), ::core::mem::transmute(lpdevcharacter), ::core::mem::transmute(lptargetdevcharacter), ::core::mem::transmute(dwflags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CMCreateTransformExt(lpcolorspace: *const LOGCOLORSPACEA, lpdevcharacter: *const ::core::ffi::c_void, lptargetdevcharacter: *const ::core::ffi::c_void, dwflags: u32) -> isize;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CMCreateTransformExt(::core::mem::transmute(lpcolorspace), ::core::mem::transmute(lpdevcharacter), ::core::mem::transmute(lptargetdevcharacter), ::core::mem::transmute(dwflags)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn CMCreateTransformExtW(lpcolorspace: *const LOGCOLORSPACEW, lpdevcharacter: *const ::core::ffi::c_void, lptargetdevcharacter: *const ::core::ffi::c_void, dwflags: u32) -> isize {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CMCreateTransformExtW(lpcolorspace: *const LOGCOLORSPACEW, lpdevcharacter: *const ::core::ffi::c_void, lptargetdevcharacter: *const ::core::ffi::c_void, dwflags: u32) -> isize;
-        }
-        ::core::mem::transmute(CMCreateTransformExtW(::core::mem::transmute(lpcolorspace), ::core::mem::transmute(lpdevcharacter), ::core::mem::transmute(lptargetdevcharacter), ::core::mem::transmute(dwflags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CMCreateTransformExtW(lpcolorspace: *const LOGCOLORSPACEW, lpdevcharacter: *const ::core::ffi::c_void, lptargetdevcharacter: *const ::core::ffi::c_void, dwflags: u32) -> isize;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CMCreateTransformExtW(::core::mem::transmute(lpcolorspace), ::core::mem::transmute(lpdevcharacter), ::core::mem::transmute(lptargetdevcharacter), ::core::mem::transmute(dwflags)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn CMCreateTransformW(lpcolorspace: *const LOGCOLORSPACEW, lpdevcharacter: *const ::core::ffi::c_void, lptargetdevcharacter: *const ::core::ffi::c_void) -> isize {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CMCreateTransformW(lpcolorspace: *const LOGCOLORSPACEW, lpdevcharacter: *const ::core::ffi::c_void, lptargetdevcharacter: *const ::core::ffi::c_void) -> isize;
-        }
-        ::core::mem::transmute(CMCreateTransformW(::core::mem::transmute(lpcolorspace), ::core::mem::transmute(lpdevcharacter), ::core::mem::transmute(lptargetdevcharacter)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CMCreateTransformW(lpcolorspace: *const LOGCOLORSPACEW, lpdevcharacter: *const ::core::ffi::c_void, lptargetdevcharacter: *const ::core::ffi::c_void) -> isize;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CMCreateTransformW(::core::mem::transmute(lpcolorspace), ::core::mem::transmute(lpdevcharacter), ::core::mem::transmute(lptargetdevcharacter)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CMDeleteTransform(hcmtransform: isize) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CMDeleteTransform(hcmtransform: isize) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(CMDeleteTransform(::core::mem::transmute(hcmtransform)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CMDeleteTransform(hcmtransform: isize) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CMDeleteTransform(::core::mem::transmute(hcmtransform)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 #[inline]
 pub unsafe fn CMGetInfo(dwinfo: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CMGetInfo(dwinfo: u32) -> u32;
-        }
-        ::core::mem::transmute(CMGetInfo(::core::mem::transmute(dwinfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CMGetInfo(dwinfo: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CMGetInfo(::core::mem::transmute(dwinfo)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CMGetNamedProfileInfo(hprofile: isize, pnamedprofileinfo: *mut NAMED_PROFILE_INFO) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CMGetNamedProfileInfo(hprofile: isize, pnamedprofileinfo: *mut NAMED_PROFILE_INFO) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(CMGetNamedProfileInfo(::core::mem::transmute(hprofile), ::core::mem::transmute(pnamedprofileinfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CMGetNamedProfileInfo(hprofile: isize, pnamedprofileinfo: *mut NAMED_PROFILE_INFO) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CMGetNamedProfileInfo(::core::mem::transmute(hprofile), ::core::mem::transmute(pnamedprofileinfo)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CMIsProfileValid(hprofile: isize, lpbvalid: *mut i32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CMIsProfileValid(hprofile: isize, lpbvalid: *mut i32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(CMIsProfileValid(::core::mem::transmute(hprofile), ::core::mem::transmute(lpbvalid)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CMIsProfileValid(hprofile: isize, lpbvalid: *mut i32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CMIsProfileValid(::core::mem::transmute(hprofile), ::core::mem::transmute(lpbvalid)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 pub const CMM_DESCRIPTION: u32 = 5u32;
@@ -486,61 +391,41 @@ pub const CMS_USEHOOK: u32 = 128u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CMTranslateColors(hcmtransform: isize, lpainputcolors: *const COLOR, ncolors: u32, ctinput: COLORTYPE, lpaoutputcolors: *mut COLOR, ctoutput: COLORTYPE) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CMTranslateColors(hcmtransform: isize, lpainputcolors: *const COLOR, ncolors: u32, ctinput: COLORTYPE, lpaoutputcolors: *mut COLOR, ctoutput: COLORTYPE) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(CMTranslateColors(::core::mem::transmute(hcmtransform), ::core::mem::transmute(lpainputcolors), ::core::mem::transmute(ncolors), ::core::mem::transmute(ctinput), ::core::mem::transmute(lpaoutputcolors), ::core::mem::transmute(ctoutput)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CMTranslateColors(hcmtransform: isize, lpainputcolors: *const COLOR, ncolors: u32, ctinput: COLORTYPE, lpaoutputcolors: *mut COLOR, ctoutput: COLORTYPE) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CMTranslateColors(::core::mem::transmute(hcmtransform), ::core::mem::transmute(lpainputcolors), ::core::mem::transmute(ncolors), ::core::mem::transmute(ctinput), ::core::mem::transmute(lpaoutputcolors), ::core::mem::transmute(ctoutput)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CMTranslateRGB(hcmtransform: isize, colorref: u32, lpcolorref: *mut u32, dwflags: u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CMTranslateRGB(hcmtransform: isize, colorref: u32, lpcolorref: *mut u32, dwflags: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(CMTranslateRGB(::core::mem::transmute(hcmtransform), ::core::mem::transmute(colorref), ::core::mem::transmute(lpcolorref), ::core::mem::transmute(dwflags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CMTranslateRGB(hcmtransform: isize, colorref: u32, lpcolorref: *mut u32, dwflags: u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CMTranslateRGB(::core::mem::transmute(hcmtransform), ::core::mem::transmute(colorref), ::core::mem::transmute(lpcolorref), ::core::mem::transmute(dwflags)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CMTranslateRGBs(hcmtransform: isize, lpsrcbits: *const ::core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwstride: u32, lpdestbits: *mut ::core::ffi::c_void, bmoutput: BMFORMAT, dwtranslatedirection: u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CMTranslateRGBs(hcmtransform: isize, lpsrcbits: *const ::core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwstride: u32, lpdestbits: *mut ::core::ffi::c_void, bmoutput: BMFORMAT, dwtranslatedirection: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(CMTranslateRGBs(::core::mem::transmute(hcmtransform), ::core::mem::transmute(lpsrcbits), ::core::mem::transmute(bminput), ::core::mem::transmute(dwwidth), ::core::mem::transmute(dwheight), ::core::mem::transmute(dwstride), ::core::mem::transmute(lpdestbits), ::core::mem::transmute(bmoutput), ::core::mem::transmute(dwtranslatedirection)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CMTranslateRGBs(hcmtransform: isize, lpsrcbits: *const ::core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwstride: u32, lpdestbits: *mut ::core::ffi::c_void, bmoutput: BMFORMAT, dwtranslatedirection: u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CMTranslateRGBs(::core::mem::transmute(hcmtransform), ::core::mem::transmute(lpsrcbits), ::core::mem::transmute(bminput), ::core::mem::transmute(dwwidth), ::core::mem::transmute(dwheight), ::core::mem::transmute(dwstride), ::core::mem::transmute(lpdestbits), ::core::mem::transmute(bmoutput), ::core::mem::transmute(dwtranslatedirection)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CMTranslateRGBsExt<'a, Param10: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hcmtransform: isize, lpsrcbits: *const ::core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwinputstride: u32, lpdestbits: *mut ::core::ffi::c_void, bmoutput: BMFORMAT, dwoutputstride: u32, lpfncallback: LPBMCALLBACKFN, ulcallbackdata: Param10) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CMTranslateRGBsExt(hcmtransform: isize, lpsrcbits: *const ::core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwinputstride: u32, lpdestbits: *mut ::core::ffi::c_void, bmoutput: BMFORMAT, dwoutputstride: u32, lpfncallback: *mut ::core::ffi::c_void, ulcallbackdata: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(CMTranslateRGBsExt(::core::mem::transmute(hcmtransform), ::core::mem::transmute(lpsrcbits), ::core::mem::transmute(bminput), ::core::mem::transmute(dwwidth), ::core::mem::transmute(dwheight), ::core::mem::transmute(dwinputstride), ::core::mem::transmute(lpdestbits), ::core::mem::transmute(bmoutput), ::core::mem::transmute(dwoutputstride), ::core::mem::transmute(lpfncallback), ulcallbackdata.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CMTranslateRGBsExt(hcmtransform: isize, lpsrcbits: *const ::core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwinputstride: u32, lpdestbits: *mut ::core::ffi::c_void, bmoutput: BMFORMAT, dwoutputstride: u32, lpfncallback: *mut ::core::ffi::c_void, ulcallbackdata: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CMTranslateRGBsExt(::core::mem::transmute(hcmtransform), ::core::mem::transmute(lpsrcbits), ::core::mem::transmute(bminput), ::core::mem::transmute(dwwidth), ::core::mem::transmute(dwheight), ::core::mem::transmute(dwinputstride), ::core::mem::transmute(lpdestbits), ::core::mem::transmute(bmoutput), ::core::mem::transmute(dwoutputstride), ::core::mem::transmute(lpfncallback), ulcallbackdata.into_param().abi()))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
@@ -999,332 +884,222 @@ pub const CSA_RGB: u32 = 6u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CheckBitmapBits<'a, Param8: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hcolortransform: isize, psrcbits: *const ::core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwstride: u32, paresult: *mut u8, pfncallback: LPBMCALLBACKFN, lpcallbackdata: Param8) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CheckBitmapBits(hcolortransform: isize, psrcbits: *const ::core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwstride: u32, paresult: *mut u8, pfncallback: *mut ::core::ffi::c_void, lpcallbackdata: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(CheckBitmapBits(::core::mem::transmute(hcolortransform), ::core::mem::transmute(psrcbits), ::core::mem::transmute(bminput), ::core::mem::transmute(dwwidth), ::core::mem::transmute(dwheight), ::core::mem::transmute(dwstride), ::core::mem::transmute(paresult), ::core::mem::transmute(pfncallback), lpcallbackdata.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CheckBitmapBits(hcolortransform: isize, psrcbits: *const ::core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwstride: u32, paresult: *mut u8, pfncallback: *mut ::core::ffi::c_void, lpcallbackdata: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CheckBitmapBits(::core::mem::transmute(hcolortransform), ::core::mem::transmute(psrcbits), ::core::mem::transmute(bminput), ::core::mem::transmute(dwwidth), ::core::mem::transmute(dwheight), ::core::mem::transmute(dwstride), ::core::mem::transmute(paresult), ::core::mem::transmute(pfncallback), lpcallbackdata.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CheckColors(hcolortransform: isize, painputcolors: *const COLOR, ncolors: u32, ctinput: COLORTYPE, paresult: *mut u8) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CheckColors(hcolortransform: isize, painputcolors: *const COLOR, ncolors: u32, ctinput: COLORTYPE, paresult: *mut u8) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(CheckColors(::core::mem::transmute(hcolortransform), ::core::mem::transmute(painputcolors), ::core::mem::transmute(ncolors), ::core::mem::transmute(ctinput), ::core::mem::transmute(paresult)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CheckColors(hcolortransform: isize, painputcolors: *const COLOR, ncolors: u32, ctinput: COLORTYPE, paresult: *mut u8) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CheckColors(::core::mem::transmute(hcolortransform), ::core::mem::transmute(painputcolors), ::core::mem::transmute(ncolors), ::core::mem::transmute(ctinput), ::core::mem::transmute(paresult)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn CheckColorsInGamut<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hdc: Param0, lprgbtriple: &[super::super::Graphics::Gdi::RGBTRIPLE], dlpbuffer: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CheckColorsInGamut(hdc: super::super::Graphics::Gdi::HDC, lprgbtriple: *const super::super::Graphics::Gdi::RGBTRIPLE, dlpbuffer: *mut ::core::ffi::c_void, ncount: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(CheckColorsInGamut(hdc.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lprgbtriple)), ::core::mem::transmute(dlpbuffer), lprgbtriple.len() as _))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CheckColorsInGamut(hdc: super::super::Graphics::Gdi::HDC, lprgbtriple: *const super::super::Graphics::Gdi::RGBTRIPLE, dlpbuffer: *mut ::core::ffi::c_void, ncount: u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CheckColorsInGamut(hdc.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(lprgbtriple)), ::core::mem::transmute(dlpbuffer), lprgbtriple.len() as _))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CloseColorProfile(hprofile: isize) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CloseColorProfile(hprofile: isize) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(CloseColorProfile(::core::mem::transmute(hprofile)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CloseColorProfile(hprofile: isize) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CloseColorProfile(::core::mem::transmute(hprofile)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn ColorCorrectPalette<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HPALETTE>>(hdc: Param0, hpal: Param1, defirst: u32, num: u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ColorCorrectPalette(hdc: super::super::Graphics::Gdi::HDC, hpal: super::super::Graphics::Gdi::HPALETTE, defirst: u32, num: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(ColorCorrectPalette(hdc.into_param().abi(), hpal.into_param().abi(), ::core::mem::transmute(defirst), ::core::mem::transmute(num)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ColorCorrectPalette(hdc: super::super::Graphics::Gdi::HDC, hpal: super::super::Graphics::Gdi::HPALETTE, defirst: u32, num: u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(ColorCorrectPalette(hdc.into_param().abi(), hpal.into_param().abi(), ::core::mem::transmute(defirst), ::core::mem::transmute(num)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn ColorMatchToTarget<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hdc: Param0, hdctarget: Param1, action: COLOR_MATCH_TO_TARGET_ACTION) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ColorMatchToTarget(hdc: super::super::Graphics::Gdi::HDC, hdctarget: super::super::Graphics::Gdi::HDC, action: COLOR_MATCH_TO_TARGET_ACTION) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(ColorMatchToTarget(hdc.into_param().abi(), hdctarget.into_param().abi(), ::core::mem::transmute(action)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ColorMatchToTarget(hdc: super::super::Graphics::Gdi::HDC, hdctarget: super::super::Graphics::Gdi::HDC, action: COLOR_MATCH_TO_TARGET_ACTION) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(ColorMatchToTarget(hdc.into_param().abi(), hdctarget.into_param().abi(), ::core::mem::transmute(action)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ColorProfileAddDisplayAssociation<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LUID>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profilename: Param1, targetadapterid: Param2, sourceid: u32, setasdefault: Param4, associateasadvancedcolor: Param5) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ColorProfileAddDisplayAssociation(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profilename: ::windows::core::PCWSTR, targetadapterid: super::super::Foundation::LUID, sourceid: u32, setasdefault: super::super::Foundation::BOOL, associateasadvancedcolor: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
-        }
-        ColorProfileAddDisplayAssociation(::core::mem::transmute(scope), profilename.into_param().abi(), targetadapterid.into_param().abi(), ::core::mem::transmute(sourceid), setasdefault.into_param().abi(), associateasadvancedcolor.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ColorProfileAddDisplayAssociation(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profilename: ::windows::core::PCWSTR, targetadapterid: super::super::Foundation::LUID, sourceid: u32, setasdefault: super::super::Foundation::BOOL, associateasadvancedcolor: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ColorProfileAddDisplayAssociation(::core::mem::transmute(scope), profilename.into_param().abi(), targetadapterid.into_param().abi(), ::core::mem::transmute(sourceid), setasdefault.into_param().abi(), associateasadvancedcolor.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ColorProfileGetDisplayDefault<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::LUID>>(scope: WCS_PROFILE_MANAGEMENT_SCOPE, targetadapterid: Param1, sourceid: u32, profiletype: COLORPROFILETYPE, profilesubtype: COLORPROFILESUBTYPE) -> ::windows::core::Result<::windows::core::PWSTR> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ColorProfileGetDisplayDefault(scope: WCS_PROFILE_MANAGEMENT_SCOPE, targetadapterid: super::super::Foundation::LUID, sourceid: u32, profiletype: COLORPROFILETYPE, profilesubtype: COLORPROFILESUBTYPE, profilename: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-        ColorProfileGetDisplayDefault(::core::mem::transmute(scope), targetadapterid.into_param().abi(), ::core::mem::transmute(sourceid), ::core::mem::transmute(profiletype), ::core::mem::transmute(profilesubtype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ColorProfileGetDisplayDefault(scope: WCS_PROFILE_MANAGEMENT_SCOPE, targetadapterid: super::super::Foundation::LUID, sourceid: u32, profiletype: COLORPROFILETYPE, profilesubtype: COLORPROFILESUBTYPE, profilename: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
+    ColorProfileGetDisplayDefault(::core::mem::transmute(scope), targetadapterid.into_param().abi(), ::core::mem::transmute(sourceid), ::core::mem::transmute(profiletype), ::core::mem::transmute(profilesubtype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ColorProfileGetDisplayList<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::LUID>>(scope: WCS_PROFILE_MANAGEMENT_SCOPE, targetadapterid: Param1, sourceid: u32, profilelist: *mut *mut ::windows::core::PWSTR, profilecount: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ColorProfileGetDisplayList(scope: WCS_PROFILE_MANAGEMENT_SCOPE, targetadapterid: super::super::Foundation::LUID, sourceid: u32, profilelist: *mut *mut ::windows::core::PWSTR, profilecount: *mut u32) -> ::windows::core::HRESULT;
-        }
-        ColorProfileGetDisplayList(::core::mem::transmute(scope), targetadapterid.into_param().abi(), ::core::mem::transmute(sourceid), ::core::mem::transmute(profilelist), ::core::mem::transmute(profilecount)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ColorProfileGetDisplayList(scope: WCS_PROFILE_MANAGEMENT_SCOPE, targetadapterid: super::super::Foundation::LUID, sourceid: u32, profilelist: *mut *mut ::windows::core::PWSTR, profilecount: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ColorProfileGetDisplayList(::core::mem::transmute(scope), targetadapterid.into_param().abi(), ::core::mem::transmute(sourceid), ::core::mem::transmute(profilelist), ::core::mem::transmute(profilecount)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ColorProfileGetDisplayUserScope<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::LUID>>(targetadapterid: Param0, sourceid: u32) -> ::windows::core::Result<WCS_PROFILE_MANAGEMENT_SCOPE> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ColorProfileGetDisplayUserScope(targetadapterid: super::super::Foundation::LUID, sourceid: u32, scope: *mut WCS_PROFILE_MANAGEMENT_SCOPE) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<WCS_PROFILE_MANAGEMENT_SCOPE>::zeroed();
-        ColorProfileGetDisplayUserScope(targetadapterid.into_param().abi(), ::core::mem::transmute(sourceid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WCS_PROFILE_MANAGEMENT_SCOPE>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ColorProfileGetDisplayUserScope(targetadapterid: super::super::Foundation::LUID, sourceid: u32, scope: *mut WCS_PROFILE_MANAGEMENT_SCOPE) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<WCS_PROFILE_MANAGEMENT_SCOPE>::zeroed();
+    ColorProfileGetDisplayUserScope(targetadapterid.into_param().abi(), ::core::mem::transmute(sourceid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WCS_PROFILE_MANAGEMENT_SCOPE>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ColorProfileRemoveDisplayAssociation<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LUID>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profilename: Param1, targetadapterid: Param2, sourceid: u32, dissociateadvancedcolor: Param4) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ColorProfileRemoveDisplayAssociation(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profilename: ::windows::core::PCWSTR, targetadapterid: super::super::Foundation::LUID, sourceid: u32, dissociateadvancedcolor: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
-        }
-        ColorProfileRemoveDisplayAssociation(::core::mem::transmute(scope), profilename.into_param().abi(), targetadapterid.into_param().abi(), ::core::mem::transmute(sourceid), dissociateadvancedcolor.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ColorProfileRemoveDisplayAssociation(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profilename: ::windows::core::PCWSTR, targetadapterid: super::super::Foundation::LUID, sourceid: u32, dissociateadvancedcolor: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ColorProfileRemoveDisplayAssociation(::core::mem::transmute(scope), profilename.into_param().abi(), targetadapterid.into_param().abi(), ::core::mem::transmute(sourceid), dissociateadvancedcolor.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ColorProfileSetDisplayDefaultAssociation<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::LUID>>(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profilename: Param1, profiletype: COLORPROFILETYPE, profilesubtype: COLORPROFILESUBTYPE, targetadapterid: Param4, sourceid: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ColorProfileSetDisplayDefaultAssociation(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profilename: ::windows::core::PCWSTR, profiletype: COLORPROFILETYPE, profilesubtype: COLORPROFILESUBTYPE, targetadapterid: super::super::Foundation::LUID, sourceid: u32) -> ::windows::core::HRESULT;
-        }
-        ColorProfileSetDisplayDefaultAssociation(::core::mem::transmute(scope), profilename.into_param().abi(), ::core::mem::transmute(profiletype), ::core::mem::transmute(profilesubtype), targetadapterid.into_param().abi(), ::core::mem::transmute(sourceid)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ColorProfileSetDisplayDefaultAssociation(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profilename: ::windows::core::PCWSTR, profiletype: COLORPROFILETYPE, profilesubtype: COLORPROFILESUBTYPE, targetadapterid: super::super::Foundation::LUID, sourceid: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ColorProfileSetDisplayDefaultAssociation(::core::mem::transmute(scope), profilename.into_param().abi(), ::core::mem::transmute(profiletype), ::core::mem::transmute(profilesubtype), targetadapterid.into_param().abi(), ::core::mem::transmute(sourceid)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ConvertColorNameToIndex(hprofile: isize, pacolorname: *const *const i8, paindex: *mut u32, dwcount: u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ConvertColorNameToIndex(hprofile: isize, pacolorname: *const *const i8, paindex: *mut u32, dwcount: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(ConvertColorNameToIndex(::core::mem::transmute(hprofile), ::core::mem::transmute(pacolorname), ::core::mem::transmute(paindex), ::core::mem::transmute(dwcount)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ConvertColorNameToIndex(hprofile: isize, pacolorname: *const *const i8, paindex: *mut u32, dwcount: u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(ConvertColorNameToIndex(::core::mem::transmute(hprofile), ::core::mem::transmute(pacolorname), ::core::mem::transmute(paindex), ::core::mem::transmute(dwcount)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ConvertIndexToColorName(hprofile: isize, paindex: *const u32, pacolorname: *mut *mut i8, dwcount: u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ConvertIndexToColorName(hprofile: isize, paindex: *const u32, pacolorname: *mut *mut i8, dwcount: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(ConvertIndexToColorName(::core::mem::transmute(hprofile), ::core::mem::transmute(paindex), ::core::mem::transmute(pacolorname), ::core::mem::transmute(dwcount)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ConvertIndexToColorName(hprofile: isize, paindex: *const u32, pacolorname: *mut *mut i8, dwcount: u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(ConvertIndexToColorName(::core::mem::transmute(hprofile), ::core::mem::transmute(paindex), ::core::mem::transmute(pacolorname), ::core::mem::transmute(dwcount)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn CreateColorSpaceA(lplcs: *const LOGCOLORSPACEA) -> HCOLORSPACE {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateColorSpaceA(lplcs: *const LOGCOLORSPACEA) -> HCOLORSPACE;
-        }
-        ::core::mem::transmute(CreateColorSpaceA(::core::mem::transmute(lplcs)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateColorSpaceA(lplcs: *const LOGCOLORSPACEA) -> HCOLORSPACE;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CreateColorSpaceA(::core::mem::transmute(lplcs)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn CreateColorSpaceW(lplcs: *const LOGCOLORSPACEW) -> HCOLORSPACE {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateColorSpaceW(lplcs: *const LOGCOLORSPACEW) -> HCOLORSPACE;
-        }
-        ::core::mem::transmute(CreateColorSpaceW(::core::mem::transmute(lplcs)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateColorSpaceW(lplcs: *const LOGCOLORSPACEW) -> HCOLORSPACE;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CreateColorSpaceW(::core::mem::transmute(lplcs)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn CreateColorTransformA(plogcolorspace: *const LOGCOLORSPACEA, hdestprofile: isize, htargetprofile: isize, dwflags: u32) -> isize {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateColorTransformA(plogcolorspace: *const LOGCOLORSPACEA, hdestprofile: isize, htargetprofile: isize, dwflags: u32) -> isize;
-        }
-        ::core::mem::transmute(CreateColorTransformA(::core::mem::transmute(plogcolorspace), ::core::mem::transmute(hdestprofile), ::core::mem::transmute(htargetprofile), ::core::mem::transmute(dwflags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateColorTransformA(plogcolorspace: *const LOGCOLORSPACEA, hdestprofile: isize, htargetprofile: isize, dwflags: u32) -> isize;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CreateColorTransformA(::core::mem::transmute(plogcolorspace), ::core::mem::transmute(hdestprofile), ::core::mem::transmute(htargetprofile), ::core::mem::transmute(dwflags)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn CreateColorTransformW(plogcolorspace: *const LOGCOLORSPACEW, hdestprofile: isize, htargetprofile: isize, dwflags: u32) -> isize {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateColorTransformW(plogcolorspace: *const LOGCOLORSPACEW, hdestprofile: isize, htargetprofile: isize, dwflags: u32) -> isize;
-        }
-        ::core::mem::transmute(CreateColorTransformW(::core::mem::transmute(plogcolorspace), ::core::mem::transmute(hdestprofile), ::core::mem::transmute(htargetprofile), ::core::mem::transmute(dwflags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateColorTransformW(plogcolorspace: *const LOGCOLORSPACEW, hdestprofile: isize, htargetprofile: isize, dwflags: u32) -> isize;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CreateColorTransformW(::core::mem::transmute(plogcolorspace), ::core::mem::transmute(hdestprofile), ::core::mem::transmute(htargetprofile), ::core::mem::transmute(dwflags)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateDeviceLinkProfile(hprofile: &[isize], padwintent: &[u32], dwflags: u32, pprofiledata: *mut *mut u8, indexpreferredcmm: u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateDeviceLinkProfile(hprofile: *const isize, nprofiles: u32, padwintent: *const u32, nintents: u32, dwflags: u32, pprofiledata: *mut *mut u8, indexpreferredcmm: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(CreateDeviceLinkProfile(::core::mem::transmute(::windows::core::as_ptr_or_null(hprofile)), hprofile.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(padwintent)), padwintent.len() as _, ::core::mem::transmute(dwflags), ::core::mem::transmute(pprofiledata), ::core::mem::transmute(indexpreferredcmm)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateDeviceLinkProfile(hprofile: *const isize, nprofiles: u32, padwintent: *const u32, nintents: u32, dwflags: u32, pprofiledata: *mut *mut u8, indexpreferredcmm: u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CreateDeviceLinkProfile(::core::mem::transmute(::windows::core::as_ptr_or_null(hprofile)), hprofile.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(padwintent)), padwintent.len() as _, ::core::mem::transmute(dwflags), ::core::mem::transmute(pprofiledata), ::core::mem::transmute(indexpreferredcmm)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 #[inline]
 pub unsafe fn CreateMultiProfileTransform(pahprofiles: &[isize], padwintent: &[u32], dwflags: u32, indexpreferredcmm: u32) -> isize {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateMultiProfileTransform(pahprofiles: *const isize, nprofiles: u32, padwintent: *const u32, nintents: u32, dwflags: u32, indexpreferredcmm: u32) -> isize;
-        }
-        ::core::mem::transmute(CreateMultiProfileTransform(::core::mem::transmute(::windows::core::as_ptr_or_null(pahprofiles)), pahprofiles.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(padwintent)), padwintent.len() as _, ::core::mem::transmute(dwflags), ::core::mem::transmute(indexpreferredcmm)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateMultiProfileTransform(pahprofiles: *const isize, nprofiles: u32, padwintent: *const u32, nintents: u32, dwflags: u32, indexpreferredcmm: u32) -> isize;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CreateMultiProfileTransform(::core::mem::transmute(::windows::core::as_ptr_or_null(pahprofiles)), pahprofiles.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(padwintent)), padwintent.len() as _, ::core::mem::transmute(dwflags), ::core::mem::transmute(indexpreferredcmm)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn CreateProfileFromLogColorSpaceA(plogcolorspace: *const LOGCOLORSPACEA, pprofile: *mut *mut u8) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateProfileFromLogColorSpaceA(plogcolorspace: *const LOGCOLORSPACEA, pprofile: *mut *mut u8) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(CreateProfileFromLogColorSpaceA(::core::mem::transmute(plogcolorspace), ::core::mem::transmute(pprofile)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateProfileFromLogColorSpaceA(plogcolorspace: *const LOGCOLORSPACEA, pprofile: *mut *mut u8) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CreateProfileFromLogColorSpaceA(::core::mem::transmute(plogcolorspace), ::core::mem::transmute(pprofile)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn CreateProfileFromLogColorSpaceW(plogcolorspace: *const LOGCOLORSPACEW, pprofile: *mut *mut u8) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateProfileFromLogColorSpaceW(plogcolorspace: *const LOGCOLORSPACEW, pprofile: *mut *mut u8) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(CreateProfileFromLogColorSpaceW(::core::mem::transmute(plogcolorspace), ::core::mem::transmute(pprofile)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateProfileFromLogColorSpaceW(plogcolorspace: *const LOGCOLORSPACEW, pprofile: *mut *mut u8) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(CreateProfileFromLogColorSpaceW(::core::mem::transmute(plogcolorspace), ::core::mem::transmute(pprofile)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 pub const DONT_USE_EMBEDDED_WCS_PROFILES: i32 = 1i32;
@@ -1332,61 +1107,41 @@ pub const DONT_USE_EMBEDDED_WCS_PROFILES: i32 = 1i32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteColorSpace<'a, Param0: ::windows::core::IntoParam<'a, HCOLORSPACE>>(hcs: Param0) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DeleteColorSpace(hcs: HCOLORSPACE) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(DeleteColorSpace(hcs.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DeleteColorSpace(hcs: HCOLORSPACE) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(DeleteColorSpace(hcs.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteColorTransform(hxform: isize) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DeleteColorTransform(hxform: isize) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(DeleteColorTransform(::core::mem::transmute(hxform)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DeleteColorTransform(hxform: isize) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(DeleteColorTransform(::core::mem::transmute(hxform)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DisassociateColorProfileFromDeviceA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(pmachinename: Param0, pprofilename: Param1, pdevicename: Param2) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DisassociateColorProfileFromDeviceA(pmachinename: ::windows::core::PCSTR, pprofilename: ::windows::core::PCSTR, pdevicename: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(DisassociateColorProfileFromDeviceA(pmachinename.into_param().abi(), pprofilename.into_param().abi(), pdevicename.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DisassociateColorProfileFromDeviceA(pmachinename: ::windows::core::PCSTR, pprofilename: ::windows::core::PCSTR, pdevicename: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(DisassociateColorProfileFromDeviceA(pmachinename.into_param().abi(), pprofilename.into_param().abi(), pdevicename.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DisassociateColorProfileFromDeviceW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pmachinename: Param0, pprofilename: Param1, pdevicename: Param2) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DisassociateColorProfileFromDeviceW(pmachinename: ::windows::core::PCWSTR, pprofilename: ::windows::core::PCWSTR, pdevicename: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(DisassociateColorProfileFromDeviceW(pmachinename.into_param().abi(), pprofilename.into_param().abi(), pdevicename.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DisassociateColorProfileFromDeviceW(pmachinename: ::windows::core::PCWSTR, pprofilename: ::windows::core::PCWSTR, pdevicename: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(DisassociateColorProfileFromDeviceW(pmachinename.into_param().abi(), pprofilename.into_param().abi(), pdevicename.into_param().abi()))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -1657,61 +1412,41 @@ pub const ET_STANDARDDISPLAYCOLOR: u32 = 131072u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumColorProfilesA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(pmachinename: Param0, penumrecord: *const ENUMTYPEA, penumerationbuffer: *mut u8, pdwsizeofenumerationbuffer: *mut u32, pnprofiles: *mut u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn EnumColorProfilesA(pmachinename: ::windows::core::PCSTR, penumrecord: *const ENUMTYPEA, penumerationbuffer: *mut u8, pdwsizeofenumerationbuffer: *mut u32, pnprofiles: *mut u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(EnumColorProfilesA(pmachinename.into_param().abi(), ::core::mem::transmute(penumrecord), ::core::mem::transmute(penumerationbuffer), ::core::mem::transmute(pdwsizeofenumerationbuffer), ::core::mem::transmute(pnprofiles)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn EnumColorProfilesA(pmachinename: ::windows::core::PCSTR, penumrecord: *const ENUMTYPEA, penumerationbuffer: *mut u8, pdwsizeofenumerationbuffer: *mut u32, pnprofiles: *mut u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(EnumColorProfilesA(pmachinename.into_param().abi(), ::core::mem::transmute(penumrecord), ::core::mem::transmute(penumerationbuffer), ::core::mem::transmute(pdwsizeofenumerationbuffer), ::core::mem::transmute(pnprofiles)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumColorProfilesW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pmachinename: Param0, penumrecord: *const ENUMTYPEW, penumerationbuffer: *mut u8, pdwsizeofenumerationbuffer: *mut u32, pnprofiles: *mut u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn EnumColorProfilesW(pmachinename: ::windows::core::PCWSTR, penumrecord: *const ENUMTYPEW, penumerationbuffer: *mut u8, pdwsizeofenumerationbuffer: *mut u32, pnprofiles: *mut u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(EnumColorProfilesW(pmachinename.into_param().abi(), ::core::mem::transmute(penumrecord), ::core::mem::transmute(penumerationbuffer), ::core::mem::transmute(pdwsizeofenumerationbuffer), ::core::mem::transmute(pnprofiles)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn EnumColorProfilesW(pmachinename: ::windows::core::PCWSTR, penumrecord: *const ENUMTYPEW, penumerationbuffer: *mut u8, pdwsizeofenumerationbuffer: *mut u32, pnprofiles: *mut u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(EnumColorProfilesW(pmachinename.into_param().abi(), ::core::mem::transmute(penumrecord), ::core::mem::transmute(penumerationbuffer), ::core::mem::transmute(pdwsizeofenumerationbuffer), ::core::mem::transmute(pnprofiles)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn EnumICMProfilesA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hdc: Param0, proc: ICMENUMPROCA, param2: Param2) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn EnumICMProfilesA(hdc: super::super::Graphics::Gdi::HDC, proc: *mut ::core::ffi::c_void, param2: super::super::Foundation::LPARAM) -> i32;
-        }
-        ::core::mem::transmute(EnumICMProfilesA(hdc.into_param().abi(), ::core::mem::transmute(proc), param2.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn EnumICMProfilesA(hdc: super::super::Graphics::Gdi::HDC, proc: *mut ::core::ffi::c_void, param2: super::super::Foundation::LPARAM) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(EnumICMProfilesA(hdc.into_param().abi(), ::core::mem::transmute(proc), param2.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn EnumICMProfilesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hdc: Param0, proc: ICMENUMPROCW, param2: Param2) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn EnumICMProfilesW(hdc: super::super::Graphics::Gdi::HDC, proc: *mut ::core::ffi::c_void, param2: super::super::Foundation::LPARAM) -> i32;
-        }
-        ::core::mem::transmute(EnumICMProfilesW(hdc.into_param().abi(), ::core::mem::transmute(proc), param2.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn EnumICMProfilesW(hdc: super::super::Graphics::Gdi::HDC, proc: *mut ::core::ffi::c_void, param2: super::super::Foundation::LPARAM) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(EnumICMProfilesW(hdc.into_param().abi(), ::core::mem::transmute(proc), param2.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 pub const FAST_TRANSLATE: u32 = 262144u32;
@@ -1886,301 +1621,201 @@ impl ::core::default::Default for GamutShellTriangle {
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 #[inline]
 pub unsafe fn GetCMMInfo(hcolortransform: isize, param1: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetCMMInfo(hcolortransform: isize, param1: u32) -> u32;
-        }
-        ::core::mem::transmute(GetCMMInfo(::core::mem::transmute(hcolortransform), ::core::mem::transmute(param1)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetCMMInfo(hcolortransform: isize, param1: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetCMMInfo(::core::mem::transmute(hcolortransform), ::core::mem::transmute(param1)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetColorDirectoryA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(pmachinename: Param0, pbuffer: ::windows::core::PSTR, pdwsize: *mut u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetColorDirectoryA(pmachinename: ::windows::core::PCSTR, pbuffer: ::windows::core::PSTR, pdwsize: *mut u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetColorDirectoryA(pmachinename.into_param().abi(), ::core::mem::transmute(pbuffer), ::core::mem::transmute(pdwsize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetColorDirectoryA(pmachinename: ::windows::core::PCSTR, pbuffer: ::windows::core::PSTR, pdwsize: *mut u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetColorDirectoryA(pmachinename.into_param().abi(), ::core::mem::transmute(pbuffer), ::core::mem::transmute(pdwsize)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetColorDirectoryW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pmachinename: Param0, pbuffer: ::windows::core::PWSTR, pdwsize: *mut u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetColorDirectoryW(pmachinename: ::windows::core::PCWSTR, pbuffer: ::windows::core::PWSTR, pdwsize: *mut u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetColorDirectoryW(pmachinename.into_param().abi(), ::core::mem::transmute(pbuffer), ::core::mem::transmute(pdwsize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetColorDirectoryW(pmachinename: ::windows::core::PCWSTR, pbuffer: ::windows::core::PWSTR, pdwsize: *mut u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetColorDirectoryW(pmachinename.into_param().abi(), ::core::mem::transmute(pbuffer), ::core::mem::transmute(pdwsize)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetColorProfileElement(hprofile: isize, tag: u32, dwoffset: u32, pcbelement: *mut u32, pelement: *mut ::core::ffi::c_void, pbreference: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetColorProfileElement(hprofile: isize, tag: u32, dwoffset: u32, pcbelement: *mut u32, pelement: *mut ::core::ffi::c_void, pbreference: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetColorProfileElement(::core::mem::transmute(hprofile), ::core::mem::transmute(tag), ::core::mem::transmute(dwoffset), ::core::mem::transmute(pcbelement), ::core::mem::transmute(pelement), ::core::mem::transmute(pbreference)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetColorProfileElement(hprofile: isize, tag: u32, dwoffset: u32, pcbelement: *mut u32, pelement: *mut ::core::ffi::c_void, pbreference: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetColorProfileElement(::core::mem::transmute(hprofile), ::core::mem::transmute(tag), ::core::mem::transmute(dwoffset), ::core::mem::transmute(pcbelement), ::core::mem::transmute(pelement), ::core::mem::transmute(pbreference)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetColorProfileElementTag(hprofile: isize, dwindex: u32, ptag: *mut u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetColorProfileElementTag(hprofile: isize, dwindex: u32, ptag: *mut u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetColorProfileElementTag(::core::mem::transmute(hprofile), ::core::mem::transmute(dwindex), ::core::mem::transmute(ptag)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetColorProfileElementTag(hprofile: isize, dwindex: u32, ptag: *mut u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetColorProfileElementTag(::core::mem::transmute(hprofile), ::core::mem::transmute(dwindex), ::core::mem::transmute(ptag)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetColorProfileFromHandle(hprofile: isize, pprofile: *mut u8, pcbprofile: *mut u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetColorProfileFromHandle(hprofile: isize, pprofile: *mut u8, pcbprofile: *mut u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetColorProfileFromHandle(::core::mem::transmute(hprofile), ::core::mem::transmute(pprofile), ::core::mem::transmute(pcbprofile)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetColorProfileFromHandle(hprofile: isize, pprofile: *mut u8, pcbprofile: *mut u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetColorProfileFromHandle(::core::mem::transmute(hprofile), ::core::mem::transmute(pprofile), ::core::mem::transmute(pcbprofile)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn GetColorProfileHeader(hprofile: isize, pheader: *mut PROFILEHEADER) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetColorProfileHeader(hprofile: isize, pheader: *mut PROFILEHEADER) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetColorProfileHeader(::core::mem::transmute(hprofile), ::core::mem::transmute(pheader)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetColorProfileHeader(hprofile: isize, pheader: *mut PROFILEHEADER) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetColorProfileHeader(::core::mem::transmute(hprofile), ::core::mem::transmute(pheader)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GetColorSpace<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hdc: Param0) -> HCOLORSPACE {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetColorSpace(hdc: super::super::Graphics::Gdi::HDC) -> HCOLORSPACE;
-        }
-        ::core::mem::transmute(GetColorSpace(hdc.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetColorSpace(hdc: super::super::Graphics::Gdi::HDC) -> HCOLORSPACE;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetColorSpace(hdc.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCountColorProfileElements(hprofile: isize, pnelementcount: *mut u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetCountColorProfileElements(hprofile: isize, pnelementcount: *mut u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetCountColorProfileElements(::core::mem::transmute(hprofile), ::core::mem::transmute(pnelementcount)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetCountColorProfileElements(hprofile: isize, pnelementcount: *mut u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetCountColorProfileElements(::core::mem::transmute(hprofile), ::core::mem::transmute(pnelementcount)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn GetDeviceGammaRamp<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hdc: Param0, lpramp: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetDeviceGammaRamp(hdc: super::super::Graphics::Gdi::HDC, lpramp: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetDeviceGammaRamp(hdc.into_param().abi(), ::core::mem::transmute(lpramp)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetDeviceGammaRamp(hdc: super::super::Graphics::Gdi::HDC, lpramp: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetDeviceGammaRamp(hdc.into_param().abi(), ::core::mem::transmute(lpramp)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn GetICMProfileA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hdc: Param0, pbufsize: *mut u32, pszfilename: ::windows::core::PSTR) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetICMProfileA(hdc: super::super::Graphics::Gdi::HDC, pbufsize: *mut u32, pszfilename: ::windows::core::PSTR) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetICMProfileA(hdc.into_param().abi(), ::core::mem::transmute(pbufsize), ::core::mem::transmute(pszfilename)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetICMProfileA(hdc: super::super::Graphics::Gdi::HDC, pbufsize: *mut u32, pszfilename: ::windows::core::PSTR) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetICMProfileA(hdc.into_param().abi(), ::core::mem::transmute(pbufsize), ::core::mem::transmute(pszfilename)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn GetICMProfileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hdc: Param0, pbufsize: *mut u32, pszfilename: ::windows::core::PWSTR) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetICMProfileW(hdc: super::super::Graphics::Gdi::HDC, pbufsize: *mut u32, pszfilename: ::windows::core::PWSTR) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetICMProfileW(hdc.into_param().abi(), ::core::mem::transmute(pbufsize), ::core::mem::transmute(pszfilename)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetICMProfileW(hdc: super::super::Graphics::Gdi::HDC, pbufsize: *mut u32, pszfilename: ::windows::core::PWSTR) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetICMProfileW(hdc.into_param().abi(), ::core::mem::transmute(pbufsize), ::core::mem::transmute(pszfilename)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn GetLogColorSpaceA<'a, Param0: ::windows::core::IntoParam<'a, HCOLORSPACE>>(hcolorspace: Param0, lpbuffer: *mut LOGCOLORSPACEA, nsize: u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetLogColorSpaceA(hcolorspace: HCOLORSPACE, lpbuffer: *mut LOGCOLORSPACEA, nsize: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetLogColorSpaceA(hcolorspace.into_param().abi(), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nsize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetLogColorSpaceA(hcolorspace: HCOLORSPACE, lpbuffer: *mut LOGCOLORSPACEA, nsize: u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetLogColorSpaceA(hcolorspace.into_param().abi(), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nsize)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn GetLogColorSpaceW<'a, Param0: ::windows::core::IntoParam<'a, HCOLORSPACE>>(hcolorspace: Param0, lpbuffer: *mut LOGCOLORSPACEW, nsize: u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetLogColorSpaceW(hcolorspace: HCOLORSPACE, lpbuffer: *mut LOGCOLORSPACEW, nsize: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetLogColorSpaceW(hcolorspace.into_param().abi(), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nsize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetLogColorSpaceW(hcolorspace: HCOLORSPACE, lpbuffer: *mut LOGCOLORSPACEW, nsize: u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetLogColorSpaceW(hcolorspace.into_param().abi(), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nsize)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetNamedProfileInfo(hprofile: isize, pnamedprofileinfo: *mut NAMED_PROFILE_INFO) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetNamedProfileInfo(hprofile: isize, pnamedprofileinfo: *mut NAMED_PROFILE_INFO) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetNamedProfileInfo(::core::mem::transmute(hprofile), ::core::mem::transmute(pnamedprofileinfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetNamedProfileInfo(hprofile: isize, pnamedprofileinfo: *mut NAMED_PROFILE_INFO) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetNamedProfileInfo(::core::mem::transmute(hprofile), ::core::mem::transmute(pnamedprofileinfo)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPS2ColorRenderingDictionary(hprofile: isize, dwintent: u32, pps2colorrenderingdictionary: *mut u8, pcbps2colorrenderingdictionary: *mut u32, pbbinary: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetPS2ColorRenderingDictionary(hprofile: isize, dwintent: u32, pps2colorrenderingdictionary: *mut u8, pcbps2colorrenderingdictionary: *mut u32, pbbinary: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetPS2ColorRenderingDictionary(::core::mem::transmute(hprofile), ::core::mem::transmute(dwintent), ::core::mem::transmute(pps2colorrenderingdictionary), ::core::mem::transmute(pcbps2colorrenderingdictionary), ::core::mem::transmute(pbbinary)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetPS2ColorRenderingDictionary(hprofile: isize, dwintent: u32, pps2colorrenderingdictionary: *mut u8, pcbps2colorrenderingdictionary: *mut u32, pbbinary: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetPS2ColorRenderingDictionary(::core::mem::transmute(hprofile), ::core::mem::transmute(dwintent), ::core::mem::transmute(pps2colorrenderingdictionary), ::core::mem::transmute(pcbps2colorrenderingdictionary), ::core::mem::transmute(pbbinary)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPS2ColorRenderingIntent(hprofile: isize, dwintent: u32, pbuffer: *mut u8, pcbps2colorrenderingintent: *mut u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetPS2ColorRenderingIntent(hprofile: isize, dwintent: u32, pbuffer: *mut u8, pcbps2colorrenderingintent: *mut u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetPS2ColorRenderingIntent(::core::mem::transmute(hprofile), ::core::mem::transmute(dwintent), ::core::mem::transmute(pbuffer), ::core::mem::transmute(pcbps2colorrenderingintent)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetPS2ColorRenderingIntent(hprofile: isize, dwintent: u32, pbuffer: *mut u8, pcbps2colorrenderingintent: *mut u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetPS2ColorRenderingIntent(::core::mem::transmute(hprofile), ::core::mem::transmute(dwintent), ::core::mem::transmute(pbuffer), ::core::mem::transmute(pcbps2colorrenderingintent)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPS2ColorSpaceArray(hprofile: isize, dwintent: u32, dwcsatype: u32, pps2colorspacearray: *mut u8, pcbps2colorspacearray: *mut u32, pbbinary: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetPS2ColorSpaceArray(hprofile: isize, dwintent: u32, dwcsatype: u32, pps2colorspacearray: *mut u8, pcbps2colorspacearray: *mut u32, pbbinary: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetPS2ColorSpaceArray(::core::mem::transmute(hprofile), ::core::mem::transmute(dwintent), ::core::mem::transmute(dwcsatype), ::core::mem::transmute(pps2colorspacearray), ::core::mem::transmute(pcbps2colorspacearray), ::core::mem::transmute(pbbinary)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetPS2ColorSpaceArray(hprofile: isize, dwintent: u32, dwcsatype: u32, pps2colorspacearray: *mut u8, pcbps2colorspacearray: *mut u32, pbbinary: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetPS2ColorSpaceArray(::core::mem::transmute(hprofile), ::core::mem::transmute(dwintent), ::core::mem::transmute(dwcsatype), ::core::mem::transmute(pps2colorspacearray), ::core::mem::transmute(pcbps2colorspacearray), ::core::mem::transmute(pbbinary)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetStandardColorSpaceProfileA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(pmachinename: Param0, dwscs: u32, pbuffer: ::windows::core::PSTR, pcbsize: *mut u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetStandardColorSpaceProfileA(pmachinename: ::windows::core::PCSTR, dwscs: u32, pbuffer: ::windows::core::PSTR, pcbsize: *mut u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetStandardColorSpaceProfileA(pmachinename.into_param().abi(), ::core::mem::transmute(dwscs), ::core::mem::transmute(pbuffer), ::core::mem::transmute(pcbsize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetStandardColorSpaceProfileA(pmachinename: ::windows::core::PCSTR, dwscs: u32, pbuffer: ::windows::core::PSTR, pcbsize: *mut u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetStandardColorSpaceProfileA(pmachinename.into_param().abi(), ::core::mem::transmute(dwscs), ::core::mem::transmute(pbuffer), ::core::mem::transmute(pcbsize)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetStandardColorSpaceProfileW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pmachinename: Param0, dwscs: u32, pbuffer: ::windows::core::PWSTR, pcbsize: *mut u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetStandardColorSpaceProfileW(pmachinename: ::windows::core::PCWSTR, dwscs: u32, pbuffer: ::windows::core::PWSTR, pcbsize: *mut u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(GetStandardColorSpaceProfileW(pmachinename.into_param().abi(), ::core::mem::transmute(dwscs), ::core::mem::transmute(pbuffer), ::core::mem::transmute(pcbsize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetStandardColorSpaceProfileW(pmachinename: ::windows::core::PCWSTR, dwscs: u32, pbuffer: ::windows::core::PWSTR, pcbsize: *mut u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(GetStandardColorSpaceProfileW(pmachinename.into_param().abi(), ::core::mem::transmute(dwscs), ::core::mem::transmute(pbuffer), ::core::mem::transmute(pcbsize)))
 }
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -2509,61 +2144,41 @@ pub const INTENT_SATURATION: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn InstallColorProfileA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(pmachinename: Param0, pprofilename: Param1) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InstallColorProfileA(pmachinename: ::windows::core::PCSTR, pprofilename: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(InstallColorProfileA(pmachinename.into_param().abi(), pprofilename.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InstallColorProfileA(pmachinename: ::windows::core::PCSTR, pprofilename: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(InstallColorProfileA(pmachinename.into_param().abi(), pprofilename.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn InstallColorProfileW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pmachinename: Param0, pprofilename: Param1) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn InstallColorProfileW(pmachinename: ::windows::core::PCWSTR, pprofilename: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(InstallColorProfileW(pmachinename.into_param().abi(), pprofilename.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InstallColorProfileW(pmachinename: ::windows::core::PCWSTR, pprofilename: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(InstallColorProfileW(pmachinename.into_param().abi(), pprofilename.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsColorProfileTagPresent(hprofile: isize, tag: u32, pbpresent: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn IsColorProfileTagPresent(hprofile: isize, tag: u32, pbpresent: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(IsColorProfileTagPresent(::core::mem::transmute(hprofile), ::core::mem::transmute(tag), ::core::mem::transmute(pbpresent)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn IsColorProfileTagPresent(hprofile: isize, tag: u32, pbpresent: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(IsColorProfileTagPresent(::core::mem::transmute(hprofile), ::core::mem::transmute(tag), ::core::mem::transmute(pbpresent)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsColorProfileValid(hprofile: isize, pbvalid: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn IsColorProfileValid(hprofile: isize, pbvalid: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(IsColorProfileValid(::core::mem::transmute(hprofile), ::core::mem::transmute(pbvalid)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn IsColorProfileValid(hprofile: isize, pbvalid: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(IsColorProfileValid(::core::mem::transmute(hprofile), ::core::mem::transmute(pbvalid)))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
@@ -2829,30 +2444,20 @@ pub const NORMAL_MODE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 #[inline]
 pub unsafe fn OpenColorProfileA(pprofile: *const PROFILE, dwdesiredaccess: u32, dwsharemode: u32, dwcreationmode: u32) -> isize {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OpenColorProfileA(pprofile: *const PROFILE, dwdesiredaccess: u32, dwsharemode: u32, dwcreationmode: u32) -> isize;
-        }
-        ::core::mem::transmute(OpenColorProfileA(::core::mem::transmute(pprofile), ::core::mem::transmute(dwdesiredaccess), ::core::mem::transmute(dwsharemode), ::core::mem::transmute(dwcreationmode)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OpenColorProfileA(pprofile: *const PROFILE, dwdesiredaccess: u32, dwsharemode: u32, dwcreationmode: u32) -> isize;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(OpenColorProfileA(::core::mem::transmute(pprofile), ::core::mem::transmute(dwdesiredaccess), ::core::mem::transmute(dwsharemode), ::core::mem::transmute(dwcreationmode)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 #[inline]
 pub unsafe fn OpenColorProfileW(pprofile: *const PROFILE, dwdesiredaccess: u32, dwsharemode: u32, dwcreationmode: u32) -> isize {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn OpenColorProfileW(pprofile: *const PROFILE, dwdesiredaccess: u32, dwsharemode: u32, dwcreationmode: u32) -> isize;
-        }
-        ::core::mem::transmute(OpenColorProfileW(::core::mem::transmute(pprofile), ::core::mem::transmute(dwdesiredaccess), ::core::mem::transmute(dwsharemode), ::core::mem::transmute(dwcreationmode)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OpenColorProfileW(pprofile: *const PROFILE, dwdesiredaccess: u32, dwsharemode: u32, dwcreationmode: u32) -> isize;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(OpenColorProfileW(::core::mem::transmute(pprofile), ::core::mem::transmute(dwdesiredaccess), ::core::mem::transmute(dwsharemode), ::core::mem::transmute(dwcreationmode)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -3088,31 +2693,21 @@ impl ::core::default::Default for RGBCOLOR {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegisterCMMA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(pmachinename: Param0, cmmid: u32, pcmmdll: Param2) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RegisterCMMA(pmachinename: ::windows::core::PCSTR, cmmid: u32, pcmmdll: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(RegisterCMMA(pmachinename.into_param().abi(), ::core::mem::transmute(cmmid), pcmmdll.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RegisterCMMA(pmachinename: ::windows::core::PCSTR, cmmid: u32, pcmmdll: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RegisterCMMA(pmachinename.into_param().abi(), ::core::mem::transmute(cmmid), pcmmdll.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegisterCMMW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pmachinename: Param0, cmmid: u32, pcmmdll: Param2) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RegisterCMMW(pmachinename: ::windows::core::PCWSTR, cmmid: u32, pcmmdll: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(RegisterCMMW(pmachinename.into_param().abi(), ::core::mem::transmute(cmmid), pcmmdll.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RegisterCMMW(pmachinename: ::windows::core::PCWSTR, cmmid: u32, pcmmdll: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RegisterCMMW(pmachinename.into_param().abi(), ::core::mem::transmute(cmmid), pcmmdll.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 pub const SEQUENTIAL_TRANSFORM: u32 = 2155872256u32;
@@ -3120,241 +2715,161 @@ pub const SEQUENTIAL_TRANSFORM: u32 = 2155872256u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SelectCMM(dwcmmtype: u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SelectCMM(dwcmmtype: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(SelectCMM(::core::mem::transmute(dwcmmtype)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SelectCMM(dwcmmtype: u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SelectCMM(::core::mem::transmute(dwcmmtype)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetColorProfileElement(hprofile: isize, tag: u32, dwoffset: u32, pelement: &[u8]) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetColorProfileElement(hprofile: isize, tag: u32, dwoffset: u32, pcbelement: *const u32, pelement: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(SetColorProfileElement(::core::mem::transmute(hprofile), ::core::mem::transmute(tag), ::core::mem::transmute(dwoffset), pelement.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pelement))))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetColorProfileElement(hprofile: isize, tag: u32, dwoffset: u32, pcbelement: *const u32, pelement: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetColorProfileElement(::core::mem::transmute(hprofile), ::core::mem::transmute(tag), ::core::mem::transmute(dwoffset), pelement.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pelement))))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetColorProfileElementReference(hprofile: isize, newtag: u32, reftag: u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetColorProfileElementReference(hprofile: isize, newtag: u32, reftag: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(SetColorProfileElementReference(::core::mem::transmute(hprofile), ::core::mem::transmute(newtag), ::core::mem::transmute(reftag)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetColorProfileElementReference(hprofile: isize, newtag: u32, reftag: u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetColorProfileElementReference(::core::mem::transmute(hprofile), ::core::mem::transmute(newtag), ::core::mem::transmute(reftag)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetColorProfileElementSize(hprofile: isize, tagtype: u32, pcbelement: u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetColorProfileElementSize(hprofile: isize, tagtype: u32, pcbelement: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(SetColorProfileElementSize(::core::mem::transmute(hprofile), ::core::mem::transmute(tagtype), ::core::mem::transmute(pcbelement)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetColorProfileElementSize(hprofile: isize, tagtype: u32, pcbelement: u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetColorProfileElementSize(::core::mem::transmute(hprofile), ::core::mem::transmute(tagtype), ::core::mem::transmute(pcbelement)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn SetColorProfileHeader(hprofile: isize, pheader: *const PROFILEHEADER) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetColorProfileHeader(hprofile: isize, pheader: *const PROFILEHEADER) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(SetColorProfileHeader(::core::mem::transmute(hprofile), ::core::mem::transmute(pheader)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetColorProfileHeader(hprofile: isize, pheader: *const PROFILEHEADER) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetColorProfileHeader(::core::mem::transmute(hprofile), ::core::mem::transmute(pheader)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn SetColorSpace<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>, Param1: ::windows::core::IntoParam<'a, HCOLORSPACE>>(hdc: Param0, hcs: Param1) -> HCOLORSPACE {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetColorSpace(hdc: super::super::Graphics::Gdi::HDC, hcs: HCOLORSPACE) -> HCOLORSPACE;
-        }
-        ::core::mem::transmute(SetColorSpace(hdc.into_param().abi(), hcs.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetColorSpace(hdc: super::super::Graphics::Gdi::HDC, hcs: HCOLORSPACE) -> HCOLORSPACE;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetColorSpace(hdc.into_param().abi(), hcs.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn SetDeviceGammaRamp<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hdc: Param0, lpramp: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetDeviceGammaRamp(hdc: super::super::Graphics::Gdi::HDC, lpramp: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(SetDeviceGammaRamp(hdc.into_param().abi(), ::core::mem::transmute(lpramp)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetDeviceGammaRamp(hdc: super::super::Graphics::Gdi::HDC, lpramp: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetDeviceGammaRamp(hdc.into_param().abi(), ::core::mem::transmute(lpramp)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn SetICMMode<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hdc: Param0, mode: ICM_MODE) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetICMMode(hdc: super::super::Graphics::Gdi::HDC, mode: ICM_MODE) -> i32;
-        }
-        ::core::mem::transmute(SetICMMode(hdc.into_param().abi(), ::core::mem::transmute(mode)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetICMMode(hdc: super::super::Graphics::Gdi::HDC, mode: ICM_MODE) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetICMMode(hdc.into_param().abi(), ::core::mem::transmute(mode)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn SetICMProfileA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hdc: Param0, lpfilename: Param1) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetICMProfileA(hdc: super::super::Graphics::Gdi::HDC, lpfilename: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(SetICMProfileA(hdc.into_param().abi(), lpfilename.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetICMProfileA(hdc: super::super::Graphics::Gdi::HDC, lpfilename: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetICMProfileA(hdc.into_param().abi(), lpfilename.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn SetICMProfileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hdc: Param0, lpfilename: Param1) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetICMProfileW(hdc: super::super::Graphics::Gdi::HDC, lpfilename: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(SetICMProfileW(hdc.into_param().abi(), lpfilename.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetICMProfileW(hdc: super::super::Graphics::Gdi::HDC, lpfilename: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetICMProfileW(hdc.into_param().abi(), lpfilename.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetStandardColorSpaceProfileA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(pmachinename: Param0, dwprofileid: u32, pprofilename: Param2) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetStandardColorSpaceProfileA(pmachinename: ::windows::core::PCSTR, dwprofileid: u32, pprofilename: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(SetStandardColorSpaceProfileA(pmachinename.into_param().abi(), ::core::mem::transmute(dwprofileid), pprofilename.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetStandardColorSpaceProfileA(pmachinename: ::windows::core::PCSTR, dwprofileid: u32, pprofilename: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetStandardColorSpaceProfileA(pmachinename.into_param().abi(), ::core::mem::transmute(dwprofileid), pprofilename.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetStandardColorSpaceProfileW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pmachinename: Param0, dwprofileid: u32, pprofilename: Param2) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetStandardColorSpaceProfileW(pmachinename: ::windows::core::PCWSTR, dwprofileid: u32, pprofilename: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(SetStandardColorSpaceProfileW(pmachinename.into_param().abi(), ::core::mem::transmute(dwprofileid), pprofilename.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetStandardColorSpaceProfileW(pmachinename: ::windows::core::PCWSTR, dwprofileid: u32, pprofilename: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetStandardColorSpaceProfileW(pmachinename.into_param().abi(), ::core::mem::transmute(dwprofileid), pprofilename.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn SetupColorMatchingA(pcms: *mut COLORMATCHSETUPA) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetupColorMatchingA(pcms: *mut COLORMATCHSETUPA) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(SetupColorMatchingA(::core::mem::transmute(pcms)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetupColorMatchingA(pcms: *mut COLORMATCHSETUPA) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetupColorMatchingA(::core::mem::transmute(pcms)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn SetupColorMatchingW(pcms: *mut COLORMATCHSETUPW) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetupColorMatchingW(pcms: *mut COLORMATCHSETUPW) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(SetupColorMatchingW(::core::mem::transmute(pcms)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetupColorMatchingW(pcms: *mut COLORMATCHSETUPW) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(SetupColorMatchingW(::core::mem::transmute(pcms)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TranslateBitmapBits<'a, Param10: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hcolortransform: isize, psrcbits: *const ::core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwinputstride: u32, pdestbits: *mut ::core::ffi::c_void, bmoutput: BMFORMAT, dwoutputstride: u32, pfncallback: LPBMCALLBACKFN, ulcallbackdata: Param10) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn TranslateBitmapBits(hcolortransform: isize, psrcbits: *const ::core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwinputstride: u32, pdestbits: *mut ::core::ffi::c_void, bmoutput: BMFORMAT, dwoutputstride: u32, pfncallback: *mut ::core::ffi::c_void, ulcallbackdata: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(TranslateBitmapBits(::core::mem::transmute(hcolortransform), ::core::mem::transmute(psrcbits), ::core::mem::transmute(bminput), ::core::mem::transmute(dwwidth), ::core::mem::transmute(dwheight), ::core::mem::transmute(dwinputstride), ::core::mem::transmute(pdestbits), ::core::mem::transmute(bmoutput), ::core::mem::transmute(dwoutputstride), ::core::mem::transmute(pfncallback), ulcallbackdata.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TranslateBitmapBits(hcolortransform: isize, psrcbits: *const ::core::ffi::c_void, bminput: BMFORMAT, dwwidth: u32, dwheight: u32, dwinputstride: u32, pdestbits: *mut ::core::ffi::c_void, bmoutput: BMFORMAT, dwoutputstride: u32, pfncallback: *mut ::core::ffi::c_void, ulcallbackdata: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(TranslateBitmapBits(::core::mem::transmute(hcolortransform), ::core::mem::transmute(psrcbits), ::core::mem::transmute(bminput), ::core::mem::transmute(dwwidth), ::core::mem::transmute(dwheight), ::core::mem::transmute(dwinputstride), ::core::mem::transmute(pdestbits), ::core::mem::transmute(bmoutput), ::core::mem::transmute(dwoutputstride), ::core::mem::transmute(pfncallback), ulcallbackdata.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TranslateColors(hcolortransform: isize, painputcolors: *const COLOR, ncolors: u32, ctinput: COLORTYPE, paoutputcolors: *mut COLOR, ctoutput: COLORTYPE) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn TranslateColors(hcolortransform: isize, painputcolors: *const COLOR, ncolors: u32, ctinput: COLORTYPE, paoutputcolors: *mut COLOR, ctoutput: COLORTYPE) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(TranslateColors(::core::mem::transmute(hcolortransform), ::core::mem::transmute(painputcolors), ::core::mem::transmute(ncolors), ::core::mem::transmute(ctinput), ::core::mem::transmute(paoutputcolors), ::core::mem::transmute(ctoutput)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TranslateColors(hcolortransform: isize, painputcolors: *const COLOR, ncolors: u32, ctinput: COLORTYPE, paoutputcolors: *mut COLOR, ctoutput: COLORTYPE) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(TranslateColors(::core::mem::transmute(hcolortransform), ::core::mem::transmute(painputcolors), ::core::mem::transmute(ncolors), ::core::mem::transmute(ctinput), ::core::mem::transmute(paoutputcolors), ::core::mem::transmute(ctoutput)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 pub const USE_RELATIVE_COLORIMETRIC: u32 = 131072u32;
@@ -3362,91 +2877,61 @@ pub const USE_RELATIVE_COLORIMETRIC: u32 = 131072u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UninstallColorProfileA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(pmachinename: Param0, pprofilename: Param1, bdelete: Param2) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UninstallColorProfileA(pmachinename: ::windows::core::PCSTR, pprofilename: ::windows::core::PCSTR, bdelete: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(UninstallColorProfileA(pmachinename.into_param().abi(), pprofilename.into_param().abi(), bdelete.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UninstallColorProfileA(pmachinename: ::windows::core::PCSTR, pprofilename: ::windows::core::PCSTR, bdelete: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(UninstallColorProfileA(pmachinename.into_param().abi(), pprofilename.into_param().abi(), bdelete.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UninstallColorProfileW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(pmachinename: Param0, pprofilename: Param1, bdelete: Param2) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UninstallColorProfileW(pmachinename: ::windows::core::PCWSTR, pprofilename: ::windows::core::PCWSTR, bdelete: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(UninstallColorProfileW(pmachinename.into_param().abi(), pprofilename.into_param().abi(), bdelete.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UninstallColorProfileW(pmachinename: ::windows::core::PCWSTR, pprofilename: ::windows::core::PCWSTR, bdelete: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(UninstallColorProfileW(pmachinename.into_param().abi(), pprofilename.into_param().abi(), bdelete.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UnregisterCMMA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(pmachinename: Param0, cmmid: u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UnregisterCMMA(pmachinename: ::windows::core::PCSTR, cmmid: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(UnregisterCMMA(pmachinename.into_param().abi(), ::core::mem::transmute(cmmid)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UnregisterCMMA(pmachinename: ::windows::core::PCSTR, cmmid: u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(UnregisterCMMA(pmachinename.into_param().abi(), ::core::mem::transmute(cmmid)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UnregisterCMMW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pmachinename: Param0, cmmid: u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UnregisterCMMW(pmachinename: ::windows::core::PCWSTR, cmmid: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(UnregisterCMMW(pmachinename.into_param().abi(), ::core::mem::transmute(cmmid)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UnregisterCMMW(pmachinename: ::windows::core::PCWSTR, cmmid: u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(UnregisterCMMW(pmachinename.into_param().abi(), ::core::mem::transmute(cmmid)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UpdateICMRegKeyA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(reserved: u32, lpszcmid: Param1, lpszfilename: Param2, command: ICM_COMMAND) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UpdateICMRegKeyA(reserved: u32, lpszcmid: ::windows::core::PCSTR, lpszfilename: ::windows::core::PCSTR, command: ICM_COMMAND) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(UpdateICMRegKeyA(::core::mem::transmute(reserved), lpszcmid.into_param().abi(), lpszfilename.into_param().abi(), ::core::mem::transmute(command)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UpdateICMRegKeyA(reserved: u32, lpszcmid: ::windows::core::PCSTR, lpszfilename: ::windows::core::PCSTR, command: ICM_COMMAND) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(UpdateICMRegKeyA(::core::mem::transmute(reserved), lpszcmid.into_param().abi(), lpszfilename.into_param().abi(), ::core::mem::transmute(command)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UpdateICMRegKeyW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(reserved: u32, lpszcmid: Param1, lpszfilename: Param2, command: ICM_COMMAND) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UpdateICMRegKeyW(reserved: u32, lpszcmid: ::windows::core::PCWSTR, lpszfilename: ::windows::core::PCWSTR, command: ICM_COMMAND) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(UpdateICMRegKeyW(::core::mem::transmute(reserved), lpszcmid.into_param().abi(), lpszfilename.into_param().abi(), ::core::mem::transmute(command)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UpdateICMRegKeyW(reserved: u32, lpszcmid: ::windows::core::PCWSTR, lpszfilename: ::windows::core::PCWSTR, command: ICM_COMMAND) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(UpdateICMRegKeyW(::core::mem::transmute(reserved), lpszcmid.into_param().abi(), lpszfilename.into_param().abi(), ::core::mem::transmute(command)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 pub const WCS_ALWAYS: u32 = 2097152u32;
@@ -3593,268 +3078,178 @@ impl ::core::fmt::Debug for WCS_PROFILE_MANAGEMENT_SCOPE {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WcsAssociateColorProfileWithDevice<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pprofilename: Param1, pdevicename: Param2) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WcsAssociateColorProfileWithDevice(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pprofilename: ::windows::core::PCWSTR, pdevicename: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(WcsAssociateColorProfileWithDevice(::core::mem::transmute(scope), pprofilename.into_param().abi(), pdevicename.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WcsAssociateColorProfileWithDevice(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pprofilename: ::windows::core::PCWSTR, pdevicename: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(WcsAssociateColorProfileWithDevice(::core::mem::transmute(scope), pprofilename.into_param().abi(), pdevicename.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WcsCheckColors(hcolortransform: isize, ninputchannels: u32, cdtinput: COLORDATATYPE, cbinput: u32, pinputdata: *const ::core::ffi::c_void, paresult: &mut [u8]) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WcsCheckColors(hcolortransform: isize, ncolors: u32, ninputchannels: u32, cdtinput: COLORDATATYPE, cbinput: u32, pinputdata: *const ::core::ffi::c_void, paresult: *mut u8) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(WcsCheckColors(::core::mem::transmute(hcolortransform), paresult.len() as _, ::core::mem::transmute(ninputchannels), ::core::mem::transmute(cdtinput), ::core::mem::transmute(cbinput), ::core::mem::transmute(pinputdata), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(paresult))))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WcsCheckColors(hcolortransform: isize, ncolors: u32, ninputchannels: u32, cdtinput: COLORDATATYPE, cbinput: u32, pinputdata: *const ::core::ffi::c_void, paresult: *mut u8) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(WcsCheckColors(::core::mem::transmute(hcolortransform), paresult.len() as _, ::core::mem::transmute(ninputchannels), ::core::mem::transmute(cdtinput), ::core::mem::transmute(cbinput), ::core::mem::transmute(pinputdata), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(paresult))))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 #[inline]
 pub unsafe fn WcsCreateIccProfile(hwcsprofile: isize, dwoptions: u32) -> isize {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WcsCreateIccProfile(hwcsprofile: isize, dwoptions: u32) -> isize;
-        }
-        ::core::mem::transmute(WcsCreateIccProfile(::core::mem::transmute(hwcsprofile), ::core::mem::transmute(dwoptions)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WcsCreateIccProfile(hwcsprofile: isize, dwoptions: u32) -> isize;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(WcsCreateIccProfile(::core::mem::transmute(hwcsprofile), ::core::mem::transmute(dwoptions)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WcsDisassociateColorProfileFromDevice<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pprofilename: Param1, pdevicename: Param2) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WcsDisassociateColorProfileFromDevice(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pprofilename: ::windows::core::PCWSTR, pdevicename: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(WcsDisassociateColorProfileFromDevice(::core::mem::transmute(scope), pprofilename.into_param().abi(), pdevicename.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WcsDisassociateColorProfileFromDevice(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pprofilename: ::windows::core::PCWSTR, pdevicename: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(WcsDisassociateColorProfileFromDevice(::core::mem::transmute(scope), pprofilename.into_param().abi(), pdevicename.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WcsEnumColorProfiles(scope: WCS_PROFILE_MANAGEMENT_SCOPE, penumrecord: *const ENUMTYPEW, pbuffer: *mut u8, dwsize: u32, pnprofiles: *mut u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WcsEnumColorProfiles(scope: WCS_PROFILE_MANAGEMENT_SCOPE, penumrecord: *const ENUMTYPEW, pbuffer: *mut u8, dwsize: u32, pnprofiles: *mut u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(WcsEnumColorProfiles(::core::mem::transmute(scope), ::core::mem::transmute(penumrecord), ::core::mem::transmute(pbuffer), ::core::mem::transmute(dwsize), ::core::mem::transmute(pnprofiles)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WcsEnumColorProfiles(scope: WCS_PROFILE_MANAGEMENT_SCOPE, penumrecord: *const ENUMTYPEW, pbuffer: *mut u8, dwsize: u32, pnprofiles: *mut u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(WcsEnumColorProfiles(::core::mem::transmute(scope), ::core::mem::transmute(penumrecord), ::core::mem::transmute(pbuffer), ::core::mem::transmute(dwsize), ::core::mem::transmute(pnprofiles)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WcsEnumColorProfilesSize(scope: WCS_PROFILE_MANAGEMENT_SCOPE, penumrecord: *const ENUMTYPEW, pdwsize: *mut u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WcsEnumColorProfilesSize(scope: WCS_PROFILE_MANAGEMENT_SCOPE, penumrecord: *const ENUMTYPEW, pdwsize: *mut u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(WcsEnumColorProfilesSize(::core::mem::transmute(scope), ::core::mem::transmute(penumrecord), ::core::mem::transmute(pdwsize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WcsEnumColorProfilesSize(scope: WCS_PROFILE_MANAGEMENT_SCOPE, penumrecord: *const ENUMTYPEW, pdwsize: *mut u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(WcsEnumColorProfilesSize(::core::mem::transmute(scope), ::core::mem::transmute(penumrecord), ::core::mem::transmute(pdwsize)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WcsGetCalibrationManagementState(pbisenabled: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WcsGetCalibrationManagementState(pbisenabled: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(WcsGetCalibrationManagementState(::core::mem::transmute(pbisenabled)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WcsGetCalibrationManagementState(pbisenabled: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(WcsGetCalibrationManagementState(::core::mem::transmute(pbisenabled)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WcsGetDefaultColorProfile<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pdevicename: Param1, cptcolorprofiletype: COLORPROFILETYPE, cpstcolorprofilesubtype: COLORPROFILESUBTYPE, dwprofileid: u32, cbprofilename: u32, pprofilename: ::windows::core::PWSTR) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WcsGetDefaultColorProfile(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pdevicename: ::windows::core::PCWSTR, cptcolorprofiletype: COLORPROFILETYPE, cpstcolorprofilesubtype: COLORPROFILESUBTYPE, dwprofileid: u32, cbprofilename: u32, pprofilename: ::windows::core::PWSTR) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(WcsGetDefaultColorProfile(::core::mem::transmute(scope), pdevicename.into_param().abi(), ::core::mem::transmute(cptcolorprofiletype), ::core::mem::transmute(cpstcolorprofilesubtype), ::core::mem::transmute(dwprofileid), ::core::mem::transmute(cbprofilename), ::core::mem::transmute(pprofilename)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WcsGetDefaultColorProfile(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pdevicename: ::windows::core::PCWSTR, cptcolorprofiletype: COLORPROFILETYPE, cpstcolorprofilesubtype: COLORPROFILESUBTYPE, dwprofileid: u32, cbprofilename: u32, pprofilename: ::windows::core::PWSTR) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(WcsGetDefaultColorProfile(::core::mem::transmute(scope), pdevicename.into_param().abi(), ::core::mem::transmute(cptcolorprofiletype), ::core::mem::transmute(cpstcolorprofilesubtype), ::core::mem::transmute(dwprofileid), ::core::mem::transmute(cbprofilename), ::core::mem::transmute(pprofilename)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WcsGetDefaultColorProfileSize<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pdevicename: Param1, cptcolorprofiletype: COLORPROFILETYPE, cpstcolorprofilesubtype: COLORPROFILESUBTYPE, dwprofileid: u32, pcbprofilename: *mut u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WcsGetDefaultColorProfileSize(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pdevicename: ::windows::core::PCWSTR, cptcolorprofiletype: COLORPROFILETYPE, cpstcolorprofilesubtype: COLORPROFILESUBTYPE, dwprofileid: u32, pcbprofilename: *mut u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(WcsGetDefaultColorProfileSize(::core::mem::transmute(scope), pdevicename.into_param().abi(), ::core::mem::transmute(cptcolorprofiletype), ::core::mem::transmute(cpstcolorprofilesubtype), ::core::mem::transmute(dwprofileid), ::core::mem::transmute(pcbprofilename)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WcsGetDefaultColorProfileSize(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pdevicename: ::windows::core::PCWSTR, cptcolorprofiletype: COLORPROFILETYPE, cpstcolorprofilesubtype: COLORPROFILESUBTYPE, dwprofileid: u32, pcbprofilename: *mut u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(WcsGetDefaultColorProfileSize(::core::mem::transmute(scope), pdevicename.into_param().abi(), ::core::mem::transmute(cptcolorprofiletype), ::core::mem::transmute(cpstcolorprofilesubtype), ::core::mem::transmute(dwprofileid), ::core::mem::transmute(pcbprofilename)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WcsGetDefaultRenderingIntent(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pdwrenderingintent: *mut u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WcsGetDefaultRenderingIntent(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pdwrenderingintent: *mut u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(WcsGetDefaultRenderingIntent(::core::mem::transmute(scope), ::core::mem::transmute(pdwrenderingintent)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WcsGetDefaultRenderingIntent(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pdwrenderingintent: *mut u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(WcsGetDefaultRenderingIntent(::core::mem::transmute(scope), ::core::mem::transmute(pdwrenderingintent)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WcsGetUsePerUserProfiles<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pdevicename: Param0, dwdeviceclass: u32, puseperuserprofiles: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WcsGetUsePerUserProfiles(pdevicename: ::windows::core::PCWSTR, dwdeviceclass: u32, puseperuserprofiles: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(WcsGetUsePerUserProfiles(pdevicename.into_param().abi(), ::core::mem::transmute(dwdeviceclass), ::core::mem::transmute(puseperuserprofiles)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WcsGetUsePerUserProfiles(pdevicename: ::windows::core::PCWSTR, dwdeviceclass: u32, puseperuserprofiles: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(WcsGetUsePerUserProfiles(pdevicename.into_param().abi(), ::core::mem::transmute(dwdeviceclass), ::core::mem::transmute(puseperuserprofiles)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 #[inline]
 pub unsafe fn WcsOpenColorProfileA(pcdmpprofile: *const PROFILE, pcampprofile: *const PROFILE, pgmmpprofile: *const PROFILE, dwdesireaccess: u32, dwsharemode: u32, dwcreationmode: u32, dwflags: u32) -> isize {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WcsOpenColorProfileA(pcdmpprofile: *const PROFILE, pcampprofile: *const PROFILE, pgmmpprofile: *const PROFILE, dwdesireaccess: u32, dwsharemode: u32, dwcreationmode: u32, dwflags: u32) -> isize;
-        }
-        ::core::mem::transmute(WcsOpenColorProfileA(::core::mem::transmute(pcdmpprofile), ::core::mem::transmute(pcampprofile), ::core::mem::transmute(pgmmpprofile), ::core::mem::transmute(dwdesireaccess), ::core::mem::transmute(dwsharemode), ::core::mem::transmute(dwcreationmode), ::core::mem::transmute(dwflags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WcsOpenColorProfileA(pcdmpprofile: *const PROFILE, pcampprofile: *const PROFILE, pgmmpprofile: *const PROFILE, dwdesireaccess: u32, dwsharemode: u32, dwcreationmode: u32, dwflags: u32) -> isize;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(WcsOpenColorProfileA(::core::mem::transmute(pcdmpprofile), ::core::mem::transmute(pcampprofile), ::core::mem::transmute(pgmmpprofile), ::core::mem::transmute(dwdesireaccess), ::core::mem::transmute(dwsharemode), ::core::mem::transmute(dwcreationmode), ::core::mem::transmute(dwflags)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 #[inline]
 pub unsafe fn WcsOpenColorProfileW(pcdmpprofile: *const PROFILE, pcampprofile: *const PROFILE, pgmmpprofile: *const PROFILE, dwdesireaccess: u32, dwsharemode: u32, dwcreationmode: u32, dwflags: u32) -> isize {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WcsOpenColorProfileW(pcdmpprofile: *const PROFILE, pcampprofile: *const PROFILE, pgmmpprofile: *const PROFILE, dwdesireaccess: u32, dwsharemode: u32, dwcreationmode: u32, dwflags: u32) -> isize;
-        }
-        ::core::mem::transmute(WcsOpenColorProfileW(::core::mem::transmute(pcdmpprofile), ::core::mem::transmute(pcampprofile), ::core::mem::transmute(pgmmpprofile), ::core::mem::transmute(dwdesireaccess), ::core::mem::transmute(dwsharemode), ::core::mem::transmute(dwcreationmode), ::core::mem::transmute(dwflags)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WcsOpenColorProfileW(pcdmpprofile: *const PROFILE, pcampprofile: *const PROFILE, pgmmpprofile: *const PROFILE, dwdesireaccess: u32, dwsharemode: u32, dwcreationmode: u32, dwflags: u32) -> isize;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(WcsOpenColorProfileW(::core::mem::transmute(pcdmpprofile), ::core::mem::transmute(pcampprofile), ::core::mem::transmute(pgmmpprofile), ::core::mem::transmute(dwdesireaccess), ::core::mem::transmute(dwsharemode), ::core::mem::transmute(dwcreationmode), ::core::mem::transmute(dwflags)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WcsSetCalibrationManagementState<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(bisenabled: Param0) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WcsSetCalibrationManagementState(bisenabled: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(WcsSetCalibrationManagementState(bisenabled.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WcsSetCalibrationManagementState(bisenabled: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(WcsSetCalibrationManagementState(bisenabled.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WcsSetDefaultColorProfile<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param5: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pdevicename: Param1, cptcolorprofiletype: COLORPROFILETYPE, cpstcolorprofilesubtype: COLORPROFILESUBTYPE, dwprofileid: u32, pprofilename: Param5) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WcsSetDefaultColorProfile(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pdevicename: ::windows::core::PCWSTR, cptcolorprofiletype: COLORPROFILETYPE, cpstcolorprofilesubtype: COLORPROFILESUBTYPE, dwprofileid: u32, pprofilename: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(WcsSetDefaultColorProfile(::core::mem::transmute(scope), pdevicename.into_param().abi(), ::core::mem::transmute(cptcolorprofiletype), ::core::mem::transmute(cpstcolorprofilesubtype), ::core::mem::transmute(dwprofileid), pprofilename.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WcsSetDefaultColorProfile(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pdevicename: ::windows::core::PCWSTR, cptcolorprofiletype: COLORPROFILETYPE, cpstcolorprofilesubtype: COLORPROFILESUBTYPE, dwprofileid: u32, pprofilename: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(WcsSetDefaultColorProfile(::core::mem::transmute(scope), pdevicename.into_param().abi(), ::core::mem::transmute(cptcolorprofiletype), ::core::mem::transmute(cpstcolorprofilesubtype), ::core::mem::transmute(dwprofileid), pprofilename.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WcsSetDefaultRenderingIntent(scope: WCS_PROFILE_MANAGEMENT_SCOPE, dwrenderingintent: u32) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WcsSetDefaultRenderingIntent(scope: WCS_PROFILE_MANAGEMENT_SCOPE, dwrenderingintent: u32) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(WcsSetDefaultRenderingIntent(::core::mem::transmute(scope), ::core::mem::transmute(dwrenderingintent)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WcsSetDefaultRenderingIntent(scope: WCS_PROFILE_MANAGEMENT_SCOPE, dwrenderingintent: u32) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(WcsSetDefaultRenderingIntent(::core::mem::transmute(scope), ::core::mem::transmute(dwrenderingintent)))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WcsSetUsePerUserProfiles<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(pdevicename: Param0, dwdeviceclass: u32, useperuserprofiles: Param2) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WcsSetUsePerUserProfiles(pdevicename: ::windows::core::PCWSTR, dwdeviceclass: u32, useperuserprofiles: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(WcsSetUsePerUserProfiles(pdevicename.into_param().abi(), ::core::mem::transmute(dwdeviceclass), useperuserprofiles.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WcsSetUsePerUserProfiles(pdevicename: ::windows::core::PCWSTR, dwdeviceclass: u32, useperuserprofiles: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(WcsSetUsePerUserProfiles(pdevicename.into_param().abi(), ::core::mem::transmute(dwdeviceclass), useperuserprofiles.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WcsTranslateColors(hcolortransform: isize, ncolors: u32, ninputchannels: u32, cdtinput: COLORDATATYPE, cbinput: u32, pinputdata: *const ::core::ffi::c_void, noutputchannels: u32, cdtoutput: COLORDATATYPE, cboutput: u32, poutputdata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WcsTranslateColors(hcolortransform: isize, ncolors: u32, ninputchannels: u32, cdtinput: COLORDATATYPE, cbinput: u32, pinputdata: *const ::core::ffi::c_void, noutputchannels: u32, cdtoutput: COLORDATATYPE, cboutput: u32, poutputdata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(WcsTranslateColors(::core::mem::transmute(hcolortransform), ::core::mem::transmute(ncolors), ::core::mem::transmute(ninputchannels), ::core::mem::transmute(cdtinput), ::core::mem::transmute(cbinput), ::core::mem::transmute(pinputdata), ::core::mem::transmute(noutputchannels), ::core::mem::transmute(cdtoutput), ::core::mem::transmute(cboutput), ::core::mem::transmute(poutputdata)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WcsTranslateColors(hcolortransform: isize, ncolors: u32, ninputchannels: u32, cdtinput: COLORDATATYPE, cbinput: u32, pinputdata: *const ::core::ffi::c_void, noutputchannels: u32, cdtoutput: COLORDATATYPE, cboutput: u32, poutputdata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(WcsTranslateColors(::core::mem::transmute(hcolortransform), ::core::mem::transmute(ncolors), ::core::mem::transmute(ninputchannels), ::core::mem::transmute(cdtinput), ::core::mem::transmute(cbinput), ::core::mem::transmute(pinputdata), ::core::mem::transmute(noutputchannels), ::core::mem::transmute(cdtoutput), ::core::mem::transmute(cboutput), ::core::mem::transmute(poutputdata)))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]

@@ -51,45 +51,30 @@ pub const ASYNC_RECO_SETWORDLIST_FAILED: u32 = 512u32;
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn AddStroke<'a, Param0: ::windows::core::IntoParam<'a, HRECOCONTEXT>>(hrc: Param0, ppacketdesc: *const PACKET_DESCRIPTION, cbpacket: u32, ppacket: *const u8, pxform: *const super::super::Graphics::Gdi::XFORM) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AddStroke(hrc: HRECOCONTEXT, ppacketdesc: *const PACKET_DESCRIPTION, cbpacket: u32, ppacket: *const u8, pxform: *const super::super::Graphics::Gdi::XFORM) -> ::windows::core::HRESULT;
-        }
-        AddStroke(hrc.into_param().abi(), ::core::mem::transmute(ppacketdesc), ::core::mem::transmute(cbpacket), ::core::mem::transmute(ppacket), ::core::mem::transmute(pxform)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AddStroke(hrc: HRECOCONTEXT, ppacketdesc: *const PACKET_DESCRIPTION, cbpacket: u32, ppacket: *const u8, pxform: *const super::super::Graphics::Gdi::XFORM) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    AddStroke(hrc.into_param().abi(), ::core::mem::transmute(ppacketdesc), ::core::mem::transmute(cbpacket), ::core::mem::transmute(ppacket), ::core::mem::transmute(pxform)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
 pub unsafe fn AddWordsToWordList<'a, Param0: ::windows::core::IntoParam<'a, HRECOWORDLIST>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hwl: Param0, pwcwords: Param1) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AddWordsToWordList(hwl: HRECOWORDLIST, pwcwords: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
-        }
-        AddWordsToWordList(hwl.into_param().abi(), pwcwords.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AddWordsToWordList(hwl: HRECOWORDLIST, pwcwords: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    AddWordsToWordList(hwl.into_param().abi(), pwcwords.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AdviseInkChange<'a, Param0: ::windows::core::IntoParam<'a, HRECOCONTEXT>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hrc: Param0, bnewstroke: Param1) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn AdviseInkChange(hrc: HRECOCONTEXT, bnewstroke: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
-        }
-        AdviseInkChange(hrc.into_param().abi(), bnewstroke.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn AdviseInkChange(hrc: HRECOCONTEXT, bnewstroke: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    AdviseInkChange(hrc.into_param().abi(), bnewstroke.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
@@ -276,30 +261,20 @@ impl ::core::fmt::Debug for CorrectionPosition {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
 pub unsafe fn CreateContext<'a, Param0: ::windows::core::IntoParam<'a, HRECOGNIZER>>(hrec: Param0, phrc: *mut HRECOCONTEXT) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateContext(hrec: HRECOGNIZER, phrc: *mut HRECOCONTEXT) -> ::windows::core::HRESULT;
-        }
-        CreateContext(hrec.into_param().abi(), ::core::mem::transmute(phrc)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateContext(hrec: HRECOGNIZER, phrc: *mut HRECOCONTEXT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CreateContext(hrec.into_param().abi(), ::core::mem::transmute(phrc)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
 pub unsafe fn CreateRecognizer(pclsid: *mut ::windows::core::GUID, phrec: *mut HRECOGNIZER) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateRecognizer(pclsid: *mut ::windows::core::GUID, phrec: *mut HRECOGNIZER) -> ::windows::core::HRESULT;
-        }
-        CreateRecognizer(::core::mem::transmute(pclsid), ::core::mem::transmute(phrec)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateRecognizer(pclsid: *mut ::windows::core::GUID, phrec: *mut HRECOGNIZER) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CreateRecognizer(::core::mem::transmute(pclsid), ::core::mem::transmute(phrec)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
@@ -2178,44 +2153,29 @@ impl ::core::default::Default for DYNAMIC_RENDERER_CACHED_DATA {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
 pub unsafe fn DestroyContext<'a, Param0: ::windows::core::IntoParam<'a, HRECOCONTEXT>>(hrc: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DestroyContext(hrc: HRECOCONTEXT) -> ::windows::core::HRESULT;
-        }
-        DestroyContext(hrc.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DestroyContext(hrc: HRECOCONTEXT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DestroyContext(hrc.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
 pub unsafe fn DestroyRecognizer<'a, Param0: ::windows::core::IntoParam<'a, HRECOGNIZER>>(hrec: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DestroyRecognizer(hrec: HRECOGNIZER) -> ::windows::core::HRESULT;
-        }
-        DestroyRecognizer(hrec.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DestroyRecognizer(hrec: HRECOGNIZER) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DestroyRecognizer(hrec.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
 pub unsafe fn DestroyWordList<'a, Param0: ::windows::core::IntoParam<'a, HRECOWORDLIST>>(hwl: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DestroyWordList(hwl: HRECOWORDLIST) -> ::windows::core::HRESULT;
-        }
-        DestroyWordList(hwl.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DestroyWordList(hwl: HRECOWORDLIST) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DestroyWordList(hwl.into_param().abi()).ok()
 }
 pub const DynamicRenderer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecd32aea_746f_4dcb_bf68_082757faff18);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -2273,16 +2233,11 @@ pub const EM_SETUSEMOUSEFORINPUT: u32 = 1560u32;
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
 pub unsafe fn EndInkInput<'a, Param0: ::windows::core::IntoParam<'a, HRECOCONTEXT>>(hrc: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn EndInkInput(hrc: HRECOCONTEXT) -> ::windows::core::HRESULT;
-        }
-        EndInkInput(hrc.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn EndInkInput(hrc: HRECOCONTEXT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    EndInkInput(hrc.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
@@ -2899,114 +2854,74 @@ pub const GestureRecognizer: ::windows::core::GUID = ::windows::core::GUID::from
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
 pub unsafe fn GetAllRecognizers(recognizerclsids: *mut *mut ::windows::core::GUID, count: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetAllRecognizers(recognizerclsids: *mut *mut ::windows::core::GUID, count: *mut u32) -> ::windows::core::HRESULT;
-        }
-        GetAllRecognizers(::core::mem::transmute(recognizerclsids), ::core::mem::transmute(count)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetAllRecognizers(recognizerclsids: *mut *mut ::windows::core::GUID, count: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    GetAllRecognizers(::core::mem::transmute(recognizerclsids), ::core::mem::transmute(count)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
 pub unsafe fn GetBestResultString<'a, Param0: ::windows::core::IntoParam<'a, HRECOCONTEXT>>(hrc: Param0, pcsize: *mut u32, pwcbestresult: ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetBestResultString(hrc: HRECOCONTEXT, pcsize: *mut u32, pwcbestresult: ::windows::core::PWSTR) -> ::windows::core::HRESULT;
-        }
-        GetBestResultString(hrc.into_param().abi(), ::core::mem::transmute(pcsize), ::core::mem::transmute(pwcbestresult)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetBestResultString(hrc: HRECOCONTEXT, pcsize: *mut u32, pwcbestresult: ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    GetBestResultString(hrc.into_param().abi(), ::core::mem::transmute(pcsize), ::core::mem::transmute(pwcbestresult)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
 pub unsafe fn GetLatticePtr<'a, Param0: ::windows::core::IntoParam<'a, HRECOCONTEXT>>(hrc: Param0, pplattice: *mut *mut RECO_LATTICE) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetLatticePtr(hrc: HRECOCONTEXT, pplattice: *mut *mut RECO_LATTICE) -> ::windows::core::HRESULT;
-        }
-        GetLatticePtr(hrc.into_param().abi(), ::core::mem::transmute(pplattice)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetLatticePtr(hrc: HRECOCONTEXT, pplattice: *mut *mut RECO_LATTICE) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    GetLatticePtr(hrc.into_param().abi(), ::core::mem::transmute(pplattice)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
 pub unsafe fn GetLeftSeparator<'a, Param0: ::windows::core::IntoParam<'a, HRECOCONTEXT>>(hrc: Param0, pcsize: *mut u32, pwcleftseparator: ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetLeftSeparator(hrc: HRECOCONTEXT, pcsize: *mut u32, pwcleftseparator: ::windows::core::PWSTR) -> ::windows::core::HRESULT;
-        }
-        GetLeftSeparator(hrc.into_param().abi(), ::core::mem::transmute(pcsize), ::core::mem::transmute(pwcleftseparator)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetLeftSeparator(hrc: HRECOCONTEXT, pcsize: *mut u32, pwcleftseparator: ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    GetLeftSeparator(hrc.into_param().abi(), ::core::mem::transmute(pcsize), ::core::mem::transmute(pwcleftseparator)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
 pub unsafe fn GetRecoAttributes<'a, Param0: ::windows::core::IntoParam<'a, HRECOGNIZER>>(hrec: Param0, precoattrs: *mut RECO_ATTRS) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetRecoAttributes(hrec: HRECOGNIZER, precoattrs: *mut RECO_ATTRS) -> ::windows::core::HRESULT;
-        }
-        GetRecoAttributes(hrec.into_param().abi(), ::core::mem::transmute(precoattrs)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetRecoAttributes(hrec: HRECOGNIZER, precoattrs: *mut RECO_ATTRS) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    GetRecoAttributes(hrec.into_param().abi(), ::core::mem::transmute(precoattrs)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
 pub unsafe fn GetResultPropertyList<'a, Param0: ::windows::core::IntoParam<'a, HRECOGNIZER>>(hrec: Param0, ppropertycount: *mut u32, ppropertyguid: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetResultPropertyList(hrec: HRECOGNIZER, ppropertycount: *mut u32, ppropertyguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
-        }
-        GetResultPropertyList(hrec.into_param().abi(), ::core::mem::transmute(ppropertycount), ::core::mem::transmute(ppropertyguid)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetResultPropertyList(hrec: HRECOGNIZER, ppropertycount: *mut u32, ppropertyguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    GetResultPropertyList(hrec.into_param().abi(), ::core::mem::transmute(ppropertycount), ::core::mem::transmute(ppropertyguid)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
 pub unsafe fn GetRightSeparator<'a, Param0: ::windows::core::IntoParam<'a, HRECOCONTEXT>>(hrc: Param0, pcsize: *mut u32, pwcrightseparator: ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetRightSeparator(hrc: HRECOCONTEXT, pcsize: *mut u32, pwcrightseparator: ::windows::core::PWSTR) -> ::windows::core::HRESULT;
-        }
-        GetRightSeparator(hrc.into_param().abi(), ::core::mem::transmute(pcsize), ::core::mem::transmute(pwcrightseparator)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetRightSeparator(hrc: HRECOCONTEXT, pcsize: *mut u32, pwcrightseparator: ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    GetRightSeparator(hrc.into_param().abi(), ::core::mem::transmute(pcsize), ::core::mem::transmute(pwcrightseparator)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
 pub unsafe fn GetUnicodeRanges<'a, Param0: ::windows::core::IntoParam<'a, HRECOGNIZER>>(hrec: Param0, pcranges: *mut u32, pcr: *mut CHARACTER_RANGE) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetUnicodeRanges(hrec: HRECOGNIZER, pcranges: *mut u32, pcr: *mut CHARACTER_RANGE) -> ::windows::core::HRESULT;
-        }
-        GetUnicodeRanges(hrec.into_param().abi(), ::core::mem::transmute(pcranges), ::core::mem::transmute(pcr)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetUnicodeRanges(hrec: HRECOGNIZER, pcranges: *mut u32, pcr: *mut CHARACTER_RANGE) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    GetUnicodeRanges(hrec.into_param().abi(), ::core::mem::transmute(pcranges), ::core::mem::transmute(pcr)).ok()
 }
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -14596,16 +14511,11 @@ impl ::core::fmt::Debug for InteractionMode {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
 pub unsafe fn IsStringSupported<'a, Param0: ::windows::core::IntoParam<'a, HRECOCONTEXT>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hrc: Param0, wcstring: u32, pwcstring: Param2) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn IsStringSupported(hrc: HRECOCONTEXT, wcstring: u32, pwcstring: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
-        }
-        IsStringSupported(hrc.into_param().abi(), ::core::mem::transmute(wcstring), pwcstring.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn IsStringSupported(hrc: HRECOCONTEXT, wcstring: u32, pwcstring: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    IsStringSupported(hrc.into_param().abi(), ::core::mem::transmute(wcstring), pwcstring.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
@@ -14754,16 +14664,11 @@ impl ::core::default::Default for LINE_SEGMENT {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
 pub unsafe fn LoadCachedAttributes<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(clsid: Param0, precoattributes: *mut RECO_ATTRS) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LoadCachedAttributes(clsid: ::windows::core::GUID, precoattributes: *mut RECO_ATTRS) -> ::windows::core::HRESULT;
-        }
-        LoadCachedAttributes(clsid.into_param().abi(), ::core::mem::transmute(precoattributes)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LoadCachedAttributes(clsid: ::windows::core::GUID, precoattributes: *mut RECO_ATTRS) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    LoadCachedAttributes(clsid.into_param().abi(), ::core::mem::transmute(precoattributes)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const MAX_FRIENDLYNAME: u32 = 64u32;
@@ -14862,16 +14767,11 @@ impl ::core::fmt::Debug for MICUIELEMENTSTATE {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
 pub unsafe fn MakeWordList<'a, Param0: ::windows::core::IntoParam<'a, HRECOGNIZER>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hrec: Param0, pbuffer: Param1, phwl: *mut HRECOWORDLIST) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MakeWordList(hrec: HRECOGNIZER, pbuffer: ::windows::core::PCWSTR, phwl: *mut HRECOWORDLIST) -> ::windows::core::HRESULT;
-        }
-        MakeWordList(hrec.into_param().abi(), pbuffer.into_param().abi(), ::core::mem::transmute(phwl)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MakeWordList(hrec: HRECOGNIZER, pbuffer: ::windows::core::PCWSTR, phwl: *mut HRECOWORDLIST) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MakeWordList(hrec.into_param().abi(), pbuffer.into_param().abi(), ::core::mem::transmute(phwl)).ok()
 }
 pub const MathInputControl: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc561816c_14d8_4090_830c_98d994b21c7b);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -15132,16 +15032,11 @@ pub type PfnRecoCallback = ::core::option::Option<unsafe extern "system" fn(para
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Process<'a, Param0: ::windows::core::IntoParam<'a, HRECOCONTEXT>>(hrc: Param0, pbpartialprocessing: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn Process(hrc: HRECOCONTEXT, pbpartialprocessing: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
-        }
-        Process(hrc.into_param().abi(), ::core::mem::transmute(pbpartialprocessing)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn Process(hrc: HRECOCONTEXT, pbpartialprocessing: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    Process(hrc.into_param().abi(), ::core::mem::transmute(pbpartialprocessing)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RECOCONF_HIGHCONFIDENCE: u32 = 1u32;
@@ -15812,86 +15707,56 @@ impl ::core::fmt::Debug for SelectionHitResult {
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
 pub unsafe fn SetEnabledUnicodeRanges<'a, Param0: ::windows::core::IntoParam<'a, HRECOCONTEXT>>(hrc: Param0, cranges: u32, pcr: *mut CHARACTER_RANGE) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetEnabledUnicodeRanges(hrc: HRECOCONTEXT, cranges: u32, pcr: *mut CHARACTER_RANGE) -> ::windows::core::HRESULT;
-        }
-        SetEnabledUnicodeRanges(hrc.into_param().abi(), ::core::mem::transmute(cranges), ::core::mem::transmute(pcr)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetEnabledUnicodeRanges(hrc: HRECOCONTEXT, cranges: u32, pcr: *mut CHARACTER_RANGE) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SetEnabledUnicodeRanges(hrc.into_param().abi(), ::core::mem::transmute(cranges), ::core::mem::transmute(pcr)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
 pub unsafe fn SetFactoid<'a, Param0: ::windows::core::IntoParam<'a, HRECOCONTEXT>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hrc: Param0, cwcfactoid: u32, pwcfactoid: Param2) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetFactoid(hrc: HRECOCONTEXT, cwcfactoid: u32, pwcfactoid: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
-        }
-        SetFactoid(hrc.into_param().abi(), ::core::mem::transmute(cwcfactoid), pwcfactoid.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetFactoid(hrc: HRECOCONTEXT, cwcfactoid: u32, pwcfactoid: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SetFactoid(hrc.into_param().abi(), ::core::mem::transmute(cwcfactoid), pwcfactoid.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
 pub unsafe fn SetFlags<'a, Param0: ::windows::core::IntoParam<'a, HRECOCONTEXT>>(hrc: Param0, dwflags: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetFlags(hrc: HRECOCONTEXT, dwflags: u32) -> ::windows::core::HRESULT;
-        }
-        SetFlags(hrc.into_param().abi(), ::core::mem::transmute(dwflags)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetFlags(hrc: HRECOCONTEXT, dwflags: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SetFlags(hrc.into_param().abi(), ::core::mem::transmute(dwflags)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
 pub unsafe fn SetGuide<'a, Param0: ::windows::core::IntoParam<'a, HRECOCONTEXT>>(hrc: Param0, pguide: *const RECO_GUIDE, iindex: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetGuide(hrc: HRECOCONTEXT, pguide: *const RECO_GUIDE, iindex: u32) -> ::windows::core::HRESULT;
-        }
-        SetGuide(hrc.into_param().abi(), ::core::mem::transmute(pguide), ::core::mem::transmute(iindex)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetGuide(hrc: HRECOCONTEXT, pguide: *const RECO_GUIDE, iindex: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SetGuide(hrc.into_param().abi(), ::core::mem::transmute(pguide), ::core::mem::transmute(iindex)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
 pub unsafe fn SetTextContext<'a, Param0: ::windows::core::IntoParam<'a, HRECOCONTEXT>>(hrc: Param0, pwcbefore: &[u16], pwcafter: &[u16]) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetTextContext(hrc: HRECOCONTEXT, cwcbefore: u32, pwcbefore: ::windows::core::PCWSTR, cwcafter: u32, pwcafter: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
-        }
-        SetTextContext(hrc.into_param().abi(), pwcbefore.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pwcbefore)), pwcafter.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pwcafter))).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetTextContext(hrc: HRECOCONTEXT, cwcbefore: u32, pwcbefore: ::windows::core::PCWSTR, cwcafter: u32, pwcafter: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SetTextContext(hrc.into_param().abi(), pwcbefore.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pwcbefore)), pwcafter.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pwcafter))).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
 pub unsafe fn SetWordList<'a, Param0: ::windows::core::IntoParam<'a, HRECOCONTEXT>, Param1: ::windows::core::IntoParam<'a, HRECOWORDLIST>>(hrc: Param0, hwl: Param1) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetWordList(hrc: HRECOCONTEXT, hwl: HRECOWORDLIST) -> ::windows::core::HRESULT;
-        }
-        SetWordList(hrc.into_param().abi(), hwl.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetWordList(hrc: HRECOCONTEXT, hwl: HRECOWORDLIST) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SetWordList(hrc.into_param().abi(), hwl.into_param().abi()).ok()
 }
 pub const SketchInk: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0291081_e87c_4e07_97da_a0a03761e586);
 pub const StrokeBuilder: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe810cee7_6e51_4cb0_aa3a_0b985b70daf7);

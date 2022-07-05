@@ -1,4 +1,4 @@
-#[link(name = "windows")]
+#[cfg_attr(windows, link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]

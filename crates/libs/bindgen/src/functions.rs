@@ -50,7 +50,7 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
         Some(link) => quote! { #[link(name = #link, kind = "static")] },
         None => {
             if gen.namespace.starts_with("Windows.") {
-                quote! { #[link(name = "windows")] }
+                quote! { #[cfg_attr(windows, link(name = "windows"))] }
             } else {
                 let impl_map = gen.reader.method_def_impl_map(def).expect("ImplMap not found");
                 let scope = gen.reader.impl_map_scope(impl_map);
@@ -75,17 +75,12 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
                 #features
                 #[inline]
                 pub unsafe fn #name<#constraints T: ::windows::core::Interface>(#params) -> ::windows::core::Result<T> {
-                    #[cfg(windows)]
-                    {
-                        #link_attr
-                        extern "system" {
-                            fn #name(#(#abi_params),*) #abi_return_type;
-                        }
-                        let mut result__ = ::core::option::Option::None;
-                        #name(#args).and_some(result__)
+                    #link_attr
+                    extern "system" {
+                        fn #name(#(#abi_params),*) #abi_return_type;
                     }
-                    #[cfg(not(windows))]
-                    unimplemented!("Unsupported target OS");
+                    let mut result__ = ::core::option::Option::None;
+                    #name(#args).and_some(result__)
                 }
             }
         }
@@ -98,16 +93,11 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
                 #features
                 #[inline]
                 pub unsafe fn #name<#constraints T: ::windows::core::Interface>(#params result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
-                    #[cfg(windows)]
-                    {
-                        #link_attr
-                        extern "system" {
-                            fn #name(#(#abi_params),*) #abi_return_type;
-                        }
-                        #name(#args).ok()
+                    #link_attr
+                    extern "system" {
+                        fn #name(#(#abi_params),*) #abi_return_type;
                     }
-                    #[cfg(not(windows))]
-                    unimplemented!("Unsupported target OS");
+                    #name(#args).ok()
                 }
             }
         }
@@ -124,17 +114,12 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
                 #features
                 #[inline]
                 pub unsafe fn #name<#constraints>(#params) -> ::windows::core::Result<#return_type_tokens> {
-                    #[cfg(windows)]
-                    {
-                        #link_attr
-                        extern "system" {
-                            fn #name(#(#abi_params),*) #abi_return_type;
-                        }
-                        let mut result__ = ::core::mem::MaybeUninit::<#abi_return_type_tokens>::zeroed();
-                        #name(#args ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<#return_type_tokens>(result__)
+                    #link_attr
+                    extern "system" {
+                        fn #name(#(#abi_params),*) #abi_return_type;
                     }
-                    #[cfg(not(windows))]
-                    unimplemented!("Unsupported target OS");
+                    let mut result__ = ::core::mem::MaybeUninit::<#abi_return_type_tokens>::zeroed();
+                    #name(#args ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<#return_type_tokens>(result__)
                 }
             }
         }
@@ -147,16 +132,11 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
                 #features
                 #[inline]
                 pub unsafe fn #name<#constraints>(#params) -> ::windows::core::Result<()> {
-                    #[cfg(windows)]
-                    {
-                        #link_attr
-                        extern "system" {
-                            fn #name(#(#abi_params),*) #abi_return_type;
-                        }
-                        #name(#args).ok()
+                    #link_attr
+                    extern "system" {
+                        fn #name(#(#abi_params),*) #abi_return_type;
                     }
-                    #[cfg(not(windows))]
-                    unimplemented!("Unsupported target OS");
+                    #name(#args).ok()
                 }
             }
         }
@@ -171,17 +151,12 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
                     #features
                     #[inline]
                     pub unsafe fn #name<#constraints>(#params) -> ::windows::core::Result<#return_type> {
-                        #[cfg(windows)]
-                        {
-                            #link_attr
-                            extern "system" {
-                                fn #name(#(#abi_params),*) -> #return_type;
-                            }
-                            let result__ = #name(#args);
-                            (!result__.is_invalid()).then(||result__).ok_or_else(::windows::core::Error::from_win32)
+                        #link_attr
+                        extern "system" {
+                            fn #name(#(#abi_params),*) -> #return_type;
                         }
-                        #[cfg(not(windows))]
-                        unimplemented!("Unsupported target OS");
+                        let result__ = #name(#args);
+                        (!result__.is_invalid()).then(||result__).ok_or_else(::windows::core::Error::from_win32)
                     }
                 }
             } else {
@@ -193,16 +168,11 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
                     #features
                     #[inline]
                     pub unsafe fn #name<#constraints>(#params) #abi_return_type {
-                        #[cfg(windows)]
-                        {
-                            #link_attr
-                            extern "system" {
-                                fn #name(#(#abi_params),*) #abi_return_type;
-                            }
-                            ::core::mem::transmute(#name(#args))
+                        #link_attr
+                        extern "system" {
+                            fn #name(#(#abi_params),*) #abi_return_type;
                         }
-                        #[cfg(not(windows))]
-                        unimplemented!("Unsupported target OS");
+                        ::core::mem::transmute(#name(#args))
                     }
                 }
             }
@@ -217,16 +187,11 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
                 #features
                 #[inline]
                 pub unsafe fn #name<#constraints>(#params) #does_not_return {
-                    #[cfg(windows)]
-                    {
-                        #link_attr
-                        extern "system" {
-                            fn #name(#(#abi_params),*) #does_not_return;
-                        }
-                        #name(#args)
+                    #link_attr
+                    extern "system" {
+                        fn #name(#(#abi_params),*) #does_not_return;
                     }
-                    #[cfg(not(windows))]
-                    unimplemented!("Unsupported target OS");
+                    #name(#args)
                 }
             }
         }

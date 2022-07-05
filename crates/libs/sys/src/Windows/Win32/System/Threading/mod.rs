@@ -1,4 +1,4 @@
-#[link(name = "windows")]
+#[cfg_attr(windows, link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
     pub fn AcquireSRWLockExclusive(srwlock: *mut RTL_SRWLOCK);

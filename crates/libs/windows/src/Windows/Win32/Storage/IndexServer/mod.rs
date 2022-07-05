@@ -2,31 +2,21 @@
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn BindIFilterFromStorage<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::StructuredStorage::IStorage>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(pstg: Param0, punkouter: Param1, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn BindIFilterFromStorage(pstg: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        BindIFilterFromStorage(pstg.into_param().abi(), punkouter.into_param().abi(), ::core::mem::transmute(ppiunk)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn BindIFilterFromStorage(pstg: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    BindIFilterFromStorage(pstg.into_param().abi(), punkouter.into_param().abi(), ::core::mem::transmute(ppiunk)).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn BindIFilterFromStream<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(pstm: Param0, punkouter: Param1, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn BindIFilterFromStream(pstm: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        BindIFilterFromStream(pstm.into_param().abi(), punkouter.into_param().abi(), ::core::mem::transmute(ppiunk)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn BindIFilterFromStream(pstm: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    BindIFilterFromStream(pstm.into_param().abi(), punkouter.into_param().abi(), ::core::mem::transmute(ppiunk)).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
 #[repr(transparent)]
@@ -838,30 +828,20 @@ pub const LIFF_LOAD_DEFINED_FILTER: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
 #[inline]
 pub unsafe fn LoadIFilter<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(pwcspath: Param0, punkouter: Param1, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LoadIFilter(pwcspath: ::windows::core::PCWSTR, punkouter: *mut ::core::ffi::c_void, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        LoadIFilter(pwcspath.into_param().abi(), punkouter.into_param().abi(), ::core::mem::transmute(ppiunk)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LoadIFilter(pwcspath: ::windows::core::PCWSTR, punkouter: *mut ::core::ffi::c_void, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    LoadIFilter(pwcspath.into_param().abi(), punkouter.into_param().abi(), ::core::mem::transmute(ppiunk)).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
 #[inline]
 pub unsafe fn LoadIFilterEx<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pwcspath: Param0, dwflags: u32, riid: *const ::windows::core::GUID, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn LoadIFilterEx(pwcspath: ::windows::core::PCWSTR, dwflags: u32, riid: *const ::windows::core::GUID, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        LoadIFilterEx(pwcspath.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(riid), ::core::mem::transmute(ppiunk)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LoadIFilterEx(pwcspath: ::windows::core::PCWSTR, dwflags: u32, riid: *const ::windows::core::GUID, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    LoadIFilterEx(pwcspath.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(riid), ::core::mem::transmute(ppiunk)).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
 pub const MSIDXSPROP_COMMAND_LOCALE_STRING: u32 = 3u32;

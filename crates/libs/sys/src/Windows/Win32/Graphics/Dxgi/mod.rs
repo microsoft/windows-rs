@@ -1,6 +1,6 @@
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub mod Common;
-#[link(name = "windows")]
+#[cfg_attr(windows, link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
     pub fn CreateDXGIFactory(riid: *const ::windows_sys::core::GUID, ppfactory: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;

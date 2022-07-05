@@ -1,4 +1,4 @@
-#[link(name = "windows")]
+#[cfg_attr(windows, link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
     pub fn AddDelBackupEntryA(lpcszfilelist: ::windows_sys::core::PCSTR, lpcszbackupdir: ::windows_sys::core::PCSTR, lpcszbasename: ::windows_sys::core::PCSTR, dwflags: u32) -> ::windows_sys::core::HRESULT;

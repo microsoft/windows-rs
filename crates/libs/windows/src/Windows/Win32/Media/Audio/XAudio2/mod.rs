@@ -3,61 +3,41 @@ pub const AudioVolumeMeter: ::windows::core::GUID = ::windows::core::GUID::from_
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 #[inline]
 pub unsafe fn CreateAudioReverb() -> ::windows::core::Result<::windows::core::IUnknown> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateAudioReverb(ppapo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        CreateAudioReverb(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateAudioReverb(ppapo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    CreateAudioReverb(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 #[inline]
 pub unsafe fn CreateAudioVolumeMeter() -> ::windows::core::Result<::windows::core::IUnknown> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateAudioVolumeMeter(ppapo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        CreateAudioVolumeMeter(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateAudioVolumeMeter(ppapo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    CreateAudioVolumeMeter(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 #[inline]
 pub unsafe fn CreateFX(clsid: *const ::windows::core::GUID, peffect: *mut ::core::option::Option<::windows::core::IUnknown>, pinitdat: *const ::core::ffi::c_void, initdatabytesize: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateFX(clsid: *const ::windows::core::GUID, peffect: *mut *mut ::core::ffi::c_void, pinitdat: *const ::core::ffi::c_void, initdatabytesize: u32) -> ::windows::core::HRESULT;
-        }
-        CreateFX(::core::mem::transmute(clsid), ::core::mem::transmute(peffect), ::core::mem::transmute(pinitdat), ::core::mem::transmute(initdatabytesize)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateFX(clsid: *const ::windows::core::GUID, peffect: *mut *mut ::core::ffi::c_void, pinitdat: *const ::core::ffi::c_void, initdatabytesize: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CreateFX(::core::mem::transmute(clsid), ::core::mem::transmute(peffect), ::core::mem::transmute(pinitdat), ::core::mem::transmute(initdatabytesize)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 #[inline]
 pub unsafe fn CreateHrtfApo(init: *const HrtfApoInit) -> ::windows::core::Result<IXAPO> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateHrtfApo(init: *const HrtfApoInit, xapo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        CreateHrtfApo(::core::mem::transmute(init), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXAPO>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateHrtfApo(init: *const HrtfApoInit, xapo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    CreateHrtfApo(::core::mem::transmute(init), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXAPO>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 pub const FACILITY_XAPO: u32 = 2199u32;
@@ -2644,16 +2624,11 @@ pub const XAUDIO2_VOICE_USEFILTER: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 #[inline]
 pub unsafe fn XAudio2CreateWithVersionInfo(ppxaudio2: *mut ::core::option::Option<IXAudio2>, flags: u32, xaudio2processor: u32, ntddiversion: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn XAudio2CreateWithVersionInfo(ppxaudio2: *mut *mut ::core::ffi::c_void, flags: u32, xaudio2processor: u32, ntddiversion: u32) -> ::windows::core::HRESULT;
-        }
-        XAudio2CreateWithVersionInfo(::core::mem::transmute(ppxaudio2), ::core::mem::transmute(flags), ::core::mem::transmute(xaudio2processor), ::core::mem::transmute(ntddiversion)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn XAudio2CreateWithVersionInfo(ppxaudio2: *mut *mut ::core::ffi::c_void, flags: u32, xaudio2processor: u32, ntddiversion: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    XAudio2CreateWithVersionInfo(::core::mem::transmute(ppxaudio2), ::core::mem::transmute(flags), ::core::mem::transmute(xaudio2processor), ::core::mem::transmute(ntddiversion)).ok()
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

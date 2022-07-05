@@ -1,4 +1,4 @@
-#[link(name = "windows")]
+#[cfg_attr(windows, link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
     pub fn AddISNSServerA(address: ::windows_sys::core::PCSTR) -> u32;

@@ -4627,450 +4627,295 @@ pub const PXE_TRACE_WARNING: u32 = 262144u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PxeAsyncRecvDone<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclientrequest: Param0, action: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PxeAsyncRecvDone(hclientrequest: super::super::Foundation::HANDLE, action: u32) -> u32;
-        }
-        ::core::mem::transmute(PxeAsyncRecvDone(hclientrequest.into_param().abi(), ::core::mem::transmute(action)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PxeAsyncRecvDone(hclientrequest: super::super::Foundation::HANDLE, action: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PxeAsyncRecvDone(hclientrequest.into_param().abi(), ::core::mem::transmute(action)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
 pub unsafe fn PxeDhcpAppendOption(preplypacket: *mut ::core::ffi::c_void, umaxreplypacketlen: u32, pureplypacketlen: *mut u32, boption: u8, boptionlen: u8, pvalue: *const ::core::ffi::c_void) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PxeDhcpAppendOption(preplypacket: *mut ::core::ffi::c_void, umaxreplypacketlen: u32, pureplypacketlen: *mut u32, boption: u8, boptionlen: u8, pvalue: *const ::core::ffi::c_void) -> u32;
-        }
-        ::core::mem::transmute(PxeDhcpAppendOption(::core::mem::transmute(preplypacket), ::core::mem::transmute(umaxreplypacketlen), ::core::mem::transmute(pureplypacketlen), ::core::mem::transmute(boption), ::core::mem::transmute(boptionlen), ::core::mem::transmute(pvalue)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PxeDhcpAppendOption(preplypacket: *mut ::core::ffi::c_void, umaxreplypacketlen: u32, pureplypacketlen: *mut u32, boption: u8, boptionlen: u8, pvalue: *const ::core::ffi::c_void) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PxeDhcpAppendOption(::core::mem::transmute(preplypacket), ::core::mem::transmute(umaxreplypacketlen), ::core::mem::transmute(pureplypacketlen), ::core::mem::transmute(boption), ::core::mem::transmute(boptionlen), ::core::mem::transmute(pvalue)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
 pub unsafe fn PxeDhcpAppendOptionRaw(preplypacket: *mut ::core::ffi::c_void, umaxreplypacketlen: u32, pureplypacketlen: *mut u32, ubufferlen: u16, pbuffer: *const ::core::ffi::c_void) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PxeDhcpAppendOptionRaw(preplypacket: *mut ::core::ffi::c_void, umaxreplypacketlen: u32, pureplypacketlen: *mut u32, ubufferlen: u16, pbuffer: *const ::core::ffi::c_void) -> u32;
-        }
-        ::core::mem::transmute(PxeDhcpAppendOptionRaw(::core::mem::transmute(preplypacket), ::core::mem::transmute(umaxreplypacketlen), ::core::mem::transmute(pureplypacketlen), ::core::mem::transmute(ubufferlen), ::core::mem::transmute(pbuffer)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PxeDhcpAppendOptionRaw(preplypacket: *mut ::core::ffi::c_void, umaxreplypacketlen: u32, pureplypacketlen: *mut u32, ubufferlen: u16, pbuffer: *const ::core::ffi::c_void) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PxeDhcpAppendOptionRaw(::core::mem::transmute(preplypacket), ::core::mem::transmute(umaxreplypacketlen), ::core::mem::transmute(pureplypacketlen), ::core::mem::transmute(ubufferlen), ::core::mem::transmute(pbuffer)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
 pub unsafe fn PxeDhcpGetOptionValue(ppacket: *const ::core::ffi::c_void, upacketlen: u32, uinstance: u32, boption: u8, pboptionlen: *mut u8, ppoptionvalue: *mut *mut ::core::ffi::c_void) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PxeDhcpGetOptionValue(ppacket: *const ::core::ffi::c_void, upacketlen: u32, uinstance: u32, boption: u8, pboptionlen: *mut u8, ppoptionvalue: *mut *mut ::core::ffi::c_void) -> u32;
-        }
-        ::core::mem::transmute(PxeDhcpGetOptionValue(::core::mem::transmute(ppacket), ::core::mem::transmute(upacketlen), ::core::mem::transmute(uinstance), ::core::mem::transmute(boption), ::core::mem::transmute(pboptionlen), ::core::mem::transmute(ppoptionvalue)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PxeDhcpGetOptionValue(ppacket: *const ::core::ffi::c_void, upacketlen: u32, uinstance: u32, boption: u8, pboptionlen: *mut u8, ppoptionvalue: *mut *mut ::core::ffi::c_void) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PxeDhcpGetOptionValue(::core::mem::transmute(ppacket), ::core::mem::transmute(upacketlen), ::core::mem::transmute(uinstance), ::core::mem::transmute(boption), ::core::mem::transmute(pboptionlen), ::core::mem::transmute(ppoptionvalue)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
 pub unsafe fn PxeDhcpGetVendorOptionValue(ppacket: *const ::core::ffi::c_void, upacketlen: u32, boption: u8, uinstance: u32, pboptionlen: *mut u8, ppoptionvalue: *mut *mut ::core::ffi::c_void) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PxeDhcpGetVendorOptionValue(ppacket: *const ::core::ffi::c_void, upacketlen: u32, boption: u8, uinstance: u32, pboptionlen: *mut u8, ppoptionvalue: *mut *mut ::core::ffi::c_void) -> u32;
-        }
-        ::core::mem::transmute(PxeDhcpGetVendorOptionValue(::core::mem::transmute(ppacket), ::core::mem::transmute(upacketlen), ::core::mem::transmute(boption), ::core::mem::transmute(uinstance), ::core::mem::transmute(pboptionlen), ::core::mem::transmute(ppoptionvalue)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PxeDhcpGetVendorOptionValue(ppacket: *const ::core::ffi::c_void, upacketlen: u32, boption: u8, uinstance: u32, pboptionlen: *mut u8, ppoptionvalue: *mut *mut ::core::ffi::c_void) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PxeDhcpGetVendorOptionValue(::core::mem::transmute(ppacket), ::core::mem::transmute(upacketlen), ::core::mem::transmute(boption), ::core::mem::transmute(uinstance), ::core::mem::transmute(pboptionlen), ::core::mem::transmute(ppoptionvalue)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
 pub unsafe fn PxeDhcpInitialize(precvpacket: *const ::core::ffi::c_void, urecvpacketlen: u32, preplypacket: *mut ::core::ffi::c_void, umaxreplypacketlen: u32, pureplypacketlen: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PxeDhcpInitialize(precvpacket: *const ::core::ffi::c_void, urecvpacketlen: u32, preplypacket: *mut ::core::ffi::c_void, umaxreplypacketlen: u32, pureplypacketlen: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(PxeDhcpInitialize(::core::mem::transmute(precvpacket), ::core::mem::transmute(urecvpacketlen), ::core::mem::transmute(preplypacket), ::core::mem::transmute(umaxreplypacketlen), ::core::mem::transmute(pureplypacketlen)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PxeDhcpInitialize(precvpacket: *const ::core::ffi::c_void, urecvpacketlen: u32, preplypacket: *mut ::core::ffi::c_void, umaxreplypacketlen: u32, pureplypacketlen: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PxeDhcpInitialize(::core::mem::transmute(precvpacket), ::core::mem::transmute(urecvpacketlen), ::core::mem::transmute(preplypacket), ::core::mem::transmute(umaxreplypacketlen), ::core::mem::transmute(pureplypacketlen)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PxeDhcpIsValid<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(ppacket: *const ::core::ffi::c_void, upacketlen: u32, brequestpacket: Param2, pbpxeoptionpresent: *mut super::super::Foundation::BOOL) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PxeDhcpIsValid(ppacket: *const ::core::ffi::c_void, upacketlen: u32, brequestpacket: super::super::Foundation::BOOL, pbpxeoptionpresent: *mut super::super::Foundation::BOOL) -> u32;
-        }
-        ::core::mem::transmute(PxeDhcpIsValid(::core::mem::transmute(ppacket), ::core::mem::transmute(upacketlen), brequestpacket.into_param().abi(), ::core::mem::transmute(pbpxeoptionpresent)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PxeDhcpIsValid(ppacket: *const ::core::ffi::c_void, upacketlen: u32, brequestpacket: super::super::Foundation::BOOL, pbpxeoptionpresent: *mut super::super::Foundation::BOOL) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PxeDhcpIsValid(::core::mem::transmute(ppacket), ::core::mem::transmute(upacketlen), brequestpacket.into_param().abi(), ::core::mem::transmute(pbpxeoptionpresent)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
 pub unsafe fn PxeDhcpv6AppendOption(preply: *mut ::core::ffi::c_void, cbreply: u32, pcbreplyused: *mut u32, woptiontype: u16, cboption: u16, poption: *const ::core::ffi::c_void) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PxeDhcpv6AppendOption(preply: *mut ::core::ffi::c_void, cbreply: u32, pcbreplyused: *mut u32, woptiontype: u16, cboption: u16, poption: *const ::core::ffi::c_void) -> u32;
-        }
-        ::core::mem::transmute(PxeDhcpv6AppendOption(::core::mem::transmute(preply), ::core::mem::transmute(cbreply), ::core::mem::transmute(pcbreplyused), ::core::mem::transmute(woptiontype), ::core::mem::transmute(cboption), ::core::mem::transmute(poption)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PxeDhcpv6AppendOption(preply: *mut ::core::ffi::c_void, cbreply: u32, pcbreplyused: *mut u32, woptiontype: u16, cboption: u16, poption: *const ::core::ffi::c_void) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PxeDhcpv6AppendOption(::core::mem::transmute(preply), ::core::mem::transmute(cbreply), ::core::mem::transmute(pcbreplyused), ::core::mem::transmute(woptiontype), ::core::mem::transmute(cboption), ::core::mem::transmute(poption)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
 pub unsafe fn PxeDhcpv6AppendOptionRaw(preply: *mut ::core::ffi::c_void, cbreply: u32, pcbreplyused: *mut u32, cbbuffer: u16, pbuffer: *const ::core::ffi::c_void) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PxeDhcpv6AppendOptionRaw(preply: *mut ::core::ffi::c_void, cbreply: u32, pcbreplyused: *mut u32, cbbuffer: u16, pbuffer: *const ::core::ffi::c_void) -> u32;
-        }
-        ::core::mem::transmute(PxeDhcpv6AppendOptionRaw(::core::mem::transmute(preply), ::core::mem::transmute(cbreply), ::core::mem::transmute(pcbreplyused), ::core::mem::transmute(cbbuffer), ::core::mem::transmute(pbuffer)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PxeDhcpv6AppendOptionRaw(preply: *mut ::core::ffi::c_void, cbreply: u32, pcbreplyused: *mut u32, cbbuffer: u16, pbuffer: *const ::core::ffi::c_void) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PxeDhcpv6AppendOptionRaw(::core::mem::transmute(preply), ::core::mem::transmute(cbreply), ::core::mem::transmute(pcbreplyused), ::core::mem::transmute(cbbuffer), ::core::mem::transmute(pbuffer)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
 pub unsafe fn PxeDhcpv6CreateRelayRepl(prelaymessages: &[PXE_DHCPV6_NESTED_RELAY_MESSAGE], pinnerpacket: *const u8, cbinnerpacket: u32, preplybuffer: *mut ::core::ffi::c_void, cbreplybuffer: u32, pcbreplybuffer: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PxeDhcpv6CreateRelayRepl(prelaymessages: *const PXE_DHCPV6_NESTED_RELAY_MESSAGE, nrelaymessages: u32, pinnerpacket: *const u8, cbinnerpacket: u32, preplybuffer: *mut ::core::ffi::c_void, cbreplybuffer: u32, pcbreplybuffer: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(PxeDhcpv6CreateRelayRepl(::core::mem::transmute(::windows::core::as_ptr_or_null(prelaymessages)), prelaymessages.len() as _, ::core::mem::transmute(pinnerpacket), ::core::mem::transmute(cbinnerpacket), ::core::mem::transmute(preplybuffer), ::core::mem::transmute(cbreplybuffer), ::core::mem::transmute(pcbreplybuffer)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PxeDhcpv6CreateRelayRepl(prelaymessages: *const PXE_DHCPV6_NESTED_RELAY_MESSAGE, nrelaymessages: u32, pinnerpacket: *const u8, cbinnerpacket: u32, preplybuffer: *mut ::core::ffi::c_void, cbreplybuffer: u32, pcbreplybuffer: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PxeDhcpv6CreateRelayRepl(::core::mem::transmute(::windows::core::as_ptr_or_null(prelaymessages)), prelaymessages.len() as _, ::core::mem::transmute(pinnerpacket), ::core::mem::transmute(cbinnerpacket), ::core::mem::transmute(preplybuffer), ::core::mem::transmute(cbreplybuffer), ::core::mem::transmute(pcbreplybuffer)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
 pub unsafe fn PxeDhcpv6GetOptionValue(ppacket: *const ::core::ffi::c_void, upacketlen: u32, uinstance: u32, woption: u16, pwoptionlen: *mut u16, ppoptionvalue: *mut *mut ::core::ffi::c_void) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PxeDhcpv6GetOptionValue(ppacket: *const ::core::ffi::c_void, upacketlen: u32, uinstance: u32, woption: u16, pwoptionlen: *mut u16, ppoptionvalue: *mut *mut ::core::ffi::c_void) -> u32;
-        }
-        ::core::mem::transmute(PxeDhcpv6GetOptionValue(::core::mem::transmute(ppacket), ::core::mem::transmute(upacketlen), ::core::mem::transmute(uinstance), ::core::mem::transmute(woption), ::core::mem::transmute(pwoptionlen), ::core::mem::transmute(ppoptionvalue)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PxeDhcpv6GetOptionValue(ppacket: *const ::core::ffi::c_void, upacketlen: u32, uinstance: u32, woption: u16, pwoptionlen: *mut u16, ppoptionvalue: *mut *mut ::core::ffi::c_void) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PxeDhcpv6GetOptionValue(::core::mem::transmute(ppacket), ::core::mem::transmute(upacketlen), ::core::mem::transmute(uinstance), ::core::mem::transmute(woption), ::core::mem::transmute(pwoptionlen), ::core::mem::transmute(ppoptionvalue)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
 pub unsafe fn PxeDhcpv6GetVendorOptionValue(ppacket: *const ::core::ffi::c_void, upacketlen: u32, dwenterprisenumber: u32, woption: u16, uinstance: u32, pwoptionlen: *mut u16, ppoptionvalue: *mut *mut ::core::ffi::c_void) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PxeDhcpv6GetVendorOptionValue(ppacket: *const ::core::ffi::c_void, upacketlen: u32, dwenterprisenumber: u32, woption: u16, uinstance: u32, pwoptionlen: *mut u16, ppoptionvalue: *mut *mut ::core::ffi::c_void) -> u32;
-        }
-        ::core::mem::transmute(PxeDhcpv6GetVendorOptionValue(::core::mem::transmute(ppacket), ::core::mem::transmute(upacketlen), ::core::mem::transmute(dwenterprisenumber), ::core::mem::transmute(woption), ::core::mem::transmute(uinstance), ::core::mem::transmute(pwoptionlen), ::core::mem::transmute(ppoptionvalue)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PxeDhcpv6GetVendorOptionValue(ppacket: *const ::core::ffi::c_void, upacketlen: u32, dwenterprisenumber: u32, woption: u16, uinstance: u32, pwoptionlen: *mut u16, ppoptionvalue: *mut *mut ::core::ffi::c_void) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PxeDhcpv6GetVendorOptionValue(::core::mem::transmute(ppacket), ::core::mem::transmute(upacketlen), ::core::mem::transmute(dwenterprisenumber), ::core::mem::transmute(woption), ::core::mem::transmute(uinstance), ::core::mem::transmute(pwoptionlen), ::core::mem::transmute(ppoptionvalue)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
 pub unsafe fn PxeDhcpv6Initialize(prequest: *const ::core::ffi::c_void, cbrequest: u32, preply: *mut ::core::ffi::c_void, cbreply: u32, pcbreplyused: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PxeDhcpv6Initialize(prequest: *const ::core::ffi::c_void, cbrequest: u32, preply: *mut ::core::ffi::c_void, cbreply: u32, pcbreplyused: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(PxeDhcpv6Initialize(::core::mem::transmute(prequest), ::core::mem::transmute(cbrequest), ::core::mem::transmute(preply), ::core::mem::transmute(cbreply), ::core::mem::transmute(pcbreplyused)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PxeDhcpv6Initialize(prequest: *const ::core::ffi::c_void, cbrequest: u32, preply: *mut ::core::ffi::c_void, cbreply: u32, pcbreplyused: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PxeDhcpv6Initialize(::core::mem::transmute(prequest), ::core::mem::transmute(cbrequest), ::core::mem::transmute(preply), ::core::mem::transmute(cbreply), ::core::mem::transmute(pcbreplyused)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PxeDhcpv6IsValid<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(ppacket: *const ::core::ffi::c_void, upacketlen: u32, brequestpacket: Param2, pbpxeoptionpresent: *mut super::super::Foundation::BOOL) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PxeDhcpv6IsValid(ppacket: *const ::core::ffi::c_void, upacketlen: u32, brequestpacket: super::super::Foundation::BOOL, pbpxeoptionpresent: *mut super::super::Foundation::BOOL) -> u32;
-        }
-        ::core::mem::transmute(PxeDhcpv6IsValid(::core::mem::transmute(ppacket), ::core::mem::transmute(upacketlen), brequestpacket.into_param().abi(), ::core::mem::transmute(pbpxeoptionpresent)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PxeDhcpv6IsValid(ppacket: *const ::core::ffi::c_void, upacketlen: u32, brequestpacket: super::super::Foundation::BOOL, pbpxeoptionpresent: *mut super::super::Foundation::BOOL) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PxeDhcpv6IsValid(::core::mem::transmute(ppacket), ::core::mem::transmute(upacketlen), brequestpacket.into_param().abi(), ::core::mem::transmute(pbpxeoptionpresent)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
 pub unsafe fn PxeDhcpv6ParseRelayForw(prelayforwpacket: *const ::core::ffi::c_void, urelayforwpacketlen: u32, prelaymessages: &mut [PXE_DHCPV6_NESTED_RELAY_MESSAGE], pnrelaymessages: *mut u32, ppinnerpacket: *mut *mut u8, pcbinnerpacket: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PxeDhcpv6ParseRelayForw(prelayforwpacket: *const ::core::ffi::c_void, urelayforwpacketlen: u32, prelaymessages: *mut PXE_DHCPV6_NESTED_RELAY_MESSAGE, nrelaymessages: u32, pnrelaymessages: *mut u32, ppinnerpacket: *mut *mut u8, pcbinnerpacket: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(PxeDhcpv6ParseRelayForw(::core::mem::transmute(prelayforwpacket), ::core::mem::transmute(urelayforwpacketlen), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prelaymessages)), prelaymessages.len() as _, ::core::mem::transmute(pnrelaymessages), ::core::mem::transmute(ppinnerpacket), ::core::mem::transmute(pcbinnerpacket)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PxeDhcpv6ParseRelayForw(prelayforwpacket: *const ::core::ffi::c_void, urelayforwpacketlen: u32, prelaymessages: *mut PXE_DHCPV6_NESTED_RELAY_MESSAGE, nrelaymessages: u32, pnrelaymessages: *mut u32, ppinnerpacket: *mut *mut u8, pcbinnerpacket: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PxeDhcpv6ParseRelayForw(::core::mem::transmute(prelayforwpacket), ::core::mem::transmute(urelayforwpacketlen), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(prelaymessages)), prelaymessages.len() as _, ::core::mem::transmute(pnrelaymessages), ::core::mem::transmute(ppinnerpacket), ::core::mem::transmute(pcbinnerpacket)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
 pub unsafe fn PxeGetServerInfo(uinfotype: u32, pbuffer: *mut ::core::ffi::c_void, ubufferlen: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PxeGetServerInfo(uinfotype: u32, pbuffer: *mut ::core::ffi::c_void, ubufferlen: u32) -> u32;
-        }
-        ::core::mem::transmute(PxeGetServerInfo(::core::mem::transmute(uinfotype), ::core::mem::transmute(pbuffer), ::core::mem::transmute(ubufferlen)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PxeGetServerInfo(uinfotype: u32, pbuffer: *mut ::core::ffi::c_void, ubufferlen: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PxeGetServerInfo(::core::mem::transmute(uinfotype), ::core::mem::transmute(pbuffer), ::core::mem::transmute(ubufferlen)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
 pub unsafe fn PxeGetServerInfoEx(uinfotype: u32, pbuffer: *mut ::core::ffi::c_void, ubufferlen: u32, pubufferused: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PxeGetServerInfoEx(uinfotype: u32, pbuffer: *mut ::core::ffi::c_void, ubufferlen: u32, pubufferused: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(PxeGetServerInfoEx(::core::mem::transmute(uinfotype), ::core::mem::transmute(pbuffer), ::core::mem::transmute(ubufferlen), ::core::mem::transmute(pubufferused)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PxeGetServerInfoEx(uinfotype: u32, pbuffer: *mut ::core::ffi::c_void, ubufferlen: u32, pubufferused: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PxeGetServerInfoEx(::core::mem::transmute(uinfotype), ::core::mem::transmute(pbuffer), ::core::mem::transmute(ubufferlen), ::core::mem::transmute(pubufferused)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PxePacketAllocate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprovider: Param0, hclientrequest: Param1, usize: u32) -> *mut ::core::ffi::c_void {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PxePacketAllocate(hprovider: super::super::Foundation::HANDLE, hclientrequest: super::super::Foundation::HANDLE, usize: u32) -> *mut ::core::ffi::c_void;
-        }
-        ::core::mem::transmute(PxePacketAllocate(hprovider.into_param().abi(), hclientrequest.into_param().abi(), ::core::mem::transmute(usize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PxePacketAllocate(hprovider: super::super::Foundation::HANDLE, hclientrequest: super::super::Foundation::HANDLE, usize: u32) -> *mut ::core::ffi::c_void;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PxePacketAllocate(hprovider.into_param().abi(), hclientrequest.into_param().abi(), ::core::mem::transmute(usize)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PxePacketFree<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprovider: Param0, hclientrequest: Param1, ppacket: *const ::core::ffi::c_void) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PxePacketFree(hprovider: super::super::Foundation::HANDLE, hclientrequest: super::super::Foundation::HANDLE, ppacket: *const ::core::ffi::c_void) -> u32;
-        }
-        ::core::mem::transmute(PxePacketFree(hprovider.into_param().abi(), hclientrequest.into_param().abi(), ::core::mem::transmute(ppacket)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PxePacketFree(hprovider: super::super::Foundation::HANDLE, hclientrequest: super::super::Foundation::HANDLE, ppacket: *const ::core::ffi::c_void) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PxePacketFree(hprovider.into_param().abi(), hclientrequest.into_param().abi(), ::core::mem::transmute(ppacket)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PxeProviderEnumClose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(henum: Param0) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PxeProviderEnumClose(henum: super::super::Foundation::HANDLE) -> u32;
-        }
-        ::core::mem::transmute(PxeProviderEnumClose(henum.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PxeProviderEnumClose(henum: super::super::Foundation::HANDLE) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PxeProviderEnumClose(henum.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PxeProviderEnumFirst(phenum: *mut super::super::Foundation::HANDLE) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PxeProviderEnumFirst(phenum: *mut super::super::Foundation::HANDLE) -> u32;
-        }
-        ::core::mem::transmute(PxeProviderEnumFirst(::core::mem::transmute(phenum)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PxeProviderEnumFirst(phenum: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PxeProviderEnumFirst(::core::mem::transmute(phenum)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PxeProviderEnumNext<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(henum: Param0, ppprovider: *mut *mut PXE_PROVIDER) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PxeProviderEnumNext(henum: super::super::Foundation::HANDLE, ppprovider: *mut *mut PXE_PROVIDER) -> u32;
-        }
-        ::core::mem::transmute(PxeProviderEnumNext(henum.into_param().abi(), ::core::mem::transmute(ppprovider)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PxeProviderEnumNext(henum: super::super::Foundation::HANDLE, ppprovider: *mut *mut PXE_PROVIDER) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PxeProviderEnumNext(henum.into_param().abi(), ::core::mem::transmute(ppprovider)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PxeProviderFreeInfo(pprovider: *const PXE_PROVIDER) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PxeProviderFreeInfo(pprovider: *const PXE_PROVIDER) -> u32;
-        }
-        ::core::mem::transmute(PxeProviderFreeInfo(::core::mem::transmute(pprovider)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PxeProviderFreeInfo(pprovider: *const PXE_PROVIDER) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PxeProviderFreeInfo(::core::mem::transmute(pprovider)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
 pub unsafe fn PxeProviderQueryIndex<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pszprovidername: Param0, puindex: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PxeProviderQueryIndex(pszprovidername: ::windows::core::PCWSTR, puindex: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(PxeProviderQueryIndex(pszprovidername.into_param().abi(), ::core::mem::transmute(puindex)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PxeProviderQueryIndex(pszprovidername: ::windows::core::PCWSTR, puindex: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PxeProviderQueryIndex(pszprovidername.into_param().abi(), ::core::mem::transmute(puindex)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn PxeProviderRegister<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(pszprovidername: Param0, pszmodulepath: Param1, index: u32, biscritical: Param3, phproviderkey: *mut super::Registry::HKEY) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PxeProviderRegister(pszprovidername: ::windows::core::PCWSTR, pszmodulepath: ::windows::core::PCWSTR, index: u32, biscritical: super::super::Foundation::BOOL, phproviderkey: *mut super::Registry::HKEY) -> u32;
-        }
-        ::core::mem::transmute(PxeProviderRegister(pszprovidername.into_param().abi(), pszmodulepath.into_param().abi(), ::core::mem::transmute(index), biscritical.into_param().abi(), ::core::mem::transmute(phproviderkey)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PxeProviderRegister(pszprovidername: ::windows::core::PCWSTR, pszmodulepath: ::windows::core::PCWSTR, index: u32, biscritical: super::super::Foundation::BOOL, phproviderkey: *mut super::Registry::HKEY) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PxeProviderRegister(pszprovidername.into_param().abi(), pszmodulepath.into_param().abi(), ::core::mem::transmute(index), biscritical.into_param().abi(), ::core::mem::transmute(phproviderkey)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PxeProviderSetAttribute<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprovider: Param0, attribute: u32, pparameterbuffer: *const ::core::ffi::c_void, uparamlen: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PxeProviderSetAttribute(hprovider: super::super::Foundation::HANDLE, attribute: u32, pparameterbuffer: *const ::core::ffi::c_void, uparamlen: u32) -> u32;
-        }
-        ::core::mem::transmute(PxeProviderSetAttribute(hprovider.into_param().abi(), ::core::mem::transmute(attribute), ::core::mem::transmute(pparameterbuffer), ::core::mem::transmute(uparamlen)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PxeProviderSetAttribute(hprovider: super::super::Foundation::HANDLE, attribute: u32, pparameterbuffer: *const ::core::ffi::c_void, uparamlen: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PxeProviderSetAttribute(hprovider.into_param().abi(), ::core::mem::transmute(attribute), ::core::mem::transmute(pparameterbuffer), ::core::mem::transmute(uparamlen)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
 pub unsafe fn PxeProviderUnRegister<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pszprovidername: Param0) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PxeProviderUnRegister(pszprovidername: ::windows::core::PCWSTR) -> u32;
-        }
-        ::core::mem::transmute(PxeProviderUnRegister(pszprovidername.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PxeProviderUnRegister(pszprovidername: ::windows::core::PCWSTR) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PxeProviderUnRegister(pszprovidername.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PxeRegisterCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprovider: Param0, callbacktype: u32, pcallbackfunction: *const ::core::ffi::c_void, pcontext: *const ::core::ffi::c_void) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PxeRegisterCallback(hprovider: super::super::Foundation::HANDLE, callbacktype: u32, pcallbackfunction: *const ::core::ffi::c_void, pcontext: *const ::core::ffi::c_void) -> u32;
-        }
-        ::core::mem::transmute(PxeRegisterCallback(hprovider.into_param().abi(), ::core::mem::transmute(callbacktype), ::core::mem::transmute(pcallbackfunction), ::core::mem::transmute(pcontext)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PxeRegisterCallback(hprovider: super::super::Foundation::HANDLE, callbacktype: u32, pcallbackfunction: *const ::core::ffi::c_void, pcontext: *const ::core::ffi::c_void) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PxeRegisterCallback(hprovider.into_param().abi(), ::core::mem::transmute(callbacktype), ::core::mem::transmute(pcallbackfunction), ::core::mem::transmute(pcontext)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PxeSendReply<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclientrequest: Param0, ppacket: *const ::core::ffi::c_void, upacketlen: u32, paddress: *const PXE_ADDRESS) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PxeSendReply(hclientrequest: super::super::Foundation::HANDLE, ppacket: *const ::core::ffi::c_void, upacketlen: u32, paddress: *const PXE_ADDRESS) -> u32;
-        }
-        ::core::mem::transmute(PxeSendReply(hclientrequest.into_param().abi(), ::core::mem::transmute(ppacket), ::core::mem::transmute(upacketlen), ::core::mem::transmute(paddress)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PxeSendReply(hclientrequest: super::super::Foundation::HANDLE, ppacket: *const ::core::ffi::c_void, upacketlen: u32, paddress: *const PXE_ADDRESS) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PxeSendReply(hclientrequest.into_param().abi(), ::core::mem::transmute(ppacket), ::core::mem::transmute(upacketlen), ::core::mem::transmute(paddress)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PxeTrace<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hprovider: Param0, severity: u32, pszformat: Param2) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PxeTrace(hprovider: super::super::Foundation::HANDLE, severity: u32, pszformat: ::windows::core::PCWSTR) -> u32;
-        }
-        ::core::mem::transmute(PxeTrace(hprovider.into_param().abi(), ::core::mem::transmute(severity), pszformat.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PxeTrace(hprovider: super::super::Foundation::HANDLE, severity: u32, pszformat: ::windows::core::PCWSTR) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PxeTrace(hprovider.into_param().abi(), ::core::mem::transmute(severity), pszformat.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PxeTraceV<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hprovider: Param0, severity: u32, pszformat: Param2, params: *const i8) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PxeTraceV(hprovider: super::super::Foundation::HANDLE, severity: u32, pszformat: ::windows::core::PCWSTR, params: *const i8) -> u32;
-        }
-        ::core::mem::transmute(PxeTraceV(hprovider.into_param().abi(), ::core::mem::transmute(severity), pszformat.into_param().abi(), ::core::mem::transmute(params)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PxeTraceV(hprovider: super::super::Foundation::HANDLE, severity: u32, pszformat: ::windows::core::PCWSTR, params: *const i8) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PxeTraceV(hprovider.into_param().abi(), ::core::mem::transmute(severity), pszformat.into_param().abi(), ::core::mem::transmute(params)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[repr(transparent)]
@@ -6112,198 +5957,133 @@ impl ::core::default::Default for WDS_TRANSPORTPROVIDER_SETTINGS {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsBpAddOption<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hhandle: Param0, uoption: u32, uvaluelen: u32, pvalue: *const ::core::ffi::c_void) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsBpAddOption(hhandle: super::super::Foundation::HANDLE, uoption: u32, uvaluelen: u32, pvalue: *const ::core::ffi::c_void) -> u32;
-        }
-        ::core::mem::transmute(WdsBpAddOption(hhandle.into_param().abi(), ::core::mem::transmute(uoption), ::core::mem::transmute(uvaluelen), ::core::mem::transmute(pvalue)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsBpAddOption(hhandle: super::super::Foundation::HANDLE, uoption: u32, uvaluelen: u32, pvalue: *const ::core::ffi::c_void) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(WdsBpAddOption(hhandle.into_param().abi(), ::core::mem::transmute(uoption), ::core::mem::transmute(uvaluelen), ::core::mem::transmute(pvalue)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsBpCloseHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hhandle: Param0) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsBpCloseHandle(hhandle: super::super::Foundation::HANDLE) -> u32;
-        }
-        ::core::mem::transmute(WdsBpCloseHandle(hhandle.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsBpCloseHandle(hhandle: super::super::Foundation::HANDLE) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(WdsBpCloseHandle(hhandle.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsBpGetOptionBuffer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hhandle: Param0, ubufferlen: u32, pbuffer: *mut ::core::ffi::c_void, pubytes: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsBpGetOptionBuffer(hhandle: super::super::Foundation::HANDLE, ubufferlen: u32, pbuffer: *mut ::core::ffi::c_void, pubytes: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(WdsBpGetOptionBuffer(hhandle.into_param().abi(), ::core::mem::transmute(ubufferlen), ::core::mem::transmute(pbuffer), ::core::mem::transmute(pubytes)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsBpGetOptionBuffer(hhandle: super::super::Foundation::HANDLE, ubufferlen: u32, pbuffer: *mut ::core::ffi::c_void, pubytes: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(WdsBpGetOptionBuffer(hhandle.into_param().abi(), ::core::mem::transmute(ubufferlen), ::core::mem::transmute(pbuffer), ::core::mem::transmute(pubytes)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsBpInitialize(bpackettype: u8, phhandle: *mut super::super::Foundation::HANDLE) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsBpInitialize(bpackettype: u8, phhandle: *mut super::super::Foundation::HANDLE) -> u32;
-        }
-        ::core::mem::transmute(WdsBpInitialize(::core::mem::transmute(bpackettype), ::core::mem::transmute(phhandle)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsBpInitialize(bpackettype: u8, phhandle: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(WdsBpInitialize(::core::mem::transmute(bpackettype), ::core::mem::transmute(phhandle)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsBpParseInitialize(ppacket: *const ::core::ffi::c_void, upacketlen: u32, pbpackettype: *mut u8, phhandle: *mut super::super::Foundation::HANDLE) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsBpParseInitialize(ppacket: *const ::core::ffi::c_void, upacketlen: u32, pbpackettype: *mut u8, phhandle: *mut super::super::Foundation::HANDLE) -> u32;
-        }
-        ::core::mem::transmute(WdsBpParseInitialize(::core::mem::transmute(ppacket), ::core::mem::transmute(upacketlen), ::core::mem::transmute(pbpackettype), ::core::mem::transmute(phhandle)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsBpParseInitialize(ppacket: *const ::core::ffi::c_void, upacketlen: u32, pbpackettype: *mut u8, phhandle: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(WdsBpParseInitialize(::core::mem::transmute(ppacket), ::core::mem::transmute(upacketlen), ::core::mem::transmute(pbpackettype), ::core::mem::transmute(phhandle)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsBpParseInitializev6(ppacket: *const ::core::ffi::c_void, upacketlen: u32, pbpackettype: *mut u8, phhandle: *mut super::super::Foundation::HANDLE) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsBpParseInitializev6(ppacket: *const ::core::ffi::c_void, upacketlen: u32, pbpackettype: *mut u8, phhandle: *mut super::super::Foundation::HANDLE) -> u32;
-        }
-        ::core::mem::transmute(WdsBpParseInitializev6(::core::mem::transmute(ppacket), ::core::mem::transmute(upacketlen), ::core::mem::transmute(pbpackettype), ::core::mem::transmute(phhandle)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsBpParseInitializev6(ppacket: *const ::core::ffi::c_void, upacketlen: u32, pbpackettype: *mut u8, phhandle: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(WdsBpParseInitializev6(::core::mem::transmute(ppacket), ::core::mem::transmute(upacketlen), ::core::mem::transmute(pbpackettype), ::core::mem::transmute(phhandle)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsBpQueryOption<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hhandle: Param0, uoption: u32, uvaluelen: u32, pvalue: *mut ::core::ffi::c_void, pubytes: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsBpQueryOption(hhandle: super::super::Foundation::HANDLE, uoption: u32, uvaluelen: u32, pvalue: *mut ::core::ffi::c_void, pubytes: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(WdsBpQueryOption(hhandle.into_param().abi(), ::core::mem::transmute(uoption), ::core::mem::transmute(uvaluelen), ::core::mem::transmute(pvalue), ::core::mem::transmute(pubytes)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsBpQueryOption(hhandle: super::super::Foundation::HANDLE, uoption: u32, uvaluelen: u32, pvalue: *mut ::core::ffi::c_void, pubytes: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(WdsBpQueryOption(hhandle.into_param().abi(), ::core::mem::transmute(uoption), ::core::mem::transmute(uvaluelen), ::core::mem::transmute(pvalue), ::core::mem::transmute(pubytes)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliAuthorizeSession<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hsession: Param0, pcred: *const WDS_CLI_CRED) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsCliAuthorizeSession(hsession: super::super::Foundation::HANDLE, pcred: *const WDS_CLI_CRED) -> ::windows::core::HRESULT;
-        }
-        WdsCliAuthorizeSession(hsession.into_param().abi(), ::core::mem::transmute(pcred)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsCliAuthorizeSession(hsession: super::super::Foundation::HANDLE, pcred: *const WDS_CLI_CRED) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    WdsCliAuthorizeSession(hsession.into_param().abi(), ::core::mem::transmute(pcred)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliCancelTransfer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(htransfer: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsCliCancelTransfer(htransfer: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
-        }
-        WdsCliCancelTransfer(htransfer.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsCliCancelTransfer(htransfer: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    WdsCliCancelTransfer(htransfer.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliClose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(handle: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsCliClose(handle: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
-        }
-        WdsCliClose(handle.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsCliClose(handle: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    WdsCliClose(handle.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliCreateSession<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pwszserver: Param0, pcred: *const WDS_CLI_CRED) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsCliCreateSession(pwszserver: ::windows::core::PCWSTR, pcred: *const WDS_CLI_CRED, phsession: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HANDLE>::zeroed();
-        WdsCliCreateSession(pwszserver.into_param().abi(), ::core::mem::transmute(pcred), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsCliCreateSession(pwszserver: ::windows::core::PCWSTR, pcred: *const WDS_CLI_CRED, phsession: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HANDLE>::zeroed();
+    WdsCliCreateSession(pwszserver.into_param().abi(), ::core::mem::transmute(pcred), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliFindFirstImage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hsession: Param0) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsCliFindFirstImage(hsession: super::super::Foundation::HANDLE, phfindhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HANDLE>::zeroed();
-        WdsCliFindFirstImage(hsession.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsCliFindFirstImage(hsession: super::super::Foundation::HANDLE, phfindhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HANDLE>::zeroed();
+    WdsCliFindFirstImage(hsession.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliFindNextImage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(handle: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsCliFindNextImage(handle: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
-        }
-        WdsCliFindNextImage(handle.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsCliFindNextImage(handle: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    WdsCliFindNextImage(handle.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsCliFlagEnumFilterFirmware: i32 = 2i32;
@@ -6312,676 +6092,456 @@ pub const WdsCliFlagEnumFilterVersion: i32 = 1i32;
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
 pub unsafe fn WdsCliFreeStringArray(ppwszarray: &mut [::windows::core::PWSTR]) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsCliFreeStringArray(ppwszarray: *mut ::windows::core::PWSTR, ulcount: u32) -> ::windows::core::HRESULT;
-        }
-        WdsCliFreeStringArray(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppwszarray)), ppwszarray.len() as _).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsCliFreeStringArray(ppwszarray: *mut ::windows::core::PWSTR, ulcount: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    WdsCliFreeStringArray(::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppwszarray)), ppwszarray.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
 pub unsafe fn WdsCliGetDriverQueryXml<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pwszwindirpath: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsCliGetDriverQueryXml(pwszwindirpath: ::windows::core::PCWSTR, ppwszdriverquery: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-        WdsCliGetDriverQueryXml(pwszwindirpath.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsCliGetDriverQueryXml(pwszwindirpath: ::windows::core::PCWSTR, ppwszdriverquery: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
+    WdsCliGetDriverQueryXml(pwszwindirpath.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliGetEnumerationFlags<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(handle: Param0) -> ::windows::core::Result<u32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsCliGetEnumerationFlags(handle: super::super::Foundation::HANDLE, pdwflags: *mut u32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        WdsCliGetEnumerationFlags(handle.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsCliGetEnumerationFlags(handle: super::super::Foundation::HANDLE, pdwflags: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+    WdsCliGetEnumerationFlags(handle.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliGetImageArchitecture<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<CPU_ARCHITECTURE> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsCliGetImageArchitecture(hifh: super::super::Foundation::HANDLE, pdwvalue: *mut CPU_ARCHITECTURE) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<CPU_ARCHITECTURE>::zeroed();
-        WdsCliGetImageArchitecture(hifh.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CPU_ARCHITECTURE>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsCliGetImageArchitecture(hifh: super::super::Foundation::HANDLE, pdwvalue: *mut CPU_ARCHITECTURE) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<CPU_ARCHITECTURE>::zeroed();
+    WdsCliGetImageArchitecture(hifh.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CPU_ARCHITECTURE>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliGetImageDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsCliGetImageDescription(hifh: super::super::Foundation::HANDLE, ppwszvalue: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-        WdsCliGetImageDescription(hifh.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsCliGetImageDescription(hifh: super::super::Foundation::HANDLE, ppwszvalue: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
+    WdsCliGetImageDescription(hifh.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliGetImageFiles<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0, pppwszfiles: *mut *mut ::windows::core::PWSTR, pdwcount: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsCliGetImageFiles(hifh: super::super::Foundation::HANDLE, pppwszfiles: *mut *mut ::windows::core::PWSTR, pdwcount: *mut u32) -> ::windows::core::HRESULT;
-        }
-        WdsCliGetImageFiles(hifh.into_param().abi(), ::core::mem::transmute(pppwszfiles), ::core::mem::transmute(pdwcount)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsCliGetImageFiles(hifh: super::super::Foundation::HANDLE, pppwszfiles: *mut *mut ::windows::core::PWSTR, pdwcount: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    WdsCliGetImageFiles(hifh.into_param().abi(), ::core::mem::transmute(pppwszfiles), ::core::mem::transmute(pdwcount)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliGetImageGroup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsCliGetImageGroup(hifh: super::super::Foundation::HANDLE, ppwszvalue: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-        WdsCliGetImageGroup(hifh.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsCliGetImageGroup(hifh: super::super::Foundation::HANDLE, ppwszvalue: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
+    WdsCliGetImageGroup(hifh.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliGetImageHalName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsCliGetImageHalName(hifh: super::super::Foundation::HANDLE, ppwszvalue: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-        WdsCliGetImageHalName(hifh.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsCliGetImageHalName(hifh: super::super::Foundation::HANDLE, ppwszvalue: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
+    WdsCliGetImageHalName(hifh.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliGetImageHandleFromFindHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(findhandle: Param0) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsCliGetImageHandleFromFindHandle(findhandle: super::super::Foundation::HANDLE, phimagehandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HANDLE>::zeroed();
-        WdsCliGetImageHandleFromFindHandle(findhandle.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsCliGetImageHandleFromFindHandle(findhandle: super::super::Foundation::HANDLE, phimagehandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HANDLE>::zeroed();
+    WdsCliGetImageHandleFromFindHandle(findhandle.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliGetImageHandleFromTransferHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(htransfer: Param0) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsCliGetImageHandleFromTransferHandle(htransfer: super::super::Foundation::HANDLE, phimagehandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HANDLE>::zeroed();
-        WdsCliGetImageHandleFromTransferHandle(htransfer.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsCliGetImageHandleFromTransferHandle(htransfer: super::super::Foundation::HANDLE, phimagehandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HANDLE>::zeroed();
+    WdsCliGetImageHandleFromTransferHandle(htransfer.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliGetImageIndex<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<u32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsCliGetImageIndex(hifh: super::super::Foundation::HANDLE, pdwvalue: *mut u32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        WdsCliGetImageIndex(hifh.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsCliGetImageIndex(hifh: super::super::Foundation::HANDLE, pdwvalue: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+    WdsCliGetImageIndex(hifh.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliGetImageLanguage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsCliGetImageLanguage(hifh: super::super::Foundation::HANDLE, ppwszvalue: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-        WdsCliGetImageLanguage(hifh.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsCliGetImageLanguage(hifh: super::super::Foundation::HANDLE, ppwszvalue: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
+    WdsCliGetImageLanguage(hifh.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliGetImageLanguages<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0, pppszvalues: *mut *mut *mut i8, pdwnumvalues: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsCliGetImageLanguages(hifh: super::super::Foundation::HANDLE, pppszvalues: *mut *mut *mut i8, pdwnumvalues: *mut u32) -> ::windows::core::HRESULT;
-        }
-        WdsCliGetImageLanguages(hifh.into_param().abi(), ::core::mem::transmute(pppszvalues), ::core::mem::transmute(pdwnumvalues)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsCliGetImageLanguages(hifh: super::super::Foundation::HANDLE, pppszvalues: *mut *mut *mut i8, pdwnumvalues: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    WdsCliGetImageLanguages(hifh.into_param().abi(), ::core::mem::transmute(pppszvalues), ::core::mem::transmute(pdwnumvalues)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliGetImageLastModifiedTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<*mut super::super::Foundation::SYSTEMTIME> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsCliGetImageLastModifiedTime(hifh: super::super::Foundation::HANDLE, ppsystimevalue: *mut *mut super::super::Foundation::SYSTEMTIME) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut super::super::Foundation::SYSTEMTIME>::zeroed();
-        WdsCliGetImageLastModifiedTime(hifh.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::super::Foundation::SYSTEMTIME>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsCliGetImageLastModifiedTime(hifh: super::super::Foundation::HANDLE, ppsystimevalue: *mut *mut super::super::Foundation::SYSTEMTIME) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut super::super::Foundation::SYSTEMTIME>::zeroed();
+    WdsCliGetImageLastModifiedTime(hifh.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::super::Foundation::SYSTEMTIME>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliGetImageName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsCliGetImageName(hifh: super::super::Foundation::HANDLE, ppwszvalue: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-        WdsCliGetImageName(hifh.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsCliGetImageName(hifh: super::super::Foundation::HANDLE, ppwszvalue: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
+    WdsCliGetImageName(hifh.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliGetImageNamespace<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsCliGetImageNamespace(hifh: super::super::Foundation::HANDLE, ppwszvalue: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-        WdsCliGetImageNamespace(hifh.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsCliGetImageNamespace(hifh: super::super::Foundation::HANDLE, ppwszvalue: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
+    WdsCliGetImageNamespace(hifh.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliGetImageParameter<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0, paramtype: WDS_CLI_IMAGE_PARAM_TYPE, presponse: *mut ::core::ffi::c_void, uresponselen: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsCliGetImageParameter(hifh: super::super::Foundation::HANDLE, paramtype: WDS_CLI_IMAGE_PARAM_TYPE, presponse: *mut ::core::ffi::c_void, uresponselen: u32) -> ::windows::core::HRESULT;
-        }
-        WdsCliGetImageParameter(hifh.into_param().abi(), ::core::mem::transmute(paramtype), ::core::mem::transmute(presponse), ::core::mem::transmute(uresponselen)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsCliGetImageParameter(hifh: super::super::Foundation::HANDLE, paramtype: WDS_CLI_IMAGE_PARAM_TYPE, presponse: *mut ::core::ffi::c_void, uresponselen: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    WdsCliGetImageParameter(hifh.into_param().abi(), ::core::mem::transmute(paramtype), ::core::mem::transmute(presponse), ::core::mem::transmute(uresponselen)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliGetImagePath<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsCliGetImagePath(hifh: super::super::Foundation::HANDLE, ppwszvalue: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-        WdsCliGetImagePath(hifh.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsCliGetImagePath(hifh: super::super::Foundation::HANDLE, ppwszvalue: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
+    WdsCliGetImagePath(hifh.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliGetImageSize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<u64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsCliGetImageSize(hifh: super::super::Foundation::HANDLE, pullvalue: *mut u64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-        WdsCliGetImageSize(hifh.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsCliGetImageSize(hifh: super::super::Foundation::HANDLE, pullvalue: *mut u64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
+    WdsCliGetImageSize(hifh.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliGetImageType<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<WDS_CLI_IMAGE_TYPE> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsCliGetImageType(hifh: super::super::Foundation::HANDLE, pimagetype: *mut WDS_CLI_IMAGE_TYPE) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<WDS_CLI_IMAGE_TYPE>::zeroed();
-        WdsCliGetImageType(hifh.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WDS_CLI_IMAGE_TYPE>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsCliGetImageType(hifh: super::super::Foundation::HANDLE, pimagetype: *mut WDS_CLI_IMAGE_TYPE) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<WDS_CLI_IMAGE_TYPE>::zeroed();
+    WdsCliGetImageType(hifh.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WDS_CLI_IMAGE_TYPE>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliGetImageVersion<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsCliGetImageVersion(hifh: super::super::Foundation::HANDLE, ppwszvalue: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-        WdsCliGetImageVersion(hifh.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsCliGetImageVersion(hifh: super::super::Foundation::HANDLE, ppwszvalue: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
+    WdsCliGetImageVersion(hifh.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliGetTransferSize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<u64> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsCliGetTransferSize(hifh: super::super::Foundation::HANDLE, pullvalue: *mut u64) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-        WdsCliGetTransferSize(hifh.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsCliGetTransferSize(hifh: super::super::Foundation::HANDLE, pullvalue: *mut u64) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
+    WdsCliGetTransferSize(hifh.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliInitializeLog<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hsession: Param0, ulclientarchitecture: CPU_ARCHITECTURE, pwszclientid: Param2, pwszclientaddress: Param3) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsCliInitializeLog(hsession: super::super::Foundation::HANDLE, ulclientarchitecture: CPU_ARCHITECTURE, pwszclientid: ::windows::core::PCWSTR, pwszclientaddress: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
-        }
-        WdsCliInitializeLog(hsession.into_param().abi(), ::core::mem::transmute(ulclientarchitecture), pwszclientid.into_param().abi(), pwszclientaddress.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsCliInitializeLog(hsession: super::super::Foundation::HANDLE, ulclientarchitecture: CPU_ARCHITECTURE, pwszclientid: ::windows::core::PCWSTR, pwszclientaddress: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    WdsCliInitializeLog(hsession.into_param().abi(), ::core::mem::transmute(ulclientarchitecture), pwszclientid.into_param().abi(), pwszclientaddress.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliLog<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hsession: Param0, ulloglevel: u32, ulmessagecode: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsCliLog(hsession: super::super::Foundation::HANDLE, ulloglevel: u32, ulmessagecode: u32) -> ::windows::core::HRESULT;
-        }
-        WdsCliLog(hsession.into_param().abi(), ::core::mem::transmute(ulloglevel), ::core::mem::transmute(ulmessagecode)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsCliLog(hsession: super::super::Foundation::HANDLE, ulloglevel: u32, ulmessagecode: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    WdsCliLog(hsession.into_param().abi(), ::core::mem::transmute(ulloglevel), ::core::mem::transmute(ulmessagecode)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliObtainDriverPackages<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(himage: Param0, ppwszservername: *mut ::windows::core::PWSTR, pppwszdriverpackages: *mut *mut ::windows::core::PWSTR, pulcount: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsCliObtainDriverPackages(himage: super::super::Foundation::HANDLE, ppwszservername: *mut ::windows::core::PWSTR, pppwszdriverpackages: *mut *mut ::windows::core::PWSTR, pulcount: *mut u32) -> ::windows::core::HRESULT;
-        }
-        WdsCliObtainDriverPackages(himage.into_param().abi(), ::core::mem::transmute(ppwszservername), ::core::mem::transmute(pppwszdriverpackages), ::core::mem::transmute(pulcount)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsCliObtainDriverPackages(himage: super::super::Foundation::HANDLE, ppwszservername: *mut ::windows::core::PWSTR, pppwszdriverpackages: *mut *mut ::windows::core::PWSTR, pulcount: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    WdsCliObtainDriverPackages(himage.into_param().abi(), ::core::mem::transmute(ppwszservername), ::core::mem::transmute(pppwszdriverpackages), ::core::mem::transmute(pulcount)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliObtainDriverPackagesEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hsession: Param0, pwszmachineinfo: Param1, ppwszservername: *mut ::windows::core::PWSTR, pppwszdriverpackages: *mut *mut ::windows::core::PWSTR, pulcount: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsCliObtainDriverPackagesEx(hsession: super::super::Foundation::HANDLE, pwszmachineinfo: ::windows::core::PCWSTR, ppwszservername: *mut ::windows::core::PWSTR, pppwszdriverpackages: *mut *mut ::windows::core::PWSTR, pulcount: *mut u32) -> ::windows::core::HRESULT;
-        }
-        WdsCliObtainDriverPackagesEx(hsession.into_param().abi(), pwszmachineinfo.into_param().abi(), ::core::mem::transmute(ppwszservername), ::core::mem::transmute(pppwszdriverpackages), ::core::mem::transmute(pulcount)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsCliObtainDriverPackagesEx(hsession: super::super::Foundation::HANDLE, pwszmachineinfo: ::windows::core::PCWSTR, ppwszservername: *mut ::windows::core::PWSTR, pppwszdriverpackages: *mut *mut ::windows::core::PWSTR, pulcount: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    WdsCliObtainDriverPackagesEx(hsession.into_param().abi(), pwszmachineinfo.into_param().abi(), ::core::mem::transmute(ppwszservername), ::core::mem::transmute(pppwszdriverpackages), ::core::mem::transmute(pulcount)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
 pub unsafe fn WdsCliRegisterTrace(pfn: PFN_WdsCliTraceFunction) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsCliRegisterTrace(pfn: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        WdsCliRegisterTrace(::core::mem::transmute(pfn)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsCliRegisterTrace(pfn: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    WdsCliRegisterTrace(::core::mem::transmute(pfn)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
 pub unsafe fn WdsCliSetTransferBufferSize(ulsizeinbytes: u32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsCliSetTransferBufferSize(ulsizeinbytes: u32);
-        }
-        WdsCliSetTransferBufferSize(::core::mem::transmute(ulsizeinbytes))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsCliSetTransferBufferSize(ulsizeinbytes: u32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    WdsCliSetTransferBufferSize(::core::mem::transmute(ulsizeinbytes))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliTransferFile<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pwszserver: Param0, pwsznamespace: Param1, pwszremotefilepath: Param2, pwszlocalfilepath: Param3, dwflags: u32, dwreserved: u32, pfnwdsclicallback: PFN_WdsCliCallback, pvuserdata: *const ::core::ffi::c_void) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsCliTransferFile(pwszserver: ::windows::core::PCWSTR, pwsznamespace: ::windows::core::PCWSTR, pwszremotefilepath: ::windows::core::PCWSTR, pwszlocalfilepath: ::windows::core::PCWSTR, dwflags: u32, dwreserved: u32, pfnwdsclicallback: *mut ::core::ffi::c_void, pvuserdata: *const ::core::ffi::c_void, phtransfer: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HANDLE>::zeroed();
-        WdsCliTransferFile(pwszserver.into_param().abi(), pwsznamespace.into_param().abi(), pwszremotefilepath.into_param().abi(), pwszlocalfilepath.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwreserved), ::core::mem::transmute(pfnwdsclicallback), ::core::mem::transmute(pvuserdata), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsCliTransferFile(pwszserver: ::windows::core::PCWSTR, pwsznamespace: ::windows::core::PCWSTR, pwszremotefilepath: ::windows::core::PCWSTR, pwszlocalfilepath: ::windows::core::PCWSTR, dwflags: u32, dwreserved: u32, pfnwdsclicallback: *mut ::core::ffi::c_void, pvuserdata: *const ::core::ffi::c_void, phtransfer: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HANDLE>::zeroed();
+    WdsCliTransferFile(pwszserver.into_param().abi(), pwsznamespace.into_param().abi(), pwszremotefilepath.into_param().abi(), pwszlocalfilepath.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwreserved), ::core::mem::transmute(pfnwdsclicallback), ::core::mem::transmute(pvuserdata), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliTransferImage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(himage: Param0, pwszlocalpath: Param1, dwflags: u32, dwreserved: u32, pfnwdsclicallback: PFN_WdsCliCallback, pvuserdata: *const ::core::ffi::c_void) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsCliTransferImage(himage: super::super::Foundation::HANDLE, pwszlocalpath: ::windows::core::PCWSTR, dwflags: u32, dwreserved: u32, pfnwdsclicallback: *mut ::core::ffi::c_void, pvuserdata: *const ::core::ffi::c_void, phtransfer: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HANDLE>::zeroed();
-        WdsCliTransferImage(himage.into_param().abi(), pwszlocalpath.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwreserved), ::core::mem::transmute(pfnwdsclicallback), ::core::mem::transmute(pvuserdata), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsCliTransferImage(himage: super::super::Foundation::HANDLE, pwszlocalpath: ::windows::core::PCWSTR, dwflags: u32, dwreserved: u32, pfnwdsclicallback: *mut ::core::ffi::c_void, pvuserdata: *const ::core::ffi::c_void, phtransfer: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HANDLE>::zeroed();
+    WdsCliTransferImage(himage.into_param().abi(), pwszlocalpath.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwreserved), ::core::mem::transmute(pfnwdsclicallback), ::core::mem::transmute(pvuserdata), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsCliWaitForTransfer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(htransfer: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsCliWaitForTransfer(htransfer: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
-        }
-        WdsCliWaitForTransfer(htransfer.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsCliWaitForTransfer(htransfer: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    WdsCliWaitForTransfer(htransfer.into_param().abi()).ok()
 }
 pub const WdsTransportCacheable: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70590b16_f146_46bd_bd9d_4aaa90084bf5);
 pub const WdsTransportClient: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66d2c5e9_0ff6_49ec_9733_dafb1e01df1c);
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
 pub unsafe fn WdsTransportClientAddRefBuffer(pvbuffer: *const ::core::ffi::c_void) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsTransportClientAddRefBuffer(pvbuffer: *const ::core::ffi::c_void) -> u32;
-        }
-        ::core::mem::transmute(WdsTransportClientAddRefBuffer(::core::mem::transmute(pvbuffer)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsTransportClientAddRefBuffer(pvbuffer: *const ::core::ffi::c_void) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(WdsTransportClientAddRefBuffer(::core::mem::transmute(pvbuffer)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsTransportClientCancelSession<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hsessionkey: Param0) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsTransportClientCancelSession(hsessionkey: super::super::Foundation::HANDLE) -> u32;
-        }
-        ::core::mem::transmute(WdsTransportClientCancelSession(hsessionkey.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsTransportClientCancelSession(hsessionkey: super::super::Foundation::HANDLE) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(WdsTransportClientCancelSession(hsessionkey.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsTransportClientCancelSessionEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hsessionkey: Param0, dwerrorcode: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsTransportClientCancelSessionEx(hsessionkey: super::super::Foundation::HANDLE, dwerrorcode: u32) -> u32;
-        }
-        ::core::mem::transmute(WdsTransportClientCancelSessionEx(hsessionkey.into_param().abi(), ::core::mem::transmute(dwerrorcode)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsTransportClientCancelSessionEx(hsessionkey: super::super::Foundation::HANDLE, dwerrorcode: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(WdsTransportClientCancelSessionEx(hsessionkey.into_param().abi(), ::core::mem::transmute(dwerrorcode)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsTransportClientCloseSession<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hsessionkey: Param0) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsTransportClientCloseSession(hsessionkey: super::super::Foundation::HANDLE) -> u32;
-        }
-        ::core::mem::transmute(WdsTransportClientCloseSession(hsessionkey.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsTransportClientCloseSession(hsessionkey: super::super::Foundation::HANDLE) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(WdsTransportClientCloseSession(hsessionkey.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsTransportClientCompleteReceive<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hsessionkey: Param0, ulsize: u32, pulloffset: *const u64) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsTransportClientCompleteReceive(hsessionkey: super::super::Foundation::HANDLE, ulsize: u32, pulloffset: *const u64) -> u32;
-        }
-        ::core::mem::transmute(WdsTransportClientCompleteReceive(hsessionkey.into_param().abi(), ::core::mem::transmute(ulsize), ::core::mem::transmute(pulloffset)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsTransportClientCompleteReceive(hsessionkey: super::super::Foundation::HANDLE, ulsize: u32, pulloffset: *const u64) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(WdsTransportClientCompleteReceive(hsessionkey.into_param().abi(), ::core::mem::transmute(ulsize), ::core::mem::transmute(pulloffset)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
 pub unsafe fn WdsTransportClientInitialize() -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsTransportClientInitialize() -> u32;
-        }
-        ::core::mem::transmute(WdsTransportClientInitialize())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsTransportClientInitialize() -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(WdsTransportClientInitialize())
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsTransportClientInitializeSession(psessionrequest: *const WDS_TRANSPORTCLIENT_REQUEST, pcallerdata: *const ::core::ffi::c_void, hsessionkey: *mut super::super::Foundation::HANDLE) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsTransportClientInitializeSession(psessionrequest: *const WDS_TRANSPORTCLIENT_REQUEST, pcallerdata: *const ::core::ffi::c_void, hsessionkey: *mut super::super::Foundation::HANDLE) -> u32;
-        }
-        ::core::mem::transmute(WdsTransportClientInitializeSession(::core::mem::transmute(psessionrequest), ::core::mem::transmute(pcallerdata), ::core::mem::transmute(hsessionkey)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsTransportClientInitializeSession(psessionrequest: *const WDS_TRANSPORTCLIENT_REQUEST, pcallerdata: *const ::core::ffi::c_void, hsessionkey: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(WdsTransportClientInitializeSession(::core::mem::transmute(psessionrequest), ::core::mem::transmute(pcallerdata), ::core::mem::transmute(hsessionkey)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsTransportClientQueryStatus<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hsessionkey: Param0, pustatus: *mut u32, puerrorcode: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsTransportClientQueryStatus(hsessionkey: super::super::Foundation::HANDLE, pustatus: *mut u32, puerrorcode: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(WdsTransportClientQueryStatus(hsessionkey.into_param().abi(), ::core::mem::transmute(pustatus), ::core::mem::transmute(puerrorcode)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsTransportClientQueryStatus(hsessionkey: super::super::Foundation::HANDLE, pustatus: *mut u32, puerrorcode: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(WdsTransportClientQueryStatus(hsessionkey.into_param().abi(), ::core::mem::transmute(pustatus), ::core::mem::transmute(puerrorcode)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsTransportClientRegisterCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hsessionkey: Param0, callbackid: TRANSPORTCLIENT_CALLBACK_ID, pfncallback: *const ::core::ffi::c_void) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsTransportClientRegisterCallback(hsessionkey: super::super::Foundation::HANDLE, callbackid: TRANSPORTCLIENT_CALLBACK_ID, pfncallback: *const ::core::ffi::c_void) -> u32;
-        }
-        ::core::mem::transmute(WdsTransportClientRegisterCallback(hsessionkey.into_param().abi(), ::core::mem::transmute(callbackid), ::core::mem::transmute(pfncallback)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsTransportClientRegisterCallback(hsessionkey: super::super::Foundation::HANDLE, callbackid: TRANSPORTCLIENT_CALLBACK_ID, pfncallback: *const ::core::ffi::c_void) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(WdsTransportClientRegisterCallback(hsessionkey.into_param().abi(), ::core::mem::transmute(callbackid), ::core::mem::transmute(pfncallback)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
 pub unsafe fn WdsTransportClientReleaseBuffer(pvbuffer: *const ::core::ffi::c_void) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsTransportClientReleaseBuffer(pvbuffer: *const ::core::ffi::c_void) -> u32;
-        }
-        ::core::mem::transmute(WdsTransportClientReleaseBuffer(::core::mem::transmute(pvbuffer)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsTransportClientReleaseBuffer(pvbuffer: *const ::core::ffi::c_void) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(WdsTransportClientReleaseBuffer(::core::mem::transmute(pvbuffer)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
 pub unsafe fn WdsTransportClientShutdown() -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsTransportClientShutdown() -> u32;
-        }
-        ::core::mem::transmute(WdsTransportClientShutdown())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsTransportClientShutdown() -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(WdsTransportClientShutdown())
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsTransportClientStartSession<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hsessionkey: Param0) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsTransportClientStartSession(hsessionkey: super::super::Foundation::HANDLE) -> u32;
-        }
-        ::core::mem::transmute(WdsTransportClientStartSession(hsessionkey.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsTransportClientStartSession(hsessionkey: super::super::Foundation::HANDLE) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(WdsTransportClientStartSession(hsessionkey.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsTransportClientWaitForCompletion<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hsessionkey: Param0, utimeout: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsTransportClientWaitForCompletion(hsessionkey: super::super::Foundation::HANDLE, utimeout: u32) -> u32;
-        }
-        ::core::mem::transmute(WdsTransportClientWaitForCompletion(hsessionkey.into_param().abi(), ::core::mem::transmute(utimeout)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsTransportClientWaitForCompletion(hsessionkey: super::super::Foundation::HANDLE, utimeout: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(WdsTransportClientWaitForCompletion(hsessionkey.into_param().abi(), ::core::mem::transmute(utimeout)))
 }
 pub const WdsTransportCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc7f18b09_391e_436e_b10b_c3ef46f2c34f);
 pub const WdsTransportConfigurationManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8743f674_904c_47ca_8512_35fe98f6b0ac);
@@ -7001,91 +6561,61 @@ pub const WdsTransportServer: ::windows::core::GUID = ::windows::core::GUID::fro
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsTransportServerAllocateBuffer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprovider: Param0, ulbuffersize: u32) -> *mut ::core::ffi::c_void {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsTransportServerAllocateBuffer(hprovider: super::super::Foundation::HANDLE, ulbuffersize: u32) -> *mut ::core::ffi::c_void;
-        }
-        ::core::mem::transmute(WdsTransportServerAllocateBuffer(hprovider.into_param().abi(), ::core::mem::transmute(ulbuffersize)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsTransportServerAllocateBuffer(hprovider: super::super::Foundation::HANDLE, ulbuffersize: u32) -> *mut ::core::ffi::c_void;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(WdsTransportServerAllocateBuffer(hprovider.into_param().abi(), ::core::mem::transmute(ulbuffersize)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsTransportServerCompleteRead<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprovider: Param0, ulbytesread: u32, pvuserdata: *const ::core::ffi::c_void, hreadresult: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsTransportServerCompleteRead(hprovider: super::super::Foundation::HANDLE, ulbytesread: u32, pvuserdata: *const ::core::ffi::c_void, hreadresult: ::windows::core::HRESULT) -> ::windows::core::HRESULT;
-        }
-        WdsTransportServerCompleteRead(hprovider.into_param().abi(), ::core::mem::transmute(ulbytesread), ::core::mem::transmute(pvuserdata), ::core::mem::transmute(hreadresult)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsTransportServerCompleteRead(hprovider: super::super::Foundation::HANDLE, ulbytesread: u32, pvuserdata: *const ::core::ffi::c_void, hreadresult: ::windows::core::HRESULT) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    WdsTransportServerCompleteRead(hprovider.into_param().abi(), ::core::mem::transmute(ulbytesread), ::core::mem::transmute(pvuserdata), ::core::mem::transmute(hreadresult)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsTransportServerFreeBuffer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprovider: Param0, pvbuffer: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsTransportServerFreeBuffer(hprovider: super::super::Foundation::HANDLE, pvbuffer: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        WdsTransportServerFreeBuffer(hprovider.into_param().abi(), ::core::mem::transmute(pvbuffer)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsTransportServerFreeBuffer(hprovider: super::super::Foundation::HANDLE, pvbuffer: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    WdsTransportServerFreeBuffer(hprovider.into_param().abi(), ::core::mem::transmute(pvbuffer)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsTransportServerRegisterCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprovider: Param0, callbackid: TRANSPORTPROVIDER_CALLBACK_ID, pfncallback: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsTransportServerRegisterCallback(hprovider: super::super::Foundation::HANDLE, callbackid: TRANSPORTPROVIDER_CALLBACK_ID, pfncallback: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        WdsTransportServerRegisterCallback(hprovider.into_param().abi(), ::core::mem::transmute(callbackid), ::core::mem::transmute(pfncallback)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsTransportServerRegisterCallback(hprovider: super::super::Foundation::HANDLE, callbackid: TRANSPORTPROVIDER_CALLBACK_ID, pfncallback: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    WdsTransportServerRegisterCallback(hprovider.into_param().abi(), ::core::mem::transmute(callbackid), ::core::mem::transmute(pfncallback)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsTransportServerTrace<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hprovider: Param0, severity: u32, pwszformat: Param2) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsTransportServerTrace(hprovider: super::super::Foundation::HANDLE, severity: u32, pwszformat: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
-        }
-        WdsTransportServerTrace(hprovider.into_param().abi(), ::core::mem::transmute(severity), pwszformat.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsTransportServerTrace(hprovider: super::super::Foundation::HANDLE, severity: u32, pwszformat: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    WdsTransportServerTrace(hprovider.into_param().abi(), ::core::mem::transmute(severity), pwszformat.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WdsTransportServerTraceV<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hprovider: Param0, severity: u32, pwszformat: Param2, params: *const i8) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WdsTransportServerTraceV(hprovider: super::super::Foundation::HANDLE, severity: u32, pwszformat: ::windows::core::PCWSTR, params: *const i8) -> ::windows::core::HRESULT;
-        }
-        WdsTransportServerTraceV(hprovider.into_param().abi(), ::core::mem::transmute(severity), pwszformat.into_param().abi(), ::core::mem::transmute(params)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WdsTransportServerTraceV(hprovider: super::super::Foundation::HANDLE, severity: u32, pwszformat: ::windows::core::PCWSTR, params: *const i8) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    WdsTransportServerTraceV(hprovider.into_param().abi(), ::core::mem::transmute(severity), pwszformat.into_param().abi(), ::core::mem::transmute(params)).ok()
 }
 pub const WdsTransportServicePolicy: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65aceadc_2f0b_4f43_9f4d_811865d8cead);
 pub const WdsTransportSession: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x749ac4e0_67bc_4743_bfe5_cacb1f26f57f);

@@ -721,416 +721,271 @@ pub const CONFIRMSAFETYACTION_LOADOBJECT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn CoGetClassObjectFromURL<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param5: ::windows::core::IntoParam<'a, super::IBindCtx>>(rclassid: *const ::windows::core::GUID, szcode: Param1, dwfileversionms: u32, dwfileversionls: u32, sztype: Param4, pbindctx: Param5, dwclscontext: super::CLSCTX, pvreserved: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CoGetClassObjectFromURL(rclassid: *const ::windows::core::GUID, szcode: ::windows::core::PCWSTR, dwfileversionms: u32, dwfileversionls: u32, sztype: ::windows::core::PCWSTR, pbindctx: *mut ::core::ffi::c_void, dwclscontext: super::CLSCTX, pvreserved: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        CoGetClassObjectFromURL(::core::mem::transmute(rclassid), szcode.into_param().abi(), ::core::mem::transmute(dwfileversionms), ::core::mem::transmute(dwfileversionls), sztype.into_param().abi(), pbindctx.into_param().abi(), ::core::mem::transmute(dwclscontext), ::core::mem::transmute(pvreserved), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CoGetClassObjectFromURL(rclassid: *const ::windows::core::GUID, szcode: ::windows::core::PCWSTR, dwfileversionms: u32, dwfileversionls: u32, sztype: ::windows::core::PCWSTR, pbindctx: *mut ::core::ffi::c_void, dwclscontext: super::CLSCTX, pvreserved: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CoGetClassObjectFromURL(::core::mem::transmute(rclassid), szcode.into_param().abi(), ::core::mem::transmute(dwfileversionms), ::core::mem::transmute(dwfileversionls), sztype.into_param().abi(), pbindctx.into_param().abi(), ::core::mem::transmute(dwclscontext), ::core::mem::transmute(pvreserved), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn CoInternetCombineIUri<'a, Param0: ::windows::core::IntoParam<'a, super::IUri>, Param1: ::windows::core::IntoParam<'a, super::IUri>>(pbaseuri: Param0, prelativeuri: Param1, dwcombineflags: u32, ppcombineduri: *mut ::core::option::Option<super::IUri>, dwreserved: usize) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CoInternetCombineIUri(pbaseuri: *mut ::core::ffi::c_void, prelativeuri: *mut ::core::ffi::c_void, dwcombineflags: u32, ppcombineduri: *mut *mut ::core::ffi::c_void, dwreserved: usize) -> ::windows::core::HRESULT;
-        }
-        CoInternetCombineIUri(pbaseuri.into_param().abi(), prelativeuri.into_param().abi(), ::core::mem::transmute(dwcombineflags), ::core::mem::transmute(ppcombineduri), ::core::mem::transmute(dwreserved)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CoInternetCombineIUri(pbaseuri: *mut ::core::ffi::c_void, prelativeuri: *mut ::core::ffi::c_void, dwcombineflags: u32, ppcombineduri: *mut *mut ::core::ffi::c_void, dwreserved: usize) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CoInternetCombineIUri(pbaseuri.into_param().abi(), prelativeuri.into_param().abi(), ::core::mem::transmute(dwcombineflags), ::core::mem::transmute(ppcombineduri), ::core::mem::transmute(dwreserved)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn CoInternetCombineUrl<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pwzbaseurl: Param0, pwzrelativeurl: Param1, dwcombineflags: u32, pszresult: &mut [u16], pcchresult: *mut u32, dwreserved: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CoInternetCombineUrl(pwzbaseurl: ::windows::core::PCWSTR, pwzrelativeurl: ::windows::core::PCWSTR, dwcombineflags: u32, pszresult: ::windows::core::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: u32) -> ::windows::core::HRESULT;
-        }
-        CoInternetCombineUrl(pwzbaseurl.into_param().abi(), pwzrelativeurl.into_param().abi(), ::core::mem::transmute(dwcombineflags), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszresult)), pszresult.len() as _, ::core::mem::transmute(pcchresult), ::core::mem::transmute(dwreserved)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CoInternetCombineUrl(pwzbaseurl: ::windows::core::PCWSTR, pwzrelativeurl: ::windows::core::PCWSTR, dwcombineflags: u32, pszresult: ::windows::core::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CoInternetCombineUrl(pwzbaseurl.into_param().abi(), pwzrelativeurl.into_param().abi(), ::core::mem::transmute(dwcombineflags), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszresult)), pszresult.len() as _, ::core::mem::transmute(pcchresult), ::core::mem::transmute(dwreserved)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn CoInternetCombineUrlEx<'a, Param0: ::windows::core::IntoParam<'a, super::IUri>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pbaseuri: Param0, pwzrelativeurl: Param1, dwcombineflags: u32, ppcombineduri: *mut ::core::option::Option<super::IUri>, dwreserved: usize) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CoInternetCombineUrlEx(pbaseuri: *mut ::core::ffi::c_void, pwzrelativeurl: ::windows::core::PCWSTR, dwcombineflags: u32, ppcombineduri: *mut *mut ::core::ffi::c_void, dwreserved: usize) -> ::windows::core::HRESULT;
-        }
-        CoInternetCombineUrlEx(pbaseuri.into_param().abi(), pwzrelativeurl.into_param().abi(), ::core::mem::transmute(dwcombineflags), ::core::mem::transmute(ppcombineduri), ::core::mem::transmute(dwreserved)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CoInternetCombineUrlEx(pbaseuri: *mut ::core::ffi::c_void, pwzrelativeurl: ::windows::core::PCWSTR, dwcombineflags: u32, ppcombineduri: *mut *mut ::core::ffi::c_void, dwreserved: usize) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CoInternetCombineUrlEx(pbaseuri.into_param().abi(), pwzrelativeurl.into_param().abi(), ::core::mem::transmute(dwcombineflags), ::core::mem::transmute(ppcombineduri), ::core::mem::transmute(dwreserved)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn CoInternetCompareUrl<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pwzurl1: Param0, pwzurl2: Param1, dwflags: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CoInternetCompareUrl(pwzurl1: ::windows::core::PCWSTR, pwzurl2: ::windows::core::PCWSTR, dwflags: u32) -> ::windows::core::HRESULT;
-        }
-        CoInternetCompareUrl(pwzurl1.into_param().abi(), pwzurl2.into_param().abi(), ::core::mem::transmute(dwflags)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CoInternetCompareUrl(pwzurl1: ::windows::core::PCWSTR, pwzurl2: ::windows::core::PCWSTR, dwflags: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CoInternetCompareUrl(pwzurl1.into_param().abi(), pwzurl2.into_param().abi(), ::core::mem::transmute(dwflags)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn CoInternetCreateSecurityManager<'a, Param0: ::windows::core::IntoParam<'a, super::IServiceProvider>>(psp: Param0, ppsm: *mut ::core::option::Option<IInternetSecurityManager>, dwreserved: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CoInternetCreateSecurityManager(psp: *mut ::core::ffi::c_void, ppsm: *mut *mut ::core::ffi::c_void, dwreserved: u32) -> ::windows::core::HRESULT;
-        }
-        CoInternetCreateSecurityManager(psp.into_param().abi(), ::core::mem::transmute(ppsm), ::core::mem::transmute(dwreserved)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CoInternetCreateSecurityManager(psp: *mut ::core::ffi::c_void, ppsm: *mut *mut ::core::ffi::c_void, dwreserved: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CoInternetCreateSecurityManager(psp.into_param().abi(), ::core::mem::transmute(ppsm), ::core::mem::transmute(dwreserved)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn CoInternetCreateZoneManager<'a, Param0: ::windows::core::IntoParam<'a, super::IServiceProvider>>(psp: Param0, ppzm: *mut ::core::option::Option<IInternetZoneManager>, dwreserved: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CoInternetCreateZoneManager(psp: *mut ::core::ffi::c_void, ppzm: *mut *mut ::core::ffi::c_void, dwreserved: u32) -> ::windows::core::HRESULT;
-        }
-        CoInternetCreateZoneManager(psp.into_param().abi(), ::core::mem::transmute(ppzm), ::core::mem::transmute(dwreserved)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CoInternetCreateZoneManager(psp: *mut ::core::ffi::c_void, ppzm: *mut *mut ::core::ffi::c_void, dwreserved: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CoInternetCreateZoneManager(psp.into_param().abi(), ::core::mem::transmute(ppzm), ::core::mem::transmute(dwreserved)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn CoInternetGetProtocolFlags<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pwzurl: Param0, pdwflags: *mut u32, dwreserved: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CoInternetGetProtocolFlags(pwzurl: ::windows::core::PCWSTR, pdwflags: *mut u32, dwreserved: u32) -> ::windows::core::HRESULT;
-        }
-        CoInternetGetProtocolFlags(pwzurl.into_param().abi(), ::core::mem::transmute(pdwflags), ::core::mem::transmute(dwreserved)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CoInternetGetProtocolFlags(pwzurl: ::windows::core::PCWSTR, pdwflags: *mut u32, dwreserved: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CoInternetGetProtocolFlags(pwzurl.into_param().abi(), ::core::mem::transmute(pdwflags), ::core::mem::transmute(dwreserved)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn CoInternetGetSecurityUrl<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pwszurl: Param0, ppwszsecurl: *mut ::windows::core::PWSTR, psuaction: PSUACTION, dwreserved: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CoInternetGetSecurityUrl(pwszurl: ::windows::core::PCWSTR, ppwszsecurl: *mut ::windows::core::PWSTR, psuaction: PSUACTION, dwreserved: u32) -> ::windows::core::HRESULT;
-        }
-        CoInternetGetSecurityUrl(pwszurl.into_param().abi(), ::core::mem::transmute(ppwszsecurl), ::core::mem::transmute(psuaction), ::core::mem::transmute(dwreserved)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CoInternetGetSecurityUrl(pwszurl: ::windows::core::PCWSTR, ppwszsecurl: *mut ::windows::core::PWSTR, psuaction: PSUACTION, dwreserved: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CoInternetGetSecurityUrl(pwszurl.into_param().abi(), ::core::mem::transmute(ppwszsecurl), ::core::mem::transmute(psuaction), ::core::mem::transmute(dwreserved)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn CoInternetGetSecurityUrlEx<'a, Param0: ::windows::core::IntoParam<'a, super::IUri>>(puri: Param0, ppsecuri: *mut ::core::option::Option<super::IUri>, psuaction: PSUACTION, dwreserved: usize) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CoInternetGetSecurityUrlEx(puri: *mut ::core::ffi::c_void, ppsecuri: *mut *mut ::core::ffi::c_void, psuaction: PSUACTION, dwreserved: usize) -> ::windows::core::HRESULT;
-        }
-        CoInternetGetSecurityUrlEx(puri.into_param().abi(), ::core::mem::transmute(ppsecuri), ::core::mem::transmute(psuaction), ::core::mem::transmute(dwreserved)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CoInternetGetSecurityUrlEx(puri: *mut ::core::ffi::c_void, ppsecuri: *mut *mut ::core::ffi::c_void, psuaction: PSUACTION, dwreserved: usize) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CoInternetGetSecurityUrlEx(puri.into_param().abi(), ::core::mem::transmute(ppsecuri), ::core::mem::transmute(psuaction), ::core::mem::transmute(dwreserved)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn CoInternetGetSession(dwsessionmode: u32, ppiinternetsession: *mut ::core::option::Option<IInternetSession>, dwreserved: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CoInternetGetSession(dwsessionmode: u32, ppiinternetsession: *mut *mut ::core::ffi::c_void, dwreserved: u32) -> ::windows::core::HRESULT;
-        }
-        CoInternetGetSession(::core::mem::transmute(dwsessionmode), ::core::mem::transmute(ppiinternetsession), ::core::mem::transmute(dwreserved)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CoInternetGetSession(dwsessionmode: u32, ppiinternetsession: *mut *mut ::core::ffi::c_void, dwreserved: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CoInternetGetSession(::core::mem::transmute(dwsessionmode), ::core::mem::transmute(ppiinternetsession), ::core::mem::transmute(dwreserved)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn CoInternetIsFeatureEnabled(featureentry: INTERNETFEATURELIST, dwflags: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CoInternetIsFeatureEnabled(featureentry: INTERNETFEATURELIST, dwflags: u32) -> ::windows::core::HRESULT;
-        }
-        CoInternetIsFeatureEnabled(::core::mem::transmute(featureentry), ::core::mem::transmute(dwflags)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CoInternetIsFeatureEnabled(featureentry: INTERNETFEATURELIST, dwflags: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CoInternetIsFeatureEnabled(::core::mem::transmute(featureentry), ::core::mem::transmute(dwflags)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn CoInternetIsFeatureEnabledForIUri<'a, Param2: ::windows::core::IntoParam<'a, super::IUri>, Param3: ::windows::core::IntoParam<'a, IInternetSecurityManagerEx2>>(featureentry: INTERNETFEATURELIST, dwflags: u32, piuri: Param2, psecmgr: Param3) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CoInternetIsFeatureEnabledForIUri(featureentry: INTERNETFEATURELIST, dwflags: u32, piuri: *mut ::core::ffi::c_void, psecmgr: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        CoInternetIsFeatureEnabledForIUri(::core::mem::transmute(featureentry), ::core::mem::transmute(dwflags), piuri.into_param().abi(), psecmgr.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CoInternetIsFeatureEnabledForIUri(featureentry: INTERNETFEATURELIST, dwflags: u32, piuri: *mut ::core::ffi::c_void, psecmgr: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CoInternetIsFeatureEnabledForIUri(::core::mem::transmute(featureentry), ::core::mem::transmute(dwflags), piuri.into_param().abi(), psecmgr.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn CoInternetIsFeatureEnabledForUrl<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, IInternetSecurityManager>>(featureentry: INTERNETFEATURELIST, dwflags: u32, szurl: Param2, psecmgr: Param3) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CoInternetIsFeatureEnabledForUrl(featureentry: INTERNETFEATURELIST, dwflags: u32, szurl: ::windows::core::PCWSTR, psecmgr: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        CoInternetIsFeatureEnabledForUrl(::core::mem::transmute(featureentry), ::core::mem::transmute(dwflags), szurl.into_param().abi(), psecmgr.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CoInternetIsFeatureEnabledForUrl(featureentry: INTERNETFEATURELIST, dwflags: u32, szurl: ::windows::core::PCWSTR, psecmgr: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CoInternetIsFeatureEnabledForUrl(::core::mem::transmute(featureentry), ::core::mem::transmute(dwflags), szurl.into_param().abi(), psecmgr.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn CoInternetIsFeatureZoneElevationEnabled<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, IInternetSecurityManager>>(szfromurl: Param0, sztourl: Param1, psecmgr: Param2, dwflags: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CoInternetIsFeatureZoneElevationEnabled(szfromurl: ::windows::core::PCWSTR, sztourl: ::windows::core::PCWSTR, psecmgr: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT;
-        }
-        CoInternetIsFeatureZoneElevationEnabled(szfromurl.into_param().abi(), sztourl.into_param().abi(), psecmgr.into_param().abi(), ::core::mem::transmute(dwflags)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CoInternetIsFeatureZoneElevationEnabled(szfromurl: ::windows::core::PCWSTR, sztourl: ::windows::core::PCWSTR, psecmgr: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CoInternetIsFeatureZoneElevationEnabled(szfromurl.into_param().abi(), sztourl.into_param().abi(), psecmgr.into_param().abi(), ::core::mem::transmute(dwflags)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn CoInternetParseIUri<'a, Param0: ::windows::core::IntoParam<'a, super::IUri>>(piuri: Param0, parseaction: PARSEACTION, dwflags: u32, pwzresult: &mut [u16], pcchresult: *mut u32, dwreserved: usize) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CoInternetParseIUri(piuri: *mut ::core::ffi::c_void, parseaction: PARSEACTION, dwflags: u32, pwzresult: ::windows::core::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: usize) -> ::windows::core::HRESULT;
-        }
-        CoInternetParseIUri(piuri.into_param().abi(), ::core::mem::transmute(parseaction), ::core::mem::transmute(dwflags), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwzresult)), pwzresult.len() as _, ::core::mem::transmute(pcchresult), ::core::mem::transmute(dwreserved)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CoInternetParseIUri(piuri: *mut ::core::ffi::c_void, parseaction: PARSEACTION, dwflags: u32, pwzresult: ::windows::core::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: usize) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CoInternetParseIUri(piuri.into_param().abi(), ::core::mem::transmute(parseaction), ::core::mem::transmute(dwflags), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwzresult)), pwzresult.len() as _, ::core::mem::transmute(pcchresult), ::core::mem::transmute(dwreserved)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn CoInternetParseUrl<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pwzurl: Param0, parseaction: PARSEACTION, dwflags: u32, pszresult: &mut [u16], pcchresult: *mut u32, dwreserved: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CoInternetParseUrl(pwzurl: ::windows::core::PCWSTR, parseaction: PARSEACTION, dwflags: u32, pszresult: ::windows::core::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: u32) -> ::windows::core::HRESULT;
-        }
-        CoInternetParseUrl(pwzurl.into_param().abi(), ::core::mem::transmute(parseaction), ::core::mem::transmute(dwflags), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszresult)), pszresult.len() as _, ::core::mem::transmute(pcchresult), ::core::mem::transmute(dwreserved)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CoInternetParseUrl(pwzurl: ::windows::core::PCWSTR, parseaction: PARSEACTION, dwflags: u32, pszresult: ::windows::core::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CoInternetParseUrl(pwzurl.into_param().abi(), ::core::mem::transmute(parseaction), ::core::mem::transmute(dwflags), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszresult)), pszresult.len() as _, ::core::mem::transmute(pcchresult), ::core::mem::transmute(dwreserved)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn CoInternetQueryInfo<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pwzurl: Param0, queryoptions: QUERYOPTION, dwqueryflags: u32, pvbuffer: *mut ::core::ffi::c_void, cbbuffer: u32, pcbbuffer: *mut u32, dwreserved: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CoInternetQueryInfo(pwzurl: ::windows::core::PCWSTR, queryoptions: QUERYOPTION, dwqueryflags: u32, pvbuffer: *mut ::core::ffi::c_void, cbbuffer: u32, pcbbuffer: *mut u32, dwreserved: u32) -> ::windows::core::HRESULT;
-        }
-        CoInternetQueryInfo(pwzurl.into_param().abi(), ::core::mem::transmute(queryoptions), ::core::mem::transmute(dwqueryflags), ::core::mem::transmute(pvbuffer), ::core::mem::transmute(cbbuffer), ::core::mem::transmute(pcbbuffer), ::core::mem::transmute(dwreserved)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CoInternetQueryInfo(pwzurl: ::windows::core::PCWSTR, queryoptions: QUERYOPTION, dwqueryflags: u32, pvbuffer: *mut ::core::ffi::c_void, cbbuffer: u32, pcbbuffer: *mut u32, dwreserved: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CoInternetQueryInfo(pwzurl.into_param().abi(), ::core::mem::transmute(queryoptions), ::core::mem::transmute(dwqueryflags), ::core::mem::transmute(pvbuffer), ::core::mem::transmute(cbbuffer), ::core::mem::transmute(pcbbuffer), ::core::mem::transmute(dwreserved)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CoInternetSetFeatureEnabled<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(featureentry: INTERNETFEATURELIST, dwflags: u32, fenable: Param2) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CoInternetSetFeatureEnabled(featureentry: INTERNETFEATURELIST, dwflags: u32, fenable: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
-        }
-        CoInternetSetFeatureEnabled(::core::mem::transmute(featureentry), ::core::mem::transmute(dwflags), fenable.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CoInternetSetFeatureEnabled(featureentry: INTERNETFEATURELIST, dwflags: u32, fenable: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CoInternetSetFeatureEnabled(::core::mem::transmute(featureentry), ::core::mem::transmute(dwflags), fenable.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn CompareSecurityIds(pbsecurityid1: &[u8], pbsecurityid2: &[u8], dwreserved: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CompareSecurityIds(pbsecurityid1: *const u8, dwlen1: u32, pbsecurityid2: *const u8, dwlen2: u32, dwreserved: u32) -> ::windows::core::HRESULT;
-        }
-        CompareSecurityIds(::core::mem::transmute(::windows::core::as_ptr_or_null(pbsecurityid1)), pbsecurityid1.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbsecurityid2)), pbsecurityid2.len() as _, ::core::mem::transmute(dwreserved)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CompareSecurityIds(pbsecurityid1: *const u8, dwlen1: u32, pbsecurityid2: *const u8, dwlen2: u32, dwreserved: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CompareSecurityIds(::core::mem::transmute(::windows::core::as_ptr_or_null(pbsecurityid1)), pbsecurityid1.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbsecurityid2)), pbsecurityid2.len() as _, ::core::mem::transmute(dwreserved)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn CompatFlagsFromClsid(pclsid: *const ::windows::core::GUID, pdwcompatflags: *mut u32, pdwmiscstatusflags: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CompatFlagsFromClsid(pclsid: *const ::windows::core::GUID, pdwcompatflags: *mut u32, pdwmiscstatusflags: *mut u32) -> ::windows::core::HRESULT;
-        }
-        CompatFlagsFromClsid(::core::mem::transmute(pclsid), ::core::mem::transmute(pdwcompatflags), ::core::mem::transmute(pdwmiscstatusflags)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CompatFlagsFromClsid(pclsid: *const ::windows::core::GUID, pdwcompatflags: *mut u32, pdwmiscstatusflags: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CompatFlagsFromClsid(::core::mem::transmute(pclsid), ::core::mem::transmute(pdwcompatflags), ::core::mem::transmute(pdwmiscstatusflags)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn CopyBindInfo(pcbisrc: *const super::BINDINFO) -> ::windows::core::Result<super::BINDINFO> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CopyBindInfo(pcbisrc: *const super::BINDINFO, pbidest: *mut super::BINDINFO) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::BINDINFO>>::zeroed();
-        CopyBindInfo(::core::mem::transmute(pcbisrc), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::BINDINFO>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CopyBindInfo(pcbisrc: *const super::BINDINFO, pbidest: *mut super::BINDINFO) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::BINDINFO>>::zeroed();
+    CopyBindInfo(::core::mem::transmute(pcbisrc), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::BINDINFO>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn CopyStgMedium(pcstgmedsrc: *const super::STGMEDIUM) -> ::windows::core::Result<super::STGMEDIUM> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CopyStgMedium(pcstgmedsrc: *const super::STGMEDIUM, pstgmeddest: *mut super::STGMEDIUM) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::STGMEDIUM>>::zeroed();
-        CopyStgMedium(::core::mem::transmute(pcstgmedsrc), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::STGMEDIUM>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CopyStgMedium(pcstgmedsrc: *const super::STGMEDIUM, pstgmeddest: *mut super::STGMEDIUM) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::STGMEDIUM>>::zeroed();
+    CopyStgMedium(::core::mem::transmute(pcstgmedsrc), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::STGMEDIUM>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn CreateAsyncBindCtx<'a, Param1: ::windows::core::IntoParam<'a, super::IBindStatusCallback>, Param2: ::windows::core::IntoParam<'a, super::IEnumFORMATETC>>(reserved: u32, pbscb: Param1, pefetc: Param2) -> ::windows::core::Result<super::IBindCtx> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateAsyncBindCtx(reserved: u32, pbscb: *mut ::core::ffi::c_void, pefetc: *mut ::core::ffi::c_void, ppbc: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        CreateAsyncBindCtx(::core::mem::transmute(reserved), pbscb.into_param().abi(), pefetc.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::IBindCtx>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateAsyncBindCtx(reserved: u32, pbscb: *mut ::core::ffi::c_void, pefetc: *mut ::core::ffi::c_void, ppbc: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    CreateAsyncBindCtx(::core::mem::transmute(reserved), pbscb.into_param().abi(), pefetc.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::IBindCtx>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn CreateAsyncBindCtxEx<'a, Param0: ::windows::core::IntoParam<'a, super::IBindCtx>, Param2: ::windows::core::IntoParam<'a, super::IBindStatusCallback>, Param3: ::windows::core::IntoParam<'a, super::IEnumFORMATETC>>(pbc: Param0, dwoptions: u32, pbscb: Param2, penum: Param3, ppbc: *mut ::core::option::Option<super::IBindCtx>, reserved: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateAsyncBindCtxEx(pbc: *mut ::core::ffi::c_void, dwoptions: u32, pbscb: *mut ::core::ffi::c_void, penum: *mut ::core::ffi::c_void, ppbc: *mut *mut ::core::ffi::c_void, reserved: u32) -> ::windows::core::HRESULT;
-        }
-        CreateAsyncBindCtxEx(pbc.into_param().abi(), ::core::mem::transmute(dwoptions), pbscb.into_param().abi(), penum.into_param().abi(), ::core::mem::transmute(ppbc), ::core::mem::transmute(reserved)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateAsyncBindCtxEx(pbc: *mut ::core::ffi::c_void, dwoptions: u32, pbscb: *mut ::core::ffi::c_void, penum: *mut ::core::ffi::c_void, ppbc: *mut *mut ::core::ffi::c_void, reserved: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CreateAsyncBindCtxEx(pbc.into_param().abi(), ::core::mem::transmute(dwoptions), pbscb.into_param().abi(), penum.into_param().abi(), ::core::mem::transmute(ppbc), ::core::mem::transmute(reserved)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn CreateFormatEnumerator(rgfmtetc: &[super::FORMATETC]) -> ::windows::core::Result<super::IEnumFORMATETC> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateFormatEnumerator(cfmtetc: u32, rgfmtetc: *const super::FORMATETC, ppenumfmtetc: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        CreateFormatEnumerator(rgfmtetc.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgfmtetc)), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::IEnumFORMATETC>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateFormatEnumerator(cfmtetc: u32, rgfmtetc: *const super::FORMATETC, ppenumfmtetc: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    CreateFormatEnumerator(rgfmtetc.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgfmtetc)), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::IEnumFORMATETC>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn CreateURLMoniker<'a, Param0: ::windows::core::IntoParam<'a, super::IMoniker>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pmkctx: Param0, szurl: Param1) -> ::windows::core::Result<super::IMoniker> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateURLMoniker(pmkctx: *mut ::core::ffi::c_void, szurl: ::windows::core::PCWSTR, ppmk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        CreateURLMoniker(pmkctx.into_param().abi(), szurl.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::IMoniker>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateURLMoniker(pmkctx: *mut ::core::ffi::c_void, szurl: ::windows::core::PCWSTR, ppmk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    CreateURLMoniker(pmkctx.into_param().abi(), szurl.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::IMoniker>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn CreateURLMonikerEx<'a, Param0: ::windows::core::IntoParam<'a, super::IMoniker>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pmkctx: Param0, szurl: Param1, ppmk: *mut ::core::option::Option<super::IMoniker>, dwflags: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateURLMonikerEx(pmkctx: *mut ::core::ffi::c_void, szurl: ::windows::core::PCWSTR, ppmk: *mut *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT;
-        }
-        CreateURLMonikerEx(pmkctx.into_param().abi(), szurl.into_param().abi(), ::core::mem::transmute(ppmk), ::core::mem::transmute(dwflags)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateURLMonikerEx(pmkctx: *mut ::core::ffi::c_void, szurl: ::windows::core::PCWSTR, ppmk: *mut *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CreateURLMonikerEx(pmkctx.into_param().abi(), szurl.into_param().abi(), ::core::mem::transmute(ppmk), ::core::mem::transmute(dwflags)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn CreateURLMonikerEx2<'a, Param0: ::windows::core::IntoParam<'a, super::IMoniker>, Param1: ::windows::core::IntoParam<'a, super::IUri>>(pmkctx: Param0, puri: Param1, ppmk: *mut ::core::option::Option<super::IMoniker>, dwflags: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateURLMonikerEx2(pmkctx: *mut ::core::ffi::c_void, puri: *mut ::core::ffi::c_void, ppmk: *mut *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT;
-        }
-        CreateURLMonikerEx2(pmkctx.into_param().abi(), puri.into_param().abi(), ::core::mem::transmute(ppmk), ::core::mem::transmute(dwflags)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CreateURLMonikerEx2(pmkctx: *mut ::core::ffi::c_void, puri: *mut ::core::ffi::c_void, ppmk: *mut *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    CreateURLMonikerEx2(pmkctx.into_param().abi(), puri.into_param().abi(), ::core::mem::transmute(ppmk), ::core::mem::transmute(dwflags)).ok()
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
@@ -1197,59 +1052,39 @@ pub const FMFD_URLASFILENAME: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FaultInIEFeature<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(hwnd: Param0, pclassspec: *const super::uCLSSPEC, pquery: *mut super::QUERYCONTEXT, dwflags: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn FaultInIEFeature(hwnd: super::super::super::Foundation::HWND, pclassspec: *const super::uCLSSPEC, pquery: *mut super::QUERYCONTEXT, dwflags: u32) -> ::windows::core::HRESULT;
-        }
-        FaultInIEFeature(hwnd.into_param().abi(), ::core::mem::transmute(pclassspec), ::core::mem::transmute(pquery), ::core::mem::transmute(dwflags)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn FaultInIEFeature(hwnd: super::super::super::Foundation::HWND, pclassspec: *const super::uCLSSPEC, pquery: *mut super::QUERYCONTEXT, dwflags: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    FaultInIEFeature(hwnd.into_param().abi(), ::core::mem::transmute(pclassspec), ::core::mem::transmute(pquery), ::core::mem::transmute(dwflags)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn FindMediaType<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(rgsztypes: Param0) -> ::windows::core::Result<u16> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn FindMediaType(rgsztypes: ::windows::core::PCSTR, rgcftypes: *mut u16) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
-        FindMediaType(rgsztypes.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn FindMediaType(rgsztypes: ::windows::core::PCSTR, rgcftypes: *mut u16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
+    FindMediaType(rgsztypes.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn FindMediaTypeClass<'a, Param0: ::windows::core::IntoParam<'a, super::IBindCtx>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(pbc: Param0, sztype: Param1, pclsid: *mut ::windows::core::GUID, reserved: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn FindMediaTypeClass(pbc: *mut ::core::ffi::c_void, sztype: ::windows::core::PCSTR, pclsid: *mut ::windows::core::GUID, reserved: u32) -> ::windows::core::HRESULT;
-        }
-        FindMediaTypeClass(pbc.into_param().abi(), sztype.into_param().abi(), ::core::mem::transmute(pclsid), ::core::mem::transmute(reserved)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn FindMediaTypeClass(pbc: *mut ::core::ffi::c_void, sztype: ::windows::core::PCSTR, pclsid: *mut ::windows::core::GUID, reserved: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    FindMediaTypeClass(pbc.into_param().abi(), sztype.into_param().abi(), ::core::mem::transmute(pclsid), ::core::mem::transmute(reserved)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn FindMimeFromData<'a, Param0: ::windows::core::IntoParam<'a, super::IBindCtx>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pbc: Param0, pwzurl: Param1, pbuffer: *const ::core::ffi::c_void, cbsize: u32, pwzmimeproposed: Param4, dwmimeflags: u32, ppwzmimeout: *mut ::windows::core::PWSTR, dwreserved: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn FindMimeFromData(pbc: *mut ::core::ffi::c_void, pwzurl: ::windows::core::PCWSTR, pbuffer: *const ::core::ffi::c_void, cbsize: u32, pwzmimeproposed: ::windows::core::PCWSTR, dwmimeflags: u32, ppwzmimeout: *mut ::windows::core::PWSTR, dwreserved: u32) -> ::windows::core::HRESULT;
-        }
-        FindMimeFromData(pbc.into_param().abi(), pwzurl.into_param().abi(), ::core::mem::transmute(pbuffer), ::core::mem::transmute(cbsize), pwzmimeproposed.into_param().abi(), ::core::mem::transmute(dwmimeflags), ::core::mem::transmute(ppwzmimeout), ::core::mem::transmute(dwreserved)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn FindMimeFromData(pbc: *mut ::core::ffi::c_void, pwzurl: ::windows::core::PCWSTR, pbuffer: *const ::core::ffi::c_void, cbsize: u32, pwzmimeproposed: ::windows::core::PCWSTR, dwmimeflags: u32, ppwzmimeout: *mut ::windows::core::PWSTR, dwreserved: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    FindMimeFromData(pbc.into_param().abi(), pwzurl.into_param().abi(), ::core::mem::transmute(pbuffer), ::core::mem::transmute(cbsize), pwzmimeproposed.into_param().abi(), ::core::mem::transmute(dwmimeflags), ::core::mem::transmute(ppwzmimeout), ::core::mem::transmute(dwreserved)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 pub const GET_FEATURE_FROM_PROCESS: u32 = 2u32;
@@ -1270,62 +1105,42 @@ pub const GET_FEATURE_FROM_THREAD_TRUSTED: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn GetClassFileOrMime<'a, Param0: ::windows::core::IntoParam<'a, super::IBindCtx>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pbc: Param0, szfilename: Param1, pbuffer: *const ::core::ffi::c_void, cbsize: u32, szmime: Param4, dwreserved: u32) -> ::windows::core::Result<::windows::core::GUID> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetClassFileOrMime(pbc: *mut ::core::ffi::c_void, szfilename: ::windows::core::PCWSTR, pbuffer: *const ::core::ffi::c_void, cbsize: u32, szmime: ::windows::core::PCWSTR, dwreserved: u32, pclsid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
-        GetClassFileOrMime(pbc.into_param().abi(), szfilename.into_param().abi(), ::core::mem::transmute(pbuffer), ::core::mem::transmute(cbsize), szmime.into_param().abi(), ::core::mem::transmute(dwreserved), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetClassFileOrMime(pbc: *mut ::core::ffi::c_void, szfilename: ::windows::core::PCWSTR, pbuffer: *const ::core::ffi::c_void, cbsize: u32, szmime: ::windows::core::PCWSTR, dwreserved: u32, pclsid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+    GetClassFileOrMime(pbc.into_param().abi(), szfilename.into_param().abi(), ::core::mem::transmute(pbuffer), ::core::mem::transmute(cbsize), szmime.into_param().abi(), ::core::mem::transmute(dwreserved), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn GetClassURL<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(szurl: Param0) -> ::windows::core::Result<::windows::core::GUID> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetClassURL(szurl: ::windows::core::PCWSTR, pclsid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
-        GetClassURL(szurl.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetClassURL(szurl: ::windows::core::PCWSTR, pclsid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+    GetClassURL(szurl.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn GetComponentIDFromCLSSPEC(pclassspec: *const super::uCLSSPEC) -> ::windows::core::Result<::windows::core::PSTR> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetComponentIDFromCLSSPEC(pclassspec: *const super::uCLSSPEC, ppszcomponentid: *mut ::windows::core::PSTR) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PSTR>::zeroed();
-        GetComponentIDFromCLSSPEC(::core::mem::transmute(pclassspec), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PSTR>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetComponentIDFromCLSSPEC(pclassspec: *const super::uCLSSPEC, ppszcomponentid: *mut ::windows::core::PSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PSTR>::zeroed();
+    GetComponentIDFromCLSSPEC(::core::mem::transmute(pclassspec), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn GetSoftwareUpdateInfo<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(szdistunit: Param0) -> ::windows::core::Result<SOFTDISTINFO> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetSoftwareUpdateInfo(szdistunit: ::windows::core::PCWSTR, psdi: *mut SOFTDISTINFO) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<SOFTDISTINFO>::zeroed();
-        GetSoftwareUpdateInfo(szdistunit.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<SOFTDISTINFO>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetSoftwareUpdateInfo(szdistunit: ::windows::core::PCWSTR, psdi: *mut SOFTDISTINFO) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<SOFTDISTINFO>::zeroed();
+    GetSoftwareUpdateInfo(szdistunit.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<SOFTDISTINFO>(result__)
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`*"]
@@ -1372,86 +1187,56 @@ impl ::core::default::Default for HIT_LOGGING_INFO {
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn HlinkGoBack<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(punk: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn HlinkGoBack(punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        HlinkGoBack(punk.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn HlinkGoBack(punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    HlinkGoBack(punk.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn HlinkGoForward<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(punk: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn HlinkGoForward(punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        HlinkGoForward(punk.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn HlinkGoForward(punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    HlinkGoForward(punk.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn HlinkNavigateMoniker<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::IMoniker>>(punk: Param0, pmktarget: Param1) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn HlinkNavigateMoniker(punk: *mut ::core::ffi::c_void, pmktarget: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        HlinkNavigateMoniker(punk.into_param().abi(), pmktarget.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn HlinkNavigateMoniker(punk: *mut ::core::ffi::c_void, pmktarget: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    HlinkNavigateMoniker(punk.into_param().abi(), pmktarget.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn HlinkNavigateString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(punk: Param0, sztarget: Param1) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn HlinkNavigateString(punk: *mut ::core::ffi::c_void, sztarget: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
-        }
-        HlinkNavigateString(punk.into_param().abi(), sztarget.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn HlinkNavigateString(punk: *mut ::core::ffi::c_void, sztarget: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    HlinkNavigateString(punk.into_param().abi(), sztarget.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn HlinkSimpleNavigateToMoniker<'a, Param0: ::windows::core::IntoParam<'a, super::IMoniker>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param4: ::windows::core::IntoParam<'a, super::IBindCtx>, Param5: ::windows::core::IntoParam<'a, super::IBindStatusCallback>>(pmktarget: Param0, szlocation: Param1, sztargetframename: Param2, punk: Param3, pbc: Param4, param5: Param5, grfhlnf: u32, dwreserved: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn HlinkSimpleNavigateToMoniker(pmktarget: *mut ::core::ffi::c_void, szlocation: ::windows::core::PCWSTR, sztargetframename: ::windows::core::PCWSTR, punk: *mut ::core::ffi::c_void, pbc: *mut ::core::ffi::c_void, param5: *mut ::core::ffi::c_void, grfhlnf: u32, dwreserved: u32) -> ::windows::core::HRESULT;
-        }
-        HlinkSimpleNavigateToMoniker(pmktarget.into_param().abi(), szlocation.into_param().abi(), sztargetframename.into_param().abi(), punk.into_param().abi(), pbc.into_param().abi(), param5.into_param().abi(), ::core::mem::transmute(grfhlnf), ::core::mem::transmute(dwreserved)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn HlinkSimpleNavigateToMoniker(pmktarget: *mut ::core::ffi::c_void, szlocation: ::windows::core::PCWSTR, sztargetframename: ::windows::core::PCWSTR, punk: *mut ::core::ffi::c_void, pbc: *mut ::core::ffi::c_void, param5: *mut ::core::ffi::c_void, grfhlnf: u32, dwreserved: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    HlinkSimpleNavigateToMoniker(pmktarget.into_param().abi(), szlocation.into_param().abi(), sztargetframename.into_param().abi(), punk.into_param().abi(), pbc.into_param().abi(), param5.into_param().abi(), ::core::mem::transmute(grfhlnf), ::core::mem::transmute(dwreserved)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn HlinkSimpleNavigateToString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param4: ::windows::core::IntoParam<'a, super::IBindCtx>, Param5: ::windows::core::IntoParam<'a, super::IBindStatusCallback>>(sztarget: Param0, szlocation: Param1, sztargetframename: Param2, punk: Param3, pbc: Param4, param5: Param5, grfhlnf: u32, dwreserved: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn HlinkSimpleNavigateToString(sztarget: ::windows::core::PCWSTR, szlocation: ::windows::core::PCWSTR, sztargetframename: ::windows::core::PCWSTR, punk: *mut ::core::ffi::c_void, pbc: *mut ::core::ffi::c_void, param5: *mut ::core::ffi::c_void, grfhlnf: u32, dwreserved: u32) -> ::windows::core::HRESULT;
-        }
-        HlinkSimpleNavigateToString(sztarget.into_param().abi(), szlocation.into_param().abi(), sztargetframename.into_param().abi(), punk.into_param().abi(), pbc.into_param().abi(), param5.into_param().abi(), ::core::mem::transmute(grfhlnf), ::core::mem::transmute(dwreserved)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn HlinkSimpleNavigateToString(sztarget: ::windows::core::PCWSTR, szlocation: ::windows::core::PCWSTR, sztargetframename: ::windows::core::PCWSTR, punk: *mut ::core::ffi::c_void, pbc: *mut ::core::ffi::c_void, param5: *mut ::core::ffi::c_void, grfhlnf: u32, dwreserved: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    HlinkSimpleNavigateToString(sztarget.into_param().abi(), szlocation.into_param().abi(), sztargetframename.into_param().abi(), punk.into_param().abi(), pbc.into_param().abi(), param5.into_param().abi(), ::core::mem::transmute(grfhlnf), ::core::mem::transmute(dwreserved)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
@@ -1831,31 +1616,21 @@ pub struct IDataFilter_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn IEGetUserPrivateNamespaceName() -> ::windows::core::PWSTR {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn IEGetUserPrivateNamespaceName() -> ::windows::core::PWSTR;
-        }
-        ::core::mem::transmute(IEGetUserPrivateNamespaceName())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn IEGetUserPrivateNamespaceName() -> ::windows::core::PWSTR;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(IEGetUserPrivateNamespaceName())
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn IEInstallScope() -> ::windows::core::Result<u32> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn IEInstallScope(pdwscope: *mut u32) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        IEInstallScope(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn IEInstallScope(pdwscope: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+    IEInstallScope(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
@@ -5436,60 +5211,40 @@ pub struct IZoneIdentifier2_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn IsAsyncMoniker<'a, Param0: ::windows::core::IntoParam<'a, super::IMoniker>>(pmk: Param0) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn IsAsyncMoniker(pmk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        IsAsyncMoniker(pmk.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn IsAsyncMoniker(pmk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    IsAsyncMoniker(pmk.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsLoggingEnabledA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(pszurl: Param0) -> super::super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn IsLoggingEnabledA(pszurl: ::windows::core::PCSTR) -> super::super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(IsLoggingEnabledA(pszurl.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn IsLoggingEnabledA(pszurl: ::windows::core::PCSTR) -> super::super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(IsLoggingEnabledA(pszurl.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsLoggingEnabledW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pwszurl: Param0) -> super::super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn IsLoggingEnabledW(pwszurl: ::windows::core::PCWSTR) -> super::super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(IsLoggingEnabledW(pwszurl.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn IsLoggingEnabledW(pwszurl: ::windows::core::PCWSTR) -> super::super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(IsLoggingEnabledW(pwszurl.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn IsValidURL<'a, Param0: ::windows::core::IntoParam<'a, super::IBindCtx>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pbc: Param0, szurl: Param1, dwreserved: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn IsValidURL(pbc: *mut ::core::ffi::c_void, szurl: ::windows::core::PCWSTR, dwreserved: u32) -> ::windows::core::HRESULT;
-        }
-        IsValidURL(pbc.into_param().abi(), szurl.into_param().abi(), ::core::mem::transmute(dwreserved)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn IsValidURL(pbc: *mut ::core::ffi::c_void, szurl: ::windows::core::PCWSTR, dwreserved: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    IsValidURL(pbc.into_param().abi(), szurl.into_param().abi(), ::core::mem::transmute(dwreserved)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 pub const MAX_SIZE_SECURITY_ID: u32 = 512u32;
@@ -5553,16 +5308,11 @@ pub const MUTZ_RESERVED: u32 = 512u32;
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn MkParseDisplayNameEx<'a, Param0: ::windows::core::IntoParam<'a, super::IBindCtx>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pbc: Param0, szdisplayname: Param1, pcheaten: *mut u32, ppmk: *mut ::core::option::Option<super::IMoniker>) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MkParseDisplayNameEx(pbc: *mut ::core::ffi::c_void, szdisplayname: ::windows::core::PCWSTR, pcheaten: *mut u32, ppmk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        MkParseDisplayNameEx(pbc.into_param().abi(), szdisplayname.into_param().abi(), ::core::mem::transmute(pcheaten), ::core::mem::transmute(ppmk)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MkParseDisplayNameEx(pbc: *mut ::core::ffi::c_void, szdisplayname: ::windows::core::PCWSTR, pcheaten: *mut u32, ppmk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MkParseDisplayNameEx(pbc.into_param().abi(), szdisplayname.into_param().abi(), ::core::mem::transmute(pcheaten), ::core::mem::transmute(ppmk)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
@@ -5594,16 +5344,11 @@ impl ::core::fmt::Debug for OIBDG_FLAGS {
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn ObtainUserAgentString(dwoption: u32, pszuaout: ::windows::core::PSTR, cbsize: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ObtainUserAgentString(dwoption: u32, pszuaout: ::windows::core::PSTR, cbsize: *mut u32) -> ::windows::core::HRESULT;
-        }
-        ObtainUserAgentString(::core::mem::transmute(dwoption), ::core::mem::transmute(pszuaout), ::core::mem::transmute(cbsize)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ObtainUserAgentString(dwoption: u32, pszuaout: ::windows::core::PSTR, cbsize: *mut u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ObtainUserAgentString(::core::mem::transmute(dwoption), ::core::mem::transmute(pszuaout), ::core::mem::transmute(cbsize)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
@@ -6041,73 +5786,48 @@ impl ::core::default::Default for REMSECURITY_ATTRIBUTES {
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn RegisterBindStatusCallback<'a, Param0: ::windows::core::IntoParam<'a, super::IBindCtx>, Param1: ::windows::core::IntoParam<'a, super::IBindStatusCallback>>(pbc: Param0, pbscb: Param1, ppbscbprev: *mut ::core::option::Option<super::IBindStatusCallback>, dwreserved: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RegisterBindStatusCallback(pbc: *mut ::core::ffi::c_void, pbscb: *mut ::core::ffi::c_void, ppbscbprev: *mut *mut ::core::ffi::c_void, dwreserved: u32) -> ::windows::core::HRESULT;
-        }
-        RegisterBindStatusCallback(pbc.into_param().abi(), pbscb.into_param().abi(), ::core::mem::transmute(ppbscbprev), ::core::mem::transmute(dwreserved)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RegisterBindStatusCallback(pbc: *mut ::core::ffi::c_void, pbscb: *mut ::core::ffi::c_void, ppbscbprev: *mut *mut ::core::ffi::c_void, dwreserved: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    RegisterBindStatusCallback(pbc.into_param().abi(), pbscb.into_param().abi(), ::core::mem::transmute(ppbscbprev), ::core::mem::transmute(dwreserved)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn RegisterFormatEnumerator<'a, Param0: ::windows::core::IntoParam<'a, super::IBindCtx>, Param1: ::windows::core::IntoParam<'a, super::IEnumFORMATETC>>(pbc: Param0, pefetc: Param1, reserved: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RegisterFormatEnumerator(pbc: *mut ::core::ffi::c_void, pefetc: *mut ::core::ffi::c_void, reserved: u32) -> ::windows::core::HRESULT;
-        }
-        RegisterFormatEnumerator(pbc.into_param().abi(), pefetc.into_param().abi(), ::core::mem::transmute(reserved)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RegisterFormatEnumerator(pbc: *mut ::core::ffi::c_void, pefetc: *mut ::core::ffi::c_void, reserved: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    RegisterFormatEnumerator(pbc.into_param().abi(), pefetc.into_param().abi(), ::core::mem::transmute(reserved)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn RegisterMediaTypeClass<'a, Param0: ::windows::core::IntoParam<'a, super::IBindCtx>>(pbc: Param0, ctypes: u32, rgsztypes: *const ::windows::core::PSTR, rgclsid: *const ::windows::core::GUID, reserved: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RegisterMediaTypeClass(pbc: *mut ::core::ffi::c_void, ctypes: u32, rgsztypes: *const ::windows::core::PSTR, rgclsid: *const ::windows::core::GUID, reserved: u32) -> ::windows::core::HRESULT;
-        }
-        RegisterMediaTypeClass(pbc.into_param().abi(), ::core::mem::transmute(ctypes), ::core::mem::transmute(rgsztypes), ::core::mem::transmute(rgclsid), ::core::mem::transmute(reserved)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RegisterMediaTypeClass(pbc: *mut ::core::ffi::c_void, ctypes: u32, rgsztypes: *const ::windows::core::PSTR, rgclsid: *const ::windows::core::GUID, reserved: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    RegisterMediaTypeClass(pbc.into_param().abi(), ::core::mem::transmute(ctypes), ::core::mem::transmute(rgsztypes), ::core::mem::transmute(rgclsid), ::core::mem::transmute(reserved)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn RegisterMediaTypes(ctypes: u32, rgsztypes: *const ::windows::core::PSTR, rgcftypes: *mut u16) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RegisterMediaTypes(ctypes: u32, rgsztypes: *const ::windows::core::PSTR, rgcftypes: *mut u16) -> ::windows::core::HRESULT;
-        }
-        RegisterMediaTypes(::core::mem::transmute(ctypes), ::core::mem::transmute(rgsztypes), ::core::mem::transmute(rgcftypes)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RegisterMediaTypes(ctypes: u32, rgsztypes: *const ::windows::core::PSTR, rgcftypes: *mut u16) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    RegisterMediaTypes(::core::mem::transmute(ctypes), ::core::mem::transmute(rgsztypes), ::core::mem::transmute(rgcftypes)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn ReleaseBindInfo(pbindinfo: *mut super::BINDINFO) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn ReleaseBindInfo(pbindinfo: *mut super::BINDINFO);
-        }
-        ReleaseBindInfo(::core::mem::transmute(pbindinfo))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ReleaseBindInfo(pbindinfo: *mut super::BINDINFO);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ReleaseBindInfo(::core::mem::transmute(pbindinfo))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`*"]
@@ -6222,30 +5942,20 @@ impl ::core::default::Default for RemFORMATETC {
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn RevokeBindStatusCallback<'a, Param0: ::windows::core::IntoParam<'a, super::IBindCtx>, Param1: ::windows::core::IntoParam<'a, super::IBindStatusCallback>>(pbc: Param0, pbscb: Param1) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RevokeBindStatusCallback(pbc: *mut ::core::ffi::c_void, pbscb: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        RevokeBindStatusCallback(pbc.into_param().abi(), pbscb.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RevokeBindStatusCallback(pbc: *mut ::core::ffi::c_void, pbscb: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    RevokeBindStatusCallback(pbc.into_param().abi(), pbscb.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn RevokeFormatEnumerator<'a, Param0: ::windows::core::IntoParam<'a, super::IBindCtx>, Param1: ::windows::core::IntoParam<'a, super::IEnumFORMATETC>>(pbc: Param0, pefetc: Param1) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RevokeFormatEnumerator(pbc: *mut ::core::ffi::c_void, pefetc: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        RevokeFormatEnumerator(pbc.into_param().abi(), pefetc.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RevokeFormatEnumerator(pbc: *mut ::core::ffi::c_void, pefetc: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    RevokeFormatEnumerator(pbc.into_param().abi(), pefetc.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 pub const SECURITY_IE_STATE_GREEN: u32 = 0u32;
@@ -6372,30 +6082,20 @@ pub const S_ASYNCHRONOUS: i32 = 262632i32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetAccessForIEAppContainer<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hobject: Param0, ieobjecttype: IEObjectType, dwaccessmask: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetAccessForIEAppContainer(hobject: super::super::super::Foundation::HANDLE, ieobjecttype: IEObjectType, dwaccessmask: u32) -> ::windows::core::HRESULT;
-        }
-        SetAccessForIEAppContainer(hobject.into_param().abi(), ::core::mem::transmute(ieobjecttype), ::core::mem::transmute(dwaccessmask)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetAccessForIEAppContainer(hobject: super::super::super::Foundation::HANDLE, ieobjecttype: IEObjectType, dwaccessmask: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SetAccessForIEAppContainer(hobject.into_param().abi(), ::core::mem::transmute(ieobjecttype), ::core::mem::transmute(dwaccessmask)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn SetSoftwareUpdateAdvertisementState<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(szdistunit: Param0, dwadstate: u32, dwadvertisedversionms: u32, dwadvertisedversionls: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn SetSoftwareUpdateAdvertisementState(szdistunit: ::windows::core::PCWSTR, dwadstate: u32, dwadvertisedversionms: u32, dwadvertisedversionls: u32) -> ::windows::core::HRESULT;
-        }
-        SetSoftwareUpdateAdvertisementState(szdistunit.into_param().abi(), ::core::mem::transmute(dwadstate), ::core::mem::transmute(dwadvertisedversionms), ::core::mem::transmute(dwadvertisedversionls)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetSoftwareUpdateAdvertisementState(szdistunit: ::windows::core::PCWSTR, dwadstate: u32, dwadvertisedversionms: u32, dwadvertisedversionls: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    SetSoftwareUpdateAdvertisementState(szdistunit.into_param().abi(), ::core::mem::transmute(dwadstate), ::core::mem::transmute(dwadvertisedversionms), ::core::mem::transmute(dwadvertisedversionls)).ok()
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
@@ -6717,58 +6417,38 @@ pub const URLACTION_XPS_DOCUMENTS: u32 = 9217u32;
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn URLDownloadToCacheFileA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param5: ::windows::core::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: &mut [u8], param4: u32, param5: Param5) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn URLDownloadToCacheFileA(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCSTR, param2: ::windows::core::PSTR, cchfilename: u32, param4: u32, param5: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        URLDownloadToCacheFileA(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(param2)), param2.len() as _, ::core::mem::transmute(param4), param5.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn URLDownloadToCacheFileA(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCSTR, param2: ::windows::core::PSTR, cchfilename: u32, param4: u32, param5: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    URLDownloadToCacheFileA(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(param2)), param2.len() as _, ::core::mem::transmute(param4), param5.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn URLDownloadToCacheFileW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param5: ::windows::core::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: &mut [u16], param4: u32, param5: Param5) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn URLDownloadToCacheFileW(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCWSTR, param2: ::windows::core::PWSTR, cchfilename: u32, param4: u32, param5: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        URLDownloadToCacheFileW(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(param2)), param2.len() as _, ::core::mem::transmute(param4), param5.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn URLDownloadToCacheFileW(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCWSTR, param2: ::windows::core::PWSTR, cchfilename: u32, param4: u32, param5: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    URLDownloadToCacheFileW(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(param2)), param2.len() as _, ::core::mem::transmute(param4), param5.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn URLDownloadToFileA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param4: ::windows::core::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: Param2, param3: u32, param4: Param4) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn URLDownloadToFileA(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCSTR, param2: ::windows::core::PCSTR, param3: u32, param4: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        URLDownloadToFileA(param0.into_param().abi(), param1.into_param().abi(), param2.into_param().abi(), ::core::mem::transmute(param3), param4.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn URLDownloadToFileA(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCSTR, param2: ::windows::core::PCSTR, param3: u32, param4: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    URLDownloadToFileA(param0.into_param().abi(), param1.into_param().abi(), param2.into_param().abi(), ::core::mem::transmute(param3), param4.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn URLDownloadToFileW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: Param2, param3: u32, param4: Param4) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn URLDownloadToFileW(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCWSTR, param2: ::windows::core::PCWSTR, param3: u32, param4: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        URLDownloadToFileW(param0.into_param().abi(), param1.into_param().abi(), param2.into_param().abi(), ::core::mem::transmute(param3), param4.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn URLDownloadToFileW(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCWSTR, param2: ::windows::core::PCWSTR, param3: u32, param4: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    URLDownloadToFileW(param0.into_param().abi(), param1.into_param().abi(), param2.into_param().abi(), ::core::mem::transmute(param3), param4.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 pub const URLMON_OPTION_URL_ENCODING: u32 = 268435460u32;
@@ -6789,86 +6469,56 @@ pub const URLOSTRM_USECACHEDCOPY_ONLY: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn URLOpenBlockingStreamA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param4: ::windows::core::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: *mut ::core::option::Option<super::IStream>, param3: u32, param4: Param4) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn URLOpenBlockingStreamA(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCSTR, param2: *mut *mut ::core::ffi::c_void, param3: u32, param4: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        URLOpenBlockingStreamA(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2), ::core::mem::transmute(param3), param4.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn URLOpenBlockingStreamA(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCSTR, param2: *mut *mut ::core::ffi::c_void, param3: u32, param4: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    URLOpenBlockingStreamA(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2), ::core::mem::transmute(param3), param4.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn URLOpenBlockingStreamW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: *mut ::core::option::Option<super::IStream>, param3: u32, param4: Param4) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn URLOpenBlockingStreamW(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCWSTR, param2: *mut *mut ::core::ffi::c_void, param3: u32, param4: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        URLOpenBlockingStreamW(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2), ::core::mem::transmute(param3), param4.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn URLOpenBlockingStreamW(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCWSTR, param2: *mut *mut ::core::ffi::c_void, param3: u32, param4: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    URLOpenBlockingStreamW(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2), ::core::mem::transmute(param3), param4.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn URLOpenPullStreamA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: u32, param3: Param3) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn URLOpenPullStreamA(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCSTR, param2: u32, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        URLOpenPullStreamA(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2), param3.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn URLOpenPullStreamA(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCSTR, param2: u32, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    URLOpenPullStreamA(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2), param3.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn URLOpenPullStreamW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: u32, param3: Param3) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn URLOpenPullStreamW(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCWSTR, param2: u32, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        URLOpenPullStreamW(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2), param3.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn URLOpenPullStreamW(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCWSTR, param2: u32, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    URLOpenPullStreamW(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2), param3.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn URLOpenStreamA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: u32, param3: Param3) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn URLOpenStreamA(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCSTR, param2: u32, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        URLOpenStreamA(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2), param3.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn URLOpenStreamA(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCSTR, param2: u32, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    URLOpenStreamA(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2), param3.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn URLOpenStreamW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: u32, param3: Param3) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn URLOpenStreamW(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCWSTR, param2: u32, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        URLOpenStreamW(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2), param3.into_param().abi()).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn URLOpenStreamW(param0: *mut ::core::ffi::c_void, param1: ::windows::core::PCWSTR, param2: u32, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    URLOpenStreamW(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2), param3.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 pub const URLPOLICY_ACTIVEX_CHECK_LIST: u32 = 65536u32;
@@ -7130,30 +6780,20 @@ pub const Uri_PUNYCODE_IDN_HOST: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn UrlMkGetSessionOption(dwoption: u32, pbuffer: *mut ::core::ffi::c_void, dwbufferlength: u32, pdwbufferlengthout: *mut u32, dwreserved: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UrlMkGetSessionOption(dwoption: u32, pbuffer: *mut ::core::ffi::c_void, dwbufferlength: u32, pdwbufferlengthout: *mut u32, dwreserved: u32) -> ::windows::core::HRESULT;
-        }
-        UrlMkGetSessionOption(::core::mem::transmute(dwoption), ::core::mem::transmute(pbuffer), ::core::mem::transmute(dwbufferlength), ::core::mem::transmute(pdwbufferlengthout), ::core::mem::transmute(dwreserved)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UrlMkGetSessionOption(dwoption: u32, pbuffer: *mut ::core::ffi::c_void, dwbufferlength: u32, pdwbufferlengthout: *mut u32, dwreserved: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    UrlMkGetSessionOption(::core::mem::transmute(dwoption), ::core::mem::transmute(pbuffer), ::core::mem::transmute(dwbufferlength), ::core::mem::transmute(pdwbufferlengthout), ::core::mem::transmute(dwreserved)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
 pub unsafe fn UrlMkSetSessionOption(dwoption: u32, pbuffer: *const ::core::ffi::c_void, dwbufferlength: u32, dwreserved: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn UrlMkSetSessionOption(dwoption: u32, pbuffer: *const ::core::ffi::c_void, dwbufferlength: u32, dwreserved: u32) -> ::windows::core::HRESULT;
-        }
-        UrlMkSetSessionOption(::core::mem::transmute(dwoption), ::core::mem::transmute(pbuffer), ::core::mem::transmute(dwbufferlength), ::core::mem::transmute(dwreserved)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UrlMkSetSessionOption(dwoption: u32, pbuffer: *const ::core::ffi::c_void, dwbufferlength: u32, dwreserved: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    UrlMkSetSessionOption(::core::mem::transmute(dwoption), ::core::mem::transmute(pbuffer), ::core::mem::transmute(dwbufferlength), ::core::mem::transmute(dwreserved)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 pub const WININETINFO_OPTION_LOCK_HANDLE: u32 = 65534u32;
@@ -7161,16 +6801,11 @@ pub const WININETINFO_OPTION_LOCK_HANDLE: u32 = 65534u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WriteHitLogging(lplogginginfo: *const HIT_LOGGING_INFO) -> super::super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn WriteHitLogging(lplogginginfo: *const HIT_LOGGING_INFO) -> super::super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(WriteHitLogging(::core::mem::transmute(lplogginginfo)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WriteHitLogging(lplogginginfo: *const HIT_LOGGING_INFO) -> super::super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(WriteHitLogging(::core::mem::transmute(lplogginginfo)))
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]

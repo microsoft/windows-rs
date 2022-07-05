@@ -1,6 +1,6 @@
 #[cfg(feature = "Win32_Security_Authentication_Identity_Provider")]
 pub mod Provider;
-#[link(name = "windows")]
+#[cfg_attr(windows, link(name = "windows"))]
 extern "system" {
     #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
     #[cfg(feature = "Win32_Security_Credentials")]

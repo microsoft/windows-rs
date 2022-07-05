@@ -558,16 +558,11 @@ pub const NRC_TOOMANY: u32 = 34u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Netbios(pncb: *mut NCB) -> u8 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn Netbios(pncb: *mut NCB) -> u8;
-        }
-        ::core::mem::transmute(Netbios(::core::mem::transmute(pncb)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn Netbios(pncb: *mut NCB) -> u8;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(Netbios(::core::mem::transmute(pncb)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetBios\"`*"]
 pub const REGISTERED: u32 = 4u32;

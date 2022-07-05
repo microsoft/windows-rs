@@ -11,73 +11,48 @@ pub const DMOCATEGORY_VIDEO_ENCODER: ::windows::core::GUID = ::windows::core::GU
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 #[inline]
 pub unsafe fn DMOEnum(guidcategory: *const ::windows::core::GUID, dwflags: u32, cintypes: u32, pintypes: *const DMO_PARTIAL_MEDIATYPE, couttypes: u32, pouttypes: *const DMO_PARTIAL_MEDIATYPE) -> ::windows::core::Result<IEnumDMO> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DMOEnum(guidcategory: *const ::windows::core::GUID, dwflags: u32, cintypes: u32, pintypes: *const DMO_PARTIAL_MEDIATYPE, couttypes: u32, pouttypes: *const DMO_PARTIAL_MEDIATYPE, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        DMOEnum(::core::mem::transmute(guidcategory), ::core::mem::transmute(dwflags), ::core::mem::transmute(cintypes), ::core::mem::transmute(pintypes), ::core::mem::transmute(couttypes), ::core::mem::transmute(pouttypes), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumDMO>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DMOEnum(guidcategory: *const ::windows::core::GUID, dwflags: u32, cintypes: u32, pintypes: *const DMO_PARTIAL_MEDIATYPE, couttypes: u32, pouttypes: *const DMO_PARTIAL_MEDIATYPE, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    DMOEnum(::core::mem::transmute(guidcategory), ::core::mem::transmute(dwflags), ::core::mem::transmute(cintypes), ::core::mem::transmute(pintypes), ::core::mem::transmute(couttypes), ::core::mem::transmute(pouttypes), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumDMO>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 #[inline]
 pub unsafe fn DMOGetName(clsiddmo: *const ::windows::core::GUID, szname: &mut [u16; 80]) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DMOGetName(clsiddmo: *const ::windows::core::GUID, szname: ::windows::core::PWSTR) -> ::windows::core::HRESULT;
-        }
-        DMOGetName(::core::mem::transmute(clsiddmo), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szname))).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DMOGetName(clsiddmo: *const ::windows::core::GUID, szname: ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DMOGetName(::core::mem::transmute(clsiddmo), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(szname))).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 #[inline]
 pub unsafe fn DMOGetTypes(clsiddmo: *const ::windows::core::GUID, ulinputtypesrequested: u32, pulinputtypessupplied: *mut u32, pinputtypes: *mut DMO_PARTIAL_MEDIATYPE, uloutputtypesrequested: u32, puloutputtypessupplied: *mut u32, poutputtypes: *mut DMO_PARTIAL_MEDIATYPE) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DMOGetTypes(clsiddmo: *const ::windows::core::GUID, ulinputtypesrequested: u32, pulinputtypessupplied: *mut u32, pinputtypes: *mut DMO_PARTIAL_MEDIATYPE, uloutputtypesrequested: u32, puloutputtypessupplied: *mut u32, poutputtypes: *mut DMO_PARTIAL_MEDIATYPE) -> ::windows::core::HRESULT;
-        }
-        DMOGetTypes(::core::mem::transmute(clsiddmo), ::core::mem::transmute(ulinputtypesrequested), ::core::mem::transmute(pulinputtypessupplied), ::core::mem::transmute(pinputtypes), ::core::mem::transmute(uloutputtypesrequested), ::core::mem::transmute(puloutputtypessupplied), ::core::mem::transmute(poutputtypes)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DMOGetTypes(clsiddmo: *const ::windows::core::GUID, ulinputtypesrequested: u32, pulinputtypessupplied: *mut u32, pinputtypes: *mut DMO_PARTIAL_MEDIATYPE, uloutputtypesrequested: u32, puloutputtypessupplied: *mut u32, poutputtypes: *mut DMO_PARTIAL_MEDIATYPE) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DMOGetTypes(::core::mem::transmute(clsiddmo), ::core::mem::transmute(ulinputtypesrequested), ::core::mem::transmute(pulinputtypessupplied), ::core::mem::transmute(pinputtypes), ::core::mem::transmute(uloutputtypesrequested), ::core::mem::transmute(puloutputtypessupplied), ::core::mem::transmute(poutputtypes)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 #[inline]
 pub unsafe fn DMORegister<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(szname: Param0, clsiddmo: *const ::windows::core::GUID, guidcategory: *const ::windows::core::GUID, dwflags: u32, cintypes: u32, pintypes: *const DMO_PARTIAL_MEDIATYPE, couttypes: u32, pouttypes: *const DMO_PARTIAL_MEDIATYPE) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DMORegister(szname: ::windows::core::PCWSTR, clsiddmo: *const ::windows::core::GUID, guidcategory: *const ::windows::core::GUID, dwflags: u32, cintypes: u32, pintypes: *const DMO_PARTIAL_MEDIATYPE, couttypes: u32, pouttypes: *const DMO_PARTIAL_MEDIATYPE) -> ::windows::core::HRESULT;
-        }
-        DMORegister(szname.into_param().abi(), ::core::mem::transmute(clsiddmo), ::core::mem::transmute(guidcategory), ::core::mem::transmute(dwflags), ::core::mem::transmute(cintypes), ::core::mem::transmute(pintypes), ::core::mem::transmute(couttypes), ::core::mem::transmute(pouttypes)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DMORegister(szname: ::windows::core::PCWSTR, clsiddmo: *const ::windows::core::GUID, guidcategory: *const ::windows::core::GUID, dwflags: u32, cintypes: u32, pintypes: *const DMO_PARTIAL_MEDIATYPE, couttypes: u32, pouttypes: *const DMO_PARTIAL_MEDIATYPE) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DMORegister(szname.into_param().abi(), ::core::mem::transmute(clsiddmo), ::core::mem::transmute(guidcategory), ::core::mem::transmute(dwflags), ::core::mem::transmute(cintypes), ::core::mem::transmute(pintypes), ::core::mem::transmute(couttypes), ::core::mem::transmute(pouttypes)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 #[inline]
 pub unsafe fn DMOUnregister(clsiddmo: *const ::windows::core::GUID, guidcategory: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn DMOUnregister(clsiddmo: *const ::windows::core::GUID, guidcategory: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
-        }
-        DMOUnregister(::core::mem::transmute(clsiddmo), ::core::mem::transmute(guidcategory)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DMOUnregister(clsiddmo: *const ::windows::core::GUID, guidcategory: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    DMOUnregister(::core::mem::transmute(clsiddmo), ::core::mem::transmute(guidcategory)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 #[repr(transparent)]
@@ -792,91 +767,61 @@ pub struct IMediaObjectInPlace_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MoCopyMediaType(pmtdest: *mut DMO_MEDIA_TYPE, pmtsrc: *const DMO_MEDIA_TYPE) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MoCopyMediaType(pmtdest: *mut DMO_MEDIA_TYPE, pmtsrc: *const DMO_MEDIA_TYPE) -> ::windows::core::HRESULT;
-        }
-        MoCopyMediaType(::core::mem::transmute(pmtdest), ::core::mem::transmute(pmtsrc)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MoCopyMediaType(pmtdest: *mut DMO_MEDIA_TYPE, pmtsrc: *const DMO_MEDIA_TYPE) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MoCopyMediaType(::core::mem::transmute(pmtdest), ::core::mem::transmute(pmtsrc)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MoCreateMediaType(ppmt: *mut *mut DMO_MEDIA_TYPE, cbformat: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MoCreateMediaType(ppmt: *mut *mut DMO_MEDIA_TYPE, cbformat: u32) -> ::windows::core::HRESULT;
-        }
-        MoCreateMediaType(::core::mem::transmute(ppmt), ::core::mem::transmute(cbformat)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MoCreateMediaType(ppmt: *mut *mut DMO_MEDIA_TYPE, cbformat: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MoCreateMediaType(::core::mem::transmute(ppmt), ::core::mem::transmute(cbformat)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MoDeleteMediaType(pmt: *mut DMO_MEDIA_TYPE) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MoDeleteMediaType(pmt: *mut DMO_MEDIA_TYPE) -> ::windows::core::HRESULT;
-        }
-        MoDeleteMediaType(::core::mem::transmute(pmt)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MoDeleteMediaType(pmt: *mut DMO_MEDIA_TYPE) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MoDeleteMediaType(::core::mem::transmute(pmt)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MoDuplicateMediaType(ppmtdest: *mut *mut DMO_MEDIA_TYPE, pmtsrc: *const DMO_MEDIA_TYPE) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MoDuplicateMediaType(ppmtdest: *mut *mut DMO_MEDIA_TYPE, pmtsrc: *const DMO_MEDIA_TYPE) -> ::windows::core::HRESULT;
-        }
-        MoDuplicateMediaType(::core::mem::transmute(ppmtdest), ::core::mem::transmute(pmtsrc)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MoDuplicateMediaType(ppmtdest: *mut *mut DMO_MEDIA_TYPE, pmtsrc: *const DMO_MEDIA_TYPE) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MoDuplicateMediaType(::core::mem::transmute(ppmtdest), ::core::mem::transmute(pmtsrc)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MoFreeMediaType(pmt: *mut DMO_MEDIA_TYPE) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MoFreeMediaType(pmt: *mut DMO_MEDIA_TYPE) -> ::windows::core::HRESULT;
-        }
-        MoFreeMediaType(::core::mem::transmute(pmt)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MoFreeMediaType(pmt: *mut DMO_MEDIA_TYPE) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MoFreeMediaType(::core::mem::transmute(pmt)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MoInitMediaType(pmt: *mut DMO_MEDIA_TYPE, cbformat: u32) -> ::windows::core::Result<()> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MoInitMediaType(pmt: *mut DMO_MEDIA_TYPE, cbformat: u32) -> ::windows::core::HRESULT;
-        }
-        MoInitMediaType(::core::mem::transmute(pmt), ::core::mem::transmute(cbformat)).ok()
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MoInitMediaType(pmt: *mut DMO_MEDIA_TYPE, cbformat: u32) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    MoInitMediaType(::core::mem::transmute(pmt), ::core::mem::transmute(cbformat)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 #[repr(transparent)]

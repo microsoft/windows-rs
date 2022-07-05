@@ -3731,101 +3731,66 @@ pub const D3DPBLENDCAPS_SRCCOLOR2: i32 = 16384i32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[inline]
 pub unsafe fn D3DPERF_BeginEvent<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(col: u32, wszname: Param1) -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn D3DPERF_BeginEvent(col: u32, wszname: ::windows::core::PCWSTR) -> i32;
-        }
-        ::core::mem::transmute(D3DPERF_BeginEvent(::core::mem::transmute(col), wszname.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn D3DPERF_BeginEvent(col: u32, wszname: ::windows::core::PCWSTR) -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(D3DPERF_BeginEvent(::core::mem::transmute(col), wszname.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[inline]
 pub unsafe fn D3DPERF_EndEvent() -> i32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn D3DPERF_EndEvent() -> i32;
-        }
-        ::core::mem::transmute(D3DPERF_EndEvent())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn D3DPERF_EndEvent() -> i32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(D3DPERF_EndEvent())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[inline]
 pub unsafe fn D3DPERF_GetStatus() -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn D3DPERF_GetStatus() -> u32;
-        }
-        ::core::mem::transmute(D3DPERF_GetStatus())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn D3DPERF_GetStatus() -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(D3DPERF_GetStatus())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DPERF_QueryRepeatFrame() -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn D3DPERF_QueryRepeatFrame() -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(D3DPERF_QueryRepeatFrame())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn D3DPERF_QueryRepeatFrame() -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(D3DPERF_QueryRepeatFrame())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[inline]
 pub unsafe fn D3DPERF_SetMarker<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(col: u32, wszname: Param1) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn D3DPERF_SetMarker(col: u32, wszname: ::windows::core::PCWSTR);
-        }
-        D3DPERF_SetMarker(::core::mem::transmute(col), wszname.into_param().abi())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn D3DPERF_SetMarker(col: u32, wszname: ::windows::core::PCWSTR);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    D3DPERF_SetMarker(::core::mem::transmute(col), wszname.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[inline]
 pub unsafe fn D3DPERF_SetOptions(dwoptions: u32) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn D3DPERF_SetOptions(dwoptions: u32);
-        }
-        D3DPERF_SetOptions(::core::mem::transmute(dwoptions))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn D3DPERF_SetOptions(dwoptions: u32);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    D3DPERF_SetOptions(::core::mem::transmute(dwoptions))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[inline]
 pub unsafe fn D3DPERF_SetRegion<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(col: u32, wszname: Param1) {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn D3DPERF_SetRegion(col: u32, wszname: ::windows::core::PCWSTR);
-        }
-        D3DPERF_SetRegion(::core::mem::transmute(col), wszname.into_param().abi())
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn D3DPERF_SetRegion(col: u32, wszname: ::windows::core::PCWSTR);
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    D3DPERF_SetRegion(::core::mem::transmute(col), wszname.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPMISCCAPS_BLENDOP: i32 = 2048i32;
@@ -6314,31 +6279,21 @@ pub const D3D_SDK_VERSION: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[inline]
 pub unsafe fn Direct3DCreate9(sdkversion: u32) -> ::core::option::Option<IDirect3D9> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn Direct3DCreate9(sdkversion: u32) -> ::core::option::Option<IDirect3D9>;
-        }
-        ::core::mem::transmute(Direct3DCreate9(::core::mem::transmute(sdkversion)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn Direct3DCreate9(sdkversion: u32) -> ::core::option::Option<IDirect3D9>;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(Direct3DCreate9(::core::mem::transmute(sdkversion)))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[inline]
 pub unsafe fn Direct3DCreate9Ex(sdkversion: u32) -> ::windows::core::Result<IDirect3D9Ex> {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn Direct3DCreate9Ex(sdkversion: u32, param1: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-        }
-        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        Direct3DCreate9Ex(::core::mem::transmute(sdkversion), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3D9Ex>(result__)
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn Direct3DCreate9Ex(sdkversion: u32, param1: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+    Direct3DCreate9Ex(::core::mem::transmute(sdkversion), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3D9Ex>(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]

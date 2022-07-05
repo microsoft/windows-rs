@@ -136,31 +136,21 @@ pub const MAX_NAME_LEN: u32 = 48u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MatchEnumTag<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hmodule: Param0, pwcarg: Param1, dwnumarg: u32, penumtable: *const TOKEN_VALUE, pdwvalue: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MatchEnumTag(hmodule: super::super::Foundation::HANDLE, pwcarg: ::windows::core::PCWSTR, dwnumarg: u32, penumtable: *const TOKEN_VALUE, pdwvalue: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(MatchEnumTag(hmodule.into_param().abi(), pwcarg.into_param().abi(), ::core::mem::transmute(dwnumarg), ::core::mem::transmute(penumtable), ::core::mem::transmute(pdwvalue)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MatchEnumTag(hmodule: super::super::Foundation::HANDLE, pwcarg: ::windows::core::PCWSTR, dwnumarg: u32, penumtable: *const TOKEN_VALUE, pdwvalue: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MatchEnumTag(hmodule.into_param().abi(), pwcarg.into_param().abi(), ::core::mem::transmute(dwnumarg), ::core::mem::transmute(penumtable), ::core::mem::transmute(pdwvalue)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MatchToken<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pwszusertoken: Param0, pwszcmdtoken: Param1) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn MatchToken(pwszusertoken: ::windows::core::PCWSTR, pwszcmdtoken: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
-        }
-        ::core::mem::transmute(MatchToken(pwszusertoken.into_param().abi(), pwszcmdtoken.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MatchToken(pwszusertoken: ::windows::core::PCWSTR, pwszcmdtoken: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(MatchToken(pwszusertoken.into_param().abi(), pwszcmdtoken.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 pub const NETSH_ARG_DELIMITER: &str = "=";
@@ -540,89 +530,59 @@ pub type PNS_OSVERSIONCHECK = ::core::option::Option<unsafe extern "system" fn(c
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PreprocessCommand<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmodule: Param0, ppwcarguments: &mut [::windows::core::PWSTR], dwcurrentindex: u32, ptttags: &mut [TAG_TYPE], dwminargs: u32, dwmaxargs: u32, pdwtagtype: *mut u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PreprocessCommand(hmodule: super::super::Foundation::HANDLE, ppwcarguments: *mut ::windows::core::PWSTR, dwcurrentindex: u32, dwargcount: u32, ptttags: *mut TAG_TYPE, dwtagcount: u32, dwminargs: u32, dwmaxargs: u32, pdwtagtype: *mut u32) -> u32;
-        }
-        ::core::mem::transmute(PreprocessCommand(hmodule.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppwcarguments)), ::core::mem::transmute(dwcurrentindex), ppwcarguments.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ptttags)), ptttags.len() as _, ::core::mem::transmute(dwminargs), ::core::mem::transmute(dwmaxargs), ::core::mem::transmute(pdwtagtype)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PreprocessCommand(hmodule: super::super::Foundation::HANDLE, ppwcarguments: *mut ::windows::core::PWSTR, dwcurrentindex: u32, dwargcount: u32, ptttags: *mut TAG_TYPE, dwtagcount: u32, dwminargs: u32, dwmaxargs: u32, pdwtagtype: *mut u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PreprocessCommand(hmodule.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ppwcarguments)), ::core::mem::transmute(dwcurrentindex), ppwcarguments.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ptttags)), ptttags.len() as _, ::core::mem::transmute(dwminargs), ::core::mem::transmute(dwmaxargs), ::core::mem::transmute(pdwtagtype)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PrintError<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmodule: Param0, dwerrid: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PrintError(hmodule: super::super::Foundation::HANDLE, dwerrid: u32) -> u32;
-        }
-        ::core::mem::transmute(PrintError(hmodule.into_param().abi(), ::core::mem::transmute(dwerrid)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PrintError(hmodule: super::super::Foundation::HANDLE, dwerrid: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PrintError(hmodule.into_param().abi(), ::core::mem::transmute(dwerrid)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 #[inline]
 pub unsafe fn PrintMessage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pwszformat: Param0) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PrintMessage(pwszformat: ::windows::core::PCWSTR) -> u32;
-        }
-        ::core::mem::transmute(PrintMessage(pwszformat.into_param().abi()))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PrintMessage(pwszformat: ::windows::core::PCWSTR) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PrintMessage(pwszformat.into_param().abi()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PrintMessageFromModule<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmodule: Param0, dwmsgid: u32) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PrintMessageFromModule(hmodule: super::super::Foundation::HANDLE, dwmsgid: u32) -> u32;
-        }
-        ::core::mem::transmute(PrintMessageFromModule(hmodule.into_param().abi(), ::core::mem::transmute(dwmsgid)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PrintMessageFromModule(hmodule: super::super::Foundation::HANDLE, dwmsgid: u32) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(PrintMessageFromModule(hmodule.into_param().abi(), ::core::mem::transmute(dwmsgid)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegisterContext(pchildcontext: *const NS_CONTEXT_ATTRIBUTES) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RegisterContext(pchildcontext: *const NS_CONTEXT_ATTRIBUTES) -> u32;
-        }
-        ::core::mem::transmute(RegisterContext(::core::mem::transmute(pchildcontext)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RegisterContext(pchildcontext: *const NS_CONTEXT_ATTRIBUTES) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RegisterContext(::core::mem::transmute(pchildcontext)))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 #[inline]
 pub unsafe fn RegisterHelper(pguidparentcontext: *const ::windows::core::GUID, pfnregistersubcontext: *const NS_HELPER_ATTRIBUTES) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn RegisterHelper(pguidparentcontext: *const ::windows::core::GUID, pfnregistersubcontext: *const NS_HELPER_ATTRIBUTES) -> u32;
-        }
-        ::core::mem::transmute(RegisterHelper(::core::mem::transmute(pguidparentcontext), ::core::mem::transmute(pfnregistersubcontext)))
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RegisterHelper(pguidparentcontext: *const ::windows::core::GUID, pfnregistersubcontext: *const NS_HELPER_ATTRIBUTES) -> u32;
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    ::core::mem::transmute(RegisterHelper(::core::mem::transmute(pguidparentcontext), ::core::mem::transmute(pfnregistersubcontext)))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
