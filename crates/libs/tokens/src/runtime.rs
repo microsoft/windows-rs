@@ -191,8 +191,18 @@ pub fn parse(tokens: &mut TokenStream, s: &str) {
 }
 
 pub fn push_ident(tokens: &mut TokenStream, s: &str) {
-    tokens.push_space();
+    match tokens.0.chars().last() {
+        None | Some(':') => {}
+        _ => tokens.0.push(' '),
+    }
     tokens.push_str(s);
+}
+
+pub fn push_colon2(tokens: &mut TokenStream) {
+    match tokens.0.chars().last() {
+        Some(':') => tokens.push_str(" ::"),
+        _ => tokens.push_str("::"),
+    }
 }
 
 macro_rules! push_punct {
@@ -229,7 +239,6 @@ push_punct!(push_bang '!');
 push_punct!(push_caret '^');
 push_punct!(push_caret_eq '^' '=');
 push_punct!(push_colon ':');
-push_punct!(push_colon2 ':' ':');
 push_punct!(push_comma ',');
 push_punct!(push_div '/');
 push_punct!(push_div_eq '/' '=');
