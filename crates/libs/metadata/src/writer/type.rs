@@ -1,8 +1,7 @@
 use super::*;
 
-#[derive(Clone, PartialEq, PartialOrd, Eq, Ord, Default)]
+#[derive(Clone, PartialEq, PartialOrd, Eq, Ord)]
 pub enum Type {
-    #[default]
     Void,
     Bool,
     Char,
@@ -70,5 +69,11 @@ impl Type {
             return vec![0x6, code as _];
         }
         unimplemented!();
+    }
+}
+
+impl Default for Type {
+    fn default() -> Self {
+        Self::Void
     }
 }
