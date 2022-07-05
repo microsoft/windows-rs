@@ -8358,7 +8358,7 @@ impl ::core::default::Default for MONTHLYDOW {
 }
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TASKPAGE(pub i32);
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASKPAGE_TASK: TASKPAGE = TASKPAGE(0i32);
@@ -8387,7 +8387,7 @@ impl ::core::fmt::Debug for TASKPAGE {
 }
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TASK_ACTION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_ACTION_EXEC: TASK_ACTION_TYPE = TASK_ACTION_TYPE(0i32);
@@ -8422,7 +8422,7 @@ pub const TASK_APRIL: u32 = 8u32;
 pub const TASK_AUGUST: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TASK_COMPATIBILITY(pub i32);
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_COMPATIBILITY_AT: TASK_COMPATIBILITY = TASK_COMPATIBILITY(0i32);
@@ -8459,7 +8459,7 @@ impl ::core::fmt::Debug for TASK_COMPATIBILITY {
 }
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TASK_CREATION(pub i32);
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_VALIDATE_ONLY: TASK_CREATION = TASK_CREATION(1i32);
@@ -8498,7 +8498,7 @@ impl ::core::fmt::Debug for TASK_CREATION {
 pub const TASK_DECEMBER: u32 = 2048u32;
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TASK_ENUM_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_ENUM_HIDDEN: TASK_ENUM_FLAGS = TASK_ENUM_FLAGS(1i32);
@@ -8557,7 +8557,7 @@ pub const TASK_FOURTH_WEEK: u32 = 4u32;
 pub const TASK_FRIDAY: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TASK_INSTANCES_POLICY(pub i32);
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_INSTANCES_PARALLEL: TASK_INSTANCES_POLICY = TASK_INSTANCES_POLICY(0i32);
@@ -8596,7 +8596,7 @@ pub const TASK_JUNE: u32 = 32u32;
 pub const TASK_LAST_WEEK: u32 = 5u32;
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TASK_LOGON_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_LOGON_NONE: TASK_LOGON_TYPE = TASK_LOGON_TYPE(0i32);
@@ -8645,7 +8645,7 @@ pub const TASK_NOVEMBER: u32 = 1024u32;
 pub const TASK_OCTOBER: u32 = 512u32;
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TASK_PROCESSTOKENSID_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_PROCESSTOKENSID_NONE: TASK_PROCESSTOKENSID_TYPE = TASK_PROCESSTOKENSID_TYPE(0i32);
@@ -8674,7 +8674,7 @@ impl ::core::fmt::Debug for TASK_PROCESSTOKENSID_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TASK_RUNLEVEL_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_RUNLEVEL_LUA: TASK_RUNLEVEL_TYPE = TASK_RUNLEVEL_TYPE(0i32);
@@ -8701,7 +8701,7 @@ impl ::core::fmt::Debug for TASK_RUNLEVEL_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TASK_RUN_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_RUN_NO_FLAGS: TASK_RUN_FLAGS = TASK_RUN_FLAGS(0i32);
@@ -8740,7 +8740,7 @@ pub const TASK_SECOND_WEEK: u32 = 2u32;
 pub const TASK_SEPTEMBER: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TASK_SESSION_STATE_CHANGE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_CONSOLE_CONNECT: TASK_SESSION_STATE_CHANGE_TYPE = TASK_SESSION_STATE_CHANGE_TYPE(1i32);
@@ -8775,7 +8775,7 @@ impl ::core::fmt::Debug for TASK_SESSION_STATE_CHANGE_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TASK_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_STATE_UNKNOWN: TASK_STATE = TASK_STATE(0i32);
@@ -8861,7 +8861,7 @@ pub const TASK_TRIGGER_FLAG_HAS_END_DATE: u32 = 1u32;
 pub const TASK_TRIGGER_FLAG_KILL_AT_DURATION_END: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TASK_TRIGGER_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_TIME_TRIGGER_ONCE: TASK_TRIGGER_TYPE = TASK_TRIGGER_TYPE(0i32);
@@ -8900,7 +8900,7 @@ impl ::core::fmt::Debug for TASK_TRIGGER_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TASK_TRIGGER_TYPE2(pub i32);
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_TRIGGER_EVENT: TASK_TRIGGER_TYPE2 = TASK_TRIGGER_TYPE2(0i32);

@@ -1411,7 +1411,7 @@ unsafe impl ::core::marker::Send for StoreCanAcquireLicenseResult {}
 unsafe impl ::core::marker::Sync for StoreCanAcquireLicenseResult {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct StoreCanLicenseStatus(pub i32);
 impl StoreCanLicenseStatus {
     pub const NotLicensableToUser: Self = Self(0i32);
@@ -1702,7 +1702,7 @@ unsafe impl ::core::marker::Send for StoreConsumableResult {}
 unsafe impl ::core::marker::Sync for StoreConsumableResult {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct StoreConsumableStatus(pub i32);
 impl StoreConsumableStatus {
     pub const Succeeded: Self = Self(0i32);
@@ -2173,7 +2173,7 @@ unsafe impl ::core::marker::Send for StoreContext {}
 unsafe impl ::core::marker::Sync for StoreContext {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct StoreDurationUnit(pub i32);
 impl StoreDurationUnit {
     pub const Minute: Self = Self(0i32);
@@ -2887,7 +2887,7 @@ unsafe impl ::core::marker::Send for StorePackageUpdateResult {}
 unsafe impl ::core::marker::Sync for StorePackageUpdateResult {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct StorePackageUpdateState(pub i32);
 impl StorePackageUpdateState {
     pub const Pending: Self = Self(0i32);
@@ -3937,7 +3937,7 @@ unsafe impl ::core::marker::Send for StorePurchaseResult {}
 unsafe impl ::core::marker::Sync for StorePurchaseResult {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct StorePurchaseStatus(pub i32);
 impl StorePurchaseStatus {
     pub const Succeeded: Self = Self(0i32);
@@ -4225,7 +4225,7 @@ unsafe impl ::core::marker::Send for StoreQueueItemCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for StoreQueueItemCompletedEventArgs {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct StoreQueueItemExtendedState(pub i32);
 impl StoreQueueItemExtendedState {
     pub const ActivePending: Self = Self(0i32);
@@ -4272,7 +4272,7 @@ unsafe impl ::windows::core::RuntimeType for StoreQueueItemExtendedState {
 }
 #[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct StoreQueueItemKind(pub i32);
 impl StoreQueueItemKind {
     pub const Install: Self = Self(0i32);
@@ -4307,7 +4307,7 @@ unsafe impl ::windows::core::RuntimeType for StoreQueueItemKind {
 }
 #[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct StoreQueueItemState(pub i32);
 impl StoreQueueItemState {
     pub const Active: Self = Self(0i32);
@@ -4562,7 +4562,7 @@ unsafe impl ::core::marker::Send for StoreRateAndReviewResult {}
 unsafe impl ::core::marker::Sync for StoreRateAndReviewResult {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct StoreRateAndReviewStatus(pub i32);
 impl StoreRateAndReviewStatus {
     pub const Succeeded: Self = Self(0i32);
@@ -5166,7 +5166,7 @@ unsafe impl ::core::marker::Send for StoreUninstallStorePackageResult {}
 unsafe impl ::core::marker::Sync for StoreUninstallStorePackageResult {}
 #[doc = "*Required features: `\"Services_Store\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct StoreUninstallStorePackageStatus(pub i32);
 impl StoreUninstallStorePackageStatus {
     pub const Succeeded: Self = Self(0i32);

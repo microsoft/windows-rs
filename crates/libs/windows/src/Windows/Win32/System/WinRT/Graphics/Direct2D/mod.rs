@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GRAPHICS_EFFECT_PROPERTY_MAPPING(pub i32);
 #[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Direct2D\"`*"]
 pub const GRAPHICS_EFFECT_PROPERTY_MAPPING_UNKNOWN: GRAPHICS_EFFECT_PROPERTY_MAPPING = GRAPHICS_EFFECT_PROPERTY_MAPPING(0i32);

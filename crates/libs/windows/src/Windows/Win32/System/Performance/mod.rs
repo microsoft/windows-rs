@@ -3,7 +3,7 @@ pub mod HardwareCounterProfiling;
 pub const AppearPropPage: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe49741e9_93a8_4ab1_8e96_bf4482282e9c);
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AutoPathFormat(pub i32);
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const plaNone: AutoPathFormat = AutoPathFormat(0i32);
@@ -62,7 +62,7 @@ pub const BootTraceSession: ::windows::core::GUID = ::windows::core::GUID::from_
 pub const BootTraceSessionCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03837539_098b_11d8_9414_505054503030);
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ClockType(pub i32);
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const plaTimeStamp: ClockType = ClockType(0i32);
@@ -93,7 +93,7 @@ impl ::core::fmt::Debug for ClockType {
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CommitMode(pub i32);
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const plaCreateNew: CommitMode = CommitMode(1i32);
@@ -566,7 +566,7 @@ pub const DataCollectorSet: ::windows::core::GUID = ::windows::core::GUID::from_
 pub const DataCollectorSetCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03837525_098b_11d8_9414_505054503030);
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DataCollectorSetStatus(pub i32);
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const plaStopped: DataCollectorSetStatus = DataCollectorSetStatus(0i32);
@@ -599,7 +599,7 @@ impl ::core::fmt::Debug for DataCollectorSetStatus {
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DataCollectorType(pub i32);
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const plaPerformanceCounter: DataCollectorType = DataCollectorType(0i32);
@@ -632,7 +632,7 @@ impl ::core::fmt::Debug for DataCollectorType {
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DataManagerSteps(pub i32);
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const plaCreateReport: DataManagerSteps = DataManagerSteps(1i32);
@@ -665,7 +665,7 @@ impl ::core::fmt::Debug for DataManagerSteps {
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DataSourceTypeConstants(pub i32);
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const sysmonNullDataSource: DataSourceTypeConstants = DataSourceTypeConstants(-1i32);
@@ -696,7 +696,7 @@ impl ::core::fmt::Debug for DataSourceTypeConstants {
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DisplayTypeConstants(pub i32);
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const sysmonLineGraph: DisplayTypeConstants = DisplayTypeConstants(1i32);
@@ -729,7 +729,7 @@ impl ::core::fmt::Debug for DisplayTypeConstants {
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FileFormat(pub i32);
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const plaCommaSeparated: FileFormat = FileFormat(0i32);
@@ -760,7 +760,7 @@ impl ::core::fmt::Debug for FileFormat {
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FolderActionSteps(pub i32);
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const plaCreateCab: FolderActionSteps = FolderActionSteps(1i32);
@@ -7895,7 +7895,7 @@ pub const PDH_DATA_SOURCE_IS_REAL_TIME: i32 = -1073738801i32;
 pub const PDH_DIALOG_CANCELLED: i32 = -2147481639i32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PDH_DLL_VERSION(pub u32);
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const PDH_CVERSION_WIN50: PDH_DLL_VERSION = PDH_DLL_VERSION(1280u32);
@@ -7930,7 +7930,7 @@ pub const PDH_FILE_ALREADY_EXISTS: i32 = -1073738798i32;
 pub const PDH_FILE_NOT_FOUND: i32 = -1073738799i32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PDH_FMT(pub u32);
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const PDH_FMT_DOUBLE: PDH_FMT = PDH_FMT(512u32);
@@ -8090,7 +8090,7 @@ pub const PDH_INVALID_SQLDB: i32 = -1073738786i32;
 pub const PDH_INVALID_SQL_LOG_FORMAT: i32 = -1073738763i32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PDH_LOG(pub u32);
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const PDH_LOG_READ_ACCESS: PDH_LOG = PDH_LOG(65536u32);
@@ -8483,7 +8483,7 @@ impl ::core::default::Default for PDH_LOG_SERVICE_QUERY_INFO_W_0_1 {
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PDH_LOG_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const PDH_LOG_TYPE_UNDEFINED: PDH_LOG_TYPE = PDH_LOG_TYPE(0u32);
@@ -8560,7 +8560,7 @@ pub const PDH_OS_EARLIER_VERSION: i32 = -1073738758i32;
 pub const PDH_OS_LATER_VERSION: i32 = -1073738759i32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PDH_PATH_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const PDH_PATH_WBEM_RESULT: PDH_PATH_FLAGS = PDH_PATH_FLAGS(1u32);
@@ -8772,7 +8772,7 @@ pub const PDH_REFRESHCOUNTERS: u32 = 4u32;
 pub const PDH_RETRY: i32 = -2147481644i32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PDH_SELECT_DATA_SOURCE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const PDH_FLAGS_FILE_BROWSER_ONLY: PDH_SELECT_DATA_SOURCE_FLAGS = PDH_SELECT_DATA_SOURCE_FLAGS(1u32);
@@ -9029,7 +9029,7 @@ pub const PERF_COUNTERSET_SINGLE_AGGREGATE: u32 = 4u32;
 pub const PERF_COUNTERSET_SINGLE_INSTANCE: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PERF_COUNTER_AGGREGATE_FUNC(pub u32);
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const PERF_AGGREGATE_UNDEFINED: PERF_COUNTER_AGGREGATE_FUNC = PERF_COUNTER_AGGREGATE_FUNC(0u32);
@@ -9553,7 +9553,7 @@ pub const PERF_DELTA_BASE: u32 = 8388608u32;
 pub const PERF_DELTA_COUNTER: u32 = 4194304u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PERF_DETAIL(pub u32);
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const PERF_DETAIL_NOVICE: PERF_DETAIL = PERF_DETAIL(100u32);
@@ -11461,7 +11461,7 @@ pub unsafe fn PerfCloseQueryHandle<'a, Param0: ::windows::core::IntoParam<'a, su
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PerfCounterDataType(pub i32);
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const PERF_ERROR_RETURN: PerfCounterDataType = PerfCounterDataType(0i32);
@@ -11637,7 +11637,7 @@ pub unsafe fn PerfOpenQueryHandle<'a, Param0: ::windows::core::IntoParam<'a, ::w
     unimplemented!("Unsupported target OS");
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PerfProviderHandle(pub isize);
 impl PerfProviderHandle {
     pub fn is_invalid(&self) -> bool {
@@ -11707,7 +11707,7 @@ pub unsafe fn PerfQueryCounterSetRegistrationInfo<'a, Param0: ::windows::core::I
     unimplemented!("Unsupported target OS");
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PerfQueryHandle(pub isize);
 impl PerfQueryHandle {
     pub fn is_invalid(&self) -> bool {
@@ -11750,7 +11750,7 @@ pub unsafe fn PerfQueryInstance<'a, Param0: ::windows::core::IntoParam<'a, super
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PerfRegInfoType(pub i32);
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const PERF_REG_COUNTERSET_STRUCT: PerfRegInfoType = PerfRegInfoType(1i32);
@@ -11925,7 +11925,7 @@ pub unsafe fn QueryPerformanceFrequency(lpfrequency: *mut i64) -> super::super::
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct REAL_TIME_DATA_SOURCE_ID_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const DATA_SOURCE_REGISTRY: REAL_TIME_DATA_SOURCE_ID_FLAGS = REAL_TIME_DATA_SOURCE_ID_FLAGS(1u32);
@@ -11952,7 +11952,7 @@ impl ::core::fmt::Debug for REAL_TIME_DATA_SOURCE_ID_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ReportValueTypeConstants(pub i32);
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const sysmonDefaultValue: ReportValueTypeConstants = ReportValueTypeConstants(0i32);
@@ -11985,7 +11985,7 @@ impl ::core::fmt::Debug for ReportValueTypeConstants {
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ResourcePolicy(pub i32);
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const plaDeleteLargest: ResourcePolicy = ResourcePolicy(0i32);
@@ -12058,7 +12058,7 @@ pub unsafe fn SetServiceAsTrustedW<'a, Param0: ::windows::core::IntoParam<'a, ::
 pub const SourcePropPage: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cf32aa1_7571_11d0_93c4_00aa00a3ddea);
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct StreamMode(pub i32);
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const plaFile: StreamMode = StreamMode(1i32);
@@ -12089,7 +12089,7 @@ impl ::core::fmt::Debug for StreamMode {
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SysmonBatchReason(pub i32);
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const sysmonBatchNone: SysmonBatchReason = SysmonBatchReason(0i32);
@@ -12120,7 +12120,7 @@ impl ::core::fmt::Debug for SysmonBatchReason {
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SysmonDataType(pub i32);
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const sysmonDataAvg: SysmonDataType = SysmonDataType(1i32);
@@ -12153,7 +12153,7 @@ impl ::core::fmt::Debug for SysmonDataType {
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SysmonFileType(pub i32);
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const sysmonFileHtml: SysmonFileType = SysmonFileType(1i32);
@@ -12256,7 +12256,7 @@ pub unsafe fn UpdatePerfNameFilesW<'a, Param0: ::windows::core::IntoParam<'a, ::
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ValueMapType(pub i32);
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const plaIndex: ValueMapType = ValueMapType(1i32);
@@ -12295,7 +12295,7 @@ pub const WINPERF_LOG_USER: u32 = 1u32;
 pub const WINPERF_LOG_VERBOSE: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WeekDays(pub i32);
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const plaRunOnce: WeekDays = WeekDays(0i32);

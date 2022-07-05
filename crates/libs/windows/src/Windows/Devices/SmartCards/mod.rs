@@ -1457,7 +1457,7 @@ unsafe impl ::core::marker::Send for SmartCard {}
 unsafe impl ::core::marker::Sync for SmartCard {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmartCardActivationPolicyChangeResult(pub i32);
 impl SmartCardActivationPolicyChangeResult {
     pub const Denied: Self = Self(0i32);
@@ -1711,7 +1711,7 @@ unsafe impl ::core::marker::Send for SmartCardAppletIdGroup {}
 unsafe impl ::core::marker::Sync for SmartCardAppletIdGroup {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmartCardAppletIdGroupActivationPolicy(pub i32);
 impl SmartCardAppletIdGroupActivationPolicy {
     pub const Disabled: Self = Self(0i32);
@@ -2088,7 +2088,7 @@ unsafe impl ::core::marker::Send for SmartCardAutomaticResponseApdu {}
 unsafe impl ::core::marker::Sync for SmartCardAutomaticResponseApdu {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmartCardAutomaticResponseStatus(pub i32);
 impl SmartCardAutomaticResponseStatus {
     pub const None: Self = Self(0i32);
@@ -2395,7 +2395,7 @@ unsafe impl ::core::marker::Send for SmartCardConnection {}
 unsafe impl ::core::marker::Sync for SmartCardConnection {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmartCardCryptogramAlgorithm(pub i32);
 impl SmartCardCryptogramAlgorithm {
     pub const None: Self = Self(0i32);
@@ -2691,7 +2691,7 @@ unsafe impl ::core::marker::Send for SmartCardCryptogramGenerator {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramGenerator {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmartCardCryptogramGeneratorOperationStatus(pub i32);
 impl SmartCardCryptogramGeneratorOperationStatus {
     pub const Success: Self = Self(0i32);
@@ -3308,7 +3308,7 @@ unsafe impl ::core::marker::Send for SmartCardCryptogramMaterialPackageCharacter
 unsafe impl ::core::marker::Sync for SmartCardCryptogramMaterialPackageCharacteristics {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmartCardCryptogramMaterialPackageConfirmationResponseFormat(pub i32);
 impl SmartCardCryptogramMaterialPackageConfirmationResponseFormat {
     pub const None: Self = Self(0i32);
@@ -3342,7 +3342,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramMaterialPackageC
 }
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmartCardCryptogramMaterialPackageFormat(pub i32);
 impl SmartCardCryptogramMaterialPackageFormat {
     pub const None: Self = Self(0i32);
@@ -3470,7 +3470,7 @@ unsafe impl ::core::marker::Send for SmartCardCryptogramMaterialPossessionProof 
 unsafe impl ::core::marker::Sync for SmartCardCryptogramMaterialPossessionProof {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmartCardCryptogramMaterialProtectionMethod(pub i32);
 impl SmartCardCryptogramMaterialProtectionMethod {
     pub const None: Self = Self(0i32);
@@ -3504,7 +3504,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramMaterialProtecti
 }
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmartCardCryptogramMaterialType(pub i32);
 impl SmartCardCryptogramMaterialType {
     pub const None: Self = Self(0i32);
@@ -3541,7 +3541,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramMaterialType {
 }
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmartCardCryptogramPlacementOptions(pub u32);
 impl SmartCardCryptogramPlacementOptions {
     pub const None: Self = Self(0u32);
@@ -3807,7 +3807,7 @@ unsafe impl ::core::marker::Send for SmartCardCryptogramPlacementStep {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramPlacementStep {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmartCardCryptogramStorageKeyAlgorithm(pub i32);
 impl SmartCardCryptogramStorageKeyAlgorithm {
     pub const None: Self = Self(0i32);
@@ -3841,7 +3841,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramStorageKeyAlgori
 }
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmartCardCryptogramStorageKeyCapabilities(pub u32);
 impl SmartCardCryptogramStorageKeyCapabilities {
     pub const None: Self = Self(0u32);
@@ -4166,7 +4166,7 @@ unsafe impl ::core::marker::Send for SmartCardCryptogramStorageKeyInfo {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramStorageKeyInfo {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmartCardCryptographicKeyAttestationStatus(pub i32);
 impl SmartCardCryptographicKeyAttestationStatus {
     pub const NoAttestation: Self = Self(0i32);
@@ -4206,7 +4206,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardCryptographicKeyAttestatio
 }
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmartCardEmulationCategory(pub i32);
 impl SmartCardEmulationCategory {
     pub const Other: Self = Self(0i32);
@@ -4240,7 +4240,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardEmulationCategory {
 }
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmartCardEmulationType(pub i32);
 impl SmartCardEmulationType {
     pub const Host: Self = Self(0i32);
@@ -4703,7 +4703,7 @@ unsafe impl ::core::marker::Send for SmartCardEmulatorConnectionDeactivatedEvent
 unsafe impl ::core::marker::Sync for SmartCardEmulatorConnectionDeactivatedEventArgs {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmartCardEmulatorConnectionDeactivatedReason(pub i32);
 impl SmartCardEmulatorConnectionDeactivatedReason {
     pub const ConnectionLost: Self = Self(0i32);
@@ -4830,7 +4830,7 @@ unsafe impl ::core::marker::Send for SmartCardEmulatorConnectionProperties {}
 unsafe impl ::core::marker::Sync for SmartCardEmulatorConnectionProperties {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmartCardEmulatorConnectionSource(pub i32);
 impl SmartCardEmulatorConnectionSource {
     pub const Unknown: Self = Self(0i32);
@@ -4864,7 +4864,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardEmulatorConnectionSource {
 }
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmartCardEmulatorEnablementPolicy(pub i32);
 impl SmartCardEmulatorEnablementPolicy {
     pub const Never: Self = Self(0i32);
@@ -4900,7 +4900,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardEmulatorEnablementPolicy {
 }
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmartCardLaunchBehavior(pub i32);
 impl SmartCardLaunchBehavior {
     pub const Default: Self = Self(0i32);
@@ -4934,7 +4934,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardLaunchBehavior {
 }
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmartCardPinCharacterPolicyOption(pub i32);
 impl SmartCardPinCharacterPolicyOption {
     pub const Allow: Self = Self(0i32);
@@ -5780,7 +5780,7 @@ unsafe impl ::core::marker::Send for SmartCardReader {}
 unsafe impl ::core::marker::Sync for SmartCardReader {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmartCardReaderKind(pub i32);
 impl SmartCardReaderKind {
     pub const Any: Self = Self(0i32);
@@ -5818,7 +5818,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardReaderKind {
 }
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmartCardReaderStatus(pub i32);
 impl SmartCardReaderStatus {
     pub const Disconnected: Self = Self(0i32);
@@ -5853,7 +5853,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardReaderStatus {
 }
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmartCardStatus(pub i32);
 impl SmartCardStatus {
     pub const Disconnected: Self = Self(0i32);
@@ -6027,7 +6027,7 @@ unsafe impl ::core::marker::Send for SmartCardTriggerDetails {}
 unsafe impl ::core::marker::Sync for SmartCardTriggerDetails {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmartCardTriggerType(pub i32);
 impl SmartCardTriggerType {
     pub const EmulatorTransaction: Self = Self(0i32);
@@ -6065,7 +6065,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardTriggerType {
 }
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmartCardUnlockPromptingBehavior(pub i32);
 impl SmartCardUnlockPromptingBehavior {
     pub const AllowUnlockPrompt: Self = Self(0i32);

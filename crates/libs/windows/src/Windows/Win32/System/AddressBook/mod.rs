@@ -1307,7 +1307,7 @@ pub unsafe fn FtgRegisterIdleRoutine(lpfnidle: PFNIDLE, lpvidleparam: *mut ::cor
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct Gender(pub i32);
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 pub const genderUnspecified: Gender = Gender(0i32);

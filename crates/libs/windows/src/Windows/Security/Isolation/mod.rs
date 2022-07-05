@@ -811,7 +811,7 @@ unsafe impl ::core::marker::Send for IsolatedWindowsEnvironment {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironment {}
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IsolatedWindowsEnvironmentActivator(pub i32);
 impl IsolatedWindowsEnvironmentActivator {
     pub const System: Self = Self(0i32);
@@ -845,7 +845,7 @@ unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentActivator
 }
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IsolatedWindowsEnvironmentAllowedClipboardFormats(pub u32);
 impl IsolatedWindowsEnvironmentAllowedClipboardFormats {
     pub const None: Self = Self(0u32);
@@ -908,7 +908,7 @@ unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentAllowedCl
 }
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IsolatedWindowsEnvironmentAvailablePrinters(pub u32);
 impl IsolatedWindowsEnvironmentAvailablePrinters {
     pub const None: Self = Self(0u32);
@@ -973,7 +973,7 @@ unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentAvailable
 }
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IsolatedWindowsEnvironmentClipboardCopyPasteDirections(pub u32);
 impl IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
     pub const None: Self = Self(0u32);
@@ -1175,7 +1175,7 @@ unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentCreateResult {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentCreateResult {}
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IsolatedWindowsEnvironmentCreateStatus(pub i32);
 impl IsolatedWindowsEnvironmentCreateStatus {
     pub const Success: Self = Self(0i32);
@@ -1351,7 +1351,7 @@ impl ::windows::core::RuntimeName for IsolatedWindowsEnvironmentHost {
 }
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IsolatedWindowsEnvironmentHostError(pub i32);
 impl IsolatedWindowsEnvironmentHostError {
     pub const AdminPolicyIsDisabledOrNotPresent: Self = Self(0i32);
@@ -1489,7 +1489,7 @@ unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentLaunchFileResult 
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentLaunchFileResult {}
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IsolatedWindowsEnvironmentLaunchFileStatus(pub i32);
 impl IsolatedWindowsEnvironmentLaunchFileStatus {
     pub const Success: Self = Self(0i32);
@@ -1972,7 +1972,7 @@ unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentOwnerRegistration
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentOwnerRegistrationResult {}
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IsolatedWindowsEnvironmentOwnerRegistrationStatus(pub i32);
 impl IsolatedWindowsEnvironmentOwnerRegistrationStatus {
     pub const Success: Self = Self(0i32);
@@ -2102,7 +2102,7 @@ unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentPostMessageResult
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentPostMessageResult {}
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IsolatedWindowsEnvironmentPostMessageStatus(pub i32);
 impl IsolatedWindowsEnvironmentPostMessageStatus {
     pub const Success: Self = Self(0i32);
@@ -2249,7 +2249,7 @@ unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentProcess {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentProcess {}
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IsolatedWindowsEnvironmentProcessState(pub i32);
 impl IsolatedWindowsEnvironmentProcessState {
     pub const Running: Self = Self(1i32);
@@ -2284,7 +2284,7 @@ unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentProcessSt
 }
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IsolatedWindowsEnvironmentProgressState(pub i32);
 impl IsolatedWindowsEnvironmentProgressState {
     pub const Queued: Self = Self(0i32);
@@ -2517,7 +2517,7 @@ unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentShareFileResult {
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentShareFileResult {}
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IsolatedWindowsEnvironmentShareFileStatus(pub i32);
 impl IsolatedWindowsEnvironmentShareFileStatus {
     pub const Success: Self = Self(0i32);
@@ -2745,7 +2745,7 @@ unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentShareFolderResult
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentShareFolderResult {}
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IsolatedWindowsEnvironmentShareFolderStatus(pub i32);
 impl IsolatedWindowsEnvironmentShareFolderStatus {
     pub const Success: Self = Self(0i32);
@@ -2883,7 +2883,7 @@ unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentStartProcessResul
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentStartProcessResult {}
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IsolatedWindowsEnvironmentStartProcessStatus(pub i32);
 impl IsolatedWindowsEnvironmentStartProcessStatus {
     pub const Success: Self = Self(0i32);

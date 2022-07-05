@@ -608,7 +608,7 @@ unsafe impl ::core::marker::Send for HttpClient {}
 unsafe impl ::core::marker::Sync for HttpClient {}
 #[doc = "*Required features: `\"Web_Http\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HttpCompletionOption(pub i32);
 impl HttpCompletionOption {
     pub const ResponseContentRead: Self = Self(0i32);
@@ -2820,7 +2820,7 @@ impl ::core::default::Default for HttpProgress {
 }
 #[doc = "*Required features: `\"Web_Http\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HttpProgressStage(pub i32);
 impl HttpProgressStage {
     pub const None: Self = Self(0i32);
@@ -3535,7 +3535,7 @@ unsafe impl ::core::marker::Send for HttpResponseMessage {}
 unsafe impl ::core::marker::Sync for HttpResponseMessage {}
 #[doc = "*Required features: `\"Web_Http\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HttpResponseMessageSource(pub i32);
 impl HttpResponseMessageSource {
     pub const None: Self = Self(0i32);
@@ -3570,7 +3570,7 @@ unsafe impl ::windows::core::RuntimeType for HttpResponseMessageSource {
 }
 #[doc = "*Required features: `\"Web_Http\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HttpStatusCode(pub i32);
 impl HttpStatusCode {
     pub const None: Self = Self(0i32);
@@ -4305,7 +4305,7 @@ unsafe impl ::core::marker::Send for HttpTransportInformation {}
 unsafe impl ::core::marker::Sync for HttpTransportInformation {}
 #[doc = "*Required features: `\"Web_Http\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HttpVersion(pub i32);
 impl HttpVersion {
     pub const None: Self = Self(0i32);

@@ -65,7 +65,7 @@ pub struct IWalletManagerSystemStatics_Vtbl {
 }
 #[doc = "*Required features: `\"ApplicationModel_Wallet_System\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WalletItemAppAssociation(pub i32);
 impl WalletItemAppAssociation {
     pub const None: Self = Self(0i32);

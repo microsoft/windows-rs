@@ -3648,7 +3648,7 @@ pub struct IOfflineFilesTransparentCacheInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OFFLINEFILES_CACHING_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
 pub const OFFLINEFILES_CACHING_MODE_NONE: OFFLINEFILES_CACHING_MODE = OFFLINEFILES_CACHING_MODE(0i32);
@@ -3695,7 +3695,7 @@ pub const OFFLINEFILES_CHANGES_REMOTE_SIZE: u32 = 8u32;
 pub const OFFLINEFILES_CHANGES_REMOTE_TIME: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OFFLINEFILES_COMPARE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
 pub const OFFLINEFILES_COMPARE_EQ: OFFLINEFILES_COMPARE = OFFLINEFILES_COMPARE(0i32);
@@ -3730,7 +3730,7 @@ impl ::core::fmt::Debug for OFFLINEFILES_COMPARE {
 }
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OFFLINEFILES_CONNECT_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
 pub const OFFLINEFILES_CONNECT_STATE_UNKNOWN: OFFLINEFILES_CONNECT_STATE = OFFLINEFILES_CONNECT_STATE(0i32);
@@ -3785,7 +3785,7 @@ pub const OFFLINEFILES_ENUM_FLAT: u32 = 1u32;
 pub const OFFLINEFILES_ENUM_FLAT_FILESONLY: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OFFLINEFILES_EVENTS(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
 pub const OFFLINEFILES_EVENT_CACHEMOVED: OFFLINEFILES_EVENTS = OFFLINEFILES_EVENTS(0i32);
@@ -3888,7 +3888,7 @@ impl ::core::fmt::Debug for OFFLINEFILES_EVENTS {
 }
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OFFLINEFILES_ITEM_COPY(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
 pub const OFFLINEFILES_ITEM_COPY_LOCAL: OFFLINEFILES_ITEM_COPY = OFFLINEFILES_ITEM_COPY(0i32);
@@ -3983,7 +3983,7 @@ pub const OFFLINEFILES_ITEM_QUERY_REMOTEDIRTYBYTECOUNT: u32 = 8u32;
 pub const OFFLINEFILES_ITEM_QUERY_REMOTEINFO: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OFFLINEFILES_ITEM_TIME(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
 pub const OFFLINEFILES_ITEM_TIME_CREATION: OFFLINEFILES_ITEM_TIME = OFFLINEFILES_ITEM_TIME(0i32);
@@ -4012,7 +4012,7 @@ impl ::core::fmt::Debug for OFFLINEFILES_ITEM_TIME {
 }
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OFFLINEFILES_ITEM_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
 pub const OFFLINEFILES_ITEM_TYPE_FILE: OFFLINEFILES_ITEM_TYPE = OFFLINEFILES_ITEM_TYPE(0i32);
@@ -4043,7 +4043,7 @@ impl ::core::fmt::Debug for OFFLINEFILES_ITEM_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OFFLINEFILES_OFFLINE_REASON(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
 pub const OFFLINEFILES_OFFLINE_REASON_UNKNOWN: OFFLINEFILES_OFFLINE_REASON = OFFLINEFILES_OFFLINE_REASON(0i32);
@@ -4080,7 +4080,7 @@ impl ::core::fmt::Debug for OFFLINEFILES_OFFLINE_REASON {
 }
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OFFLINEFILES_OP_RESPONSE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
 pub const OFFLINEFILES_OP_CONTINUE: OFFLINEFILES_OP_RESPONSE = OFFLINEFILES_OP_RESPONSE(0i32);
@@ -4109,7 +4109,7 @@ impl ::core::fmt::Debug for OFFLINEFILES_OP_RESPONSE {
 }
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OFFLINEFILES_PATHFILTER_MATCH(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
 pub const OFFLINEFILES_PATHFILTER_SELF: OFFLINEFILES_PATHFILTER_MATCH = OFFLINEFILES_PATHFILTER_MATCH(0i32);
@@ -4176,7 +4176,7 @@ pub const OFFLINEFILES_SETTING_SCOPE_COMPUTER: u32 = 2u32;
 pub const OFFLINEFILES_SETTING_SCOPE_USER: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OFFLINEFILES_SETTING_VALUE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
 pub const OFFLINEFILES_SETTING_VALUE_UI4: OFFLINEFILES_SETTING_VALUE_TYPE = OFFLINEFILES_SETTING_VALUE_TYPE(0i32);
@@ -4209,7 +4209,7 @@ impl ::core::fmt::Debug for OFFLINEFILES_SETTING_VALUE_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OFFLINEFILES_SYNC_CONFLICT_RESOLVE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
 pub const OFFLINEFILES_SYNC_CONFLICT_RESOLVE_NONE: OFFLINEFILES_SYNC_CONFLICT_RESOLVE = OFFLINEFILES_SYNC_CONFLICT_RESOLVE(0i32);
@@ -4302,7 +4302,7 @@ pub const OFFLINEFILES_SYNC_ITEM_CHANGE_NONE: u32 = 0u32;
 pub const OFFLINEFILES_SYNC_ITEM_CHANGE_WRITETIME: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OFFLINEFILES_SYNC_OPERATION(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
 pub const OFFLINEFILES_SYNC_OPERATION_CREATE_COPY_ON_SERVER: OFFLINEFILES_SYNC_OPERATION = OFFLINEFILES_SYNC_OPERATION(0i32);
@@ -4341,7 +4341,7 @@ impl ::core::fmt::Debug for OFFLINEFILES_SYNC_OPERATION {
 }
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OFFLINEFILES_SYNC_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
 pub const OFFLINEFILES_SYNC_STATE_Stable: OFFLINEFILES_SYNC_STATE = OFFLINEFILES_SYNC_STATE(0i32);

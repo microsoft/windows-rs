@@ -41,7 +41,7 @@ pub const DEVPKEY_AudioEndpointPlugin_FactoryCLSID: super::super::super::UI::She
 pub const DEVPKEY_AudioEndpointPlugin_PnPInterface: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x12d83bd7_cf12_46be_8540_812710d3021c), pid: 3u32 };
 #[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EndpointConnectorType(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`*"]
 pub const eHostProcessConnector: EndpointConnectorType = EndpointConnectorType(0i32);

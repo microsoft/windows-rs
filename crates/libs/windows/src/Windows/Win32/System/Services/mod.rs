@@ -222,7 +222,7 @@ pub unsafe fn DeleteService<'a, Param0: ::windows::core::IntoParam<'a, super::su
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ENUM_SERVICE_STATE(pub u32);
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub const SERVICE_ACTIVE: ENUM_SERVICE_STATE = ENUM_SERVICE_STATE(1u32);
@@ -379,7 +379,7 @@ impl ::core::default::Default for ENUM_SERVICE_STATUS_PROCESSW {
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ENUM_SERVICE_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub const SERVICE_DRIVER: ENUM_SERVICE_TYPE = ENUM_SERVICE_TYPE(11u32);
@@ -1187,7 +1187,7 @@ impl ::core::default::Default for SC_ACTION {
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SC_ACTION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub const SC_ACTION_NONE: SC_ACTION_TYPE = SC_ACTION_TYPE(0i32);
@@ -1222,7 +1222,7 @@ impl ::core::fmt::Debug for SC_ACTION_TYPE {
 pub const SC_AGGREGATE_STORAGE_KEY: &str = "System\\CurrentControlSet\\Control\\ServiceAggregatedEvents";
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SC_ENUM_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub const SC_ENUM_PROCESS_INFO: SC_ENUM_TYPE = SC_ENUM_TYPE(0i32);
@@ -1247,7 +1247,7 @@ impl ::core::fmt::Debug for SC_ENUM_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SC_EVENT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub const SC_EVENT_DATABASE_CHANGE: SC_EVENT_TYPE = SC_EVENT_TYPE(0i32);
@@ -1290,7 +1290,7 @@ pub const SC_MANAGER_MODIFY_BOOT_CONFIG: u32 = 32u32;
 pub const SC_MANAGER_QUERY_LOCK_STATUS: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SC_STATUS_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub const SC_STATUS_PROCESS_INFO: SC_STATUS_TYPE = SC_STATUS_TYPE(0i32);
@@ -1359,7 +1359,7 @@ pub const SERVICE_ALL_ACCESS: u32 = 983551u32;
 pub const SERVICE_CHANGE_CONFIG: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SERVICE_CONFIG(pub u32);
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub const SERVICE_CONFIG_DELAYED_AUTO_START_INFO: SERVICE_CONFIG = SERVICE_CONFIG(3u32);
@@ -1686,7 +1686,7 @@ impl ::core::default::Default for SERVICE_DESCRIPTIONW {
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SERVICE_DIRECTORY_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub const ServiceDirectoryPersistentState: SERVICE_DIRECTORY_TYPE = SERVICE_DIRECTORY_TYPE(0i32);
@@ -1717,7 +1717,7 @@ pub const SERVICE_DYNAMIC_INFORMATION_LEVEL_START_REASON: u32 = 1u32;
 pub const SERVICE_ENUMERATE_DEPENDENTS: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SERVICE_ERROR(pub u32);
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub const SERVICE_ERROR_CRITICAL: SERVICE_ERROR = SERVICE_ERROR(3u32);
@@ -1898,7 +1898,7 @@ pub type SERVICE_MAIN_FUNCTIONA = ::core::option::Option<unsafe extern "system" 
 pub type SERVICE_MAIN_FUNCTIONW = ::core::option::Option<unsafe extern "system" fn(dwnumservicesargs: u32, lpserviceargvectors: *mut ::windows::core::PWSTR)>;
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SERVICE_NOTIFY(pub u32);
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub const SERVICE_NOTIFY_CREATED: SERVICE_NOTIFY = SERVICE_NOTIFY(128u32);
@@ -2158,7 +2158,7 @@ pub const SERVICE_QUERY_CONFIG: u32 = 1u32;
 pub const SERVICE_QUERY_STATUS: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SERVICE_REGISTRY_STATE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub const ServiceRegistryStateParameters: SERVICE_REGISTRY_STATE_TYPE = SERVICE_REGISTRY_STATE_TYPE(0i32);
@@ -2247,7 +2247,7 @@ impl ::core::default::Default for SERVICE_REQUIRED_PRIVILEGES_INFOW {
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SERVICE_RUNS_IN_PROCESS(pub u32);
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub const SERVICE_RUNS_IN_NON_SYSTEM_OR_NOT_RUNNING: SERVICE_RUNS_IN_PROCESS = SERVICE_RUNS_IN_PROCESS(0u32);
@@ -2274,7 +2274,7 @@ impl ::core::fmt::Debug for SERVICE_RUNS_IN_PROCESS {
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SERVICE_SHARED_DIRECTORY_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub const ServiceSharedDirectoryPersistentState: SERVICE_SHARED_DIRECTORY_TYPE = SERVICE_SHARED_DIRECTORY_TYPE(0i32);
@@ -2299,7 +2299,7 @@ impl ::core::fmt::Debug for SERVICE_SHARED_DIRECTORY_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SERVICE_SHARED_REGISTRY_STATE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub const ServiceSharedRegistryPersistentState: SERVICE_SHARED_REGISTRY_STATE_TYPE = SERVICE_SHARED_REGISTRY_STATE_TYPE(0i32);
@@ -2400,7 +2400,7 @@ pub const SERVICE_START_REASON_RESTART_ON_FAILURE: u32 = 8u32;
 pub const SERVICE_START_REASON_TRIGGER: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SERVICE_START_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub const SERVICE_AUTO_START: SERVICE_START_TYPE = SERVICE_START_TYPE(2u32);
@@ -2469,7 +2469,7 @@ impl ::core::default::Default for SERVICE_STATUS {
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SERVICE_STATUS_CURRENT_STATE(pub u32);
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub const SERVICE_CONTINUE_PENDING: SERVICE_STATUS_CURRENT_STATE = SERVICE_STATUS_CURRENT_STATE(5u32);
@@ -2505,7 +2505,7 @@ impl ::core::fmt::Debug for SERVICE_STATUS_CURRENT_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SERVICE_STATUS_HANDLE(pub isize);
 impl SERVICE_STATUS_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -2786,7 +2786,7 @@ impl ::core::default::Default for SERVICE_TRIGGER {
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SERVICE_TRIGGER_ACTION(pub u32);
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub const SERVICE_TRIGGER_ACTION_SERVICE_START: SERVICE_TRIGGER_ACTION = SERVICE_TRIGGER_ACTION(1u32);
@@ -2907,7 +2907,7 @@ impl ::core::default::Default for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub const SERVICE_TRIGGER_DATA_TYPE_BINARY: SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE = SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE(1u32);
@@ -2942,7 +2942,7 @@ impl ::core::fmt::Debug for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE {
 pub const SERVICE_TRIGGER_STARTED_ARGUMENT: &str = "TriggerStarted";
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SERVICE_TRIGGER_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub const SERVICE_TRIGGER_TYPE_CUSTOM: SERVICE_TRIGGER_TYPE = SERVICE_TRIGGER_TYPE(20u32);

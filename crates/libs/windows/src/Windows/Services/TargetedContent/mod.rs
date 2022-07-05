@@ -420,7 +420,7 @@ unsafe impl ::core::marker::Send for TargetedContentAction {}
 unsafe impl ::core::marker::Sync for TargetedContentAction {}
 #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TargetedContentAppInstallationState(pub i32);
 impl TargetedContentAppInstallationState {
     pub const NotApplicable: Self = Self(0i32);
@@ -455,7 +455,7 @@ unsafe impl ::windows::core::RuntimeType for TargetedContentAppInstallationState
 }
 #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TargetedContentAvailability(pub i32);
 impl TargetedContentAvailability {
     pub const None: Self = Self(0i32);
@@ -1190,7 +1190,7 @@ unsafe impl ::core::marker::Send for TargetedContentImage {}
 unsafe impl ::core::marker::Sync for TargetedContentImage {}
 #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TargetedContentInteraction(pub i32);
 impl TargetedContentInteraction {
     pub const Impression: Self = Self(0i32);
@@ -1558,7 +1558,7 @@ unsafe impl ::core::marker::Send for TargetedContentObject {}
 unsafe impl ::core::marker::Sync for TargetedContentObject {}
 #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TargetedContentObjectKind(pub i32);
 impl TargetedContentObjectKind {
     pub const Collection: Self = Self(0i32);
@@ -2173,7 +2173,7 @@ unsafe impl ::core::marker::Send for TargetedContentValue {}
 unsafe impl ::core::marker::Sync for TargetedContentValue {}
 #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TargetedContentValueKind(pub i32);
 impl TargetedContentValueKind {
     pub const String: Self = Self(0i32);

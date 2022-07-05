@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ACTIVATEFLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const ACTIVATE_WINDOWLESS: ACTIVATEFLAGS = ACTIVATEFLAGS(1i32);
@@ -94,7 +94,7 @@ impl ::core::default::Default for AspectInfo {
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AspectInfoFlag(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const DVASPECTINFOFLAG_CANOPTIMIZE: AspectInfoFlag = AspectInfoFlag(1i32);
@@ -119,7 +119,7 @@ impl ::core::fmt::Debug for AspectInfoFlag {
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BINDSPEED(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const BINDSPEED_INDEFINITE: BINDSPEED = BINDSPEED(1i32);
@@ -283,7 +283,7 @@ pub const CF_SETCONVERTDEFAULT: i32 = 2i32;
 pub const CF_SHOWHELPBUTTON: i32 = 1i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CHANGEKIND(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const CHANGEKIND_ADDMEMBER: CHANGEKIND = CHANGEKIND(0i32);
@@ -437,7 +437,7 @@ pub const CSF_VALIDSOURCE: i32 = 2i32;
 pub const CTL_E_ILLEGALFUNCTIONCALL: i32 = -2146828283i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CTRLINFO(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const CTRLINFO_EATS_RETURN: CTRLINFO = CTRLINFO(1i32);
@@ -581,7 +581,7 @@ pub const DD_DEFSCROLLINSET: u32 = 11u32;
 pub const DD_DEFSCROLLINTERVAL: u32 = 50u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISCARDCACHE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const DISCARDCACHE_SAVEIFDIRTY: DISCARDCACHE = DISCARDCACHE(0i32);
@@ -852,7 +852,7 @@ pub const DISPID_VALUE: u32 = 0u32;
 pub const DISPID_WORDWRAP: i32 = -536i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DOCMISC(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const DOCMISC_CANCREATEMULTIPLEVIEWS: DOCMISC = DOCMISC(1i32);
@@ -893,7 +893,7 @@ pub const DROPEFFECT_NONE: u32 = 0u32;
 pub const DROPEFFECT_SCROLL: u32 = 2147483648u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVASPECT2(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const DVASPECT_OPAQUE: DVASPECT2 = DVASPECT2(16i32);
@@ -1028,7 +1028,7 @@ pub const EMBDHLP_INPROC_HANDLER: i32 = 0i32;
 pub const EMBDHLP_INPROC_SERVER: i32 = 1i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ENUM_CONTROLS_WHICH_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const GCW_WCH_SIBLING: ENUM_CONTROLS_WHICH_FLAGS = ENUM_CONTROLS_WHICH_FLAGS(1u32);
@@ -1107,7 +1107,7 @@ impl ::core::default::Default for ExtentInfo {
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ExtentMode(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const DVEXTENT_CONTENT: ExtentMode = ExtentMode(0i32);
@@ -1197,7 +1197,7 @@ impl ::core::default::Default for FONTDESC {
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FUNCFLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const FUNCFLAG_FRESTRICTED: FUNCFLAGS = FUNCFLAGS(1i32);
@@ -1248,7 +1248,7 @@ impl ::core::fmt::Debug for FUNCFLAGS {
 pub const GC_WCH_SIBLING: i32 = 1i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GUIDKIND(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const GUIDKIND_DEFAULT_SOURCE_DISP_IID: GUIDKIND = GUIDKIND(1i32);
@@ -1353,7 +1353,7 @@ pub unsafe fn GetRecordInfoFromTypeInfo<'a, Param0: ::windows::core::IntoParam<'
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HITRESULT(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const HITRESULT_OUTSIDE: HITRESULT = HITRESULT(0i32);
@@ -4196,7 +4196,7 @@ pub struct IFontEventsDisp_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IGNOREMIME(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const IGNOREMIME_PROMPT: IGNOREMIME = IGNOREMIME(1i32);
@@ -11257,7 +11257,7 @@ pub unsafe fn LHashValOfNameSysA<'a, Param2: ::windows::core::IntoParam<'a, ::wi
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LIBFLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const LIBFLAG_FRESTRICTED: LIBFLAGS = LIBFLAGS(1i32);
@@ -11393,7 +11393,7 @@ pub unsafe fn LoadTypeLibEx<'a, Param0: ::windows::core::IntoParam<'a, ::windows
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MEDIAPLAYBACK_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const MEDIAPLAYBACK_RESUME: MEDIAPLAYBACK_STATE = MEDIAPLAYBACK_STATE(0i32);
@@ -11485,7 +11485,7 @@ pub const MSOCMDERR_E_NOTSUPPORTED: i32 = -2147221248i32;
 pub const MSOCMDERR_E_UNKNOWNGROUP: i32 = -2147221244i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MULTICLASSINFO_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const MULTICLASSINFO_GETTYPEINFO: MULTICLASSINFO_FLAGS = MULTICLASSINFO_FLAGS(1u32);
@@ -11726,7 +11726,7 @@ impl ::core::default::Default for OIFI {
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OLECLOSE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const OLECLOSE_SAVEIFDIRTY: OLECLOSE = OLECLOSE(0i32);
@@ -11814,7 +11814,7 @@ pub const OLECMDERR_E_NOTSUPPORTED: i32 = -2147221248i32;
 pub const OLECMDERR_E_UNKNOWNGROUP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221244i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OLECMDEXECOPT(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const OLECMDEXECOPT_DODEFAULT: OLECMDEXECOPT = OLECMDEXECOPT(0i32);
@@ -11845,7 +11845,7 @@ impl ::core::fmt::Debug for OLECMDEXECOPT {
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OLECMDF(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const OLECMDF_SUPPORTED: OLECMDF = OLECMDF(1i32);
@@ -11880,7 +11880,7 @@ impl ::core::fmt::Debug for OLECMDF {
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OLECMDID(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const OLECMDID_OPEN: OLECMDID = OLECMDID(1i32);
@@ -12069,7 +12069,7 @@ impl ::core::fmt::Debug for OLECMDID {
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OLECMDID_BROWSERSTATEFLAG(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const OLECMDIDF_BROWSERSTATE_EXTENSIONSOFF: OLECMDID_BROWSERSTATEFLAG = OLECMDID_BROWSERSTATEFLAG(1i32);
@@ -12106,7 +12106,7 @@ impl ::core::fmt::Debug for OLECMDID_BROWSERSTATEFLAG {
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OLECMDID_OPTICAL_ZOOMFLAG(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const OLECMDIDF_OPTICAL_ZOOM_NOPERSIST: OLECMDID_OPTICAL_ZOOMFLAG = OLECMDID_OPTICAL_ZOOMFLAG(1i32);
@@ -12137,7 +12137,7 @@ impl ::core::fmt::Debug for OLECMDID_OPTICAL_ZOOMFLAG {
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OLECMDID_PAGEACTIONFLAG(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const OLECMDIDF_PAGEACTION_FILEDOWNLOAD: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(1i32);
@@ -12226,7 +12226,7 @@ impl ::core::fmt::Debug for OLECMDID_PAGEACTIONFLAG {
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OLECMDID_REFRESHFLAG(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const OLECMDIDF_REFRESH_NORMAL: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(0i32);
@@ -12295,7 +12295,7 @@ impl ::core::fmt::Debug for OLECMDID_REFRESHFLAG {
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OLECMDID_VIEWPORT_MODE_FLAG(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const OLECMDIDF_VIEWPORTMODE_FIXED_LAYOUT_WIDTH: OLECMDID_VIEWPORT_MODE_FLAG = OLECMDID_VIEWPORT_MODE_FLAG(1i32);
@@ -12326,7 +12326,7 @@ impl ::core::fmt::Debug for OLECMDID_VIEWPORT_MODE_FLAG {
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OLECMDID_WINDOWSTATE_FLAG(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const OLECMDIDF_WINDOWSTATE_USERVISIBLE: OLECMDID_WINDOWSTATE_FLAG = OLECMDID_WINDOWSTATE_FLAG(1i32);
@@ -12390,7 +12390,7 @@ impl ::core::default::Default for OLECMDTEXT {
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OLECMDTEXTF(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const OLECMDTEXTF_NONE: OLECMDTEXTF = OLECMDTEXTF(0i32);
@@ -12421,7 +12421,7 @@ impl ::core::fmt::Debug for OLECMDTEXTF {
 pub const OLECMD_TASKDLGID_ONBEFOREUNLOAD: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OLECONTF(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const OLECONTF_EMBEDDINGS: OLECONTF = OLECONTF(1i32);
@@ -12456,7 +12456,7 @@ impl ::core::fmt::Debug for OLECONTF {
 pub const OLECREATE_LEAVERUNNING: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OLEDCFLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const OLEDC_NODRAW: OLEDCFLAGS = OLEDCFLAGS(1i32);
@@ -12485,7 +12485,7 @@ impl ::core::fmt::Debug for OLEDCFLAGS {
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OLEGETMONIKER(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const OLEGETMONIKER_ONLYIFTHERE: OLEGETMONIKER = OLEGETMONIKER(1i32);
@@ -12532,7 +12532,7 @@ pub const OLEIVERB_SHOW: i32 = -1i32;
 pub const OLEIVERB_UIACTIVATE: i32 = -4i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OLELINKBIND(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const OLELINKBIND_EVENIFCLASSDIFF: OLELINKBIND = OLELINKBIND(1i32);
@@ -12557,7 +12557,7 @@ impl ::core::fmt::Debug for OLELINKBIND {
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OLEMISC(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const OLEMISC_RECOMPOSEONRESIZE: OLEMISC = OLEMISC(1i32);
@@ -12624,7 +12624,7 @@ impl ::core::fmt::Debug for OLEMISC {
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OLERENDER(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const OLERENDER_NONE: OLERENDER = OLERENDER(0i32);
@@ -13953,7 +13953,7 @@ impl ::core::default::Default for OLEUIPASTEENTRYW {
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OLEUIPASTEFLAG(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const OLEUIPASTE_ENABLEICON: OLEUIPASTEFLAG = OLEUIPASTEFLAG(2048i32);
@@ -14490,7 +14490,7 @@ pub const OLEUI_VPERR_DVASPECTINVALID: u32 = 132u32;
 pub const OLEUI_VPERR_METAPICTINVALID: u32 = 131u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OLEUPDATE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const OLEUPDATE_ALWAYS: OLEUPDATE = OLEUPDATE(1i32);
@@ -14550,7 +14550,7 @@ impl ::core::default::Default for OLEVERB {
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OLEVERBATTRIB(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const OLEVERBATTRIB_NEVERDIRTIES: OLEVERBATTRIB = OLEVERBATTRIB(1i32);
@@ -14579,7 +14579,7 @@ impl ::core::fmt::Debug for OLEVERBATTRIB {
 pub const OLEVERB_PRIMARY: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OLEWHICHMK(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const OLEWHICHMK_CONTAINER: OLEWHICHMK = OLEWHICHMK(1i32);
@@ -14608,7 +14608,7 @@ impl ::core::fmt::Debug for OLEWHICHMK {
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OLE_TRISTATE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const triUnchecked: OLE_TRISTATE = OLE_TRISTATE(0i32);
@@ -15977,7 +15977,7 @@ pub unsafe fn OleUninitialize() {
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PAGEACTION_UI(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const PAGEACTION_UI_DEFAULT: PAGEACTION_UI = PAGEACTION_UI(0i32);
@@ -16444,7 +16444,7 @@ pub const PICTYPE_NONE: u32 = 0u32;
 pub const PICTYPE_UNINITIALIZED: i32 = -1i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POINTERINACTIVE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const POINTERINACTIVE_ACTIVATEONENTRY: POINTERINACTIVE = POINTERINACTIVE(1i32);
@@ -16504,7 +16504,7 @@ impl ::core::default::Default for POINTF {
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PRINTFLAG(pub u32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const PRINTFLAG_MAYBOTHERUSER: PRINTFLAG = PRINTFLAG(1u32);
@@ -16569,7 +16569,7 @@ impl ::core::ops::Not for PRINTFLAG {
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROPBAG2_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const PROPBAG2_TYPE_UNDEFINED: PROPBAG2_TYPE = PROPBAG2_TYPE(0i32);
@@ -16649,7 +16649,7 @@ impl ::core::default::Default for PROPPAGEINFO {
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROPPAGESTATUS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const PROPPAGESTATUS_DIRTY: PROPPAGESTATUS = PROPPAGESTATUS(1i32);
@@ -16698,7 +16698,7 @@ pub const PSF_STAYONCLIPBOARDCHANGE: i32 = 64i32;
 pub const PS_MAXLINKTYPES: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PictureAttributes(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const PICTURE_SCALABLE: PictureAttributes = PictureAttributes(1i32);
@@ -16810,7 +16810,7 @@ impl ::core::default::Default for QACONTAINER {
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct QACONTAINERFLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const QACONTAINER_SHOWHATCHING: QACONTAINERFLAGS = QACONTAINERFLAGS(1i32);
@@ -16899,7 +16899,7 @@ pub unsafe fn QueryPathOfRegTypeLib(guid: *const ::windows::core::GUID, wmaj: u1
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct READYSTATE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const READYSTATE_UNINITIALIZED: READYSTATE = READYSTATE(0i32);
@@ -16932,7 +16932,7 @@ impl ::core::fmt::Debug for READYSTATE {
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct REGKIND(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const REGKIND_DEFAULT: REGKIND = REGKIND(0i32);
@@ -17076,7 +17076,7 @@ pub const SELFREG_S_FIRST: ::windows::core::HRESULT = ::windows::core::HRESULT(2
 pub const SELFREG_S_LAST: ::windows::core::HRESULT = ::windows::core::HRESULT(262671i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SF_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const SF_ERROR: SF_TYPE = SF_TYPE(10i32);
@@ -17662,7 +17662,7 @@ pub unsafe fn SystemTimeToVariantTime(lpsystemtime: *const super::super::Foundat
 pub const TIFLAGS_EXTENDDISPATCHONLY: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TYPEFLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const TYPEFLAG_FAPPOBJECT: TYPEFLAGS = TYPEFLAGS(1i32);
@@ -17715,7 +17715,7 @@ impl ::core::fmt::Debug for TYPEFLAGS {
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UASFLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const UAS_NORMAL: UASFLAGS = UASFLAGS(0i32);
@@ -17785,7 +17785,7 @@ impl ::core::default::Default for UDATE {
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UPDFCACHE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const UPDFCACHE_ALL: UPDFCACHE_FLAGS = UPDFCACHE_FLAGS(2147483647u32);
@@ -17854,7 +17854,7 @@ impl ::core::ops::Not for UPDFCACHE_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct USERCLASSTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const USERCLASSTYPE_FULL: USERCLASSTYPE = USERCLASSTYPE(1i32);
@@ -17921,7 +17921,7 @@ pub const VARCMP_LT: u32 = 0u32;
 pub const VARCMP_NULL: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VARENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const VT_EMPTY: VARENUM = VARENUM(0i32);
@@ -18048,7 +18048,7 @@ impl ::core::fmt::Debug for VARENUM {
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VARFLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const VARFLAG_FREADONLY: VARFLAGS = VARFLAGS(1i32);
@@ -18113,7 +18113,7 @@ pub const VARIANT_NOVALUEPROP: u32 = 1u32;
 pub const VARIANT_USE_NLS: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VIEWSTATUS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const VIEWSTATUS_OPAQUE: VIEWSTATUS = VIEWSTATUS(1i32);
@@ -22697,7 +22697,7 @@ pub unsafe fn VectorFromBstr<'a, Param0: ::windows::core::IntoParam<'a, super::s
 pub const WIN32: u32 = 100u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPCSETTING(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const WPCSETTING_LOGGING_ENABLED: WPCSETTING = WPCSETTING(1i32);
@@ -22724,7 +22724,7 @@ impl ::core::fmt::Debug for WPCSETTING {
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XFORMCOORDS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const XFORMCOORDS_POSITION: XFORMCOORDS = XFORMCOORDS(1i32);

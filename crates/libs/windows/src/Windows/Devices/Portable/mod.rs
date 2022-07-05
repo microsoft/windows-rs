@@ -57,7 +57,7 @@ impl ::windows::core::RuntimeName for ServiceDevice {
 }
 #[doc = "*Required features: `\"Devices_Portable\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ServiceDeviceType(pub i32);
 impl ServiceDeviceType {
     pub const CalendarService: Self = Self(0i32);

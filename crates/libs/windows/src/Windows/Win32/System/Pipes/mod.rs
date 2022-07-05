@@ -256,7 +256,7 @@ pub unsafe fn ImpersonateNamedPipeClient<'a, Param0: ::windows::core::IntoParam<
 }
 #[doc = "*Required features: `\"Win32_System_Pipes\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NAMED_PIPE_MODE(pub u32);
 #[doc = "*Required features: `\"Win32_System_Pipes\"`*"]
 pub const PIPE_WAIT: NAMED_PIPE_MODE = NAMED_PIPE_MODE(0u32);

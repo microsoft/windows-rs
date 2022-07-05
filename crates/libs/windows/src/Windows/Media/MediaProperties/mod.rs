@@ -273,7 +273,7 @@ unsafe impl ::core::marker::Send for AudioEncodingProperties {}
 unsafe impl ::core::marker::Sync for AudioEncodingProperties {}
 #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AudioEncodingQuality(pub i32);
 impl AudioEncodingQuality {
     pub const Auto: Self = Self(0i32);
@@ -2166,7 +2166,7 @@ impl ::windows::core::RuntimeName for MediaEncodingSubtypes {
 }
 #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MediaMirroringOptions(pub u32);
 impl MediaMirroringOptions {
     pub const None: Self = Self(0u32);
@@ -2229,7 +2229,7 @@ unsafe impl ::windows::core::RuntimeType for MediaMirroringOptions {
 }
 #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MediaPixelFormat(pub i32);
 impl MediaPixelFormat {
     pub const Nv12: Self = Self(0i32);
@@ -2604,7 +2604,7 @@ unsafe impl ::core::marker::Send for MediaRatio {}
 unsafe impl ::core::marker::Sync for MediaRatio {}
 #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MediaRotation(pub i32);
 impl MediaRotation {
     pub const None: Self = Self(0i32);
@@ -2640,7 +2640,7 @@ unsafe impl ::windows::core::RuntimeType for MediaRotation {
 }
 #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MediaThumbnailFormat(pub i32);
 impl MediaThumbnailFormat {
     pub const Bmp: Self = Self(0i32);
@@ -2721,7 +2721,7 @@ impl ::windows::core::RuntimeName for Mpeg2ProfileIds {
 }
 #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SphericalVideoFrameFormat(pub i32);
 impl SphericalVideoFrameFormat {
     pub const None: Self = Self(0i32);
@@ -2756,7 +2756,7 @@ unsafe impl ::windows::core::RuntimeType for SphericalVideoFrameFormat {
 }
 #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct StereoscopicVideoPackingMode(pub i32);
 impl StereoscopicVideoPackingMode {
     pub const None: Self = Self(0i32);
@@ -3254,7 +3254,7 @@ unsafe impl ::core::marker::Send for VideoEncodingProperties {}
 unsafe impl ::core::marker::Sync for VideoEncodingProperties {}
 #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VideoEncodingQuality(pub i32);
 impl VideoEncodingQuality {
     pub const Auto: Self = Self(0i32);

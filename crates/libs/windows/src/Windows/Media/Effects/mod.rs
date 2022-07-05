@@ -322,7 +322,7 @@ unsafe impl ::core::marker::Send for AudioEffectDefinition {}
 unsafe impl ::core::marker::Sync for AudioEffectDefinition {}
 #[doc = "*Required features: `\"Media_Effects\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AudioEffectType(pub i32);
 impl AudioEffectType {
     pub const Other: Self = Self(0i32);
@@ -1765,7 +1765,7 @@ pub struct IVideoTransformSphericalProjection_Vtbl {
 }
 #[doc = "*Required features: `\"Media_Effects\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MediaEffectClosedReason(pub i32);
 impl MediaEffectClosedReason {
     pub const Done: Self = Self(0i32);
@@ -1801,7 +1801,7 @@ unsafe impl ::windows::core::RuntimeType for MediaEffectClosedReason {
 }
 #[doc = "*Required features: `\"Media_Effects\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MediaMemoryTypes(pub i32);
 impl MediaMemoryTypes {
     pub const Gpu: Self = Self(0i32);

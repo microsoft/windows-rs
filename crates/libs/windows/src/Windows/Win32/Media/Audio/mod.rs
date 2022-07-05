@@ -1069,7 +1069,7 @@ pub const ACM_STREAMSIZEF_QUERYMASK: i32 = 15i32;
 pub const ACM_STREAMSIZEF_SOURCE: i32 = 0i32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AMBISONICS_CHANNEL_ORDERING(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const AMBISONICS_CHANNEL_ORDERING_ACN: AMBISONICS_CHANNEL_ORDERING = AMBISONICS_CHANNEL_ORDERING(0i32);
@@ -1094,7 +1094,7 @@ impl ::core::fmt::Debug for AMBISONICS_CHANNEL_ORDERING {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AMBISONICS_NORMALIZATION(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const AMBISONICS_NORMALIZATION_SN3D: AMBISONICS_NORMALIZATION = AMBISONICS_NORMALIZATION(0i32);
@@ -1160,7 +1160,7 @@ impl ::core::default::Default for AMBISONICS_PARAMS {
 pub const AMBISONICS_PARAM_VERSION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AMBISONICS_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const AMBISONICS_TYPE_FULL3D: AMBISONICS_TYPE = AMBISONICS_TYPE(0i32);
@@ -1267,7 +1267,7 @@ pub const AUDCLNT_SESSIONFLAGS_DISPLAY_HIDEWHENEXPIRED: u32 = 1073741824u32;
 pub const AUDCLNT_SESSIONFLAGS_EXPIREWHENUNOWNED: u32 = 268435456u32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AUDCLNT_SHAREMODE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const AUDCLNT_SHAREMODE_SHARED: AUDCLNT_SHAREMODE = AUDCLNT_SHAREMODE(0i32);
@@ -1308,7 +1308,7 @@ pub const AUDCLNT_STREAMFLAGS_RATEADJUST: u32 = 1048576u32;
 pub const AUDCLNT_STREAMFLAGS_SRC_DEFAULT_QUALITY: u32 = 134217728u32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AUDCLNT_STREAMOPTIONS(pub u32);
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const AUDCLNT_STREAMOPTIONS_NONE: AUDCLNT_STREAMOPTIONS = AUDCLNT_STREAMOPTIONS(0u32);
@@ -1424,7 +1424,7 @@ impl ::core::default::Default for AUDIOCLIENT_ACTIVATION_PARAMS_0 {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AUDIOCLIENT_ACTIVATION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const AUDIOCLIENT_ACTIVATION_TYPE_DEFAULT: AUDIOCLIENT_ACTIVATION_TYPE = AUDIOCLIENT_ACTIVATION_TYPE(0i32);
@@ -1484,7 +1484,7 @@ impl ::core::default::Default for AUDIOCLIENT_PROCESS_LOOPBACK_PARAMS {
 pub const AUDIOCLOCK_CHARACTERISTIC_FIXED_FREQ: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AUDIO_DUCKING_OPTIONS(pub u32);
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const AUDIO_DUCKING_OPTIONS_DEFAULT: AUDIO_DUCKING_OPTIONS = AUDIO_DUCKING_OPTIONS(0u32);
@@ -1579,7 +1579,7 @@ impl ::core::default::Default for AUDIO_EFFECT {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AUDIO_EFFECT_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const AUDIO_EFFECT_STATE_OFF: AUDIO_EFFECT_STATE = AUDIO_EFFECT_STATE(0i32);
@@ -1606,7 +1606,7 @@ impl ::core::fmt::Debug for AUDIO_EFFECT_STATE {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AUDIO_STREAM_CATEGORY(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const AudioCategory_Other: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(0i32);
@@ -1982,7 +1982,7 @@ impl ::core::default::Default for AudioExtensionParams {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AudioObjectType(pub u32);
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const AudioObjectType_None: AudioObjectType = AudioObjectType(0u32);
@@ -2071,7 +2071,7 @@ impl ::core::ops::Not for AudioObjectType {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AudioSessionDisconnectReason(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const DisconnectReasonDeviceRemoval: AudioSessionDisconnectReason = AudioSessionDisconnectReason(0i32);
@@ -2106,7 +2106,7 @@ impl ::core::fmt::Debug for AudioSessionDisconnectReason {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AudioSessionState(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const AudioSessionStateInactive: AudioSessionState = AudioSessionState(0i32);
@@ -2135,7 +2135,7 @@ impl ::core::fmt::Debug for AudioSessionState {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AudioStateMonitorSoundLevel(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const Muted: AudioStateMonitorSoundLevel = AudioStateMonitorSoundLevel(0i32);
@@ -2179,7 +2179,7 @@ pub unsafe fn CoRegisterMessageFilter<'a, Param0: ::windows::core::IntoParam<'a,
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ConnectorType(pub i32);
 impl ConnectorType {
     pub const Unknown_Connector: Self = Self(0i32);
@@ -2384,7 +2384,7 @@ pub const DRV_MAPPER_PREFERRED_INPUT_GET: u32 = 16384u32;
 pub const DRV_MAPPER_PREFERRED_OUTPUT_GET: u32 = 16386u32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DataFlow(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const In: DataFlow = DataFlow(0i32);
@@ -2439,7 +2439,7 @@ impl ::core::default::Default for ECHOWAVEFILTER {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EDataFlow(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const eRender: EDataFlow = EDataFlow(0i32);
@@ -2482,7 +2482,7 @@ pub const ENDPOINT_SYSFX_DISABLED: u32 = 1u32;
 pub const ENDPOINT_SYSFX_ENABLED: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ERole(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const eConsole: ERole = ERole(0i32);
@@ -2514,7 +2514,7 @@ impl ::core::fmt::Debug for ERole {
 pub const EVENTCONTEXT_VOLUMESLIDER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2c2e9de_09b1_4b04_84e5_07931225ee04);
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EndpointFormFactor(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const RemoteNetworkDevice: EndpointFormFactor = EndpointFormFactor(0i32);
@@ -2576,7 +2576,7 @@ pub const FORMATCHOOSE_FORMAT_VERIFY: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const FORMATCHOOSE_MESSAGE: u32 = 0u32;
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HACMDRIVER(pub isize);
 impl HACMDRIVER {
     pub fn is_invalid(&self) -> bool {
@@ -2603,7 +2603,7 @@ unsafe impl ::windows::core::Abi for HACMDRIVER {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HACMDRIVERID(pub isize);
 impl HACMDRIVERID {
     pub fn is_invalid(&self) -> bool {
@@ -2630,7 +2630,7 @@ unsafe impl ::windows::core::Abi for HACMDRIVERID {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HACMOBJ(pub isize);
 impl HACMOBJ {
     pub fn is_invalid(&self) -> bool {
@@ -2657,7 +2657,7 @@ unsafe impl ::windows::core::Abi for HACMOBJ {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HACMSTREAM(pub isize);
 impl HACMSTREAM {
     pub fn is_invalid(&self) -> bool {
@@ -2684,7 +2684,7 @@ unsafe impl ::windows::core::Abi for HACMSTREAM {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HMIDI(pub isize);
 impl HMIDI {
     pub fn is_invalid(&self) -> bool {
@@ -2711,7 +2711,7 @@ unsafe impl ::windows::core::Abi for HMIDI {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HMIDIIN(pub isize);
 impl HMIDIIN {
     pub fn is_invalid(&self) -> bool {
@@ -2738,7 +2738,7 @@ unsafe impl ::windows::core::Abi for HMIDIIN {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HMIDIOUT(pub isize);
 impl HMIDIOUT {
     pub fn is_invalid(&self) -> bool {
@@ -2765,7 +2765,7 @@ unsafe impl ::windows::core::Abi for HMIDIOUT {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HMIDISTRM(pub isize);
 impl HMIDISTRM {
     pub fn is_invalid(&self) -> bool {
@@ -2792,7 +2792,7 @@ unsafe impl ::windows::core::Abi for HMIDISTRM {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HMIXER(pub isize);
 impl HMIXER {
     pub fn is_invalid(&self) -> bool {
@@ -2819,7 +2819,7 @@ unsafe impl ::windows::core::Abi for HMIXER {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HMIXEROBJ(pub isize);
 impl HMIXEROBJ {
     pub fn is_invalid(&self) -> bool {
@@ -2846,7 +2846,7 @@ unsafe impl ::windows::core::Abi for HMIXEROBJ {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HWAVE(pub isize);
 impl HWAVE {
     pub fn is_invalid(&self) -> bool {
@@ -2873,7 +2873,7 @@ unsafe impl ::windows::core::Abi for HWAVE {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HWAVEIN(pub isize);
 impl HWAVEIN {
     pub fn is_invalid(&self) -> bool {
@@ -2900,7 +2900,7 @@ unsafe impl ::windows::core::Abi for HWAVEIN {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HWAVEOUT(pub isize);
 impl HWAVEOUT {
     pub fn is_invalid(&self) -> bool {
@@ -9378,7 +9378,7 @@ pub const MIDI_CACHE_QUERY: u32 = 3u32;
 pub const MIDI_UNCACHE: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MIDI_WAVE_OPEN_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const CALLBACK_TYPEMASK: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(458752u32);
@@ -10506,7 +10506,7 @@ impl ::core::default::Default for MIXERLINEW_0 {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MIXERLINE_COMPONENTTYPE(pub u32);
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const MIXERLINE_COMPONENTTYPE_DST_DIGITAL: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(1u32);
@@ -10748,7 +10748,7 @@ pub const PKEY_AudioEngine_DeviceFormat: super::super::UI::Shell::PropertiesSyst
 pub const PKEY_AudioEngine_OEMFormat: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xe4870e26_3cc5_4cd2_ba46_ca0a9a70ed04), pid: 3u32 };
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROCESS_LOOPBACK_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const PROCESS_LOOPBACK_MODE_INCLUDE_TARGET_PROCESS_TREE: PROCESS_LOOPBACK_MODE = PROCESS_LOOPBACK_MODE(0i32);
@@ -10775,7 +10775,7 @@ impl ::core::fmt::Debug for PROCESS_LOOPBACK_MODE {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PartType(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const Connector: PartType = PartType(0i32);
@@ -10870,7 +10870,7 @@ pub const SPATIAL_AUDIO_POSITION: u32 = 200u32;
 pub const SPATIAL_AUDIO_STANDARD_COMMANDS_START: u32 = 200u32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SPATIAL_AUDIO_STREAM_OPTIONS(pub u32);
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const SPATIAL_AUDIO_STREAM_OPTIONS_NONE: SPATIAL_AUDIO_STREAM_OPTIONS = SPATIAL_AUDIO_STREAM_OPTIONS(0u32);
@@ -11186,7 +11186,7 @@ impl ::core::default::Default for SpatialAudioHrtfDirectivityCone {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpatialAudioHrtfDirectivityType(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const SpatialAudioHrtfDirectivity_OmniDirectional: SpatialAudioHrtfDirectivityType = SpatialAudioHrtfDirectivityType(0i32);
@@ -11271,7 +11271,7 @@ impl ::core::default::Default for SpatialAudioHrtfDistanceDecay {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpatialAudioHrtfDistanceDecayType(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const SpatialAudioHrtfDistanceDecay_NaturalDecay: SpatialAudioHrtfDistanceDecayType = SpatialAudioHrtfDistanceDecayType(0i32);
@@ -11298,7 +11298,7 @@ impl ::core::fmt::Debug for SpatialAudioHrtfDistanceDecayType {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpatialAudioHrtfEnvironmentType(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const SpatialAudioHrtfEnvironment_Small: SpatialAudioHrtfEnvironmentType = SpatialAudioHrtfEnvironmentType(0i32);
@@ -11331,7 +11331,7 @@ impl ::core::fmt::Debug for SpatialAudioHrtfEnvironmentType {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpatialAudioMetadataCopyMode(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const SpatialAudioMetadataCopy_Overwrite: SpatialAudioMetadataCopyMode = SpatialAudioMetadataCopyMode(0i32);
@@ -11390,7 +11390,7 @@ impl ::core::default::Default for SpatialAudioMetadataItemsInfo {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpatialAudioMetadataWriterOverflowMode(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const SpatialAudioMetadataWriterOverflow_Fail: SpatialAudioMetadataWriterOverflowMode = SpatialAudioMetadataWriterOverflowMode(0i32);
@@ -12144,7 +12144,7 @@ pub const WIDM_MAPPER_STATUS: u32 = 8192u32;
 pub const WODM_MAPPER_STATUS: u32 = 8192u32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _AUDCLNT_BUFFERFLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const AUDCLNT_BUFFERFLAGS_DATA_DISCONTINUITY: _AUDCLNT_BUFFERFLAGS = _AUDCLNT_BUFFERFLAGS(1i32);
@@ -12173,7 +12173,7 @@ impl ::core::fmt::Debug for _AUDCLNT_BUFFERFLAGS {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_DEFAULT: __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002 = __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002(0i32);

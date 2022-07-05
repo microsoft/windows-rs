@@ -2,7 +2,7 @@
 pub mod Preview;
 #[doc = "*Required features: `\"Media_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AudioDecoderDegradation(pub i32);
 impl AudioDecoderDegradation {
     pub const None: Self = Self(0i32);
@@ -38,7 +38,7 @@ unsafe impl ::windows::core::RuntimeType for AudioDecoderDegradation {
 }
 #[doc = "*Required features: `\"Media_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AudioDecoderDegradationReason(pub i32);
 impl AudioDecoderDegradationReason {
     pub const None: Self = Self(0i32);
@@ -842,7 +842,7 @@ unsafe impl ::core::marker::Send for ChapterCue {}
 unsafe impl ::core::marker::Sync for ChapterCue {}
 #[doc = "*Required features: `\"Media_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CodecCategory(pub i32);
 impl CodecCategory {
     pub const Encoder: Self = Self(0i32);
@@ -994,7 +994,7 @@ unsafe impl ::core::marker::Send for CodecInfo {}
 unsafe impl ::core::marker::Sync for CodecInfo {}
 #[doc = "*Required features: `\"Media_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CodecKind(pub i32);
 impl CodecKind {
     pub const Audio: Self = Self(0i32);
@@ -2292,7 +2292,7 @@ unsafe impl ::core::marker::Send for FaceDetectionEffectFrame {}
 unsafe impl ::core::marker::Sync for FaceDetectionEffectFrame {}
 #[doc = "*Required features: `\"Media_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FaceDetectionMode(pub i32);
 impl FaceDetectionMode {
     pub const HighPerformance: Self = Self(0i32);
@@ -6333,7 +6333,7 @@ unsafe impl ::core::marker::Send for MediaCueEventArgs {}
 unsafe impl ::core::marker::Sync for MediaCueEventArgs {}
 #[doc = "*Required features: `\"Media_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MediaDecoderStatus(pub i32);
 impl MediaDecoderStatus {
     pub const FullySupported: Self = Self(0i32);
@@ -7025,7 +7025,7 @@ unsafe impl ::core::marker::Send for MediaSourceOpenOperationCompletedEventArgs 
 unsafe impl ::core::marker::Sync for MediaSourceOpenOperationCompletedEventArgs {}
 #[doc = "*Required features: `\"Media_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MediaSourceState(pub i32);
 impl MediaSourceState {
     pub const Initial: Self = Self(0i32);
@@ -7155,7 +7155,7 @@ unsafe impl ::core::marker::Send for MediaSourceStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaSourceStateChangedEventArgs {}
 #[doc = "*Required features: `\"Media_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MediaSourceStatus(pub i32);
 impl MediaSourceStatus {
     pub const FullySupported: Self = Self(0i32);
@@ -8185,7 +8185,7 @@ unsafe impl ::core::marker::Send for MediaStreamSourceClosedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaStreamSourceClosedEventArgs {}
 #[doc = "*Required features: `\"Media_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MediaStreamSourceClosedReason(pub i32);
 impl MediaStreamSourceClosedReason {
     pub const Done: Self = Self(0i32);
@@ -8309,7 +8309,7 @@ unsafe impl ::core::marker::Send for MediaStreamSourceClosedRequest {}
 unsafe impl ::core::marker::Sync for MediaStreamSourceClosedRequest {}
 #[doc = "*Required features: `\"Media_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MediaStreamSourceErrorStatus(pub i32);
 impl MediaStreamSourceErrorStatus {
     pub const Other: Self = Self(0i32);
@@ -9248,7 +9248,7 @@ unsafe impl ::core::marker::Send for MediaStreamSourceSwitchStreamsRequestedEven
 unsafe impl ::core::marker::Sync for MediaStreamSourceSwitchStreamsRequestedEventArgs {}
 #[doc = "*Required features: `\"Media_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MediaTrackKind(pub i32);
 impl MediaTrackKind {
     pub const Audio: Self = Self(0i32);
@@ -9283,7 +9283,7 @@ unsafe impl ::windows::core::RuntimeType for MediaTrackKind {
 }
 #[doc = "*Required features: `\"Media_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MseAppendMode(pub i32);
 impl MseAppendMode {
     pub const Segments: Self = Self(0i32);
@@ -9317,7 +9317,7 @@ unsafe impl ::windows::core::RuntimeType for MseAppendMode {
 }
 #[doc = "*Required features: `\"Media_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MseEndOfStreamStatus(pub i32);
 impl MseEndOfStreamStatus {
     pub const Success: Self = Self(0i32);
@@ -9353,7 +9353,7 @@ unsafe impl ::windows::core::RuntimeType for MseEndOfStreamStatus {
 }
 #[doc = "*Required features: `\"Media_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MseReadyState(pub i32);
 impl MseReadyState {
     pub const Closed: Self = Self(0i32);
@@ -10571,7 +10571,7 @@ unsafe impl ::core::marker::Send for SceneAnalysisEffectFrame {}
 unsafe impl ::core::marker::Sync for SceneAnalysisEffectFrame {}
 #[doc = "*Required features: `\"Media_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SceneAnalysisRecommendation(pub i32);
 impl SceneAnalysisRecommendation {
     pub const Standard: Self = Self(0i32);
@@ -10883,7 +10883,7 @@ unsafe impl ::core::marker::Send for SpeechCue {}
 unsafe impl ::core::marker::Sync for SpeechCue {}
 #[doc = "*Required features: `\"Media_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TimedMetadataKind(pub i32);
 impl TimedMetadataKind {
     pub const Caption: Self = Self(0i32);
@@ -11468,7 +11468,7 @@ unsafe impl ::core::marker::Send for TimedMetadataTrackError {}
 unsafe impl ::core::marker::Sync for TimedMetadataTrackError {}
 #[doc = "*Required features: `\"Media_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TimedMetadataTrackErrorCode(pub i32);
 impl TimedMetadataTrackErrorCode {
     pub const None: Self = Self(0i32);
@@ -11707,7 +11707,7 @@ unsafe impl ::core::marker::Send for TimedTextBouten {}
 unsafe impl ::core::marker::Sync for TimedTextBouten {}
 #[doc = "*Required features: `\"Media_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TimedTextBoutenPosition(pub i32);
 impl TimedTextBoutenPosition {
     pub const Before: Self = Self(0i32);
@@ -11742,7 +11742,7 @@ unsafe impl ::windows::core::RuntimeType for TimedTextBoutenPosition {
 }
 #[doc = "*Required features: `\"Media_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TimedTextBoutenType(pub i32);
 impl TimedTextBoutenType {
     pub const None: Self = Self(0i32);
@@ -11966,7 +11966,7 @@ unsafe impl ::core::marker::Send for TimedTextCue {}
 unsafe impl ::core::marker::Sync for TimedTextCue {}
 #[doc = "*Required features: `\"Media_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TimedTextDisplayAlignment(pub i32);
 impl TimedTextDisplayAlignment {
     pub const Before: Self = Self(0i32);
@@ -12039,7 +12039,7 @@ impl ::core::default::Default for TimedTextDouble {
 }
 #[doc = "*Required features: `\"Media_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TimedTextFlowDirection(pub i32);
 impl TimedTextFlowDirection {
     pub const LeftToRight: Self = Self(0i32);
@@ -12073,7 +12073,7 @@ unsafe impl ::windows::core::RuntimeType for TimedTextFlowDirection {
 }
 #[doc = "*Required features: `\"Media_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TimedTextFontStyle(pub i32);
 impl TimedTextFontStyle {
     pub const Normal: Self = Self(0i32);
@@ -12214,7 +12214,7 @@ unsafe impl ::core::marker::Send for TimedTextLine {}
 unsafe impl ::core::marker::Sync for TimedTextLine {}
 #[doc = "*Required features: `\"Media_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TimedTextLineAlignment(pub i32);
 impl TimedTextLineAlignment {
     pub const Start: Self = Self(0i32);
@@ -12700,7 +12700,7 @@ unsafe impl ::core::marker::Send for TimedTextRuby {}
 unsafe impl ::core::marker::Sync for TimedTextRuby {}
 #[doc = "*Required features: `\"Media_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TimedTextRubyAlign(pub i32);
 impl TimedTextRubyAlign {
     pub const Center: Self = Self(0i32);
@@ -12738,7 +12738,7 @@ unsafe impl ::windows::core::RuntimeType for TimedTextRubyAlign {
 }
 #[doc = "*Required features: `\"Media_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TimedTextRubyPosition(pub i32);
 impl TimedTextRubyPosition {
     pub const Before: Self = Self(0i32);
@@ -12773,7 +12773,7 @@ unsafe impl ::windows::core::RuntimeType for TimedTextRubyPosition {
 }
 #[doc = "*Required features: `\"Media_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TimedTextRubyReserve(pub i32);
 impl TimedTextRubyReserve {
     pub const None: Self = Self(0i32);
@@ -12810,7 +12810,7 @@ unsafe impl ::windows::core::RuntimeType for TimedTextRubyReserve {
 }
 #[doc = "*Required features: `\"Media_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TimedTextScrollMode(pub i32);
 impl TimedTextScrollMode {
     pub const Popon: Self = Self(0i32);
@@ -13606,7 +13606,7 @@ unsafe impl ::core::marker::Send for TimedTextSubformat {}
 unsafe impl ::core::marker::Sync for TimedTextSubformat {}
 #[doc = "*Required features: `\"Media_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TimedTextUnit(pub i32);
 impl TimedTextUnit {
     pub const Pixels: Self = Self(0i32);
@@ -13640,7 +13640,7 @@ unsafe impl ::windows::core::RuntimeType for TimedTextUnit {
 }
 #[doc = "*Required features: `\"Media_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TimedTextWeight(pub i32);
 impl TimedTextWeight {
     pub const Normal: Self = Self(400i32);
@@ -13674,7 +13674,7 @@ unsafe impl ::windows::core::RuntimeType for TimedTextWeight {
 }
 #[doc = "*Required features: `\"Media_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TimedTextWrapping(pub i32);
 impl TimedTextWrapping {
     pub const NoWrap: Self = Self(0i32);
@@ -13708,7 +13708,7 @@ unsafe impl ::windows::core::RuntimeType for TimedTextWrapping {
 }
 #[doc = "*Required features: `\"Media_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TimedTextWritingMode(pub i32);
 impl TimedTextWritingMode {
     pub const LeftRightTopBottom: Self = Self(0i32);
@@ -14121,7 +14121,7 @@ unsafe impl ::core::marker::Send for VideoStabilizationEffectEnabledChangedEvent
 unsafe impl ::core::marker::Sync for VideoStabilizationEffectEnabledChangedEventArgs {}
 #[doc = "*Required features: `\"Media_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VideoStabilizationEffectEnabledChangedReason(pub i32);
 impl VideoStabilizationEffectEnabledChangedReason {
     pub const Programmatic: Self = Self(0i32);

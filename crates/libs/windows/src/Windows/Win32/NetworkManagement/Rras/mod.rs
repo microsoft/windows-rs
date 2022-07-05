@@ -639,7 +639,7 @@ impl ::core::default::Default for GRE_CONFIG_PARAMS0 {
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HRASCONN(pub isize);
 impl HRASCONN {
     pub fn is_invalid(&self) -> bool {
@@ -708,7 +708,7 @@ impl ::core::default::Default for IKEV2_CONFIG_PARAMS {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IKEV2_ID_PAYLOAD_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub const IKEV2_ID_PAYLOAD_TYPE_INVALID: IKEV2_ID_PAYLOAD_TYPE = IKEV2_ID_PAYLOAD_TYPE(0i32);
@@ -1228,7 +1228,7 @@ pub const METHOD_RIP2_ROUTE_TIMESTAMP: u32 = 8u32;
 pub const METHOD_TYPE_ALL_METHODS: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MGM_ENUM_TYPES(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub const ANY_SOURCE: MGM_ENUM_TYPES = MGM_ENUM_TYPES(0i32);
@@ -1442,7 +1442,7 @@ impl ::core::default::Default for MPRAPI_OBJECT_HEADER {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MPRAPI_OBJECT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub const MPRAPI_OBJECT_TYPE_RAS_CONNECTION_OBJECT: MPRAPI_OBJECT_TYPE = MPRAPI_OBJECT_TYPE(1i32);
@@ -1834,7 +1834,7 @@ pub const MPR_ENABLE_RAS_ON_DEVICE: u32 = 1u32;
 pub const MPR_ENABLE_ROUTING_ON_DEVICE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MPR_ET(pub u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub const MPR_ET_None: MPR_ET = MPR_ET(0u32);
@@ -2342,7 +2342,7 @@ pub const MPR_INTERFACE_CONNECTION_FAILURE: u32 = 4u32;
 pub const MPR_INTERFACE_DIALOUT_HOURS_RESTRICTION: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MPR_INTERFACE_DIAL_MODE(pub u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub const MPRDM_DialFirst: MPR_INTERFACE_DIAL_MODE = MPR_INTERFACE_DIAL_MODE(0u32);
@@ -2792,7 +2792,7 @@ impl ::core::default::Default for MPR_VPN_TRAFFIC_SELECTORS {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MPR_VPN_TS_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub const MPR_VPN_TS_IPv4_ADDR_RANGE: MPR_VPN_TS_TYPE = MPR_VPN_TS_TYPE(7i32);
@@ -2819,7 +2819,7 @@ impl ::core::fmt::Debug for MPR_VPN_TS_TYPE {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MPR_VS(pub u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub const MPR_VS_Default: MPR_VS = MPR_VS(0u32);
@@ -5156,7 +5156,7 @@ impl ::core::default::Default for PPP_IPXCP_INFO {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PPP_LCP(pub u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub const PPP_LCP_PAP: PPP_LCP = PPP_LCP(49187u32);
@@ -5257,7 +5257,7 @@ impl ::core::default::Default for PPP_LCP_INFO {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PPP_LCP_INFO_AUTH_DATA(pub u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub const PPP_LCP_CHAP_MD5: PPP_LCP_INFO_AUTH_DATA = PPP_LCP_INFO_AUTH_DATA(5u32);
@@ -5760,7 +5760,7 @@ impl ::core::default::Default for RASAMBW {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RASAPIVERSION(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub const RASAPIVERSION_500: RASAPIVERSION = RASAPIVERSION(1i32);
@@ -5995,7 +5995,7 @@ impl ::core::default::Default for RASCONNA {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RASCONNSTATE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub const RASCS_OpenPort: RASCONNSTATE = RASCONNSTATE(0i32);
@@ -6162,7 +6162,7 @@ impl ::core::default::Default for RASCONNSTATUSW {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RASCONNSUBSTATE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub const RASCSS_None: RASCONNSUBSTATE = RASCONNSUBSTATE(0i32);
@@ -7148,7 +7148,7 @@ impl ::core::default::Default for RASENTRYW {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RASENTRY_DIAL_MODE(pub u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub const RASEDM_DialAll: RASENTRY_DIAL_MODE = RASENTRY_DIAL_MODE(1u32);
@@ -7367,7 +7367,7 @@ impl ::core::default::Default for RASIKEV2_PROJECTION_INFO {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RASIKEV_PROJECTION_INFO_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub const RASIKEv2_FLAGS_MOBIKESUPPORTED: RASIKEV_PROJECTION_INFO_FLAGS = RASIKEV_PROJECTION_INFO_FLAGS(1u32);
@@ -8173,7 +8173,7 @@ impl ::core::default::Default for RASPPP_PROJECTION_INFO {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA(pub u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub const RASLCPAD_CHAP_MD5: RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA = RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA(5u32);
@@ -8202,7 +8202,7 @@ impl ::core::fmt::Debug for RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL(pub u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub const RASLCPAP_PAP: RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL = RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL(49187u32);
@@ -8243,7 +8243,7 @@ pub const RASPRIV_DialinPrivilege: u32 = 8u32;
 pub const RASPRIV_NoCallback: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RASPROJECTION(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub const RASP_Amb: RASPROJECTION = RASPROJECTION(65536i32);
@@ -8280,7 +8280,7 @@ impl ::core::fmt::Debug for RASPROJECTION {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RASPROJECTION_INFO_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub const PROJECTION_INFO_TYPE_PPP: RASPROJECTION_INFO_TYPE = RASPROJECTION_INFO_TYPE(1i32);
@@ -8819,7 +8819,7 @@ impl ::core::default::Default for RAS_CONNECTION_EX {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RAS_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub const RAS_FLAGS_PPP_CONNECTION: RAS_FLAGS = RAS_FLAGS(1u32);
@@ -8856,7 +8856,7 @@ impl ::core::fmt::Debug for RAS_FLAGS {
 pub const RAS_FLAGS_RAS_CONNECTION: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RAS_HARDWARE_CONDITION(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub const RAS_HARDWARE_OPERATIONAL: RAS_HARDWARE_CONDITION = RAS_HARDWARE_CONDITION(0i32);
@@ -9121,7 +9121,7 @@ impl ::core::default::Default for RAS_PORT_2 {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RAS_PORT_CONDITION(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub const RAS_PORT_NON_OPERATIONAL: RAS_PORT_CONDITION = RAS_PORT_CONDITION(0i32);
@@ -9225,7 +9225,7 @@ impl ::core::default::Default for RAS_PROJECTION_INFO_0 {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RAS_QUARANTINE_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub const RAS_QUAR_STATE_NORMAL: RAS_QUARANTINE_STATE = RAS_QUARANTINE_STATE(0i32);
@@ -9496,7 +9496,7 @@ pub const REN_AllUsers: u32 = 1u32;
 pub const REN_User: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ROUTER_CONNECTION_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub const ROUTER_IF_STATE_UNREACHABLE: ROUTER_CONNECTION_STATE = ROUTER_CONNECTION_STATE(0i32);
@@ -9689,7 +9689,7 @@ impl ::core::default::Default for ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ROUTER_INTERFACE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub const ROUTER_IF_TYPE_CLIENT: ROUTER_INTERFACE_TYPE = ROUTER_INTERFACE_TYPE(0i32);
@@ -10113,7 +10113,7 @@ pub const RTM_ENUM_START: u32 = 0u32;
 pub type RTM_EVENT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(rtmreghandle: isize, eventtype: RTM_EVENT_TYPE, context1: *mut ::core::ffi::c_void, context2: *mut ::core::ffi::c_void) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RTM_EVENT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub const RTM_ENTITY_REGISTERED: RTM_EVENT_TYPE = RTM_EVENT_TYPE(0i32);
@@ -12648,7 +12648,7 @@ impl ::core::default::Default for SECURITY_MESSAGE {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SECURITY_MESSAGE_MSG_ID(pub u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub const SECURITYMSG_SUCCESS: SECURITY_MESSAGE_MSG_ID = SECURITY_MESSAGE_MSG_ID(1u32);

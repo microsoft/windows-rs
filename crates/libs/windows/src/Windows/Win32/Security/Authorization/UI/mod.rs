@@ -610,7 +610,7 @@ pub struct ISecurityObjectTypeInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SECURITY_INFO_PAGE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`*"]
 pub const SI_ADVANCED: SECURITY_INFO_PAGE_FLAGS = SECURITY_INFO_PAGE_FLAGS(16u32);
@@ -927,7 +927,7 @@ impl ::core::default::Default for SI_OBJECT_INFO {
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SI_OBJECT_INFO_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`*"]
 pub const SI_AUDITS_ELEVATION_REQUIRED: SI_OBJECT_INFO_FLAGS = SI_OBJECT_INFO_FLAGS(33554432u32);
@@ -1010,7 +1010,7 @@ pub const SI_OWNER_READONLY: i32 = 64i32;
 pub const SI_OWNER_RECURSE: i32 = 256i32;
 #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SI_PAGE_ACTIVATED(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`*"]
 pub const SI_SHOW_DEFAULT: SI_PAGE_ACTIVATED = SI_PAGE_ACTIVATED(0i32);
@@ -1049,7 +1049,7 @@ impl ::core::fmt::Debug for SI_PAGE_ACTIVATED {
 pub const SI_PAGE_TITLE: i32 = 2048i32;
 #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SI_PAGE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`*"]
 pub const SI_PAGE_PERM: SI_PAGE_TYPE = SI_PAGE_TYPE(0i32);

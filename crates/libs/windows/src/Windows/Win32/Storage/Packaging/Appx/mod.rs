@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct APPX_BUNDLE_FOOTPRINT_FILE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_BUNDLE_FOOTPRINT_FILE_TYPE_FIRST: APPX_BUNDLE_FOOTPRINT_FILE_TYPE = APPX_BUNDLE_FOOTPRINT_FILE_TYPE(0i32);
@@ -33,7 +33,7 @@ impl ::core::fmt::Debug for APPX_BUNDLE_FOOTPRINT_FILE_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE_APPLICATION: APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE = APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE(0i32);
@@ -60,7 +60,7 @@ impl ::core::fmt::Debug for APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct APPX_CAPABILITIES(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_CAPABILITY_INTERNET_CLIENT: APPX_CAPABILITIES = APPX_CAPABILITIES(1u32);
@@ -135,7 +135,7 @@ impl ::core::ops::Not for APPX_CAPABILITIES {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct APPX_CAPABILITY_CLASS_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_CAPABILITY_CLASS_DEFAULT: APPX_CAPABILITY_CLASS_TYPE = APPX_CAPABILITY_CLASS_TYPE(0i32);
@@ -170,7 +170,7 @@ impl ::core::fmt::Debug for APPX_CAPABILITY_CLASS_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct APPX_COMPRESSION_OPTION(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_COMPRESSION_OPTION_NONE: APPX_COMPRESSION_OPTION = APPX_COMPRESSION_OPTION(0i32);
@@ -234,7 +234,7 @@ impl ::core::default::Default for APPX_ENCRYPTED_EXEMPTIONS {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct APPX_ENCRYPTED_PACKAGE_OPTIONS(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_ENCRYPTED_PACKAGE_OPTION_NONE: APPX_ENCRYPTED_PACKAGE_OPTIONS = APPX_ENCRYPTED_PACKAGE_OPTIONS(0u32);
@@ -379,7 +379,7 @@ impl ::core::default::Default for APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct APPX_FOOTPRINT_FILE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_FOOTPRINT_FILE_TYPE_MANIFEST: APPX_FOOTPRINT_FILE_TYPE = APPX_FOOTPRINT_FILE_TYPE(0i32);
@@ -445,7 +445,7 @@ impl ::core::default::Default for APPX_KEY_INFO {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct APPX_PACKAGE_ARCHITECTURE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_PACKAGE_ARCHITECTURE_X86: APPX_PACKAGE_ARCHITECTURE = APPX_PACKAGE_ARCHITECTURE(0i32);
@@ -478,7 +478,7 @@ impl ::core::fmt::Debug for APPX_PACKAGE_ARCHITECTURE {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct APPX_PACKAGE_ARCHITECTURE2(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_PACKAGE_ARCHITECTURE2_X86: APPX_PACKAGE_ARCHITECTURE2 = APPX_PACKAGE_ARCHITECTURE2(0i32);
@@ -515,7 +515,7 @@ impl ::core::fmt::Debug for APPX_PACKAGE_ARCHITECTURE2 {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTION_NONE: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS = APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS(0u32);
@@ -572,7 +572,7 @@ impl ::core::ops::Not for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION_APPEND_DELTA: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION = APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION(0i32);
@@ -673,7 +673,7 @@ impl ::core::default::Default for APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct APPX_PACKAGING_CONTEXT_CHANGE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const APPX_PACKAGING_CONTEXT_CHANGE_TYPE_START: APPX_PACKAGING_CONTEXT_CHANGE_TYPE = APPX_PACKAGING_CONTEXT_CHANGE_TYPE(0i32);
@@ -733,7 +733,7 @@ pub unsafe fn AddPackageDependency<'a, Param0: ::windows::core::IntoParam<'a, ::
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AddPackageDependencyOptions(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const AddPackageDependencyOptions_None: AddPackageDependencyOptions = AddPackageDependencyOptions(0i32);
@@ -760,7 +760,7 @@ impl ::core::fmt::Debug for AddPackageDependencyOptions {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppPolicyClrCompat(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const AppPolicyClrCompat_Other: AppPolicyClrCompat = AppPolicyClrCompat(0i32);
@@ -791,7 +791,7 @@ impl ::core::fmt::Debug for AppPolicyClrCompat {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppPolicyCreateFileAccess(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const AppPolicyCreateFileAccess_Full: AppPolicyCreateFileAccess = AppPolicyCreateFileAccess(0i32);
@@ -938,7 +938,7 @@ pub unsafe fn AppPolicyGetWindowingModel<'a, Param0: ::windows::core::IntoParam<
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppPolicyLifecycleManagement(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const AppPolicyLifecycleManagement_Unmanaged: AppPolicyLifecycleManagement = AppPolicyLifecycleManagement(0i32);
@@ -965,7 +965,7 @@ impl ::core::fmt::Debug for AppPolicyLifecycleManagement {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppPolicyMediaFoundationCodecLoading(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const AppPolicyMediaFoundationCodecLoading_All: AppPolicyMediaFoundationCodecLoading = AppPolicyMediaFoundationCodecLoading(0i32);
@@ -992,7 +992,7 @@ impl ::core::fmt::Debug for AppPolicyMediaFoundationCodecLoading {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppPolicyProcessTerminationMethod(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const AppPolicyProcessTerminationMethod_ExitProcess: AppPolicyProcessTerminationMethod = AppPolicyProcessTerminationMethod(0i32);
@@ -1019,7 +1019,7 @@ impl ::core::fmt::Debug for AppPolicyProcessTerminationMethod {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppPolicyShowDeveloperDiagnostic(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const AppPolicyShowDeveloperDiagnostic_None: AppPolicyShowDeveloperDiagnostic = AppPolicyShowDeveloperDiagnostic(0i32);
@@ -1046,7 +1046,7 @@ impl ::core::fmt::Debug for AppPolicyShowDeveloperDiagnostic {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppPolicyThreadInitializationType(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const AppPolicyThreadInitializationType_None: AppPolicyThreadInitializationType = AppPolicyThreadInitializationType(0i32);
@@ -1073,7 +1073,7 @@ impl ::core::fmt::Debug for AppPolicyThreadInitializationType {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppPolicyWindowingModel(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const AppPolicyWindowingModel_None: AppPolicyWindowingModel = AppPolicyWindowingModel(0i32);
@@ -1140,7 +1140,7 @@ pub unsafe fn ClosePackageInfo(packageinforeference: *const _PACKAGE_INFO_REFERE
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CreatePackageDependencyOptions(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const CreatePackageDependencyOptions_None: CreatePackageDependencyOptions = CreatePackageDependencyOptions(0i32);
@@ -1184,7 +1184,7 @@ pub unsafe fn CreatePackageVirtualizationContext<'a, Param0: ::windows::core::In
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DX_FEATURE_LEVEL(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const DX_FEATURE_LEVEL_UNSPECIFIED: DX_FEATURE_LEVEL = DX_FEATURE_LEVEL(0i32);
@@ -8107,7 +8107,7 @@ impl ::core::default::Default for PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PackageDependencyLifetimeKind(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const PackageDependencyLifetimeKind_Process: PackageDependencyLifetimeKind = PackageDependencyLifetimeKind(0i32);
@@ -8136,7 +8136,7 @@ impl ::core::fmt::Debug for PackageDependencyLifetimeKind {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PackageDependencyProcessorArchitectures(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const PackageDependencyProcessorArchitectures_None: PackageDependencyProcessorArchitectures = PackageDependencyProcessorArchitectures(0i32);
@@ -8248,7 +8248,7 @@ pub unsafe fn PackageNameAndPublisherIdFromFamilyName<'a, Param0: ::windows::cor
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PackageOrigin(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const PackageOrigin_Unknown: PackageOrigin = PackageOrigin(0i32);
@@ -8285,7 +8285,7 @@ impl ::core::fmt::Debug for PackageOrigin {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PackagePathType(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub const PackagePathType_Install: PackagePathType = PackagePathType(0i32);

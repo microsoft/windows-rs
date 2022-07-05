@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ACCOUNT_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 pub const NOT_CONNECTED: ACCOUNT_STATE = ACCOUNT_STATE(0i32);
@@ -908,7 +908,7 @@ pub const IDENTITY_KEYWORD_HOMEGROUP: &str = "homegroup";
 pub const IDENTITY_KEYWORD_LOCAL: &str = "local";
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IDENTITY_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 pub const IDENTITIES_ALL: IDENTITY_TYPE = IDENTITY_TYPE(0i32);
@@ -935,7 +935,7 @@ impl ::core::fmt::Debug for IDENTITY_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IDENTITY_URL(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 pub const IDENTITY_URL_CREATE_ACCOUNT_WIZARD: IDENTITY_URL = IDENTITY_URL(0i32);
@@ -1355,7 +1355,7 @@ pub struct IIdentityStoreEx_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IdentityUpdateEvent(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 pub const IDENTITY_ASSOCIATED: IdentityUpdateEvent = IdentityUpdateEvent(1u32);

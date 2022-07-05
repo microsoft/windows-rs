@@ -219,7 +219,7 @@ unsafe impl ::core::marker::Send for AudioBuffer {}
 unsafe impl ::core::marker::Sync for AudioBuffer {}
 #[doc = "*Required features: `\"Media\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AudioBufferAccessMode(pub i32);
 impl AudioBufferAccessMode {
     pub const Read: Self = Self(0i32);
@@ -488,7 +488,7 @@ unsafe impl ::core::marker::Send for AudioFrame {}
 unsafe impl ::core::marker::Sync for AudioFrame {}
 #[doc = "*Required features: `\"Media\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AudioProcessing(pub i32);
 impl AudioProcessing {
     pub const Default: Self = Self(0i32);
@@ -2479,7 +2479,7 @@ impl ::windows::core::RuntimeName for MediaMarkerTypes {
 }
 #[doc = "*Required features: `\"Media\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MediaPlaybackAutoRepeatMode(pub i32);
 impl MediaPlaybackAutoRepeatMode {
     pub const None: Self = Self(0i32);
@@ -2514,7 +2514,7 @@ unsafe impl ::windows::core::RuntimeType for MediaPlaybackAutoRepeatMode {
 }
 #[doc = "*Required features: `\"Media\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MediaPlaybackStatus(pub i32);
 impl MediaPlaybackStatus {
     pub const Closed: Self = Self(0i32);
@@ -2551,7 +2551,7 @@ unsafe impl ::windows::core::RuntimeType for MediaPlaybackStatus {
 }
 #[doc = "*Required features: `\"Media\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MediaPlaybackType(pub i32);
 impl MediaPlaybackType {
     pub const Unknown: Self = Self(0i32);
@@ -3028,7 +3028,7 @@ unsafe impl ::core::marker::Send for MediaTimelineControllerFailedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaTimelineControllerFailedEventArgs {}
 #[doc = "*Required features: `\"Media\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MediaTimelineControllerState(pub i32);
 impl MediaTimelineControllerState {
     pub const Paused: Self = Self(0i32);
@@ -3484,7 +3484,7 @@ unsafe impl ::core::marker::Send for ShuffleEnabledChangeRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for ShuffleEnabledChangeRequestedEventArgs {}
 #[doc = "*Required features: `\"Media\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SoundLevel(pub i32);
 impl SoundLevel {
     pub const Muted: Self = Self(0i32);
@@ -3914,7 +3914,7 @@ unsafe impl ::core::marker::Send for SystemMediaTransportControls {}
 unsafe impl ::core::marker::Sync for SystemMediaTransportControls {}
 #[doc = "*Required features: `\"Media\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SystemMediaTransportControlsButton(pub i32);
 impl SystemMediaTransportControlsButton {
     pub const Play: Self = Self(0i32);
@@ -4202,7 +4202,7 @@ unsafe impl ::core::marker::Send for SystemMediaTransportControlsDisplayUpdater 
 unsafe impl ::core::marker::Sync for SystemMediaTransportControlsDisplayUpdater {}
 #[doc = "*Required features: `\"Media\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SystemMediaTransportControlsProperty(pub i32);
 impl SystemMediaTransportControlsProperty {
     pub const SoundLevel: Self = Self(0i32);

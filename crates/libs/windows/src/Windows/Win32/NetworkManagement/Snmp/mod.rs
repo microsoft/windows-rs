@@ -287,7 +287,7 @@ pub const SNMP_ACCESS_READ_ONLY: u32 = 2u32;
 pub const SNMP_ACCESS_READ_WRITE: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SNMP_API_TRANSLATE_MODE(pub u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 pub const SNMPAPI_TRANSLATED: SNMP_API_TRANSLATE_MODE = SNMP_API_TRANSLATE_MODE(0u32);
@@ -332,7 +332,7 @@ pub const SNMP_BERAPI_OVERFLOW: u32 = 12u32;
 pub const SNMP_BERAPI_SHORT_BUFFER: u32 = 13u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SNMP_ERROR(pub u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 pub const SNMP_ERROR_NOERROR: SNMP_ERROR = SNMP_ERROR(0u32);
@@ -393,7 +393,7 @@ impl ::core::fmt::Debug for SNMP_ERROR {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SNMP_ERROR_STATUS(pub u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 pub const SNMP_ERRORSTATUS_NOERROR: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(0u32);
@@ -454,7 +454,7 @@ impl ::core::fmt::Debug for SNMP_ERROR_STATUS {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SNMP_EXTENSION_REQUEST_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 pub const SNMP_EXTENSION_GET: SNMP_EXTENSION_REQUEST_TYPE = SNMP_EXTENSION_REQUEST_TYPE(160u32);
@@ -489,7 +489,7 @@ impl ::core::fmt::Debug for SNMP_EXTENSION_REQUEST_TYPE {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SNMP_GENERICTRAP(pub u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 pub const SNMP_GENERICTRAP_COLDSTART: SNMP_GENERICTRAP = SNMP_GENERICTRAP(0u32);
@@ -526,7 +526,7 @@ impl ::core::fmt::Debug for SNMP_GENERICTRAP {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SNMP_LOG(pub u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 pub const SNMP_LOG_SILENT: SNMP_LOG = SNMP_LOG(0u32);
@@ -583,7 +583,7 @@ pub const SNMP_MGMTAPI_TRAP_DUPINIT: u32 = 43u32;
 pub const SNMP_MGMTAPI_TRAP_ERRORS: u32 = 42u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SNMP_OUTPUT_LOG_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 pub const SNMP_OUTPUT_TO_CONSOLE: SNMP_OUTPUT_LOG_TYPE = SNMP_OUTPUT_LOG_TYPE(1u32);
@@ -620,7 +620,7 @@ pub const SNMP_PDUAPI_INVALID_GT: u32 = 22u32;
 pub const SNMP_PDUAPI_UNRECOGNIZED_PDU: u32 = 20u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SNMP_PDU_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 pub const SNMP_PDU_GET: SNMP_PDU_TYPE = SNMP_PDU_TYPE(160u32);
@@ -655,7 +655,7 @@ impl ::core::fmt::Debug for SNMP_PDU_TYPE {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SNMP_STATUS(pub u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 pub const SNMPAPI_ON: SNMP_STATUS = SNMP_STATUS(1u32);

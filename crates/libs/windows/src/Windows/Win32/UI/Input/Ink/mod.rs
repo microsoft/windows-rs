@@ -366,7 +366,7 @@ pub struct IInkPresenterDesktop_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ink\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct INK_HIGH_CONTRAST_ADJUSTMENT(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Input_Ink\"`*"]
 pub const USE_SYSTEM_COLORS_WHEN_NECESSARY: INK_HIGH_CONTRAST_ADJUSTMENT = INK_HIGH_CONTRAST_ADJUSTMENT(0i32);

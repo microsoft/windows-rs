@@ -1410,7 +1410,7 @@ impl ::core::default::Default for JET_ENUMCOLUMNVALUE {
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct JET_ERRCAT(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 pub const JET_errcatUnknown: JET_ERRCAT = JET_ERRCAT(0i32);
@@ -1522,7 +1522,7 @@ pub const JET_ExceptionMsgBox: u32 = 1u32;
 pub const JET_ExceptionNone: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct JET_INDEXCHECKING(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 pub const JET_IndexCheckingOff: JET_INDEXCHECKING = JET_INDEXCHECKING(0i32);
@@ -2665,7 +2665,7 @@ impl ::core::default::Default for JET_LOGTIME_1_0 {
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct JET_LS(pub usize);
 impl JET_LS {
     pub fn is_invalid(&self) -> bool {
@@ -2966,7 +2966,7 @@ impl ::core::default::Default for JET_OPERATIONCONTEXT {
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct JET_OSSNAPID(pub usize);
 impl JET_OSSNAPID {
     pub fn is_invalid(&self) -> bool {
@@ -3426,7 +3426,7 @@ impl ::core::default::Default for JET_RECSIZE2 {
 }
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct JET_RELOP(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 pub const JET_relopEquals: JET_RELOP = JET_RELOP(0i32);

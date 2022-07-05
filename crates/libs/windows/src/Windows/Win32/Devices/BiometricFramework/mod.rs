@@ -480,7 +480,7 @@ impl ::core::default::Default for WINBIO_ANTI_SPOOF_POLICY {
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINBIO_ANTI_SPOOF_POLICY_ACTION(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 pub const WINBIO_ANTI_SPOOF_DISABLE: WINBIO_ANTI_SPOOF_POLICY_ACTION = WINBIO_ANTI_SPOOF_POLICY_ACTION(0i32);
@@ -509,7 +509,7 @@ impl ::core::fmt::Debug for WINBIO_ANTI_SPOOF_POLICY_ACTION {
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINBIO_ASYNC_NOTIFICATION_METHOD(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 pub const WINBIO_ASYNC_NOTIFY_NONE: WINBIO_ASYNC_NOTIFICATION_METHOD = WINBIO_ASYNC_NOTIFICATION_METHOD(0i32);
@@ -1828,7 +1828,7 @@ impl ::core::default::Default for WINBIO_CAPTURE_PARAMETERS {
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINBIO_COMPONENT(pub u32);
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 pub const WINBIO_COMPONENT_SENSOR: WINBIO_COMPONENT = WINBIO_COMPONENT(1u32);
@@ -1857,7 +1857,7 @@ impl ::core::fmt::Debug for WINBIO_COMPONENT {
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINBIO_CREDENTIAL_FORMAT(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 pub const WINBIO_PASSWORD_GENERIC: WINBIO_CREDENTIAL_FORMAT = WINBIO_CREDENTIAL_FORMAT(1i32);
@@ -1886,7 +1886,7 @@ impl ::core::fmt::Debug for WINBIO_CREDENTIAL_FORMAT {
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINBIO_CREDENTIAL_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 pub const WINBIO_CREDENTIAL_NOT_SET: WINBIO_CREDENTIAL_STATE = WINBIO_CREDENTIAL_STATE(1i32);
@@ -1913,7 +1913,7 @@ impl ::core::fmt::Debug for WINBIO_CREDENTIAL_STATE {
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINBIO_CREDENTIAL_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 pub const WINBIO_CREDENTIAL_PASSWORD: WINBIO_CREDENTIAL_TYPE = WINBIO_CREDENTIAL_TYPE(1i32);
@@ -4036,7 +4036,7 @@ impl ::core::default::Default for WINBIO_PIPELINE {
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINBIO_POLICY_SOURCE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 pub const WINBIO_POLICY_UNKNOWN: WINBIO_POLICY_SOURCE = WINBIO_POLICY_SOURCE(0i32);
@@ -4067,7 +4067,7 @@ impl ::core::fmt::Debug for WINBIO_POLICY_SOURCE {
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINBIO_POOL(pub u32);
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 pub const WINBIO_POOL_SYSTEM: WINBIO_POOL = WINBIO_POOL(1u32);
@@ -4700,7 +4700,7 @@ impl ::core::default::Default for WINBIO_SENSOR_INTERFACE {
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINBIO_SETTING_SOURCE(pub u32);
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 pub const WINBIO_SETTING_SOURCE_INVALID: WINBIO_SETTING_SOURCE = WINBIO_SETTING_SOURCE(0u32);

@@ -94,7 +94,7 @@ pub unsafe fn CreateXmlWriterOutputWithEncodingName<'a, Param0: ::windows::core:
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DtdProcessing(pub i32);
 #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
 pub const DtdProcessing_Prohibit: DtdProcessing = DtdProcessing(0i32);
@@ -773,7 +773,7 @@ pub struct IXmlWriterLite_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XmlConformanceLevel(pub i32);
 #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
 pub const XmlConformanceLevel_Auto: XmlConformanceLevel = XmlConformanceLevel(0i32);
@@ -804,7 +804,7 @@ impl ::core::fmt::Debug for XmlConformanceLevel {
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XmlError(pub i32);
 #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
 pub const MX_E_MX: XmlError = XmlError(-1072894464i32);
@@ -997,7 +997,7 @@ impl ::core::fmt::Debug for XmlError {
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XmlNodeType(pub i32);
 #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
 pub const XmlNodeType_None: XmlNodeType = XmlNodeType(0i32);
@@ -1044,7 +1044,7 @@ impl ::core::fmt::Debug for XmlNodeType {
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XmlReadState(pub i32);
 #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
 pub const XmlReadState_Initial: XmlReadState = XmlReadState(0i32);
@@ -1077,7 +1077,7 @@ impl ::core::fmt::Debug for XmlReadState {
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XmlReaderProperty(pub i32);
 #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
 pub const XmlReaderProperty_MultiLanguage: XmlReaderProperty = XmlReaderProperty(0i32);
@@ -1118,7 +1118,7 @@ impl ::core::fmt::Debug for XmlReaderProperty {
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XmlStandalone(pub i32);
 #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
 pub const XmlStandalone_Omit: XmlStandalone = XmlStandalone(0i32);
@@ -1149,7 +1149,7 @@ impl ::core::fmt::Debug for XmlStandalone {
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XmlWriterProperty(pub i32);
 #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
 pub const XmlWriterProperty_MultiLanguage: XmlWriterProperty = XmlWriterProperty(0i32);

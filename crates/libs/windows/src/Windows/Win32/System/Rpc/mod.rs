@@ -176,7 +176,7 @@ pub const EEInfoUseFileTime: u32 = 4u32;
 pub type EXPR_EVAL = ::core::option::Option<unsafe extern "system" fn(param0: *mut MIDL_STUB_MESSAGE)>;
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EXPR_TOKEN(pub i32);
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 pub const FC_EXPR_START: EXPR_TOKEN = EXPR_TOKEN(0i32);
@@ -215,7 +215,7 @@ impl ::core::fmt::Debug for EXPR_TOKEN {
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ExtendedErrorParamTypes(pub i32);
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 pub const eeptAnsiString: ExtendedErrorParamTypes = ExtendedErrorParamTypes(1i32);
@@ -353,7 +353,7 @@ impl ::core::default::Default for GENERIC_BINDING_ROUTINE_PAIR {
 pub type GENERIC_UNBIND_ROUTINE = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: *mut u8)>;
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GROUP_NAME_SYNTAX(pub u32);
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 pub const RPC_C_NS_SYNTAX_DEFAULT: GROUP_NAME_SYNTAX = GROUP_NAME_SYNTAX(0u32);
@@ -380,7 +380,7 @@ impl ::core::fmt::Debug for GROUP_NAME_SYNTAX {
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IDL_CS_CONVERT(pub i32);
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 pub const IDL_CS_NO_CONVERT: IDL_CS_CONVERT = IDL_CS_CONVERT(0i32);
@@ -1530,7 +1530,7 @@ pub unsafe fn I_UuidCreate(uuid: *mut ::windows::core::GUID) -> RPC_STATUS {
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION(pub i32);
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 pub const MarshalDirectionMarshal: LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION = LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION(0i32);
@@ -1590,7 +1590,7 @@ impl ::core::default::Default for MALLOC_FREE_STRUCT {
 pub type MIDL_ES_ALLOC = ::core::option::Option<unsafe extern "system" fn(state: *mut ::core::ffi::c_void, pbuffer: *mut *mut i8, psize: *mut u32)>;
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MIDL_ES_CODE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 pub const MES_ENCODE: MIDL_ES_CODE = MIDL_ES_CODE(0i32);
@@ -1619,7 +1619,7 @@ impl ::core::fmt::Debug for MIDL_ES_CODE {
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MIDL_ES_HANDLE_STYLE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 pub const MES_INCREMENTAL_HANDLE: MIDL_ES_HANDLE_STYLE = MIDL_ES_HANDLE_STYLE(0i32);
@@ -7576,7 +7576,7 @@ pub unsafe fn NdrXmitOrRepAsUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemor
 pub type PFN_RPCNOTIFICATION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(pasync: *mut RPC_ASYNC_STATE, context: *mut ::core::ffi::c_void, event: RPC_ASYNC_EVENT)>;
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROXY_PHASE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 pub const PROXY_CALCSIZE: PROXY_PHASE = PROXY_PHASE(0i32);
@@ -7703,7 +7703,7 @@ pub type RPCLT_PDU_FILTER_FUNC = ::core::option::Option<unsafe extern "system" f
 pub type RPC_ADDRESS_CHANGE_FN = ::core::option::Option<unsafe extern "system" fn(arg: *mut ::core::ffi::c_void)>;
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RPC_ADDRESS_CHANGE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 pub const PROTOCOL_NOT_LOADED: RPC_ADDRESS_CHANGE_TYPE = RPC_ADDRESS_CHANGE_TYPE(1i32);
@@ -7732,7 +7732,7 @@ impl ::core::fmt::Debug for RPC_ADDRESS_CHANGE_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RPC_ASYNC_EVENT(pub i32);
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 pub const RpcCallComplete: RPC_ASYNC_EVENT = RPC_ASYNC_EVENT(0i32);
@@ -7968,7 +7968,7 @@ pub const RPC_BHO_EXCLUSIVE_AND_GUARANTEED: u32 = 4u32;
 pub const RPC_BHT_OBJECT_UUID_VALID: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RPC_BINDING_HANDLE_OPTIONS_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 pub const RPC_BHO_NONCAUSAL: RPC_BINDING_HANDLE_OPTIONS_FLAGS = RPC_BINDING_HANDLE_OPTIONS_FLAGS(1u32);
@@ -8855,7 +8855,7 @@ pub const RPC_C_AUTHN_GSS_NEGOTIATE: u32 = 9u32;
 pub const RPC_C_AUTHN_GSS_SCHANNEL: u32 = 14u32;
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RPC_C_AUTHN_INFO_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 pub const RPC_C_AUTHN_INFO_NONE: RPC_C_AUTHN_INFO_TYPE = RPC_C_AUTHN_INFO_TYPE(0u32);
@@ -8946,7 +8946,7 @@ pub const RPC_C_HTTP_AUTHN_SCHEME_NTLM: u32 = 2u32;
 pub const RPC_C_HTTP_AUTHN_SCHEME_PASSPORT: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RPC_C_HTTP_AUTHN_TARGET(pub u32);
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 pub const RPC_C_HTTP_AUTHN_TARGET_SERVER: RPC_C_HTTP_AUTHN_TARGET = RPC_C_HTTP_AUTHN_TARGET(1u32);
@@ -9001,7 +9001,7 @@ impl ::core::ops::Not for RPC_C_HTTP_AUTHN_TARGET {
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RPC_C_HTTP_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 pub const RPC_C_HTTP_FLAG_USE_SSL: RPC_C_HTTP_FLAGS = RPC_C_HTTP_FLAGS(1u32);
@@ -9197,7 +9197,7 @@ pub const RPC_C_PROFILE_MATCH_BY_MBR: u32 = 3u32;
 pub const RPC_C_PROTSEQ_MAX_REQS_DEFAULT: u32 = 10u32;
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RPC_C_QOS_CAPABILITIES(pub u32);
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 pub const RPC_C_QOS_CAPABILITIES_DEFAULT: RPC_C_QOS_CAPABILITIES = RPC_C_QOS_CAPABILITIES(0u32);
@@ -9262,7 +9262,7 @@ impl ::core::ops::Not for RPC_C_QOS_CAPABILITIES {
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RPC_C_QOS_IDENTITY(pub u32);
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 pub const RPC_C_QOS_IDENTITY_STATIC: RPC_C_QOS_IDENTITY = RPC_C_QOS_IDENTITY(0u32);
@@ -9601,7 +9601,7 @@ pub const RPC_FW_IF_FLAG_DCOM: u32 = 1u32;
 pub type RPC_HTTP_PROXY_FREE_STRING = ::core::option::Option<unsafe extern "system" fn(string: *const u16)>;
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RPC_HTTP_REDIRECTOR_STAGE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 pub const RPCHTTP_RS_REDIRECT: RPC_HTTP_REDIRECTOR_STAGE = RPC_HTTP_REDIRECTOR_STAGE(1i32);
@@ -10159,7 +10159,7 @@ pub const RPC_NCA_FLAGS_MAYBE: u32 = 4u32;
 pub type RPC_NEW_HTTP_PROXY_CHANNEL = ::core::option::Option<unsafe extern "system" fn(redirectorstage: RPC_HTTP_REDIRECTOR_STAGE, servername: *const u16, serverport: *const u16, remoteuser: *const u16, authtype: *const u16, resourceuuid: *mut ::core::ffi::c_void, sessionid: *mut ::core::ffi::c_void, interface: *const ::core::ffi::c_void, reserved: *const ::core::ffi::c_void, flags: u32, newservername: *mut *mut u16, newserverport: *mut *mut u16) -> RPC_STATUS>;
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RPC_NOTIFICATIONS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 pub const RpcNotificationCallNone: RPC_NOTIFICATIONS = RPC_NOTIFICATIONS(0i32);
@@ -10188,7 +10188,7 @@ impl ::core::fmt::Debug for RPC_NOTIFICATIONS {
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RPC_NOTIFICATION_TYPES(pub i32);
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 pub const RpcNotificationTypeNone: RPC_NOTIFICATION_TYPES = RPC_NOTIFICATION_TYPES(0i32);
@@ -11090,7 +11090,7 @@ impl ::core::default::Default for RPC_STATS_VECTOR {
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RPC_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 pub const RPC_S_INVALID_STRING_BINDING: RPC_STATUS = RPC_STATUS(1700i32);
@@ -11936,7 +11936,7 @@ pub unsafe fn RpcBindingVectorFree(bindingvector: *mut *mut RPC_BINDING_VECTOR) 
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RpcCallClientLocality(pub i32);
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 pub const rcclInvalid: RpcCallClientLocality = RpcCallClientLocality(0i32);
@@ -11967,7 +11967,7 @@ impl ::core::fmt::Debug for RpcCallClientLocality {
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RpcCallType(pub i32);
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 pub const rctInvalid: RpcCallType = RpcCallType(0i32);
@@ -12381,7 +12381,7 @@ pub unsafe fn RpcImpersonateClientContainer(bindinghandle: *const ::core::ffi::c
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RpcLocalAddressFormat(pub i32);
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 pub const rlafInvalid: RpcLocalAddressFormat = RpcLocalAddressFormat(0i32);
@@ -13628,7 +13628,7 @@ pub unsafe fn RpcProtseqVectorFreeW(protseqvector: *mut *mut RPC_PROTSEQ_VECTORW
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RpcProxyPerfCounters(pub i32);
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 pub const RpcCurrentUniqueUser: RpcProxyPerfCounters = RpcProxyPerfCounters(1i32);
@@ -14813,7 +14813,7 @@ impl ::core::default::Default for SCONTEXT_QUEUE {
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SEC_WINNT_AUTH_IDENTITY(pub u32);
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 pub const SEC_WINNT_AUTH_IDENTITY_ANSI: SEC_WINNT_AUTH_IDENTITY = SEC_WINNT_AUTH_IDENTITY(1u32);
@@ -14914,7 +14914,7 @@ impl ::core::default::Default for SEC_WINNT_AUTH_IDENTITY_W {
 pub type SERVER_ROUTINE = ::core::option::Option<unsafe extern "system" fn() -> i32>;
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STUB_PHASE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 pub const STUB_UNMARSHAL: STUB_PHASE = STUB_PHASE(0i32);
@@ -15022,7 +15022,7 @@ impl ::core::default::Default for USER_MARSHAL_CB {
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct USER_MARSHAL_CB_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 pub const USER_MARSHAL_CB_BUFFER_SIZE: USER_MARSHAL_CB_TYPE = USER_MARSHAL_CB_TYPE(0i32);
@@ -15303,7 +15303,7 @@ pub unsafe fn UuidToStringW(uuid: *const ::windows::core::GUID, stringuuid: *mut
 }
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XLAT_SIDE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 pub const XLAT_SERVER: XLAT_SIDE = XLAT_SIDE(1i32);
@@ -15415,7 +15415,7 @@ pub const __RPCPROXY_H_VERSION__: u32 = 475u32;
 pub const cbNDRContext: u32 = 20u32;
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct system_handle_t(pub i32);
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
 pub const SYSTEM_HANDLE_FILE: system_handle_t = system_handle_t(0i32);

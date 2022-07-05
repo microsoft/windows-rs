@@ -88,7 +88,7 @@ impl ::windows::core::RuntimeName for GameList {
 }
 #[doc = "*Required features: `\"Gaming_Preview_GamesEnumeration\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GameListCategory(pub i32);
 impl GameListCategory {
     pub const Candidate: Self = Self(0i32);
@@ -419,7 +419,7 @@ unsafe impl ::core::marker::Send for GameListEntry {}
 unsafe impl ::core::marker::Sync for GameListEntry {}
 #[doc = "*Required features: `\"Gaming_Preview_GamesEnumeration\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GameListEntryLaunchableState(pub i32);
 impl GameListEntryLaunchableState {
     pub const NotLaunchable: Self = Self(0i32);

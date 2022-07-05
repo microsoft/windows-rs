@@ -577,7 +577,7 @@ pub unsafe fn GetProcAddress<'a, Param0: ::windows::core::IntoParam<'a, super::s
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LOAD_LIBRARY_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`*"]
 pub const DONT_RESOLVE_DLL_REFERENCES: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(1u32);

@@ -1,7 +1,7 @@
 pub const AACMFTEncoder: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93af0c51_2275_45d2_a35b_f2ba21caed00);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AEC_INPUT_STREAM(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const AEC_CAPTURE_STREAM: AEC_INPUT_STREAM = AEC_INPUT_STREAM(0i32);
@@ -30,7 +30,7 @@ impl ::core::fmt::Debug for AEC_INPUT_STREAM {
 pub const AEC_MAX_SYSTEM_MODES: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AEC_SYSTEM_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const SINGLE_CHANNEL_AEC: AEC_SYSTEM_MODE = AEC_SYSTEM_MODE(0i32);
@@ -67,7 +67,7 @@ impl ::core::fmt::Debug for AEC_SYSTEM_MODE {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AEC_VAD_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const AEC_VAD_DISABLED: AEC_VAD_MODE = AEC_VAD_MODE(0i32);
@@ -302,7 +302,7 @@ impl ::core::default::Default for ASF_MUX_STATISTICS {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ASF_SELECTION_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const ASF_STATUS_NOTSELECTED: ASF_SELECTION_STATUS = ASF_SELECTION_STATUS(0i32);
@@ -331,7 +331,7 @@ impl ::core::fmt::Debug for ASF_SELECTION_STATUS {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ASF_STATUSFLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const ASF_STATUSFLAGS_INCOMPLETE: ASF_STATUSFLAGS = ASF_STATUSFLAGS(1i32);
@@ -950,7 +950,7 @@ pub unsafe fn CreatePropertyStore() -> ::windows::core::Result<super::super::UI:
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_BITSTREAM_ENCRYPTION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_BITSTREAM_ENCRYPTION_TYPE_NONE: D3D12_BITSTREAM_ENCRYPTION_TYPE = D3D12_BITSTREAM_ENCRYPTION_TYPE(0i32);
@@ -2584,7 +2584,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_PROCESS_SUPPORT {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_FEATURE_VIDEO(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_FEATURE_VIDEO_DECODE_SUPPORT: D3D12_FEATURE_VIDEO = D3D12_FEATURE_VIDEO(0i32);
@@ -2886,7 +2886,7 @@ impl ::core::default::Default for D3D12_VIDEO_DECODER_HEAP_DESC {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_DECODE_ARGUMENT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_DECODE_ARGUMENT_TYPE_PICTURE_PARAMETERS: D3D12_VIDEO_DECODE_ARGUMENT_TYPE = D3D12_VIDEO_DECODE_ARGUMENT_TYPE(0i32);
@@ -2987,7 +2987,7 @@ impl ::core::default::Default for D3D12_VIDEO_DECODE_CONFIGURATION {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_DECODE_CONFIGURATION_FLAG_NONE: D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS = D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS(0u32);
@@ -3144,7 +3144,7 @@ impl ::core::default::Default for D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS1 {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAG_NONE: D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAGS = D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAGS(0u32);
@@ -3231,7 +3231,7 @@ impl ::core::default::Default for D3D12_VIDEO_DECODE_FRAME_ARGUMENT {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_Y: D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT = D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT(0i32);
@@ -3268,7 +3268,7 @@ impl ::core::fmt::Debug for D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAG_NONE: D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS = D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS(0u32);
@@ -3565,7 +3565,7 @@ impl ::core::default::Default for D3D12_VIDEO_DECODE_REFERENCE_FRAMES {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_DECODE_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_DECODE_STATUS_OK: D3D12_VIDEO_DECODE_STATUS = D3D12_VIDEO_DECODE_STATUS(0i32);
@@ -3598,7 +3598,7 @@ impl ::core::fmt::Debug for D3D12_VIDEO_DECODE_STATUS {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_DECODE_SUPPORT_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_DECODE_SUPPORT_FLAG_NONE: D3D12_VIDEO_DECODE_SUPPORT_FLAGS = D3D12_VIDEO_DECODE_SUPPORT_FLAGS(0u32);
@@ -3653,7 +3653,7 @@ impl ::core::ops::Not for D3D12_VIDEO_DECODE_SUPPORT_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_DECODE_TIER(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_DECODE_TIER_NOT_SUPPORTED: D3D12_VIDEO_DECODE_TIER = D3D12_VIDEO_DECODE_TIER(0i32);
@@ -3684,7 +3684,7 @@ impl ::core::fmt::Debug for D3D12_VIDEO_DECODE_TIER {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_H264: D3D12_VIDEO_ENCODER_CODEC = D3D12_VIDEO_ENCODER_CODEC(0i32);
@@ -3795,7 +3795,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264 {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_DIRECT_MODES(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_DIRECT_MODES_DISABLED: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_DIRECT_MODES = D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_DIRECT_MODES(0i32);
@@ -3824,7 +3824,7 @@ impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_DIRECT_
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAG_NONE: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS = D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS(0u32);
@@ -3885,7 +3885,7 @@ impl ::core::ops::Not for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODES(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_0_ALL_LUMA_CHROMA_SLICE_BLOCK_EDGES_ALWAYS_FILTERED: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODES = D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODES(0i32);
@@ -3922,7 +3922,7 @@ impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAG_NONE: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS = D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS(0u32);
@@ -4033,7 +4033,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE_8x8: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE = D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE(0i32);
@@ -4064,7 +4064,7 @@ impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE 
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAG_NONE: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS = D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS(0u32);
@@ -4131,7 +4131,7 @@ impl ::core::ops::Not for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE_4x4: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE = D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE(0i32);
@@ -4245,7 +4245,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPOR
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAG_NONE: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS = D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS(0u32);
@@ -4356,7 +4356,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPOR
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_NONE: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS = D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS(0u32);
@@ -4704,7 +4704,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMEN
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAG_NO_ERROR: D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS = D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS(0u32);
@@ -4804,7 +4804,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_ENCODER_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_ENCODER_FLAG_NONE: D3D12_VIDEO_ENCODER_FLAGS = D3D12_VIDEO_ENCODER_FLAGS(0u32);
@@ -4857,7 +4857,7 @@ impl ::core::ops::Not for D3D12_VIDEO_ENCODER_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE_FULL_FRAME: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE = D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE(0i32);
@@ -4922,7 +4922,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_FRAME_SUBREGION_METADATA {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_ENCODER_FRAME_TYPE_H264(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_ENCODER_FRAME_TYPE_H264_I_FRAME: D3D12_VIDEO_ENCODER_FRAME_TYPE_H264 = D3D12_VIDEO_ENCODER_FRAME_TYPE_H264(0i32);
@@ -4953,7 +4953,7 @@ impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_FRAME_TYPE_H264 {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC_I_FRAME: D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC = D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC(0i32);
@@ -5015,7 +5015,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_HEAP_DESC {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_ENCODER_HEAP_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_ENCODER_HEAP_FLAG_NONE: D3D12_VIDEO_ENCODER_HEAP_FLAGS = D3D12_VIDEO_ENCODER_HEAP_FLAGS(0u32);
@@ -5099,7 +5099,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_INTRA_REFRESH {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE_NONE: D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE = D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE(0i32);
@@ -5126,7 +5126,7 @@ impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_ENCODER_LEVELS_H264(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_ENCODER_LEVELS_H264_1: D3D12_VIDEO_ENCODER_LEVELS_H264 = D3D12_VIDEO_ENCODER_LEVELS_H264(0i32);
@@ -5189,7 +5189,7 @@ impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_LEVELS_H264 {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_ENCODER_LEVELS_HEVC(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_ENCODER_LEVELS_HEVC_1: D3D12_VIDEO_ENCODER_LEVELS_HEVC = D3D12_VIDEO_ENCODER_LEVELS_HEVC(0i32);
@@ -5321,7 +5321,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_LEVEL_TIER_CONSTRAINTS_HEV
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE_MAXIMUM: D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE = D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE(0i32);
@@ -5568,7 +5568,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAG_NONE: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAGS = D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAGS(0u32);
@@ -5761,7 +5761,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAG_NONE: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS = D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS(0u32);
@@ -5851,7 +5851,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_DESC {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAG_NONE: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS = D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS(0u32);
@@ -6125,7 +6125,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_PROFILE_DESC_0 {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_ENCODER_PROFILE_H264(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_ENCODER_PROFILE_H264_MAIN: D3D12_VIDEO_ENCODER_PROFILE_H264 = D3D12_VIDEO_ENCODER_PROFILE_H264(0i32);
@@ -6154,7 +6154,7 @@ impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_PROFILE_H264 {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_ENCODER_PROFILE_HEVC(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_ENCODER_PROFILE_HEVC_MAIN: D3D12_VIDEO_ENCODER_PROFILE_HEVC = D3D12_VIDEO_ENCODER_PROFILE_HEVC(0i32);
@@ -6338,7 +6338,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAG_NONE: D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS = D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS(0u32);
@@ -6403,7 +6403,7 @@ impl ::core::ops::Not for D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE_ABSOLUTE_QP_MAP: D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE = D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE(0i32);
@@ -6745,7 +6745,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_DESC {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAG_NONE: D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS = D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS(0u32);
@@ -6926,7 +6926,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_HEV
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_ENCODER_SUPPORT_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_NONE: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = D3D12_VIDEO_ENCODER_SUPPORT_FLAGS(0u32);
@@ -7005,7 +7005,7 @@ impl ::core::ops::Not for D3D12_VIDEO_ENCODER_SUPPORT_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_ENCODER_TIER_HEVC(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_ENCODER_TIER_HEVC_MAIN: D3D12_VIDEO_ENCODER_TIER_HEVC = D3D12_VIDEO_ENCODER_TIER_HEVC(0i32);
@@ -7032,7 +7032,7 @@ impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_TIER_HEVC {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_ENCODER_VALIDATION_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_ENCODER_VALIDATION_FLAG_NONE: D3D12_VIDEO_ENCODER_VALIDATION_FLAGS = D3D12_VIDEO_ENCODER_VALIDATION_FLAGS(0u32);
@@ -7214,7 +7214,7 @@ impl ::core::default::Default for D3D12_VIDEO_EXTENSION_COMMAND_INFO {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAG_NONE: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS = D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS(0u32);
@@ -7303,7 +7303,7 @@ impl ::core::default::Default for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_INFO {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE_CREATION: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE = D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE(0i32);
@@ -7340,7 +7340,7 @@ impl ::core::fmt::Debug for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE_UINT8: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE = D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE(0i32);
@@ -7385,7 +7385,7 @@ impl ::core::fmt::Debug for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_FIELD_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_FIELD_TYPE_NONE: D3D12_VIDEO_FIELD_TYPE = D3D12_VIDEO_FIELD_TYPE(0i32);
@@ -7453,7 +7453,7 @@ impl ::core::default::Default for D3D12_VIDEO_FORMAT {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_FRAME_CODED_INTERLACE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_FRAME_CODED_INTERLACE_TYPE_NONE: D3D12_VIDEO_FRAME_CODED_INTERLACE_TYPE = D3D12_VIDEO_FRAME_CODED_INTERLACE_TYPE(0i32);
@@ -7480,7 +7480,7 @@ impl ::core::fmt::Debug for D3D12_VIDEO_FRAME_CODED_INTERLACE_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_FRAME_STEREO_FORMAT(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_FRAME_STEREO_FORMAT_NONE: D3D12_VIDEO_FRAME_STEREO_FORMAT = D3D12_VIDEO_FRAME_STEREO_FORMAT(0i32);
@@ -7637,7 +7637,7 @@ impl ::core::default::Default for D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_8X8: D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE = D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE(0i32);
@@ -7664,7 +7664,7 @@ impl ::core::fmt::Debug for D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAG_NONE: D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAGS = D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAGS(0u32);
@@ -7721,7 +7721,7 @@ impl ::core::ops::Not for D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_QUARTER_PEL: D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION = D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION(0i32);
@@ -7746,7 +7746,7 @@ impl ::core::fmt::Debug for D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAG_NONE: D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAGS = D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAGS(0u32);
@@ -7882,7 +7882,7 @@ impl ::core::default::Default for D3D12_VIDEO_PROCESS_ALPHA_BLENDING {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE_OPAQUE: D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE = D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE(0i32);
@@ -7913,7 +7913,7 @@ impl ::core::fmt::Debug for D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAG_NONE: D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS = D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS(0u32);
@@ -7984,7 +7984,7 @@ impl ::core::ops::Not for D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_PROCESS_DEINTERLACE_FLAG_NONE: D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS = D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS(0u32);
@@ -8041,7 +8041,7 @@ impl ::core::ops::Not for D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_PROCESS_FEATURE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_PROCESS_FEATURE_FLAG_NONE: D3D12_VIDEO_PROCESS_FEATURE_FLAGS = D3D12_VIDEO_PROCESS_FEATURE_FLAGS(0u32);
@@ -8108,7 +8108,7 @@ impl ::core::ops::Not for D3D12_VIDEO_PROCESS_FEATURE_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_PROCESS_FILTER(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_PROCESS_FILTER_BRIGHTNESS: D3D12_VIDEO_PROCESS_FILTER = D3D12_VIDEO_PROCESS_FILTER(0i32);
@@ -8147,7 +8147,7 @@ impl ::core::fmt::Debug for D3D12_VIDEO_PROCESS_FILTER {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_PROCESS_FILTER_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_PROCESS_FILTER_FLAG_NONE: D3D12_VIDEO_PROCESS_FILTER_FLAGS = D3D12_VIDEO_PROCESS_FILTER_FLAGS(0u32);
@@ -8457,7 +8457,7 @@ impl ::core::default::Default for D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAG_NONE: D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS = D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS(0u32);
@@ -8585,7 +8585,7 @@ impl ::core::default::Default for D3D12_VIDEO_PROCESS_LUMA_KEY {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_PROCESS_ORIENTATION(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_PROCESS_ORIENTATION_DEFAULT: D3D12_VIDEO_PROCESS_ORIENTATION = D3D12_VIDEO_PROCESS_ORIENTATION(0i32);
@@ -8785,7 +8785,7 @@ impl ::core::default::Default for D3D12_VIDEO_PROCESS_REFERENCE_SET {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_PROCESS_SUPPORT_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_PROCESS_SUPPORT_FLAG_NONE: D3D12_VIDEO_PROCESS_SUPPORT_FLAGS = D3D12_VIDEO_PROCESS_SUPPORT_FLAGS(0u32);
@@ -8880,7 +8880,7 @@ impl ::core::default::Default for D3D12_VIDEO_PROCESS_TRANSFORM {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAG_NONE: D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS = D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS(0u32);
@@ -9006,7 +9006,7 @@ impl ::core::default::Default for D3D12_VIDEO_SCALE_SUPPORT {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D12_VIDEO_SCALE_SUPPORT_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_VIDEO_SCALE_SUPPORT_FLAG_NONE: D3D12_VIDEO_SCALE_SUPPORT_FLAGS = D3D12_VIDEO_SCALE_SUPPORT_FLAGS(0u32);
@@ -9415,7 +9415,7 @@ impl ::core::default::Default for DXVA2_AYUVSample8 {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXVA2_BufferfType(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const DXVA2_PictureParametersBufferType: DXVA2_BufferfType = DXVA2_BufferfType(0i32);
@@ -9630,7 +9630,7 @@ impl ::core::default::Default for DXVA2_DecodeExtensionData {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXVA2_DeinterlaceTech(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const DXVA2_DeinterlaceTech_Unknown: DXVA2_DeinterlaceTech = DXVA2_DeinterlaceTech(0i32);
@@ -9675,7 +9675,7 @@ impl ::core::fmt::Debug for DXVA2_DeinterlaceTech {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXVA2_DestData(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const DXVA2_DestData_RFF: DXVA2_DestData = DXVA2_DestData(1i32);
@@ -9706,7 +9706,7 @@ impl ::core::fmt::Debug for DXVA2_DestData {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXVA2_DetailFilterTech(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const DXVA2_DetailFilterTech_Unsupported: DXVA2_DetailFilterTech = DXVA2_DetailFilterTech(0i32);
@@ -9828,7 +9828,7 @@ impl ::core::default::Default for DXVA2_ExtendedFormat_0_0 {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXVA2_FilterType(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const DXVA2_NoiseFilterLumaLevel: DXVA2_FilterType = DXVA2_FilterType(1i32);
@@ -10049,7 +10049,7 @@ pub const DXVA2_ModeWMV9_C: ::windows::core::GUID = ::windows::core::GUID::from_
 pub const DXVA2_NoEncrypt: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b81bed0_a0c7_11d3_b984_00c04f2e73c5);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXVA2_NoiseFilterTech(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const DXVA2_NoiseFilterTech_Unsupported: DXVA2_NoiseFilterTech = DXVA2_NoiseFilterTech(0i32);
@@ -10086,7 +10086,7 @@ impl ::core::fmt::Debug for DXVA2_NoiseFilterTech {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXVA2_NominalRange(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const DXVA2_NominalRangeMask: DXVA2_NominalRange = DXVA2_NominalRange(7i32);
@@ -10123,7 +10123,7 @@ impl ::core::fmt::Debug for DXVA2_NominalRange {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXVA2_ProcAmp(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const DXVA2_ProcAmp_None: DXVA2_ProcAmp = DXVA2_ProcAmp(0i32);
@@ -10186,7 +10186,7 @@ impl ::core::default::Default for DXVA2_ProcAmpValues {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXVA2_SampleData(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const DXVA2_SampleData_RFF: DXVA2_SampleData = DXVA2_SampleData(1i32);
@@ -10217,7 +10217,7 @@ impl ::core::fmt::Debug for DXVA2_SampleData {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXVA2_SampleFormat(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const DXVA2_SampleFormatMask: DXVA2_SampleFormat = DXVA2_SampleFormat(255i32);
@@ -10256,7 +10256,7 @@ impl ::core::fmt::Debug for DXVA2_SampleFormat {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXVA2_SurfaceType(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const DXVA2_SurfaceType_DecoderRenderTarget: DXVA2_SurfaceType = DXVA2_SurfaceType(0i32);
@@ -10285,7 +10285,7 @@ impl ::core::fmt::Debug for DXVA2_SurfaceType {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXVA2_VPDev(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const DXVA2_VPDev_HardwareDevice: DXVA2_VPDev = DXVA2_VPDev(1i32);
@@ -10344,7 +10344,7 @@ impl ::core::default::Default for DXVA2_ValueRange {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXVA2_VideoChromaSubSampling(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const DXVA2_VideoChromaSubsamplingMask: DXVA2_VideoChromaSubSampling = DXVA2_VideoChromaSubSampling(15i32);
@@ -10426,7 +10426,7 @@ impl ::core::default::Default for DXVA2_VideoDesc {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXVA2_VideoLighting(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const DXVA2_VideoLightingMask: DXVA2_VideoLighting = DXVA2_VideoLighting(15i32);
@@ -10461,7 +10461,7 @@ impl ::core::fmt::Debug for DXVA2_VideoLighting {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXVA2_VideoPrimaries(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const DXVA2_VideoPrimariesMask: DXVA2_VideoPrimaries = DXVA2_VideoPrimaries(31i32);
@@ -10507,7 +10507,7 @@ pub const DXVA2_VideoProcProgressiveDevice: ::windows::core::GUID = ::windows::c
 pub const DXVA2_VideoProcSoftwareDevice: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4553d47f_ee7e_4e3f_9475_dbf1376c4810);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXVA2_VideoProcess(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const DXVA2_VideoProcess_None: DXVA2_VideoProcess = DXVA2_VideoProcess(0i32);
@@ -10668,7 +10668,7 @@ impl ::core::default::Default for DXVA2_VideoProcessorCaps {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXVA2_VideoRenderTargetType(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const DXVA2_VideoDecoderRenderTarget: DXVA2_VideoRenderTargetType = DXVA2_VideoRenderTargetType(0i32);
@@ -10745,7 +10745,7 @@ impl ::core::default::Default for DXVA2_VideoSample {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXVA2_VideoTransferFunction(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const DXVA2_VideoTransFuncMask: DXVA2_VideoTransferFunction = DXVA2_VideoTransferFunction(31i32);
@@ -10788,7 +10788,7 @@ impl ::core::fmt::Debug for DXVA2_VideoTransferFunction {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXVA2_VideoTransferMatrix(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const DXVA2_VideoTransferMatrixMask: DXVA2_VideoTransferMatrix = DXVA2_VideoTransferMatrix(7i32);
@@ -11226,7 +11226,7 @@ impl ::core::default::Default for DXVAHDSW_CALLBACKS {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXVAHD_ALPHA_FILL_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const DXVAHD_ALPHA_FILL_MODE_OPAQUE: DXVAHD_ALPHA_FILL_MODE = DXVAHD_ALPHA_FILL_MODE(0i32);
@@ -11257,7 +11257,7 @@ impl ::core::fmt::Debug for DXVAHD_ALPHA_FILL_MODE {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXVAHD_BLT_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const DXVAHD_BLT_STATE_TARGET_RECT: DXVAHD_BLT_STATE = DXVAHD_BLT_STATE(0i32);
@@ -11732,7 +11732,7 @@ pub unsafe fn DXVAHD_CreateDevice<'a, Param0: ::windows::core::IntoParam<'a, sup
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXVAHD_DEVICE_CAPS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const DXVAHD_DEVICE_CAPS_LINEAR_SPACE: DXVAHD_DEVICE_CAPS = DXVAHD_DEVICE_CAPS(1i32);
@@ -11763,7 +11763,7 @@ impl ::core::fmt::Debug for DXVAHD_DEVICE_CAPS {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXVAHD_DEVICE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const DXVAHD_DEVICE_TYPE_HARDWARE: DXVAHD_DEVICE_TYPE = DXVAHD_DEVICE_TYPE(0i32);
@@ -11794,7 +11794,7 @@ impl ::core::fmt::Debug for DXVAHD_DEVICE_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXVAHD_DEVICE_USAGE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const DXVAHD_DEVICE_USAGE_PLAYBACK_NORMAL: DXVAHD_DEVICE_USAGE = DXVAHD_DEVICE_USAGE(0i32);
@@ -11823,7 +11823,7 @@ impl ::core::fmt::Debug for DXVAHD_DEVICE_USAGE {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXVAHD_FEATURE_CAPS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const DXVAHD_FEATURE_CAPS_ALPHA_FILL: DXVAHD_FEATURE_CAPS = DXVAHD_FEATURE_CAPS(1i32);
@@ -11854,7 +11854,7 @@ impl ::core::fmt::Debug for DXVAHD_FEATURE_CAPS {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXVAHD_FILTER(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const DXVAHD_FILTER_BRIGHTNESS: DXVAHD_FILTER = DXVAHD_FILTER(0i32);
@@ -11891,7 +11891,7 @@ impl ::core::fmt::Debug for DXVAHD_FILTER {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXVAHD_FILTER_CAPS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const DXVAHD_FILTER_CAPS_BRIGHTNESS: DXVAHD_FILTER_CAPS = DXVAHD_FILTER_CAPS(1i32);
@@ -11961,7 +11961,7 @@ impl ::core::default::Default for DXVAHD_FILTER_RANGE_DATA {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXVAHD_FRAME_FORMAT(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const DXVAHD_FRAME_FORMAT_PROGRESSIVE: DXVAHD_FRAME_FORMAT = DXVAHD_FRAME_FORMAT(0i32);
@@ -11990,7 +11990,7 @@ impl ::core::fmt::Debug for DXVAHD_FRAME_FORMAT {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXVAHD_INPUT_FORMAT_CAPS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const DXVAHD_INPUT_FORMAT_CAPS_RGB_INTERLACED: DXVAHD_INPUT_FORMAT_CAPS = DXVAHD_INPUT_FORMAT_CAPS(1i32);
@@ -12021,7 +12021,7 @@ impl ::core::fmt::Debug for DXVAHD_INPUT_FORMAT_CAPS {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXVAHD_ITELECINE_CAPS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const DXVAHD_ITELECINE_CAPS_32: DXVAHD_ITELECINE_CAPS = DXVAHD_ITELECINE_CAPS(1i32);
@@ -12064,7 +12064,7 @@ impl ::core::fmt::Debug for DXVAHD_ITELECINE_CAPS {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXVAHD_OUTPUT_RATE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const DXVAHD_OUTPUT_RATE_NORMAL: DXVAHD_OUTPUT_RATE = DXVAHD_OUTPUT_RATE(0i32);
@@ -12093,7 +12093,7 @@ impl ::core::fmt::Debug for DXVAHD_OUTPUT_RATE {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXVAHD_PROCESSOR_CAPS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const DXVAHD_PROCESSOR_CAPS_DEINTERLACE_BLEND: DXVAHD_PROCESSOR_CAPS = DXVAHD_PROCESSOR_CAPS(1i32);
@@ -12211,7 +12211,7 @@ impl ::core::default::Default for DXVAHD_STREAM_DATA {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXVAHD_STREAM_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const DXVAHD_STREAM_STATE_D3DFORMAT: DXVAHD_STREAM_STATE = DXVAHD_STREAM_STATE(0i32);
@@ -12800,7 +12800,7 @@ impl ::core::default::Default for DXVAHD_STREAM_STATE_SOURCE_RECT_DATA {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXVAHD_SURFACE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const DXVAHD_SURFACE_TYPE_VIDEO_INPUT: DXVAHD_SURFACE_TYPE = DXVAHD_SURFACE_TYPE(0i32);
@@ -13464,7 +13464,7 @@ impl ::core::default::Default for DXVA_DeinterlaceQueryModeCaps {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXVA_DeinterlaceTech(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const DXVA_DeinterlaceTech_Unknown: DXVA_DeinterlaceTech = DXVA_DeinterlaceTech(0i32);
@@ -13505,7 +13505,7 @@ impl ::core::fmt::Debug for DXVA_DeinterlaceTech {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXVA_DestinationFlags(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const DXVA_DestinationFlagMask: DXVA_DestinationFlags = DXVA_DestinationFlags(15i32);
@@ -13599,7 +13599,7 @@ impl ::core::default::Default for DXVA_Frequency {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXVA_NominalRange(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const DXVA_NominalRangeShift: DXVA_NominalRange = DXVA_NominalRange(12i32);
@@ -13785,7 +13785,7 @@ impl ::core::default::Default for DXVA_ProcAmpControlCaps {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXVA_ProcAmpControlProp(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const DXVA_ProcAmp_None: DXVA_ProcAmpControlProp = DXVA_ProcAmpControlProp(0i32);
@@ -13858,7 +13858,7 @@ impl ::core::default::Default for DXVA_ProcAmpControlQueryRange {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXVA_SampleFlags(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const DXVA_SampleFlagsMask: DXVA_SampleFlags = DXVA_SampleFlags(15i32);
@@ -13891,7 +13891,7 @@ impl ::core::fmt::Debug for DXVA_SampleFlags {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXVA_SampleFormat(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const DXVA_SampleFormatMask: DXVA_SampleFormat = DXVA_SampleFormat(255i32);
@@ -13932,7 +13932,7 @@ impl ::core::fmt::Debug for DXVA_SampleFormat {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXVA_VideoChromaSubsampling(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const DXVA_VideoChromaSubsamplingShift: DXVA_VideoChromaSubsampling = DXVA_VideoChromaSubsampling(8i32);
@@ -14021,7 +14021,7 @@ impl ::core::default::Default for DXVA_VideoDesc {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXVA_VideoLighting(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const DXVA_VideoLightingShift: DXVA_VideoLighting = DXVA_VideoLighting(18i32);
@@ -14058,7 +14058,7 @@ impl ::core::fmt::Debug for DXVA_VideoLighting {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXVA_VideoPrimaries(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const DXVA_VideoPrimariesShift: DXVA_VideoPrimaries = DXVA_VideoPrimaries(22i32);
@@ -14103,7 +14103,7 @@ impl ::core::fmt::Debug for DXVA_VideoPrimaries {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXVA_VideoProcessCaps(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const DXVA_VideoProcess_None: DXVA_VideoProcessCaps = DXVA_VideoProcessCaps(0i32);
@@ -14373,7 +14373,7 @@ impl ::core::default::Default for DXVA_VideoSample32 {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXVA_VideoTransferFunction(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const DXVA_VideoTransFuncShift: DXVA_VideoTransferFunction = DXVA_VideoTransferFunction(27i32);
@@ -14418,7 +14418,7 @@ impl ::core::fmt::Debug for DXVA_VideoTransferFunction {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXVA_VideoTransferMatrix(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const DXVA_VideoTransferMatrixShift: DXVA_VideoTransferMatrix = DXVA_VideoTransferMatrix(15i32);
@@ -14458,7 +14458,7 @@ pub const DXVAp_ModeMPEG2_C: ::windows::core::GUID = ::windows::core::GUID::from
 pub const DXVAp_NoEncrypt: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b81bed0_a0c7_11d3_b984_00c04f2e73c5);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DeviceStreamState(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const DeviceStreamState_Stop: DeviceStreamState = DeviceStreamState(0i32);
@@ -14521,7 +14521,7 @@ impl ::core::default::Default for DigitalWindowSetting {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EAllocationType(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAllocationTypeDynamic: EAllocationType = EAllocationType(0i32);
@@ -14552,7 +14552,7 @@ impl ::core::fmt::Debug for EAllocationType {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EVRFilterConfigPrefs(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const EVRFilterConfigPrefs_EnableQoS: EVRFilterConfigPrefs = EVRFilterConfigPrefs(1i32);
@@ -14587,7 +14587,7 @@ pub const FACILITY_MF: u32 = 13u32;
 pub const FACILITY_MF_WIN32: u32 = 7u32;
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILE_ACCESSMODE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const ACCESSMODE_READ: FILE_ACCESSMODE = FILE_ACCESSMODE(1i32);
@@ -14618,7 +14618,7 @@ impl ::core::fmt::Debug for FILE_ACCESSMODE {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILE_OPENMODE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const OPENMODE_FAIL_IF_NOT_EXIST: FILE_OPENMODE = FILE_OPENMODE(0i32);
@@ -50892,7 +50892,7 @@ pub struct IWMVideoForceKeyFrame_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KSMETHOD_OPMVIDEOOUTPUT(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const KSMETHOD_OPMVIDEOOUTPUT_STARTINITIALIZATION: KSMETHOD_OPMVIDEOOUTPUT = KSMETHOD_OPMVIDEOOUTPUT(0i32);
@@ -51046,7 +51046,7 @@ pub const MEDIASUBTYPE_wvp2: ::windows::core::GUID = ::windows::core::GUID::from
 pub const MEDIASUBTYPE_x264: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34363278_0000_0010_8000_00aa00389b71);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_EVENT_FLAG_NONE: MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS = MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS(0u32);
@@ -51074,7 +51074,7 @@ impl ::core::fmt::Debug for MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS {
 pub const MEDeviceStreamCreated: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0252a1cf_3540_43b4_9164_d72eb405fa40);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF2DBuffer_LockFlags(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF2DBuffer_LockFlags_LockTypeMask: MF2DBuffer_LockFlags = MF2DBuffer_LockFlags(3i32);
@@ -51107,7 +51107,7 @@ impl ::core::fmt::Debug for MF2DBuffer_LockFlags {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF3DVideoOutputType(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF3DVideoOutputType_BaseView: MF3DVideoOutputType = MF3DVideoOutputType(0i32);
@@ -51193,7 +51193,7 @@ pub const MFASFSampleExtension_SampleDuration: ::windows::core::GUID = ::windows
 pub const MFASF_DEFAULT_BUFFER_WINDOW_MS: u32 = 3000u32;
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFASF_INDEXER_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFASF_INDEXER_WRITE_NEW_INDEX: MFASF_INDEXER_FLAGS = MFASF_INDEXER_FLAGS(1i32);
@@ -51226,7 +51226,7 @@ pub const MFASF_INVALID_STREAM_NUMBER: u32 = 128u32;
 pub const MFASF_MAX_STREAM_NUMBER: u32 = 127u32;
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFASF_MULTIPLEXERFLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFASF_MULTIPLEXER_AUTOADJUST_BITRATE: MFASF_MULTIPLEXERFLAGS = MFASF_MULTIPLEXERFLAGS(1i32);
@@ -51255,7 +51255,7 @@ pub const MFASF_PAYLOADEXTENSION_MAX_SIZE: u32 = 255u32;
 pub const MFASF_PAYLOADEXTENSION_VARIABLE_SIZE: u32 = 65535u32;
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFASF_SPLITTERFLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFASF_SPLITTER_REVERSE: MFASF_SPLITTERFLAGS = MFASF_SPLITTERFLAGS(1i32);
@@ -51282,7 +51282,7 @@ impl ::core::fmt::Debug for MFASF_SPLITTERFLAGS {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFASF_STREAMSELECTOR_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFASF_STREAMSELECTOR_DISABLE_THINNING: MFASF_STREAMSELECTOR_FLAGS = MFASF_STREAMSELECTOR_FLAGS(1i32);
@@ -51429,7 +51429,7 @@ pub const MFASYNC_REPLY_CALLBACK: u32 = 8u32;
 pub const MFASYNC_SIGNAL_CALLBACK: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFASYNC_WORKQUEUE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_STANDARD_WORKQUEUE: MFASYNC_WORKQUEUE_TYPE = MFASYNC_WORKQUEUE_TYPE(0i32);
@@ -51551,7 +51551,7 @@ pub unsafe fn MFAllocateWorkQueueEx(workqueuetype: MFASYNC_WORKQUEUE_TYPE) -> ::
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFAudioConstriction(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFaudioConstrictionOff: MFAudioConstriction = MFAudioConstriction(0i32);
@@ -51726,7 +51726,7 @@ pub const MFBYTESTREAM_IS_WRITABLE: u32 = 2u32;
 pub const MFBYTESTREAM_SEEK_FLAG_CANCEL_PENDING_IO: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFBYTESTREAM_SEEK_ORIGIN(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const msoBegin: MFBYTESTREAM_SEEK_ORIGIN = MFBYTESTREAM_SEEK_ORIGIN(0i32);
@@ -51818,7 +51818,7 @@ pub const MFCAPTURE_METADATA_SCAN_BOTTOM_TOP: u32 = 2u32;
 pub const MFCAPTURE_METADATA_SCAN_RIGHT_LEFT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFCLOCK_CHARACTERISTICS_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFCLOCK_CHARACTERISTICS_FLAG_FREQUENCY_10MHZ: MFCLOCK_CHARACTERISTICS_FLAGS = MFCLOCK_CHARACTERISTICS_FLAGS(2i32);
@@ -51890,7 +51890,7 @@ impl ::core::default::Default for MFCLOCK_PROPERTIES {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFCLOCK_RELATIONAL_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFCLOCK_RELATIONAL_FLAG_JITTER_NEVER_AHEAD: MFCLOCK_RELATIONAL_FLAGS = MFCLOCK_RELATIONAL_FLAGS(1i32);
@@ -51915,7 +51915,7 @@ impl ::core::fmt::Debug for MFCLOCK_RELATIONAL_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFCLOCK_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFCLOCK_STATE_INVALID: MFCLOCK_STATE = MFCLOCK_STATE(0i32);
@@ -52315,7 +52315,7 @@ impl ::core::default::Default for MFCameraIntrinsic_DistortionModelArcTan {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFCameraIntrinsic_DistortionModelType(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFCameraIntrinsic_DistortionModelType_6KT: MFCameraIntrinsic_DistortionModelType = MFCameraIntrinsic_DistortionModelType(0i32);
@@ -52373,7 +52373,7 @@ impl ::core::default::Default for MFCameraIntrinsic_PinholeCameraModel {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFCameraOcclusionState(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFCameraOcclusionState_Open: MFCameraOcclusionState = MFCameraOcclusionState(0i32);
@@ -54382,7 +54382,7 @@ pub unsafe fn MFCreateWaveFormatExFromMFMediaType<'a, Param0: ::windows::core::I
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFDepthMeasurement(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const DistanceToFocalPlane: MFDepthMeasurement = MFDepthMeasurement(0i32);
@@ -54589,7 +54589,7 @@ pub unsafe fn MFFrameRateToAverageTimePerFrame(unnumerator: u32, undenominator: 
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFFrameSourceTypes(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFFrameSourceTypes_Color: MFFrameSourceTypes = MFFrameSourceTypes(1i32);
@@ -55301,7 +55301,7 @@ pub unsafe fn MFLockWorkQueue(dwworkqueue: u32) -> ::windows::core::Result<()> {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFMEDIASOURCE_CHARACTERISTICS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFMEDIASOURCE_IS_LIVE: MFMEDIASOURCE_CHARACTERISTICS = MFMEDIASOURCE_CHARACTERISTICS(1i32);
@@ -55491,7 +55491,7 @@ pub const MFNETSOURCE_BUFFERINGTIME: ::windows::core::GUID = ::windows::core::GU
 pub const MFNETSOURCE_CACHEENABLED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3cb1f279_0505_4c5d_ae71_0a556344efa1);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFNETSOURCE_CACHE_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFNETSOURCE_CACHE_UNAVAILABLE: MFNETSOURCE_CACHE_STATE = MFNETSOURCE_CACHE_STATE(0i32);
@@ -55548,7 +55548,7 @@ pub const MFNETSOURCE_PREVIEWMODEENABLED: ::windows::core::GUID = ::windows::cor
 pub const MFNETSOURCE_PROTOCOL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3cb1f27d_0505_4c5d_ae71_0a556344efa1);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFNETSOURCE_PROTOCOL_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFNETSOURCE_UNDEFINED: MFNETSOURCE_PROTOCOL_TYPE = MFNETSOURCE_PROTOCOL_TYPE(0i32);
@@ -55593,7 +55593,7 @@ pub const MFNETSOURCE_SSLCERTIFICATE_MANAGER: ::windows::core::GUID = ::windows:
 pub const MFNETSOURCE_STATISTICS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3cb1f274_0505_4c5d_ae71_0a556344efa1);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFNETSOURCE_STATISTICS_IDS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFNETSOURCE_RECVPACKETS_ID: MFNETSOURCE_STATISTICS_IDS = MFNETSOURCE_STATISTICS_IDS(0i32);
@@ -55680,7 +55680,7 @@ pub const MFNETSOURCE_THINNINGENABLED: ::windows::core::GUID = ::windows::core::
 pub const MFNETSOURCE_TRANSPORT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3cb1f27e_0505_4c5d_ae71_0a556344efa1);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFNETSOURCE_TRANSPORT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFNETSOURCE_UDP: MFNETSOURCE_TRANSPORT_TYPE = MFNETSOURCE_TRANSPORT_TYPE(0i32);
@@ -55708,7 +55708,7 @@ impl ::core::fmt::Debug for MFNETSOURCE_TRANSPORT_TYPE {
 pub const MFNETSOURCE_UDP_PORT_RANGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3cb1f29a_0505_4c5d_ae71_0a556344efa1);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFNET_PROXYSETTINGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFNET_PROXYSETTING_NONE: MFNET_PROXYSETTINGS = MFNET_PROXYSETTINGS(0i32);
@@ -55740,7 +55740,7 @@ impl ::core::fmt::Debug for MFNET_PROXYSETTINGS {
 pub const MFNET_SAVEJOB_SERVICE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb85a587f_3d02_4e52_9565_55d3ec1e7ff7);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFNetAuthenticationFlags(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFNET_AUTHENTICATION_PROXY: MFNetAuthenticationFlags = MFNetAuthenticationFlags(1i32);
@@ -55814,7 +55814,7 @@ impl ::core::default::Default for MFNetCredentialManagerGetParam {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFNetCredentialOptions(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFNET_CREDENTIAL_SAVE: MFNetCredentialOptions = MFNetCredentialOptions(1i32);
@@ -55843,7 +55843,7 @@ impl ::core::fmt::Debug for MFNetCredentialOptions {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFNetCredentialRequirements(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const REQUIRE_PROMPT: MFNetCredentialRequirements = MFNetCredentialRequirements(1i32);
@@ -55870,7 +55870,7 @@ impl ::core::fmt::Debug for MFNetCredentialRequirements {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFNominalRange(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFNominalRange_Unknown: MFNominalRange = MFNominalRange(0i32);
@@ -55960,7 +55960,7 @@ pub unsafe fn MFPCreateMediaPlayer<'a, Param0: ::windows::core::IntoParam<'a, ::
 pub type MFPERIODICCALLBACK = ::core::option::Option<unsafe extern "system" fn(pcontext: ::core::option::Option<::windows::core::IUnknown>)>;
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFPMPSESSION_CREATION_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFPMPSESSION_UNPROTECTED_PROCESS: MFPMPSESSION_CREATION_FLAGS = MFPMPSESSION_CREATION_FLAGS(1i32);
@@ -55987,7 +55987,7 @@ impl ::core::fmt::Debug for MFPMPSESSION_CREATION_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFPOLICYMANAGER_ACTION(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const PEACTION_NO: MFPOLICYMANAGER_ACTION = MFPOLICYMANAGER_ACTION(0i32);
@@ -56118,7 +56118,7 @@ impl ::core::default::Default for MFP_ACQUIRE_USER_CREDENTIAL_EVENT {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFP_CREATION_OPTIONS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFP_OPTION_NONE: MFP_CREATION_OPTIONS = MFP_CREATION_OPTIONS(0i32);
@@ -56231,7 +56231,7 @@ impl ::core::default::Default for MFP_EVENT_HEADER {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFP_EVENT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFP_EVENT_TYPE_PLAY: MFP_EVENT_TYPE = MFP_EVENT_TYPE(0i32);
@@ -56429,7 +56429,7 @@ impl ::core::default::Default for MFP_MEDIAITEM_SET_EVENT {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFP_MEDIAPLAYER_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFP_MEDIAPLAYER_STATE_EMPTY: MFP_MEDIAPLAYER_STATE = MFP_MEDIAPLAYER_STATE(0i32);
@@ -56887,7 +56887,7 @@ pub unsafe fn MFPutWorkItemEx2<'a, Param2: ::windows::core::IntoParam<'a, IMFAsy
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFRATE_DIRECTION(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFRATE_FORWARD: MFRATE_DIRECTION = MFRATE_DIRECTION(0i32);
@@ -57096,7 +57096,7 @@ pub const MFSESSIONCAP_SEEK: u32 = 2u32;
 pub const MFSESSIONCAP_START: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFSESSION_GETFULLTOPOLOGY_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFSESSION_GETFULLTOPOLOGY_CURRENT: MFSESSION_GETFULLTOPOLOGY_FLAGS = MFSESSION_GETFULLTOPOLOGY_FLAGS(1i32);
@@ -57121,7 +57121,7 @@ impl ::core::fmt::Debug for MFSESSION_GETFULLTOPOLOGY_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFSESSION_SETTOPOLOGY_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFSESSION_SETTOPOLOGY_IMMEDIATE: MFSESSION_SETTOPOLOGY_FLAGS = MFSESSION_SETTOPOLOGY_FLAGS(1i32);
@@ -57150,7 +57150,7 @@ impl ::core::fmt::Debug for MFSESSION_SETTOPOLOGY_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFSHUTDOWN_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFSHUTDOWN_INITIATED: MFSHUTDOWN_STATUS = MFSHUTDOWN_STATUS(0i32);
@@ -57177,7 +57177,7 @@ impl ::core::fmt::Debug for MFSHUTDOWN_STATUS {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFSINK_WMDRMACTION(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFSINK_WMDRMACTION_UNDEFINED: MFSINK_WMDRMACTION = MFSINK_WMDRMACTION(0i32);
@@ -57216,7 +57216,7 @@ pub const MFSTARTUP_LITE: u32 = 1u32;
 pub const MFSTARTUP_NOSOCKET: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFSTREAMSINK_MARKER_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFSTREAMSINK_MARKER_DEFAULT: MFSTREAMSINK_MARKER_TYPE = MFSTREAMSINK_MARKER_TYPE(0i32);
@@ -57247,7 +57247,7 @@ impl ::core::fmt::Debug for MFSTREAMSINK_MARKER_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFSampleAllocatorUsage(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFSampleAllocatorUsage_UsesProvidedAllocator: MFSampleAllocatorUsage = MFSampleAllocatorUsage(0i32);
@@ -57276,7 +57276,7 @@ impl ::core::fmt::Debug for MFSampleAllocatorUsage {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFSampleEncryptionProtectionScheme(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_SAMPLE_ENCRYPTION_PROTECTION_SCHEME_NONE: MFSampleEncryptionProtectionScheme = MFSampleEncryptionProtectionScheme(0i32);
@@ -57410,7 +57410,7 @@ pub unsafe fn MFScheduleWorkItemEx<'a, Param0: ::windows::core::IntoParam<'a, IM
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFSensorDeviceMode(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFSensorDeviceMode_Controller: MFSensorDeviceMode = MFSensorDeviceMode(0i32);
@@ -57437,7 +57437,7 @@ impl ::core::fmt::Debug for MFSensorDeviceMode {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFSensorDeviceType(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFSensorDeviceType_Unknown: MFSensorDeviceType = MFSensorDeviceType(0i32);
@@ -57470,7 +57470,7 @@ impl ::core::fmt::Debug for MFSensorDeviceType {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFSensorStreamType(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFSensorStreamType_Unknown: MFSensorStreamType = MFSensorStreamType(0i32);
@@ -57499,7 +57499,7 @@ impl ::core::fmt::Debug for MFSensorStreamType {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFSequencerTopologyFlags(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const SequencerTopologyFlags_Last: MFSequencerTopologyFlags = MFSequencerTopologyFlags(1i32);
@@ -57595,7 +57595,7 @@ pub unsafe fn MFSplitSample<'a, Param0: ::windows::core::IntoParam<'a, IMFSample
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFStandardVideoFormat(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFStdVideoFormat_reserved: MFStandardVideoFormat = MFStandardVideoFormat(0i32);
@@ -57722,7 +57722,7 @@ pub unsafe fn MFTGetInfo<'a, Param0: ::windows::core::IntoParam<'a, ::windows::c
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFTIMER_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFTIMER_RELATIVE: MFTIMER_FLAGS = MFTIMER_FLAGS(1i32);
@@ -57747,7 +57747,7 @@ impl ::core::fmt::Debug for MFTIMER_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFTOPOLOGY_DXVA_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFTOPOLOGY_DXVA_DEFAULT: MFTOPOLOGY_DXVA_MODE = MFTOPOLOGY_DXVA_MODE(0i32);
@@ -57776,7 +57776,7 @@ impl ::core::fmt::Debug for MFTOPOLOGY_DXVA_MODE {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFTOPOLOGY_HARDWARE_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFTOPOLOGY_HWMODE_SOFTWARE_ONLY: MFTOPOLOGY_HARDWARE_MODE = MFTOPOLOGY_HARDWARE_MODE(0i32);
@@ -57948,7 +57948,7 @@ pub const MFT_AUDIO_DECODER_AUDIO_ENDPOINT_ID: ::windows::core::GUID = ::windows
 pub const MFT_AUDIO_DECODER_DEGRADATION_INFO_ATTRIBUTE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c3386ad_ec20_430d_b2a5_505c7178d9c4);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFT_AUDIO_DECODER_DEGRADATION_REASON(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFT_AUDIO_DECODER_DEGRADATION_REASON_NONE: MFT_AUDIO_DECODER_DEGRADATION_REASON = MFT_AUDIO_DECODER_DEGRADATION_REASON(0i32);
@@ -57975,7 +57975,7 @@ impl ::core::fmt::Debug for MFT_AUDIO_DECODER_DEGRADATION_REASON {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFT_AUDIO_DECODER_DEGRADATION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFT_AUDIO_DECODER_DEGRADATION_TYPE_NONE: MFT_AUDIO_DECODER_DEGRADATION_TYPE = MFT_AUDIO_DECODER_DEGRADATION_TYPE(0i32);
@@ -58026,7 +58026,7 @@ pub const MFT_DECODER_QUALITY_MANAGEMENT_CUSTOM_CONTROL: ::windows::core::GUID =
 pub const MFT_DECODER_QUALITY_MANAGEMENT_RECOVERY_WITHOUT_ARTIFACTS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8980deb_0a48_425f_8623_611db41d3810);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFT_DRAIN_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFT_DRAIN_PRODUCE_TAILS: MFT_DRAIN_TYPE = MFT_DRAIN_TYPE(0i32);
@@ -58057,7 +58057,7 @@ pub const MFT_END_STREAMING_AWARE: ::windows::core::GUID = ::windows::core::GUID
 pub const MFT_ENUM_ADAPTER_LUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d39518c_e220_4da8_a07f_ba172552d6b1);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFT_ENUM_FLAG(pub u32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFT_ENUM_FLAG_SYNCMFT: MFT_ENUM_FLAG = MFT_ENUM_FLAG(1u32);
@@ -58175,7 +58175,7 @@ impl ::core::default::Default for MFT_INPUT_STREAM_INFO {
 pub const MFT_INPUT_TYPES_Attributes: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4276c9b1_759d_4bf3_9cd0_0d723d138f96);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFT_MESSAGE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFT_MESSAGE_COMMAND_FLUSH: MFT_MESSAGE_TYPE = MFT_MESSAGE_TYPE(0i32);
@@ -58539,7 +58539,7 @@ impl ::core::default::Default for MFVIDEOFORMAT {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFVP_MESSAGE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFVP_MESSAGE_FLUSH: MFVP_MESSAGE_TYPE = MFVP_MESSAGE_TYPE(0i32);
@@ -58592,7 +58592,7 @@ pub unsafe fn MFValidateMediaTypeSize<'a, Param0: ::windows::core::IntoParam<'a,
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFVideo3DFormat(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFVideo3DSampleFormat_BaseView: MFVideo3DFormat = MFVideo3DFormat(0i32);
@@ -58623,7 +58623,7 @@ impl ::core::fmt::Debug for MFVideo3DFormat {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFVideo3DSampleFormat(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFSampleExtension_3DVideo_MultiView: MFVideo3DSampleFormat = MFVideo3DSampleFormat(1i32);
@@ -58713,7 +58713,7 @@ impl ::core::default::Default for MFVideoAlphaBitmap_0 {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFVideoAlphaBitmapFlags(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFVideoAlphaBitmap_EntireDDS: MFVideoAlphaBitmapFlags = MFVideoAlphaBitmapFlags(1i32);
@@ -58833,7 +58833,7 @@ impl ::core::default::Default for MFVideoArea {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFVideoAspectRatioMode(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFVideoARMode_None: MFVideoAspectRatioMode = MFVideoAspectRatioMode(0i32);
@@ -58866,7 +58866,7 @@ impl ::core::fmt::Debug for MFVideoAspectRatioMode {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFVideoChromaSubsampling(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFVideoChromaSubsampling_Unknown: MFVideoChromaSubsampling = MFVideoChromaSubsampling(0i32);
@@ -58943,7 +58943,7 @@ impl ::core::default::Default for MFVideoCompressedInfo {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFVideoDRMFlags(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFVideoDRMFlag_None: MFVideoDRMFlags = MFVideoDRMFlags(0i32);
@@ -58972,7 +58972,7 @@ impl ::core::fmt::Debug for MFVideoDRMFlags {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFVideoDSPMode(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFVideoDSPMode_Passthrough: MFVideoDSPMode = MFVideoDSPMode(1i32);
@@ -58999,7 +58999,7 @@ impl ::core::fmt::Debug for MFVideoDSPMode {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFVideoFlags(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFVideoFlag_PAD_TO_Mask: MFVideoFlags = MFVideoFlags(3i32);
@@ -59203,7 +59203,7 @@ impl ::core::default::Default for MFVideoInfo {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFVideoInterlaceMode(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFVideoInterlace_Unknown: MFVideoInterlaceMode = MFVideoInterlaceMode(0i32);
@@ -59244,7 +59244,7 @@ impl ::core::fmt::Debug for MFVideoInterlaceMode {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFVideoLighting(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFVideoLighting_Unknown: MFVideoLighting = MFVideoLighting(0i32);
@@ -59281,7 +59281,7 @@ impl ::core::fmt::Debug for MFVideoLighting {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFVideoMixPrefs(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFVideoMixPrefs_ForceHalfInterlace: MFVideoMixPrefs = MFVideoMixPrefs(1i32);
@@ -59349,7 +59349,7 @@ impl ::core::default::Default for MFVideoNormalizedRect {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFVideoPadFlags(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFVideoPadFlag_PAD_TO_None: MFVideoPadFlags = MFVideoPadFlags(0i32);
@@ -59378,7 +59378,7 @@ impl ::core::fmt::Debug for MFVideoPadFlags {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFVideoPrimaries(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFVideoPrimaries_Unknown: MFVideoPrimaries = MFVideoPrimaries(0i32);
@@ -59431,7 +59431,7 @@ impl ::core::fmt::Debug for MFVideoPrimaries {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFVideoRenderPrefs(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFVideoRenderPrefs_DoNotRenderBorder: MFVideoRenderPrefs = MFVideoRenderPrefs(1i32);
@@ -59474,7 +59474,7 @@ impl ::core::fmt::Debug for MFVideoRenderPrefs {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFVideoRotationFormat(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFVideoRotationFormat_0: MFVideoRotationFormat = MFVideoRotationFormat(0i32);
@@ -59505,7 +59505,7 @@ impl ::core::fmt::Debug for MFVideoRotationFormat {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFVideoSphericalFormat(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFVideoSphericalFormat_Unsupported: MFVideoSphericalFormat = MFVideoSphericalFormat(0i32);
@@ -59536,7 +59536,7 @@ impl ::core::fmt::Debug for MFVideoSphericalFormat {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFVideoSphericalProjectionMode(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFVideoSphericalProjectionMode_Spherical: MFVideoSphericalProjectionMode = MFVideoSphericalProjectionMode(0i32);
@@ -59563,7 +59563,7 @@ impl ::core::fmt::Debug for MFVideoSphericalProjectionMode {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFVideoSrcContentHintFlags(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFVideoSrcContentHintFlag_None: MFVideoSrcContentHintFlags = MFVideoSrcContentHintFlags(0i32);
@@ -59619,7 +59619,7 @@ impl ::core::default::Default for MFVideoSurfaceInfo {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFVideoTransferFunction(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFVideoTransFunc_Unknown: MFVideoTransferFunction = MFVideoTransferFunction(0i32);
@@ -59682,7 +59682,7 @@ impl ::core::fmt::Debug for MFVideoTransferFunction {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFVideoTransferMatrix(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFVideoTransferMatrix_Unknown: MFVideoTransferMatrix = MFVideoTransferMatrix(0i32);
@@ -59721,7 +59721,7 @@ impl ::core::fmt::Debug for MFVideoTransferMatrix {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MFWaveFormatExConvertFlags(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFWaveFormatExConvertFlag_Normal: MFWaveFormatExConvertFlags = MFWaveFormatExConvertFlags(0i32);
@@ -59792,7 +59792,7 @@ pub const MF_8_BYTE_ALIGNMENT: u32 = 7u32;
 pub const MF_ACCESS_CONTROLLED_MEDIASOURCE_SERVICE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x014a5031_2f05_4c6a_9f9c_7d0dc4eda5f4);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_ACTIVATE_CUSTOM_MIXER(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_ACTIVATE_CUSTOM_MIXER_ALLOWFAIL: MF_ACTIVATE_CUSTOM_MIXER = MF_ACTIVATE_CUSTOM_MIXER(1i32);
@@ -59817,7 +59817,7 @@ impl ::core::fmt::Debug for MF_ACTIVATE_CUSTOM_MIXER {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_ACTIVATE_CUSTOM_PRESENTER(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_ACTIVATE_CUSTOM_PRESENTER_ALLOWFAIL: MF_ACTIVATE_CUSTOM_PRESENTER = MF_ACTIVATE_CUSTOM_PRESENTER(1i32);
@@ -59856,7 +59856,7 @@ pub const MF_ASFSTREAMCONFIG_LEAKYBUCKET1: ::windows::core::GUID = ::windows::co
 pub const MF_ASFSTREAMCONFIG_LEAKYBUCKET2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc69b5902_ea1a_4c9b_b692_e2a0d29a8add);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_ATTRIBUTES_MATCH_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_ATTRIBUTES_MATCH_OUR_ITEMS: MF_ATTRIBUTES_MATCH_TYPE = MF_ATTRIBUTES_MATCH_TYPE(0i32);
@@ -59889,7 +59889,7 @@ impl ::core::fmt::Debug for MF_ATTRIBUTES_MATCH_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_ATTRIBUTE_SERIALIZE_OPTIONS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_ATTRIBUTE_SERIALIZE_UNKNOWN_BYREF: MF_ATTRIBUTE_SERIALIZE_OPTIONS = MF_ATTRIBUTE_SERIALIZE_OPTIONS(1i32);
@@ -59914,7 +59914,7 @@ impl ::core::fmt::Debug for MF_ATTRIBUTE_SERIALIZE_OPTIONS {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_ATTRIBUTE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_ATTRIBUTE_UINT32: MF_ATTRIBUTE_TYPE = MF_ATTRIBUTE_TYPE(19i32);
@@ -59962,7 +59962,7 @@ pub const MF_AUDIO_RENDERER_ATTRIBUTE_SESSION_ID: ::windows::core::GUID = ::wind
 pub const MF_AUDIO_RENDERER_ATTRIBUTE_STREAM_CATEGORY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9770471_92ec_4df4_94fe_81c36f0c3a7a);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_AUVRHP_ROOMMODEL(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const VRHP_SMALLROOM: MF_AUVRHP_ROOMMODEL = MF_AUVRHP_ROOMMODEL(0i32);
@@ -60039,7 +60039,7 @@ pub const MF_CAPTURE_ENGINE_ALL_EFFECTS_REMOVED: ::windows::core::GUID = ::windo
 pub const MF_CAPTURE_ENGINE_AUDIO_PROCESSING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10f1be5e_7e11_410b_973d_f4b6109000fe);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_CAPTURE_ENGINE_AUDIO_PROCESSING_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_CAPTURE_ENGINE_AUDIO_PROCESSING_DEFAULT: MF_CAPTURE_ENGINE_AUDIO_PROCESSING_MODE = MF_CAPTURE_ENGINE_AUDIO_PROCESSING_MODE(0i32);
@@ -60070,7 +60070,7 @@ pub const MF_CAPTURE_ENGINE_D3D_MANAGER: ::windows::core::GUID = ::windows::core
 pub const MF_CAPTURE_ENGINE_DECODER_MFT_FIELDOFUSE_UNLOCK_Attribute: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b8ad2e8_7acb_4321_a606_325c4249f4fc);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_CAPTURE_ENGINE_DEVICE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_CAPTURE_ENGINE_DEVICE_TYPE_AUDIO: MF_CAPTURE_ENGINE_DEVICE_TYPE = MF_CAPTURE_ENGINE_DEVICE_TYPE(0i32);
@@ -60109,7 +60109,7 @@ pub const MF_CAPTURE_ENGINE_MEDIASOURCE_CONFIG: ::windows::core::GUID = ::window
 pub const MF_CAPTURE_ENGINE_MEDIA_CATEGORY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e3f5bd5_dbbf_42f0_8542_d07a3971762a);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE_OTHER: MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE = MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE(0i32);
@@ -60160,7 +60160,7 @@ pub const MF_CAPTURE_ENGINE_SELECTEDCAMERAPROFILE: ::windows::core::GUID = ::win
 pub const MF_CAPTURE_ENGINE_SELECTEDCAMERAPROFILE_INDEX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ce88613_2214_46c3_b417_82f8a313c9c3);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_CAPTURE_ENGINE_SINK_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_CAPTURE_ENGINE_SINK_TYPE_RECORD: MF_CAPTURE_ENGINE_SINK_TYPE = MF_CAPTURE_ENGINE_SINK_TYPE(0i32);
@@ -60189,7 +60189,7 @@ impl ::core::fmt::Debug for MF_CAPTURE_ENGINE_SINK_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_CAPTURE_ENGINE_SOURCE(pub u32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_CAPTURE_ENGINE_PREFERRED_SOURCE_STREAM_FOR_VIDEO_PREVIEW: MF_CAPTURE_ENGINE_SOURCE = MF_CAPTURE_ENGINE_SOURCE(4294967290u32);
@@ -60224,7 +60224,7 @@ impl ::core::fmt::Debug for MF_CAPTURE_ENGINE_SOURCE {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_CAPTURE_ENGINE_STREAM_CATEGORY(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_CAPTURE_ENGINE_STREAM_CATEGORY_VIDEO_PREVIEW: MF_CAPTURE_ENGINE_STREAM_CATEGORY = MF_CAPTURE_ENGINE_STREAM_CATEGORY(0i32);
@@ -60306,7 +60306,7 @@ pub const MF_COMPONENT_LS_CERT_REVOKED: u32 = 262144u32;
 pub const MF_COMPONENT_REVOKED: u32 = 8192u32;
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_CONNECT_METHOD(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_CONNECT_DIRECT: MF_CONNECT_METHOD = MF_CONNECT_METHOD(0i32);
@@ -60344,7 +60344,7 @@ pub const MF_CONTENT_DECRYPTOR_SERVICE: ::windows::core::GUID = ::windows::core:
 pub const MF_CONTENT_PROTECTION_DEVICE_SERVICE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff58436f_76a0_41fe_b566_10cc53962edd);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_CROSS_ORIGIN_POLICY(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_CROSS_ORIGIN_POLICY_NONE: MF_CROSS_ORIGIN_POLICY = MF_CROSS_ORIGIN_POLICY(0i32);
@@ -60373,7 +60373,7 @@ impl ::core::fmt::Debug for MF_CROSS_ORIGIN_POLICY {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_CUSTOM_DECODE_UNIT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_DECODE_UNIT_NAL: MF_CUSTOM_DECODE_UNIT_TYPE = MF_CUSTOM_DECODE_UNIT_TYPE(0i32);
@@ -60469,7 +60469,7 @@ pub const MF_EVENT_STREAM_METADATA_SYSTEMID: ::windows::core::GUID = ::windows::
 pub const MF_EVENT_TOPOLOGY_STATUS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30c5018d_9a53_454b_ad9e_6d5f8fa7c43b);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_EVENT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MEUnknown: MF_EVENT_TYPE = MF_EVENT_TYPE(0i32);
@@ -61408,7 +61408,7 @@ pub const MF_E_WMDRMOTA_INVALID_POLICY: ::windows::core::HRESULT = ::windows::co
 pub const MF_E_WMDRMOTA_NO_ACTION: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860845i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_FILE_ACCESSMODE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_ACCESSMODE_READ: MF_FILE_ACCESSMODE = MF_FILE_ACCESSMODE(1i32);
@@ -61437,7 +61437,7 @@ impl ::core::fmt::Debug for MF_FILE_ACCESSMODE {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_FILE_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_FILEFLAGS_NONE: MF_FILE_FLAGS = MF_FILE_FLAGS(0i32);
@@ -61466,7 +61466,7 @@ impl ::core::fmt::Debug for MF_FILE_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_FILE_OPENMODE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_OPENMODE_FAIL_IF_NOT_EXIST: MF_FILE_OPENMODE = MF_FILE_OPENMODE(0i32);
@@ -61572,7 +61572,7 @@ pub const MF_GRL_ABSENT: u32 = 4096u32;
 pub const MF_GRL_LOAD_FAILED: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_HDCP_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_HDCP_STATUS_ON: MF_HDCP_STATUS = MF_HDCP_STATUS(0i32);
@@ -61665,7 +61665,7 @@ pub const MF_LUMA_KEY_LOWER: ::windows::core::GUID = ::windows::core::GUID::from
 pub const MF_LUMA_KEY_UPPER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd09f39bb_4602_4c31_a706_a12171a5110a);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_MEDIAKEYSESSION_MESSAGETYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_MEDIAKEYSESSION_MESSAGETYPE_LICENSE_REQUEST: MF_MEDIAKEYSESSION_MESSAGETYPE = MF_MEDIAKEYSESSION_MESSAGETYPE(0i32);
@@ -61696,7 +61696,7 @@ impl ::core::fmt::Debug for MF_MEDIAKEYSESSION_MESSAGETYPE {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_MEDIAKEYSESSION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_MEDIAKEYSESSION_TYPE_TEMPORARY: MF_MEDIAKEYSESSION_TYPE = MF_MEDIAKEYSESSION_TYPE(0i32);
@@ -61727,7 +61727,7 @@ impl ::core::fmt::Debug for MF_MEDIAKEYSESSION_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_MEDIAKEYS_REQUIREMENT(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_MEDIAKEYS_REQUIREMENT_REQUIRED: MF_MEDIAKEYS_REQUIREMENT = MF_MEDIAKEYS_REQUIREMENT(1i32);
@@ -61756,7 +61756,7 @@ impl ::core::fmt::Debug for MF_MEDIAKEYS_REQUIREMENT {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_MEDIAKEY_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_MEDIAKEY_STATUS_USABLE: MF_MEDIAKEY_STATUS = MF_MEDIAKEY_STATUS(0i32);
@@ -61816,7 +61816,7 @@ pub const MF_MEDIA_ENGINE_BROWSER_COMPATIBILITY_MODE_IE_EDGE: ::windows::core::G
 pub const MF_MEDIA_ENGINE_CALLBACK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc60381b8_83a4_41f8_a3d0_de05076849a9);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_MEDIA_ENGINE_CANPLAY(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_MEDIA_ENGINE_CANPLAY_NOT_SUPPORTED: MF_MEDIA_ENGINE_CANPLAY = MF_MEDIA_ENGINE_CANPLAY(0i32);
@@ -61852,7 +61852,7 @@ pub const MF_MEDIA_ENGINE_CONTINUE_ON_CODEC_ERROR: ::windows::core::GUID = ::win
 pub const MF_MEDIA_ENGINE_COREWINDOW: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfccae4dc_0b7f_41c2_9f96_4659948acddc);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_MEDIA_ENGINE_CREATEFLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_MEDIA_ENGINE_AUDIOONLY: MF_MEDIA_ENGINE_CREATEFLAGS = MF_MEDIA_ENGINE_CREATEFLAGS(1i32);
@@ -61889,7 +61889,7 @@ pub const MF_MEDIA_ENGINE_DXGI_MANAGER: ::windows::core::GUID = ::windows::core:
 pub const MF_MEDIA_ENGINE_EME_CALLBACK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x494553a7_a481_4cb7_bec5_380903513731);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_MEDIA_ENGINE_ERR(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_MEDIA_ENGINE_ERR_NOERROR: MF_MEDIA_ENGINE_ERR = MF_MEDIA_ENGINE_ERR(0i32);
@@ -61924,7 +61924,7 @@ impl ::core::fmt::Debug for MF_MEDIA_ENGINE_ERR {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_MEDIA_ENGINE_EVENT(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_MEDIA_ENGINE_EVENT_LOADSTART: MF_MEDIA_ENGINE_EVENT = MF_MEDIA_ENGINE_EVENT(1i32);
@@ -62026,7 +62026,7 @@ impl ::core::fmt::Debug for MF_MEDIA_ENGINE_EVENT {
 pub const MF_MEDIA_ENGINE_EXTENSION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3109fd46_060d_4b62_8dcf_faff811318d2);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_MEDIA_ENGINE_EXTENSION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_MEDIA_ENGINE_EXTENSION_TYPE_MEDIASOURCE: MF_MEDIA_ENGINE_EXTENSION_TYPE = MF_MEDIA_ENGINE_EXTENSION_TYPE(0i32);
@@ -62053,7 +62053,7 @@ impl ::core::fmt::Debug for MF_MEDIA_ENGINE_EXTENSION_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_MEDIA_ENGINE_FRAME_PROTECTION_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_MEDIA_ENGINE_FRAME_PROTECTION_FLAG_PROTECTED: MF_MEDIA_ENGINE_FRAME_PROTECTION_FLAGS = MF_MEDIA_ENGINE_FRAME_PROTECTION_FLAGS(1i32);
@@ -62082,7 +62082,7 @@ impl ::core::fmt::Debug for MF_MEDIA_ENGINE_FRAME_PROTECTION_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_MEDIA_ENGINE_KEYERR(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_MEDIAENGINE_KEYERR_UNKNOWN: MF_MEDIA_ENGINE_KEYERR = MF_MEDIA_ENGINE_KEYERR(1i32);
@@ -62119,7 +62119,7 @@ pub const MF_MEDIA_ENGINE_MEDIA_PLAYER_MODE: ::windows::core::GUID = ::windows::
 pub const MF_MEDIA_ENGINE_NEEDKEY_CALLBACK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ea80843_b6e4_432c_8ea4_7848ffe4220e);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_MEDIA_ENGINE_NETWORK(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_MEDIA_ENGINE_NETWORK_EMPTY: MF_MEDIA_ENGINE_NETWORK = MF_MEDIA_ENGINE_NETWORK(0i32);
@@ -62151,7 +62151,7 @@ impl ::core::fmt::Debug for MF_MEDIA_ENGINE_NETWORK {
 pub const MF_MEDIA_ENGINE_OPM_HWND: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0be8ee7_0572_4f2c_a801_2a151bd3e726);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_MEDIA_ENGINE_OPM_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_MEDIA_ENGINE_OPM_NOT_REQUESTED: MF_MEDIA_ENGINE_OPM_STATUS = MF_MEDIA_ENGINE_OPM_STATUS(0i32);
@@ -62188,7 +62188,7 @@ pub const MF_MEDIA_ENGINE_PLAYBACK_HWND: ::windows::core::GUID = ::windows::core
 pub const MF_MEDIA_ENGINE_PLAYBACK_VISUAL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6debd26f_6ab9_4d7e_b0ee_c61a73ffad15);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_MEDIA_ENGINE_PRELOAD(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_MEDIA_ENGINE_PRELOAD_MISSING: MF_MEDIA_ENGINE_PRELOAD = MF_MEDIA_ENGINE_PRELOAD(0i32);
@@ -62221,7 +62221,7 @@ impl ::core::fmt::Debug for MF_MEDIA_ENGINE_PRELOAD {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_MEDIA_ENGINE_PROTECTION_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_MEDIA_ENGINE_ENABLE_PROTECTED_CONTENT: MF_MEDIA_ENGINE_PROTECTION_FLAGS = MF_MEDIA_ENGINE_PROTECTION_FLAGS(1i32);
@@ -62250,7 +62250,7 @@ impl ::core::fmt::Debug for MF_MEDIA_ENGINE_PROTECTION_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_MEDIA_ENGINE_READY(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_MEDIA_ENGINE_READY_HAVE_NOTHING: MF_MEDIA_ENGINE_READY = MF_MEDIA_ENGINE_READY(0i32);
@@ -62283,7 +62283,7 @@ impl ::core::fmt::Debug for MF_MEDIA_ENGINE_READY {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_MEDIA_ENGINE_S3D_PACKING_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_MEDIA_ENGINE_S3D_PACKING_MODE_NONE: MF_MEDIA_ENGINE_S3D_PACKING_MODE = MF_MEDIA_ENGINE_S3D_PACKING_MODE(0i32);
@@ -62312,7 +62312,7 @@ impl ::core::fmt::Debug for MF_MEDIA_ENGINE_S3D_PACKING_MODE {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_MEDIA_ENGINE_SEEK_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_MEDIA_ENGINE_SEEK_MODE_NORMAL: MF_MEDIA_ENGINE_SEEK_MODE = MF_MEDIA_ENGINE_SEEK_MODE(0i32);
@@ -62340,7 +62340,7 @@ impl ::core::fmt::Debug for MF_MEDIA_ENGINE_SEEK_MODE {
 pub const MF_MEDIA_ENGINE_SOURCE_RESOLVER_CONFIG_STORE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ac0c497_b3c4_48c9_9cde_bb8ca2442ca3);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_MEDIA_ENGINE_STATISTIC(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_MEDIA_ENGINE_STATISTIC_FRAMES_RENDERED: MF_MEDIA_ENGINE_STATISTIC = MF_MEDIA_ENGINE_STATISTIC(0i32);
@@ -62379,7 +62379,7 @@ impl ::core::fmt::Debug for MF_MEDIA_ENGINE_STATISTIC {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_MEDIA_ENGINE_STREAMTYPE_FAILED(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_MEDIA_ENGINE_STREAMTYPE_FAILED_UNKNOWN: MF_MEDIA_ENGINE_STREAMTYPE_FAILED = MF_MEDIA_ENGINE_STREAMTYPE_FAILED(0i32);
@@ -62417,7 +62417,7 @@ pub const MF_MEDIA_SHARING_ENGINE_DEVICE: ::windows::core::GUID = ::windows::cor
 pub const MF_MEDIA_SHARING_ENGINE_DEVICE_NAME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x771e05d1_862f_4299_95ac_ae81fd14f3e7);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_MEDIA_SHARING_ENGINE_EVENT(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_MEDIA_SHARING_ENGINE_EVENT_DISCONNECT: MF_MEDIA_SHARING_ENGINE_EVENT = MF_MEDIA_SHARING_ENGINE_EVENT(2000i32);
@@ -62463,7 +62463,7 @@ pub const MF_MPEG4SINK_SPSPPS_PASSTHROUGH: ::windows::core::GUID = ::windows::co
 pub const MF_MSE_ACTIVELIST_CALLBACK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x949bda0f_4549_46d5_ad7f_b846e1ab1652);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_MSE_APPEND_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_MSE_APPEND_MODE_SEGMENTS: MF_MSE_APPEND_MODE = MF_MSE_APPEND_MODE(0i32);
@@ -62492,7 +62492,7 @@ pub const MF_MSE_BUFFERLIST_CALLBACK: ::windows::core::GUID = ::windows::core::G
 pub const MF_MSE_CALLBACK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9063a7c0_42c5_4ffd_a8a8_6fcf9ea3d00c);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_MSE_ERROR(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_MSE_ERROR_NOERROR: MF_MSE_ERROR = MF_MSE_ERROR(0i32);
@@ -62524,7 +62524,7 @@ impl ::core::fmt::Debug for MF_MSE_ERROR {
 pub const MF_MSE_OPUS_SUPPORT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d224cc1_8cc4_48a3_a7a7_e4c16ce6388a);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_MSE_OPUS_SUPPORT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_MSE_OPUS_SUPPORT_ON: MF_MSE_OPUS_SUPPORT_TYPE = MF_MSE_OPUS_SUPPORT_TYPE(0i32);
@@ -62551,7 +62551,7 @@ impl ::core::fmt::Debug for MF_MSE_OPUS_SUPPORT_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_MSE_READY(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_MSE_READY_CLOSED: MF_MSE_READY = MF_MSE_READY(1i32);
@@ -62581,7 +62581,7 @@ impl ::core::fmt::Debug for MF_MSE_READY {
 pub const MF_MSE_VP9_SUPPORT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92d78429_d88b_4ff0_8322_803efa6e9626);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_MSE_VP9_SUPPORT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_MSE_VP9_SUPPORT_DEFAULT: MF_MSE_VP9_SUPPORT_TYPE = MF_MSE_VP9_SUPPORT_TYPE(0i32);
@@ -62647,7 +62647,7 @@ pub const MF_MT_D3D12_TEXTURE_LAYOUT: ::windows::core::GUID = ::windows::core::G
 pub const MF_MT_D3D_RESOURCE_VERSION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x174f1e85_fe26_453d_b52e_5bdd4e55b944);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_MT_D3D_RESOURCE_VERSION_ENUM(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_D3D11_RESOURCE: MF_MT_D3D_RESOURCE_VERSION_ENUM = MF_MT_D3D_RESOURCE_VERSION_ENUM(0i32);
@@ -62775,7 +62775,7 @@ pub const MF_NOT_FOUND_ERR: u32 = 2154823688u32;
 pub const MF_NOT_SUPPORTED_ERR: u32 = 2154823689u32;
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_OBJECT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_OBJECT_MEDIASOURCE: MF_OBJECT_TYPE = MF_OBJECT_TYPE(0i32);
@@ -62804,7 +62804,7 @@ impl ::core::fmt::Debug for MF_OBJECT_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_OPM_ACP_PROTECTION_LEVEL(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_OPM_ACP_OFF: MF_OPM_ACP_PROTECTION_LEVEL = MF_OPM_ACP_PROTECTION_LEVEL(0i32);
@@ -62837,7 +62837,7 @@ impl ::core::fmt::Debug for MF_OPM_ACP_PROTECTION_LEVEL {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_OPM_CGMSA_PROTECTION_LEVEL(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_OPM_CGMSA_OFF: MF_OPM_CGMSA_PROTECTION_LEVEL = MF_OPM_CGMSA_PROTECTION_LEVEL(0i32);
@@ -62917,7 +62917,7 @@ pub const MF_PD_TOTAL_FILE_SIZE: ::windows::core::GUID = ::windows::core::GUID::
 pub const MF_PD_VIDEO_ENCODING_BITRATE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c990d36_bb8e_477a_8598_0d5d96fcd88a);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_PLUGIN_CONTROL_POLICY(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_PLUGIN_CONTROL_POLICY_USE_ALL_PLUGINS: MF_PLUGIN_CONTROL_POLICY = MF_PLUGIN_CONTROL_POLICY(0i32);
@@ -62953,7 +62953,7 @@ pub const MF_PROGRESSIVE_CODING_CONTENT: ::windows::core::GUID = ::windows::core
 pub const MF_PROPERTY_HANDLER_SERVICE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3face02_32b8_41dd_90e7_5fef7c8991b5);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_Plugin_Type(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_Plugin_Type_MFT: MF_Plugin_Type = MF_Plugin_Type(0i32);
@@ -62984,7 +62984,7 @@ impl ::core::fmt::Debug for MF_Plugin_Type {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_QUALITY_ADVISE_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_QUALITY_CANNOT_KEEP_UP: MF_QUALITY_ADVISE_FLAGS = MF_QUALITY_ADVISE_FLAGS(1i32);
@@ -63009,7 +63009,7 @@ impl ::core::fmt::Debug for MF_QUALITY_ADVISE_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_QUALITY_DROP_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_DROP_MODE_NONE: MF_QUALITY_DROP_MODE = MF_QUALITY_DROP_MODE(0i32);
@@ -63046,7 +63046,7 @@ impl ::core::fmt::Debug for MF_QUALITY_DROP_MODE {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_QUALITY_LEVEL(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_QUALITY_NORMAL: MF_QUALITY_LEVEL = MF_QUALITY_LEVEL(0i32);
@@ -63131,7 +63131,7 @@ pub const MF_READWRITE_MMCSS_PRIORITY_AUDIO: ::windows::core::GUID = ::windows::
 pub const MF_REMOTE_PROXY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f00c90e_d2cf_4278_8b6a_d077fac3a25f);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_RESOLUTION_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_RESOLUTION_MEDIASOURCE: MF_RESOLUTION_FLAGS = MF_RESOLUTION_FLAGS(1u32);
@@ -63246,7 +63246,7 @@ pub const MF_SD_VIDEO_SPHERICAL_FORMAT: ::windows::core::GUID = ::windows::core:
 pub const MF_SD_VIDEO_SPHERICAL_INITIAL_VIEWDIRECTION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11d25a49_bb62_467f_9db1_c17165716c49);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_SERVICE_LOOKUP_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_SERVICE_LOOKUP_UPSTREAM: MF_SERVICE_LOOKUP_TYPE = MF_SERVICE_LOOKUP_TYPE(0i32);
@@ -63289,7 +63289,7 @@ pub const MF_SESSION_TOPOLOADER: ::windows::core::GUID = ::windows::core::GUID::
 pub const MF_SHARING_ENGINE_CALLBACK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57dc1e95_d252_43fa_9bbc_180070eefe6d);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_SHARING_ENGINE_EVENT(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_SHARING_ENGINE_EVENT_DISCONNECT: MF_SHARING_ENGINE_EVENT = MF_SHARING_ENGINE_EVENT(2000i32);
@@ -63330,7 +63330,7 @@ pub const MF_SINK_VIDEO_PTS: ::windows::core::GUID = ::windows::core::GUID::from
 pub const MF_SINK_WRITER_ASYNC_CALLBACK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x48cb183e_7b0b_46f4_822e_5e1d2dda4354);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_SINK_WRITER_CONSTANTS(pub u32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_SINK_WRITER_INVALID_STREAM_INDEX: MF_SINK_WRITER_CONSTANTS = MF_SINK_WRITER_CONSTANTS(4294967295u32);
@@ -63426,7 +63426,7 @@ pub const MF_SOURCE_PRESENTATION_PROVIDER_SERVICE: ::windows::core::GUID = ::win
 pub const MF_SOURCE_READER_ASYNC_CALLBACK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e3dbeac_bb43_4c35_b507_cd644464c965);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_SOURCE_READER_CONSTANTS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_SOURCE_READER_INVALID_STREAM_INDEX: MF_SOURCE_READER_CONSTANTS = MF_SOURCE_READER_CONSTANTS(-1i32);
@@ -63461,7 +63461,7 @@ impl ::core::fmt::Debug for MF_SOURCE_READER_CONSTANTS {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_SOURCE_READER_CONTROL_FLAG(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_SOURCE_READER_CONTROLF_DRAIN: MF_SOURCE_READER_CONTROL_FLAG = MF_SOURCE_READER_CONTROL_FLAG(1i32);
@@ -63486,7 +63486,7 @@ impl ::core::fmt::Debug for MF_SOURCE_READER_CONTROL_FLAG {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_SOURCE_READER_CURRENT_TYPE_CONSTANTS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_SOURCE_READER_CURRENT_TYPE_INDEX: MF_SOURCE_READER_CURRENT_TYPE_CONSTANTS = MF_SOURCE_READER_CURRENT_TYPE_CONSTANTS(-1i32);
@@ -63519,7 +63519,7 @@ pub const MF_SOURCE_READER_ENABLE_TRANSCODE_ONLY_TRANSFORMS: ::windows::core::GU
 pub const MF_SOURCE_READER_ENABLE_VIDEO_PROCESSING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb394f3d_ccf1_42ee_bbb3_f9b845d5681d);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_SOURCE_READER_FLAG(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_SOURCE_READERF_ERROR: MF_SOURCE_READER_FLAG = MF_SOURCE_READER_FLAG(1i32);
@@ -63563,7 +63563,7 @@ pub const MF_STREAM_SINK_SUPPORTS_HW_CONNECTION: ::windows::core::GUID = ::windo
 pub const MF_STREAM_SINK_SUPPORTS_ROTATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3e96280_bd05_41a5_97ad_8a7fee24b912);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_STREAM_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_STREAM_STATE_STOPPED: MF_STREAM_STATE = MF_STREAM_STATE(0i32);
@@ -63623,7 +63623,7 @@ pub const MF_TEST_SIGNED_COMPONENT_LOADING: u32 = 16777216u32;
 pub const MF_TIMECODE_SERVICE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0d502a7_0eb3_4885_b1b9_9feb0d083454);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_TIMED_TEXT_ALIGNMENT(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_TIMED_TEXT_ALIGNMENT_START: MF_TIMED_TEXT_ALIGNMENT = MF_TIMED_TEXT_ALIGNMENT(0i32);
@@ -63652,7 +63652,7 @@ impl ::core::fmt::Debug for MF_TIMED_TEXT_ALIGNMENT {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_TIMED_TEXT_BOUTEN_POSITION(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_TIMED_TEXT_BOUTEN_POSITION_BEFORE: MF_TIMED_TEXT_BOUTEN_POSITION = MF_TIMED_TEXT_BOUTEN_POSITION(0i32);
@@ -63681,7 +63681,7 @@ impl ::core::fmt::Debug for MF_TIMED_TEXT_BOUTEN_POSITION {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_TIMED_TEXT_BOUTEN_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_TIMED_TEXT_BOUTEN_TYPE_NONE: MF_TIMED_TEXT_BOUTEN_TYPE = MF_TIMED_TEXT_BOUTEN_TYPE(0i32);
@@ -63720,7 +63720,7 @@ impl ::core::fmt::Debug for MF_TIMED_TEXT_BOUTEN_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_TIMED_TEXT_CUE_EVENT(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_TIMED_TEXT_CUE_EVENT_ACTIVE: MF_TIMED_TEXT_CUE_EVENT = MF_TIMED_TEXT_CUE_EVENT(0i32);
@@ -63749,7 +63749,7 @@ impl ::core::fmt::Debug for MF_TIMED_TEXT_CUE_EVENT {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_TIMED_TEXT_DECORATION(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_TIMED_TEXT_DECORATION_NONE: MF_TIMED_TEXT_DECORATION = MF_TIMED_TEXT_DECORATION(0i32);
@@ -63780,7 +63780,7 @@ impl ::core::fmt::Debug for MF_TIMED_TEXT_DECORATION {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_TIMED_TEXT_DISPLAY_ALIGNMENT(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_TIMED_TEXT_DISPLAY_ALIGNMENT_BEFORE: MF_TIMED_TEXT_DISPLAY_ALIGNMENT = MF_TIMED_TEXT_DISPLAY_ALIGNMENT(0i32);
@@ -63809,7 +63809,7 @@ impl ::core::fmt::Debug for MF_TIMED_TEXT_DISPLAY_ALIGNMENT {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_TIMED_TEXT_ERROR_CODE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_TIMED_TEXT_ERROR_CODE_NOERROR: MF_TIMED_TEXT_ERROR_CODE = MF_TIMED_TEXT_ERROR_CODE(0i32);
@@ -63842,7 +63842,7 @@ impl ::core::fmt::Debug for MF_TIMED_TEXT_ERROR_CODE {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_TIMED_TEXT_FONT_STYLE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_TIMED_TEXT_FONT_STYLE_NORMAL: MF_TIMED_TEXT_FONT_STYLE = MF_TIMED_TEXT_FONT_STYLE(0i32);
@@ -63871,7 +63871,7 @@ impl ::core::fmt::Debug for MF_TIMED_TEXT_FONT_STYLE {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_TIMED_TEXT_RUBY_ALIGN(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_TIMED_TEXT_RUBY_ALIGN_CENTER: MF_TIMED_TEXT_RUBY_ALIGN = MF_TIMED_TEXT_RUBY_ALIGN(0i32);
@@ -63906,7 +63906,7 @@ impl ::core::fmt::Debug for MF_TIMED_TEXT_RUBY_ALIGN {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_TIMED_TEXT_RUBY_POSITION(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_TIMED_TEXT_RUBY_POSITION_BEFORE: MF_TIMED_TEXT_RUBY_POSITION = MF_TIMED_TEXT_RUBY_POSITION(0i32);
@@ -63935,7 +63935,7 @@ impl ::core::fmt::Debug for MF_TIMED_TEXT_RUBY_POSITION {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_TIMED_TEXT_RUBY_RESERVE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_TIMED_TEXT_RUBY_RESERVE_NONE: MF_TIMED_TEXT_RUBY_RESERVE = MF_TIMED_TEXT_RUBY_RESERVE(0i32);
@@ -63968,7 +63968,7 @@ impl ::core::fmt::Debug for MF_TIMED_TEXT_RUBY_RESERVE {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_TIMED_TEXT_SCROLL_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_TIMED_TEXT_SCROLL_MODE_POP_ON: MF_TIMED_TEXT_SCROLL_MODE = MF_TIMED_TEXT_SCROLL_MODE(0i32);
@@ -63995,7 +63995,7 @@ impl ::core::fmt::Debug for MF_TIMED_TEXT_SCROLL_MODE {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_TIMED_TEXT_TRACK_KIND(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_TIMED_TEXT_TRACK_KIND_UNKNOWN: MF_TIMED_TEXT_TRACK_KIND = MF_TIMED_TEXT_TRACK_KIND(0i32);
@@ -64026,7 +64026,7 @@ impl ::core::fmt::Debug for MF_TIMED_TEXT_TRACK_KIND {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_TIMED_TEXT_TRACK_READY_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_TIMED_TEXT_TRACK_READY_STATE_NONE: MF_TIMED_TEXT_TRACK_READY_STATE = MF_TIMED_TEXT_TRACK_READY_STATE(0i32);
@@ -64057,7 +64057,7 @@ impl ::core::fmt::Debug for MF_TIMED_TEXT_TRACK_READY_STATE {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_TIMED_TEXT_UNIT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_TIMED_TEXT_UNIT_TYPE_PIXELS: MF_TIMED_TEXT_UNIT_TYPE = MF_TIMED_TEXT_UNIT_TYPE(0i32);
@@ -64084,7 +64084,7 @@ impl ::core::fmt::Debug for MF_TIMED_TEXT_UNIT_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_TIMED_TEXT_WRITING_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_TIMED_TEXT_WRITING_MODE_LRTB: MF_TIMED_TEXT_WRITING_MODE = MF_TIMED_TEXT_WRITING_MODE(0i32);
@@ -64134,7 +64134,7 @@ pub const MF_TOPOLOGY_PROJECTSTOP: ::windows::core::GUID = ::windows::core::GUID
 pub const MF_TOPOLOGY_RESOLUTION_STATUS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x494bbcde_b031_4e38_97c4_d5422dd618dc);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_TOPOLOGY_RESOLUTION_STATUS_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_TOPOLOGY_RESOLUTION_SUCCEEDED: MF_TOPOLOGY_RESOLUTION_STATUS_FLAGS = MF_TOPOLOGY_RESOLUTION_STATUS_FLAGS(0i32);
@@ -64165,7 +64165,7 @@ pub const MF_TOPOLOGY_START_TIME_ON_PRESENTATION_SWITCH: ::windows::core::GUID =
 pub const MF_TOPOLOGY_STATIC_PLAYBACK_OPTIMIZATIONS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb86cac42_41a6_4b79_897a_1ab0e52b4a1b);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_TOPOLOGY_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_TOPOLOGY_OUTPUT_NODE: MF_TOPOLOGY_TYPE = MF_TOPOLOGY_TYPE(0i32);
@@ -64206,7 +64206,7 @@ pub const MF_TOPONODE_DISCARDABLE: ::windows::core::GUID = ::windows::core::GUID
 pub const MF_TOPONODE_DRAIN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x494bbce9_b031_4e38_97c4_d5422dd618dc);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_TOPONODE_DRAIN_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_TOPONODE_DRAIN_DEFAULT: MF_TOPONODE_DRAIN_MODE = MF_TOPONODE_DRAIN_MODE(0i32);
@@ -64239,7 +64239,7 @@ pub const MF_TOPONODE_ERROR_SUBTYPE: ::windows::core::GUID = ::windows::core::GU
 pub const MF_TOPONODE_FLUSH: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x494bbce8_b031_4e38_97c4_d5422dd618dc);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_TOPONODE_FLUSH_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_TOPONODE_FLUSH_ALWAYS: MF_TOPONODE_FLUSH_MODE = MF_TOPONODE_FLUSH_MODE(0i32);
@@ -64287,7 +64287,7 @@ pub const MF_TOPONODE_WORKQUEUE_MMCSS_PRIORITY: ::windows::core::GUID = ::window
 pub const MF_TOPONODE_WORKQUEUE_MMCSS_TASKID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x494bbcff_b031_4e38_97c4_d5422dd618dc);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_TOPOSTATUS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_TOPOSTATUS_INVALID: MF_TOPOSTATUS = MF_TOPOSTATUS(0i32);
@@ -64323,7 +64323,7 @@ impl ::core::fmt::Debug for MF_TOPOSTATUS {
 pub const MF_TRANSCODE_ADJUST_PROFILE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c37c21b_060f_487c_a690_80d7f50d1c72);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_TRANSCODE_ADJUST_PROFILE_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_TRANSCODE_ADJUST_PROFILE_DEFAULT: MF_TRANSCODE_ADJUST_PROFILE_FLAGS = MF_TRANSCODE_ADJUST_PROFILE_FLAGS(0i32);
@@ -64393,7 +64393,7 @@ pub const MF_TRANSCODE_SKIP_METADATA_TRANSFER: ::windows::core::GUID = ::windows
 pub const MF_TRANSCODE_TOPOLOGYMODE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e3df610_394a_40b2_9dea_3bab650bebf2);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_TRANSCODE_TOPOLOGYMODE_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_TRANSCODE_TOPOLOGYMODE_SOFTWARE_ONLY: MF_TRANSCODE_TOPOLOGYMODE_FLAGS = MF_TRANSCODE_TOPOLOGYMODE_FLAGS(0i32);
@@ -64428,7 +64428,7 @@ pub const MF_TYPE_ERR: u32 = 2154840069u32;
 pub const MF_UNKNOWN_DURATION: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_URL_TRUST_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_LICENSE_URL_UNTRUSTED: MF_URL_TRUST_STATUS = MF_URL_TRUST_STATUS(0i32);
@@ -64464,7 +64464,7 @@ pub const MF_VIDEO_MAX_MB_PER_SEC: ::windows::core::GUID = ::windows::core::GUID
 pub const MF_VIDEO_PROCESSOR_ALGORITHM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a0a1e1f_272c_4fb6_9eb1_db330cbc97ca);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_VIDEO_PROCESSOR_ALGORITHM_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_VIDEO_PROCESSOR_ALGORITHM_DEFAULT: MF_VIDEO_PROCESSOR_ALGORITHM_TYPE = MF_VIDEO_PROCESSOR_ALGORITHM_TYPE(0i32);
@@ -64491,7 +64491,7 @@ impl ::core::fmt::Debug for MF_VIDEO_PROCESSOR_ALGORITHM_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_VIDEO_PROCESSOR_MIRROR(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MIRROR_NONE: MF_VIDEO_PROCESSOR_MIRROR = MF_VIDEO_PROCESSOR_MIRROR(0i32);
@@ -64520,7 +64520,7 @@ impl ::core::fmt::Debug for MF_VIDEO_PROCESSOR_MIRROR {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_VIDEO_PROCESSOR_ROTATION(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const ROTATION_NONE: MF_VIDEO_PROCESSOR_ROTATION = MF_VIDEO_PROCESSOR_ROTATION(0i32);
@@ -64603,7 +64603,7 @@ pub unsafe fn MFllMulDiv(a: i64, b: i64, c: i64, d: i64) -> i64 {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MIC_ARRAY_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MICARRAY_SINGLE_CHAN: MIC_ARRAY_MODE = MIC_ARRAY_MODE(0i32);
@@ -64795,7 +64795,7 @@ impl ::core::default::Default for MPEG2VIDEOINFO {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MPEG2VIDEOINFO_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const AMMPEG2_DoPanScan: MPEG2VIDEOINFO_FLAGS = MPEG2VIDEOINFO_FLAGS(1u32);
@@ -65082,7 +65082,7 @@ impl ::core::default::Default for OPM_ACP_AND_CGMSA_SIGNALING {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OPM_ACP_PROTECTION_LEVEL(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const OPM_ACP_OFF: OPM_ACP_PROTECTION_LEVEL = OPM_ACP_PROTECTION_LEVEL(0i32);
@@ -65154,7 +65154,7 @@ impl ::core::default::Default for OPM_ACTUAL_OUTPUT_FORMAT {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OPM_BUS_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const OPM_BUS_TYPE_OTHER: OPM_BUS_TYPE = OPM_BUS_TYPE(0i32);
@@ -65201,7 +65201,7 @@ impl ::core::fmt::Debug for OPM_BUS_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OPM_CGMSA(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const OPM_CGMSA_OFF: OPM_CGMSA = OPM_CGMSA(0i32);
@@ -65296,7 +65296,7 @@ impl ::core::default::Default for OPM_CONNECTED_HDCP_DEVICE_INFORMATION {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OPM_CONNECTOR_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const OPM_CONNECTOR_TYPE_OTHER: OPM_CONNECTOR_TYPE = OPM_CONNECTOR_TYPE(-1i32);
@@ -65386,7 +65386,7 @@ impl ::core::default::Default for OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OPM_DPCP_PROTECTION_LEVEL(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const OPM_DPCP_OFF: OPM_DPCP_PROTECTION_LEVEL = OPM_DPCP_PROTECTION_LEVEL(0i32);
@@ -65415,7 +65415,7 @@ impl ::core::fmt::Debug for OPM_DPCP_PROTECTION_LEVEL {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OPM_DVI_CHARACTERISTIC(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const OPM_DVI_CHARACTERISTIC_1_0: OPM_DVI_CHARACTERISTIC = OPM_DVI_CHARACTERISTIC(1i32);
@@ -65567,7 +65567,7 @@ pub const OPM_GET_SUPPORTED_PROTECTION_TYPES: ::windows::core::GUID = ::windows:
 pub const OPM_GET_VIRTUAL_PROTECTION_LEVEL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2075857_3eda_4d5d_88db_748f8c1a0549);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OPM_HDCP_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const OPM_HDCP_FLAG_NONE: OPM_HDCP_FLAGS = OPM_HDCP_FLAGS(0u32);
@@ -65652,7 +65652,7 @@ impl ::core::default::Default for OPM_HDCP_KEY_SELECTION_VECTOR {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OPM_HDCP_PROTECTION_LEVEL(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const OPM_HDCP_OFF: OPM_HDCP_PROTECTION_LEVEL = OPM_HDCP_PROTECTION_LEVEL(0i32);
@@ -65681,7 +65681,7 @@ impl ::core::fmt::Debug for OPM_HDCP_PROTECTION_LEVEL {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OPM_HDCP_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const OPM_HDCP_STATUS_ON: OPM_HDCP_STATUS = OPM_HDCP_STATUS(0i32);
@@ -65708,7 +65708,7 @@ impl ::core::fmt::Debug for OPM_HDCP_STATUS {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OPM_HDCP_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const OPM_HDCP_TYPE_0: OPM_HDCP_TYPE = OPM_HDCP_TYPE(0i32);
@@ -65735,7 +65735,7 @@ impl ::core::fmt::Debug for OPM_HDCP_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OPM_IMAGE_ASPECT_RATIO_EN300294(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const OPM_ASPECT_RATIO_EN300294_FULL_FORMAT_4_BY_3: OPM_IMAGE_ASPECT_RATIO_EN300294 = OPM_IMAGE_ASPECT_RATIO_EN300294(0i32);
@@ -65806,7 +65806,7 @@ impl ::core::default::Default for OPM_OMAC {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OPM_OUTPUT_HARDWARE_PROTECTION(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const OPM_OUTPUT_HARDWARE_PROTECTION_NOT_SUPPORTED: OPM_OUTPUT_HARDWARE_PROTECTION = OPM_OUTPUT_HARDWARE_PROTECTION(0i32);
@@ -65860,7 +65860,7 @@ impl ::core::default::Default for OPM_OUTPUT_ID_DATA {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OPM_PROTECTION_STANDARD_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const OPM_PROTECTION_STANDARD_OTHER: OPM_PROTECTION_STANDARD_TYPE = OPM_PROTECTION_STANDARD_TYPE(2147483648u32);
@@ -65917,7 +65917,7 @@ impl ::core::fmt::Debug for OPM_PROTECTION_STANDARD_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OPM_PROTECTION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const OPM_PROTECTION_TYPE_OTHER: OPM_PROTECTION_TYPE = OPM_PROTECTION_TYPE(-2147483648i32);
@@ -66133,7 +66133,7 @@ impl ::core::default::Default for OPM_STANDARD_INFORMATION {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OPM_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const OPM_STATUS_NORMAL: OPM_STATUS = OPM_STATUS(0i32);
@@ -66166,7 +66166,7 @@ impl ::core::fmt::Debug for OPM_STATUS {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OPM_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const OPM_OMAC_SIZE: OPM_TYPE = OPM_TYPE(16i32);
@@ -66209,7 +66209,7 @@ impl ::core::fmt::Debug for OPM_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const OPM_TYPE_ENFORCEMENT_HDCP_OFF: OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL = OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL(0i32);
@@ -66240,7 +66240,7 @@ impl ::core::fmt::Debug for OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OPM_VIDEO_OUTPUT_SEMANTICS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const OPM_VOS_COPP_SEMANTICS: OPM_VIDEO_OUTPUT_SEMANTICS = OPM_VIDEO_OUTPUT_SEMANTICS(0i32);
@@ -66322,7 +66322,7 @@ pub type PDXVAHDSW_VideoProcessBltHD = ::core::option::Option<unsafe extern "sys
 pub type PDXVAHD_CreateDevice = ::core::option::Option<unsafe extern "system" fn(pd3ddevice: ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DDevice9Ex>, pcontentdesc: *const DXVAHD_CONTENT_DESC, usage: DXVAHD_DEVICE_USAGE, pplugin: PDXVAHDSW_Plugin, ppdevice: *mut ::core::option::Option<IDXVAHD_Device>) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PLAYTO_SOURCE_CREATEFLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const PLAYTO_SOURCE_NONE: PLAYTO_SOURCE_CREATEFLAGS = PLAYTO_SOURCE_CREATEFLAGS(0i32);
@@ -66396,7 +66396,7 @@ impl ::core::default::Default for ROI_AREA {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SAMPLE_PROTECTION_VERSION(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const SAMPLE_PROTECTION_VERSION_NO: SAMPLE_PROTECTION_VERSION = SAMPLE_PROTECTION_VERSION(0i32);
@@ -66429,7 +66429,7 @@ impl ::core::fmt::Debug for SAMPLE_PROTECTION_VERSION {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SEEK_ORIGIN(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const _msoBegin: SEEK_ORIGIN = SEEK_ORIGIN(0i32);
@@ -66608,7 +66608,7 @@ pub const TOC_ENTRY_MAX_TITLE_SIZE: u32 = 65535u32;
 pub const TOC_MAX_DESCRIPTION_SIZE: u32 = 65535u32;
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TOC_POS_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const TOC_POS_INHEADER: TOC_POS_TYPE = TOC_POS_TYPE(0i32);
@@ -66758,7 +66758,7 @@ pub const VorbisDecoderMFT: ::windows::core::GUID = ::windows::core::GUID::from_
 pub const WMAAECMA_E_NO_ACTIVE_RENDER_STREAM: u32 = 2278293514u32;
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMT_PROP_DATATYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const WMT_PROP_TYPE_DWORD: WMT_PROP_DATATYPE = WMT_PROP_DATATYPE(0i32);
@@ -66795,7 +66795,7 @@ impl ::core::fmt::Debug for WMT_PROP_DATATYPE {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMV_DYNAMIC_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const WMV_DYNAMIC_BITRATE: WMV_DYNAMIC_FLAGS = WMV_DYNAMIC_FLAGS(1i32);
@@ -66834,7 +66834,7 @@ pub const WM_CODEC_TWOPASS_VBR_PEAKCONSTRAINED: u32 = 16u32;
 pub const WM_CODEC_TWOPASS_VBR_UNCONSTRAINED: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _MFP_CREDENTIAL_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFP_CREDENTIAL_PROMPT: _MFP_CREDENTIAL_FLAGS = _MFP_CREDENTIAL_FLAGS(1i32);
@@ -66869,7 +66869,7 @@ impl ::core::fmt::Debug for _MFP_CREDENTIAL_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _MFP_MEDIAITEM_CHARACTERISTICS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFP_MEDIAITEM_IS_LIVE: _MFP_MEDIAITEM_CHARACTERISTICS = _MFP_MEDIAITEM_CHARACTERISTICS(1i32);
@@ -66900,7 +66900,7 @@ impl ::core::fmt::Debug for _MFP_MEDIAITEM_CHARACTERISTICS {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _MFT_INPUT_DATA_BUFFER_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFT_INPUT_DATA_BUFFER_PLACEHOLDER: _MFT_INPUT_DATA_BUFFER_FLAGS = _MFT_INPUT_DATA_BUFFER_FLAGS(-1i32);
@@ -66925,7 +66925,7 @@ impl ::core::fmt::Debug for _MFT_INPUT_DATA_BUFFER_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _MFT_INPUT_STATUS_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFT_INPUT_STATUS_ACCEPT_DATA: _MFT_INPUT_STATUS_FLAGS = _MFT_INPUT_STATUS_FLAGS(1i32);
@@ -66950,7 +66950,7 @@ impl ::core::fmt::Debug for _MFT_INPUT_STATUS_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _MFT_INPUT_STREAM_INFO_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFT_INPUT_STREAM_WHOLE_SAMPLES: _MFT_INPUT_STREAM_INFO_FLAGS = _MFT_INPUT_STREAM_INFO_FLAGS(1i32);
@@ -66989,7 +66989,7 @@ impl ::core::fmt::Debug for _MFT_INPUT_STREAM_INFO_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _MFT_OUTPUT_DATA_BUFFER_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFT_OUTPUT_DATA_BUFFER_INCOMPLETE: _MFT_OUTPUT_DATA_BUFFER_FLAGS = _MFT_OUTPUT_DATA_BUFFER_FLAGS(16777216i32);
@@ -67020,7 +67020,7 @@ impl ::core::fmt::Debug for _MFT_OUTPUT_DATA_BUFFER_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _MFT_OUTPUT_STATUS_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFT_OUTPUT_STATUS_SAMPLE_READY: _MFT_OUTPUT_STATUS_FLAGS = _MFT_OUTPUT_STATUS_FLAGS(1i32);
@@ -67045,7 +67045,7 @@ impl ::core::fmt::Debug for _MFT_OUTPUT_STATUS_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _MFT_OUTPUT_STREAM_INFO_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFT_OUTPUT_STREAM_WHOLE_SAMPLES: _MFT_OUTPUT_STREAM_INFO_FLAGS = _MFT_OUTPUT_STREAM_INFO_FLAGS(1i32);
@@ -67086,7 +67086,7 @@ impl ::core::fmt::Debug for _MFT_OUTPUT_STREAM_INFO_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _MFT_PROCESS_OUTPUT_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFT_PROCESS_OUTPUT_DISCARD_WHEN_NO_BUFFER: _MFT_PROCESS_OUTPUT_FLAGS = _MFT_PROCESS_OUTPUT_FLAGS(1i32);
@@ -67113,7 +67113,7 @@ impl ::core::fmt::Debug for _MFT_PROCESS_OUTPUT_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _MFT_PROCESS_OUTPUT_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFT_PROCESS_OUTPUT_STATUS_NEW_STREAMS: _MFT_PROCESS_OUTPUT_STATUS = _MFT_PROCESS_OUTPUT_STATUS(256i32);
@@ -67138,7 +67138,7 @@ impl ::core::fmt::Debug for _MFT_PROCESS_OUTPUT_STATUS {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _MFT_SET_TYPE_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFT_SET_TYPE_TEST_ONLY: _MFT_SET_TYPE_FLAGS = _MFT_SET_TYPE_FLAGS(1i32);
@@ -67163,7 +67163,7 @@ impl ::core::fmt::Debug for _MFT_SET_TYPE_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFVirtualCameraType_SoftwareCameraSource: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001 = __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001(0i32);
@@ -67188,7 +67188,7 @@ impl ::core::fmt::Debug for __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001 {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0002(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFVirtualCameraLifetime_Session: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0002 = __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0002(0i32);
@@ -67215,7 +67215,7 @@ impl ::core::fmt::Debug for __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0002 {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0003(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFVirtualCameraAccess_CurrentUser: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0003 = __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0003(0i32);
@@ -67242,7 +67242,7 @@ impl ::core::fmt::Debug for __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0003 {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVAudioChannelConfig(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVAudioChannelConfig_FRONT_LEFT: eAVAudioChannelConfig = eAVAudioChannelConfig(1i32);
@@ -67301,7 +67301,7 @@ impl ::core::fmt::Debug for eAVAudioChannelConfig {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVDDSurroundMode(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVDDSurroundMode_NotIndicated: eAVDDSurroundMode = eAVDDSurroundMode(0i32);
@@ -67330,7 +67330,7 @@ impl ::core::fmt::Debug for eAVDDSurroundMode {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVDSPLoudnessEqualization(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVDSPLoudnessEqualization_OFF: eAVDSPLoudnessEqualization = eAVDSPLoudnessEqualization(0i32);
@@ -67359,7 +67359,7 @@ impl ::core::fmt::Debug for eAVDSPLoudnessEqualization {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVDSPSpeakerFill(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVDSPSpeakerFill_OFF: eAVDSPSpeakerFill = eAVDSPSpeakerFill(0i32);
@@ -67388,7 +67388,7 @@ impl ::core::fmt::Debug for eAVDSPSpeakerFill {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVDecAACDownmixMode(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVDecAACUseISODownmix: eAVDecAACDownmixMode = eAVDecAACDownmixMode(0i32);
@@ -67415,7 +67415,7 @@ impl ::core::fmt::Debug for eAVDecAACDownmixMode {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVDecAudioDualMono(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVDecAudioDualMono_IsNotDualMono: eAVDecAudioDualMono = eAVDecAudioDualMono(0i32);
@@ -67444,7 +67444,7 @@ impl ::core::fmt::Debug for eAVDecAudioDualMono {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVDecAudioDualMonoReproMode(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVDecAudioDualMonoReproMode_STEREO: eAVDecAudioDualMonoReproMode = eAVDecAudioDualMonoReproMode(0i32);
@@ -67475,7 +67475,7 @@ impl ::core::fmt::Debug for eAVDecAudioDualMonoReproMode {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVDecDDMatrixDecodingMode(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVDecDDMatrixDecodingMode_OFF: eAVDecDDMatrixDecodingMode = eAVDecDDMatrixDecodingMode(0i32);
@@ -67504,7 +67504,7 @@ impl ::core::fmt::Debug for eAVDecDDMatrixDecodingMode {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVDecDDOperationalMode(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVDecDDOperationalMode_NONE: eAVDecDDOperationalMode = eAVDecDDOperationalMode(0i32);
@@ -67543,7 +67543,7 @@ impl ::core::fmt::Debug for eAVDecDDOperationalMode {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVDecDDStereoDownMixMode(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVDecDDStereoDownMixMode_Auto: eAVDecDDStereoDownMixMode = eAVDecDDStereoDownMixMode(0i32);
@@ -67572,7 +67572,7 @@ impl ::core::fmt::Debug for eAVDecDDStereoDownMixMode {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVDecHEAACDynamicRangeControl(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVDecHEAACDynamicRangeControl_OFF: eAVDecHEAACDynamicRangeControl = eAVDecHEAACDynamicRangeControl(0i32);
@@ -67599,7 +67599,7 @@ impl ::core::fmt::Debug for eAVDecHEAACDynamicRangeControl {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVDecVideoCodecType(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVDecVideoCodecType_NOTPLAYING: eAVDecVideoCodecType = eAVDecVideoCodecType(0i32);
@@ -67628,7 +67628,7 @@ impl ::core::fmt::Debug for eAVDecVideoCodecType {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVDecVideoDXVABusEncryption(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVDecVideoDXVABusEncryption_NONE: eAVDecVideoDXVABusEncryption = eAVDecVideoDXVABusEncryption(0i32);
@@ -67657,7 +67657,7 @@ impl ::core::fmt::Debug for eAVDecVideoDXVABusEncryption {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVDecVideoDXVAMode(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVDecVideoDXVAMode_NOTPLAYING: eAVDecVideoDXVAMode = eAVDecVideoDXVAMode(0i32);
@@ -67690,7 +67690,7 @@ impl ::core::fmt::Debug for eAVDecVideoDXVAMode {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVDecVideoH264ErrorConcealment(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eErrorConcealmentTypeDrop: eAVDecVideoH264ErrorConcealment = eAVDecVideoH264ErrorConcealment(0i32);
@@ -67721,7 +67721,7 @@ impl ::core::fmt::Debug for eAVDecVideoH264ErrorConcealment {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVDecVideoInputScanType(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVDecVideoInputScan_Unknown: eAVDecVideoInputScanType = eAVDecVideoInputScanType(0i32);
@@ -67752,7 +67752,7 @@ impl ::core::fmt::Debug for eAVDecVideoInputScanType {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVDecVideoMPEG2ErrorConcealment(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eErrorConcealmentOff: eAVDecVideoMPEG2ErrorConcealment = eAVDecVideoMPEG2ErrorConcealment(0i32);
@@ -67779,7 +67779,7 @@ impl ::core::fmt::Debug for eAVDecVideoMPEG2ErrorConcealment {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVDecVideoSWPowerLevel(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVDecVideoSWPowerLevel_BatteryLife: eAVDecVideoSWPowerLevel = eAVDecVideoSWPowerLevel(0i32);
@@ -67808,7 +67808,7 @@ impl ::core::fmt::Debug for eAVDecVideoSWPowerLevel {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVDecVideoSoftwareDeinterlaceMode(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVDecVideoSoftwareDeinterlaceMode_NoDeinterlacing: eAVDecVideoSoftwareDeinterlaceMode = eAVDecVideoSoftwareDeinterlaceMode(0i32);
@@ -67839,7 +67839,7 @@ impl ::core::fmt::Debug for eAVDecVideoSoftwareDeinterlaceMode {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVEncAdaptiveMode(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVEncAdaptiveMode_None: eAVEncAdaptiveMode = eAVEncAdaptiveMode(0i32);
@@ -67868,7 +67868,7 @@ impl ::core::fmt::Debug for eAVEncAdaptiveMode {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVEncAudioDualMono(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVEncAudioDualMono_SameAsInput: eAVEncAudioDualMono = eAVEncAudioDualMono(0i32);
@@ -67897,7 +67897,7 @@ impl ::core::fmt::Debug for eAVEncAudioDualMono {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVEncAudioInputContent(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const AVEncAudioInputContent_Unknown: eAVEncAudioInputContent = eAVEncAudioInputContent(0i32);
@@ -67926,7 +67926,7 @@ impl ::core::fmt::Debug for eAVEncAudioInputContent {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVEncChromaEncodeMode(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVEncChromaEncodeMode_420: eAVEncChromaEncodeMode = eAVEncChromaEncodeMode(0i32);
@@ -67955,7 +67955,7 @@ impl ::core::fmt::Debug for eAVEncChromaEncodeMode {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVEncCommonRateControlMode(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVEncCommonRateControlMode_CBR: eAVEncCommonRateControlMode = eAVEncCommonRateControlMode(0i32);
@@ -67992,7 +67992,7 @@ impl ::core::fmt::Debug for eAVEncCommonRateControlMode {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVEncCommonStreamEndHandling(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVEncCommonStreamEndHandling_DiscardPartial: eAVEncCommonStreamEndHandling = eAVEncCommonStreamEndHandling(0i32);
@@ -68019,7 +68019,7 @@ impl ::core::fmt::Debug for eAVEncCommonStreamEndHandling {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVEncDDAtoDConverterType(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVEncDDAtoDConverterType_Standard: eAVEncDDAtoDConverterType = eAVEncDDAtoDConverterType(0i32);
@@ -68046,7 +68046,7 @@ impl ::core::fmt::Debug for eAVEncDDAtoDConverterType {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVEncDDDynamicRangeCompressionControl(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVEncDDDynamicRangeCompressionControl_None: eAVEncDDDynamicRangeCompressionControl = eAVEncDDDynamicRangeCompressionControl(0i32);
@@ -68081,7 +68081,7 @@ impl ::core::fmt::Debug for eAVEncDDDynamicRangeCompressionControl {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVEncDDHeadphoneMode(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVEncDDHeadphoneMode_NotIndicated: eAVEncDDHeadphoneMode = eAVEncDDHeadphoneMode(0i32);
@@ -68110,7 +68110,7 @@ impl ::core::fmt::Debug for eAVEncDDHeadphoneMode {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVEncDDPreferredStereoDownMixMode(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVEncDDPreferredStereoDownMixMode_LtRt: eAVEncDDPreferredStereoDownMixMode = eAVEncDDPreferredStereoDownMixMode(0i32);
@@ -68137,7 +68137,7 @@ impl ::core::fmt::Debug for eAVEncDDPreferredStereoDownMixMode {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVEncDDProductionRoomType(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVEncDDProductionRoomType_NotIndicated: eAVEncDDProductionRoomType = eAVEncDDProductionRoomType(0i32);
@@ -68166,7 +68166,7 @@ impl ::core::fmt::Debug for eAVEncDDProductionRoomType {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVEncDDService(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVEncDDService_CM: eAVEncDDService = eAVEncDDService(0i32);
@@ -68205,7 +68205,7 @@ impl ::core::fmt::Debug for eAVEncDDService {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVEncDDSurroundExMode(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVEncDDSurroundExMode_NotIndicated: eAVEncDDSurroundExMode = eAVEncDDSurroundExMode(0i32);
@@ -68234,7 +68234,7 @@ impl ::core::fmt::Debug for eAVEncDDSurroundExMode {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVEncH263PictureType(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVEncH263PictureType_I: eAVEncH263PictureType = eAVEncH263PictureType(0i32);
@@ -68263,7 +68263,7 @@ impl ::core::fmt::Debug for eAVEncH263PictureType {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVEncH263VLevel(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVEncH263VLevel1: eAVEncH263VLevel = eAVEncH263VLevel(10i32);
@@ -68302,7 +68302,7 @@ impl ::core::fmt::Debug for eAVEncH263VLevel {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVEncH263VProfile(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVEncH263VProfile_Base: eAVEncH263VProfile = eAVEncH263VProfile(0i32);
@@ -68343,7 +68343,7 @@ impl ::core::fmt::Debug for eAVEncH263VProfile {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVEncH264PictureType(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVEncH264PictureType_IDR: eAVEncH264PictureType = eAVEncH264PictureType(0i32);
@@ -68372,7 +68372,7 @@ impl ::core::fmt::Debug for eAVEncH264PictureType {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVEncH264VLevel(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVEncH264VLevel1: eAVEncH264VLevel = eAVEncH264VLevel(10i32);
@@ -68429,7 +68429,7 @@ impl ::core::fmt::Debug for eAVEncH264VLevel {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVEncH264VProfile(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVEncH264VProfile_unknown: eAVEncH264VProfile = eAVEncH264VProfile(0i32);
@@ -68486,7 +68486,7 @@ impl ::core::fmt::Debug for eAVEncH264VProfile {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVEncH265VLevel(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVEncH265VLevel1: eAVEncH265VLevel = eAVEncH265VLevel(30i32);
@@ -68535,7 +68535,7 @@ impl ::core::fmt::Debug for eAVEncH265VLevel {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVEncH265VProfile(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVEncH265VProfile_unknown: eAVEncH265VProfile = eAVEncH265VProfile(0i32);
@@ -68604,7 +68604,7 @@ impl ::core::fmt::Debug for eAVEncH265VProfile {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVEncInputVideoSystem(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVEncInputVideoSystem_Unspecified: eAVEncInputVideoSystem = eAVEncInputVideoSystem(0i32);
@@ -68641,7 +68641,7 @@ impl ::core::fmt::Debug for eAVEncInputVideoSystem {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVEncMPACodingMode(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVEncMPACodingMode_Mono: eAVEncMPACodingMode = eAVEncMPACodingMode(0i32);
@@ -68674,7 +68674,7 @@ impl ::core::fmt::Debug for eAVEncMPACodingMode {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVEncMPAEmphasisType(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVEncMPAEmphasisType_None: eAVEncMPAEmphasisType = eAVEncMPAEmphasisType(0i32);
@@ -68705,7 +68705,7 @@ impl ::core::fmt::Debug for eAVEncMPAEmphasisType {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVEncMPALayer(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVEncMPALayer_1: eAVEncMPALayer = eAVEncMPALayer(1i32);
@@ -68734,7 +68734,7 @@ impl ::core::fmt::Debug for eAVEncMPALayer {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVEncMPVFrameFieldMode(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVEncMPVFrameFieldMode_FieldMode: eAVEncMPVFrameFieldMode = eAVEncMPVFrameFieldMode(0i32);
@@ -68761,7 +68761,7 @@ impl ::core::fmt::Debug for eAVEncMPVFrameFieldMode {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVEncMPVIntraVLCTable(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVEncMPVIntraVLCTable_Auto: eAVEncMPVIntraVLCTable = eAVEncMPVIntraVLCTable(0i32);
@@ -68790,7 +68790,7 @@ impl ::core::fmt::Debug for eAVEncMPVIntraVLCTable {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVEncMPVLevel(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVEncMPVLevel_Low: eAVEncMPVLevel = eAVEncMPVLevel(1i32);
@@ -68821,7 +68821,7 @@ impl ::core::fmt::Debug for eAVEncMPVLevel {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVEncMPVProfile(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVEncMPVProfile_unknown: eAVEncMPVProfile = eAVEncMPVProfile(0i32);
@@ -68854,7 +68854,7 @@ impl ::core::fmt::Debug for eAVEncMPVProfile {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVEncMPVQScaleType(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVEncMPVQScaleType_Auto: eAVEncMPVQScaleType = eAVEncMPVQScaleType(0i32);
@@ -68883,7 +68883,7 @@ impl ::core::fmt::Debug for eAVEncMPVQScaleType {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVEncMPVScanPattern(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVEncMPVScanPattern_Auto: eAVEncMPVScanPattern = eAVEncMPVScanPattern(0i32);
@@ -68912,7 +68912,7 @@ impl ::core::fmt::Debug for eAVEncMPVScanPattern {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVEncMPVSceneDetection(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVEncMPVSceneDetection_None: eAVEncMPVSceneDetection = eAVEncMPVSceneDetection(0i32);
@@ -68943,7 +68943,7 @@ impl ::core::fmt::Debug for eAVEncMPVSceneDetection {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVEncMuxOutput(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVEncMuxOutputAuto: eAVEncMuxOutput = eAVEncMuxOutput(0i32);
@@ -68972,7 +68972,7 @@ impl ::core::fmt::Debug for eAVEncMuxOutput {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVEncVP9VProfile(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVEncVP9VProfile_unknown: eAVEncVP9VProfile = eAVEncVP9VProfile(0i32);
@@ -69003,7 +69003,7 @@ impl ::core::fmt::Debug for eAVEncVP9VProfile {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVEncVideoChromaResolution(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVEncVideoChromaResolution_SameAsSource: eAVEncVideoChromaResolution = eAVEncVideoChromaResolution(0i32);
@@ -69036,7 +69036,7 @@ impl ::core::fmt::Debug for eAVEncVideoChromaResolution {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVEncVideoChromaSubsampling(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVEncVideoChromaSubsamplingFormat_SameAsSource: eAVEncVideoChromaSubsampling = eAVEncVideoChromaSubsampling(0i32);
@@ -69069,7 +69069,7 @@ impl ::core::fmt::Debug for eAVEncVideoChromaSubsampling {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVEncVideoColorLighting(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVEncVideoColorLighting_SameAsSource: eAVEncVideoColorLighting = eAVEncVideoColorLighting(0i32);
@@ -69104,7 +69104,7 @@ impl ::core::fmt::Debug for eAVEncVideoColorLighting {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVEncVideoColorNominalRange(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVEncVideoColorNominalRange_SameAsSource: eAVEncVideoColorNominalRange = eAVEncVideoColorNominalRange(0i32);
@@ -69135,7 +69135,7 @@ impl ::core::fmt::Debug for eAVEncVideoColorNominalRange {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVEncVideoColorPrimaries(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVEncVideoColorPrimaries_SameAsSource: eAVEncVideoColorPrimaries = eAVEncVideoColorPrimaries(0i32);
@@ -69176,7 +69176,7 @@ impl ::core::fmt::Debug for eAVEncVideoColorPrimaries {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVEncVideoColorTransferFunction(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVEncVideoColorTransferFunction_SameAsSource: eAVEncVideoColorTransferFunction = eAVEncVideoColorTransferFunction(0i32);
@@ -69217,7 +69217,7 @@ impl ::core::fmt::Debug for eAVEncVideoColorTransferFunction {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVEncVideoColorTransferMatrix(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVEncVideoColorTransferMatrix_SameAsSource: eAVEncVideoColorTransferMatrix = eAVEncVideoColorTransferMatrix(0i32);
@@ -69248,7 +69248,7 @@ impl ::core::fmt::Debug for eAVEncVideoColorTransferMatrix {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVEncVideoContentType(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVEncVideoContentType_Unknown: eAVEncVideoContentType = eAVEncVideoContentType(0i32);
@@ -69275,7 +69275,7 @@ impl ::core::fmt::Debug for eAVEncVideoContentType {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVEncVideoFilmContent(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVEncVideoFilmContent_VideoOnly: eAVEncVideoFilmContent = eAVEncVideoFilmContent(0i32);
@@ -69304,7 +69304,7 @@ impl ::core::fmt::Debug for eAVEncVideoFilmContent {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVEncVideoOutputFrameRateConversion(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVEncVideoOutputFrameRateConversion_Disable: eAVEncVideoOutputFrameRateConversion = eAVEncVideoOutputFrameRateConversion(0i32);
@@ -69333,7 +69333,7 @@ impl ::core::fmt::Debug for eAVEncVideoOutputFrameRateConversion {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVEncVideoOutputScanType(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVEncVideoOutputScan_Progressive: eAVEncVideoOutputScanType = eAVEncVideoOutputScanType(0i32);
@@ -69364,7 +69364,7 @@ impl ::core::fmt::Debug for eAVEncVideoOutputScanType {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVEncVideoSourceScanType(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVEncVideoSourceScan_Automatic: eAVEncVideoSourceScanType = eAVEncVideoSourceScanType(0i32);
@@ -69393,7 +69393,7 @@ impl ::core::fmt::Debug for eAVEncVideoSourceScanType {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVFastDecodeMode(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eVideoDecodeCompliant: eAVFastDecodeMode = eAVFastDecodeMode(0i32);
@@ -69424,7 +69424,7 @@ impl ::core::fmt::Debug for eAVFastDecodeMode {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eAVScenarioInfo(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eAVScenarioInfo_Unknown: eAVScenarioInfo = eAVScenarioInfo(0i32);
@@ -69461,7 +69461,7 @@ impl ::core::fmt::Debug for eAVScenarioInfo {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct eVideoEncoderDisplayContentType(pub i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eVideoEncoderDisplayContent_Unknown: eVideoEncoderDisplayContentType = eVideoEncoderDisplayContentType(0i32);

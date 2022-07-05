@@ -251,7 +251,7 @@ pub const ICU_NO_ENCODE: u32 = 536870912u32;
 pub const ICU_NO_META: u32 = 134217728u32;
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct INTERNET_PORT(pub u32);
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 pub const INTERNET_DEFAULT_HTTP_PORT: INTERNET_PORT = INTERNET_PORT(80u32);
@@ -358,7 +358,7 @@ impl ::core::default::Default for URL_COMPONENTS {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINHTTP_ACCESS_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 pub const WINHTTP_ACCESS_TYPE_NO_PROXY: WINHTTP_ACCESS_TYPE = WINHTTP_ACCESS_TYPE(1u32);
@@ -820,7 +820,7 @@ impl ::core::default::Default for WINHTTP_CREDS {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINHTTP_CREDS_AUTHSCHEME(pub u32);
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 pub const WINHTTP_AUTH_SCHEME_BASIC: WINHTTP_CREDS_AUTHSCHEME = WINHTTP_CREDS_AUTHSCHEME(1u32);
@@ -1182,7 +1182,7 @@ impl ::core::default::Default for WINHTTP_HTTP2_RECEIVE_WINDOW {
 pub const WINHTTP_IGNORE_REQUEST_TOTAL_LENGTH: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINHTTP_INTERNET_SCHEME(pub u32);
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 pub const WINHTTP_INTERNET_SCHEME_HTTP: WINHTTP_INTERNET_SCHEME = WINHTTP_INTERNET_SCHEME(1u32);
@@ -1285,7 +1285,7 @@ pub const WINHTTP_MATCH_CONNECTION_GUID_FLAGS_MASK: u32 = 1u32;
 pub const WINHTTP_MATCH_CONNECTION_GUID_FLAG_REQUIRE_MARKED_CONNECTION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINHTTP_OPEN_REQUEST_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 pub const WINHTTP_FLAG_BYPASS_PROXY_CACHE: WINHTTP_OPEN_REQUEST_FLAGS = WINHTTP_OPEN_REQUEST_FLAGS(256u32);
@@ -2103,7 +2103,7 @@ impl ::core::default::Default for WINHTTP_REQUEST_STATS {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINHTTP_REQUEST_STAT_ENTRY(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 pub const WinHttpConnectFailureCount: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(0i32);
@@ -2240,7 +2240,7 @@ impl ::core::default::Default for WINHTTP_REQUEST_TIMES {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINHTTP_REQUEST_TIME_ENTRY(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 pub const WinHttpProxyDetectionStart: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(0i32);
@@ -2437,7 +2437,7 @@ pub const WINHTTP_RESOLVER_CACHE_CONFIG_FLAG_SOFT_LIMIT: u32 = 1u32;
 pub const WINHTTP_RESOLVER_CACHE_CONFIG_FLAG_USE_DNS_TTL: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINHTTP_SECURE_DNS_SETTING(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 pub const WinHttpSecureDnsSettingDefault: WINHTTP_SECURE_DNS_SETTING = WINHTTP_SECURE_DNS_SETTING(0i32);
@@ -2505,7 +2505,7 @@ impl ::core::default::Default for WINHTTP_WEB_SOCKET_ASYNC_RESULT {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINHTTP_WEB_SOCKET_BUFFER_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 pub const WINHTTP_WEB_SOCKET_BINARY_MESSAGE_BUFFER_TYPE: WINHTTP_WEB_SOCKET_BUFFER_TYPE = WINHTTP_WEB_SOCKET_BUFFER_TYPE(0i32);
@@ -2538,7 +2538,7 @@ impl ::core::fmt::Debug for WINHTTP_WEB_SOCKET_BUFFER_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINHTTP_WEB_SOCKET_CLOSE_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 pub const WINHTTP_WEB_SOCKET_SUCCESS_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = WINHTTP_WEB_SOCKET_CLOSE_STATUS(1000i32);
@@ -2589,7 +2589,7 @@ pub const WINHTTP_WEB_SOCKET_MAX_CLOSE_REASON_LENGTH: u32 = 123u32;
 pub const WINHTTP_WEB_SOCKET_MIN_KEEPALIVE_VALUE: u32 = 15000u32;
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINHTTP_WEB_SOCKET_OPERATION(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 pub const WINHTTP_WEB_SOCKET_SEND_OPERATION: WINHTTP_WEB_SOCKET_OPERATION = WINHTTP_WEB_SOCKET_OPERATION(0i32);
@@ -2651,7 +2651,7 @@ impl ::core::default::Default for WINHTTP_WEB_SOCKET_STATUS {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WIN_HTTP_CREATE_URL_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 pub const ICU_ESCAPE: WIN_HTTP_CREATE_URL_FLAGS = WIN_HTTP_CREATE_URL_FLAGS(2147483648u32);

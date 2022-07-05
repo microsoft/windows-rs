@@ -103,7 +103,7 @@ impl ::core::default::Default for CALLFRAMEPARAMINFO {
 }
 #[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CALLFRAME_COPY(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
 pub const CALLFRAME_COPY_NESTED: CALLFRAME_COPY = CALLFRAME_COPY(1i32);
@@ -130,7 +130,7 @@ impl ::core::fmt::Debug for CALLFRAME_COPY {
 }
 #[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CALLFRAME_FREE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
 pub const CALLFRAME_FREE_NONE: CALLFRAME_FREE = CALLFRAME_FREE(0i32);
@@ -213,7 +213,7 @@ impl ::core::default::Default for CALLFRAME_MARSHALCONTEXT {
 }
 #[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CALLFRAME_NULL(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
 pub const CALLFRAME_NULL_NONE: CALLFRAME_NULL = CALLFRAME_NULL(0i32);
@@ -244,7 +244,7 @@ impl ::core::fmt::Debug for CALLFRAME_NULL {
 }
 #[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CALLFRAME_WALK(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
 pub const CALLFRAME_WALK_IN: CALLFRAME_WALK = CALLFRAME_WALK(1i32);

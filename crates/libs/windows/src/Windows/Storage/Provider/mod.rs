@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CachedFileOptions(pub u32);
 impl CachedFileOptions {
     pub const None: Self = Self(0u32);
@@ -64,7 +64,7 @@ unsafe impl ::windows::core::RuntimeType for CachedFileOptions {
 }
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CachedFileTarget(pub i32);
 impl CachedFileTarget {
     pub const Local: Self = Self(0i32);
@@ -557,7 +557,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a F
 }
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FileUpdateStatus(pub i32);
 impl FileUpdateStatus {
     pub const Incomplete: Self = Self(0i32);
@@ -1508,7 +1508,7 @@ pub struct IStorageProviderUriSource_Vtbl {
 }
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ReadActivationMode(pub i32);
 impl ReadActivationMode {
     pub const NotNeeded: Self = Self(0i32);
@@ -2152,7 +2152,7 @@ unsafe impl ::core::marker::Send for StorageProviderGetPathForContentUriResult {
 unsafe impl ::core::marker::Sync for StorageProviderGetPathForContentUriResult {}
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct StorageProviderHardlinkPolicy(pub u32);
 impl StorageProviderHardlinkPolicy {
     pub const None: Self = Self(0u32);
@@ -2214,7 +2214,7 @@ unsafe impl ::windows::core::RuntimeType for StorageProviderHardlinkPolicy {
 }
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct StorageProviderHydrationPolicy(pub i32);
 impl StorageProviderHydrationPolicy {
     pub const Partial: Self = Self(0i32);
@@ -2250,7 +2250,7 @@ unsafe impl ::windows::core::RuntimeType for StorageProviderHydrationPolicy {
 }
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct StorageProviderHydrationPolicyModifier(pub u32);
 impl StorageProviderHydrationPolicyModifier {
     pub const None: Self = Self(0u32);
@@ -2315,7 +2315,7 @@ unsafe impl ::windows::core::RuntimeType for StorageProviderHydrationPolicyModif
 }
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct StorageProviderInSyncPolicy(pub u32);
 impl StorageProviderInSyncPolicy {
     pub const Default: Self = Self(0u32);
@@ -2640,7 +2640,7 @@ unsafe impl ::core::marker::Send for StorageProviderItemPropertyDefinition {}
 unsafe impl ::core::marker::Sync for StorageProviderItemPropertyDefinition {}
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct StorageProviderPopulationPolicy(pub i32);
 impl StorageProviderPopulationPolicy {
     pub const Full: Self = Self(1i32);
@@ -2674,7 +2674,7 @@ unsafe impl ::windows::core::RuntimeType for StorageProviderPopulationPolicy {
 }
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct StorageProviderProtectionMode(pub i32);
 impl StorageProviderProtectionMode {
     pub const Unknown: Self = Self(0i32);
@@ -2708,7 +2708,7 @@ unsafe impl ::windows::core::RuntimeType for StorageProviderProtectionMode {
 }
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct StorageProviderState(pub i32);
 impl StorageProviderState {
     pub const InSync: Self = Self(0i32);
@@ -3236,7 +3236,7 @@ impl ::windows::core::RuntimeName for StorageProviderSyncRootManager {
 }
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct StorageProviderUriSourceStatus(pub i32);
 impl StorageProviderUriSourceStatus {
     pub const Success: Self = Self(0i32);
@@ -3271,7 +3271,7 @@ unsafe impl ::windows::core::RuntimeType for StorageProviderUriSourceStatus {
 }
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UIStatus(pub i32);
 impl UIStatus {
     pub const Unavailable: Self = Self(0i32);
@@ -3307,7 +3307,7 @@ unsafe impl ::windows::core::RuntimeType for UIStatus {
 }
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WriteActivationMode(pub i32);
 impl WriteActivationMode {
     pub const ReadOnly: Self = Self(0i32);

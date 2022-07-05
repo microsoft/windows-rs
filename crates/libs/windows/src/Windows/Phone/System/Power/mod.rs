@@ -78,7 +78,7 @@ impl ::windows::core::RuntimeName for PowerManager {
 }
 #[doc = "*Required features: `\"Phone_System_Power\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PowerSavingMode(pub i32);
 impl PowerSavingMode {
     pub const Off: Self = Self(0i32);

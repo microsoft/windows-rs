@@ -171,7 +171,7 @@ unsafe impl ::core::marker::Send for AdvancedColorInfo {}
 unsafe impl ::core::marker::Sync for AdvancedColorInfo {}
 #[doc = "*Required features: `\"Graphics_Display\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AdvancedColorKind(pub i32);
 impl AdvancedColorKind {
     pub const StandardDynamicRange: Self = Self(0i32);
@@ -623,7 +623,7 @@ unsafe impl ::core::marker::Send for ColorOverrideSettings {}
 unsafe impl ::core::marker::Sync for ColorOverrideSettings {}
 #[doc = "*Required features: `\"Graphics_Display\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DisplayBrightnessOverrideOptions(pub u32);
 impl DisplayBrightnessOverrideOptions {
     pub const None: Self = Self(0u32);
@@ -685,7 +685,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayBrightnessOverrideOptions {
 }
 #[doc = "*Required features: `\"Graphics_Display\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DisplayBrightnessOverrideScenario(pub i32);
 impl DisplayBrightnessOverrideScenario {
     pub const IdleBrightness: Self = Self(0i32);
@@ -720,7 +720,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayBrightnessOverrideScenario {
 }
 #[doc = "*Required features: `\"Graphics_Display\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DisplayBrightnessScenario(pub i32);
 impl DisplayBrightnessScenario {
     pub const DefaultBrightness: Self = Self(0i32);
@@ -756,7 +756,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayBrightnessScenario {
 }
 #[doc = "*Required features: `\"Graphics_Display\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DisplayColorOverrideScenario(pub i32);
 impl DisplayColorOverrideScenario {
     pub const Accurate: Self = Self(0i32);
@@ -1464,7 +1464,7 @@ unsafe impl ::core::marker::Send for DisplayInformation {}
 unsafe impl ::core::marker::Sync for DisplayInformation {}
 #[doc = "*Required features: `\"Graphics_Display\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DisplayOrientations(pub u32);
 impl DisplayOrientations {
     pub const None: Self = Self(0u32);
@@ -1860,7 +1860,7 @@ unsafe impl ::core::marker::Send for DisplayServices {}
 unsafe impl ::core::marker::Sync for DisplayServices {}
 #[doc = "*Required features: `\"Graphics_Display\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HdrMetadataFormat(pub i32);
 impl HdrMetadataFormat {
     pub const Hdr10: Self = Self(0i32);
@@ -2428,7 +2428,7 @@ impl ::core::default::Default for NitRange {
 }
 #[doc = "*Required features: `\"Graphics_Display\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ResolutionScale(pub i32);
 impl ResolutionScale {
     pub const Invalid: Self = Self(0i32);

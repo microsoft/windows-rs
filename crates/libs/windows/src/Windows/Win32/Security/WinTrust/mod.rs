@@ -2006,7 +2006,7 @@ impl ::core::default::Default for WINTRUST_DATA_0 {
 }
 #[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINTRUST_DATA_PROVIDER_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
 pub const WTD_USE_IE4_TRUST_FLAG: WINTRUST_DATA_PROVIDER_FLAGS = WINTRUST_DATA_PROVIDER_FLAGS(1u32);
@@ -2085,7 +2085,7 @@ impl ::core::ops::Not for WINTRUST_DATA_PROVIDER_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINTRUST_DATA_REVOCATION_CHECKS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
 pub const WTD_REVOKE_NONE: WINTRUST_DATA_REVOCATION_CHECKS = WINTRUST_DATA_REVOCATION_CHECKS(0u32);
@@ -2112,7 +2112,7 @@ impl ::core::fmt::Debug for WINTRUST_DATA_REVOCATION_CHECKS {
 }
 #[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINTRUST_DATA_STATE_ACTION(pub u32);
 #[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
 pub const WTD_STATEACTION_IGNORE: WINTRUST_DATA_STATE_ACTION = WINTRUST_DATA_STATE_ACTION(0u32);
@@ -2145,7 +2145,7 @@ impl ::core::fmt::Debug for WINTRUST_DATA_STATE_ACTION {
 }
 #[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINTRUST_DATA_UICHOICE(pub u32);
 #[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
 pub const WTD_UI_ALL: WINTRUST_DATA_UICHOICE = WINTRUST_DATA_UICHOICE(1u32);
@@ -2176,7 +2176,7 @@ impl ::core::fmt::Debug for WINTRUST_DATA_UICHOICE {
 }
 #[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINTRUST_DATA_UICONTEXT(pub u32);
 #[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
 pub const WTD_UICONTEXT_EXECUTE: WINTRUST_DATA_UICONTEXT = WINTRUST_DATA_UICONTEXT(0u32);
@@ -2203,7 +2203,7 @@ impl ::core::fmt::Debug for WINTRUST_DATA_UICONTEXT {
 }
 #[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINTRUST_DATA_UNION_CHOICE(pub u32);
 #[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
 pub const WTD_CHOICE_FILE: WINTRUST_DATA_UNION_CHOICE = WINTRUST_DATA_UNION_CHOICE(1u32);
@@ -2277,7 +2277,7 @@ impl ::core::default::Default for WINTRUST_FILE_INFO {
 }
 #[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION(pub u32);
 #[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
 pub const DWACTION_ALLOCANDFILL: WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION = WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION(1u32);
@@ -2312,7 +2312,7 @@ pub const WINTRUST_MAX_HEADER_BYTES_TO_MAP_DEFAULT: u32 = 10485760u32;
 pub const WINTRUST_MAX_HEADER_BYTES_TO_MAP_VALUE_NAME: &str = "MaxHeaderBytesToMap";
 #[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINTRUST_POLICY_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
 pub const WTPF_TRUSTTEST: WINTRUST_POLICY_FLAGS = WINTRUST_POLICY_FLAGS(32u32);
@@ -2470,7 +2470,7 @@ impl ::core::default::Default for WINTRUST_SIGNATURE_SETTINGS {
 }
 #[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINTRUST_SIGNATURE_SETTINGS_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
 pub const WSS_VERIFY_SPECIFIC: WINTRUST_SIGNATURE_SETTINGS_FLAGS = WINTRUST_SIGNATURE_SETTINGS_FLAGS(1u32);

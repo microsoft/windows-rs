@@ -864,7 +864,7 @@ unsafe impl ::core::marker::Sync for PlayToConnection {}
 #[doc = "*Required features: `\"Media_PlayTo\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PlayToConnectionError(pub i32);
 #[cfg(feature = "deprecated")]
 impl PlayToConnectionError {
@@ -1023,7 +1023,7 @@ unsafe impl ::core::marker::Sync for PlayToConnectionErrorEventArgs {}
 #[doc = "*Required features: `\"Media_PlayTo\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PlayToConnectionState(pub i32);
 #[cfg(feature = "deprecated")]
 impl PlayToConnectionState {

@@ -1364,7 +1364,7 @@ impl ::core::default::Default for MLOperatorAttributeNameValue_0 {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MLOperatorAttributeType(pub u32);
 impl MLOperatorAttributeType {
     pub const Undefined: Self = Self(0u32);
@@ -1448,7 +1448,7 @@ impl ::core::default::Default for MLOperatorEdgeDescription_0 {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MLOperatorEdgeType(pub u32);
 impl MLOperatorEdgeType {
     pub const Undefined: Self = Self(0u32);
@@ -1507,7 +1507,7 @@ impl ::core::default::Default for MLOperatorEdgeTypeConstraint {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MLOperatorExecutionType(pub u32);
 impl MLOperatorExecutionType {
     pub const Undefined: Self = Self(0u32);
@@ -1585,7 +1585,7 @@ impl ::core::default::Default for MLOperatorKernelDescription {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MLOperatorKernelOptions(pub u32);
 impl MLOperatorKernelOptions {
     pub const None: Self = Self(0u32);
@@ -1640,7 +1640,7 @@ impl ::core::ops::Not for MLOperatorKernelOptions {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MLOperatorParameterOptions(pub u32);
 impl MLOperatorParameterOptions {
     pub const Single: Self = Self(0u32);
@@ -1804,7 +1804,7 @@ impl ::core::default::Default for MLOperatorSchemaEdgeDescription_0 {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MLOperatorSchemaEdgeTypeFormat(pub i32);
 impl MLOperatorSchemaEdgeTypeFormat {
     pub const EdgeDescription: Self = Self(0i32);
@@ -1862,7 +1862,7 @@ impl ::core::default::Default for MLOperatorSetId {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MLOperatorTensorDataType(pub u32);
 impl MLOperatorTensorDataType {
     pub const Undefined: Self = Self(0u32);
@@ -1969,7 +1969,7 @@ impl ::core::default::Default for WINML_BINDING_DESC_0 {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINML_BINDING_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub const WINML_BINDING_UNDEFINED: WINML_BINDING_TYPE = WINML_BINDING_TYPE(0i32);
@@ -2004,7 +2004,7 @@ impl ::core::fmt::Debug for WINML_BINDING_TYPE {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINML_FEATURE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub const WINML_FEATURE_UNDEFINED: WINML_FEATURE_TYPE = WINML_FEATURE_TYPE(0i32);
@@ -2290,7 +2290,7 @@ impl ::core::default::Default for WINML_RESOURCE_BINDING_DESC {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINML_RUNTIME_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub const WINML_RUNTIME_CNTK: WINML_RUNTIME_TYPE = WINML_RUNTIME_TYPE(0i32);
@@ -2434,7 +2434,7 @@ impl ::core::default::Default for WINML_TENSOR_BINDING_DESC {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINML_TENSOR_DATA_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 pub const WINML_TENSOR_UNDEFINED: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(0i32);

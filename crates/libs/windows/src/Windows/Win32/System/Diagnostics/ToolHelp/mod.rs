@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CREATE_TOOLHELP_SNAPSHOT_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`*"]
 pub const TH32CS_INHERIT: CREATE_TOOLHELP_SNAPSHOT_FLAGS = CREATE_TOOLHELP_SNAPSHOT_FLAGS(2147483648u32);
@@ -127,7 +127,7 @@ impl ::core::default::Default for HEAPENTRY32 {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HEAPENTRY32_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`*"]
 pub const LF32_FIXED: HEAPENTRY32_FLAGS = HEAPENTRY32_FLAGS(1u32);

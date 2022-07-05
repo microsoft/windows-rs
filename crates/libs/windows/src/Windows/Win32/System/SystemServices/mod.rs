@@ -58,7 +58,7 @@ pub const ACCESS_REASON_EXDATA_MASK: u32 = 2130706432u32;
 pub const ACCESS_REASON_STAGING_MASK: u32 = 2147483648u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ACCESS_REASON_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const AccessReasonNone: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(0i32);
@@ -135,7 +135,7 @@ pub const ACPI_PPM_SOFTWARE_ALL: u32 = 252u32;
 pub const ACPI_PPM_SOFTWARE_ANY: u32 = 253u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ACTIVATION_CONTEXT_INFO_CLASS(pub i32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const ActivationContextBasicInformation: ACTIVATION_CONTEXT_INFO_CLASS = ACTIVATION_CONTEXT_INFO_CLASS(1i32);
@@ -210,7 +210,7 @@ pub const ACTIVATION_CONTEXT_SECTION_WINDOW_CLASS_REDIRECTION: u32 = 3u32;
 pub const ACTIVATION_CONTEXT_SECTION_WINRT_ACTIVATABLE_CLASSES: u32 = 12u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ALERT_SYSTEM_SEV(pub u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const ALERT_SYSTEM_INFORMATIONAL: ALERT_SYSTEM_SEV = ALERT_SYSTEM_SEV(1u32);
@@ -381,7 +381,7 @@ pub const ANYSIZE_ARRAY: u32 = 1u32;
 pub type APC_CALLBACK_FUNCTION = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: *mut ::core::ffi::c_void, param2: *mut ::core::ffi::c_void)>;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct APPCOMMAND_ID(pub u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const APPCOMMAND_BROWSER_BACKWARD: APPCOMMAND_ID = APPCOMMAND_ID(1u32);
@@ -546,7 +546,7 @@ impl ::core::default::Default for APPLICATIONLAUNCH_SETTING_VALUE {
 pub const APPLICATION_ERROR_MASK: u32 = 536870912u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ARM64_FNPDATA_CR(pub i32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const PdataCrUnchained: ARM64_FNPDATA_CR = ARM64_FNPDATA_CR(0i32);
@@ -577,7 +577,7 @@ impl ::core::fmt::Debug for ARM64_FNPDATA_CR {
 }
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ARM64_FNPDATA_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const PdataRefToFullXdata: ARM64_FNPDATA_FLAGS = ARM64_FNPDATA_FLAGS(0i32);
@@ -636,7 +636,7 @@ pub const ARM_MAX_WATCHPOINTS: u32 = 1u32;
 pub const ASSERT_BREAKPOINT: u32 = 524291u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ATF_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const ATF_TIMEOUTON: ATF_FLAGS = ATF_FLAGS(1u32);
@@ -707,7 +707,7 @@ pub const BSF_MSGSRV32ISOK_BIT: u32 = 31u32;
 pub const CACHE_FULLY_ASSOCIATIVE: u32 = 255u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CFE_UNDERLINE(pub u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const CFU_CF1UNDERLINE: CFE_UNDERLINE = CFE_UNDERLINE(255u32);
@@ -810,7 +810,7 @@ pub const CFG_CALL_TARGET_VALID: u32 = 1u32;
 pub const CFG_CALL_TARGET_VALID_XFG: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CHOOSECOLOR_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const CC_RGBINIT: CHOOSECOLOR_FLAGS = CHOOSECOLOR_FLAGS(1u32);
@@ -887,7 +887,7 @@ pub const CLAIM_SECURITY_ATTRIBUTE_CUSTOM_FLAGS: u32 = 4294901760u32;
 pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_INVALID: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLIPBOARD_FORMATS(pub u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const CF_TEXT: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(1u32);
@@ -964,7 +964,7 @@ impl ::core::fmt::Debug for CLIPBOARD_FORMATS {
 }
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CM_ERROR_CONTROL_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const IgnoreError: CM_ERROR_CONTROL_TYPE = CM_ERROR_CONTROL_TYPE(0i32);
@@ -995,7 +995,7 @@ impl ::core::fmt::Debug for CM_ERROR_CONTROL_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CM_SERVICE_LOAD_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const BootLoad: CM_SERVICE_LOAD_TYPE = CM_SERVICE_LOAD_TYPE(0i32);
@@ -1032,7 +1032,7 @@ pub const CM_SERVICE_MEASURED_BOOT_LOAD: u32 = 32u32;
 pub const CM_SERVICE_NETWORK_BOOT_LOAD: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CM_SERVICE_NODE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const DriverType: CM_SERVICE_NODE_TYPE = CM_SERVICE_NODE_TYPE(1i32);
@@ -2585,7 +2585,7 @@ impl ::core::default::Default for DEV_BROADCAST_HDR {
 }
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DEV_BROADCAST_HDR_DEVICE_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const DBT_DEVTYP_DEVICEINTERFACE: DEV_BROADCAST_HDR_DEVICE_TYPE = DEV_BROADCAST_HDR_DEVICE_TYPE(5u32);
@@ -2794,7 +2794,7 @@ impl ::core::default::Default for DEV_BROADCAST_VOLUME {
 }
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DEV_BROADCAST_VOLUME_FLAGS(pub u16);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const DBTF_MEDIA: DEV_BROADCAST_VOLUME_FLAGS = DEV_BROADCAST_VOLUME_FLAGS(1u16);
@@ -3202,7 +3202,7 @@ impl ::core::default::Default for ENLISTMENT_CRM_INFORMATION {
 }
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ENLISTMENT_INFORMATION_CLASS(pub i32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const EnlistmentBasicInformation: ENLISTMENT_INFORMATION_CLASS = ENLISTMENT_INFORMATION_CLASS(0i32);
@@ -3589,7 +3589,7 @@ pub const GENERIC_READ: u32 = 2147483648u32;
 pub const GENERIC_WRITE: u32 = 1073741824u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GESTURECONFIG_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const GC_ALLGESTURES: GESTURECONFIG_FLAGS = GESTURECONFIG_FLAGS(1u32);
@@ -3993,7 +3993,7 @@ impl ::core::default::Default for HIBERFILE_BUCKET {
 }
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HIBERFILE_BUCKET_SIZE(pub i32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const HiberFileBucket1GB: HIBERFILE_BUCKET_SIZE = HIBERFILE_BUCKET_SIZE(0i32);
@@ -4040,7 +4040,7 @@ pub const HIBERFILE_TYPE_NONE: u32 = 0u32;
 pub const HIBERFILE_TYPE_REDUCED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IGP_ID(pub u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const IGP_GETIMEVERSION: IGP_ID = IGP_ID(4294967292u32);
@@ -4873,7 +4873,7 @@ impl ::core::default::Default for IMAGE_AUX_SYMBOL_TOKEN_DEF {
 }
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMAGE_AUX_SYMBOL_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const IMAGE_AUX_SYMBOL_TYPE_TOKEN_DEF: IMAGE_AUX_SYMBOL_TYPE = IMAGE_AUX_SYMBOL_TYPE(1i32);
@@ -5924,7 +5924,7 @@ impl ::core::default::Default for IMAGE_POLICY_ENTRY_0 {
 }
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMAGE_POLICY_ENTRY_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const ImagePolicyEntryTypeNone: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(0i32);
@@ -5975,7 +5975,7 @@ impl ::core::fmt::Debug for IMAGE_POLICY_ENTRY_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMAGE_POLICY_ID(pub i32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const ImagePolicyIdNone: IMAGE_POLICY_ID = IMAGE_POLICY_ID(0i32);
@@ -7627,7 +7627,7 @@ impl ::core::default::Default for IMPORT_OBJECT_HEADER_0 {
 }
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMPORT_OBJECT_NAME_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const IMPORT_OBJECT_ORDINAL: IMPORT_OBJECT_NAME_TYPE = IMPORT_OBJECT_NAME_TYPE(0i32);
@@ -7660,7 +7660,7 @@ impl ::core::fmt::Debug for IMPORT_OBJECT_NAME_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMPORT_OBJECT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const IMPORT_OBJECT_CODE: IMPORT_OBJECT_TYPE = IMPORT_OBJECT_TYPE(0i32);
@@ -8232,7 +8232,7 @@ impl ::core::default::Default for KTMOBJECT_CURSOR {
 }
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KTMOBJECT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const KTMOBJECT_TRANSACTION: KTMOBJECT_TYPE = KTMOBJECT_TYPE(0i32);
@@ -8931,7 +8931,7 @@ pub const MEM_4MB_PAGES: u32 = 2147483648u32;
 pub const MEM_COALESCE_PLACEHOLDERS: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MEM_DEDICATED_ATTRIBUTE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const MemDedicatedAttributeReadBandwidth: MEM_DEDICATED_ATTRIBUTE_TYPE = MEM_DEDICATED_ATTRIBUTE_TYPE(0i32);
@@ -8986,7 +8986,7 @@ pub const MEM_PHYSICAL: u32 = 4194304u32;
 pub const MEM_ROTATE: u32 = 8388608u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MEM_SECTION_EXTENDED_PARAMETER_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const MemSectionExtendedParameterInvalidType: MEM_SECTION_EXTENDED_PARAMETER_TYPE = MEM_SECTION_EXTENDED_PARAMETER_TYPE(0i32);
@@ -9035,7 +9035,7 @@ pub const MINSHORT: u32 = 32768u32;
 pub const MIN_UCSCHAR: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MONITOR_DISPLAY_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const PowerMonitorOff: MONITOR_DISPLAY_STATE = MONITOR_DISPLAY_STATE(0i32);
@@ -9559,7 +9559,7 @@ impl ::core::default::Default for POWER_MONITOR_INVOCATION {
 }
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POWER_MONITOR_REQUEST_REASON(pub i32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const MonitorRequestReasonUnknown: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(0i32);
@@ -9694,7 +9694,7 @@ impl ::core::fmt::Debug for POWER_MONITOR_REQUEST_REASON {
 }
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POWER_MONITOR_REQUEST_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const MonitorRequestTypeOff: POWER_MONITOR_REQUEST_TYPE = POWER_MONITOR_REQUEST_TYPE(0i32);
@@ -9950,7 +9950,7 @@ impl ::core::default::Default for POWER_SESSION_WINLOGON {
 }
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POWER_SETTING_ALTITUDE(pub i32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const ALTITUDE_GROUP_POLICY: POWER_SETTING_ALTITUDE = POWER_SETTING_ALTITUDE(0i32);
@@ -10023,7 +10023,7 @@ impl ::core::default::Default for POWER_USER_PRESENCE {
 }
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POWER_USER_PRESENCE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const UserNotPresent: POWER_USER_PRESENCE_TYPE = POWER_USER_PRESENCE_TYPE(0i32);
@@ -12998,7 +12998,7 @@ pub const RESOURCEMANAGER_ENLIST: u32 = 8u32;
 pub const RESOURCEMANAGER_GET_NOTIFICATION: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RESOURCEMANAGER_INFORMATION_CLASS(pub i32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const ResourceManagerBasicInformation: RESOURCEMANAGER_INFORMATION_CLASS = RESOURCEMANAGER_INFORMATION_CLASS(0i32);
@@ -13095,7 +13095,7 @@ pub const RTL_RUN_ONCE_CTX_RESERVED_BITS: u32 = 2u32;
 pub const RTL_RUN_ONCE_INIT_FAILED: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RTL_UMS_SCHEDULER_REASON(pub i32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const UmsSchedulerStartup: RTL_UMS_SCHEDULER_REASON = RTL_UMS_SCHEDULER_REASON(0i32);
@@ -13372,7 +13372,7 @@ impl ::core::default::Default for RemotableHandle_0 {
 }
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ReplacesCorHdrNumericDefines(pub i32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const COMIMAGE_FLAGS_ILONLY: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(1i32);
@@ -13837,7 +13837,7 @@ impl ::core::default::Default for SCRUB_PARITY_EXTENT_DATA {
 }
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SECTION_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SECTION_ALL_ACCESS: SECTION_FLAGS = SECTION_FLAGS(983071u32);
@@ -14294,7 +14294,7 @@ impl ::core::default::Default for SERVERSILO_BASIC_INFORMATION {
 }
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SERVERSILO_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SERVERSILO_INITING: SERVERSILO_STATE = SERVERSILO_STATE(0i32);
@@ -14403,7 +14403,7 @@ pub const SE_GROUP_RESOURCE: i32 = 536870912i32;
 pub const SE_GROUP_USE_FOR_DENY_ONLY: i32 = 16i32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SE_IMAGE_SIGNATURE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SeImageSignatureNone: SE_IMAGE_SIGNATURE_TYPE = SE_IMAGE_SIGNATURE_TYPE(0i32);
@@ -14450,7 +14450,7 @@ pub const SE_INC_BASE_PRIORITY_NAME: &str = "SeIncreaseBasePriorityPrivilege";
 pub const SE_INC_WORKING_SET_NAME: &str = "SeIncreaseWorkingSetPrivilege";
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SE_LEARNING_MODE_DATA_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SeLearningModeInvalidType: SE_LEARNING_MODE_DATA_TYPE = SE_LEARNING_MODE_DATA_TYPE(0i32);
@@ -15404,7 +15404,7 @@ pub const SYSTEM_RESOURCE_ATTRIBUTE_ACE_TYPE: u32 = 18u32;
 pub const SYSTEM_SCOPED_POLICY_ID_ACE_TYPE: u32 = 19u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SharedVirtualDiskHandleState(pub i32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SharedVirtualDiskHandleStateNone: SharedVirtualDiskHandleState = SharedVirtualDiskHandleState(0i32);
@@ -15433,7 +15433,7 @@ impl ::core::fmt::Debug for SharedVirtualDiskHandleState {
 }
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SharedVirtualDiskSupportType(pub i32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SharedVirtualDisksUnsupported: SharedVirtualDiskSupportType = SharedVirtualDiskSupportType(0i32);
@@ -15534,7 +15534,7 @@ pub const TAPE_DRIVE_INITIATOR: u32 = 4u32;
 pub const TAPE_DRIVE_PADDING: u32 = 262144u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TAPE_DRIVE_PROBLEM_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const TapeDriveProblemNone: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(0i32);
@@ -15663,7 +15663,7 @@ impl ::core::default::Default for TAPE_GET_DRIVE_PARAMETERS {
 }
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(pub u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const TAPE_DRIVE_ABS_BLK_IMMED: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147491840u32);
@@ -16074,7 +16074,7 @@ pub const TRANSACTIONMANAGER_BIND_TRANSACTION: u32 = 32u32;
 pub const TRANSACTIONMANAGER_CREATE_RM: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TRANSACTIONMANAGER_INFORMATION_CLASS(pub i32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const TransactionManagerBasicInformation: TRANSACTIONMANAGER_INFORMATION_CLASS = TRANSACTIONMANAGER_INFORMATION_CLASS(0i32);
@@ -16374,7 +16374,7 @@ impl ::core::default::Default for TRANSACTION_ENLISTMENT_PAIR {
 }
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TRANSACTION_INFORMATION_CLASS(pub i32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const TransactionBasicInformation: TRANSACTION_INFORMATION_CLASS = TRANSACTION_INFORMATION_CLASS(0i32);
@@ -16515,7 +16515,7 @@ pub const TRANSACTION_ROLLBACK: u32 = 16u32;
 pub const TRANSACTION_SET_INFORMATION: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TRANSACTION_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const TransactionStateNormal: TRANSACTION_STATE = TRANSACTION_STATE(1i32);
@@ -16632,7 +16632,7 @@ pub const UNWIND_HISTORY_TABLE_SIZE: u32 = 12u32;
 pub const UNW_FLAG_NO_EPILOGUE: u32 = 2147483648u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct USER_ACTIVITY_PRESENCE(pub i32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const PowerUserPresent: USER_ACTIVITY_PRESENCE = USER_ACTIVITY_PRESENCE(0i32);

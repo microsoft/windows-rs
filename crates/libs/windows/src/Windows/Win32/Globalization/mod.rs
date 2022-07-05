@@ -294,7 +294,7 @@ pub type CODEPAGE_ENUMPROCA = ::core::option::Option<unsafe extern "system" fn(p
 pub type CODEPAGE_ENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0: ::windows::core::PCWSTR) -> super::Foundation::BOOL>;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMPARE_STRING_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const LINGUISTIC_IGNORECASE: COMPARE_STRING_FLAGS = COMPARE_STRING_FLAGS(16u32);
@@ -365,7 +365,7 @@ impl ::core::ops::Not for COMPARE_STRING_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CORRECTIVE_ACTION(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const CORRECTIVE_ACTION_NONE: CORRECTIVE_ACTION = CORRECTIVE_ACTION(0i32);
@@ -1043,7 +1043,7 @@ impl ::core::default::Default for ENUMTEXTMETRICW {
 pub const ENUM_ALL_CALENDARS: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ENUM_DATE_FORMATS_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const DATE_SHORTDATE: ENUM_DATE_FORMATS_FLAGS = ENUM_DATE_FORMATS_FLAGS(1u32);
@@ -1082,7 +1082,7 @@ impl ::core::fmt::Debug for ENUM_DATE_FORMATS_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ENUM_SYSTEM_CODE_PAGES_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const CP_INSTALLED: ENUM_SYSTEM_CODE_PAGES_FLAGS = ENUM_SYSTEM_CODE_PAGES_FLAGS(1u32);
@@ -1109,7 +1109,7 @@ impl ::core::fmt::Debug for ENUM_SYSTEM_CODE_PAGES_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const LGRPID_INSTALLED: ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS = ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS(1u32);
@@ -1590,7 +1590,7 @@ pub const FIND_FROMSTART: u32 = 4194304u32;
 pub const FIND_STARTSWITH: u32 = 1048576u32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FOLD_STRING_MAP_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const MAP_COMPOSITE: FOLD_STRING_MAP_FLAGS = FOLD_STRING_MAP_FLAGS(64u32);
@@ -2625,7 +2625,7 @@ pub const HIGH_SURROGATE_END: u32 = 56319u32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const HIGH_SURROGATE_START: u32 = 55296u32;
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HIMC(pub isize);
 impl HIMC {
     pub fn is_invalid(&self) -> bool {
@@ -2652,7 +2652,7 @@ unsafe impl ::windows::core::Abi for HIMC {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HIMCC(pub isize);
 impl HIMCC {
     pub fn is_invalid(&self) -> bool {
@@ -2679,7 +2679,7 @@ unsafe impl ::windows::core::Abi for HIMCC {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HSAVEDUILANGUAGES(pub isize);
 impl HSAVEDUILANGUAGES {
     pub fn is_invalid(&self) -> bool {
@@ -4702,7 +4702,7 @@ pub struct IOptionDescription_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IS_TEXT_UNICODE_RESULT(pub u32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const IS_TEXT_UNICODE_ASCII16: IS_TEXT_UNICODE_RESULT = IS_TEXT_UNICODE_RESULT(1u32);
@@ -4783,7 +4783,7 @@ impl ::core::ops::Not for IS_TEXT_UNICODE_RESULT {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IS_VALID_LOCALE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const LCID_INSTALLED: IS_VALID_LOCALE_FLAGS = IS_VALID_LOCALE_FLAGS(1u32);
@@ -6592,7 +6592,7 @@ pub const MAX_RFC1766_NAME: u32 = 6u32;
 pub const MAX_SCRIPT_NAME: u32 = 48u32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MIMECONTF(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const MIMECONTF_MAILNEWS: MIMECONTF = MIMECONTF(1i32);
@@ -6725,7 +6725,7 @@ impl ::core::default::Default for MIMECSETINFO {
 pub const MIN_SPELLING_NTDDI: u32 = 100794368u32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MLDETECTCP(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const MLDETECTCP_NONE: MLDETECTCP = MLDETECTCP(0i32);
@@ -6760,7 +6760,7 @@ impl ::core::fmt::Debug for MLDETECTCP {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MLSTR_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const MLSTR_READ: MLSTR_FLAGS = MLSTR_FLAGS(1i32);
@@ -6853,7 +6853,7 @@ pub const MUI_USE_SEARCH_ALL_LANGUAGES: u32 = 64u32;
 pub const MUI_VERIFY_FILE_EXISTS: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MULTI_BYTE_TO_WIDE_CHAR_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const MB_COMPOSITE: MULTI_BYTE_TO_WIDE_CHAR_FLAGS = MULTI_BYTE_TO_WIDE_CHAR_FLAGS(2u32);
@@ -7148,7 +7148,7 @@ pub const NLS_CP_MBTOWC: u32 = 1073741824u32;
 pub const NLS_CP_WCTOMB: u32 = 2147483648u32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NORM_FORM(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const NormalizationOther: NORM_FORM = NORM_FORM(0i32);
@@ -7348,7 +7348,7 @@ pub unsafe fn RestoreThreadPreferredUILanguages<'a, Param0: ::windows::core::Int
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SCRIPTCONTF(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const sidDefault: SCRIPTCONTF = SCRIPTCONTF(0i32);
@@ -7459,7 +7459,7 @@ impl ::core::fmt::Debug for SCRIPTCONTF {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SCRIPTFONTCONTF(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const SCRIPTCONTF_FIXED_FONT: SCRIPTFONTCONTF = SCRIPTFONTCONTF(1i32);
@@ -7662,7 +7662,7 @@ impl ::core::default::Default for SCRIPT_FONTPROPERTIES {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SCRIPT_IS_COMPLEX_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const SIC_ASCIIDIGIT: SCRIPT_IS_COMPLEX_FLAGS = SCRIPT_IS_COMPLEX_FLAGS(2u32);
@@ -7722,7 +7722,7 @@ impl ::core::default::Default for SCRIPT_ITEM {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SCRIPT_JUSTIFY(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const SCRIPT_JUSTIFY_NONE: SCRIPT_JUSTIFY = SCRIPT_JUSTIFY(0i32);
@@ -7983,7 +7983,7 @@ pub const SSA_RTL: u32 = 256u32;
 pub const SSA_TAB: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SYSGEOCLASS(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const GEOCLASS_NATION: SYSGEOCLASS = SYSGEOCLASS(16i32);
@@ -8012,7 +8012,7 @@ impl ::core::fmt::Debug for SYSGEOCLASS {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SYSGEOTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const GEO_NATION: SYSGEOTYPE = SYSGEOTYPE(1i32);
@@ -8071,7 +8071,7 @@ impl ::core::fmt::Debug for SYSGEOTYPE {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SYSNLS_FUNCTION(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const COMPARE_STRING: SYSNLS_FUNCTION = SYSNLS_FUNCTION(1i32);
@@ -8893,7 +8893,7 @@ pub type TIMEFMT_ENUMPROCEX = ::core::option::Option<unsafe extern "system" fn(p
 pub type TIMEFMT_ENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0: ::windows::core::PCWSTR) -> super::Foundation::BOOL>;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TIME_FORMAT_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const TIME_NOMINUTESORSECONDS: TIME_FORMAT_FLAGS = TIME_FORMAT_FLAGS(1u32);
@@ -8952,7 +8952,7 @@ impl ::core::ops::Not for TIME_FORMAT_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TRANSLATE_CHARSET_INFO_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const TCI_SRCCHARSET: TRANSLATE_CHARSET_INFO_FLAGS = TRANSLATE_CHARSET_INFO_FLAGS(1u32);
@@ -9006,7 +9006,7 @@ pub const U8_LEAD4_T1_BITS: &str = "\u{0}\u{0}\u{0}\u{0}\u{0}\u{0}\u{0}\u{0}\u{1
 pub const U8_MAX_LENGTH: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UAcceptResult(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const ULOC_ACCEPT_FAILED: UAcceptResult = UAcceptResult(0i32);
@@ -9035,7 +9035,7 @@ impl ::core::fmt::Debug for UAcceptResult {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UAlphabeticIndexLabelType(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const U_ALPHAINDEX_NORMAL: UAlphabeticIndexLabelType = UAlphabeticIndexLabelType(0i32);
@@ -9090,7 +9090,7 @@ pub struct UBiDi(pub u8);
 pub type UBiDiClassCallback = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, c: i32) -> UCharDirection>;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UBiDiDirection(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UBIDI_LTR: UBiDiDirection = UBiDiDirection(0i32);
@@ -9121,7 +9121,7 @@ impl ::core::fmt::Debug for UBiDiDirection {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UBiDiMirroring(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UBIDI_MIRRORING_OFF: UBiDiMirroring = UBiDiMirroring(0i32);
@@ -9148,7 +9148,7 @@ impl ::core::fmt::Debug for UBiDiMirroring {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UBiDiOrder(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UBIDI_LOGICAL: UBiDiOrder = UBiDiOrder(0i32);
@@ -9175,7 +9175,7 @@ impl ::core::fmt::Debug for UBiDiOrder {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UBiDiReorderingMode(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UBIDI_REORDER_DEFAULT: UBiDiReorderingMode = UBiDiReorderingMode(0i32);
@@ -9212,7 +9212,7 @@ impl ::core::fmt::Debug for UBiDiReorderingMode {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UBiDiReorderingOption(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UBIDI_OPTION_DEFAULT: UBiDiReorderingOption = UBiDiReorderingOption(0i32);
@@ -9245,7 +9245,7 @@ impl ::core::fmt::Debug for UBiDiReorderingOption {
 pub struct UBiDiTransform(pub u8);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UBidiPairedBracketType(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const U_BPT_NONE: UBidiPairedBracketType = UBidiPairedBracketType(0i32);
@@ -9274,7 +9274,7 @@ impl ::core::fmt::Debug for UBidiPairedBracketType {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UBlockCode(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UBLOCK_NO_BLOCK: UBlockCode = UBlockCode(0i32);
@@ -9923,7 +9923,7 @@ impl ::core::fmt::Debug for UBlockCode {
 pub struct UBreakIterator(pub u8);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UBreakIteratorType(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UBRK_CHARACTER: UBreakIteratorType = UBreakIteratorType(0i32);
@@ -10142,7 +10142,7 @@ pub const UCONFIG_ONLY_HTML_CONVERSION: u32 = 0u32;
 pub struct UCPMap(pub u8);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UCPMapRangeOption(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UCPMAP_RANGE_NORMAL: UCPMapRangeOption = UCPMapRangeOption(0i32);
@@ -10250,7 +10250,7 @@ impl ::core::default::Default for UCPTrieData {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UCPTrieType(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UCPTRIE_TYPE_ANY: UCPTrieType = UCPTrieType(-1i32);
@@ -10279,7 +10279,7 @@ impl ::core::fmt::Debug for UCPTrieType {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UCPTrieValueWidth(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UCPTRIE_VALUE_BITS_ANY: UCPTrieValueWidth = UCPTrieValueWidth(-1i32);
@@ -10310,7 +10310,7 @@ impl ::core::fmt::Debug for UCPTrieValueWidth {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UCalendarAMPMs(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UCAL_AM: UCalendarAMPMs = UCalendarAMPMs(0i32);
@@ -10337,7 +10337,7 @@ impl ::core::fmt::Debug for UCalendarAMPMs {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UCalendarAttribute(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UCAL_LENIENT: UCalendarAttribute = UCalendarAttribute(0i32);
@@ -10370,7 +10370,7 @@ impl ::core::fmt::Debug for UCalendarAttribute {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UCalendarDateFields(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UCAL_ERA: UCalendarDateFields = UCalendarDateFields(0i32);
@@ -10443,7 +10443,7 @@ impl ::core::fmt::Debug for UCalendarDateFields {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UCalendarDaysOfWeek(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UCAL_SUNDAY: UCalendarDaysOfWeek = UCalendarDaysOfWeek(1i32);
@@ -10480,7 +10480,7 @@ impl ::core::fmt::Debug for UCalendarDaysOfWeek {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UCalendarDisplayNameType(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UCAL_STANDARD: UCalendarDisplayNameType = UCalendarDisplayNameType(0i32);
@@ -10511,7 +10511,7 @@ impl ::core::fmt::Debug for UCalendarDisplayNameType {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UCalendarLimitType(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UCAL_MINIMUM: UCalendarLimitType = UCalendarLimitType(0i32);
@@ -10546,7 +10546,7 @@ impl ::core::fmt::Debug for UCalendarLimitType {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UCalendarMonths(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UCAL_JANUARY: UCalendarMonths = UCalendarMonths(0i32);
@@ -10595,7 +10595,7 @@ impl ::core::fmt::Debug for UCalendarMonths {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UCalendarType(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UCAL_TRADITIONAL: UCalendarType = UCalendarType(0i32);
@@ -10624,7 +10624,7 @@ impl ::core::fmt::Debug for UCalendarType {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UCalendarWallTimeOption(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UCAL_WALLTIME_LAST: UCalendarWallTimeOption = UCalendarWallTimeOption(0i32);
@@ -10653,7 +10653,7 @@ impl ::core::fmt::Debug for UCalendarWallTimeOption {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UCalendarWeekdayType(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UCAL_WEEKDAY: UCalendarWeekdayType = UCalendarWeekdayType(0i32);
@@ -10686,7 +10686,7 @@ impl ::core::fmt::Debug for UCalendarWeekdayType {
 pub struct UCaseMap(pub u8);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UCharCategory(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const U_UNASSIGNED: UCharCategory = UCharCategory(0i32);
@@ -10773,7 +10773,7 @@ impl ::core::fmt::Debug for UCharCategory {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UCharDirection(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const U_LEFT_TO_RIGHT: UCharDirection = UCharDirection(0i32);
@@ -10920,7 +10920,7 @@ pub type UCharIteratorMove = ::core::option::Option<unsafe extern "system" fn(it
 pub type UCharIteratorNext = ::core::option::Option<unsafe extern "system" fn(iter: *mut UCharIterator) -> i32>;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UCharIteratorOrigin(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UITER_START: UCharIteratorOrigin = UCharIteratorOrigin(0i32);
@@ -10959,7 +10959,7 @@ pub type UCharIteratorReserved = ::core::option::Option<unsafe extern "system" f
 pub type UCharIteratorSetState = ::core::option::Option<unsafe extern "system" fn(iter: *mut UCharIterator, state: u32, perrorcode: *mut UErrorCode)>;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UCharNameChoice(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const U_UNICODE_CHAR_NAME: UCharNameChoice = UCharNameChoice(0i32);
@@ -10992,7 +10992,7 @@ pub struct UCharsetDetector(pub u8);
 pub struct UCharsetMatch(pub u8);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UColAttribute(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UCOL_FRENCH_COLLATION: UColAttribute = UColAttribute(0i32);
@@ -11033,7 +11033,7 @@ impl ::core::fmt::Debug for UColAttribute {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UColAttributeValue(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UCOL_DEFAULT: UColAttributeValue = UColAttributeValue(-1i32);
@@ -11086,7 +11086,7 @@ impl ::core::fmt::Debug for UColAttributeValue {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UColBoundMode(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UCOL_BOUND_LOWER: UColBoundMode = UColBoundMode(0i32);
@@ -11115,7 +11115,7 @@ impl ::core::fmt::Debug for UColBoundMode {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UColReorderCode(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UCOL_REORDER_CODE_DEFAULT: UColReorderCode = UColReorderCode(-1i32);
@@ -11156,7 +11156,7 @@ impl ::core::fmt::Debug for UColReorderCode {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UColRuleOption(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UCOL_TAILORING_ONLY: UColRuleOption = UColRuleOption(0i32);
@@ -11185,7 +11185,7 @@ impl ::core::fmt::Debug for UColRuleOption {
 pub struct UCollationElements(pub u8);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UCollationResult(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UCOL_EQUAL: UCollationResult = UCollationResult(0i32);
@@ -11220,7 +11220,7 @@ pub struct UConstrainedFieldPosition(pub u8);
 pub struct UConverter(pub u8);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UConverterCallbackReason(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UCNV_UNASSIGNED: UConverterCallbackReason = UConverterCallbackReason(0i32);
@@ -11294,7 +11294,7 @@ impl ::core::default::Default for UConverterFromUnicodeArgs {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UConverterPlatform(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UCNV_UNKNOWN: UConverterPlatform = UConverterPlatform(-1i32);
@@ -11362,7 +11362,7 @@ impl ::core::default::Default for UConverterToUnicodeArgs {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UConverterType(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UCNV_UNSUPPORTED_CONVERTER: UConverterType = UConverterType(-1i32);
@@ -11459,7 +11459,7 @@ impl ::core::fmt::Debug for UConverterType {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UConverterUnicodeSet(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UCNV_ROUNDTRIP_SET: UConverterUnicodeSet = UConverterUnicodeSet(0i32);
@@ -11486,7 +11486,7 @@ impl ::core::fmt::Debug for UConverterUnicodeSet {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UCurrCurrencyType(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UCURR_ALL: UCurrCurrencyType = UCurrCurrencyType(2147483647i32);
@@ -11519,7 +11519,7 @@ impl ::core::fmt::Debug for UCurrCurrencyType {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UCurrNameStyle(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UCURR_SYMBOL_NAME: UCurrNameStyle = UCurrNameStyle(0i32);
@@ -11548,7 +11548,7 @@ impl ::core::fmt::Debug for UCurrNameStyle {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UCurrencySpacing(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UNUM_CURRENCY_MATCH: UCurrencySpacing = UCurrencySpacing(0i32);
@@ -11579,7 +11579,7 @@ impl ::core::fmt::Debug for UCurrencySpacing {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UCurrencyUsage(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UCURR_USAGE_STANDARD: UCurrencyUsage = UCurrencyUsage(0i32);
@@ -11688,7 +11688,7 @@ pub const UDAT_YEAR_NUM_MONTH_WEEKDAY_DAY: &str = "yMEd";
 pub const UDAT_YEAR_QUARTER: &str = "yQQQQ";
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UDateAbsoluteUnit(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UDAT_ABSOLUTE_SUNDAY: UDateAbsoluteUnit = UDateAbsoluteUnit(0i32);
@@ -11737,7 +11737,7 @@ impl ::core::fmt::Debug for UDateAbsoluteUnit {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UDateDirection(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UDAT_DIRECTION_LAST_2: UDateDirection = UDateDirection(0i32);
@@ -11774,7 +11774,7 @@ impl ::core::fmt::Debug for UDateDirection {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UDateFormatBooleanAttribute(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UDAT_PARSE_ALLOW_WHITESPACE: UDateFormatBooleanAttribute = UDateFormatBooleanAttribute(0i32);
@@ -11807,7 +11807,7 @@ impl ::core::fmt::Debug for UDateFormatBooleanAttribute {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UDateFormatField(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UDAT_ERA_FIELD: UDateFormatField = UDateFormatField(0i32);
@@ -11902,7 +11902,7 @@ impl ::core::fmt::Debug for UDateFormatField {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UDateFormatStyle(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UDAT_FULL: UDateFormatStyle = UDateFormatStyle(0i32);
@@ -11949,7 +11949,7 @@ impl ::core::fmt::Debug for UDateFormatStyle {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UDateFormatSymbolType(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UDAT_ERAS: UDateFormatSymbolType = UDateFormatSymbolType(0i32);
@@ -12032,7 +12032,7 @@ pub struct UDateFormatSymbols(pub u8);
 pub struct UDateIntervalFormat(pub u8);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UDateRelativeDateTimeFormatterStyle(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UDAT_STYLE_LONG: UDateRelativeDateTimeFormatterStyle = UDateRelativeDateTimeFormatterStyle(0i32);
@@ -12061,7 +12061,7 @@ impl ::core::fmt::Debug for UDateRelativeDateTimeFormatterStyle {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UDateRelativeUnit(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UDAT_RELATIVE_SECONDS: UDateRelativeUnit = UDateRelativeUnit(0i32);
@@ -12100,7 +12100,7 @@ impl ::core::fmt::Debug for UDateRelativeUnit {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UDateTimePGDisplayWidth(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UDATPG_WIDE: UDateTimePGDisplayWidth = UDateTimePGDisplayWidth(0i32);
@@ -12129,7 +12129,7 @@ impl ::core::fmt::Debug for UDateTimePGDisplayWidth {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UDateTimePatternConflict(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UDATPG_NO_CONFLICT: UDateTimePatternConflict = UDateTimePatternConflict(0i32);
@@ -12158,7 +12158,7 @@ impl ::core::fmt::Debug for UDateTimePatternConflict {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UDateTimePatternField(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UDATPG_ERA_FIELD: UDateTimePatternField = UDateTimePatternField(0i32);
@@ -12215,7 +12215,7 @@ impl ::core::fmt::Debug for UDateTimePatternField {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UDateTimePatternMatchOptions(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UDATPG_MATCH_NO_OPTIONS: UDateTimePatternMatchOptions = UDateTimePatternMatchOptions(0i32);
@@ -12244,7 +12244,7 @@ impl ::core::fmt::Debug for UDateTimePatternMatchOptions {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UDateTimeScale(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UDTS_JAVA_TIME: UDateTimeScale = UDateTimeScale(0i32);
@@ -12287,7 +12287,7 @@ impl ::core::fmt::Debug for UDateTimeScale {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UDecompositionType(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const U_DT_NONE: UDecompositionType = UDecompositionType(0i32);
@@ -12346,7 +12346,7 @@ impl ::core::fmt::Debug for UDecompositionType {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UDialectHandling(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const ULDN_STANDARD_NAMES: UDialectHandling = UDialectHandling(0i32);
@@ -12373,7 +12373,7 @@ impl ::core::fmt::Debug for UDialectHandling {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UDisplayContext(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UDISPCTX_STANDARD_NAMES: UDisplayContext = UDisplayContext(0i32);
@@ -12418,7 +12418,7 @@ impl ::core::fmt::Debug for UDisplayContext {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UDisplayContextType(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UDISPCTX_TYPE_DIALECT_HANDLING: UDisplayContextType = UDisplayContextType(0i32);
@@ -12449,7 +12449,7 @@ impl ::core::fmt::Debug for UDisplayContextType {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UEastAsianWidth(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const U_EA_NEUTRAL: UEastAsianWidth = UEastAsianWidth(0i32);
@@ -12488,7 +12488,7 @@ pub type UEnumCharNamesFn = ::core::option::Option<unsafe extern "system" fn(con
 pub struct UEnumeration(pub u8);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UErrorCode(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const U_USING_FALLBACK_WARNING: UErrorCode = UErrorCode(-128i32);
@@ -12815,7 +12815,7 @@ impl ::core::fmt::Debug for UErrorCode {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UFieldCategory(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UFIELD_CATEGORY_UNDEFINED: UFieldCategory = UFieldCategory(0i32);
@@ -12888,7 +12888,7 @@ impl ::core::default::Default for UFieldPosition {
 pub struct UFieldPositionIterator(pub u8);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UFormattableType(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UFMT_DATE: UFormattableType = UFormattableType(0i32);
@@ -12937,7 +12937,7 @@ pub struct UFormattedRelativeDateTime(pub u8);
 pub struct UFormattedValue(pub u8);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UGender(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UGENDER_MALE: UGender = UGender(0i32);
@@ -12968,7 +12968,7 @@ impl ::core::fmt::Debug for UGender {
 pub struct UGenderInfo(pub u8);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UGraphemeClusterBreak(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const U_GCB_OTHER: UGraphemeClusterBreak = UGraphemeClusterBreak(0i32);
@@ -13027,7 +13027,7 @@ impl ::core::fmt::Debug for UGraphemeClusterBreak {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UHangulSyllableType(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const U_HST_NOT_APPLICABLE: UHangulSyllableType = UHangulSyllableType(0i32);
@@ -13153,7 +13153,7 @@ pub type UILANGUAGE_ENUMPROCW = ::core::option::Option<unsafe extern "system" fn
 pub const UITER_UNKNOWN_INDEX: i32 = -2i32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UIndicPositionalCategory(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const U_INPC_NA: UIndicPositionalCategory = UIndicPositionalCategory(0i32);
@@ -13208,7 +13208,7 @@ impl ::core::fmt::Debug for UIndicPositionalCategory {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UIndicSyllabicCategory(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const U_INSC_OTHER: UIndicSyllabicCategory = UIndicSyllabicCategory(0i32);
@@ -13303,7 +13303,7 @@ impl ::core::fmt::Debug for UIndicSyllabicCategory {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UJoiningGroup(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const U_JG_NO_JOINING_GROUP: UJoiningGroup = UJoiningGroup(0i32);
@@ -13532,7 +13532,7 @@ impl ::core::fmt::Debug for UJoiningGroup {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UJoiningType(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const U_JT_NON_JOINING: UJoiningType = UJoiningType(0i32);
@@ -13627,7 +13627,7 @@ pub const ULOC_UK: &str = "en_GB";
 pub const ULOC_US: &str = "en_US";
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ULayoutType(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const ULOC_LAYOUT_LTR: ULayoutType = ULayoutType(0i32);
@@ -13660,7 +13660,7 @@ impl ::core::fmt::Debug for ULayoutType {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ULineBreak(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const U_LB_UNKNOWN: ULineBreak = ULineBreak(0i32);
@@ -13771,7 +13771,7 @@ impl ::core::fmt::Debug for ULineBreak {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ULineBreakTag(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UBRK_LINE_SOFT: ULineBreakTag = ULineBreakTag(0i32);
@@ -13804,7 +13804,7 @@ impl ::core::fmt::Debug for ULineBreakTag {
 pub struct UListFormatter(pub u8);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UListFormatterField(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const ULISTFMT_LITERAL_FIELD: UListFormatterField = UListFormatterField(0i32);
@@ -13831,7 +13831,7 @@ impl ::core::fmt::Debug for UListFormatterField {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UListFormatterType(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const ULISTFMT_TYPE_AND: UListFormatterType = UListFormatterType(0i32);
@@ -13860,7 +13860,7 @@ impl ::core::fmt::Debug for UListFormatterType {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UListFormatterWidth(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const ULISTFMT_WIDTH_WIDE: UListFormatterWidth = UListFormatterWidth(0i32);
@@ -13889,7 +13889,7 @@ impl ::core::fmt::Debug for UListFormatterWidth {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ULocAvailableType(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const ULOC_AVAILABLE_DEFAULT: ULocAvailableType = ULocAvailableType(0i32);
@@ -13918,7 +13918,7 @@ impl ::core::fmt::Debug for ULocAvailableType {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ULocDataLocaleType(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const ULOC_ACTUAL_LOCALE: ULocDataLocaleType = ULocDataLocaleType(0i32);
@@ -13947,7 +13947,7 @@ impl ::core::fmt::Debug for ULocDataLocaleType {
 pub struct ULocaleData(pub u8);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ULocaleDataDelimiterType(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const ULOCDATA_QUOTATION_START: ULocaleDataDelimiterType = ULocaleDataDelimiterType(0i32);
@@ -13978,7 +13978,7 @@ impl ::core::fmt::Debug for ULocaleDataDelimiterType {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ULocaleDataExemplarSetType(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const ULOCDATA_ES_STANDARD: ULocaleDataExemplarSetType = ULocaleDataExemplarSetType(0i32);
@@ -14015,7 +14015,7 @@ pub const UMSGPAT_ARG_NAME_NOT_NUMBER: i32 = -1i32;
 pub const UMSGPAT_ARG_NAME_NOT_VALID: i32 = -2i32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UMeasureFormatWidth(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UMEASFMT_WIDTH_WIDE: UMeasureFormatWidth = UMeasureFormatWidth(0i32);
@@ -14048,7 +14048,7 @@ impl ::core::fmt::Debug for UMeasureFormatWidth {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UMeasurementSystem(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UMS_SI: UMeasurementSystem = UMeasurementSystem(0i32);
@@ -14083,7 +14083,7 @@ pub type UMemFreeFn = ::core::option::Option<unsafe extern "system" fn(context: 
 pub type UMemReallocFn = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, mem: *mut ::core::ffi::c_void, size: usize) -> *mut ::core::ffi::c_void>;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UMessagePatternApostropheMode(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UMSGPAT_APOS_DOUBLE_OPTIONAL: UMessagePatternApostropheMode = UMessagePatternApostropheMode(0i32);
@@ -14110,7 +14110,7 @@ impl ::core::fmt::Debug for UMessagePatternApostropheMode {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UMessagePatternArgType(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UMSGPAT_ARG_TYPE_NONE: UMessagePatternArgType = UMessagePatternArgType(0i32);
@@ -14145,7 +14145,7 @@ impl ::core::fmt::Debug for UMessagePatternArgType {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UMessagePatternPartType(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UMSGPAT_PART_TYPE_MSG_START: UMessagePatternPartType = UMessagePatternPartType(0i32);
@@ -14235,7 +14235,7 @@ pub const UNISCRIBE_OPENTYPE: u32 = 256u32;
 pub const UNORM_INPUT_IS_FCD: u32 = 131072u32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UNormalization2Mode(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UNORM2_COMPOSE: UNormalization2Mode = UNormalization2Mode(0i32);
@@ -14266,7 +14266,7 @@ impl ::core::fmt::Debug for UNormalization2Mode {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UNormalizationCheckResult(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UNORM_NO: UNormalizationCheckResult = UNormalizationCheckResult(0i32);
@@ -14295,7 +14295,7 @@ impl ::core::fmt::Debug for UNormalizationCheckResult {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UNormalizationMode(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UNORM_NONE: UNormalizationMode = UNormalizationMode(1i32);
@@ -14336,7 +14336,7 @@ impl ::core::fmt::Debug for UNormalizationMode {
 pub struct UNormalizer2(pub u8);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UNumberCompactStyle(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UNUM_SHORT: UNumberCompactStyle = UNumberCompactStyle(0i32);
@@ -14363,7 +14363,7 @@ impl ::core::fmt::Debug for UNumberCompactStyle {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UNumberDecimalSeparatorDisplay(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UNUM_DECIMAL_SEPARATOR_AUTO: UNumberDecimalSeparatorDisplay = UNumberDecimalSeparatorDisplay(0i32);
@@ -14392,7 +14392,7 @@ impl ::core::fmt::Debug for UNumberDecimalSeparatorDisplay {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UNumberFormatAttribute(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UNUM_PARSE_INT_ONLY: UNumberFormatAttribute = UNumberFormatAttribute(0i32);
@@ -14473,7 +14473,7 @@ impl ::core::fmt::Debug for UNumberFormatAttribute {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UNumberFormatAttributeValue(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UNUM_FORMAT_ATTRIBUTE_VALUE_HIDDEN: UNumberFormatAttributeValue = UNumberFormatAttributeValue(0i32);
@@ -14498,7 +14498,7 @@ impl ::core::fmt::Debug for UNumberFormatAttributeValue {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UNumberFormatFields(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UNUM_INTEGER_FIELD: UNumberFormatFields = UNumberFormatFields(0i32);
@@ -14547,7 +14547,7 @@ impl ::core::fmt::Debug for UNumberFormatFields {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UNumberFormatPadPosition(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UNUM_PAD_BEFORE_PREFIX: UNumberFormatPadPosition = UNumberFormatPadPosition(0i32);
@@ -14578,7 +14578,7 @@ impl ::core::fmt::Debug for UNumberFormatPadPosition {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UNumberFormatRoundingMode(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UNUM_ROUND_CEILING: UNumberFormatRoundingMode = UNumberFormatRoundingMode(0i32);
@@ -14617,7 +14617,7 @@ impl ::core::fmt::Debug for UNumberFormatRoundingMode {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UNumberFormatStyle(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UNUM_PATTERN_DECIMAL: UNumberFormatStyle = UNumberFormatStyle(0i32);
@@ -14678,7 +14678,7 @@ impl ::core::fmt::Debug for UNumberFormatStyle {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UNumberFormatSymbol(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UNUM_DECIMAL_SEPARATOR_SYMBOL: UNumberFormatSymbol = UNumberFormatSymbol(0i32);
@@ -14757,7 +14757,7 @@ impl ::core::fmt::Debug for UNumberFormatSymbol {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UNumberFormatTextAttribute(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UNUM_POSITIVE_PREFIX: UNumberFormatTextAttribute = UNumberFormatTextAttribute(0i32);
@@ -14798,7 +14798,7 @@ impl ::core::fmt::Debug for UNumberFormatTextAttribute {
 pub struct UNumberFormatter(pub u8);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UNumberGroupingStrategy(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UNUM_GROUPING_OFF: UNumberGroupingStrategy = UNumberGroupingStrategy(0i32);
@@ -14831,7 +14831,7 @@ impl ::core::fmt::Debug for UNumberGroupingStrategy {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UNumberRangeCollapse(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UNUM_RANGE_COLLAPSE_AUTO: UNumberRangeCollapse = UNumberRangeCollapse(0i32);
@@ -14862,7 +14862,7 @@ impl ::core::fmt::Debug for UNumberRangeCollapse {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UNumberRangeIdentityFallback(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UNUM_IDENTITY_FALLBACK_SINGLE_VALUE: UNumberRangeIdentityFallback = UNumberRangeIdentityFallback(0i32);
@@ -14893,7 +14893,7 @@ impl ::core::fmt::Debug for UNumberRangeIdentityFallback {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UNumberRangeIdentityResult(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UNUM_IDENTITY_RESULT_EQUAL_BEFORE_ROUNDING: UNumberRangeIdentityResult = UNumberRangeIdentityResult(0i32);
@@ -14922,7 +14922,7 @@ impl ::core::fmt::Debug for UNumberRangeIdentityResult {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UNumberSignDisplay(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UNUM_SIGN_AUTO: UNumberSignDisplay = UNumberSignDisplay(0i32);
@@ -14961,7 +14961,7 @@ impl ::core::fmt::Debug for UNumberSignDisplay {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UNumberUnitWidth(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UNUM_UNIT_WIDTH_NARROW: UNumberUnitWidth = UNumberUnitWidth(0i32);
@@ -14998,7 +14998,7 @@ impl ::core::fmt::Debug for UNumberUnitWidth {
 pub struct UNumberingSystem(pub u8);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UNumericType(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const U_NT_NONE: UNumericType = UNumericType(0i32);
@@ -15064,7 +15064,7 @@ impl ::core::default::Default for UParseError {
 pub struct UPluralRules(pub u8);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UPluralType(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UPLURAL_TYPE_CARDINAL: UPluralType = UPluralType(0i32);
@@ -15091,7 +15091,7 @@ impl ::core::fmt::Debug for UPluralType {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UProperty(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UCHAR_ALPHABETIC: UProperty = UProperty(0i32);
@@ -15338,7 +15338,7 @@ impl ::core::fmt::Debug for UProperty {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UPropertyNameChoice(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const U_SHORT_PROPERTY_NAME: UPropertyNameChoice = UPropertyNameChoice(0i32);
@@ -15369,7 +15369,7 @@ pub type URegexFindProgressCallback = ::core::option::Option<unsafe extern "syst
 pub type URegexMatchCallback = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, steps: i32) -> i8>;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct URegexpFlag(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UREGEX_CASE_INSENSITIVE: URegexpFlag = URegexpFlag(2i32);
@@ -15410,7 +15410,7 @@ impl ::core::fmt::Debug for URegexpFlag {
 pub struct URegion(pub u8);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct URegionType(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const URGN_UNKNOWN: URegionType = URegionType(0i32);
@@ -15451,7 +15451,7 @@ pub struct URegularExpression(pub u8);
 pub struct URelativeDateTimeFormatter(pub u8);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct URelativeDateTimeFormatterField(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UDAT_REL_LITERAL_FIELD: URelativeDateTimeFormatterField = URelativeDateTimeFormatterField(0i32);
@@ -15478,7 +15478,7 @@ impl ::core::fmt::Debug for URelativeDateTimeFormatterField {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct URelativeDateTimeUnit(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UDAT_REL_UNIT_YEAR: URelativeDateTimeUnit = URelativeDateTimeUnit(0i32);
@@ -15566,7 +15566,7 @@ impl ::core::default::Default for UReplaceableCallbacks {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UResType(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const URES_NONE: UResType = UResType(-1i32);
@@ -15607,7 +15607,7 @@ impl ::core::fmt::Debug for UResType {
 pub struct UResourceBundle(pub u8);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct URestrictionLevel(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const USPOOF_ASCII: URestrictionLevel = URestrictionLevel(268435456i32);
@@ -15660,7 +15660,7 @@ pub const USPREP_DEFAULT: u32 = 0u32;
 pub const USP_E_SCRIPT_NOT_IN_FONT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220992i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UScriptCode(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const USCRIPT_INVALID_CODE: UScriptCode = UScriptCode(-1i32);
@@ -16081,7 +16081,7 @@ impl ::core::fmt::Debug for UScriptCode {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UScriptUsage(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const USCRIPT_USAGE_NOT_ENCODED: UScriptUsage = UScriptUsage(0i32);
@@ -16118,7 +16118,7 @@ impl ::core::fmt::Debug for UScriptUsage {
 pub struct USearch(pub u8);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct USearchAttribute(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const USEARCH_OVERLAP: USearchAttribute = USearchAttribute(0i32);
@@ -16145,7 +16145,7 @@ impl ::core::fmt::Debug for USearchAttribute {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct USearchAttributeValue(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const USEARCH_DEFAULT: USearchAttributeValue = USearchAttributeValue(-1i32);
@@ -16180,7 +16180,7 @@ impl ::core::fmt::Debug for USearchAttributeValue {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct USentenceBreak(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const U_SB_OTHER: USentenceBreak = USentenceBreak(0i32);
@@ -16233,7 +16233,7 @@ impl ::core::fmt::Debug for USentenceBreak {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct USentenceBreakTag(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UBRK_SENTENCE_TERM: USentenceBreakTag = USentenceBreakTag(0i32);
@@ -16299,7 +16299,7 @@ impl ::core::default::Default for USerializedSet {
 pub struct USet(pub u8);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct USetSpanCondition(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const USET_SPAN_NOT_CONTAINED: USetSpanCondition = USetSpanCondition(0i32);
@@ -16332,7 +16332,7 @@ pub struct USpoofCheckResult(pub u8);
 pub struct USpoofChecker(pub u8);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct USpoofChecks(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const USPOOF_SINGLE_SCRIPT_CONFUSABLE: USpoofChecks = USpoofChecks(1i32);
@@ -16381,7 +16381,7 @@ pub type UStringCaseMapper = ::core::option::Option<unsafe extern "system" fn(cs
 pub struct UStringPrepProfile(pub u8);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UStringPrepProfileType(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const USPREP_RFC3491_NAMEPREP: UStringPrepProfileType = UStringPrepProfileType(0i32);
@@ -16434,7 +16434,7 @@ impl ::core::fmt::Debug for UStringPrepProfileType {
 pub struct UStringSearch(pub u8);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UStringTrieBuildOption(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const USTRINGTRIE_BUILD_FAST: UStringTrieBuildOption = UStringTrieBuildOption(0i32);
@@ -16461,7 +16461,7 @@ impl ::core::fmt::Debug for UStringTrieBuildOption {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UStringTrieResult(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const USTRINGTRIE_NO_MATCH: UStringTrieResult = UStringTrieResult(0i32);
@@ -16492,7 +16492,7 @@ impl ::core::fmt::Debug for UStringTrieResult {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct USystemTimeZoneType(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UCAL_ZONE_TYPE_ANY: USystemTimeZoneType = USystemTimeZoneType(0i32);
@@ -16707,7 +16707,7 @@ pub type UTextNativeLength = ::core::option::Option<unsafe extern "system" fn(ut
 pub type UTextReplace = ::core::option::Option<unsafe extern "system" fn(ut: *mut UText, nativestart: i64, nativelimit: i64, replacementtext: *const u16, replacmentlength: i32, status: *mut UErrorCode) -> i32>;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UTimeScaleValue(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UTSV_UNITS_VALUE: UTimeScaleValue = UTimeScaleValue(0i32);
@@ -16742,7 +16742,7 @@ impl ::core::fmt::Debug for UTimeScaleValue {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UTimeZoneFormatGMTOffsetPatternType(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UTZFMT_PAT_POSITIVE_HM: UTimeZoneFormatGMTOffsetPatternType = UTimeZoneFormatGMTOffsetPatternType(0i32);
@@ -16779,7 +16779,7 @@ impl ::core::fmt::Debug for UTimeZoneFormatGMTOffsetPatternType {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UTimeZoneFormatParseOption(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UTZFMT_PARSE_OPTION_NONE: UTimeZoneFormatParseOption = UTimeZoneFormatParseOption(0i32);
@@ -16808,7 +16808,7 @@ impl ::core::fmt::Debug for UTimeZoneFormatParseOption {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UTimeZoneFormatStyle(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UTZFMT_STYLE_GENERIC_LOCATION: UTimeZoneFormatStyle = UTimeZoneFormatStyle(0i32);
@@ -16871,7 +16871,7 @@ impl ::core::fmt::Debug for UTimeZoneFormatStyle {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UTimeZoneFormatTimeType(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UTZFMT_TIME_TYPE_UNKNOWN: UTimeZoneFormatTimeType = UTimeZoneFormatTimeType(0i32);
@@ -16900,7 +16900,7 @@ impl ::core::fmt::Debug for UTimeZoneFormatTimeType {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UTimeZoneNameType(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UTZNM_UNKNOWN: UTimeZoneNameType = UTimeZoneNameType(0i32);
@@ -16939,7 +16939,7 @@ impl ::core::fmt::Debug for UTimeZoneNameType {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UTimeZoneTransitionType(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UCAL_TZ_TRANSITION_NEXT: UTimeZoneTransitionType = UTimeZoneTransitionType(0i32);
@@ -16976,7 +16976,7 @@ pub type UTraceEntry = ::core::option::Option<unsafe extern "system" fn(context:
 pub type UTraceExit = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, fnnumber: i32, fmt: ::windows::core::PCSTR, args: *mut i8)>;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UTraceFunctionNumber(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UTRACE_FUNCTION_START: UTraceFunctionNumber = UTraceFunctionNumber(0i32);
@@ -17053,7 +17053,7 @@ impl ::core::fmt::Debug for UTraceFunctionNumber {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UTraceLevel(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UTRACE_OFF: UTraceLevel = UTraceLevel(-1i32);
@@ -17088,7 +17088,7 @@ impl ::core::fmt::Debug for UTraceLevel {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UTransDirection(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UTRANS_FORWARD: UTransDirection = UTransDirection(0i32);
@@ -17148,7 +17148,7 @@ impl ::core::default::Default for UTransPosition {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UVerticalOrientation(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const U_VO_ROTATED: UVerticalOrientation = UVerticalOrientation(0i32);
@@ -17179,7 +17179,7 @@ impl ::core::fmt::Debug for UVerticalOrientation {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UWordBreak(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const UBRK_WORD_NONE: UWordBreak = UWordBreak(0i32);
@@ -17222,7 +17222,7 @@ impl ::core::fmt::Debug for UWordBreak {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UWordBreakValues(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const U_WB_OTHER: UWordBreakValues = UWordBreakValues(0i32);
@@ -17600,7 +17600,7 @@ pub const WC_NO_BEST_FIT_CHARS: u32 = 1024u32;
 pub const WC_SEPCHARS: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WORDLIST_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const WORDLIST_TYPE_IGNORE: WORDLIST_TYPE = WORDLIST_TYPE(0i32);
@@ -17905,7 +17905,7 @@ impl ::core::default::Default for script_glyphprop {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct tagMLCONVCHARF(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const MLCONVCHARF_AUTODETECT: tagMLCONVCHARF = tagMLCONVCHARF(1i32);
@@ -17942,7 +17942,7 @@ impl ::core::fmt::Debug for tagMLCONVCHARF {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct tagMLCPF(pub i32);
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const MLDETECTF_MAILNEWS: tagMLCPF = tagMLCPF(1i32);

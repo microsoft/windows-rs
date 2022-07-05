@@ -4,7 +4,7 @@ pub const COMPOSITIONOBJECT_READ: i32 = 1i32;
 pub const COMPOSITIONOBJECT_WRITE: i32 = 2i32;
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMPOSITION_FRAME_ID_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 pub const COMPOSITION_FRAME_ID_CREATED: COMPOSITION_FRAME_ID_TYPE = COMPOSITION_FRAME_ID_TYPE(0i32);
@@ -176,7 +176,7 @@ impl ::core::default::Default for COMPOSITION_TARGET_STATS {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DCOMPOSITION_BACKFACE_VISIBILITY(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 pub const DCOMPOSITION_BACKFACE_VISIBILITY_VISIBLE: DCOMPOSITION_BACKFACE_VISIBILITY = DCOMPOSITION_BACKFACE_VISIBILITY(0i32);
@@ -205,7 +205,7 @@ impl ::core::fmt::Debug for DCOMPOSITION_BACKFACE_VISIBILITY {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DCOMPOSITION_BITMAP_INTERPOLATION_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 pub const DCOMPOSITION_BITMAP_INTERPOLATION_MODE_NEAREST_NEIGHBOR: DCOMPOSITION_BITMAP_INTERPOLATION_MODE = DCOMPOSITION_BITMAP_INTERPOLATION_MODE(0i32);
@@ -234,7 +234,7 @@ impl ::core::fmt::Debug for DCOMPOSITION_BITMAP_INTERPOLATION_MODE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DCOMPOSITION_BORDER_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 pub const DCOMPOSITION_BORDER_MODE_SOFT: DCOMPOSITION_BORDER_MODE = DCOMPOSITION_BORDER_MODE(0i32);
@@ -263,7 +263,7 @@ impl ::core::fmt::Debug for DCOMPOSITION_BORDER_MODE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DCOMPOSITION_COMPOSITE_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 pub const DCOMPOSITION_COMPOSITE_MODE_SOURCE_OVER: DCOMPOSITION_COMPOSITE_MODE = DCOMPOSITION_COMPOSITE_MODE(0i32);
@@ -294,7 +294,7 @@ impl ::core::fmt::Debug for DCOMPOSITION_COMPOSITE_MODE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DCOMPOSITION_DEPTH_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 pub const DCOMPOSITION_DEPTH_MODE_TREE: DCOMPOSITION_DEPTH_MODE = DCOMPOSITION_DEPTH_MODE(0i32);
@@ -369,7 +369,7 @@ impl ::core::default::Default for DCOMPOSITION_FRAME_STATISTICS {
 pub const DCOMPOSITION_MAX_WAITFORCOMPOSITORCLOCK_OBJECTS: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DCOMPOSITION_OPACITY_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 pub const DCOMPOSITION_OPACITY_MODE_LAYER: DCOMPOSITION_OPACITY_MODE = DCOMPOSITION_OPACITY_MODE(0i32);

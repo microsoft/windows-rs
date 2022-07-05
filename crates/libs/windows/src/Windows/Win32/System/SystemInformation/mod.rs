@@ -92,7 +92,7 @@ impl ::core::default::Default for CACHE_RELATIONSHIP_0 {
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMPUTER_NAME_FORMAT(pub i32);
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 pub const ComputerNameNetBIOS: COMPUTER_NAME_FORMAT = COMPUTER_NAME_FORMAT(0i32);
@@ -133,7 +133,7 @@ impl ::core::fmt::Debug for COMPUTER_NAME_FORMAT {
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CPU_SET_INFORMATION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 pub const CpuSetInformation: CPU_SET_INFORMATION_TYPE = CPU_SET_INFORMATION_TYPE(0i32);
@@ -158,7 +158,7 @@ impl ::core::fmt::Debug for CPU_SET_INFORMATION_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DEP_SYSTEM_POLICY_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 pub const DEPPolicyAlwaysOff: DEP_SYSTEM_POLICY_TYPE = DEP_SYSTEM_POLICY_TYPE(0i32);
@@ -191,7 +191,7 @@ impl ::core::fmt::Debug for DEP_SYSTEM_POLICY_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DEVICEFAMILYDEVICEFORM(pub u32);
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 pub const DEVICEFAMILYDEVICEFORM_UNKNOWN: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(0u32);
@@ -308,7 +308,7 @@ impl ::core::fmt::Debug for DEVICEFAMILYDEVICEFORM {
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DEVICEFAMILYINFOENUM(pub u32);
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 pub const DEVICEFAMILYINFOENUM_UAP: DEVICEFAMILYINFOENUM = DEVICEFAMILYINFOENUM(0u32);
@@ -397,7 +397,7 @@ pub unsafe fn EnumSystemFirmwareTables(firmwaretableprovidersignature: FIRMWARE_
     unimplemented!("Unsupported target OS");
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FIRMWARE_TABLE_ID(pub u32);
 impl ::core::default::Default for FIRMWARE_TABLE_ID {
     fn default() -> Self {
@@ -420,7 +420,7 @@ unsafe impl ::windows::core::Abi for FIRMWARE_TABLE_ID {
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FIRMWARE_TABLE_PROVIDER(pub u32);
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 pub const ACPI: FIRMWARE_TABLE_PROVIDER = FIRMWARE_TABLE_PROVIDER(1094930505u32);
@@ -449,7 +449,7 @@ impl ::core::fmt::Debug for FIRMWARE_TABLE_PROVIDER {
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FIRMWARE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 pub const FirmwareTypeUnknown: FIRMWARE_TYPE = FIRMWARE_TYPE(0i32);
@@ -1160,7 +1160,7 @@ pub unsafe fn IsWow64GuestMachineSupported(wowguestmachine: u16) -> ::windows::c
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LOGICAL_PROCESSOR_RELATIONSHIP(pub i32);
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 pub const RelationProcessorCore: LOGICAL_PROCESSOR_RELATIONSHIP = LOGICAL_PROCESSOR_RELATIONSHIP(0i32);
@@ -1618,7 +1618,7 @@ impl ::core::default::Default for OSVERSIONINFOW {
 pub const OSVERSION_MASK: u32 = 4294901760u32;
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OS_DEPLOYEMENT_STATE_VALUES(pub i32);
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 pub const OS_DEPLOYMENT_STANDARD: OS_DEPLOYEMENT_STATE_VALUES = OS_DEPLOYEMENT_STATE_VALUES(1i32);
@@ -1645,7 +1645,7 @@ impl ::core::fmt::Debug for OS_DEPLOYEMENT_STATE_VALUES {
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OS_PRODUCT_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 pub const PRODUCT_BUSINESS: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(6u32);
@@ -1864,7 +1864,7 @@ pub type PGET_SYSTEM_WOW64_DIRECTORY_A = ::core::option::Option<unsafe extern "s
 pub type PGET_SYSTEM_WOW64_DIRECTORY_W = ::core::option::Option<unsafe extern "system" fn(lpbuffer: ::windows::core::PWSTR, usize: u32) -> u32>;
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROCESSOR_CACHE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 pub const CacheUnified: PROCESSOR_CACHE_TYPE = PROCESSOR_CACHE_TYPE(0i32);
@@ -1962,7 +1962,7 @@ impl ::core::default::Default for PROCESSOR_RELATIONSHIP {
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RTL_SYSTEM_GLOBAL_DATA_ID(pub i32);
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 pub const GlobalDataIdUnknown: RTL_SYSTEM_GLOBAL_DATA_ID = RTL_SYSTEM_GLOBAL_DATA_ID(0i32);
@@ -2796,7 +2796,7 @@ pub unsafe fn SetSystemTimeAdjustmentPrecise<'a, Param1: ::windows::core::IntoPa
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct USER_CET_ENVIRONMENT(pub u32);
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 pub const USER_CET_ENVIRONMENT_WIN32_PROCESS: USER_CET_ENVIRONMENT = USER_CET_ENVIRONMENT(0u32);
@@ -2827,7 +2827,7 @@ impl ::core::fmt::Debug for USER_CET_ENVIRONMENT {
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VER_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 pub const VER_MINORVERSION: VER_FLAGS = VER_FLAGS(1u32);

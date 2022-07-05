@@ -898,7 +898,7 @@ impl ::core::default::Default for BIDI_RESPONSE_DATA {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BIDI_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const BIDI_NULL: BIDI_TYPE = BIDI_TYPE(0i32);
@@ -4329,7 +4329,7 @@ pub unsafe fn DocumentPropertiesW<'a, Param0: ::windows::core::IntoParam<'a, sup
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EATTRIBUTE_DATATYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const kADT_UNKNOWN: EATTRIBUTE_DATATYPE = EATTRIBUTE_DATATYPE(0i32);
@@ -4374,7 +4374,7 @@ impl ::core::fmt::Debug for EATTRIBUTE_DATATYPE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EBranchOfficeJobEventType(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const kInvalidJobState: EBranchOfficeJobEventType = EBranchOfficeJobEventType(0i32);
@@ -4450,7 +4450,7 @@ pub const EPF_PUSH_TYPE_DLGPROC: u32 = 1u32;
 pub const EPF_USE_HDLGTEMPLATE: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EPrintPropertyType(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const kPropertyTypeString: EPrintPropertyType = EPrintPropertyType(1i32);
@@ -4493,7 +4493,7 @@ impl ::core::fmt::Debug for EPrintPropertyType {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EPrintXPSJobOperation(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const kJobProduction: EPrintXPSJobOperation = EPrintXPSJobOperation(1i32);
@@ -4520,7 +4520,7 @@ impl ::core::fmt::Debug for EPrintXPSJobOperation {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EPrintXPSJobProgress(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const kAddingDocumentSequence: EPrintXPSJobProgress = EPrintXPSJobProgress(0i32);
@@ -4916,7 +4916,7 @@ impl ::core::default::Default for EXTTEXTMETRIC {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EXpsCompressionOptions(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const Compression_NotCompressed: EXpsCompressionOptions = EXpsCompressionOptions(0i32);
@@ -4947,7 +4947,7 @@ impl ::core::fmt::Debug for EXpsCompressionOptions {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EXpsFontOptions(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const Font_Normal: EXpsFontOptions = EXpsFontOptions(0i32);
@@ -4974,7 +4974,7 @@ impl ::core::fmt::Debug for EXpsFontOptions {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EXpsFontRestriction(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const Xps_Restricted_Font_Installable: EXpsFontRestriction = EXpsFontRestriction(0i32);
@@ -5005,7 +5005,7 @@ impl ::core::fmt::Debug for EXpsFontRestriction {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EXpsJobConsumption(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const XpsJob_DocumentSequenceAdded: EXpsJobConsumption = EXpsJobConsumption(0i32);
@@ -19034,7 +19034,7 @@ impl ::core::default::Default for MxdcGetFileNameData {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MxdcImageTypeEnums(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const MXDC_IMAGETYPE_JPEGHIGH_COMPRESSION: MxdcImageTypeEnums = MxdcImageTypeEnums(1i32);
@@ -19065,7 +19065,7 @@ impl ::core::fmt::Debug for MxdcImageTypeEnums {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MxdcLandscapeRotationEnums(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const MXDC_LANDSCAPE_ROTATE_COUNTERCLOCKWISE_90_DEGREES: MxdcLandscapeRotationEnums = MxdcLandscapeRotationEnums(90i32);
@@ -19172,7 +19172,7 @@ impl ::core::default::Default for MxdcS0PageData {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MxdcS0PageEnums(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const MXDC_RESOURCE_TTF: MxdcS0PageEnums = MxdcS0PageEnums(0i32);
@@ -19298,7 +19298,7 @@ impl ::core::default::Default for MxdcXpsS0PageResource {
 pub const NORMAL_PRINT: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NOTIFICATION_CALLBACK_COMMANDS(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const NOTIFICATION_COMMAND_NOTIFY: NOTIFICATION_CALLBACK_COMMANDS = NOTIFICATION_CALLBACK_COMMANDS(0i32);
@@ -19368,7 +19368,7 @@ impl ::core::default::Default for NOTIFICATION_CONFIG_1 {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NOTIFICATION_CONFIG_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const NOTIFICATION_CONFIG_CREATE_EVENT: NOTIFICATION_CONFIG_FLAGS = NOTIFICATION_CONFIG_FLAGS(1i32);
@@ -20634,7 +20634,7 @@ pub const PPCAPS_RIGHT_THEN_DOWN: u32 = 1u32;
 pub const PPCAPS_SQUARE_SCALING: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PRINTER_ACCESS_RIGHTS(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const PRINTER_ALL_ACCESS: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(983052u32);
@@ -22190,7 +22190,7 @@ impl ::core::default::Default for PRINTER_OPTIONSW {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PRINTER_OPTION_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const PRINTER_OPTION_NO_CACHE: PRINTER_OPTION_FLAGS = PRINTER_OPTION_FLAGS(1i32);
@@ -22859,7 +22859,7 @@ impl ::core::default::Default for PRINTPROVIDOR {
 pub const PRINT_APP_BIDI_NOTIFY_CHANNEL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2abad223_b994_4aca_82fc_4571b1b585ac);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PRINT_EXECUTION_CONTEXT(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const PRINT_EXECUTION_CONTEXT_APPLICATION: PRINT_EXECUTION_CONTEXT = PRINT_EXECUTION_CONTEXT(0i32);
@@ -23396,7 +23396,7 @@ pub const PUSHBUTTON_TYPE_HTCLRADJ: u32 = 2u32;
 pub const PUSHBUTTON_TYPE_HTSETUP: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PageCountType(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const FinalPageCount: PageCountType = PageCountType(0i32);
@@ -23453,7 +23453,7 @@ pub unsafe fn PlayGdiScriptOnPrinterIC<'a, Param0: ::windows::core::IntoParam<'a
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PrintAsyncNotifyConversationStyle(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const kBiDirectional: PrintAsyncNotifyConversationStyle = PrintAsyncNotifyConversationStyle(0i32);
@@ -23480,7 +23480,7 @@ impl ::core::fmt::Debug for PrintAsyncNotifyConversationStyle {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PrintAsyncNotifyError(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const CHANNEL_CLOSED_BY_SERVER: PrintAsyncNotifyError = PrintAsyncNotifyError(1i32);
@@ -23551,7 +23551,7 @@ impl ::core::fmt::Debug for PrintAsyncNotifyError {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PrintAsyncNotifyUserFilter(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const kPerUser: PrintAsyncNotifyUserFilter = PrintAsyncNotifyUserFilter(0i32);
@@ -23578,7 +23578,7 @@ impl ::core::fmt::Debug for PrintAsyncNotifyUserFilter {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PrintJobStatus(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const PrintJobStatus_Paused: PrintJobStatus = PrintJobStatus(1i32);
@@ -23773,7 +23773,7 @@ impl ::core::default::Default for PrintPropertyValue_0_0 {
 pub const PrintSchemaAsyncOperation: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43b2f83d_10f2_48ab_831b_55fdbdbd34a4);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PrintSchemaConstrainedSetting(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const PrintSchemaConstrainedSetting_None: PrintSchemaConstrainedSetting = PrintSchemaConstrainedSetting(0i32);
@@ -23804,7 +23804,7 @@ impl ::core::fmt::Debug for PrintSchemaConstrainedSetting {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PrintSchemaParameterDataType(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const PrintSchemaParameterDataType_Integer: PrintSchemaParameterDataType = PrintSchemaParameterDataType(0i32);
@@ -23833,7 +23833,7 @@ impl ::core::fmt::Debug for PrintSchemaParameterDataType {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PrintSchemaSelectionType(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const PrintSchemaSelectionType_PickOne: PrintSchemaSelectionType = PrintSchemaSelectionType(0i32);
@@ -24241,7 +24241,7 @@ impl ::core::default::Default for SETRESULT_INFO {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SHIMOPTS(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const PTSHIM_DEFAULT: SHIMOPTS = SHIMOPTS(0i32);
@@ -25233,7 +25233,7 @@ pub const UFO_GETINFO_MEMORY: u32 = 5u32;
 pub const UFO_GETINFO_STDVARIABLE: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const kMessageBox: UI_TYPE = UI_TYPE(0i32);
@@ -25663,7 +25663,7 @@ pub unsafe fn WritePrinter<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XPSRAS_BACKGROUND_COLOR(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const XPSRAS_BACKGROUND_COLOR_TRANSPARENT: XPSRAS_BACKGROUND_COLOR = XPSRAS_BACKGROUND_COLOR(0i32);
@@ -25690,7 +25690,7 @@ impl ::core::fmt::Debug for XPSRAS_BACKGROUND_COLOR {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XPSRAS_PIXEL_FORMAT(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const XPSRAS_PIXEL_FORMAT_32BPP_PBGRA_UINT_SRGB: XPSRAS_PIXEL_FORMAT = XPSRAS_PIXEL_FORMAT(1i32);
@@ -25719,7 +25719,7 @@ impl ::core::fmt::Debug for XPSRAS_PIXEL_FORMAT {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XPSRAS_RENDERING_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const XPSRAS_RENDERING_MODE_ANTIALIASED: XPSRAS_RENDERING_MODE = XPSRAS_RENDERING_MODE(0i32);

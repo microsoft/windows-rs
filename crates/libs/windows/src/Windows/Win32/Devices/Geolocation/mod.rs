@@ -239,7 +239,7 @@ impl ::core::default::Default for GNSS_AGNSS_REQUEST_PARAM {
 }
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GNSS_AGNSS_REQUEST_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 pub const GNSS_AGNSS_TimeInjection: GNSS_AGNSS_REQUEST_TYPE = GNSS_AGNSS_REQUEST_TYPE(1i32);
@@ -765,7 +765,7 @@ impl ::core::default::Default for GNSS_DRIVERCOMMAND_PARAM {
 }
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GNSS_DRIVERCOMMAND_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 pub const GNSS_SetLocationServiceEnabled: GNSS_DRIVERCOMMAND_TYPE = GNSS_DRIVERCOMMAND_TYPE(1i32);
@@ -814,7 +814,7 @@ impl ::core::fmt::Debug for GNSS_DRIVERCOMMAND_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GNSS_DRIVER_REQUEST(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 pub const SUPL_CONFIG_DATA: GNSS_DRIVER_REQUEST = GNSS_DRIVER_REQUEST(1i32);
@@ -1084,7 +1084,7 @@ impl ::core::default::Default for GNSS_EVENT_2_0 {
 }
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GNSS_EVENT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 pub const GNSS_Event_FixAvailable: GNSS_EVENT_TYPE = GNSS_EVENT_TYPE(1i32);
@@ -1471,7 +1471,7 @@ pub const GNSS_FIXDETAIL_BASIC: u32 = 1u32;
 pub const GNSS_FIXDETAIL_SATELLITE: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GNSS_FIXSESSIONTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 pub const GNSS_FixSession_SingleShot: GNSS_FIXSESSIONTYPE = GNSS_FIXSESSIONTYPE(1i32);
@@ -1752,7 +1752,7 @@ impl ::core::default::Default for GNSS_GEOFENCE_DELETE_PARAM {
 }
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GNSS_GEOFENCE_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 pub const GNSS_GeofenceState_Unknown: GNSS_GEOFENCE_STATE = GNSS_GEOFENCE_STATE(0i32);
@@ -1835,7 +1835,7 @@ impl ::core::default::Default for GNSS_GEOREGION_0 {
 }
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GNSS_GEOREGIONTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 pub const GNSS_GeoRegion_Circle: GNSS_GEOREGIONTYPE = GNSS_GEOREGIONTYPE(1i32);
@@ -1925,7 +1925,7 @@ impl ::core::default::Default for GNSS_LKGFIX_PARAM {
 pub const GNSS_MAXSATELLITE: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GNSS_NI_NOTIFICATION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 pub const GNSS_NI_NoNotifyNoVerify: GNSS_NI_NOTIFICATION_TYPE = GNSS_NI_NOTIFICATION_TYPE(1i32);
@@ -1958,7 +1958,7 @@ impl ::core::fmt::Debug for GNSS_NI_NOTIFICATION_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GNSS_NI_PLANE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 pub const GNSS_NI_SUPL: GNSS_NI_PLANE_TYPE = GNSS_NI_PLANE_TYPE(1i32);
@@ -2061,7 +2061,7 @@ impl ::core::default::Default for GNSS_NI_REQUEST_PARAM_0 {
 }
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GNSS_NI_REQUEST_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 pub const GNSS_NI_Request_SingleShot: GNSS_NI_REQUEST_TYPE = GNSS_NI_REQUEST_TYPE(1i32);
@@ -2121,7 +2121,7 @@ impl ::core::default::Default for GNSS_NI_RESPONSE {
 }
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GNSS_NI_USER_RESPONSE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 pub const GNSS_Ni_UserResponseAccept: GNSS_NI_USER_RESPONSE = GNSS_NI_USER_RESPONSE(1i32);
@@ -2447,7 +2447,7 @@ impl ::core::default::Default for GNSS_STOPFIXSESSION_PARAM {
 }
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GNSS_SUPL_CERT_ACTION(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 pub const GNSS_Supl_Cert_Inject: GNSS_SUPL_CERT_ACTION = GNSS_SUPL_CERT_ACTION(1i32);
@@ -4159,7 +4159,7 @@ pub const IOCTL_GNSS_STOP_FIXSESSION: u32 = 2228296u32;
 pub const LOCATION_API_VERSION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LOCATION_REPORT_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 pub const REPORT_NOT_SUPPORTED: LOCATION_REPORT_STATUS = LOCATION_REPORT_STATUS(0i32);

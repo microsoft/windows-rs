@@ -210,7 +210,7 @@ unsafe impl ::core::marker::Send for BluetoothAdapter {}
 unsafe impl ::core::marker::Sync for BluetoothAdapter {}
 #[doc = "*Required features: `\"Devices_Bluetooth\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BluetoothAddressType(pub i32);
 impl BluetoothAddressType {
     pub const Public: Self = Self(0i32);
@@ -245,7 +245,7 @@ unsafe impl ::windows::core::RuntimeType for BluetoothAddressType {
 }
 #[doc = "*Required features: `\"Devices_Bluetooth\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BluetoothCacheMode(pub i32);
 impl BluetoothCacheMode {
     pub const Cached: Self = Self(0i32);
@@ -407,7 +407,7 @@ unsafe impl ::core::marker::Send for BluetoothClassOfDevice {}
 unsafe impl ::core::marker::Sync for BluetoothClassOfDevice {}
 #[doc = "*Required features: `\"Devices_Bluetooth\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BluetoothConnectionStatus(pub i32);
 impl BluetoothConnectionStatus {
     pub const Disconnected: Self = Self(0i32);
@@ -930,7 +930,7 @@ unsafe impl ::core::marker::Send for BluetoothDeviceId {}
 unsafe impl ::core::marker::Sync for BluetoothDeviceId {}
 #[doc = "*Required features: `\"Devices_Bluetooth\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BluetoothError(pub i32);
 impl BluetoothError {
     pub const Success: Self = Self(0i32);
@@ -2449,7 +2449,7 @@ unsafe impl ::core::marker::Send for BluetoothLEPreferredConnectionParametersReq
 unsafe impl ::core::marker::Sync for BluetoothLEPreferredConnectionParametersRequest {}
 #[doc = "*Required features: `\"Devices_Bluetooth\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BluetoothLEPreferredConnectionParametersRequestStatus(pub i32);
 impl BluetoothLEPreferredConnectionParametersRequestStatus {
     pub const Unspecified: Self = Self(0i32);
@@ -2485,7 +2485,7 @@ unsafe impl ::windows::core::RuntimeType for BluetoothLEPreferredConnectionParam
 }
 #[doc = "*Required features: `\"Devices_Bluetooth\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BluetoothMajorClass(pub i32);
 impl BluetoothMajorClass {
     pub const Miscellaneous: Self = Self(0i32);
@@ -2527,7 +2527,7 @@ unsafe impl ::windows::core::RuntimeType for BluetoothMajorClass {
 }
 #[doc = "*Required features: `\"Devices_Bluetooth\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BluetoothMinorClass(pub i32);
 impl BluetoothMinorClass {
     pub const Uncategorized: Self = Self(0i32);
@@ -2630,7 +2630,7 @@ unsafe impl ::windows::core::RuntimeType for BluetoothMinorClass {
 }
 #[doc = "*Required features: `\"Devices_Bluetooth\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BluetoothServiceCapabilities(pub u32);
 impl BluetoothServiceCapabilities {
     pub const None: Self = Self(0u32);

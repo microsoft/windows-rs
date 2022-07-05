@@ -175,7 +175,7 @@ pub const CA_UPGRADE_VERSION: u32 = 1u32;
 pub const CLCTL_CLUSTER_BASE: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLCTL_CODES(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLCTL_UNKNOWN: CLCTL_CODES = CLCTL_CODES(0i32);
@@ -989,7 +989,7 @@ pub const CLRES_VERSION_V3_00: u32 = 768u32;
 pub const CLRES_VERSION_V4_00: u32 = 1024u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUADMEX_OBJECT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUADMEX_OT_NONE: CLUADMEX_OBJECT_TYPE = CLUADMEX_OBJECT_TYPE(0i32);
@@ -1116,7 +1116,7 @@ pub const CLUSCTL_ACCESS_MODE_MASK: u32 = 3u32;
 pub const CLUSCTL_ACCESS_SHIFT: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSCTL_AFFINITYRULE_CODES(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSCTL_AFFINITYRULE_GET_COMMON_PROPERTIES: CLUSCTL_AFFINITYRULE_CODES = CLUSCTL_AFFINITYRULE_CODES(150995033i32);
@@ -1149,7 +1149,7 @@ impl ::core::fmt::Debug for CLUSCTL_AFFINITYRULE_CODES {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSCTL_CLUSTER_CODES(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSCTL_CLUSTER_UNKNOWN: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117440512i32);
@@ -1254,7 +1254,7 @@ pub const CLUSCTL_FUNCTION_SHIFT: u32 = 2u32;
 pub const CLUSCTL_GET_OPERATION_CONTEXT_PARAMS_VERSION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSCTL_GROUPSET_CODES(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSCTL_GROUPSET_GET_COMMON_PROPERTIES: CLUSCTL_GROUPSET_CODES = CLUSCTL_GROUPSET_CODES(134217817i32);
@@ -1295,7 +1295,7 @@ impl ::core::fmt::Debug for CLUSCTL_GROUPSET_CODES {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSCTL_GROUP_CODES(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSCTL_GROUP_UNKNOWN: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50331648i32);
@@ -1400,7 +1400,7 @@ impl ::core::default::Default for CLUSCTL_GROUP_GET_LAST_MOVE_TIME_OUTPUT {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSCTL_NETINTERFACE_CODES(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSCTL_NETINTERFACE_UNKNOWN: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(100663296i32);
@@ -1461,7 +1461,7 @@ impl ::core::fmt::Debug for CLUSCTL_NETINTERFACE_CODES {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSCTL_NETWORK_CODES(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSCTL_NETWORK_UNKNOWN: CLUSCTL_NETWORK_CODES = CLUSCTL_NETWORK_CODES(83886080i32);
@@ -1518,7 +1518,7 @@ impl ::core::fmt::Debug for CLUSCTL_NETWORK_CODES {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSCTL_NODE_CODES(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSCTL_NODE_UNKNOWN: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67108864i32);
@@ -1593,7 +1593,7 @@ pub const CLUSCTL_OBJECT_MASK: u32 = 255u32;
 pub const CLUSCTL_OBJECT_SHIFT: u32 = 24u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSCTL_RESOURCE_CODES(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSCTL_RESOURCE_UNKNOWN: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777216i32);
@@ -1870,7 +1870,7 @@ impl ::core::default::Default for CLUSCTL_RESOURCE_STATE_CHANGE_REASON_STRUCT {
 pub const CLUSCTL_RESOURCE_STATE_CHANGE_REASON_VERSION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSCTL_RESOURCE_TYPE_CODES(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSCTL_RESOURCE_TYPE_UNKNOWN: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554432i32);
@@ -2068,7 +2068,7 @@ pub const CLUSGROUPSET_STATUS_GROUPS_PENDING: u64 = 1u64;
 pub const CLUSGROUPSET_STATUS_OS_HEARTBEAT: u64 = 4u64;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSGROUP_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const ClusGroupTypeCoreCluster: CLUSGROUP_TYPE = CLUSGROUP_TYPE(1i32);
@@ -2347,7 +2347,7 @@ impl ::core::default::Default for CLUSPROP_FTSET_INFO {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSPROP_IPADDR_ENABLENETBIOS(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSPROP_IPADDR_ENABLENETBIOS_DISABLED: CLUSPROP_IPADDR_ENABLENETBIOS = CLUSPROP_IPADDR_ENABLENETBIOS(0i32);
@@ -2532,7 +2532,7 @@ impl ::core::default::Default for CLUSPROP_PARTITION_INFO_EX2 {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSPROP_PIFLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSPROP_PIFLAG_STICKY: CLUSPROP_PIFLAGS = CLUSPROP_PIFLAGS(1i32);
@@ -3523,7 +3523,7 @@ pub const CLUSRES_STATUS_OS_HEARTBEAT: u64 = 128u64;
 pub const CLUSRES_STATUS_UNMONITORED: u64 = 64u64;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTERSET_OBJECT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSTERSET_OBJECT_TYPE_NONE: CLUSTERSET_OBJECT_TYPE = CLUSTERSET_OBJECT_TYPE(0i32);
@@ -3718,7 +3718,7 @@ impl ::core::default::Default for CLUSTER_BATCH_COMMAND {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_CHANGE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSTER_CHANGE_NODE_STATE: CLUSTER_CHANGE = CLUSTER_CHANGE(1i32);
@@ -3807,7 +3807,7 @@ impl ::core::fmt::Debug for CLUSTER_CHANGE {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_CHANGE_CLUSTER_V2(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSTER_CHANGE_CLUSTER_RECONNECT_V2: CLUSTER_CHANGE_CLUSTER_V2 = CLUSTER_CHANGE_CLUSTER_V2(1i32);
@@ -3858,7 +3858,7 @@ impl ::core::fmt::Debug for CLUSTER_CHANGE_CLUSTER_V2 {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_CHANGE_GROUPSET_V2(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSTER_CHANGE_GROUPSET_DELETED_v2: CLUSTER_CHANGE_GROUPSET_V2 = CLUSTER_CHANGE_GROUPSET_V2(1i32);
@@ -3901,7 +3901,7 @@ impl ::core::fmt::Debug for CLUSTER_CHANGE_GROUPSET_V2 {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_CHANGE_GROUP_V2(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSTER_CHANGE_GROUP_DELETED_V2: CLUSTER_CHANGE_GROUP_V2 = CLUSTER_CHANGE_GROUP_V2(1i32);
@@ -3946,7 +3946,7 @@ impl ::core::fmt::Debug for CLUSTER_CHANGE_GROUP_V2 {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_CHANGE_NETINTERFACE_V2(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSTER_CHANGE_NETINTERFACE_DELETED_V2: CLUSTER_CHANGE_NETINTERFACE_V2 = CLUSTER_CHANGE_NETINTERFACE_V2(1i32);
@@ -3981,7 +3981,7 @@ impl ::core::fmt::Debug for CLUSTER_CHANGE_NETINTERFACE_V2 {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_CHANGE_NETWORK_V2(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSTER_CHANGE_NETWORK_DELETED_V2: CLUSTER_CHANGE_NETWORK_V2 = CLUSTER_CHANGE_NETWORK_V2(1i32);
@@ -4016,7 +4016,7 @@ impl ::core::fmt::Debug for CLUSTER_CHANGE_NETWORK_V2 {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSTER_CHANGE_UPGRADE_NODE_PREPARE: CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2 = CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2(1i32);
@@ -4047,7 +4047,7 @@ impl ::core::fmt::Debug for CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2 {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_CHANGE_NODE_V2(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSTER_CHANGE_NODE_NETINTERFACE_ADDED_V2: CLUSTER_CHANGE_NODE_V2 = CLUSTER_CHANGE_NODE_V2(1i32);
@@ -4088,7 +4088,7 @@ impl ::core::fmt::Debug for CLUSTER_CHANGE_NODE_V2 {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_CHANGE_QUORUM_V2(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSTER_CHANGE_QUORUM_STATE_V2: CLUSTER_CHANGE_QUORUM_V2 = CLUSTER_CHANGE_QUORUM_V2(1i32);
@@ -4115,7 +4115,7 @@ impl ::core::fmt::Debug for CLUSTER_CHANGE_QUORUM_V2 {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_CHANGE_REGISTRY_V2(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSTER_CHANGE_REGISTRY_ATTRIBUTES_V2: CLUSTER_CHANGE_REGISTRY_V2 = CLUSTER_CHANGE_REGISTRY_V2(1i32);
@@ -4150,7 +4150,7 @@ impl ::core::fmt::Debug for CLUSTER_CHANGE_REGISTRY_V2 {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_CHANGE_RESOURCE_TYPE_V2(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSTER_CHANGE_RESOURCE_TYPE_DELETED_V2: CLUSTER_CHANGE_RESOURCE_TYPE_V2 = CLUSTER_CHANGE_RESOURCE_TYPE_V2(1i32);
@@ -4187,7 +4187,7 @@ impl ::core::fmt::Debug for CLUSTER_CHANGE_RESOURCE_TYPE_V2 {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_CHANGE_RESOURCE_V2(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSTER_CHANGE_RESOURCE_COMMON_PROPERTY_V2: CLUSTER_CHANGE_RESOURCE_V2 = CLUSTER_CHANGE_RESOURCE_V2(1i32);
@@ -4234,7 +4234,7 @@ impl ::core::fmt::Debug for CLUSTER_CHANGE_RESOURCE_V2 {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_CHANGE_SHARED_VOLUME_V2(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSTER_CHANGE_SHARED_VOLUME_STATE_V2: CLUSTER_CHANGE_SHARED_VOLUME_V2 = CLUSTER_CHANGE_SHARED_VOLUME_V2(1i32);
@@ -4265,7 +4265,7 @@ impl ::core::fmt::Debug for CLUSTER_CHANGE_SHARED_VOLUME_V2 {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_CHANGE_SPACEPORT_V2(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSTER_CHANGE_SPACEPORT_CUSTOM_PNP_V2: CLUSTER_CHANGE_SPACEPORT_V2 = CLUSTER_CHANGE_SPACEPORT_V2(1i32);
@@ -4290,7 +4290,7 @@ impl ::core::fmt::Debug for CLUSTER_CHANGE_SPACEPORT_V2 {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_CLOUD_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSTER_CLOUD_TYPE_NONE: CLUSTER_CLOUD_TYPE = CLUSTER_CLOUD_TYPE(0i32);
@@ -4323,7 +4323,7 @@ impl ::core::fmt::Debug for CLUSTER_CLOUD_TYPE {
 pub const CLUSTER_CONFIGURED: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_CONTROL_OBJECT(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUS_OBJECT_INVALID: CLUSTER_CONTROL_OBJECT = CLUSTER_CONTROL_OBJECT(0i32);
@@ -4409,7 +4409,7 @@ pub const CLUSTER_CSV_COMPATIBLE_FILTERS: &str = "SharedVolumeCompatibleFilters"
 pub const CLUSTER_CSV_INCOMPATIBLE_FILTERS: &str = "SharedVolumeIncompatibleFilters";
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_CSV_VOLUME_FAULT_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const VolumeStateNoFaults: CLUSTER_CSV_VOLUME_FAULT_STATE = CLUSTER_CSV_VOLUME_FAULT_STATE(0i32);
@@ -4446,7 +4446,7 @@ pub const CLUSTER_DELETE_ACCESS_CONTROL_ENTRY: u32 = 2u32;
 pub const CLUSTER_ENFORCED_ANTIAFFINITY: &str = "ClusterEnforcedAntiaffinity";
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_ENUM(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSTER_ENUM_NODE: CLUSTER_ENUM = CLUSTER_ENUM(1i32);
@@ -4528,7 +4528,7 @@ pub const CLUSTER_ENUM_ITEM_VERSION: u32 = 1u32;
 pub const CLUSTER_ENUM_ITEM_VERSION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_GROUP_AUTOFAILBACK_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const ClusterGroupPreventFailback: CLUSTER_GROUP_AUTOFAILBACK_TYPE = CLUSTER_GROUP_AUTOFAILBACK_TYPE(0i32);
@@ -4557,7 +4557,7 @@ impl ::core::fmt::Debug for CLUSTER_GROUP_AUTOFAILBACK_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_GROUP_ENUM(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSTER_GROUP_ENUM_CONTAINS: CLUSTER_GROUP_ENUM = CLUSTER_GROUP_ENUM(1i32);
@@ -4646,7 +4646,7 @@ pub const CLUSTER_GROUP_ENUM_ITEM_VERSION: u32 = 1u32;
 pub const CLUSTER_GROUP_ENUM_ITEM_VERSION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_GROUP_PRIORITY(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const PriorityDisabled: CLUSTER_GROUP_PRIORITY = CLUSTER_GROUP_PRIORITY(0i32);
@@ -4677,7 +4677,7 @@ impl ::core::fmt::Debug for CLUSTER_GROUP_PRIORITY {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_GROUP_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const ClusterGroupStateUnknown: CLUSTER_GROUP_STATE = CLUSTER_GROUP_STATE(-1i32);
@@ -4890,7 +4890,7 @@ impl ::core::default::Default for CLUSTER_MEMBERSHIP_INFO {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_MGMT_POINT_RESTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSTER_MGMT_POINT_RESTYPE_AUTO: CLUSTER_MGMT_POINT_RESTYPE = CLUSTER_MGMT_POINT_RESTYPE(0i32);
@@ -4919,7 +4919,7 @@ impl ::core::fmt::Debug for CLUSTER_MGMT_POINT_RESTYPE {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_MGMT_POINT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSTER_MGMT_POINT_TYPE_NONE: CLUSTER_MGMT_POINT_TYPE = CLUSTER_MGMT_POINT_TYPE(0i32);
@@ -4956,7 +4956,7 @@ pub const CLUSTER_NAME_AUTO_BALANCER_MODE: &str = "AutoBalancerMode";
 pub const CLUSTER_NAME_PREFERRED_SITE: &str = "PreferredSite";
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_NETINTERFACE_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const ClusterNetInterfaceStateUnknown: CLUSTER_NETINTERFACE_STATE = CLUSTER_NETINTERFACE_STATE(-1i32);
@@ -4989,7 +4989,7 @@ impl ::core::fmt::Debug for CLUSTER_NETINTERFACE_STATE {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_NETWORK_ENUM(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSTER_NETWORK_ENUM_NETINTERFACES: CLUSTER_NETWORK_ENUM = CLUSTER_NETWORK_ENUM(1i32);
@@ -5016,7 +5016,7 @@ impl ::core::fmt::Debug for CLUSTER_NETWORK_ENUM {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_NETWORK_ROLE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const ClusterNetworkRoleNone: CLUSTER_NETWORK_ROLE = CLUSTER_NETWORK_ROLE(0i32);
@@ -5047,7 +5047,7 @@ impl ::core::fmt::Debug for CLUSTER_NETWORK_ROLE {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_NETWORK_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const ClusterNetworkStateUnknown: CLUSTER_NETWORK_STATE = CLUSTER_NETWORK_STATE(-1i32);
@@ -5080,7 +5080,7 @@ impl ::core::fmt::Debug for CLUSTER_NETWORK_STATE {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_NODE_DRAIN_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const NodeDrainStatusNotInitiated: CLUSTER_NODE_DRAIN_STATUS = CLUSTER_NODE_DRAIN_STATUS(0i32);
@@ -5113,7 +5113,7 @@ impl ::core::fmt::Debug for CLUSTER_NODE_DRAIN_STATUS {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_NODE_ENUM(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSTER_NODE_ENUM_NETINTERFACES: CLUSTER_NODE_ENUM = CLUSTER_NODE_ENUM(1i32);
@@ -5144,7 +5144,7 @@ impl ::core::fmt::Debug for CLUSTER_NODE_ENUM {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_NODE_RESUME_FAILBACK_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const DoNotFailbackGroups: CLUSTER_NODE_RESUME_FAILBACK_TYPE = CLUSTER_NODE_RESUME_FAILBACK_TYPE(0i32);
@@ -5175,7 +5175,7 @@ impl ::core::fmt::Debug for CLUSTER_NODE_RESUME_FAILBACK_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_NODE_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const ClusterNodeStateUnknown: CLUSTER_NODE_STATE = CLUSTER_NODE_STATE(-1i32);
@@ -5208,7 +5208,7 @@ impl ::core::fmt::Debug for CLUSTER_NODE_STATE {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_NODE_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const NodeStatusNormal: CLUSTER_NODE_STATUS = CLUSTER_NODE_STATUS(0i32);
@@ -5247,7 +5247,7 @@ impl ::core::fmt::Debug for CLUSTER_NODE_STATUS {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_NOTIFICATIONS_VERSION(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSTER_NOTIFICATIONS_V1: CLUSTER_NOTIFICATIONS_VERSION = CLUSTER_NOTIFICATIONS_VERSION(1i32);
@@ -5274,7 +5274,7 @@ impl ::core::fmt::Debug for CLUSTER_NOTIFICATIONS_VERSION {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_OBJECT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSTER_OBJECT_TYPE_NONE: CLUSTER_OBJECT_TYPE = CLUSTER_OBJECT_TYPE(0i32);
@@ -5323,7 +5323,7 @@ impl ::core::fmt::Debug for CLUSTER_OBJECT_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_PROPERTY_FORMAT(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSPROP_FORMAT_UNKNOWN: CLUSTER_PROPERTY_FORMAT = CLUSTER_PROPERTY_FORMAT(0i32);
@@ -5378,7 +5378,7 @@ impl ::core::fmt::Debug for CLUSTER_PROPERTY_FORMAT {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_PROPERTY_SYNTAX(pub u32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSPROP_SYNTAX_ENDMARK: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(0u32);
@@ -5455,7 +5455,7 @@ impl ::core::fmt::Debug for CLUSTER_PROPERTY_SYNTAX {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_PROPERTY_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSPROP_TYPE_UNKNOWN: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(-1i32);
@@ -5514,7 +5514,7 @@ impl ::core::fmt::Debug for CLUSTER_PROPERTY_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_QUORUM_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const OperationalQuorum: CLUSTER_QUORUM_TYPE = CLUSTER_QUORUM_TYPE(0i32);
@@ -5541,7 +5541,7 @@ impl ::core::fmt::Debug for CLUSTER_QUORUM_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_QUORUM_VALUE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSTER_QUORUM_MAINTAINED: CLUSTER_QUORUM_VALUE = CLUSTER_QUORUM_VALUE(0i32);
@@ -5603,7 +5603,7 @@ impl ::core::default::Default for CLUSTER_READ_BATCH_COMMAND {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_REG_COMMAND(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSREG_COMMAND_NONE: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(0i32);
@@ -5668,7 +5668,7 @@ impl ::core::fmt::Debug for CLUSTER_REG_COMMAND {
 pub const CLUSTER_REQUEST_REPLY_TIMEOUT: &str = "RequestReplyTimeout";
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_RESOURCE_APPLICATION_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const ClusterResourceApplicationStateUnknown: CLUSTER_RESOURCE_APPLICATION_STATE = CLUSTER_RESOURCE_APPLICATION_STATE(1i32);
@@ -5697,7 +5697,7 @@ impl ::core::fmt::Debug for CLUSTER_RESOURCE_APPLICATION_STATE {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_RESOURCE_CLASS(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUS_RESCLASS_UNKNOWN: CLUSTER_RESOURCE_CLASS = CLUSTER_RESOURCE_CLASS(0i32);
@@ -5728,7 +5728,7 @@ impl ::core::fmt::Debug for CLUSTER_RESOURCE_CLASS {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_RESOURCE_CREATE_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSTER_RESOURCE_DEFAULT_MONITOR: CLUSTER_RESOURCE_CREATE_FLAGS = CLUSTER_RESOURCE_CREATE_FLAGS(0i32);
@@ -5757,7 +5757,7 @@ impl ::core::fmt::Debug for CLUSTER_RESOURCE_CREATE_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const ClusterResourceEmbeddedFailureActionNone: CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION = CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION(0i32);
@@ -5786,7 +5786,7 @@ impl ::core::fmt::Debug for CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_RESOURCE_ENUM(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSTER_RESOURCE_ENUM_DEPENDS: CLUSTER_RESOURCE_ENUM = CLUSTER_RESOURCE_ENUM(1i32);
@@ -5877,7 +5877,7 @@ pub const CLUSTER_RESOURCE_ENUM_ITEM_VERSION: u32 = 1u32;
 pub const CLUSTER_RESOURCE_ENUM_ITEM_VERSION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_RESOURCE_RESTART_ACTION(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const ClusterResourceDontRestart: CLUSTER_RESOURCE_RESTART_ACTION = CLUSTER_RESOURCE_RESTART_ACTION(0i32);
@@ -5908,7 +5908,7 @@ impl ::core::fmt::Debug for CLUSTER_RESOURCE_RESTART_ACTION {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_RESOURCE_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const ClusterResourceStateUnknown: CLUSTER_RESOURCE_STATE = CLUSTER_RESOURCE_STATE(-1i32);
@@ -5949,7 +5949,7 @@ impl ::core::fmt::Debug for CLUSTER_RESOURCE_STATE {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_RESOURCE_STATE_CHANGE_REASON(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const eResourceStateChangeReasonUnknown: CLUSTER_RESOURCE_STATE_CHANGE_REASON = CLUSTER_RESOURCE_STATE_CHANGE_REASON(0i32);
@@ -5984,7 +5984,7 @@ impl ::core::fmt::Debug for CLUSTER_RESOURCE_STATE_CHANGE_REASON {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_RESOURCE_TYPE_ENUM(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUSTER_RESOURCE_TYPE_ENUM_NODES: CLUSTER_RESOURCE_TYPE_ENUM = CLUSTER_RESOURCE_TYPE_ENUM(1i32);
@@ -6013,7 +6013,7 @@ impl ::core::fmt::Debug for CLUSTER_RESOURCE_TYPE_ENUM {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_ROLE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const ClusterRoleDHCP: CLUSTER_ROLE = CLUSTER_ROLE(0i32);
@@ -6100,7 +6100,7 @@ impl ::core::fmt::Debug for CLUSTER_ROLE {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_ROLE_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const ClusterRoleUnknown: CLUSTER_ROLE_STATE = CLUSTER_ROLE_STATE(-1i32);
@@ -6149,7 +6149,7 @@ pub const CLUSTER_S2D_IO_LATENCY_THRESHOLD: &str = "S2DIOLatencyThreshold";
 pub const CLUSTER_S2D_OPTIMIZATIONS: &str = "S2DOptimizations";
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_SETUP_PHASE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const ClusterSetupPhaseInitialize: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(1i32);
@@ -6228,7 +6228,7 @@ impl ::core::fmt::Debug for CLUSTER_SETUP_PHASE {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_SETUP_PHASE_SEVERITY(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const ClusterSetupPhaseInformational: CLUSTER_SETUP_PHASE_SEVERITY = CLUSTER_SETUP_PHASE_SEVERITY(1i32);
@@ -6257,7 +6257,7 @@ impl ::core::fmt::Debug for CLUSTER_SETUP_PHASE_SEVERITY {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_SETUP_PHASE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const ClusterSetupPhaseStart: CLUSTER_SETUP_PHASE_TYPE = CLUSTER_SETUP_PHASE_TYPE(1i32);
@@ -6334,7 +6334,7 @@ impl ::core::default::Default for CLUSTER_SET_PASSWORD_STATUS {
 pub const CLUSTER_SHARED_VOLUMES_ROOT: &str = "SharedVolumesRoot";
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_SHARED_VOLUME_BACKUP_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const VolumeBackupNone: CLUSTER_SHARED_VOLUME_BACKUP_STATE = CLUSTER_SHARED_VOLUME_BACKUP_STATE(0i32);
@@ -6474,7 +6474,7 @@ impl ::core::default::Default for CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const ClusterSharedVolumeRenameInputTypeNone: CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE = CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE(0i32);
@@ -6561,7 +6561,7 @@ impl ::core::default::Default for CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME_0 {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const ClusterSharedVolumeSnapshotStateUnknown: CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE = CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE(0i32);
@@ -6592,7 +6592,7 @@ impl ::core::fmt::Debug for CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_SHARED_VOLUME_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const SharedVolumeStateUnavailable: CLUSTER_SHARED_VOLUME_STATE = CLUSTER_SHARED_VOLUME_STATE(0i32);
@@ -6694,7 +6694,7 @@ impl ::core::default::Default for CLUSTER_SHARED_VOLUME_STATE_INFO_EX {
 pub const CLUSTER_SHARED_VOLUME_VSS_WRITER_OPERATION_TIMEOUT: &str = "SharedVolumeVssWriterOperationTimeout";
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_STORAGENODE_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const ClusterStorageNodeStateUnknown: CLUSTER_STORAGENODE_STATE = CLUSTER_STORAGENODE_STATE(0i32);
@@ -6729,7 +6729,7 @@ impl ::core::fmt::Debug for CLUSTER_STORAGENODE_STATE {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUSTER_UPGRADE_PHASE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const ClusterUpgradePhaseInitialize: CLUSTER_UPGRADE_PHASE = CLUSTER_UPGRADE_PHASE(1i32);
@@ -6896,7 +6896,7 @@ pub const CLUS_ACCESS_READ: u32 = 1u32;
 pub const CLUS_ACCESS_WRITE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUS_AFFINITY_RULE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUS_AFFINITY_RULE_NONE: CLUS_AFFINITY_RULE_TYPE = CLUS_AFFINITY_RULE_TYPE(0i32);
@@ -6933,7 +6933,7 @@ impl ::core::fmt::Debug for CLUS_AFFINITY_RULE_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUS_CHARACTERISTICS(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUS_CHAR_UNKNOWN: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(0i32);
@@ -7300,7 +7300,7 @@ impl ::core::default::Default for CLUS_DNN_SODAFS_CLONE_STATUS {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUS_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUS_FLAG_CORE: CLUS_FLAGS = CLUS_FLAGS(1i32);
@@ -7391,7 +7391,7 @@ impl ::core::default::Default for CLUS_FTSET_INFO {
 pub const CLUS_GLOBAL: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUS_GROUP_START_SETTING(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUS_GROUP_START_ALWAYS: CLUS_GROUP_START_SETTING = CLUS_GROUP_START_SETTING(0i32);
@@ -7994,7 +7994,7 @@ impl ::core::default::Default for CLUS_RESOURCE_CLASS_INFO_0_0_0 {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUS_RESSUBCLASS(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUS_RESSUBCLASS_SHARED: CLUS_RESSUBCLASS = CLUS_RESSUBCLASS(-2147483648i32);
@@ -8019,7 +8019,7 @@ impl ::core::fmt::Debug for CLUS_RESSUBCLASS {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUS_RESSUBCLASS_NETWORK(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUS_RESSUBCLASS_NETWORK_INTERNET_PROTOCOL: CLUS_RESSUBCLASS_NETWORK = CLUS_RESSUBCLASS_NETWORK(-2147483648i32);
@@ -8044,7 +8044,7 @@ impl ::core::fmt::Debug for CLUS_RESSUBCLASS_NETWORK {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLUS_RESSUBCLASS_STORAGE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const CLUS_RESSUBCLASS_STORAGE_SHARED_BUS: CLUS_RESSUBCLASS_STORAGE = CLUS_RESSUBCLASS_STORAGE(-2147483648i32);
@@ -10748,7 +10748,7 @@ pub unsafe fn EvictClusterNodeEx(hnode: *const _HNODE, dwtimeout: u32, phrcleanu
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FAILURE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const FAILURE_TYPE_GENERAL: FAILURE_TYPE = FAILURE_TYPE(0i32);
@@ -10810,7 +10810,7 @@ impl ::core::default::Default for FILESHARE_CHANGE {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILESHARE_CHANGE_ENUM(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const FILESHARE_CHANGE_NONE: FILESHARE_CHANGE_ENUM = FILESHARE_CHANGE_ENUM(0i32);
@@ -11033,7 +11033,7 @@ impl ::core::default::Default for GROUP_FAILURE_INFO_BUFFER {
 pub const GROUP_FAILURE_INFO_VERSION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GRP_PLACEMENT_OPTIONS(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const GRP_PLACEMENT_OPTIONS_MIN_VALUE: GRP_PLACEMENT_OPTIONS = GRP_PLACEMENT_OPTIONS(0i32);
@@ -18562,7 +18562,7 @@ pub unsafe fn IsFileOnClusterSharedVolume<'a, Param0: ::windows::core::IntoParam
 pub const LOCKED_MODE_FLAGS_DONT_REMOVE_FROM_MOVE_QUEUE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LOG_LEVEL(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const LOG_INFORMATION: LOG_LEVEL = LOG_LEVEL(0i32);
@@ -18601,7 +18601,7 @@ pub type LPRESOURCE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(
 pub type LPRESOURCE_CALLBACK_EX = ::core::option::Option<unsafe extern "system" fn(param0: *mut _HCLUSTER, param1: *mut _HRESOURCE, param2: *mut _HRESOURCE, param3: *mut ::core::ffi::c_void) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MAINTENANCE_MODE_TYPE_ENUM(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const MaintenanceModeTypeDisableIsAliveCheck: MAINTENANCE_MODE_TYPE_ENUM = MAINTENANCE_MODE_TYPE_ENUM(1i32);
@@ -18725,7 +18725,7 @@ pub const NINETEEN_H2_UPGRADE_VERSION: u32 = 2u32;
 pub const NNLEN: u32 = 80u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NODE_CLUSTER_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const ClusterStateNotInstalled: NODE_CLUSTER_STATE = NODE_CLUSTER_STATE(0i32);
@@ -19702,7 +19702,7 @@ pub type PFREE_CLUSTER_CRYPT = ::core::option::Option<unsafe extern "system" fn(
 pub type PIS_ALIVE_ROUTINE = ::core::option::Option<unsafe extern "system" fn(resource: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PLACEMENT_OPTIONS(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const PLACEMENT_OPTIONS_MIN_VALUE: PLACEMENT_OPTIONS = PLACEMENT_OPTIONS(0i32);
@@ -20177,7 +20177,7 @@ pub unsafe fn QueryAppInstanceVersion(appinstanceid: *const ::windows::core::GUI
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RESDLL_CONTEXT_OPERATION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const ResdllContextOperationTypeFailback: RESDLL_CONTEXT_OPERATION_TYPE = RESDLL_CONTEXT_OPERATION_TYPE(0i32);
@@ -20214,7 +20214,7 @@ impl ::core::fmt::Debug for RESDLL_CONTEXT_OPERATION_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RESOURCE_EXIT_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const ResourceExitStateContinue: RESOURCE_EXIT_STATE = RESOURCE_EXIT_STATE(0i32);
@@ -20307,7 +20307,7 @@ impl ::core::default::Default for RESOURCE_FAILURE_INFO_BUFFER {
 pub const RESOURCE_FAILURE_INFO_VERSION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RESOURCE_MONITOR_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const RmonInitializing: RESOURCE_MONITOR_STATE = RESOURCE_MONITOR_STATE(0i32);
@@ -22414,7 +22414,7 @@ pub const SET_APPINSTANCE_CSV_FLAGS_VALID_ONLY_IF_CSV_COORDINATOR: u32 = 1u32;
 pub type SET_APP_INSTANCE_CSV_FLAGS = ::core::option::Option<unsafe extern "system" fn(processhandle: super::super::Foundation::HANDLE, mask: u32, flags: u32) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SR_DISK_REPLICATION_ELIGIBLE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const SrDiskReplicationEligibleNone: SR_DISK_REPLICATION_ELIGIBLE = SR_DISK_REPLICATION_ELIGIBLE(0i32);
@@ -22461,7 +22461,7 @@ impl ::core::fmt::Debug for SR_DISK_REPLICATION_ELIGIBLE {
 }
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SR_REPLICATED_DISK_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const SrReplicatedDiskTypeNone: SR_REPLICATED_DISK_TYPE = SR_REPLICATED_DISK_TYPE(0i32);
@@ -23078,7 +23078,7 @@ pub unsafe fn SetGroupDependencyExpression<'a, Param1: ::windows::core::IntoPara
 pub const USE_CLIENT_ACCESS_NETWORKS_FOR_CSV: &str = "UseClientAccessNetworksForSharedVolumes";
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VM_RESDLL_CONTEXT(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub const VmResdllContextTurnOff: VM_RESDLL_CONTEXT = VM_RESDLL_CONTEXT(0i32);

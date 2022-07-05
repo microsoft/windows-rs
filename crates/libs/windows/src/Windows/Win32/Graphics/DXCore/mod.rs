@@ -67,7 +67,7 @@ impl ::core::default::Default for DXCoreAdapterMemoryBudgetNodeSegmentGroup {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXCoreAdapterPreference(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
 pub const Hardware: DXCoreAdapterPreference = DXCoreAdapterPreference(0u32);
@@ -96,7 +96,7 @@ impl ::core::fmt::Debug for DXCoreAdapterPreference {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXCoreAdapterProperty(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
 pub const InstanceLuid: DXCoreAdapterProperty = DXCoreAdapterProperty(0u32);
@@ -149,7 +149,7 @@ impl ::core::fmt::Debug for DXCoreAdapterProperty {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXCoreAdapterState(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
 pub const IsDriverUpdateInProgress: DXCoreAdapterState = DXCoreAdapterState(0u32);
@@ -258,7 +258,7 @@ impl ::core::default::Default for DXCoreHardwareIDParts {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXCoreNotificationType(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
 pub const AdapterListStale: DXCoreNotificationType = DXCoreNotificationType(0u32);
@@ -289,7 +289,7 @@ impl ::core::fmt::Debug for DXCoreNotificationType {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXCoreSegmentGroup(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
 pub const Local: DXCoreSegmentGroup = DXCoreSegmentGroup(0u32);

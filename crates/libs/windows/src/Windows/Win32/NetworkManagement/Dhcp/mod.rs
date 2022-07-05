@@ -825,7 +825,7 @@ impl ::core::default::Default for DHCPV6_STATELESS_PARAMS {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DHCPV6_STATELESS_PARAM_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 pub const DhcpStatelessPurgeInterval: DHCPV6_STATELESS_PARAM_TYPE = DHCPV6_STATELESS_PARAM_TYPE(1i32);
@@ -2417,7 +2417,7 @@ pub const DHCP_FAILOVER_MAX_NUM_ADD_SCOPES: u32 = 400u32;
 pub const DHCP_FAILOVER_MAX_NUM_REL: u32 = 31u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DHCP_FAILOVER_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 pub const LoadBalance: DHCP_FAILOVER_MODE = DHCP_FAILOVER_MODE(0i32);
@@ -2533,7 +2533,7 @@ impl ::core::default::Default for DHCP_FAILOVER_RELATIONSHIP_ARRAY {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DHCP_FAILOVER_SERVER(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 pub const PrimaryServer: DHCP_FAILOVER_SERVER = DHCP_FAILOVER_SERVER(0i32);
@@ -2714,7 +2714,7 @@ impl ::core::default::Default for DHCP_FILTER_GLOBAL_INFO {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DHCP_FILTER_LIST_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 pub const Deny: DHCP_FILTER_LIST_TYPE = DHCP_FILTER_LIST_TYPE(0i32);
@@ -2786,7 +2786,7 @@ pub const DHCP_FLAGS_DONT_DO_RPC: u32 = 2u32;
 pub const DHCP_FLAGS_OPTION_IS_VENDOR: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DHCP_FORCE_FLAG(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 pub const DhcpFullForce: DHCP_FORCE_FLAG = DHCP_FORCE_FLAG(0i32);
@@ -3585,7 +3585,7 @@ impl ::core::default::Default for DHCP_OPTION_DATA_ELEMENT_0 {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DHCP_OPTION_DATA_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 pub const DhcpByteOption: DHCP_OPTION_DATA_TYPE = DHCP_OPTION_DATA_TYPE(0i32);
@@ -3767,7 +3767,7 @@ impl ::core::default::Default for DHCP_OPTION_SCOPE_INFO6_0 {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DHCP_OPTION_SCOPE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 pub const DhcpDefaultOptions: DHCP_OPTION_SCOPE_TYPE = DHCP_OPTION_SCOPE_TYPE(0i32);
@@ -3800,7 +3800,7 @@ impl ::core::fmt::Debug for DHCP_OPTION_SCOPE_TYPE {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DHCP_OPTION_SCOPE_TYPE6(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 pub const DhcpDefaultOptions6: DHCP_OPTION_SCOPE_TYPE6 = DHCP_OPTION_SCOPE_TYPE6(0i32);
@@ -3833,7 +3833,7 @@ impl ::core::fmt::Debug for DHCP_OPTION_SCOPE_TYPE6 {
 pub struct DHCP_OPTION_SCOPE_UNION6(pub u8);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DHCP_OPTION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 pub const DhcpUnaryElementTypeOption: DHCP_OPTION_TYPE = DHCP_OPTION_TYPE(0i32);
@@ -4165,7 +4165,7 @@ impl ::core::default::Default for DHCP_POLICY_EX_ARRAY {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DHCP_POLICY_FIELDS_TO_UPDATE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 pub const DhcpUpdatePolicyName: DHCP_POLICY_FIELDS_TO_UPDATE = DHCP_POLICY_FIELDS_TO_UPDATE(1i32);
@@ -4202,7 +4202,7 @@ impl ::core::fmt::Debug for DHCP_POLICY_FIELDS_TO_UPDATE {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DHCP_POL_ATTR_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 pub const DhcpAttrHWAddr: DHCP_POL_ATTR_TYPE = DHCP_POL_ATTR_TYPE(0i32);
@@ -4235,7 +4235,7 @@ impl ::core::fmt::Debug for DHCP_POL_ATTR_TYPE {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DHCP_POL_COMPARATOR(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 pub const DhcpCompEqual: DHCP_POL_COMPARATOR = DHCP_POL_COMPARATOR(0i32);
@@ -4400,7 +4400,7 @@ impl ::core::default::Default for DHCP_POL_EXPR_ARRAY {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DHCP_POL_LOGIC_OPER(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 pub const DhcpLogicalOr: DHCP_POL_LOGIC_OPER = DHCP_POL_LOGIC_OPER(0i32);
@@ -4522,7 +4522,7 @@ impl ::core::default::Default for DHCP_PROPERTY_ARRAY {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DHCP_PROPERTY_ID(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 pub const DhcpPropIdPolicyDnsSuffix: DHCP_PROPERTY_ID = DHCP_PROPERTY_ID(0i32);
@@ -4549,7 +4549,7 @@ impl ::core::fmt::Debug for DHCP_PROPERTY_ID {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DHCP_PROPERTY_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 pub const DhcpPropTypeByte: DHCP_PROPERTY_TYPE = DHCP_PROPERTY_TYPE(0i32);
@@ -4675,7 +4675,7 @@ impl ::core::default::Default for DHCP_RESERVED_SCOPE6 {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DHCP_SCAN_FLAG(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 pub const DhcpRegistryFix: DHCP_SCAN_FLAG = DHCP_SCAN_FLAG(0i32);
@@ -4817,7 +4817,7 @@ impl ::core::default::Default for DHCP_SEARCH_INFO_0 {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DHCP_SEARCH_INFO_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 pub const DhcpClientIpAddress: DHCP_SEARCH_INFO_TYPE = DHCP_SEARCH_INFO_TYPE(0i32);
@@ -4846,7 +4846,7 @@ impl ::core::fmt::Debug for DHCP_SEARCH_INFO_TYPE {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DHCP_SEARCH_INFO_TYPE_V6(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 pub const Dhcpv6ClientIpAddress: DHCP_SEARCH_INFO_TYPE_V6 = DHCP_SEARCH_INFO_TYPE_V6(0i32);
@@ -5713,7 +5713,7 @@ impl ::core::default::Default for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6 {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DHCP_SUBNET_ELEMENT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 pub const DhcpIpRanges: DHCP_SUBNET_ELEMENT_TYPE = DHCP_SUBNET_ELEMENT_TYPE(0i32);
@@ -5752,7 +5752,7 @@ impl ::core::fmt::Debug for DHCP_SUBNET_ELEMENT_TYPE {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DHCP_SUBNET_ELEMENT_TYPE_V6(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 pub const Dhcpv6IpRanges: DHCP_SUBNET_ELEMENT_TYPE_V6 = DHCP_SUBNET_ELEMENT_TYPE_V6(0i32);
@@ -5900,7 +5900,7 @@ impl ::core::default::Default for DHCP_SUBNET_INFO_VQ {
 pub const DHCP_SUBNET_INFO_VQ_FLAG_QUARANTINE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DHCP_SUBNET_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 pub const DhcpSubnetEnabled: DHCP_SUBNET_STATE = DHCP_SUBNET_STATE(0i32);
@@ -9299,7 +9299,7 @@ pub const FILTER_STATUS_WILDCARD_MATCH_IN_ALLOW_LIST: u32 = 8u32;
 pub const FILTER_STATUS_WILDCARD_MATCH_IN_DENY_LIST: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FSM_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 pub const NO_STATE: FSM_STATE = FSM_STATE(0i32);
@@ -9520,7 +9520,7 @@ pub const QUARANTINE_SCOPE_QUARPROFILE_OPTION: u32 = 43221u32;
 pub const QUARANTIN_OPTION_BASE: u32 = 43220u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct QuarantineStatus(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 pub const NOQUARANTINE: QuarantineStatus = QuarantineStatus(0i32);
@@ -9754,7 +9754,7 @@ pub const Set_ValidLifetime: u32 = 8u32;
 pub const Set_ValidLifetimeIATA: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct StatusCode(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 pub const STATUS_NO_ERROR: StatusCode = StatusCode(0i32);

@@ -36,7 +36,7 @@ pub unsafe fn AssociateColorProfileWithDeviceW<'a, Param0: ::windows::core::Into
 pub const BEST_MODE: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BMFORMAT(pub i32);
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 pub const BM_x555RGB: BMFORMAT = BMFORMAT(0i32);
@@ -642,7 +642,7 @@ impl ::core::default::Default for COLOR_0 {
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COLORDATATYPE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 pub const COLOR_BYTE: COLORDATATYPE = COLORDATATYPE(1i32);
@@ -831,7 +831,7 @@ impl ::core::default::Default for COLORMATCHSETUPW {
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COLORPROFILESUBTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 pub const CPST_PERCEPTUAL: COLORPROFILESUBTYPE = COLORPROFILESUBTYPE(0i32);
@@ -872,7 +872,7 @@ impl ::core::fmt::Debug for COLORPROFILESUBTYPE {
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COLORPROFILETYPE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 pub const CPT_ICC: COLORPROFILETYPE = COLORPROFILETYPE(0i32);
@@ -903,7 +903,7 @@ impl ::core::fmt::Debug for COLORPROFILETYPE {
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COLORTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 pub const COLOR_GRAY: COLORTYPE = COLORTYPE(1i32);
@@ -950,7 +950,7 @@ impl ::core::fmt::Debug for COLORTYPE {
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COLOR_MATCH_TO_TARGET_ACTION(pub i32);
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 pub const CS_ENABLE: COLOR_MATCH_TO_TARGET_ACTION = COLOR_MATCH_TO_TARGET_ACTION(1i32);
@@ -2183,7 +2183,7 @@ pub unsafe fn GetStandardColorSpaceProfileW<'a, Param0: ::windows::core::IntoPar
     unimplemented!("Unsupported target OS");
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HCOLORSPACE(pub isize);
 impl HCOLORSPACE {
     pub fn is_invalid(&self) -> bool {
@@ -2247,7 +2247,7 @@ pub type ICMENUMPROCA = ::core::option::Option<unsafe extern "system" fn(param0:
 pub type ICMENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0: ::windows::core::PCWSTR, param1: super::super::Foundation::LPARAM) -> i32>;
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ICM_COMMAND(pub u32);
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 pub const ICM_ADDPROFILE: ICM_COMMAND = ICM_COMMAND(1u32);
@@ -2284,7 +2284,7 @@ impl ::core::fmt::Debug for ICM_COMMAND {
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ICM_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 pub const ICM_OFF: ICM_MODE = ICM_MODE(1i32);
@@ -3454,7 +3454,7 @@ pub const WCS_ALWAYS: u32 = 2097152u32;
 pub const WCS_DEFAULT: i32 = 0i32;
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WCS_DEVICE_CAPABILITIES_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 pub const VideoCardGammaTable: WCS_DEVICE_CAPABILITIES_TYPE = WCS_DEVICE_CAPABILITIES_TYPE(1i32);
@@ -3564,7 +3564,7 @@ impl ::core::default::Default for WCS_DEVICE_VCGT_CAPABILITIES {
 pub const WCS_ICCONLY: i32 = 65536i32;
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WCS_PROFILE_MANAGEMENT_SCOPE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 pub const WCS_PROFILE_MANAGEMENT_SCOPE_SYSTEM_WIDE: WCS_PROFILE_MANAGEMENT_SCOPE = WCS_PROFILE_MANAGEMENT_SCOPE(0i32);

@@ -1960,7 +1960,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a N
 }
 #[doc = "*Required features: `\"UI_WebUI\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PrintContent(pub i32);
 impl PrintContent {
     pub const AllPages: Self = Self(0i32);

@@ -1,5 +1,5 @@
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct JET_API_PTR(pub usize);
 impl JET_API_PTR {
     pub fn is_invalid(&self) -> bool {
@@ -26,7 +26,7 @@ unsafe impl ::windows::core::Abi for JET_API_PTR {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct JET_HANDLE(pub usize);
 impl JET_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -53,7 +53,7 @@ unsafe impl ::windows::core::Abi for JET_HANDLE {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct JET_INSTANCE(pub usize);
 impl JET_INSTANCE {
     pub fn is_invalid(&self) -> bool {
@@ -80,7 +80,7 @@ unsafe impl ::windows::core::Abi for JET_INSTANCE {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct JET_SESID(pub usize);
 impl JET_SESID {
     pub fn is_invalid(&self) -> bool {
@@ -107,7 +107,7 @@ unsafe impl ::windows::core::Abi for JET_SESID {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct JET_TABLEID(pub usize);
 impl JET_TABLEID {
     pub fn is_invalid(&self) -> bool {

@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AR_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const AR_ENABLED: AR_STATE = AR_STATE(0i32);
@@ -104,7 +104,7 @@ impl ::core::default::Default for Adapters {
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BACKLIGHT_OPTIMIZATION_LEVEL(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const BacklightOptimizationDisable: BACKLIGHT_OPTIMIZATION_LEVEL = BACKLIGHT_OPTIMIZATION_LEVEL(0i32);
@@ -292,7 +292,7 @@ pub const BMF_USERMEM: u32 = 8u32;
 pub const BMF_WINDOW_BLT: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BRIGHTNESS_INTERFACE_VERSION(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const BRIGHTNESS_INTERFACE_VERSION_1: BRIGHTNESS_INTERFACE_VERSION = BRIGHTNESS_INTERFACE_VERSION(1i32);
@@ -518,7 +518,7 @@ pub const BR_HOST_ICM: u32 = 2u32;
 pub const BR_ORIGCOLOR: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BlackScreenDiagnosticsCalloutParam(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const BlackScreenDiagnosticsData: BlackScreenDiagnosticsCalloutParam = BlackScreenDiagnosticsCalloutParam(1i32);
@@ -1124,7 +1124,7 @@ impl ::core::default::Default for COLORSPACE_TRANSFORM_DATA_CAP_0_1 {
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COLORSPACE_TRANSFORM_DATA_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const COLORSPACE_TRANSFORM_DATA_TYPE_FIXED_POINT: COLORSPACE_TRANSFORM_DATA_TYPE = COLORSPACE_TRANSFORM_DATA_TYPE(0i32);
@@ -1295,7 +1295,7 @@ impl ::core::default::Default for COLORSPACE_TRANSFORM_SET_INPUT {
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COLORSPACE_TRANSFORM_STAGE_CONTROL(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const ColorSpaceTransformStageControl_No_Change: COLORSPACE_TRANSFORM_STAGE_CONTROL = COLORSPACE_TRANSFORM_STAGE_CONTROL(0i32);
@@ -1352,7 +1352,7 @@ impl ::core::default::Default for COLORSPACE_TRANSFORM_TARGET_CAPS {
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const COLORSPACE_TRANSFORM_VERSION_DEFAULT: COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION = COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION(0i32);
@@ -1381,7 +1381,7 @@ impl ::core::fmt::Debug for COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION {
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COLORSPACE_TRANSFORM_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const COLORSPACE_TRANSFORM_TYPE_UNINITIALIZED: COLORSPACE_TRANSFORM_TYPE = COLORSPACE_TRANSFORM_TYPE(0i32);
@@ -1588,7 +1588,7 @@ pub const DEVPKEY_Device_TerminalLuid: super::Properties::DEVPROPKEY = super::Pr
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_IndirectDisplay: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: ::windows::core::GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310), pid: 1u32 };
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DHPDEV(pub isize);
 impl DHPDEV {
     pub fn is_invalid(&self) -> bool {
@@ -1615,7 +1615,7 @@ unsafe impl ::windows::core::Abi for DHPDEV {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DHSURF(pub isize);
 impl DHSURF {
     pub fn is_invalid(&self) -> bool {
@@ -1794,7 +1794,7 @@ impl ::core::default::Default for DISPLAYCONFIG_DEVICE_INFO_HEADER {
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPLAYCONFIG_DEVICE_INFO_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const DISPLAYCONFIG_DEVICE_INFO_GET_SOURCE_NAME: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(1i32);
@@ -2124,7 +2124,7 @@ impl ::core::default::Default for DISPLAYCONFIG_MODE_INFO_0 {
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPLAYCONFIG_MODE_INFO_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const DISPLAYCONFIG_MODE_INFO_TYPE_SOURCE: DISPLAYCONFIG_MODE_INFO_TYPE = DISPLAYCONFIG_MODE_INFO_TYPE(1i32);
@@ -2407,7 +2407,7 @@ impl ::core::default::Default for DISPLAYCONFIG_PATH_TARGET_INFO_0_0 {
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPLAYCONFIG_PIXELFORMAT(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const DISPLAYCONFIG_PIXELFORMAT_8BPP: DISPLAYCONFIG_PIXELFORMAT = DISPLAYCONFIG_PIXELFORMAT(1i32);
@@ -2473,7 +2473,7 @@ impl ::core::default::Default for DISPLAYCONFIG_RATIONAL {
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPLAYCONFIG_ROTATION(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const DISPLAYCONFIG_ROTATION_IDENTITY: DISPLAYCONFIG_ROTATION = DISPLAYCONFIG_ROTATION(1i32);
@@ -2506,7 +2506,7 @@ impl ::core::fmt::Debug for DISPLAYCONFIG_ROTATION {
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPLAYCONFIG_SCALING(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const DISPLAYCONFIG_SCALING_IDENTITY: DISPLAYCONFIG_SCALING = DISPLAYCONFIG_SCALING(1i32);
@@ -2543,7 +2543,7 @@ impl ::core::fmt::Debug for DISPLAYCONFIG_SCALING {
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPLAYCONFIG_SCANLINE_ORDERING(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const DISPLAYCONFIG_SCANLINE_ORDERING_UNSPECIFIED: DISPLAYCONFIG_SCANLINE_ORDERING = DISPLAYCONFIG_SCANLINE_ORDERING(0i32);
@@ -3335,7 +3335,7 @@ impl ::core::default::Default for DISPLAYCONFIG_TARGET_PREFERRED_MODE {
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPLAYCONFIG_TOPOLOGY_ID(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const DISPLAYCONFIG_TOPOLOGY_INTERNAL: DISPLAYCONFIG_TOPOLOGY_ID = DISPLAYCONFIG_TOPOLOGY_ID(1i32);
@@ -3368,7 +3368,7 @@ impl ::core::fmt::Debug for DISPLAYCONFIG_TOPOLOGY_ID {
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_OTHER: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(-1i32);
@@ -3733,7 +3733,7 @@ pub const DSI_CHECKSUM_ERROR_NOT_CORRECTED: u32 = 512u32;
 pub const DSI_CONTENTION_DETECTED: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DSI_CONTROL_TRANSMISSION_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const DCT_DEFAULT: DSI_CONTROL_TRANSMISSION_MODE = DSI_CONTROL_TRANSMISSION_MODE(0i32);
@@ -4069,7 +4069,7 @@ impl ::core::default::Default for ENGSAFESEMAPHORE {
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ENG_DEVICE_ATTRIBUTE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const QDA_RESERVED: ENG_DEVICE_ATTRIBUTE = ENG_DEVICE_ATTRIBUTE(0i32);
@@ -4131,7 +4131,7 @@ pub const ENG_FNT_CACHE_READ_FAULT: u32 = 1u32;
 pub const ENG_FNT_CACHE_WRITE_FAULT: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ENG_SYSTEM_ATTRIBUTE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const EngProcessorFeature: ENG_SYSTEM_ATTRIBUTE = ENG_SYSTEM_ATTRIBUTE(1i32);
@@ -6962,7 +6962,7 @@ pub unsafe fn GetVCPFeatureAndVCPFeatureReply<'a, Param0: ::windows::core::IntoP
     unimplemented!("Unsupported target OS");
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HBM(pub isize);
 impl HBM {
     pub fn is_invalid(&self) -> bool {
@@ -6989,7 +6989,7 @@ unsafe impl ::windows::core::Abi for HBM {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HDEV(pub isize);
 impl HDEV {
     pub fn is_invalid(&self) -> bool {
@@ -7016,7 +7016,7 @@ unsafe impl ::windows::core::Abi for HDEV {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HDRVOBJ(pub isize);
 impl HDRVOBJ {
     pub fn is_invalid(&self) -> bool {
@@ -7043,7 +7043,7 @@ unsafe impl ::windows::core::Abi for HDRVOBJ {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HFASTMUTEX(pub isize);
 impl HFASTMUTEX {
     pub fn is_invalid(&self) -> bool {
@@ -7126,7 +7126,7 @@ pub const HOST_DSI_TRANSMISSION_DROPPED: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const HOST_DSI_TRANSMISSION_TIMEOUT: u32 = 64u32;
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HSEMAPHORE(pub isize);
 impl HSEMAPHORE {
     pub fn is_invalid(&self) -> bool {
@@ -7153,7 +7153,7 @@ unsafe impl ::windows::core::Abi for HSEMAPHORE {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HSURF(pub isize);
 impl HSURF {
     pub fn is_invalid(&self) -> bool {
@@ -8385,7 +8385,7 @@ pub const MC_CAPS_RESTORE_FACTORY_COLOR_DEFAULTS: u32 = 2048u32;
 pub const MC_CAPS_RESTORE_FACTORY_DEFAULTS: u32 = 1024u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MC_COLOR_TEMPERATURE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const MC_COLOR_TEMPERATURE_UNKNOWN: MC_COLOR_TEMPERATURE = MC_COLOR_TEMPERATURE(0i32);
@@ -8426,7 +8426,7 @@ impl ::core::fmt::Debug for MC_COLOR_TEMPERATURE {
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MC_DISPLAY_TECHNOLOGY_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const MC_SHADOW_MASK_CATHODE_RAY_TUBE: MC_DISPLAY_TECHNOLOGY_TYPE = MC_DISPLAY_TECHNOLOGY_TYPE(0i32);
@@ -8467,7 +8467,7 @@ impl ::core::fmt::Debug for MC_DISPLAY_TECHNOLOGY_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MC_DRIVE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const MC_RED_DRIVE: MC_DRIVE_TYPE = MC_DRIVE_TYPE(0i32);
@@ -8496,7 +8496,7 @@ impl ::core::fmt::Debug for MC_DRIVE_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MC_GAIN_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const MC_RED_GAIN: MC_GAIN_TYPE = MC_GAIN_TYPE(0i32);
@@ -8525,7 +8525,7 @@ impl ::core::fmt::Debug for MC_GAIN_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MC_POSITION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const MC_HORIZONTAL_POSITION: MC_POSITION_TYPE = MC_POSITION_TYPE(0i32);
@@ -8554,7 +8554,7 @@ impl ::core::fmt::Debug for MC_POSITION_TYPE {
 pub const MC_RESTORE_FACTORY_DEFAULTS_ENABLES_MONITOR_SETTINGS: u32 = 4096u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MC_SIZE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const MC_WIDTH: MC_SIZE_TYPE = MC_SIZE_TYPE(0i32);
@@ -8626,7 +8626,7 @@ impl ::core::default::Default for MC_TIMING_REPORT {
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MC_VCP_CODE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const MC_MOMENTARY: MC_VCP_CODE_TYPE = MC_VCP_CODE_TYPE(0i32);
@@ -9019,7 +9019,7 @@ pub const OPENGL_CMD: u32 = 4352u32;
 pub const OPENGL_GETINFO: u32 = 4353u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ORIENTATION_PREFERENCE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const ORIENTATION_PREFERENCE_NONE: ORIENTATION_PREFERENCE = ORIENTATION_PREFERENCE(0i32);
@@ -9052,7 +9052,7 @@ impl ::core::fmt::Debug for ORIENTATION_PREFERENCE {
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OUTPUT_COLOR_ENCODING(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const OUTPUT_COLOR_ENCODING_RGB: OUTPUT_COLOR_ENCODING = OUTPUT_COLOR_ENCODING(0i32);
@@ -9087,7 +9087,7 @@ impl ::core::fmt::Debug for OUTPUT_COLOR_ENCODING {
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OUTPUT_WIRE_COLOR_SPACE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const OUTPUT_WIRE_COLOR_SPACE_G22_P709: OUTPUT_WIRE_COLOR_SPACE_TYPE = OUTPUT_WIRE_COLOR_SPACE_TYPE(0i32);
@@ -11263,7 +11263,7 @@ impl ::core::default::Default for VIDEO_BANK_SELECT {
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VIDEO_BANK_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const VideoNotBanked: VIDEO_BANK_TYPE = VIDEO_BANK_TYPE(0i32);
@@ -12357,7 +12357,7 @@ impl ::core::default::Default for VIDEO_POWER_MANAGEMENT {
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VIDEO_POWER_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const VideoPowerUnspecified: VIDEO_POWER_STATE = VIDEO_POWER_STATE(0i32);
@@ -12713,7 +12713,7 @@ impl ::core::default::Default for VIDEO_WIN32K_CALLBACKS_PARAMS {
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const VideoPowerNotifyCallout: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(1i32);

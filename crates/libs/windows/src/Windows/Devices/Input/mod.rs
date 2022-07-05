@@ -1737,7 +1737,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 #[doc = "*Required features: `\"Devices_Input\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PointerDeviceType(pub i32);
 impl PointerDeviceType {
     pub const Touch: Self = Self(0i32);

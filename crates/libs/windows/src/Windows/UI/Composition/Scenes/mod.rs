@@ -490,7 +490,7 @@ pub struct ISceneVisualStatics_Vtbl {
 }
 #[doc = "*Required features: `\"UI_Composition_Scenes\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SceneAlphaMode(pub i32);
 impl SceneAlphaMode {
     pub const Opaque: Self = Self(0i32);
@@ -525,7 +525,7 @@ unsafe impl ::windows::core::RuntimeType for SceneAlphaMode {
 }
 #[doc = "*Required features: `\"UI_Composition_Scenes\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SceneAttributeSemantic(pub i32);
 impl SceneAttributeSemantic {
     pub const Index: Self = Self(0i32);
@@ -1604,7 +1604,7 @@ unsafe impl ::core::marker::Send for SceneComponentCollection {}
 unsafe impl ::core::marker::Sync for SceneComponentCollection {}
 #[doc = "*Required features: `\"UI_Composition_Scenes\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SceneComponentType(pub i32);
 impl SceneComponentType {
     pub const MeshRendererComponent: Self = Self(0i32);
@@ -6760,7 +6760,7 @@ unsafe impl ::core::marker::Send for SceneVisual {}
 unsafe impl ::core::marker::Sync for SceneVisual {}
 #[doc = "*Required features: `\"UI_Composition_Scenes\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SceneWrappingMode(pub i32);
 impl SceneWrappingMode {
     pub const ClampToEdge: Self = Self(0i32);

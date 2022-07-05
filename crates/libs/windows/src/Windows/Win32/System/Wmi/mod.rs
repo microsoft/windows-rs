@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CIMTYPE_ENUMERATION(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const CIM_ILLEGAL: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(4095i32);
@@ -8616,7 +8616,7 @@ pub const MI_CALL_VERSION: u32 = 1u32;
 pub const MI_CHAR_TYPE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MI_CallbackMode(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const MI_CALLBACKMODE_REPORT: MI_CallbackMode = MI_CallbackMode(0i32);
@@ -8647,7 +8647,7 @@ impl ::core::fmt::Debug for MI_CallbackMode {
 pub type MI_CancelCallback = ::core::option::Option<unsafe extern "system" fn(reason: MI_CancellationReason, callbackdata: *const ::core::ffi::c_void)>;
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MI_CancellationReason(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const MI_REASON_NONE: MI_CancellationReason = MI_CancellationReason(0i32);
@@ -10913,7 +10913,7 @@ impl ::core::default::Default for MI_DestinationOptionsFT {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MI_DestinationOptions_ImpersonationType(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const MI_DestinationOptions_ImpersonationType_Default: MI_DestinationOptions_ImpersonationType = MI_DestinationOptions_ImpersonationType(0i32);
@@ -10946,7 +10946,7 @@ impl ::core::fmt::Debug for MI_DestinationOptions_ImpersonationType {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MI_ErrorCategory(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const MI_ERRORCATEGORY_NOT_SPECIFIED: MI_ErrorCategory = MI_ErrorCategory(0i32);
@@ -11513,7 +11513,7 @@ impl ::core::default::Default for MI_Interval {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MI_LocaleType(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const MI_LOCALE_TYPE_REQUESTED_UI: MI_LocaleType = MI_LocaleType(0i32);
@@ -11764,7 +11764,7 @@ pub type MI_OperationCallback_Instance = ::core::option::Option<unsafe extern "s
 pub type MI_OperationCallback_PromptUser = ::core::option::Option<unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const ::core::ffi::c_void, message: *const u16, prompttype: MI_PromptType, promptuserresult: isize)>;
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MI_OperationCallback_ResponseType(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const MI_OperationCallback_ResponseType_No: MI_OperationCallback_ResponseType = MI_OperationCallback_ResponseType(0i32);
@@ -12077,7 +12077,7 @@ impl ::core::default::Default for MI_ParameterSetFT {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MI_PromptType(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const MI_PROMPTTYPE_NORMAL: MI_PromptType = MI_PromptType(0i32);
@@ -12213,7 +12213,7 @@ impl ::core::default::Default for MI_PropertySetFT {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MI_ProviderArchitecture(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const MI_PROVIDER_ARCHITECTURE_32BIT: MI_ProviderArchitecture = MI_ProviderArchitecture(0i32);
@@ -12743,7 +12743,7 @@ impl ::core::default::Default for MI_ReferenceField {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MI_Result(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const MI_RESULT_OK: MI_Result = MI_Result(0i32);
@@ -13684,7 +13684,7 @@ impl ::core::default::Default for MI_SubscriptionDeliveryOptionsFT {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MI_SubscriptionDeliveryType(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const MI_SubscriptionDeliveryType_Pull: MI_SubscriptionDeliveryType = MI_SubscriptionDeliveryType(1i32);
@@ -13748,7 +13748,7 @@ impl ::core::default::Default for MI_Timestamp {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MI_Type(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const MI_BOOLEAN: MI_Type = MI_Type(0i32);
@@ -14803,7 +14803,7 @@ pub const SWbemSink: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x
 pub const UnsecuredApartment: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49bd2028_1523_11d1_ad79_00c04fd8fdff);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WBEMSTATUS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const WBEM_NO_ERROR: WBEMSTATUS = WBEMSTATUS(0i32);
@@ -15212,7 +15212,7 @@ impl ::core::fmt::Debug for WBEMSTATUS {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WBEMSTATUS_FORMAT(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const WBEMSTATUS_FORMAT_NEWLINE: WBEMSTATUS_FORMAT = WBEMSTATUS_FORMAT(0i32);
@@ -15251,7 +15251,7 @@ pub const WBEMS_DISPID_OBJECT_READY: u32 = 1u32;
 pub const WBEMS_DISPID_PROGRESS: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WBEM_BACKUP_RESTORE_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const WBEM_FLAG_BACKUP_RESTORE_DEFAULT: WBEM_BACKUP_RESTORE_FLAGS = WBEM_BACKUP_RESTORE_FLAGS(0i32);
@@ -15278,7 +15278,7 @@ impl ::core::fmt::Debug for WBEM_BACKUP_RESTORE_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WBEM_BATCH_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const WBEM_FLAG_BATCH_IF_NEEDED: WBEM_BATCH_TYPE = WBEM_BATCH_TYPE(0i32);
@@ -15307,7 +15307,7 @@ impl ::core::fmt::Debug for WBEM_BATCH_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WBEM_CHANGE_FLAG_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const WBEM_FLAG_CREATE_OR_UPDATE: WBEM_CHANGE_FLAG_TYPE = WBEM_CHANGE_FLAG_TYPE(0i32);
@@ -15346,7 +15346,7 @@ impl ::core::fmt::Debug for WBEM_CHANGE_FLAG_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WBEM_COMPARISON_FLAG(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const WBEM_COMPARISON_INCLUDE_ALL: WBEM_COMPARISON_FLAG = WBEM_COMPARISON_FLAG(0i32);
@@ -15383,7 +15383,7 @@ impl ::core::fmt::Debug for WBEM_COMPARISON_FLAG {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WBEM_COMPILER_OPTIONS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const WBEM_FLAG_CHECK_ONLY: WBEM_COMPILER_OPTIONS = WBEM_COMPILER_OPTIONS(1i32);
@@ -15455,7 +15455,7 @@ impl ::core::default::Default for WBEM_COMPILE_STATUS_INFO {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WBEM_CONDITION_FLAG_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const WBEM_FLAG_ALWAYS: WBEM_CONDITION_FLAG_TYPE = WBEM_CONDITION_FLAG_TYPE(0i32);
@@ -15508,7 +15508,7 @@ impl ::core::fmt::Debug for WBEM_CONDITION_FLAG_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WBEM_CONNECT_OPTIONS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const WBEM_FLAG_CONNECT_REPOSITORY_ONLY: WBEM_CONNECT_OPTIONS = WBEM_CONNECT_OPTIONS(64i32);
@@ -15537,7 +15537,7 @@ impl ::core::fmt::Debug for WBEM_CONNECT_OPTIONS {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WBEM_EXTRA_RETURN_CODES(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const WBEM_S_INITIALIZED: WBEM_EXTRA_RETURN_CODES = WBEM_EXTRA_RETURN_CODES(0i32);
@@ -15572,7 +15572,7 @@ impl ::core::fmt::Debug for WBEM_EXTRA_RETURN_CODES {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WBEM_FLAVOR_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const WBEM_FLAVOR_DONT_PROPAGATE: WBEM_FLAVOR_TYPE = WBEM_FLAVOR_TYPE(0i32);
@@ -15623,7 +15623,7 @@ impl ::core::fmt::Debug for WBEM_FLAVOR_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WBEM_GENERIC_FLAG_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const WBEM_FLAG_RETURN_IMMEDIATELY: WBEM_GENERIC_FLAG_TYPE = WBEM_GENERIC_FLAG_TYPE(16i32);
@@ -15678,7 +15678,7 @@ impl ::core::fmt::Debug for WBEM_GENERIC_FLAG_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WBEM_GENUS_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const WBEM_GENUS_CLASS: WBEM_GENUS_TYPE = WBEM_GENUS_TYPE(1i32);
@@ -15705,7 +15705,7 @@ impl ::core::fmt::Debug for WBEM_GENUS_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WBEM_GET_KEY_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const WBEMPATH_TEXT: WBEM_GET_KEY_FLAGS = WBEM_GET_KEY_FLAGS(1i32);
@@ -15732,7 +15732,7 @@ impl ::core::fmt::Debug for WBEM_GET_KEY_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WBEM_GET_TEXT_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const WBEMPATH_COMPRESSED: WBEM_GET_TEXT_FLAGS = WBEM_GET_TEXT_FLAGS(1i32);
@@ -15767,7 +15767,7 @@ impl ::core::fmt::Debug for WBEM_GET_TEXT_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WBEM_INFORMATION_FLAG_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const WBEM_FLAG_SHORT_NAME: WBEM_INFORMATION_FLAG_TYPE = WBEM_INFORMATION_FLAG_TYPE(1i32);
@@ -15794,7 +15794,7 @@ impl ::core::fmt::Debug for WBEM_INFORMATION_FLAG_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WBEM_LIMITATION_FLAG_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const WBEM_FLAG_EXCLUDE_OBJECT_QUALIFIERS: WBEM_LIMITATION_FLAG_TYPE = WBEM_LIMITATION_FLAG_TYPE(16i32);
@@ -15821,7 +15821,7 @@ impl ::core::fmt::Debug for WBEM_LIMITATION_FLAG_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WBEM_LIMITS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const WBEM_MAX_IDENTIFIER: WBEM_LIMITS = WBEM_LIMITS(4096i32);
@@ -15854,7 +15854,7 @@ impl ::core::fmt::Debug for WBEM_LIMITS {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WBEM_LOCKING(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const WBEM_FLAG_ALLOW_READ: WBEM_LOCKING = WBEM_LOCKING(1i32);
@@ -15879,7 +15879,7 @@ impl ::core::fmt::Debug for WBEM_LOCKING {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WBEM_PATH_CREATE_FLAG(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const WBEMPATH_CREATE_ACCEPT_RELATIVE: WBEM_PATH_CREATE_FLAG = WBEM_PATH_CREATE_FLAG(1i32);
@@ -15910,7 +15910,7 @@ impl ::core::fmt::Debug for WBEM_PATH_CREATE_FLAG {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WBEM_PATH_STATUS_FLAG(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const WBEMPATH_INFO_ANON_LOCAL_MACHINE: WBEM_PATH_STATUS_FLAG = WBEM_PATH_STATUS_FLAG(1i32);
@@ -15969,7 +15969,7 @@ impl ::core::fmt::Debug for WBEM_PATH_STATUS_FLAG {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WBEM_PROVIDER_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const WBEM_FLAG_OWNER_UPDATE: WBEM_PROVIDER_FLAGS = WBEM_PROVIDER_FLAGS(65536i32);
@@ -15994,7 +15994,7 @@ impl ::core::fmt::Debug for WBEM_PROVIDER_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WBEM_PROVIDER_REQUIREMENTS_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const WBEM_REQUIREMENTS_START_POSTFILTER: WBEM_PROVIDER_REQUIREMENTS_TYPE = WBEM_PROVIDER_REQUIREMENTS_TYPE(0i32);
@@ -16023,7 +16023,7 @@ impl ::core::fmt::Debug for WBEM_PROVIDER_REQUIREMENTS_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WBEM_QUERY_FLAG_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const WBEM_FLAG_DEEP: WBEM_QUERY_FLAG_TYPE = WBEM_QUERY_FLAG_TYPE(0i32);
@@ -16052,7 +16052,7 @@ impl ::core::fmt::Debug for WBEM_QUERY_FLAG_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WBEM_REFRESHER_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const WBEM_FLAG_REFRESH_AUTO_RECONNECT: WBEM_REFRESHER_FLAGS = WBEM_REFRESHER_FLAGS(0i32);
@@ -16079,7 +16079,7 @@ impl ::core::fmt::Debug for WBEM_REFRESHER_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WBEM_SECURITY_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const WBEM_ENABLE: WBEM_SECURITY_FLAGS = WBEM_SECURITY_FLAGS(1i32);
@@ -16118,7 +16118,7 @@ impl ::core::fmt::Debug for WBEM_SECURITY_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WBEM_SHUTDOWN_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const WBEM_SHUTDOWN_UNLOAD_COMPONENT: WBEM_SHUTDOWN_FLAGS = WBEM_SHUTDOWN_FLAGS(1i32);
@@ -16147,7 +16147,7 @@ impl ::core::fmt::Debug for WBEM_SHUTDOWN_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WBEM_STATUS_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const WBEM_STATUS_COMPLETE: WBEM_STATUS_TYPE = WBEM_STATUS_TYPE(0i32);
@@ -16186,7 +16186,7 @@ impl ::core::fmt::Debug for WBEM_STATUS_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WBEM_TEXT_FLAG_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const WBEM_FLAG_NO_FLAVORS: WBEM_TEXT_FLAG_TYPE = WBEM_TEXT_FLAG_TYPE(1i32);
@@ -16211,7 +16211,7 @@ impl ::core::fmt::Debug for WBEM_TEXT_FLAG_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WBEM_TIMEOUT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const WBEM_NO_WAIT: WBEM_TIMEOUT_TYPE = WBEM_TIMEOUT_TYPE(0i32);
@@ -16238,7 +16238,7 @@ impl ::core::fmt::Debug for WBEM_TIMEOUT_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WBEM_UNSECAPP_FLAG_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const WBEM_FLAG_UNSECAPP_DEFAULT_CHECK_ACCESS: WBEM_UNSECAPP_FLAG_TYPE = WBEM_UNSECAPP_FLAG_TYPE(0i32);
@@ -16268,7 +16268,7 @@ impl ::core::fmt::Debug for WBEM_UNSECAPP_FLAG_TYPE {
 pub const WMIExtension: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0975afe_5c7f_11d2_8b74_00104b2afb41);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMIQ_ANALYSIS_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const WMIQ_ANALYSIS_RPN_SEQUENCE: WMIQ_ANALYSIS_TYPE = WMIQ_ANALYSIS_TYPE(1i32);
@@ -16301,7 +16301,7 @@ impl ::core::fmt::Debug for WMIQ_ANALYSIS_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMIQ_ASSOCQ_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const WMIQ_ASSOCQ_ASSOCIATORS: WMIQ_ASSOCQ_FLAGS = WMIQ_ASSOCQ_FLAGS(1i32);
@@ -16348,7 +16348,7 @@ impl ::core::fmt::Debug for WMIQ_ASSOCQ_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMIQ_LANGUAGE_FEATURES(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const WMIQ_LF1_BASIC_SELECT: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(1i32);
@@ -16453,7 +16453,7 @@ impl ::core::fmt::Debug for WMIQ_LANGUAGE_FEATURES {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMIQ_RPNQ_FEATURE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const WMIQ_RPNF_WHERE_CLAUSE_PRESENT: WMIQ_RPNQ_FEATURE = WMIQ_RPNQ_FEATURE(1i32);
@@ -16504,7 +16504,7 @@ impl ::core::fmt::Debug for WMIQ_RPNQ_FEATURE {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMIQ_RPN_TOKEN_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const WMIQ_RPN_TOKEN_EXPRESSION: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(1i32);
@@ -16593,7 +16593,7 @@ impl ::core::fmt::Debug for WMIQ_RPN_TOKEN_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMI_OBJ_TEXT(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const WMI_OBJ_TEXT_CIM_DTD_2_0: WMI_OBJ_TEXT = WMI_OBJ_TEXT(1i32);
@@ -16644,7 +16644,7 @@ pub const WbemAdministrativeLocator: ::windows::core::GUID = ::windows::core::GU
 pub const WbemAuthenticatedLocator: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd184336_9128_11d1_ad9b_00c04fd8fdff);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WbemAuthenticationLevelEnum(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const wbemAuthenticationLevelDefault: WbemAuthenticationLevelEnum = WbemAuthenticationLevelEnum(0i32);
@@ -16682,7 +16682,7 @@ impl ::core::fmt::Debug for WbemAuthenticationLevelEnum {
 pub const WbemBackupRestore: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc49e32c6_bc8b_11d2_85d4_00105a1f8304);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WbemChangeFlagEnum(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const wbemChangeFlagCreateOrUpdate: WbemChangeFlagEnum = WbemChangeFlagEnum(0i32);
@@ -16721,7 +16721,7 @@ impl ::core::fmt::Debug for WbemChangeFlagEnum {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WbemCimtypeEnum(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const wbemCimtypeSint8: WbemCimtypeEnum = WbemCimtypeEnum(16i32);
@@ -16777,7 +16777,7 @@ impl ::core::fmt::Debug for WbemCimtypeEnum {
 pub const WbemClassObject: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a653086_174f_11d2_b5f9_00104b703efd);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WbemComparisonFlagEnum(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const wbemComparisonFlagIncludeAll: WbemComparisonFlagEnum = WbemComparisonFlagEnum(0i32);
@@ -16814,7 +16814,7 @@ impl ::core::fmt::Debug for WbemComparisonFlagEnum {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WbemConnectOptionsEnum(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const wbemConnectFlagUseMaxWait: WbemConnectOptionsEnum = WbemConnectOptionsEnum(128i32);
@@ -16844,7 +16844,7 @@ pub const WbemDecoupledRegistrar: ::windows::core::GUID = ::windows::core::GUID:
 pub const WbemDefPath: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf4cc405_e2c5_4ddd_b3ce_5e7582d8c9fa);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WbemErrorEnum(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const wbemNoErr: WbemErrorEnum = WbemErrorEnum(0i32);
@@ -17123,7 +17123,7 @@ impl ::core::fmt::Debug for WbemErrorEnum {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WbemFlagEnum(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const wbemFlagReturnImmediately: WbemFlagEnum = WbemFlagEnum(16i32);
@@ -17176,7 +17176,7 @@ impl ::core::fmt::Debug for WbemFlagEnum {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WbemImpersonationLevelEnum(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const wbemImpersonationLevelAnonymous: WbemImpersonationLevelEnum = WbemImpersonationLevelEnum(1i32);
@@ -17210,7 +17210,7 @@ pub const WbemLocalAddrRes: ::windows::core::GUID = ::windows::core::GUID::from_
 pub const WbemLocator: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4590f811_1d3a_11d0_891f_00aa004b2e24);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WbemObjectTextFormatEnum(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const wbemObjectTextFormatCIMDTD20: WbemObjectTextFormatEnum = WbemObjectTextFormatEnum(1i32);
@@ -17238,7 +17238,7 @@ impl ::core::fmt::Debug for WbemObjectTextFormatEnum {
 pub const WbemObjectTextSrc: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d1c559d_84f0_4bb3_a7d5_56a7435a9ba6);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WbemPrivilegeEnum(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const wbemPrivilegeCreateToken: WbemPrivilegeEnum = WbemPrivilegeEnum(1i32);
@@ -17316,7 +17316,7 @@ impl ::core::fmt::Debug for WbemPrivilegeEnum {
 pub const WbemQuery: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeac8a024_21e2_4523_ad73_a71a0aa2f56a);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WbemQueryFlagEnum(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const wbemQueryFlagDeep: WbemQueryFlagEnum = WbemQueryFlagEnum(0i32);
@@ -17347,7 +17347,7 @@ pub const WbemRefresher: ::windows::core::GUID = ::windows::core::GUID::from_u12
 pub const WbemStatusCodeText: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb87e1bd_3233_11d2_aec9_00c04fb68820);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WbemTextFlagEnum(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const wbemTextFlagNoFlavors: WbemTextFlagEnum = WbemTextFlagEnum(1i32);
@@ -17372,7 +17372,7 @@ impl ::core::fmt::Debug for WbemTextFlagEnum {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WbemTimeout(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const wbemTimeoutInfinite: WbemTimeout = WbemTimeout(-1i32);
@@ -17399,7 +17399,7 @@ pub const WbemUnauthenticatedLocator: ::windows::core::GUID = ::windows::core::G
 pub const WbemUninitializedClassObject: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a0227f6_7108_11d1_ad90_00c04fd8fdff);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct tag_WBEM_LOGIN_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const WBEM_FLAG_INPROC_LOGIN: tag_WBEM_LOGIN_TYPE = tag_WBEM_LOGIN_TYPE(0i32);

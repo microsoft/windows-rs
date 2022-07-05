@@ -647,7 +647,7 @@ impl ::core::default::Default for DNS_SERVER_PROPERTY {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DNS_SERVER_PROPERTY_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const DnsServerInvalidProperty: DNS_SERVER_PROPERTY_TYPE = DNS_SERVER_PROPERTY_TYPE(0i32);
@@ -1119,7 +1119,7 @@ pub unsafe fn FreeMibTable(memory: *const ::core::ffi::c_void) {
 pub const GAA_FLAG_SKIP_DNS_INFO: u32 = 2048u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GET_ADAPTERS_ADDRESSES_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const GAA_FLAG_SKIP_UNICAST: GET_ADAPTERS_ADDRESSES_FLAGS = GET_ADAPTERS_ADDRESSES_FLAGS(1u32);
@@ -1192,7 +1192,7 @@ impl ::core::ops::Not for GET_ADAPTERS_ADDRESSES_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GLOBAL_FILTER(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const GF_FRAGMENTS: GLOBAL_FILTER = GLOBAL_FILTER(2i32);
@@ -2396,7 +2396,7 @@ pub unsafe fn GetUnicastIpAddressTable(family: u16, table: *mut *mut MIB_UNICAST
     unimplemented!("Unsupported target OS");
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HIFTIMESTAMPCHANGE(pub isize);
 impl HIFTIMESTAMPCHANGE {
     pub fn is_invalid(&self) -> bool {
@@ -2426,7 +2426,7 @@ unsafe impl ::windows::core::Abi for HIFTIMESTAMPCHANGE {
 pub const HYBRID_NODETYPE: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ICMP4_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const ICMP4_ECHO_REPLY: ICMP4_TYPE = ICMP4_TYPE(0i32);
@@ -2477,7 +2477,7 @@ impl ::core::fmt::Debug for ICMP4_TYPE {
 pub const ICMP6_INFOMSG_MASK: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ICMP6_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const ICMP6_DST_UNREACH: ICMP6_TYPE = ICMP6_TYPE(1i32);
@@ -2532,7 +2532,7 @@ impl ::core::fmt::Debug for ICMP6_TYPE {
 pub const ICMP_STATS: u32 = 11u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IF_ACCESS_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const IF_ACCESS_LOOPBACK: IF_ACCESS_TYPE = IF_ACCESS_TYPE(1i32);
@@ -3168,7 +3168,7 @@ impl ::core::default::Default for INTERFACE_TIMESTAMP_CAPABILITIES {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct INTERNAL_IF_OPER_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const IF_OPER_STATUS_NON_OPERATIONAL: INTERNAL_IF_OPER_STATUS = INTERNAL_IF_OPER_STATUS(0i32);
@@ -5123,7 +5123,7 @@ pub unsafe fn IcmpCreateFile() -> ::windows::core::Result<IcmpHandle> {
     unimplemented!("Unsupported target OS");
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IcmpHandle(pub isize);
 impl IcmpHandle {
     pub fn is_invalid(&self) -> bool {
@@ -5929,7 +5929,7 @@ pub const MIB_IF_ADMIN_STATUS_TESTING: u32 = 3u32;
 pub const MIB_IF_ADMIN_STATUS_UP: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MIB_IF_ENTRY_LEVEL(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const MibIfEntryNormal: MIB_IF_ENTRY_LEVEL = MIB_IF_ENTRY_LEVEL(0i32);
@@ -6099,7 +6099,7 @@ impl ::core::default::Default for MIB_IF_TABLE2 {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MIB_IF_TABLE_LEVEL(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const MibIfTableNormal: MIB_IF_TABLE_LEVEL = MIB_IF_TABLE_LEVEL(0i32);
@@ -6641,7 +6641,7 @@ impl ::core::default::Default for MIB_IPFORWARD_TABLE2 {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MIB_IPFORWARD_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const MIB_IPROUTE_TYPE_OTHER: MIB_IPFORWARD_TYPE = MIB_IPFORWARD_TYPE(1i32);
@@ -7593,7 +7593,7 @@ impl ::core::default::Default for MIB_IPNET_TABLE2 {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MIB_IPNET_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const MIB_IPNET_TYPE_OTHER: MIB_IPNET_TYPE = MIB_IPNET_TYPE(1i32);
@@ -7735,7 +7735,7 @@ impl ::core::default::Default for MIB_IPPATH_TABLE {
 pub const MIB_IPROUTE_METRIC_UNUSED: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MIB_IPSTATS_FORWARDING(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const MIB_IP_FORWARDING: MIB_IPSTATS_FORWARDING = MIB_IPSTATS_FORWARDING(1i32);
@@ -8142,7 +8142,7 @@ impl ::core::default::Default for MIB_MULTICASTIPADDRESS_TABLE {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MIB_NOTIFICATION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const MibParameterNotification: MIB_NOTIFICATION_TYPE = MIB_NOTIFICATION_TYPE(0i32);
@@ -9120,7 +9120,7 @@ impl ::core::default::Default for MIB_TCPTABLE_OWNER_PID {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MIB_TCP_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const MIB_TCP_STATE_CLOSED: MIB_TCP_STATE = MIB_TCP_STATE(1i32);
@@ -10032,7 +10032,7 @@ pub const MIN_IF_TYPE: u32 = 1u32;
 pub const MIXED_NODETYPE: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NET_ADDRESS_FORMAT(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const NET_ADDRESS_FORMAT_UNSPECIFIED: NET_ADDRESS_FORMAT = NET_ADDRESS_FORMAT(0i32);
@@ -10222,7 +10222,7 @@ pub unsafe fn NotifyUnicastIpAddressChange<'a, Param3: ::windows::core::IntoPara
 pub const PEER_TO_PEER_NODETYPE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PFADDRESSTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const PF_IPV4: PFADDRESSTYPE = PFADDRESSTYPE(0i32);
@@ -10255,7 +10255,7 @@ pub const PFERROR_NO_FILTERS_GIVEN: u32 = 23001u32;
 pub const PFERROR_NO_PF_INTERFACE: u32 = 23000u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PFFORWARD_ACTION(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const PF_ACTION_FORWARD: PFFORWARD_ACTION = PFFORWARD_ACTION(0i32);
@@ -10282,7 +10282,7 @@ impl ::core::fmt::Debug for PFFORWARD_ACTION {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PFFRAMETYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const PFFT_FILTER: PFFRAMETYPE = PFFRAMETYPE(1i32);
@@ -11185,7 +11185,7 @@ impl ::core::default::Default for TCPIP_OWNER_MODULE_BASIC_INFO {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TCPIP_OWNER_MODULE_INFO_CLASS(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const TCPIP_OWNER_MODULE_INFO_BASIC: TCPIP_OWNER_MODULE_INFO_CLASS = TCPIP_OWNER_MODULE_INFO_CLASS(0i32);
@@ -11212,7 +11212,7 @@ impl ::core::fmt::Debug for TCPIP_OWNER_MODULE_INFO_CLASS {
 pub const TCPIP_OWNING_MODULE_SIZE: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TCP_BOOLEAN_OPTIONAL(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const TcpBoolOptDisabled: TCP_BOOLEAN_OPTIONAL = TCP_BOOLEAN_OPTIONAL(0i32);
@@ -11241,7 +11241,7 @@ impl ::core::fmt::Debug for TCP_BOOLEAN_OPTIONAL {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TCP_CONNECTION_OFFLOAD_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const TcpConnectionOffloadStateInHost: TCP_CONNECTION_OFFLOAD_STATE = TCP_CONNECTION_OFFLOAD_STATE(0i32);
@@ -12075,7 +12075,7 @@ impl ::core::default::Default for TCP_ESTATS_SYN_OPTS_ROS_v0 {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TCP_ESTATS_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const TcpConnectionEstatsSynOpts: TCP_ESTATS_TYPE = TCP_ESTATS_TYPE(0i32);
@@ -12120,7 +12120,7 @@ impl ::core::fmt::Debug for TCP_ESTATS_TYPE {
 pub const TCP_ROW: u32 = 14u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TCP_RTO_ALGORITHM(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const TcpRtoAlgorithmOther: TCP_RTO_ALGORITHM = TCP_RTO_ALGORITHM(1i32);
@@ -12159,7 +12159,7 @@ impl ::core::fmt::Debug for TCP_RTO_ALGORITHM {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TCP_SOFT_ERROR(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const TcpErrorNone: TCP_SOFT_ERROR = TCP_SOFT_ERROR(0i32);
@@ -12206,7 +12206,7 @@ pub const TCP_STATS: u32 = 12u32;
 pub const TCP_TABLE: u32 = 13u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TCP_TABLE_CLASS(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const TCP_TABLE_BASIC_LISTENER: TCP_TABLE_CLASS = TCP_TABLE_CLASS(0i32);
@@ -12255,7 +12255,7 @@ pub const UDP_STATS: u32 = 15u32;
 pub const UDP_TABLE: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UDP_TABLE_CLASS(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const UDP_TABLE_BASIC: UDP_TABLE_CLASS = UDP_TABLE_CLASS(0i32);

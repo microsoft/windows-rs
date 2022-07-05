@@ -976,7 +976,7 @@ impl ::core::default::Default for NEW_EVENT_DATA_AVAILABLE {
 }
 #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SCF_BUTTON_IDS(pub i32);
 #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
 pub const SCF_BUTTON_MENU: SCF_BUTTON_IDS = SCF_BUTTON_IDS(1i32);
@@ -1088,7 +1088,7 @@ impl ::core::default::Default for SCF_EVENT_HEADER {
 }
 #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SCF_EVENT_IDS(pub i32);
 #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
 pub const SCF_EVENT_NAVIGATION: SCF_EVENT_IDS = SCF_EVENT_IDS(1i32);
@@ -1223,7 +1223,7 @@ pub const SIDESHOW_CAPABILITY_SUPPORTED_LANGUAGES: super::super::UI::Shell::Prop
 pub const SIDESHOW_CAPABILITY_SUPPORTED_THEMES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99), pid: 10u32 };
 #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SIDESHOW_COLOR_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
 pub const SIDESHOW_COLOR_TYPE_COLOR: SIDESHOW_COLOR_TYPE = SIDESHOW_COLOR_TYPE(0i32);
@@ -1260,7 +1260,7 @@ pub const SIDESHOW_EVENTID_APPLICATION_EXIT: u32 = 4294901761u32;
 pub const SIDESHOW_NEW_EVENT_DATA_AVAILABLE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57813854_2fc1_411c_a59f_f24927608804);
 #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SIDESHOW_SCREEN_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
 pub const SIDESHOW_SCREEN_TYPE_BITMAP: SIDESHOW_SCREEN_TYPE = SIDESHOW_SCREEN_TYPE(0i32);

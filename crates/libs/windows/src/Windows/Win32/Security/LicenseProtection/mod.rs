@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Win32_Security_LicenseProtection\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LicenseProtectionStatus(pub i32);
 #[doc = "*Required features: `\"Win32_Security_LicenseProtection\"`*"]
 pub const Success: LicenseProtectionStatus = LicenseProtectionStatus(0i32);

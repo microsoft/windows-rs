@@ -150,7 +150,7 @@ impl ::core::default::Default for UpdateAssessment {
 }
 #[doc = "*Required features: `\"Win32_System_UpdateAssessment\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UpdateAssessmentStatus(pub i32);
 #[doc = "*Required features: `\"Win32_System_UpdateAssessment\"`*"]
 pub const UpdateAssessmentStatus_Latest: UpdateAssessmentStatus = UpdateAssessmentStatus(0i32);
@@ -197,7 +197,7 @@ impl ::core::fmt::Debug for UpdateAssessmentStatus {
 }
 #[doc = "*Required features: `\"Win32_System_UpdateAssessment\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UpdateImpactLevel(pub i32);
 #[doc = "*Required features: `\"Win32_System_UpdateAssessment\"`*"]
 pub const UpdateImpactLevel_None: UpdateImpactLevel = UpdateImpactLevel(0i32);

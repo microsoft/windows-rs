@@ -841,7 +841,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a A
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppBroadcastCameraCaptureState(pub i32);
 impl AppBroadcastCameraCaptureState {
     pub const Stopped: Self = Self(0i32);
@@ -969,7 +969,7 @@ unsafe impl ::core::marker::Send for AppBroadcastCameraCaptureStateChangedEventA
 unsafe impl ::core::marker::Sync for AppBroadcastCameraCaptureStateChangedEventArgs {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppBroadcastCameraOverlayLocation(pub i32);
 impl AppBroadcastCameraOverlayLocation {
     pub const TopLeft: Self = Self(0i32);
@@ -1010,7 +1010,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastCameraOverlayLocation {
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppBroadcastCameraOverlaySize(pub i32);
 impl AppBroadcastCameraOverlaySize {
     pub const Small: Self = Self(0i32);
@@ -1045,7 +1045,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastCameraOverlaySize {
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppBroadcastCaptureTargetType(pub i32);
 impl AppBroadcastCaptureTargetType {
     pub const AppView: Self = Self(0i32);
@@ -1079,7 +1079,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastCaptureTargetType {
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppBroadcastExitBroadcastModeReason(pub i32);
 impl AppBroadcastExitBroadcastModeReason {
     pub const NormalExit: Self = Self(0i32);
@@ -1474,7 +1474,7 @@ impl ::windows::core::RuntimeName for AppBroadcastManager {
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppBroadcastMicrophoneCaptureState(pub i32);
 impl AppBroadcastMicrophoneCaptureState {
     pub const Stopped: Self = Self(0i32);
@@ -1839,7 +1839,7 @@ unsafe impl ::core::marker::Send for AppBroadcastPlugInManager {}
 unsafe impl ::core::marker::Sync for AppBroadcastPlugInManager {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppBroadcastPlugInState(pub i32);
 impl AppBroadcastPlugInState {
     pub const Unknown: Self = Self(0i32);
@@ -2085,7 +2085,7 @@ unsafe impl ::core::marker::Send for AppBroadcastPreview {}
 unsafe impl ::core::marker::Sync for AppBroadcastPreview {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppBroadcastPreviewState(pub i32);
 impl AppBroadcastPreviewState {
     pub const Started: Self = Self(0i32);
@@ -2905,7 +2905,7 @@ unsafe impl ::core::marker::Send for AppBroadcastServices {}
 unsafe impl ::core::marker::Sync for AppBroadcastServices {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppBroadcastSignInResult(pub i32);
 impl AppBroadcastSignInResult {
     pub const Success: Self = Self(0i32);
@@ -2942,7 +2942,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastSignInResult {
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppBroadcastSignInState(pub i32);
 impl AppBroadcastSignInState {
     pub const NotSignedIn: Self = Self(0i32);
@@ -3796,7 +3796,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a A
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppBroadcastStreamState(pub i32);
 impl AppBroadcastStreamState {
     pub const Initializing: Self = Self(0i32);
@@ -4134,7 +4134,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a A
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppBroadcastTerminationReason(pub i32);
 impl AppBroadcastTerminationReason {
     pub const NormalTermination: Self = Self(0i32);
@@ -4259,7 +4259,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a A
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppBroadcastVideoEncodingBitrateMode(pub i32);
 impl AppBroadcastVideoEncodingBitrateMode {
     pub const Custom: Self = Self(0i32);
@@ -4293,7 +4293,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastVideoEncodingBitrateMod
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppBroadcastVideoEncodingResolutionMode(pub i32);
 impl AppBroadcastVideoEncodingResolutionMode {
     pub const Custom: Self = Self(0i32);
@@ -5030,7 +5030,7 @@ unsafe impl ::core::marker::Send for AppCaptureFileGeneratedEventArgs {}
 unsafe impl ::core::marker::Sync for AppCaptureFileGeneratedEventArgs {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppCaptureHistoricalBufferLengthUnit(pub i32);
 impl AppCaptureHistoricalBufferLengthUnit {
     pub const Megabytes: Self = Self(0i32);
@@ -5087,7 +5087,7 @@ impl ::windows::core::RuntimeName for AppCaptureManager {
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppCaptureMetadataPriority(pub i32);
 impl AppCaptureMetadataPriority {
     pub const Informational: Self = Self(0i32);
@@ -5300,7 +5300,7 @@ unsafe impl ::core::marker::Send for AppCaptureMetadataWriter {}
 unsafe impl ::core::marker::Sync for AppCaptureMetadataWriter {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppCaptureMicrophoneCaptureState(pub i32);
 impl AppCaptureMicrophoneCaptureState {
     pub const Stopped: Self = Self(0i32);
@@ -5599,7 +5599,7 @@ unsafe impl ::core::marker::Send for AppCaptureRecordOperation {}
 unsafe impl ::core::marker::Sync for AppCaptureRecordOperation {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppCaptureRecordingState(pub i32);
 impl AppCaptureRecordingState {
     pub const InProgress: Self = Self(0i32);
@@ -6422,7 +6422,7 @@ unsafe impl ::core::marker::Send for AppCaptureState {}
 unsafe impl ::core::marker::Sync for AppCaptureState {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppCaptureVideoEncodingBitrateMode(pub i32);
 impl AppCaptureVideoEncodingBitrateMode {
     pub const Custom: Self = Self(0i32);
@@ -6457,7 +6457,7 @@ unsafe impl ::windows::core::RuntimeType for AppCaptureVideoEncodingBitrateMode 
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppCaptureVideoEncodingFrameRateMode(pub i32);
 impl AppCaptureVideoEncodingFrameRateMode {
     pub const Standard: Self = Self(0i32);
@@ -6491,7 +6491,7 @@ unsafe impl ::windows::core::RuntimeType for AppCaptureVideoEncodingFrameRateMod
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppCaptureVideoEncodingResolutionMode(pub i32);
 impl AppCaptureVideoEncodingResolutionMode {
     pub const Custom: Self = Self(0i32);
@@ -6633,7 +6633,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a C
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CameraCaptureUIMaxPhotoResolution(pub i32);
 impl CameraCaptureUIMaxPhotoResolution {
     pub const HighestAvailable: Self = Self(0i32);
@@ -6671,7 +6671,7 @@ unsafe impl ::windows::core::RuntimeType for CameraCaptureUIMaxPhotoResolution {
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CameraCaptureUIMaxVideoResolution(pub i32);
 impl CameraCaptureUIMaxVideoResolution {
     pub const HighestAvailable: Self = Self(0i32);
@@ -6707,7 +6707,7 @@ unsafe impl ::windows::core::RuntimeType for CameraCaptureUIMaxVideoResolution {
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CameraCaptureUIMode(pub i32);
 impl CameraCaptureUIMode {
     pub const PhotoOrVideo: Self = Self(0i32);
@@ -6888,7 +6888,7 @@ unsafe impl ::core::marker::Send for CameraCaptureUIPhotoCaptureSettings {}
 unsafe impl ::core::marker::Sync for CameraCaptureUIPhotoCaptureSettings {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CameraCaptureUIPhotoFormat(pub i32);
 impl CameraCaptureUIPhotoFormat {
     pub const Jpeg: Self = Self(0i32);
@@ -7052,7 +7052,7 @@ unsafe impl ::core::marker::Send for CameraCaptureUIVideoCaptureSettings {}
 unsafe impl ::core::marker::Sync for CameraCaptureUIVideoCaptureSettings {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CameraCaptureUIVideoFormat(pub i32);
 impl CameraCaptureUIVideoFormat {
     pub const Mp4: Self = Self(0i32);
@@ -7790,7 +7790,7 @@ unsafe impl ::core::marker::Send for CapturedPhoto {}
 unsafe impl ::core::marker::Sync for CapturedPhoto {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ForegroundActivationArgument(pub i32);
 impl ForegroundActivationArgument {
     pub const SignInRequired: Self = Self(0i32);
@@ -7824,7 +7824,7 @@ unsafe impl ::windows::core::RuntimeType for ForegroundActivationArgument {
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GameBarCommand(pub i32);
 impl GameBarCommand {
     pub const OpenGameBar: Self = Self(0i32);
@@ -7870,7 +7870,7 @@ unsafe impl ::windows::core::RuntimeType for GameBarCommand {
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GameBarCommandOrigin(pub i32);
 impl GameBarCommandOrigin {
     pub const ShortcutKey: Self = Self(0i32);
@@ -8140,7 +8140,7 @@ unsafe impl ::core::marker::Send for GameBarServicesCommandEventArgs {}
 unsafe impl ::core::marker::Sync for GameBarServicesCommandEventArgs {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GameBarServicesDisplayMode(pub i32);
 impl GameBarServicesDisplayMode {
     pub const Windowed: Self = Self(0i32);
@@ -8472,7 +8472,7 @@ unsafe impl ::core::marker::Send for GameBarServicesTargetInfo {}
 unsafe impl ::core::marker::Sync for GameBarServicesTargetInfo {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GameBarTargetCapturePolicy(pub i32);
 impl GameBarTargetCapturePolicy {
     pub const EnabledBySystem: Self = Self(0i32);
@@ -11278,7 +11278,7 @@ pub struct IVideoStreamConfiguration_Vtbl {
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KnownVideoProfile(pub i32);
 impl KnownVideoProfile {
     pub const VideoRecording: Self = Self(0i32);
@@ -12370,7 +12370,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MediaCaptureDeviceExclusiveControlStatus(pub i32);
 impl MediaCaptureDeviceExclusiveControlStatus {
     pub const ExclusiveControlAvailable: Self = Self(0i32);
@@ -13087,7 +13087,7 @@ unsafe impl ::core::marker::Send for MediaCaptureInitializationSettings {}
 unsafe impl ::core::marker::Sync for MediaCaptureInitializationSettings {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MediaCaptureMemoryPreference(pub i32);
 impl MediaCaptureMemoryPreference {
     pub const Auto: Self = Self(0i32);
@@ -13579,7 +13579,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a M
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MediaCaptureSharingMode(pub i32);
 impl MediaCaptureSharingMode {
     pub const ExclusiveControl: Self = Self(0i32);
@@ -13737,7 +13737,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MediaCaptureThermalStatus(pub i32);
 impl MediaCaptureThermalStatus {
     pub const Normal: Self = Self(0i32);
@@ -14054,7 +14054,7 @@ unsafe impl ::core::marker::Send for MediaCaptureVideoProfileMediaDescription {}
 unsafe impl ::core::marker::Sync for MediaCaptureVideoProfileMediaDescription {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MediaCategory(pub i32);
 impl MediaCategory {
     pub const Other: Self = Self(0i32);
@@ -14094,7 +14094,7 @@ unsafe impl ::windows::core::RuntimeType for MediaCategory {
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MediaStreamType(pub i32);
 impl MediaStreamType {
     pub const VideoPreview: Self = Self(0i32);
@@ -14224,7 +14224,7 @@ unsafe impl ::core::marker::Send for OptionalReferencePhotoCapturedEventArgs {}
 unsafe impl ::core::marker::Sync for OptionalReferencePhotoCapturedEventArgs {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PhotoCaptureSource(pub i32);
 impl PhotoCaptureSource {
     pub const Auto: Self = Self(0i32);
@@ -14455,7 +14455,7 @@ unsafe impl ::core::marker::Send for PhotoConfirmationCapturedEventArgs {}
 unsafe impl ::core::marker::Sync for PhotoConfirmationCapturedEventArgs {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PowerlineFrequency(pub i32);
 impl PowerlineFrequency {
     pub const Disabled: Self = Self(0i32);
@@ -14807,7 +14807,7 @@ unsafe impl ::core::marker::Send for SourceSuspensionChangedEventArgs {}
 unsafe impl ::core::marker::Sync for SourceSuspensionChangedEventArgs {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct StreamingCaptureMode(pub i32);
 impl StreamingCaptureMode {
     pub const AudioAndVideo: Self = Self(0i32);
@@ -14842,7 +14842,7 @@ unsafe impl ::windows::core::RuntimeType for StreamingCaptureMode {
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VideoDeviceCharacteristic(pub i32);
 impl VideoDeviceCharacteristic {
     pub const AllStreamsIndependent: Self = Self(0i32);
@@ -14879,7 +14879,7 @@ unsafe impl ::windows::core::RuntimeType for VideoDeviceCharacteristic {
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VideoRotation(pub i32);
 impl VideoRotation {
     pub const None: Self = Self(0i32);

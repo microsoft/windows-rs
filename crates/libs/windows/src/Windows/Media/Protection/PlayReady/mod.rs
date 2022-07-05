@@ -3952,7 +3952,7 @@ pub struct IPlayReadyStatics5_Vtbl {
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NDCertificateFeature(pub i32);
 #[cfg(feature = "deprecated")]
 impl NDCertificateFeature {
@@ -3999,7 +3999,7 @@ unsafe impl ::windows::core::RuntimeType for NDCertificateFeature {
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NDCertificatePlatformID(pub i32);
 #[cfg(feature = "deprecated")]
 impl NDCertificatePlatformID {
@@ -4051,7 +4051,7 @@ unsafe impl ::windows::core::RuntimeType for NDCertificatePlatformID {
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NDCertificateType(pub i32);
 #[cfg(feature = "deprecated")]
 impl NDCertificateType {
@@ -4318,7 +4318,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a N
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NDClosedCaptionFormat(pub i32);
 #[cfg(feature = "deprecated")]
 impl NDClosedCaptionFormat {
@@ -4361,7 +4361,7 @@ unsafe impl ::windows::core::RuntimeType for NDClosedCaptionFormat {
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NDContentIDType(pub i32);
 #[cfg(feature = "deprecated")]
 impl NDContentIDType {
@@ -4880,7 +4880,7 @@ impl<'a> ::windows::core::IntoParam<'a, INDLicenseFetchDescriptor> for &NDLicens
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NDMediaStreamType(pub i32);
 #[cfg(feature = "deprecated")]
 impl NDMediaStreamType {
@@ -4922,7 +4922,7 @@ unsafe impl ::windows::core::RuntimeType for NDMediaStreamType {
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NDProximityDetectionType(pub i32);
 #[cfg(feature = "deprecated")]
 impl NDProximityDetectionType {
@@ -4965,7 +4965,7 @@ unsafe impl ::windows::core::RuntimeType for NDProximityDetectionType {
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NDStartAsyncOptions(pub i32);
 #[cfg(feature = "deprecated")]
 impl NDStartAsyncOptions {
@@ -5690,7 +5690,7 @@ impl ::windows::core::RuntimeName for PlayReadyContentResolver {
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PlayReadyDecryptorSetup(pub i32);
 impl PlayReadyDecryptorSetup {
     pub const Uninitialized: Self = Self(0i32);
@@ -6659,7 +6659,7 @@ impl<'a> ::windows::core::IntoParam<'a, IPlayReadyServiceRequest> for &PlayReady
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PlayReadyEncryptionAlgorithm(pub i32);
 impl PlayReadyEncryptionAlgorithm {
     pub const Unprotected: Self = Self(0i32);
@@ -6697,7 +6697,7 @@ unsafe impl ::windows::core::RuntimeType for PlayReadyEncryptionAlgorithm {
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PlayReadyHardwareDRMFeatures(pub i32);
 impl PlayReadyHardwareDRMFeatures {
     pub const HardwareDRM: Self = Self(1i32);
@@ -6732,7 +6732,7 @@ unsafe impl ::windows::core::RuntimeType for PlayReadyHardwareDRMFeatures {
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PlayReadyITADataFormat(pub i32);
 impl PlayReadyITADataFormat {
     pub const SerializedProperties: Self = Self(0i32);

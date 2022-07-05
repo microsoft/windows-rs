@@ -2,7 +2,7 @@
 pub const DEFAULT_WEIGHT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPIDSPRG(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRGId: DISPIDSPRG = DISPIDSPRG(1i32);
@@ -63,7 +63,7 @@ impl ::core::fmt::Debug for DISPIDSPRG {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPIDSPTSI(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPIDSPTSI_ActiveOffset: DISPIDSPTSI = DISPIDSPTSI(1i32);
@@ -94,7 +94,7 @@ impl ::core::fmt::Debug for DISPIDSPTSI {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_SpeechAudio(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SAStatus: DISPID_SpeechAudio = DISPID_SpeechAudio(200i32);
@@ -131,7 +131,7 @@ impl ::core::fmt::Debug for DISPID_SpeechAudio {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_SpeechAudioBufferInfo(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SABIMinNotification: DISPID_SpeechAudioBufferInfo = DISPID_SpeechAudioBufferInfo(1i32);
@@ -160,7 +160,7 @@ impl ::core::fmt::Debug for DISPID_SpeechAudioBufferInfo {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_SpeechAudioFormat(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SAFType: DISPID_SpeechAudioFormat = DISPID_SpeechAudioFormat(1i32);
@@ -191,7 +191,7 @@ impl ::core::fmt::Debug for DISPID_SpeechAudioFormat {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_SpeechAudioStatus(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SASFreeBufferSpace: DISPID_SpeechAudioStatus = DISPID_SpeechAudioStatus(1i32);
@@ -224,7 +224,7 @@ impl ::core::fmt::Debug for DISPID_SpeechAudioStatus {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_SpeechBaseStream(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SBSFormat: DISPID_SpeechBaseStream = DISPID_SpeechBaseStream(1i32);
@@ -255,7 +255,7 @@ impl ::core::fmt::Debug for DISPID_SpeechBaseStream {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_SpeechCustomStream(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SCSBaseStream: DISPID_SpeechCustomStream = DISPID_SpeechCustomStream(100i32);
@@ -280,7 +280,7 @@ impl ::core::fmt::Debug for DISPID_SpeechCustomStream {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_SpeechDataKey(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SDKSetBinaryValue: DISPID_SpeechDataKey = DISPID_SpeechDataKey(1i32);
@@ -327,7 +327,7 @@ impl ::core::fmt::Debug for DISPID_SpeechDataKey {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_SpeechFileStream(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SFSOpen: DISPID_SpeechFileStream = DISPID_SpeechFileStream(100i32);
@@ -354,7 +354,7 @@ impl ::core::fmt::Debug for DISPID_SpeechFileStream {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_SpeechGrammarRule(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SGRAttributes: DISPID_SpeechGrammarRule = DISPID_SpeechGrammarRule(1i32);
@@ -391,7 +391,7 @@ impl ::core::fmt::Debug for DISPID_SpeechGrammarRule {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_SpeechGrammarRuleState(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SGRSRule: DISPID_SpeechGrammarRuleState = DISPID_SpeechGrammarRuleState(1i32);
@@ -424,7 +424,7 @@ impl ::core::fmt::Debug for DISPID_SpeechGrammarRuleState {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_SpeechGrammarRuleStateTransition(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SGRSTType: DISPID_SpeechGrammarRuleStateTransition = DISPID_SpeechGrammarRuleStateTransition(1i32);
@@ -463,7 +463,7 @@ impl ::core::fmt::Debug for DISPID_SpeechGrammarRuleStateTransition {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_SpeechGrammarRuleStateTransitions(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SGRSTsCount: DISPID_SpeechGrammarRuleStateTransitions = DISPID_SpeechGrammarRuleStateTransitions(1i32);
@@ -492,7 +492,7 @@ impl ::core::fmt::Debug for DISPID_SpeechGrammarRuleStateTransitions {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_SpeechGrammarRules(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SGRsCount: DISPID_SpeechGrammarRules = DISPID_SpeechGrammarRules(1i32);
@@ -531,7 +531,7 @@ impl ::core::fmt::Debug for DISPID_SpeechGrammarRules {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_SpeechLexicon(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SLGenerationId: DISPID_SpeechLexicon = DISPID_SpeechLexicon(1i32);
@@ -570,7 +570,7 @@ impl ::core::fmt::Debug for DISPID_SpeechLexicon {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_SpeechLexiconProns(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SLPsCount: DISPID_SpeechLexiconProns = DISPID_SpeechLexiconProns(1i32);
@@ -599,7 +599,7 @@ impl ::core::fmt::Debug for DISPID_SpeechLexiconProns {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_SpeechLexiconPronunciation(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SLPType: DISPID_SpeechLexiconPronunciation = DISPID_SpeechLexiconPronunciation(1i32);
@@ -632,7 +632,7 @@ impl ::core::fmt::Debug for DISPID_SpeechLexiconPronunciation {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_SpeechLexiconWord(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SLWLangId: DISPID_SpeechLexiconWord = DISPID_SpeechLexiconWord(1i32);
@@ -663,7 +663,7 @@ impl ::core::fmt::Debug for DISPID_SpeechLexiconWord {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_SpeechLexiconWords(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SLWsCount: DISPID_SpeechLexiconWords = DISPID_SpeechLexiconWords(1i32);
@@ -692,7 +692,7 @@ impl ::core::fmt::Debug for DISPID_SpeechLexiconWords {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_SpeechMMSysAudio(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SMSADeviceId: DISPID_SpeechMMSysAudio = DISPID_SpeechMMSysAudio(300i32);
@@ -721,7 +721,7 @@ impl ::core::fmt::Debug for DISPID_SpeechMMSysAudio {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_SpeechMemoryStream(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SMSSetData: DISPID_SpeechMemoryStream = DISPID_SpeechMemoryStream(100i32);
@@ -748,7 +748,7 @@ impl ::core::fmt::Debug for DISPID_SpeechMemoryStream {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_SpeechObjectToken(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SOTId: DISPID_SpeechObjectToken = DISPID_SpeechObjectToken(1i32);
@@ -797,7 +797,7 @@ impl ::core::fmt::Debug for DISPID_SpeechObjectToken {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_SpeechObjectTokenCategory(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SOTCId: DISPID_SpeechObjectTokenCategory = DISPID_SpeechObjectTokenCategory(1i32);
@@ -830,7 +830,7 @@ impl ::core::fmt::Debug for DISPID_SpeechObjectTokenCategory {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_SpeechObjectTokens(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SOTsCount: DISPID_SpeechObjectTokens = DISPID_SpeechObjectTokens(1i32);
@@ -859,7 +859,7 @@ impl ::core::fmt::Debug for DISPID_SpeechObjectTokens {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_SpeechPhoneConverter(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPCLangId: DISPID_SpeechPhoneConverter = DISPID_SpeechPhoneConverter(1i32);
@@ -888,7 +888,7 @@ impl ::core::fmt::Debug for DISPID_SpeechPhoneConverter {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_SpeechPhraseAlternate(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPARecoResult: DISPID_SpeechPhraseAlternate = DISPID_SpeechPhraseAlternate(1i32);
@@ -921,7 +921,7 @@ impl ::core::fmt::Debug for DISPID_SpeechPhraseAlternate {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_SpeechPhraseAlternates(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPAsCount: DISPID_SpeechPhraseAlternates = DISPID_SpeechPhraseAlternates(1i32);
@@ -950,7 +950,7 @@ impl ::core::fmt::Debug for DISPID_SpeechPhraseAlternates {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_SpeechPhraseBuilder(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPPBRestorePhraseFromMemory: DISPID_SpeechPhraseBuilder = DISPID_SpeechPhraseBuilder(1i32);
@@ -975,7 +975,7 @@ impl ::core::fmt::Debug for DISPID_SpeechPhraseBuilder {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_SpeechPhraseElement(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPEAudioTimeOffset: DISPID_SpeechPhraseElement = DISPID_SpeechPhraseElement(1i32);
@@ -1024,7 +1024,7 @@ impl ::core::fmt::Debug for DISPID_SpeechPhraseElement {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_SpeechPhraseElements(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPEsCount: DISPID_SpeechPhraseElements = DISPID_SpeechPhraseElements(1i32);
@@ -1053,7 +1053,7 @@ impl ::core::fmt::Debug for DISPID_SpeechPhraseElements {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_SpeechPhraseInfo(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPILanguageId: DISPID_SpeechPhraseInfo = DISPID_SpeechPhraseInfo(1i32);
@@ -1108,7 +1108,7 @@ impl ::core::fmt::Debug for DISPID_SpeechPhraseInfo {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_SpeechPhraseProperties(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPPsCount: DISPID_SpeechPhraseProperties = DISPID_SpeechPhraseProperties(1i32);
@@ -1137,7 +1137,7 @@ impl ::core::fmt::Debug for DISPID_SpeechPhraseProperties {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_SpeechPhraseProperty(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPPName: DISPID_SpeechPhraseProperty = DISPID_SpeechPhraseProperty(1i32);
@@ -1178,7 +1178,7 @@ impl ::core::fmt::Debug for DISPID_SpeechPhraseProperty {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_SpeechPhraseReplacement(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPRDisplayAttributes: DISPID_SpeechPhraseReplacement = DISPID_SpeechPhraseReplacement(1i32);
@@ -1209,7 +1209,7 @@ impl ::core::fmt::Debug for DISPID_SpeechPhraseReplacement {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_SpeechPhraseReplacements(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPRsCount: DISPID_SpeechPhraseReplacements = DISPID_SpeechPhraseReplacements(1i32);
@@ -1238,7 +1238,7 @@ impl ::core::fmt::Debug for DISPID_SpeechPhraseReplacements {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_SpeechPhraseRule(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPRuleName: DISPID_SpeechPhraseRule = DISPID_SpeechPhraseRule(1i32);
@@ -1277,7 +1277,7 @@ impl ::core::fmt::Debug for DISPID_SpeechPhraseRule {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_SpeechPhraseRules(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SPRulesCount: DISPID_SpeechPhraseRules = DISPID_SpeechPhraseRules(1i32);
@@ -1306,7 +1306,7 @@ impl ::core::fmt::Debug for DISPID_SpeechPhraseRules {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_SpeechRecoContext(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRCRecognizer: DISPID_SpeechRecoContext = DISPID_SpeechRecoContext(1i32);
@@ -1363,7 +1363,7 @@ impl ::core::fmt::Debug for DISPID_SpeechRecoContext {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_SpeechRecoContextEvents(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRCEStartStream: DISPID_SpeechRecoContextEvents = DISPID_SpeechRecoContextEvents(1i32);
@@ -1422,7 +1422,7 @@ impl ::core::fmt::Debug for DISPID_SpeechRecoContextEvents {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_SpeechRecoResult(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRRRecoContext: DISPID_SpeechRecoResult = DISPID_SpeechRecoResult(1i32);
@@ -1463,7 +1463,7 @@ impl ::core::fmt::Debug for DISPID_SpeechRecoResult {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_SpeechRecoResult2(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRRSetTextFeedback: DISPID_SpeechRecoResult2 = DISPID_SpeechRecoResult2(12i32);
@@ -1488,7 +1488,7 @@ impl ::core::fmt::Debug for DISPID_SpeechRecoResult2 {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_SpeechRecoResultTimes(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRRTStreamTime: DISPID_SpeechRecoResultTimes = DISPID_SpeechRecoResultTimes(1i32);
@@ -1519,7 +1519,7 @@ impl ::core::fmt::Debug for DISPID_SpeechRecoResultTimes {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_SpeechRecognizer(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRRecognizer: DISPID_SpeechRecognizer = DISPID_SpeechRecognizer(1i32);
@@ -1582,7 +1582,7 @@ impl ::core::fmt::Debug for DISPID_SpeechRecognizer {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_SpeechRecognizerStatus(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRSAudioStatus: DISPID_SpeechRecognizerStatus = DISPID_SpeechRecognizerStatus(1i32);
@@ -1617,7 +1617,7 @@ impl ::core::fmt::Debug for DISPID_SpeechRecognizerStatus {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_SpeechVoice(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SVStatus: DISPID_SpeechVoice = DISPID_SpeechVoice(1i32);
@@ -1684,7 +1684,7 @@ impl ::core::fmt::Debug for DISPID_SpeechVoice {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_SpeechVoiceEvent(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SVEStreamStart: DISPID_SpeechVoiceEvent = DISPID_SpeechVoiceEvent(1i32);
@@ -1727,7 +1727,7 @@ impl ::core::fmt::Debug for DISPID_SpeechVoiceEvent {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_SpeechVoiceStatus(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SVSCurrentStreamNumber: DISPID_SpeechVoiceStatus = DISPID_SpeechVoiceStatus(1i32);
@@ -1774,7 +1774,7 @@ impl ::core::fmt::Debug for DISPID_SpeechVoiceStatus {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_SpeechWaveFormatEx(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SWFEFormatTag: DISPID_SpeechWaveFormatEx = DISPID_SpeechWaveFormatEx(1i32);
@@ -1811,7 +1811,7 @@ impl ::core::fmt::Debug for DISPID_SpeechWaveFormatEx {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_SpeechXMLRecoResult(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const DISPID_SRRGetXMLResult: DISPID_SpeechXMLRecoResult = DISPID_SpeechXMLRecoResult(10i32);
@@ -15410,7 +15410,7 @@ pub struct ISpeechXMLRecoResult_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PHONETICALPHABET(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const PA_Ipa: PHONETICALPHABET = PHONETICALPHABET(0i32);
@@ -15441,7 +15441,7 @@ impl ::core::fmt::Debug for PHONETICALPHABET {
 pub const SAPI_ERROR_BASE: u32 = 20480u32;
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SPADAPTATIONRELEVANCE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPAR_Unknown: SPADAPTATIONRELEVANCE = SPADAPTATIONRELEVANCE(0i32);
@@ -15472,7 +15472,7 @@ impl ::core::fmt::Debug for SPADAPTATIONRELEVANCE {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SPADAPTATIONSETTINGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPADS_Default: SPADAPTATIONSETTINGS = SPADAPTATIONSETTINGS(0i32);
@@ -15541,7 +15541,7 @@ impl ::core::default::Default for SPAUDIOBUFFERINFO {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SPAUDIOOPTIONS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPAO_NONE: SPAUDIOOPTIONS = SPAUDIOOPTIONS(0i32);
@@ -15568,7 +15568,7 @@ impl ::core::fmt::Debug for SPAUDIOOPTIONS {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SPAUDIOSTATE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPAS_CLOSED: SPAUDIOSTATE = SPAUDIOSTATE(0i32);
@@ -15665,7 +15665,7 @@ impl ::core::default::Default for SPBINARYGRAMMAR {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SPBOOKMARKOPTIONS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPBO_NONE: SPBOOKMARKOPTIONS = SPBOOKMARKOPTIONS(0i32);
@@ -15712,7 +15712,7 @@ pub const SPCAT_TEXTNORMALIZERS: &str = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft
 pub const SPCAT_VOICES: &str = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\Voices";
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SPCFGRULEATTRIBUTES(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPRAF_TopLevel: SPCFGRULEATTRIBUTES = SPCFGRULEATTRIBUTES(1i32);
@@ -15753,7 +15753,7 @@ impl ::core::fmt::Debug for SPCFGRULEATTRIBUTES {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SPCOMMITFLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPCF_NONE: SPCOMMITFLAGS = SPCOMMITFLAGS(0i32);
@@ -15782,7 +15782,7 @@ impl ::core::fmt::Debug for SPCOMMITFLAGS {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SPCONTEXTSTATE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPCS_DISABLED: SPCONTEXTSTATE = SPCONTEXTSTATE(0i32);
@@ -15813,7 +15813,7 @@ pub const SPCURRENT_USER_LEXICON_TOKEN_ID: &str = "HKEY_CURRENT_USER\\SOFTWARE\\
 pub const SPCURRENT_USER_SHORTCUT_TOKEN_ID: &str = "HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Speech\\CurrentUserShortcut";
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SPDATAKEYLOCATION(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPDKL_DefaultLocation: SPDATAKEYLOCATION = SPDATAKEYLOCATION(0i32);
@@ -15909,7 +15909,7 @@ impl ::core::default::Default for SPDISPLAYTOKEN {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SPDISPLYATTRIBUTES(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPAF_ONE_TRAILING_SPACE: SPDISPLYATTRIBUTES = SPDISPLYATTRIBUTES(2i32);
@@ -15964,7 +15964,7 @@ pub const SPDUI_UserEnrollment: &str = "UserEnrollment";
 pub const SPDUI_UserTraining: &str = "UserTraining";
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SPEAKFLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPF_DEFAULT: SPEAKFLAGS = SPEAKFLAGS(0i32);
@@ -16017,7 +16017,7 @@ impl ::core::fmt::Debug for SPEAKFLAGS {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SPENDSRSTREAMFLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPESF_NONE: SPENDSRSTREAMFLAGS = SPENDSRSTREAMFLAGS(0i32);
@@ -16088,7 +16088,7 @@ impl ::core::default::Default for SPEVENT {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SPEVENTENUM(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPEI_UNDEFINED: SPEVENTENUM = SPEVENTENUM(0i32);
@@ -16234,7 +16234,7 @@ impl ::core::default::Default for SPEVENTEX {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SPEVENTLPARAMTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPET_LPARAM_IS_UNDEFINED: SPEVENTLPARAMTYPE = SPEVENTLPARAMTYPE(0i32);
@@ -16299,7 +16299,7 @@ impl ::core::default::Default for SPEVENTSOURCEINFO {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SPFILEMODE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPFM_OPEN_READONLY: SPFILEMODE = SPFILEMODE(0i32);
@@ -16332,7 +16332,7 @@ impl ::core::fmt::Debug for SPFILEMODE {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SPGRAMMAROPTIONS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPGO_SAPI: SPGRAMMAROPTIONS = SPGRAMMAROPTIONS(1i32);
@@ -16381,7 +16381,7 @@ impl ::core::fmt::Debug for SPGRAMMAROPTIONS {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SPGRAMMARSTATE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPGS_DISABLED: SPGRAMMARSTATE = SPGRAMMARSTATE(0i32);
@@ -16410,7 +16410,7 @@ impl ::core::fmt::Debug for SPGRAMMARSTATE {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SPGRAMMARWORDTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPWT_DISPLAY: SPGRAMMARWORDTYPE = SPGRAMMARWORDTYPE(0i32);
@@ -16443,7 +16443,7 @@ impl ::core::fmt::Debug for SPGRAMMARWORDTYPE {
 pub const SPINFDICTATION: &str = "*+";
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SPINTERFERENCE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPINTERFERENCE_NONE: SPINTERFERENCE = SPINTERFERENCE(0i32);
@@ -16486,7 +16486,7 @@ impl ::core::fmt::Debug for SPINTERFERENCE {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SPLEXICONTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const eLEXTYPE_USER: SPLEXICONTYPE = SPLEXICONTYPE(1i32);
@@ -16573,7 +16573,7 @@ impl ::core::fmt::Debug for SPLEXICONTYPE {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SPLOADOPTIONS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPLO_STATIC: SPLOADOPTIONS = SPLOADOPTIONS(0i32);
@@ -16600,7 +16600,7 @@ impl ::core::fmt::Debug for SPLOADOPTIONS {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SPMATCHINGMODE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const AllWords: SPMATCHINGMODE = SPMATCHINGMODE(0i32);
@@ -16671,7 +16671,7 @@ impl ::core::default::Default for SPNORMALIZATIONLIST {
 pub type SPNOTIFYCALLBACK = ::core::option::Option<unsafe extern "system" fn(wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM)>;
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SPPARTOFSPEECH(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPPS_NotOverriden: SPPARTOFSPEECH = SPPARTOFSPEECH(-1i32);
@@ -16935,7 +16935,7 @@ impl ::core::default::Default for SPPHRASEPROPERTY_0_0 {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SPPHRASEPROPERTYUNIONTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPPPUT_UNUSED: SPPHRASEPROPERTYUNIONTYPE = SPPHRASEPROPERTYUNIONTYPE(0i32);
@@ -16995,7 +16995,7 @@ impl ::core::default::Default for SPPHRASEREPLACEMENT {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SPPHRASERNG(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPPR_ALL_ELEMENTS: SPPHRASERNG = SPPHRASERNG(-1i32);
@@ -17129,7 +17129,7 @@ impl ::core::default::Default for SPPHRASE_50 {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SPPRONUNCIATIONFLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const ePRONFLAG_USED: SPPRONUNCIATIONFLAGS = SPPRONUNCIATIONFLAGS(1i32);
@@ -17240,7 +17240,7 @@ impl ::core::default::Default for SPRECOCONTEXTSTATUS {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SPRECOEVENTFLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPREF_AutoPause: SPRECOEVENTFLAGS = SPRECOEVENTFLAGS(1i32);
@@ -17357,7 +17357,7 @@ impl ::core::default::Default for SPRECORESULTTIMES {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SPRECOSTATE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPRST_INACTIVE: SPRECOSTATE = SPRECOSTATE(0i32);
@@ -17430,7 +17430,7 @@ impl ::core::default::Default for SPRULE {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SPRULESTATE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPRS_INACTIVE: SPRULESTATE = SPRULESTATE(0i32);
@@ -17461,7 +17461,7 @@ impl ::core::fmt::Debug for SPRULESTATE {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SPRUNSTATE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPRS_DONE: SPRUNSTATE = SPRUNSTATE(1i32);
@@ -17522,7 +17522,7 @@ impl ::core::default::Default for SPSEMANTICERRORINFO {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SPSEMANTICFORMAT(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSMF_SAPI_PROPERTIES: SPSEMANTICFORMAT = SPSEMANTICFORMAT(0i32);
@@ -17749,7 +17749,7 @@ impl ::core::default::Default for SPSHORTCUTPAIRLIST {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SPSHORTCUTTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSHT_NotOverriden: SPSHORTCUTTYPE = SPSHORTCUTTYPE(-1i32);
@@ -17818,7 +17818,7 @@ impl ::core::default::Default for SPSTATEHANDLE__ {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SPSTREAMFORMAT(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSF_Default: SPSTREAMFORMAT = SPSTREAMFORMAT(-1i32);
@@ -18034,7 +18034,7 @@ pub const SPTOKENVALUE_CLSID: &str = "CLSID";
 pub const SPTOPIC_SPELLING: &str = "Spelling";
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SPVACTIONS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPVA_Speak: SPVACTIONS = SPVACTIONS(0i32);
@@ -18071,7 +18071,7 @@ impl ::core::fmt::Debug for SPVACTIONS {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SPVALUETYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPDF_PROPERTY: SPVALUETYPE = SPVALUETYPE(1i32);
@@ -18144,7 +18144,7 @@ impl ::core::default::Default for SPVCONTEXT {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SPVFEATURE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPVFEATURE_STRESSED: SPVFEATURE = SPVFEATURE(1i32);
@@ -18171,7 +18171,7 @@ impl ::core::fmt::Debug for SPVFEATURE {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SPVISEMES(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SP_VISEME_0: SPVISEMES = SPVISEMES(0i32);
@@ -18238,7 +18238,7 @@ impl ::core::fmt::Debug for SPVISEMES {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SPVLIMITS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPMIN_VOLUME: SPVLIMITS = SPVLIMITS(0i32);
@@ -18358,7 +18358,7 @@ impl ::core::default::Default for SPVPITCH {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SPVPRIORITY(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPVPRI_NORMAL: SPVPRIORITY = SPVPRIORITY(0i32);
@@ -18427,7 +18427,7 @@ impl ::core::default::Default for SPVSTATE {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SPWAVEFORMATTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPWF_INPUT: SPWAVEFORMATTYPE = SPWAVEFORMATTYPE(0i32);
@@ -18523,7 +18523,7 @@ impl ::core::default::Default for SPWORDLIST {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SPWORDPRONOUNCEABLE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPWP_UNKNOWN_WORD_UNPRONOUNCEABLE: SPWORDPRONOUNCEABLE = SPWORDPRONOUNCEABLE(0i32);
@@ -18619,7 +18619,7 @@ impl ::core::default::Default for SPWORDPRONUNCIATIONLIST {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SPWORDTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const eWORDTYPE_ADDED: SPWORDTYPE = SPWORDTYPE(1i32);
@@ -18646,7 +18646,7 @@ impl ::core::fmt::Debug for SPWORDTYPE {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SPXMLRESULTOPTIONS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPXRO_SML: SPXMLRESULTOPTIONS = SPXMLRESULTOPTIONS(0i32);
@@ -18721,7 +18721,7 @@ pub const SpWaveFormatEx: ::windows::core::GUID = ::windows::core::GUID::from_u1
 pub const SpeechAllElements: i32 = -1i32;
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpeechAudioFormatType(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SAFTDefault: SpeechAudioFormatType = SpeechAudioFormatType(-1i32);
@@ -18884,7 +18884,7 @@ impl ::core::fmt::Debug for SpeechAudioFormatType {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpeechAudioState(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SASClosed: SpeechAudioState = SpeechAudioState(0i32);
@@ -18915,7 +18915,7 @@ impl ::core::fmt::Debug for SpeechAudioState {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpeechBookmarkOptions(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SBONone: SpeechBookmarkOptions = SpeechBookmarkOptions(0i32);
@@ -18942,7 +18942,7 @@ impl ::core::fmt::Debug for SpeechBookmarkOptions {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpeechDataKeyLocation(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SDKLDefaultLocation: SpeechDataKeyLocation = SpeechDataKeyLocation(0i32);
@@ -18973,7 +18973,7 @@ impl ::core::fmt::Debug for SpeechDataKeyLocation {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpeechDiscardType(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SDTProperty: SpeechDiscardType = SpeechDiscardType(1i32);
@@ -19014,7 +19014,7 @@ impl ::core::fmt::Debug for SpeechDiscardType {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpeechDisplayAttributes(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SDA_No_Trailing_Space: SpeechDisplayAttributes = SpeechDisplayAttributes(0i32);
@@ -19045,7 +19045,7 @@ impl ::core::fmt::Debug for SpeechDisplayAttributes {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpeechEmulationCompareFlags(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SECFIgnoreCase: SpeechEmulationCompareFlags = SpeechEmulationCompareFlags(1i32);
@@ -19080,7 +19080,7 @@ impl ::core::fmt::Debug for SpeechEmulationCompareFlags {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpeechEngineConfidence(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SECLowConfidence: SpeechEngineConfidence = SpeechEngineConfidence(-1i32);
@@ -19109,7 +19109,7 @@ impl ::core::fmt::Debug for SpeechEngineConfidence {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpeechFormatType(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SFTInput: SpeechFormatType = SpeechFormatType(0i32);
@@ -19136,7 +19136,7 @@ impl ::core::fmt::Debug for SpeechFormatType {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpeechGrammarRuleStateTransitionType(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SGRSTTEpsilon: SpeechGrammarRuleStateTransitionType = SpeechGrammarRuleStateTransitionType(0i32);
@@ -19171,7 +19171,7 @@ impl ::core::fmt::Debug for SpeechGrammarRuleStateTransitionType {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpeechGrammarState(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SGSEnabled: SpeechGrammarState = SpeechGrammarState(1i32);
@@ -19200,7 +19200,7 @@ impl ::core::fmt::Debug for SpeechGrammarState {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpeechGrammarWordType(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SGDisplay: SpeechGrammarWordType = SpeechGrammarWordType(0i32);
@@ -19231,7 +19231,7 @@ impl ::core::fmt::Debug for SpeechGrammarWordType {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpeechInterference(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SINone: SpeechInterference = SpeechInterference(0i32);
@@ -19268,7 +19268,7 @@ impl ::core::fmt::Debug for SpeechInterference {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpeechLexiconType(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SLTUser: SpeechLexiconType = SpeechLexiconType(1i32);
@@ -19295,7 +19295,7 @@ impl ::core::fmt::Debug for SpeechLexiconType {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpeechLoadOption(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SLOStatic: SpeechLoadOption = SpeechLoadOption(0i32);
@@ -19322,7 +19322,7 @@ impl ::core::fmt::Debug for SpeechLoadOption {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpeechPartOfSpeech(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SPSNotOverriden: SpeechPartOfSpeech = SpeechPartOfSpeech(-1i32);
@@ -19363,7 +19363,7 @@ impl ::core::fmt::Debug for SpeechPartOfSpeech {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpeechRecoContextState(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SRCS_Disabled: SpeechRecoContextState = SpeechRecoContextState(0i32);
@@ -19390,7 +19390,7 @@ impl ::core::fmt::Debug for SpeechRecoContextState {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpeechRecoEvents(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SREStreamEnd: SpeechRecoEvents = SpeechRecoEvents(1i32);
@@ -19451,7 +19451,7 @@ impl ::core::fmt::Debug for SpeechRecoEvents {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpeechRecognitionType(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SRTStandard: SpeechRecognitionType = SpeechRecognitionType(0i32);
@@ -19486,7 +19486,7 @@ impl ::core::fmt::Debug for SpeechRecognitionType {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpeechRecognizerState(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SRSInactive: SpeechRecognizerState = SpeechRecognizerState(0i32);
@@ -19517,7 +19517,7 @@ impl ::core::fmt::Debug for SpeechRecognizerState {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpeechRetainedAudioOptions(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SRAONone: SpeechRetainedAudioOptions = SpeechRetainedAudioOptions(0i32);
@@ -19544,7 +19544,7 @@ impl ::core::fmt::Debug for SpeechRetainedAudioOptions {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpeechRuleAttributes(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SRATopLevel: SpeechRuleAttributes = SpeechRuleAttributes(1i32);
@@ -19581,7 +19581,7 @@ impl ::core::fmt::Debug for SpeechRuleAttributes {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpeechRuleState(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SGDSInactive: SpeechRuleState = SpeechRuleState(0i32);
@@ -19612,7 +19612,7 @@ impl ::core::fmt::Debug for SpeechRuleState {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpeechRunState(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SRSEDone: SpeechRunState = SpeechRunState(1i32);
@@ -19639,7 +19639,7 @@ impl ::core::fmt::Debug for SpeechRunState {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpeechSpecialTransitionType(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SSTTWildcard: SpeechSpecialTransitionType = SpeechSpecialTransitionType(1i32);
@@ -19668,7 +19668,7 @@ impl ::core::fmt::Debug for SpeechSpecialTransitionType {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpeechStreamFileMode(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SSFMOpenForRead: SpeechStreamFileMode = SpeechStreamFileMode(0i32);
@@ -19699,7 +19699,7 @@ impl ::core::fmt::Debug for SpeechStreamFileMode {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpeechStreamSeekPositionType(pub u32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SSSPTRelativeToStart: SpeechStreamSeekPositionType = SpeechStreamSeekPositionType(0u32);
@@ -19728,7 +19728,7 @@ impl ::core::fmt::Debug for SpeechStreamSeekPositionType {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpeechTokenContext(pub u32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const STCInprocServer: SpeechTokenContext = SpeechTokenContext(1u32);
@@ -19761,7 +19761,7 @@ impl ::core::fmt::Debug for SpeechTokenContext {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpeechTokenShellFolder(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const STSF_AppData: SpeechTokenShellFolder = SpeechTokenShellFolder(26i32);
@@ -19792,7 +19792,7 @@ impl ::core::fmt::Debug for SpeechTokenShellFolder {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpeechVisemeFeature(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SVF_None: SpeechVisemeFeature = SpeechVisemeFeature(0i32);
@@ -19821,7 +19821,7 @@ impl ::core::fmt::Debug for SpeechVisemeFeature {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpeechVisemeType(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SVP_0: SpeechVisemeType = SpeechVisemeType(0i32);
@@ -19888,7 +19888,7 @@ impl ::core::fmt::Debug for SpeechVisemeType {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpeechVoiceEvents(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SVEStartInputStream: SpeechVoiceEvents = SpeechVoiceEvents(2i32);
@@ -19933,7 +19933,7 @@ impl ::core::fmt::Debug for SpeechVoiceEvents {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpeechVoicePriority(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SVPNormal: SpeechVoicePriority = SpeechVoicePriority(0i32);
@@ -19962,7 +19962,7 @@ impl ::core::fmt::Debug for SpeechVoicePriority {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpeechVoiceSpeakFlags(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SVSFDefault: SpeechVoiceSpeakFlags = SpeechVoiceSpeakFlags(0i32);
@@ -20015,7 +20015,7 @@ impl ::core::fmt::Debug for SpeechVoiceSpeakFlags {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpeechWordPronounceable(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SWPUnknownWordUnpronounceable: SpeechWordPronounceable = SpeechWordPronounceable(0i32);
@@ -20044,7 +20044,7 @@ impl ::core::fmt::Debug for SpeechWordPronounceable {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpeechWordType(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub const SWTAdded: SpeechWordType = SpeechWordType(1i32);

@@ -510,7 +510,7 @@ unsafe impl ::core::marker::Send for IppAttributeError {}
 unsafe impl ::core::marker::Sync for IppAttributeError {}
 #[doc = "*Required features: `\"Devices_Printers\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IppAttributeErrorReason(pub i32);
 impl IppAttributeErrorReason {
     pub const RequestEntityTooLarge: Self = Self(0i32);
@@ -1094,7 +1094,7 @@ unsafe impl ::core::marker::Send for IppAttributeValue {}
 unsafe impl ::core::marker::Sync for IppAttributeValue {}
 #[doc = "*Required features: `\"Devices_Printers\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IppAttributeValueKind(pub i32);
 impl IppAttributeValueKind {
     pub const Unsupported: Self = Self(0i32);
@@ -1495,7 +1495,7 @@ unsafe impl ::core::marker::Send for IppResolution {}
 unsafe impl ::core::marker::Sync for IppResolution {}
 #[doc = "*Required features: `\"Devices_Printers\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IppResolutionUnit(pub i32);
 impl IppResolutionUnit {
     pub const DotsPerInch: Self = Self(0i32);

@@ -300,7 +300,7 @@ impl ::core::default::Default for CONSOLE_HISTORY_INFO {
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CONSOLE_MODE(pub u32);
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
 pub const ENABLE_PROCESSED_INPUT: CONSOLE_MODE = CONSOLE_MODE(1u32);
@@ -1326,7 +1326,7 @@ pub unsafe fn GetStdHandle(nstdhandle: STD_HANDLE) -> ::windows::core::Result<su
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
 pub const HISTORY_NO_DUP_FLAG: u32 = 1u32;
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HPCON(pub isize);
 impl HPCON {
     pub fn is_invalid(&self) -> bool {
@@ -1815,7 +1815,7 @@ impl ::core::default::Default for SMALL_RECT {
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STD_HANDLE(pub u32);
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
 pub const STD_INPUT_HANDLE: STD_HANDLE = STD_HANDLE(4294967286u32);

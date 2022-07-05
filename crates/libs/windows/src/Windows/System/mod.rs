@@ -526,7 +526,7 @@ unsafe impl ::core::marker::Send for AppDiagnosticInfoWatcherEventArgs {}
 unsafe impl ::core::marker::Sync for AppDiagnosticInfoWatcherEventArgs {}
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppDiagnosticInfoWatcherStatus(pub i32);
 impl AppDiagnosticInfoWatcherStatus {
     pub const Created: Self = Self(0i32);
@@ -766,7 +766,7 @@ unsafe impl ::core::marker::Send for AppMemoryReport {}
 unsafe impl ::core::marker::Sync for AppMemoryReport {}
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppMemoryUsageLevel(pub i32);
 impl AppMemoryUsageLevel {
     pub const Low: Self = Self(0i32);
@@ -1004,7 +1004,7 @@ unsafe impl ::core::marker::Send for AppResourceGroupBackgroundTaskReport {}
 unsafe impl ::core::marker::Sync for AppResourceGroupBackgroundTaskReport {}
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppResourceGroupEnergyQuotaState(pub i32);
 impl AppResourceGroupEnergyQuotaState {
     pub const Unknown: Self = Self(0i32);
@@ -1039,7 +1039,7 @@ unsafe impl ::windows::core::RuntimeType for AppResourceGroupEnergyQuotaState {
 }
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppResourceGroupExecutionState(pub i32);
 impl AppResourceGroupExecutionState {
     pub const Unknown: Self = Self(0i32);
@@ -1588,7 +1588,7 @@ unsafe impl ::core::marker::Send for AppResourceGroupInfoWatcherExecutionStateCh
 unsafe impl ::core::marker::Sync for AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {}
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppResourceGroupInfoWatcherStatus(pub i32);
 impl AppResourceGroupInfoWatcherStatus {
     pub const Created: Self = Self(0i32);
@@ -2223,7 +2223,7 @@ unsafe impl ::core::marker::Send for AppUriHandlerRegistrationManager {}
 unsafe impl ::core::marker::Sync for AppUriHandlerRegistrationManager {}
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AutoUpdateTimeZoneStatus(pub i32);
 impl AutoUpdateTimeZoneStatus {
     pub const Attempted: Self = Self(0i32);
@@ -2275,7 +2275,7 @@ impl ::windows::core::RuntimeName for DateTimeSettings {
 }
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DiagnosticAccessStatus(pub i32);
 impl DiagnosticAccessStatus {
     pub const Unspecified: Self = Self(0i32);
@@ -2653,7 +2653,7 @@ pub struct DispatcherQueueHandler_Vtbl {
 }
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DispatcherQueuePriority(pub i32);
 impl DispatcherQueuePriority {
     pub const Low: Self = Self(-10i32);
@@ -4861,7 +4861,7 @@ impl ::windows::core::RuntimeName for KnownUserProperties {
 }
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LaunchFileStatus(pub i32);
 impl LaunchFileStatus {
     pub const Success: Self = Self(0i32);
@@ -4898,7 +4898,7 @@ unsafe impl ::windows::core::RuntimeType for LaunchFileStatus {
 }
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LaunchQuerySupportStatus(pub i32);
 impl LaunchQuerySupportStatus {
     pub const Available: Self = Self(0i32);
@@ -4935,7 +4935,7 @@ unsafe impl ::windows::core::RuntimeType for LaunchQuerySupportStatus {
 }
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LaunchQuerySupportType(pub i32);
 impl LaunchQuerySupportType {
     pub const Uri: Self = Self(0i32);
@@ -5063,7 +5063,7 @@ unsafe impl ::core::marker::Send for LaunchUriResult {}
 unsafe impl ::core::marker::Sync for LaunchUriResult {}
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LaunchUriStatus(pub i32);
 impl LaunchUriStatus {
     pub const Success: Self = Self(0i32);
@@ -5855,7 +5855,7 @@ impl ::windows::core::RuntimeName for MemoryManager {
 }
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PowerState(pub i32);
 impl PowerState {
     pub const ConnectedStandby: Self = Self(0i32);
@@ -6237,7 +6237,7 @@ unsafe impl ::core::marker::Send for ProcessMemoryReport {}
 unsafe impl ::core::marker::Sync for ProcessMemoryReport {}
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ProcessorArchitecture(pub i32);
 impl ProcessorArchitecture {
     pub const X86: Self = Self(0i32);
@@ -6359,7 +6359,7 @@ unsafe impl ::core::marker::Send for ProtocolForResultsOperation {}
 unsafe impl ::core::marker::Sync for ProtocolForResultsOperation {}
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RemoteLaunchUriStatus(pub i32);
 impl RemoteLaunchUriStatus {
     pub const Unknown: Self = Self(0i32);
@@ -6543,7 +6543,7 @@ unsafe impl ::core::marker::Send for RemoteLauncherOptions {}
 unsafe impl ::core::marker::Sync for RemoteLauncherOptions {}
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ShutdownKind(pub i32);
 impl ShutdownKind {
     pub const Shutdown: Self = Self(0i32);
@@ -6862,7 +6862,7 @@ unsafe impl ::core::marker::Send for User {}
 unsafe impl ::core::marker::Sync for User {}
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UserAgeConsentGroup(pub i32);
 impl UserAgeConsentGroup {
     pub const Child: Self = Self(0i32);
@@ -6897,7 +6897,7 @@ unsafe impl ::windows::core::RuntimeType for UserAgeConsentGroup {
 }
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UserAgeConsentResult(pub i32);
 impl UserAgeConsentResult {
     pub const NotEnforced: Self = Self(0i32);
@@ -6934,7 +6934,7 @@ unsafe impl ::windows::core::RuntimeType for UserAgeConsentResult {
 }
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UserAuthenticationStatus(pub i32);
 impl UserAuthenticationStatus {
     pub const Unauthenticated: Self = Self(0i32);
@@ -7518,7 +7518,7 @@ unsafe impl ::core::marker::Send for UserPicker {}
 unsafe impl ::core::marker::Sync for UserPicker {}
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UserPictureSize(pub i32);
 impl UserPictureSize {
     pub const Size64x64: Self = Self(0i32);
@@ -7554,7 +7554,7 @@ unsafe impl ::windows::core::RuntimeType for UserPictureSize {
 }
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UserType(pub i32);
 impl UserType {
     pub const LocalUser: Self = Self(0i32);
@@ -7791,7 +7791,7 @@ unsafe impl ::core::marker::Send for UserWatcher {}
 unsafe impl ::core::marker::Sync for UserWatcher {}
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UserWatcherStatus(pub i32);
 impl UserWatcherStatus {
     pub const Created: Self = Self(0i32);
@@ -7829,7 +7829,7 @@ unsafe impl ::windows::core::RuntimeType for UserWatcherStatus {
 }
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UserWatcherUpdateKind(pub i32);
 impl UserWatcherUpdateKind {
     pub const Properties: Self = Self(0i32);
@@ -7863,7 +7863,7 @@ unsafe impl ::windows::core::RuntimeType for UserWatcherUpdateKind {
 }
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VirtualKey(pub i32);
 impl VirtualKey {
     pub const None: Self = Self(0i32);
@@ -8067,7 +8067,7 @@ unsafe impl ::windows::core::RuntimeType for VirtualKey {
 }
 #[doc = "*Required features: `\"System\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VirtualKeyModifiers(pub u32);
 impl VirtualKeyModifiers {
     pub const None: Self = Self(0u32);

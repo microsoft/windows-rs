@@ -32,7 +32,7 @@ pub unsafe fn AddERExcludedApplicationW<'a, Param0: ::windows::core::IntoParam<'
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EFaultRepRetVal(pub i32);
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 pub const frrvOk: EFaultRepRetVal = EFaultRepRetVal(0i32);
@@ -76,7 +76,7 @@ impl ::core::fmt::Debug for EFaultRepRetVal {
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HREPORT(pub isize);
 impl HREPORT {
     pub fn is_invalid(&self) -> bool {
@@ -103,7 +103,7 @@ unsafe impl ::windows::core::Abi for HREPORT {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HREPORTSTORE(pub isize);
 impl HREPORTSTORE {
     pub fn is_invalid(&self) -> bool {
@@ -142,7 +142,7 @@ pub type PFN_WER_RUNTIME_EXCEPTION_EVENT = ::core::option::Option<unsafe extern 
 pub type PFN_WER_RUNTIME_EXCEPTION_EVENT_SIGNATURE = ::core::option::Option<unsafe extern "system" fn(pcontext: *const ::core::ffi::c_void, pexceptioninformation: *const WER_RUNTIME_EXCEPTION_INFORMATION, dwindex: u32, pwszname: ::windows::core::PWSTR, pchname: *mut u32, pwszvalue: ::windows::core::PWSTR, pchvalue: *mut u32) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct REPORT_STORE_TYPES(pub i32);
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 pub const E_STORE_USER_ARCHIVE: REPORT_STORE_TYPES = REPORT_STORE_TYPES(0i32);
@@ -190,7 +190,7 @@ pub unsafe fn ReportFault(pep: *const super::Diagnostics::Debug::EXCEPTION_POINT
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WER_CONSENT(pub i32);
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 pub const WerConsentNotAsked: WER_CONSENT = WER_CONSENT(1i32);
@@ -423,7 +423,7 @@ pub const WER_DUMP_MASK_START: u32 = 1u32;
 pub const WER_DUMP_NOHEAP_ONQUEUE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WER_DUMP_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 pub const WerDumpTypeNone: WER_DUMP_TYPE = WER_DUMP_TYPE(0i32);
@@ -497,7 +497,7 @@ impl ::core::default::Default for WER_EXCEPTION_INFORMATION {
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WER_FAULT_REPORTING(pub u32);
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 pub const WER_FAULT_REPORTING_FLAG_DISABLE_THREAD_SUSPENSION: WER_FAULT_REPORTING = WER_FAULT_REPORTING(4u32);
@@ -570,7 +570,7 @@ pub const WER_FAULT_REPORTING_FLAG_NO_HEAP_ON_QUEUE: u32 = 64u32;
 pub const WER_FAULT_REPORTING_NO_UI: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WER_FILE(pub u32);
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 pub const WER_FILE_ANONYMOUS_DATA: WER_FILE = WER_FILE(2u32);
@@ -627,7 +627,7 @@ impl ::core::ops::Not for WER_FILE {
 pub const WER_FILE_COMPRESSED: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WER_FILE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 pub const WerFileTypeMicrodump: WER_FILE_TYPE = WER_FILE_TYPE(1i32);
@@ -726,7 +726,7 @@ pub const WER_P8: u32 = 8u32;
 pub const WER_P9: u32 = 9u32;
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WER_REGISTER_FILE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 pub const WerRegFileTypeUserDocument: WER_REGISTER_FILE_TYPE = WER_REGISTER_FILE_TYPE(1i32);
@@ -1224,7 +1224,7 @@ impl ::core::default::Default for WER_REPORT_SIGNATURE {
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WER_REPORT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 pub const WerReportNonCritical: WER_REPORT_TYPE = WER_REPORT_TYPE(0i32);
@@ -1259,7 +1259,7 @@ impl ::core::fmt::Debug for WER_REPORT_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WER_REPORT_UI(pub i32);
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 pub const WerUIAdditionalDataDlgHeader: WER_REPORT_UI = WER_REPORT_UI(1i32);
@@ -1353,7 +1353,7 @@ pub const WER_SUBMIT_BYPASS_NETWORK_COST_THROTTLING: u32 = 32768u32;
 pub const WER_SUBMIT_BYPASS_POWER_THROTTLING: u32 = 16384u32;
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WER_SUBMIT_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 pub const WER_SUBMIT_ADD_REGISTERED_DATA: WER_SUBMIT_FLAGS = WER_SUBMIT_FLAGS(16u32);
@@ -1432,7 +1432,7 @@ impl ::core::ops::Not for WER_SUBMIT_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WER_SUBMIT_RESULT(pub i32);
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 pub const WerReportQueued: WER_SUBMIT_RESULT = WER_SUBMIT_RESULT(1i32);

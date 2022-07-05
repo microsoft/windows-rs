@@ -571,7 +571,7 @@ unsafe impl ::core::marker::Send for AccelerometerReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for AccelerometerReadingChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AccelerometerReadingType(pub i32);
 impl AccelerometerReadingType {
     pub const Standard: Self = Self(0i32);
@@ -1151,7 +1151,7 @@ unsafe impl ::core::marker::Send for ActivitySensorReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for ActivitySensorReadingChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ActivitySensorReadingConfidence(pub i32);
 impl ActivitySensorReadingConfidence {
     pub const High: Self = Self(0i32);
@@ -1271,7 +1271,7 @@ unsafe impl ::core::marker::Send for ActivitySensorTriggerDetails {}
 unsafe impl ::core::marker::Sync for ActivitySensorTriggerDetails {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ActivityType(pub i32);
 impl ActivityType {
     pub const Unknown: Self = Self(0i32);
@@ -7130,7 +7130,7 @@ unsafe impl ::core::marker::Send for Magnetometer {}
 unsafe impl ::core::marker::Sync for Magnetometer {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MagnetometerAccuracy(pub i32);
 impl MagnetometerAccuracy {
     pub const Unknown: Self = Self(0i32);
@@ -8461,7 +8461,7 @@ unsafe impl ::core::marker::Send for PedometerReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for PedometerReadingChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PedometerStepKind(pub i32);
 impl PedometerStepKind {
     pub const Unknown: Self = Self(0i32);
@@ -9183,7 +9183,7 @@ unsafe impl ::core::marker::Send for SensorDataThresholdTriggerDetails {}
 unsafe impl ::core::marker::Sync for SensorDataThresholdTriggerDetails {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SensorOptimizationGoal(pub i32);
 impl SensorOptimizationGoal {
     pub const Precision: Self = Self(0i32);
@@ -9326,7 +9326,7 @@ unsafe impl ::core::marker::Send for SensorQuaternion {}
 unsafe impl ::core::marker::Sync for SensorQuaternion {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SensorReadingType(pub i32);
 impl SensorReadingType {
     pub const Absolute: Self = Self(0i32);
@@ -9509,7 +9509,7 @@ unsafe impl ::core::marker::Send for SensorRotationMatrix {}
 unsafe impl ::core::marker::Sync for SensorRotationMatrix {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SensorType(pub i32);
 impl SensorType {
     pub const Accelerometer: Self = Self(0i32);
@@ -9555,7 +9555,7 @@ unsafe impl ::windows::core::RuntimeType for SensorType {
 }
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SimpleOrientation(pub i32);
 impl SimpleOrientation {
     pub const NotRotated: Self = Self(0i32);

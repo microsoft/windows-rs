@@ -1,7 +1,7 @@
 #[doc = "*Required features: `\"System_Preview\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HingeState(pub i32);
 #[cfg(feature = "deprecated")]
 impl HingeState {

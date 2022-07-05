@@ -175,7 +175,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 #[doc = "*Required features: `\"Media_Playlists\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PlaylistFormat(pub i32);
 impl PlaylistFormat {
     pub const WindowsMedia: Self = Self(0i32);

@@ -106,7 +106,7 @@ pub const ANSI_CHARSET: u32 = 0u32;
 pub const ARABIC_CHARSET: u32 = 178u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ARC_DIRECTION(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const AD_COUNTERCLOCKWISE: ARC_DIRECTION = ARC_DIRECTION(1u32);
@@ -424,7 +424,7 @@ pub unsafe fn ArcTo<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BACKGROUND_MODE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const OPAQUE: BACKGROUND_MODE = BACKGROUND_MODE(2u32);
@@ -948,7 +948,7 @@ pub const CC_WIDE: u32 = 16u32;
 pub const CC_WIDESTYLED: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CDS_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CDS_FULLSCREEN: CDS_TYPE = CDS_TYPE(4u32);
@@ -1256,7 +1256,7 @@ pub const CP_REGION: u32 = 2u32;
 pub const CREATECOLORSPACE_EMBEDED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CREATE_FONT_PACKAGE_SUBSET_ENCODING(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TTFCFP_STD_MAC_CHAR_SET: CREATE_FONT_PACKAGE_SUBSET_ENCODING = CREATE_FONT_PACKAGE_SUBSET_ENCODING(0u32);
@@ -1285,7 +1285,7 @@ impl ::core::fmt::Debug for CREATE_FONT_PACKAGE_SUBSET_ENCODING {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CREATE_FONT_PACKAGE_SUBSET_PLATFORM(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TTFCFP_UNICODE_PLATFORMID: CREATE_FONT_PACKAGE_SUBSET_PLATFORM = CREATE_FONT_PACKAGE_SUBSET_PLATFORM(0u32);
@@ -1312,7 +1312,7 @@ impl ::core::fmt::Debug for CREATE_FONT_PACKAGE_SUBSET_PLATFORM {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CREATE_POLYGON_RGN_MODE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ALTERNATE: CREATE_POLYGON_RGN_MODE = CREATE_POLYGON_RGN_MODE(1u32);
@@ -2225,7 +2225,7 @@ pub unsafe fn CreateSolidBrush(color: u32) -> HBRUSH {
     unimplemented!("Unsupported target OS");
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CreatedHDC(pub isize);
 impl CreatedHDC {
     pub fn is_invalid(&self) -> bool {
@@ -2288,7 +2288,7 @@ pub const DC_DATATYPE_PRODUCED: u32 = 21u32;
 pub const DC_EMF_COMPLIANT: u32 = 20u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DC_LAYOUT(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const LAYOUT_BITMAPORIENTATIONPRESERVED: DC_LAYOUT = DC_LAYOUT(8u32);
@@ -2805,7 +2805,7 @@ impl ::core::default::Default for DEVMODEW_1 {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DFCS_STATE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DFCS_CAPTIONCLOSE: DFCS_STATE = DFCS_STATE(0u32);
@@ -2916,7 +2916,7 @@ impl ::core::ops::Not for DFCS_STATE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DFC_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DFC_CAPTION: DFC_TYPE = DFC_TYPE(1u32);
@@ -2991,7 +2991,7 @@ impl ::core::default::Default for DIBSECTION {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DIB_USAGE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DIB_RGB_COLORS: DIB_USAGE = DIB_USAGE(0u32);
@@ -3018,7 +3018,7 @@ impl ::core::fmt::Debug for DIB_USAGE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPLAYCONFIG_COLOR_ENCODING(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DISPLAYCONFIG_COLOR_ENCODING_RGB: DISPLAYCONFIG_COLOR_ENCODING = DISPLAYCONFIG_COLOR_ENCODING(0i32);
@@ -3195,7 +3195,7 @@ pub const DISPLAY_DEVICE_UNSAFE_MODES_ON: u32 = 524288u32;
 pub const DISPLAY_DEVICE_VGA_COMPATIBLE: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISP_CHANGE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DISP_CHANGE_SUCCESSFUL: DISP_CHANGE = DISP_CHANGE(0i32);
@@ -3699,7 +3699,7 @@ pub unsafe fn DPtoLP<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param
 pub const DRAFTMODE: u32 = 7u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DRAWEDGE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BDR_RAISEDOUTER: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(1u32);
@@ -3779,7 +3779,7 @@ pub const DRAWPATTERNRECT: u32 = 25u32;
 pub type DRAWSTATEPROC = ::core::option::Option<unsafe extern "system" fn(hdc: HDC, ldata: super::super::Foundation::LPARAM, wdata: super::super::Foundation::WPARAM, cx: i32, cy: i32) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DRAWSTATE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DST_COMPLEX: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(0u32);
@@ -3888,7 +3888,7 @@ impl ::core::default::Default for DRAWTEXTPARAMS {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DRAW_CAPTION_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DC_ACTIVE: DRAW_CAPTION_FLAGS = DRAW_CAPTION_FLAGS(1u32);
@@ -3953,7 +3953,7 @@ impl ::core::ops::Not for DRAW_CAPTION_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DRAW_EDGE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BF_ADJUST: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(8192u32);
@@ -4042,7 +4042,7 @@ impl ::core::ops::Not for DRAW_EDGE_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DRAW_TEXT_FORMAT(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DT_BOTTOM: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(8u32);
@@ -4402,7 +4402,7 @@ pub const ELF_VENDOR_SIZE: u32 = 4u32;
 pub const ELF_VERSION: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EMBEDDED_FONT_PRIV_STATUS(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMBED_PREVIEWPRINT: EMBEDDED_FONT_PRIV_STATUS = EMBEDDED_FONT_PRIV_STATUS(1u32);
@@ -4433,7 +4433,7 @@ impl ::core::fmt::Debug for EMBEDDED_FONT_PRIV_STATUS {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EMBED_FONT_CHARSET(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CHARSET_UNICODE: EMBED_FONT_CHARSET = EMBED_FONT_CHARSET(1u32);
@@ -7728,7 +7728,7 @@ pub const ENUMPAPERBINS: u32 = 31u32;
 pub const ENUMPAPERMETRICS: u32 = 34u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ENUM_DISPLAY_SETTINGS_MODE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ENUM_CURRENT_SETTINGS: ENUM_DISPLAY_SETTINGS_MODE = ENUM_DISPLAY_SETTINGS_MODE(4294967295u32);
@@ -7905,7 +7905,7 @@ pub const ERR_WRITECONTROL: u32 = 1004u32;
 pub const ERR_WRITEOUTOFBOUNDS: u32 = 1002u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ETO_OPTIONS(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ETO_OPAQUE: ETO_OPTIONS = ETO_OPTIONS(2u32);
@@ -8136,7 +8136,7 @@ pub const EXTTEXTOUT: u32 = 512u32;
 pub const EXT_DEVICE_CAPS: u32 = 4099u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EXT_FLOOD_FILL_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FLOODFILLBORDER: EXT_FLOOD_FILL_TYPE = EXT_FLOOD_FILL_TYPE(0u32);
@@ -8774,7 +8774,7 @@ pub type FONTENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0
 pub const FONTMAPPER_MAX: u32 = 10u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FONT_CLIP_PRECISION(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CLIP_CHARACTER_PRECIS: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(1u32);
@@ -8841,7 +8841,7 @@ impl ::core::ops::Not for FONT_CLIP_PRECISION {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FONT_LICENSE_PRIVS(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const LICENSE_PREVIEWPRINT: FONT_LICENSE_PRIVS = FONT_LICENSE_PRIVS(4u32);
@@ -8874,7 +8874,7 @@ impl ::core::fmt::Debug for FONT_LICENSE_PRIVS {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FONT_OUTPUT_PRECISION(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const OUT_CHARACTER_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(2u32);
@@ -8917,7 +8917,7 @@ impl ::core::fmt::Debug for FONT_OUTPUT_PRECISION {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FONT_PITCH_AND_FAMILY(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FF_DECORATIVE: FONT_PITCH_AND_FAMILY = FONT_PITCH_AND_FAMILY(80u32);
@@ -8952,7 +8952,7 @@ impl ::core::fmt::Debug for FONT_PITCH_AND_FAMILY {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FONT_QUALITY(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ANTIALIASED_QUALITY: FONT_QUALITY = FONT_QUALITY(4u32);
@@ -8987,7 +8987,7 @@ impl ::core::fmt::Debug for FONT_QUALITY {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FONT_RESOURCE_CHARACTERISTICS(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FR_PRIVATE: FONT_RESOURCE_CHARACTERISTICS = FONT_RESOURCE_CHARACTERISTICS(16u32);
@@ -9370,7 +9370,7 @@ pub const GETVECTORBRUSHSIZE: u32 = 27u32;
 pub const GETVECTORPENSIZE: u32 = 26u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GET_CHARACTER_PLACEMENT_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GCP_CLASSIN: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(524288u32);
@@ -9451,7 +9451,7 @@ impl ::core::ops::Not for GET_CHARACTER_PLACEMENT_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GET_DCX_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DCX_WINDOW: GET_DCX_FLAGS = GET_DCX_FLAGS(1u32);
@@ -9524,7 +9524,7 @@ impl ::core::ops::Not for GET_DCX_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GET_DEVICE_CAPS_INDEX(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DRIVERVERSION: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(0u32);
@@ -9627,7 +9627,7 @@ impl ::core::fmt::Debug for GET_DEVICE_CAPS_INDEX {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GET_GLYPH_OUTLINE_FORMAT(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GGO_BEZIER: GET_GLYPH_OUTLINE_FORMAT = GET_GLYPH_OUTLINE_FORMAT(3u32);
@@ -9670,7 +9670,7 @@ impl ::core::fmt::Debug for GET_GLYPH_OUTLINE_FORMAT {
 pub const GET_PS_FEATURESETTING: u32 = 4121u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GET_STOCK_OBJECT_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BLACK_BRUSH: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(4u32);
@@ -9816,7 +9816,7 @@ pub const GM_LAST: u32 = 2u32;
 pub type GOBJENUMPROC = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: super::super::Foundation::LPARAM) -> i32>;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GRADIENT_FILL(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GRADIENT_FILL_RECT_H: GRADIENT_FILL = GRADIENT_FILL(0u32);
@@ -9910,7 +9910,7 @@ impl ::core::default::Default for GRADIENT_TRIANGLE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GRAPHICS_MODE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GM_COMPATIBLE: GRAPHICS_MODE = GRAPHICS_MODE(1u32);
@@ -11720,7 +11720,7 @@ pub const HANGEUL_CHARSET: u32 = 129u32;
 pub const HANGUL_CHARSET: u32 = 129u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HATCH_BRUSH_STYLE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const HS_BDIAGONAL: HATCH_BRUSH_STYLE = HATCH_BRUSH_STYLE(3u32);
@@ -11754,7 +11754,7 @@ impl ::core::fmt::Debug for HATCH_BRUSH_STYLE {
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HBITMAP(pub isize);
 impl HBITMAP {
     pub fn is_invalid(&self) -> bool {
@@ -11786,7 +11786,7 @@ impl<'a> ::windows::core::IntoParam<'a, HGDIOBJ> for HBITMAP {
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HBRUSH(pub isize);
 impl HBRUSH {
     pub fn is_invalid(&self) -> bool {
@@ -11818,7 +11818,7 @@ impl<'a> ::windows::core::IntoParam<'a, HGDIOBJ> for HBRUSH {
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HDC(pub isize);
 impl HDC {
     pub fn is_invalid(&self) -> bool {
@@ -11846,7 +11846,7 @@ unsafe impl ::windows::core::Abi for HDC {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HDC_MAP_MODE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const MM_ANISOTROPIC: HDC_MAP_MODE = HDC_MAP_MODE(8u32);
@@ -11886,7 +11886,7 @@ impl ::core::fmt::Debug for HDC_MAP_MODE {
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const HEBREW_CHARSET: u32 = 177u32;
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HENHMETAFILE(pub isize);
 impl HENHMETAFILE {
     pub fn is_invalid(&self) -> bool {
@@ -11913,7 +11913,7 @@ unsafe impl ::windows::core::Abi for HENHMETAFILE {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HFONT(pub isize);
 impl HFONT {
     pub fn is_invalid(&self) -> bool {
@@ -11945,7 +11945,7 @@ impl<'a> ::windows::core::IntoParam<'a, HGDIOBJ> for HFONT {
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HGDIOBJ(pub isize);
 impl HGDIOBJ {
     pub fn is_invalid(&self) -> bool {
@@ -11972,7 +11972,7 @@ unsafe impl ::windows::core::Abi for HGDIOBJ {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HMETAFILE(pub isize);
 impl HMETAFILE {
     pub fn is_invalid(&self) -> bool {
@@ -11999,7 +11999,7 @@ unsafe impl ::windows::core::Abi for HMETAFILE {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HMONITOR(pub isize);
 impl HMONITOR {
     pub fn is_invalid(&self) -> bool {
@@ -12026,7 +12026,7 @@ unsafe impl ::windows::core::Abi for HMONITOR {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HPALETTE(pub isize);
 impl HPALETTE {
     pub fn is_invalid(&self) -> bool {
@@ -12058,7 +12058,7 @@ impl<'a> ::windows::core::IntoParam<'a, HGDIOBJ> for HPALETTE {
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HPEN(pub isize);
 impl HPEN {
     pub fn is_invalid(&self) -> bool {
@@ -12090,7 +12090,7 @@ impl<'a> ::windows::core::IntoParam<'a, HGDIOBJ> for HPEN {
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HRGN(pub isize);
 impl HRGN {
     pub fn is_invalid(&self) -> bool {
@@ -12124,7 +12124,7 @@ impl<'a> ::windows::core::IntoParam<'a, HGDIOBJ> for HRGN {
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const HS_API_MAX: u32 = 12u32;
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HdcMetdataEnhFileHandle(pub isize);
 impl HdcMetdataEnhFileHandle {
     pub fn is_invalid(&self) -> bool {
@@ -12151,7 +12151,7 @@ unsafe impl ::windows::core::Abi for HdcMetdataEnhFileHandle {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HdcMetdataFileHandle(pub isize);
 impl HdcMetdataFileHandle {
     pub fn is_invalid(&self) -> bool {
@@ -13030,7 +13030,7 @@ pub const MM_MAX_AXES_NAMELEN: u32 = 16u32;
 pub const MM_MAX_NUMAXES: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MODIFY_WORLD_TRANSFORM_MODE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const MWT_IDENTITY: MODIFY_WORLD_TRANSFORM_MODE = MODIFY_WORLD_TRANSFORM_MODE(1u32);
@@ -13181,7 +13181,7 @@ impl ::core::default::Default for MONITORINFOEXW {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MONITOR_FROM_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const MONITOR_DEFAULTTONEAREST: MONITOR_FROM_FLAGS = MONITOR_FROM_FLAGS(2u32);
@@ -13528,7 +13528,7 @@ pub const NTM_TYPE1: u32 = 1048576u32;
 pub const NULLREGION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OBJ_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const OBJ_PEN: OBJ_TYPE = OBJ_TYPE(1i32);
@@ -14257,7 +14257,7 @@ impl ::core::default::Default for PELARRAY {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PEN_STYLE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PS_GEOMETRIC: PEN_STYLE = PEN_STYLE(65536u32);
@@ -14883,7 +14883,7 @@ pub const QUERYESCSUPPORT: u32 = 8u32;
 pub const QUERYROPSUPPORT: u32 = 40u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct R2_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const R2_BLACK: R2_MODE = R2_MODE(1i32);
@@ -15010,7 +15010,7 @@ pub const RDH_RECTANGLES: u32 = 1u32;
 pub type READEMBEDPROC = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: *mut ::core::ffi::c_void, param2: u32) -> u32>;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct REDRAW_WINDOW_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const RDW_INVALIDATE: REDRAW_WINDOW_FLAGS = REDRAW_WINDOW_FLAGS(1u32);
@@ -15235,7 +15235,7 @@ impl ::core::default::Default for RGNDATAHEADER {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RGN_COMBINE_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const RGN_AND: RGN_COMBINE_MODE = RGN_COMBINE_MODE(1i32);
@@ -15274,7 +15274,7 @@ impl ::core::fmt::Debug for RGN_COMBINE_MODE {
 pub const RGN_ERROR: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ROP_CODE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SRCCOPY: ROP_CODE = ROP_CODE(13369376u32);
@@ -15652,7 +15652,7 @@ pub const SET_BACKGROUND_COLOR: u32 = 4103u32;
 pub const SET_BOUNDS: u32 = 4109u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SET_BOUNDS_RECT_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DCB_ACCUMULATE: SET_BOUNDS_RECT_FLAGS = SET_BOUNDS_RECT_FLAGS(2u32);
@@ -15717,7 +15717,7 @@ pub const STOCK_LAST: u32 = 19u32;
 pub const STRETCHBLT: u32 = 2048u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STRETCH_BLT_MODE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BLACKONWHITE: STRETCH_BLT_MODE = STRETCH_BLT_MODE(1u32);
@@ -15762,7 +15762,7 @@ pub const SYSPAL_ERROR: u32 = 0u32;
 pub const SYSRGN: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SYSTEM_PALETTE_USE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SYSPAL_NOSTATIC: SYSTEM_PALETTE_USE = SYSTEM_PALETTE_USE(2u32);
@@ -16746,7 +16746,7 @@ impl ::core::default::Default for TEXTMETRICW {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TEXT_ALIGN_OPTIONS(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TA_NOUPDATECP: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(0u32);
@@ -16917,7 +16917,7 @@ pub const TTEMBED_EUDCEMBEDDED: u32 = 2u32;
 pub const TTEMBED_FAILIFVARIATIONSIMULATED: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TTEMBED_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TTEMBED_EMBEDEUDC: TTEMBED_FLAGS = TTEMBED_FLAGS(32u32);
@@ -17188,7 +17188,7 @@ impl ::core::default::Default for TTLOADINFO {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TTLOAD_EMBEDDED_FONT_STATUS(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TTLOAD_FONT_SUBSETTED: TTLOAD_EMBEDDED_FONT_STATUS = TTLOAD_EMBEDDED_FONT_STATUS(1u32);

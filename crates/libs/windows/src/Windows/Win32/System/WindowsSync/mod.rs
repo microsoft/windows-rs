@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CONFLICT_RESOLUTION_POLICY(pub i32);
 #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const CRP_NONE: CONFLICT_RESOLUTION_POLICY = CONFLICT_RESOLUTION_POLICY(0i32);
@@ -31,7 +31,7 @@ impl ::core::fmt::Debug for CONFLICT_RESOLUTION_POLICY {
 }
 #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CONSTRAINT_CONFLICT_REASON(pub i32);
 #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const CCR_OTHER: CONSTRAINT_CONFLICT_REASON = CONSTRAINT_CONFLICT_REASON(0i32);
@@ -62,7 +62,7 @@ impl ::core::fmt::Debug for CONSTRAINT_CONFLICT_REASON {
 }
 #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILTERING_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const FT_CURRENT_ITEMS_ONLY: FILTERING_TYPE = FILTERING_TYPE(0i32);
@@ -89,7 +89,7 @@ impl ::core::fmt::Debug for FILTERING_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILTER_COMBINATION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const FCT_INTERSECTION: FILTER_COMBINATION_TYPE = FILTER_COMBINATION_TYPE(0i32);
@@ -7017,7 +7017,7 @@ pub struct ISynchronousDataRetriever_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KNOWLEDGE_COOKIE_COMPARISON_RESULT(pub i32);
 #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const KCCR_COOKIE_KNOWLEDGE_EQUAL: KNOWLEDGE_COOKIE_COMPARISON_RESULT = KNOWLEDGE_COOKIE_COMPARISON_RESULT(0i32);
@@ -7120,7 +7120,7 @@ pub const SYNC_CHANGE_FLAG_DOES_NOT_EXIST: u32 = 2u32;
 pub const SYNC_CHANGE_FLAG_GHOST: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SYNC_CONSTRAINT_RESOLVE_ACTION(pub i32);
 #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const SCRA_DEFER: SYNC_CONSTRAINT_RESOLVE_ACTION = SYNC_CONSTRAINT_RESOLVE_ACTION(0i32);
@@ -7204,7 +7204,7 @@ pub const SYNC_FILTER_INFO_FLAG_CUSTOM: u32 = 4u32;
 pub const SYNC_FILTER_INFO_FLAG_ITEM_LIST: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SYNC_FULL_ENUMERATION_ACTION(pub i32);
 #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const SFEA_FULL_ENUMERATION: SYNC_FULL_ENUMERATION_ACTION = SYNC_FULL_ENUMERATION_ACTION(0i32);
@@ -7233,7 +7233,7 @@ impl ::core::fmt::Debug for SYNC_FULL_ENUMERATION_ACTION {
 }
 #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SYNC_PROGRESS_STAGE(pub i32);
 #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const SPS_CHANGE_DETECTION: SYNC_PROGRESS_STAGE = SYNC_PROGRESS_STAGE(0i32);
@@ -7262,7 +7262,7 @@ impl ::core::fmt::Debug for SYNC_PROGRESS_STAGE {
 }
 #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SYNC_PROVIDER_ROLE(pub i32);
 #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const SPR_SOURCE: SYNC_PROVIDER_ROLE = SYNC_PROVIDER_ROLE(0i32);
@@ -7320,7 +7320,7 @@ impl ::core::default::Default for SYNC_RANGE {
 }
 #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SYNC_REGISTRATION_EVENT(pub i32);
 #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const SRE_PROVIDER_ADDED: SYNC_REGISTRATION_EVENT = SYNC_REGISTRATION_EVENT(0i32);
@@ -7357,7 +7357,7 @@ impl ::core::fmt::Debug for SYNC_REGISTRATION_EVENT {
 }
 #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SYNC_RESOLVE_ACTION(pub i32);
 #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const SRA_DEFER: SYNC_RESOLVE_ACTION = SYNC_RESOLVE_ACTION(0i32);
@@ -7392,7 +7392,7 @@ impl ::core::fmt::Debug for SYNC_RESOLVE_ACTION {
 }
 #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SYNC_SERIALIZATION_VERSION(pub i32);
 #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const SYNC_SERIALIZATION_VERSION_V1: SYNC_SERIALIZATION_VERSION = SYNC_SERIALIZATION_VERSION(1i32);
@@ -7454,7 +7454,7 @@ impl ::core::default::Default for SYNC_SESSION_STATISTICS {
 }
 #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SYNC_STATISTICS(pub i32);
 #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const SYNC_STATISTICS_RANGE_COUNT: SYNC_STATISTICS = SYNC_STATISTICS(0i32);

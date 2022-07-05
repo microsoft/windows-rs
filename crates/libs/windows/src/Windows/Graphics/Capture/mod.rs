@@ -336,7 +336,7 @@ impl ::windows::core::RuntimeName for GraphicsCaptureAccess {
 }
 #[doc = "*Required features: `\"Graphics_Capture\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GraphicsCaptureAccessKind(pub i32);
 impl GraphicsCaptureAccessKind {
     pub const Borderless: Self = Self(0i32);

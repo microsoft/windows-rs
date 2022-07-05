@@ -627,7 +627,7 @@ impl ::core::default::Default for PACKET_PARAMETERS {
 pub const PIPE_TRANSFER_TIMEOUT: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PIPE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub const EVENT_PIPE: PIPE_TYPE = PIPE_TYPE(0i32);
@@ -686,7 +686,7 @@ pub const PORT_LINK_STATE_U3: u32 = 3u32;
 pub const RAW_IO: u32 = 7u32;
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RAW_PIPE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub const USBSCAN_PIPE_CONTROL: RAW_PIPE_TYPE = RAW_PIPE_TYPE(0i32);
@@ -1068,7 +1068,7 @@ impl ::core::default::Default for USBD_ENDPOINT_OFFLOAD_INFORMATION {
 }
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct USBD_ENDPOINT_OFFLOAD_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub const UsbdEndpointOffloadModeNotSupported: USBD_ENDPOINT_OFFLOAD_MODE = USBD_ENDPOINT_OFFLOAD_MODE(0i32);
@@ -1226,7 +1226,7 @@ impl ::core::default::Default for USBD_PIPE_INFORMATION {
 }
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct USBD_PIPE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub const UsbdPipeTypeControl: USBD_PIPE_TYPE = USBD_PIPE_TYPE(0i32);
@@ -1375,7 +1375,7 @@ impl ::core::default::Default for USBFN_BUS_CONFIGURATION_INFO {
 }
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct USBFN_BUS_SPEED(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub const UsbfnBusSpeedLow: USBFN_BUS_SPEED = USBFN_BUS_SPEED(0i32);
@@ -1537,7 +1537,7 @@ impl ::core::default::Default for USBFN_CLASS_INTERFACE_EX {
 }
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct USBFN_DEVICE_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub const UsbfnDeviceStateMinimum: USBFN_DEVICE_STATE = USBFN_DEVICE_STATE(0i32);
@@ -1576,7 +1576,7 @@ impl ::core::fmt::Debug for USBFN_DEVICE_STATE {
 }
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct USBFN_DIRECTION(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub const UsbfnDirectionMinimum: USBFN_DIRECTION = USBFN_DIRECTION(0i32);
@@ -1611,7 +1611,7 @@ impl ::core::fmt::Debug for USBFN_DIRECTION {
 }
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct USBFN_EVENT(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub const UsbfnEventMinimum: USBFN_EVENT = USBFN_EVENT(0i32);
@@ -1776,7 +1776,7 @@ impl ::core::default::Default for USBFN_PIPE_INFORMATION {
 }
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct USBFN_PORT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub const UsbfnUnknownPort: USBFN_PORT_TYPE = USBFN_PORT_TYPE(0i32);
@@ -2997,7 +2997,7 @@ pub const USB_CONFIG_RESERVED: u32 = 31u32;
 pub const USB_CONFIG_SELF_POWERED: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct USB_CONTROLLER_FLAVOR(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub const USB_HcGeneric: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(0i32);
@@ -4211,7 +4211,7 @@ impl ::core::default::Default for USB_DEVICE_QUALIFIER_DESCRIPTOR {
 pub const USB_DEVICE_QUALIFIER_DESCRIPTOR_TYPE: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct USB_DEVICE_SPEED(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub const UsbLowSpeed: USB_DEVICE_SPEED = USB_DEVICE_SPEED(0i32);
@@ -4293,7 +4293,7 @@ impl ::core::default::Default for USB_DEVICE_STATUS_0 {
 }
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct USB_DEVICE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub const Usb11Device: USB_DEVICE_TYPE = USB_DEVICE_TYPE(0i32);
@@ -6010,7 +6010,7 @@ impl ::core::default::Default for USB_USB2HW_VERSION_PARAMETERS {
 }
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct USB_USER_ERROR_CODE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub const UsbUserSuccess: USB_USER_ERROR_CODE = USB_USER_ERROR_CODE(0i32);
@@ -6055,7 +6055,7 @@ impl ::core::fmt::Debug for USB_USER_ERROR_CODE {
 }
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WDMUSB_POWER_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub const WdmUsbPowerNotMapped: WDMUSB_POWER_STATE = WDMUSB_POWER_STATE(0i32);

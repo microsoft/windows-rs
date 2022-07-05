@@ -74,7 +74,7 @@ impl ::core::default::Default for CountedString {
 }
 #[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ExtendedIsolationState(pub i32);
 #[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
 pub const extendedIsolationStateNoData: ExtendedIsolationState = ExtendedIsolationState(0i32);
@@ -105,7 +105,7 @@ impl ::core::fmt::Debug for ExtendedIsolationState {
 }
 #[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FailureCategory(pub i32);
 #[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
 pub const failureCategoryNone: FailureCategory = FailureCategory(0i32);
@@ -211,7 +211,7 @@ impl ::core::default::Default for FixupInfo {
 }
 #[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FixupState(pub i32);
 #[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
 pub const fixupStateSuccess: FixupState = FixupState(0i32);
@@ -381,7 +381,7 @@ impl ::core::default::Default for IsolationInfoEx {
 }
 #[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IsolationState(pub i32);
 #[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
 pub const isolationStateNotRestricted: IsolationState = IsolationState(1i32);
@@ -456,7 +456,7 @@ impl ::core::default::Default for NapComponentRegistrationInfo {
 }
 #[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NapNotifyType(pub i32);
 #[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
 pub const napNotifyTypeUnknown: NapNotifyType = NapNotifyType(0i32);
@@ -485,7 +485,7 @@ impl ::core::fmt::Debug for NapNotifyType {
 }
 #[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NapTracingLevel(pub i32);
 #[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
 pub const tracingLevelUndefined: NapTracingLevel = NapTracingLevel(0i32);
@@ -578,7 +578,7 @@ impl ::core::default::Default for PrivateData {
 }
 #[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RemoteConfigurationType(pub i32);
 #[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
 pub const remoteConfigTypeMachine: RemoteConfigurationType = RemoteConfigurationType(1i32);

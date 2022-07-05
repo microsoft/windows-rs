@@ -74,7 +74,7 @@ pub const APP_CACHE_ENTRY_TYPE_MANIFEST: u32 = 16u32;
 pub const APP_CACHE_ENTRY_TYPE_MASTER: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct APP_CACHE_FINALIZE_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const AppCacheFinalizeStateIncomplete: APP_CACHE_FINALIZE_STATE = APP_CACHE_FINALIZE_STATE(0i32);
@@ -184,7 +184,7 @@ impl ::core::default::Default for APP_CACHE_GROUP_LIST {
 pub const APP_CACHE_LOOKUP_NO_MASTER_ONLY: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct APP_CACHE_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const AppCacheStateNoUpdateNeeded: APP_CACHE_STATE = APP_CACHE_STATE(0i32);
@@ -633,7 +633,7 @@ pub const CACHEGROUP_SEARCH_BYURL: u32 = 1u32;
 pub const CACHEGROUP_TYPE_INVALID: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CACHE_CONFIG(pub u32);
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const CACHE_CONFIG_FORCE_CLEANUP_FC: CACHE_CONFIG = CACHE_CONFIG(32u32);
@@ -1533,7 +1533,7 @@ pub const FLAGS_ERROR_UI_SHOW_IDN_HOSTNAME: u32 = 32u32;
 pub const FLAG_ICC_FORCE_CONNECTION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FORTCMD(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const FORTCMD_LOGON: FORTCMD = FORTCMD(1i32);
@@ -1562,7 +1562,7 @@ impl ::core::fmt::Debug for FORTCMD {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FORTSTAT(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const FORTSTAT_INSTALLED: FORTSTAT = FORTSTAT(1i32);
@@ -1589,7 +1589,7 @@ impl ::core::fmt::Debug for FORTSTAT {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FTP_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const FTP_TRANSFER_TYPE_ASCII: FTP_FLAGS = FTP_FLAGS(1u32);
@@ -2930,7 +2930,7 @@ impl ::core::default::Default for GOPHER_TTL_ATTRIBUTE_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GOPHER_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const GOPHER_TYPE_ASK: GOPHER_TYPE = GOPHER_TYPE(1073741824u32);
@@ -3470,7 +3470,7 @@ pub const HSR_USE_CONTEXT: u32 = 8u32;
 pub const HTTP_1_1_CACHE_ENTRY: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_ADDREQ_FLAG(pub u32);
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const HTTP_ADDREQ_FLAG_ADD: HTTP_ADDREQ_FLAG = HTTP_ADDREQ_FLAG(536870912u32);
@@ -3559,7 +3559,7 @@ pub type HTTP_POLICY_EXTENSION_INIT = ::core::option::Option<unsafe extern "syst
 pub type HTTP_POLICY_EXTENSION_SHUTDOWN = ::core::option::Option<unsafe extern "system" fn(r#type: HTTP_POLICY_EXTENSION_TYPE) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_POLICY_EXTENSION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const POLICY_EXTENSION_TYPE_NONE: HTTP_POLICY_EXTENSION_TYPE = HTTP_POLICY_EXTENSION_TYPE(0i32);
@@ -3588,7 +3588,7 @@ impl ::core::fmt::Debug for HTTP_POLICY_EXTENSION_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_POLICY_EXTENSION_VERSION(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const POLICY_EXTENSION_VERSION1: HTTP_POLICY_EXTENSION_VERSION = HTTP_POLICY_EXTENSION_VERSION(1i32);
@@ -3686,7 +3686,7 @@ impl ::core::default::Default for HTTP_PUSH_TRANSPORT_SETTING {
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_PUSH_WAIT_HANDLE(pub isize);
 impl HTTP_PUSH_WAIT_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -3714,7 +3714,7 @@ unsafe impl ::windows::core::Abi for HTTP_PUSH_WAIT_HANDLE {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_PUSH_WAIT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const HttpPushWaitEnableComplete: HTTP_PUSH_WAIT_TYPE = HTTP_PUSH_WAIT_TYPE(0i32);
@@ -4023,7 +4023,7 @@ impl ::core::default::Default for HTTP_WEB_SOCKET_ASYNC_RESULT {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_WEB_SOCKET_BUFFER_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const HTTP_WEB_SOCKET_BINARY_MESSAGE_TYPE: HTTP_WEB_SOCKET_BUFFER_TYPE = HTTP_WEB_SOCKET_BUFFER_TYPE(0i32);
@@ -4058,7 +4058,7 @@ impl ::core::fmt::Debug for HTTP_WEB_SOCKET_BUFFER_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_WEB_SOCKET_CLOSE_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const HTTP_WEB_SOCKET_SUCCESS_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = HTTP_WEB_SOCKET_CLOSE_STATUS(1000i32);
@@ -4109,7 +4109,7 @@ pub const HTTP_WEB_SOCKET_MAX_CLOSE_REASON_LENGTH: u32 = 123u32;
 pub const HTTP_WEB_SOCKET_MIN_KEEPALIVE_VALUE: u32 = 10000u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_WEB_SOCKET_OPERATION(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const HTTP_WEB_SOCKET_SEND_OPERATION: HTTP_WEB_SOCKET_OPERATION = HTTP_WEB_SOCKET_OPERATION(0i32);
@@ -4795,7 +4795,7 @@ pub const INTERENT_GOONLINE_NOPROMPT: u32 = 2u32;
 pub const INTERENT_GOONLINE_REFRESH: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct INTERNET_ACCESS_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const INTERNET_OPEN_TYPE_DIRECT: INTERNET_ACCESS_TYPE = INTERNET_ACCESS_TYPE(1u32);
@@ -4902,7 +4902,7 @@ pub const INTERNET_AUTH_SCHEME_PASSPORT: u32 = 5u32;
 pub const INTERNET_AUTH_SCHEME_UNKNOWN: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct INTERNET_AUTODIAL(pub u32);
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const INTERNET_AUTODIAL_FAILIFSECURITYCHECK: INTERNET_AUTODIAL = INTERNET_AUTODIAL(4u32);
@@ -5811,7 +5811,7 @@ impl ::core::default::Default for INTERNET_CONNECTED_INFO {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct INTERNET_CONNECTION(pub u32);
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const INTERNET_CONNECTION_CONFIGURED: INTERNET_CONNECTION = INTERNET_CONNECTION(64u32);
@@ -5978,7 +5978,7 @@ pub const INTERNET_COOKIE_EDGE_COOKIES: u32 = 262144u32;
 pub const INTERNET_COOKIE_EVALUATE_P3P: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct INTERNET_COOKIE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const INTERNET_COOKIE_HTTPONLY: INTERNET_COOKIE_FLAGS = INTERNET_COOKIE_FLAGS(8192u32);
@@ -6810,7 +6810,7 @@ pub const INTERNET_OPTION_WRITE_BUFFER_SIZE: u32 = 13u32;
 pub const INTERNET_OPTION_WWA_MODE: u32 = 125u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct INTERNET_PER_CONN(pub u32);
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const INTERNET_PER_CONN_AUTOCONFIG_URL: INTERNET_PER_CONN = INTERNET_PER_CONN(4u32);
@@ -7162,7 +7162,7 @@ pub const INTERNET_RFC1123_BUFSIZE: u32 = 30u32;
 pub const INTERNET_RFC1123_FORMAT: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct INTERNET_SCHEME(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const INTERNET_SCHEME_PARTIAL: INTERNET_SCHEME = INTERNET_SCHEME(-2i32);
@@ -7355,7 +7355,7 @@ pub const INTERNET_SERVICE_HTTP: u32 = 3u32;
 pub const INTERNET_SERVICE_URL: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct INTERNET_STATE(pub u32);
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const INTERNET_STATE_CONNECTED: INTERNET_STATE = INTERNET_STATE(1u32);
@@ -8071,7 +8071,7 @@ impl ::core::default::Default for InternetCookieHistory {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InternetCookieState(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const COOKIE_STATE_UNKNOWN: InternetCookieState = InternetCookieState(0i32);
@@ -9529,7 +9529,7 @@ pub const PRIVACY_TYPE_FIRST_PARTY: u32 = 0u32;
 pub const PRIVACY_TYPE_THIRD_PARTY: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROXY_AUTO_DETECT_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const PROXY_AUTO_DETECT_TYPE_DHCP: PROXY_AUTO_DETECT_TYPE = PROXY_AUTO_DETECT_TYPE(1u32);
@@ -9689,7 +9689,7 @@ pub const REGSTR_DIAL_AUTOCONNECT: &str = "AutoConnect";
 pub const REGSTR_LEASH_LEGACY_COOKIES: &str = "LeashLegacyCookies";
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct REQUEST_TIMES(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const NameResolutionStart: REQUEST_TIMES = REQUEST_TIMES(0i32);
@@ -10189,7 +10189,7 @@ impl ::core::default::Default for URLCACHE_ENTRY_INFO {
 pub const URLHISTORY_CACHE_ENTRY: u32 = 2097152u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct URL_CACHE_LIMIT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const UrlCacheLimitTypeIE: URL_CACHE_LIMIT_TYPE = URL_CACHE_LIMIT_TYPE(0i32);
@@ -10777,7 +10777,7 @@ impl ::core::default::Default for WININET_PROXY_INFO_LIST {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WININET_SYNC_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const WININET_SYNC_MODE_NEVER: WININET_SYNC_MODE = WININET_SYNC_MODE(0i32);
@@ -10812,7 +10812,7 @@ impl ::core::fmt::Debug for WININET_SYNC_MODE {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPAD_CACHE_DELETE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const WPAD_CACHE_DELETE_CURRENT: WPAD_CACHE_DELETE = WPAD_CACHE_DELETE(0i32);

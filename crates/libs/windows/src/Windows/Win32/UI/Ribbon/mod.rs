@@ -817,7 +817,7 @@ pub const UIRibbonImageFromBitmapFactory: ::windows::core::GUID = ::windows::cor
 pub const UI_ALL_COMMANDS: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_COLLECTIONCHANGE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_COLLECTIONCHANGE_INSERT: UI_COLLECTIONCHANGE = UI_COLLECTIONCHANGE(0i32);
@@ -850,7 +850,7 @@ impl ::core::fmt::Debug for UI_COLLECTIONCHANGE {
 pub const UI_COLLECTION_INVALIDINDEX: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_COMMANDTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_COMMANDTYPE_UNKNOWN: UI_COMMANDTYPE = UI_COMMANDTYPE(0i32);
@@ -899,7 +899,7 @@ impl ::core::fmt::Debug for UI_COMMANDTYPE {
 }
 #[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_CONTEXTAVAILABILITY(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_CONTEXTAVAILABILITY_NOTAVAILABLE: UI_CONTEXTAVAILABILITY = UI_CONTEXTAVAILABILITY(0i32);
@@ -928,7 +928,7 @@ impl ::core::fmt::Debug for UI_CONTEXTAVAILABILITY {
 }
 #[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_CONTROLDOCK(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_CONTROLDOCK_TOP: UI_CONTROLDOCK = UI_CONTROLDOCK(1i32);
@@ -955,7 +955,7 @@ impl ::core::fmt::Debug for UI_CONTROLDOCK {
 }
 #[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_EVENTLOCATION(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_EVENTLOCATION_Ribbon: UI_EVENTLOCATION = UI_EVENTLOCATION(0i32);
@@ -1073,7 +1073,7 @@ impl ::core::default::Default for UI_EVENTPARAMS_COMMAND {
 }
 #[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_EVENTTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_EVENTTYPE_ApplicationMenuOpened: UI_EVENTTYPE = UI_EVENTTYPE(0i32);
@@ -1112,7 +1112,7 @@ impl ::core::fmt::Debug for UI_EVENTTYPE {
 }
 #[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_EXECUTIONVERB(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_EXECUTIONVERB_EXECUTE: UI_EXECUTIONVERB = UI_EXECUTIONVERB(0i32);
@@ -1141,7 +1141,7 @@ impl ::core::fmt::Debug for UI_EXECUTIONVERB {
 }
 #[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_FONTDELTASIZE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_FONTDELTASIZE_GROW: UI_FONTDELTASIZE = UI_FONTDELTASIZE(0i32);
@@ -1168,7 +1168,7 @@ impl ::core::fmt::Debug for UI_FONTDELTASIZE {
 }
 #[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_FONTPROPERTIES(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_FONTPROPERTIES_NOTAVAILABLE: UI_FONTPROPERTIES = UI_FONTPROPERTIES(0i32);
@@ -1197,7 +1197,7 @@ impl ::core::fmt::Debug for UI_FONTPROPERTIES {
 }
 #[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_FONTUNDERLINE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_FONTUNDERLINE_NOTAVAILABLE: UI_FONTUNDERLINE = UI_FONTUNDERLINE(0i32);
@@ -1226,7 +1226,7 @@ impl ::core::fmt::Debug for UI_FONTUNDERLINE {
 }
 #[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_FONTVERTICALPOSITION(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_FONTVERTICALPOSITION_NOTAVAILABLE: UI_FONTVERTICALPOSITION = UI_FONTVERTICALPOSITION(0i32);
@@ -1257,7 +1257,7 @@ impl ::core::fmt::Debug for UI_FONTVERTICALPOSITION {
 }
 #[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_INVALIDATIONS(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_INVALIDATIONS_STATE: UI_INVALIDATIONS = UI_INVALIDATIONS(1i32);
@@ -1288,7 +1288,7 @@ impl ::core::fmt::Debug for UI_INVALIDATIONS {
 }
 #[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_OWNERSHIP(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_OWNERSHIP_TRANSFER: UI_OWNERSHIP = UI_OWNERSHIP(0i32);
@@ -1315,7 +1315,7 @@ impl ::core::fmt::Debug for UI_OWNERSHIP {
 }
 #[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_SWATCHCOLORMODE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_SWATCHCOLORMODE_NORMAL: UI_SWATCHCOLORMODE = UI_SWATCHCOLORMODE(0i32);
@@ -1342,7 +1342,7 @@ impl ::core::fmt::Debug for UI_SWATCHCOLORMODE {
 }
 #[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_SWATCHCOLORTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_SWATCHCOLORTYPE_NOCOLOR: UI_SWATCHCOLORTYPE = UI_SWATCHCOLORTYPE(0i32);
@@ -1371,7 +1371,7 @@ impl ::core::fmt::Debug for UI_SWATCHCOLORTYPE {
 }
 #[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_VIEWTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_VIEWTYPE_RIBBON: UI_VIEWTYPE = UI_VIEWTYPE(1i32);
@@ -1396,7 +1396,7 @@ impl ::core::fmt::Debug for UI_VIEWTYPE {
 }
 #[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_VIEWVERB(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_VIEWVERB_CREATE: UI_VIEWVERB = UI_VIEWVERB(0i32);

@@ -3055,7 +3055,7 @@ pub struct IVssWriterImpl_Vtbl {
 pub const VSSCoordinator: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe579ab5f_1cc4_44b4_bed9_de0991ff0623);
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VSS_ALTERNATE_WRITER_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 pub const VSS_AWS_UNDEFINED: VSS_ALTERNATE_WRITER_STATE = VSS_ALTERNATE_WRITER_STATE(0i32);
@@ -3086,7 +3086,7 @@ impl ::core::fmt::Debug for VSS_ALTERNATE_WRITER_STATE {
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VSS_APPLICATION_LEVEL(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 pub const VSS_APP_UNKNOWN: VSS_APPLICATION_LEVEL = VSS_APPLICATION_LEVEL(0i32);
@@ -3125,7 +3125,7 @@ pub const VSS_ASSOC_NO_MAX_SPACE: i32 = -1i32;
 pub const VSS_ASSOC_REMOVE: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VSS_BACKUP_SCHEMA(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 pub const VSS_BS_UNDEFINED: VSS_BACKUP_SCHEMA = VSS_BACKUP_SCHEMA(0i32);
@@ -3180,7 +3180,7 @@ impl ::core::fmt::Debug for VSS_BACKUP_SCHEMA {
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VSS_BACKUP_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 pub const VSS_BT_UNDEFINED: VSS_BACKUP_TYPE = VSS_BACKUP_TYPE(0i32);
@@ -3217,7 +3217,7 @@ impl ::core::fmt::Debug for VSS_BACKUP_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VSS_COMPONENT_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 pub const VSS_CF_BACKUP_RECOVERY: VSS_COMPONENT_FLAGS = VSS_COMPONENT_FLAGS(1i32);
@@ -3246,7 +3246,7 @@ impl ::core::fmt::Debug for VSS_COMPONENT_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VSS_COMPONENT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 pub const VSS_CT_UNDEFINED: VSS_COMPONENT_TYPE = VSS_COMPONENT_TYPE(0i32);
@@ -3496,7 +3496,7 @@ pub const VSS_E_WRITER_NOT_RESPONDING: ::windows::core::HRESULT = ::windows::cor
 pub const VSS_E_WRITER_STATUS_NOT_AVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147212279i32);
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VSS_FILE_RESTORE_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 pub const VSS_RS_UNDEFINED: VSS_FILE_RESTORE_STATUS = VSS_FILE_RESTORE_STATUS(0i32);
@@ -3527,7 +3527,7 @@ impl ::core::fmt::Debug for VSS_FILE_RESTORE_STATUS {
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VSS_FILE_SPEC_BACKUP_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 pub const VSS_FSBT_FULL_BACKUP_REQUIRED: VSS_FILE_SPEC_BACKUP_TYPE = VSS_FILE_SPEC_BACKUP_TYPE(1i32);
@@ -3572,7 +3572,7 @@ impl ::core::fmt::Debug for VSS_FILE_SPEC_BACKUP_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VSS_HARDWARE_OPTIONS(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 pub const VSS_BREAKEX_FLAG_MASK_LUNS: VSS_HARDWARE_OPTIONS = VSS_HARDWARE_OPTIONS(1i32);
@@ -3637,7 +3637,7 @@ impl ::core::default::Default for VSS_MGMT_OBJECT_PROP {
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VSS_MGMT_OBJECT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 pub const VSS_MGMT_OBJECT_UNKNOWN: VSS_MGMT_OBJECT_TYPE = VSS_MGMT_OBJECT_TYPE(0i32);
@@ -3721,7 +3721,7 @@ impl ::core::default::Default for VSS_OBJECT_PROP {
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VSS_OBJECT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 pub const VSS_OBJECT_UNKNOWN: VSS_OBJECT_TYPE = VSS_OBJECT_TYPE(0i32);
@@ -3782,7 +3782,7 @@ impl ::core::default::Default for VSS_OBJECT_UNION {
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VSS_PROTECTION_FAULT(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 pub const VSS_PROTECTION_FAULT_NONE: VSS_PROTECTION_FAULT = VSS_PROTECTION_FAULT(0i32);
@@ -3839,7 +3839,7 @@ impl ::core::fmt::Debug for VSS_PROTECTION_FAULT {
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VSS_PROTECTION_LEVEL(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 pub const VSS_PROTECTION_LEVEL_ORIGINAL_VOLUME: VSS_PROTECTION_LEVEL = VSS_PROTECTION_LEVEL(0i32);
@@ -3866,7 +3866,7 @@ impl ::core::fmt::Debug for VSS_PROTECTION_LEVEL {
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VSS_PROVIDER_CAPABILITIES(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 pub const VSS_PRV_CAPABILITY_LEGACY: VSS_PROVIDER_CAPABILITIES = VSS_PROVIDER_CAPABILITIES(1i32);
@@ -3944,7 +3944,7 @@ impl ::core::default::Default for VSS_PROVIDER_PROP {
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VSS_PROVIDER_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 pub const VSS_PROV_UNKNOWN: VSS_PROVIDER_TYPE = VSS_PROVIDER_TYPE(0i32);
@@ -3977,7 +3977,7 @@ impl ::core::fmt::Debug for VSS_PROVIDER_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VSS_RECOVERY_OPTIONS(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 pub const VSS_RECOVERY_REVERT_IDENTITY_ALL: VSS_RECOVERY_OPTIONS = VSS_RECOVERY_OPTIONS(256i32);
@@ -4004,7 +4004,7 @@ impl ::core::fmt::Debug for VSS_RECOVERY_OPTIONS {
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VSS_RESTOREMETHOD_ENUM(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 pub const VSS_RME_UNDEFINED: VSS_RESTOREMETHOD_ENUM = VSS_RESTOREMETHOD_ENUM(0i32);
@@ -4045,7 +4045,7 @@ impl ::core::fmt::Debug for VSS_RESTOREMETHOD_ENUM {
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VSS_RESTORE_TARGET(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 pub const VSS_RT_UNDEFINED: VSS_RESTORE_TARGET = VSS_RESTORE_TARGET(0i32);
@@ -4078,7 +4078,7 @@ impl ::core::fmt::Debug for VSS_RESTORE_TARGET {
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VSS_RESTORE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 pub const VSS_RTYPE_UNDEFINED: VSS_RESTORE_TYPE = VSS_RESTORE_TYPE(0i32);
@@ -4109,7 +4109,7 @@ impl ::core::fmt::Debug for VSS_RESTORE_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VSS_ROLLFORWARD_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 pub const VSS_RF_UNDEFINED: VSS_ROLLFORWARD_TYPE = VSS_ROLLFORWARD_TYPE(0i32);
@@ -4140,7 +4140,7 @@ impl ::core::fmt::Debug for VSS_ROLLFORWARD_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VSS_SNAPSHOT_COMPATIBILITY(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 pub const VSS_SC_DISABLE_DEFRAG: VSS_SNAPSHOT_COMPATIBILITY = VSS_SNAPSHOT_COMPATIBILITY(1i32);
@@ -4167,7 +4167,7 @@ impl ::core::fmt::Debug for VSS_SNAPSHOT_COMPATIBILITY {
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VSS_SNAPSHOT_CONTEXT(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 pub const VSS_CTX_BACKUP: VSS_SNAPSHOT_CONTEXT = VSS_SNAPSHOT_CONTEXT(0i32);
@@ -4260,7 +4260,7 @@ impl ::core::default::Default for VSS_SNAPSHOT_PROP {
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VSS_SNAPSHOT_PROPERTY_ID(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 pub const VSS_SPROPID_UNKNOWN: VSS_SNAPSHOT_PROPERTY_ID = VSS_SNAPSHOT_PROPERTY_ID(0i32);
@@ -4311,7 +4311,7 @@ impl ::core::fmt::Debug for VSS_SNAPSHOT_PROPERTY_ID {
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VSS_SNAPSHOT_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 pub const VSS_SS_UNKNOWN: VSS_SNAPSHOT_STATE = VSS_SNAPSHOT_STATE(0i32);
@@ -4368,7 +4368,7 @@ impl ::core::fmt::Debug for VSS_SNAPSHOT_STATE {
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VSS_SOURCE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 pub const VSS_ST_UNDEFINED: VSS_SOURCE_TYPE = VSS_SOURCE_TYPE(0i32);
@@ -4399,7 +4399,7 @@ impl ::core::fmt::Debug for VSS_SOURCE_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VSS_SUBSCRIBE_MASK(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 pub const VSS_SM_POST_SNAPSHOT_FLAG: VSS_SUBSCRIBE_MASK = VSS_SUBSCRIBE_MASK(1i32);
@@ -4440,7 +4440,7 @@ pub const VSS_S_ASYNC_PENDING: ::windows::core::HRESULT = ::windows::core::HRESU
 pub const VSS_S_SOME_SNAPSHOTS_NOT_IMPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(271137i32);
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VSS_USAGE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 pub const VSS_UT_UNDEFINED: VSS_USAGE_TYPE = VSS_USAGE_TYPE(0i32);
@@ -4547,7 +4547,7 @@ impl ::core::default::Default for VSS_VOLUME_PROTECTION_INFO {
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VSS_VOLUME_SNAPSHOT_ATTRIBUTES(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 pub const VSS_VOLSNAP_ATTR_PERSISTENT: VSS_VOLUME_SNAPSHOT_ATTRIBUTES = VSS_VOLUME_SNAPSHOT_ATTRIBUTES(1i32);
@@ -4608,7 +4608,7 @@ impl ::core::fmt::Debug for VSS_VOLUME_SNAPSHOT_ATTRIBUTES {
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VSS_WRITERRESTORE_ENUM(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 pub const VSS_WRE_UNDEFINED: VSS_WRITERRESTORE_ENUM = VSS_WRITERRESTORE_ENUM(0i32);
@@ -4639,7 +4639,7 @@ impl ::core::fmt::Debug for VSS_WRITERRESTORE_ENUM {
 }
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VSS_WRITER_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 pub const VSS_WS_UNKNOWN: VSS_WRITER_STATE = VSS_WRITER_STATE(0i32);

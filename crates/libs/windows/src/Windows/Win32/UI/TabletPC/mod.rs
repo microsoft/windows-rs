@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ALT_BREAKS(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ALT_BREAKS_SAME: ALT_BREAKS = ALT_BREAKS(0i32);
@@ -93,7 +93,7 @@ pub unsafe fn AdviseInkChange<'a, Param0: ::windows::core::IntoParam<'a, HRECOCO
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppearanceConstants(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const rtfFlat: AppearanceConstants = AppearanceConstants(0i32);
@@ -122,7 +122,7 @@ impl ::core::fmt::Debug for AppearanceConstants {
 pub const BEST_COMPLETE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BorderStyleConstants(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const rtfNoBorder: BorderStyleConstants = BorderStyleConstants(0i32);
@@ -186,7 +186,7 @@ impl ::core::default::Default for CHARACTER_RANGE {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CONFIDENCE_LEVEL(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const CFL_STRONG: CONFIDENCE_LEVEL = CONFIDENCE_LEVEL(0i32);
@@ -215,7 +215,7 @@ impl ::core::fmt::Debug for CONFIDENCE_LEVEL {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CorrectionMode(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const CorrectionMode_NotVisible: CorrectionMode = CorrectionMode(0i32);
@@ -246,7 +246,7 @@ impl ::core::fmt::Debug for CorrectionMode {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CorrectionPosition(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const CorrectionPosition_Auto: CorrectionPosition = CorrectionPosition(0i32);
@@ -303,7 +303,7 @@ pub unsafe fn CreateRecognizer(pclsid: *mut ::windows::core::GUID, phrec: *mut H
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_Ink(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IStrokes: DISPID_Ink = DISPID_Ink(1i32);
@@ -376,7 +376,7 @@ impl ::core::fmt::Debug for DISPID_Ink {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkCollector(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICEnabled: DISPID_InkCollector = DISPID_InkCollector(1i32);
@@ -477,7 +477,7 @@ impl ::core::fmt::Debug for DISPID_InkCollector {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkCollectorEvent(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICEStroke: DISPID_InkCollectorEvent = DISPID_InkCollectorEvent(1i32);
@@ -582,7 +582,7 @@ impl ::core::fmt::Debug for DISPID_InkCollectorEvent {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkCursor(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICsrName: DISPID_InkCursor = DISPID_InkCursor(0i32);
@@ -617,7 +617,7 @@ impl ::core::fmt::Debug for DISPID_InkCursor {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkCursorButton(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICBName: DISPID_InkCursorButton = DISPID_InkCursorButton(0i32);
@@ -646,7 +646,7 @@ impl ::core::fmt::Debug for DISPID_InkCursorButton {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkCursorButtons(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICBs_NewEnum: DISPID_InkCursorButtons = DISPID_InkCursorButtons(-4i32);
@@ -675,7 +675,7 @@ impl ::core::fmt::Debug for DISPID_InkCursorButtons {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkCursors(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICs_NewEnum: DISPID_InkCursors = DISPID_InkCursors(-4i32);
@@ -704,7 +704,7 @@ impl ::core::fmt::Debug for DISPID_InkCursors {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkCustomStrokes(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICSs_NewEnum: DISPID_InkCustomStrokes = DISPID_InkCustomStrokes(-4i32);
@@ -739,7 +739,7 @@ impl ::core::fmt::Debug for DISPID_InkCustomStrokes {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkDivider(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IInkDivider_Strokes: DISPID_InkDivider = DISPID_InkDivider(1i32);
@@ -770,7 +770,7 @@ impl ::core::fmt::Debug for DISPID_InkDivider {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkDivisionResult(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IInkDivisionResult_Strokes: DISPID_InkDivisionResult = DISPID_InkDivisionResult(1i32);
@@ -797,7 +797,7 @@ impl ::core::fmt::Debug for DISPID_InkDivisionResult {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkDivisionUnit(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IInkDivisionUnit_Strokes: DISPID_InkDivisionUnit = DISPID_InkDivisionUnit(1i32);
@@ -828,7 +828,7 @@ impl ::core::fmt::Debug for DISPID_InkDivisionUnit {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkDivisionUnits(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IInkDivisionUnits_NewEnum: DISPID_InkDivisionUnits = DISPID_InkDivisionUnits(-4i32);
@@ -857,7 +857,7 @@ impl ::core::fmt::Debug for DISPID_InkDivisionUnits {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkDrawingAttributes(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_DAHeight: DISPID_InkDrawingAttributes = DISPID_InkDrawingAttributes(1i32);
@@ -902,7 +902,7 @@ impl ::core::fmt::Debug for DISPID_InkDrawingAttributes {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkEdit(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_Text: DISPID_InkEdit = DISPID_InkEdit(0i32);
@@ -997,7 +997,7 @@ impl ::core::fmt::Debug for DISPID_InkEdit {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkEditEvents(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IeeChange: DISPID_InkEditEvents = DISPID_InkEditEvents(1i32);
@@ -1048,7 +1048,7 @@ impl ::core::fmt::Debug for DISPID_InkEditEvents {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkEvent(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IEInkAdded: DISPID_InkEvent = DISPID_InkEvent(1i32);
@@ -1075,7 +1075,7 @@ impl ::core::fmt::Debug for DISPID_InkEvent {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkExtendedProperties(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IEPs_NewEnum: DISPID_InkExtendedProperties = DISPID_InkExtendedProperties(-4i32);
@@ -1112,7 +1112,7 @@ impl ::core::fmt::Debug for DISPID_InkExtendedProperties {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkExtendedProperty(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IEPGuid: DISPID_InkExtendedProperty = DISPID_InkExtendedProperty(1i32);
@@ -1139,7 +1139,7 @@ impl ::core::fmt::Debug for DISPID_InkExtendedProperty {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkGesture(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IGId: DISPID_InkGesture = DISPID_InkGesture(0i32);
@@ -1168,7 +1168,7 @@ impl ::core::fmt::Debug for DISPID_InkGesture {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkRecoAlternate(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_InkRecoAlternate_String: DISPID_InkRecoAlternate = DISPID_InkRecoAlternate(1i32);
@@ -1221,7 +1221,7 @@ impl ::core::fmt::Debug for DISPID_InkRecoAlternate {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkRecoContext(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IRecoCtx_Strokes: DISPID_InkRecoContext = DISPID_InkRecoContext(1i32);
@@ -1278,7 +1278,7 @@ impl ::core::fmt::Debug for DISPID_InkRecoContext {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkRecoContext2(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IRecoCtx2_EnabledUnicodeRanges: DISPID_InkRecoContext2 = DISPID_InkRecoContext2(0i32);
@@ -1303,7 +1303,7 @@ impl ::core::fmt::Debug for DISPID_InkRecoContext2 {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkRecognitionAlternates(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_InkRecognitionAlternates_NewEnum: DISPID_InkRecognitionAlternates = DISPID_InkRecognitionAlternates(-4i32);
@@ -1334,7 +1334,7 @@ impl ::core::fmt::Debug for DISPID_InkRecognitionAlternates {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkRecognitionEvent(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IRERecognitionWithAlternates: DISPID_InkRecognitionEvent = DISPID_InkRecognitionEvent(1i32);
@@ -1361,7 +1361,7 @@ impl ::core::fmt::Debug for DISPID_InkRecognitionEvent {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkRecognitionResult(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_InkRecognitionResult_TopString: DISPID_InkRecognitionResult = DISPID_InkRecognitionResult(1i32);
@@ -1398,7 +1398,7 @@ impl ::core::fmt::Debug for DISPID_InkRecognitionResult {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkRecognizer(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_RecoClsid: DISPID_InkRecognizer = DISPID_InkRecognizer(1i32);
@@ -1437,7 +1437,7 @@ impl ::core::fmt::Debug for DISPID_InkRecognizer {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkRecognizer2(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_RecoId: DISPID_InkRecognizer2 = DISPID_InkRecognizer2(0i32);
@@ -1464,7 +1464,7 @@ impl ::core::fmt::Debug for DISPID_InkRecognizer2 {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkRecognizerGuide(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IRGWritingBox: DISPID_InkRecognizerGuide = DISPID_InkRecognizerGuide(1i32);
@@ -1499,7 +1499,7 @@ impl ::core::fmt::Debug for DISPID_InkRecognizerGuide {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkRecognizers(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IRecos_NewEnum: DISPID_InkRecognizers = DISPID_InkRecognizers(-4i32);
@@ -1530,7 +1530,7 @@ impl ::core::fmt::Debug for DISPID_InkRecognizers {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkRectangle(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IRTop: DISPID_InkRectangle = DISPID_InkRectangle(1i32);
@@ -1567,7 +1567,7 @@ impl ::core::fmt::Debug for DISPID_InkRectangle {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkRenderer(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IRGetViewTransform: DISPID_InkRenderer = DISPID_InkRenderer(1i32);
@@ -1620,7 +1620,7 @@ impl ::core::fmt::Debug for DISPID_InkRenderer {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkStrokeDisp(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ISDInkIndex: DISPID_InkStrokeDisp = DISPID_InkStrokeDisp(1i32);
@@ -1709,7 +1709,7 @@ impl ::core::fmt::Debug for DISPID_InkStrokeDisp {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkStrokes(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ISs_NewEnum: DISPID_InkStrokes = DISPID_InkStrokes(-4i32);
@@ -1774,7 +1774,7 @@ impl ::core::fmt::Debug for DISPID_InkStrokes {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkTablet(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ITName: DISPID_InkTablet = DISPID_InkTablet(0i32);
@@ -1809,7 +1809,7 @@ impl ::core::fmt::Debug for DISPID_InkTablet {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkTablet2(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IT2DeviceKind: DISPID_InkTablet2 = DISPID_InkTablet2(0i32);
@@ -1834,7 +1834,7 @@ impl ::core::fmt::Debug for DISPID_InkTablet2 {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkTablet3(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IT3IsMultiTouch: DISPID_InkTablet3 = DISPID_InkTablet3(0i32);
@@ -1861,7 +1861,7 @@ impl ::core::fmt::Debug for DISPID_InkTablet3 {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkTablets(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ITs_NewEnum: DISPID_InkTablets = DISPID_InkTablets(-4i32);
@@ -1894,7 +1894,7 @@ impl ::core::fmt::Debug for DISPID_InkTablets {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkTransform(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ITReset: DISPID_InkTransform = DISPID_InkTransform(1i32);
@@ -1947,7 +1947,7 @@ impl ::core::fmt::Debug for DISPID_InkTransform {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkWordList(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_InkWordList_AddWord: DISPID_InkWordList = DISPID_InkWordList(0i32);
@@ -1976,7 +1976,7 @@ impl ::core::fmt::Debug for DISPID_InkWordList {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkWordList2(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_InkWordList2_AddWords: DISPID_InkWordList2 = DISPID_InkWordList2(3i32);
@@ -2001,7 +2001,7 @@ impl ::core::fmt::Debug for DISPID_InkWordList2 {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_MathInputControlEvents(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_MICInsert: DISPID_MathInputControlEvents = DISPID_MathInputControlEvents(0i32);
@@ -2032,7 +2032,7 @@ impl ::core::fmt::Debug for DISPID_MathInputControlEvents {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_PenInputPanel(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_PIPAttachedEditWindow: DISPID_PenInputPanel = DISPID_PenInputPanel(0i32);
@@ -2089,7 +2089,7 @@ impl ::core::fmt::Debug for DISPID_PenInputPanel {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_PenInputPanelEvents(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_PIPEVisibleChanged: DISPID_PenInputPanelEvents = DISPID_PenInputPanelEvents(0i32);
@@ -2120,7 +2120,7 @@ impl ::core::fmt::Debug for DISPID_PenInputPanelEvents {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_StrokeEvent(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_SEStrokesAdded: DISPID_StrokeEvent = DISPID_StrokeEvent(1i32);
@@ -2286,7 +2286,7 @@ pub unsafe fn EndInkInput<'a, Param0: ::windows::core::IntoParam<'a, HRECOCONTEX
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EventMask(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const EventMask_InPlaceStateChanging: EventMask = EventMask(1i32);
@@ -2401,7 +2401,7 @@ pub const FACTOID_WEB: &str = "WEB";
 pub const FACTOID_WORDLIST: &str = "WORDLIST";
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FLICKACTION_COMMANDCODE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FLICKACTION_COMMANDCODE_NULL: FLICKACTION_COMMANDCODE = FLICKACTION_COMMANDCODE(0i32);
@@ -2434,7 +2434,7 @@ impl ::core::fmt::Debug for FLICKACTION_COMMANDCODE {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FLICKDIRECTION(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FLICKDIRECTION_MIN: FLICKDIRECTION = FLICKDIRECTION(0i32);
@@ -2477,7 +2477,7 @@ impl ::core::fmt::Debug for FLICKDIRECTION {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FLICKMODE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FLICKMODE_MIN: FLICKMODE = FLICKMODE(0i32);
@@ -3009,7 +3009,7 @@ pub unsafe fn GetUnicodeRanges<'a, Param0: ::windows::core::IntoParam<'a, HRECOG
     unimplemented!("Unsupported target OS");
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HRECOALT(pub isize);
 impl HRECOALT {
     pub fn is_invalid(&self) -> bool {
@@ -3036,7 +3036,7 @@ unsafe impl ::windows::core::Abi for HRECOALT {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HRECOCONTEXT(pub isize);
 impl HRECOCONTEXT {
     pub fn is_invalid(&self) -> bool {
@@ -3063,7 +3063,7 @@ unsafe impl ::windows::core::Abi for HRECOCONTEXT {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HRECOGNIZER(pub isize);
 impl HRECOGNIZER {
     pub fn is_invalid(&self) -> bool {
@@ -3090,7 +3090,7 @@ unsafe impl ::windows::core::Abi for HRECOGNIZER {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HRECOLATTICE(pub isize);
 impl HRECOLATTICE {
     pub fn is_invalid(&self) -> bool {
@@ -3117,7 +3117,7 @@ unsafe impl ::windows::core::Abi for HRECOLATTICE {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HRECOWORDLIST(pub isize);
 impl HRECOWORDLIST {
     pub fn is_invalid(&self) -> bool {
@@ -13251,7 +13251,7 @@ pub struct ITipAutoCompleteProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InPlaceDirection(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const InPlaceDirection_Auto: InPlaceDirection = InPlaceDirection(0i32);
@@ -13280,7 +13280,7 @@ impl ::core::fmt::Debug for InPlaceDirection {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InPlaceState(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const InPlaceState_Auto: InPlaceState = InPlaceState(0i32);
@@ -13310,7 +13310,7 @@ impl ::core::fmt::Debug for InPlaceState {
 pub const Ink: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13de4a42_8d21_4c8e_bf9c_8f69cb068fca);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkApplicationGesture(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IAG_AllGestures: InkApplicationGesture = InkApplicationGesture(0i32);
@@ -13421,7 +13421,7 @@ impl ::core::fmt::Debug for InkApplicationGesture {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkBoundingBoxMode(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IBBM_Default: InkBoundingBoxMode = InkBoundingBoxMode(0i32);
@@ -13454,7 +13454,7 @@ impl ::core::fmt::Debug for InkBoundingBoxMode {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkClipboardFormats(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ICF_None: InkClipboardFormats = InkClipboardFormats(0i32);
@@ -13497,7 +13497,7 @@ impl ::core::fmt::Debug for InkClipboardFormats {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkClipboardModes(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ICB_Copy: InkClipboardModes = InkClipboardModes(0i32);
@@ -13530,7 +13530,7 @@ impl ::core::fmt::Debug for InkClipboardModes {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkCollectionMode(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ICM_InkOnly: InkCollectionMode = InkCollectionMode(0i32);
@@ -13564,7 +13564,7 @@ pub const InkCollectorClipInkToMargin: i32 = 0i32;
 pub const InkCollectorDefaultMargin: i32 = -2147483648i32;
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkCollectorEventInterest(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ICEI_DefaultEvents: InkCollectorEventInterest = InkCollectorEventInterest(-1i32);
@@ -13623,7 +13623,7 @@ impl ::core::fmt::Debug for InkCollectorEventInterest {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkCursorButtonState(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ICBS_Unavailable: InkCursorButtonState = InkCursorButtonState(0i32);
@@ -13653,7 +13653,7 @@ impl ::core::fmt::Debug for InkCursorButtonState {
 pub const InkDisp: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x937c1a34_151d_4610_9ca6_a8cc9bdb5d83);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkDisplayMode(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IDM_Ink: InkDisplayMode = InkDisplayMode(0i32);
@@ -13681,7 +13681,7 @@ impl ::core::fmt::Debug for InkDisplayMode {
 pub const InkDivider: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8854f6a0_4683_4ae7_9191_752fe64612c3);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkDivisionType(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IDT_Segment: InkDivisionType = InkDivisionType(0i32);
@@ -13714,7 +13714,7 @@ pub const InkDrawingAttributes: ::windows::core::GUID = ::windows::core::GUID::f
 pub const InkEdit: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5ca59f5_57c4_4dd8_9bd6_1deeedd27af4);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkEditStatus(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IES_Idle: InkEditStatus = InkEditStatus(0i32);
@@ -13743,7 +13743,7 @@ impl ::core::fmt::Debug for InkEditStatus {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkExtractFlags(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IEF_CopyFromOriginal: InkExtractFlags = InkExtractFlags(0i32);
@@ -13772,7 +13772,7 @@ impl ::core::fmt::Debug for InkExtractFlags {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkInsertMode(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IEM_InsertText: InkInsertMode = InkInsertMode(0i32);
@@ -13803,7 +13803,7 @@ pub const InkMaxTransparencyValue: i32 = 255i32;
 pub const InkMinTransparencyValue: i32 = 0i32;
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkMode(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IEM_Disabled: InkMode = InkMode(0i32);
@@ -13832,7 +13832,7 @@ impl ::core::fmt::Debug for InkMode {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkMouseButton(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IMF_Left: InkMouseButton = InkMouseButton(1i32);
@@ -13861,7 +13861,7 @@ impl ::core::fmt::Debug for InkMouseButton {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkMousePointer(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IMP_Default: InkMousePointer = InkMousePointer(0i32);
@@ -13917,7 +13917,7 @@ impl ::core::fmt::Debug for InkMousePointer {
 pub const InkOverlay: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65d00646_cde3_4a88_9163_6769f0f1a97d);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkOverlayAttachMode(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IOAM_Behind: InkOverlayAttachMode = InkOverlayAttachMode(0i32);
@@ -13944,7 +13944,7 @@ impl ::core::fmt::Debug for InkOverlayAttachMode {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkOverlayEditingMode(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IOEM_Ink: InkOverlayEditingMode = InkOverlayEditingMode(0i32);
@@ -13973,7 +13973,7 @@ impl ::core::fmt::Debug for InkOverlayEditingMode {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkOverlayEraserMode(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IOERM_StrokeErase: InkOverlayEraserMode = InkOverlayEraserMode(0i32);
@@ -14000,7 +14000,7 @@ impl ::core::fmt::Debug for InkOverlayEraserMode {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkPenTip(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IPT_Ball: InkPenTip = InkPenTip(0i32);
@@ -14027,7 +14027,7 @@ impl ::core::fmt::Debug for InkPenTip {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkPersistenceCompressionMode(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IPCM_Default: InkPersistenceCompressionMode = InkPersistenceCompressionMode(0i32);
@@ -14056,7 +14056,7 @@ impl ::core::fmt::Debug for InkPersistenceCompressionMode {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkPersistenceFormat(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IPF_InkSerializedFormat: InkPersistenceFormat = InkPersistenceFormat(0i32);
@@ -14088,7 +14088,7 @@ impl ::core::fmt::Debug for InkPersistenceFormat {
 pub const InkPicture: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04a1e553_fe36_4fde_865e_344194e69424);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkPictureSizeMode(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IPSM_AutoSize: InkPictureSizeMode = InkPictureSizeMode(0i32);
@@ -14119,7 +14119,7 @@ impl ::core::fmt::Debug for InkPictureSizeMode {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkRasterOperation(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRO_Black: InkRasterOperation = InkRasterOperation(1i32);
@@ -14216,7 +14216,7 @@ impl ::core::default::Default for InkRecoGuide {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkRecognitionAlternatesSelection(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRAS_Start: InkRecognitionAlternatesSelection = InkRecognitionAlternatesSelection(0i32);
@@ -14245,7 +14245,7 @@ impl ::core::fmt::Debug for InkRecognitionAlternatesSelection {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkRecognitionConfidence(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRC_Strong: InkRecognitionConfidence = InkRecognitionConfidence(0i32);
@@ -14274,7 +14274,7 @@ impl ::core::fmt::Debug for InkRecognitionConfidence {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkRecognitionModes(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRM_None: InkRecognitionModes = InkRecognitionModes(0i32);
@@ -14315,7 +14315,7 @@ impl ::core::fmt::Debug for InkRecognitionModes {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkRecognitionStatus(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRS_NoError: InkRecognitionStatus = InkRecognitionStatus(0i32);
@@ -14360,7 +14360,7 @@ impl ::core::fmt::Debug for InkRecognitionStatus {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkRecognizerCapabilities(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRC_DontCare: InkRecognizerCapabilities = InkRecognizerCapabilities(1i32);
@@ -14427,7 +14427,7 @@ impl ::core::fmt::Debug for InkRecognizerCapabilities {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkRecognizerCharacterAutoCompletionMode(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRCACM_Full: InkRecognizerCharacterAutoCompletionMode = InkRecognizerCharacterAutoCompletionMode(0i32);
@@ -14461,7 +14461,7 @@ pub const InkRectangle: ::windows::core::GUID = ::windows::core::GUID::from_u128
 pub const InkRenderer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c1cc6e4_d7eb_4eeb_9091_15a7c8791ed9);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkSelectionConstants(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ISC_FirstElement: InkSelectionConstants = InkSelectionConstants(0i32);
@@ -14488,7 +14488,7 @@ impl ::core::fmt::Debug for InkSelectionConstants {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkShiftKeyModifierFlags(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IKM_Shift: InkShiftKeyModifierFlags = InkShiftKeyModifierFlags(1i32);
@@ -14518,7 +14518,7 @@ impl ::core::fmt::Debug for InkShiftKeyModifierFlags {
 pub const InkStrokes: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x48f491bc_240e_4860_b079_a1e94d3d2c86);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkSystemGesture(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ISG_Tap: InkSystemGesture = InkSystemGesture(16i32);
@@ -14564,7 +14564,7 @@ pub const InkTransform: ::windows::core::GUID = ::windows::core::GUID::from_u128
 pub const InkWordList: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9de85094_f71f_44f1_8471_15a2fa76fcf3);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InteractionMode(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const InteractionMode_InPlace: InteractionMode = InteractionMode(0i32);
@@ -14609,7 +14609,7 @@ pub unsafe fn IsStringSupported<'a, Param0: ::windows::core::IntoParam<'a, HRECO
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KEYMODIFIER(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const KEYMODIFIER_CONTROL: KEYMODIFIER = KEYMODIFIER(1i32);
@@ -14683,7 +14683,7 @@ impl ::core::default::Default for LATTICE_METRICS {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LINE_METRICS(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const LM_BASELINE: LINE_METRICS = LINE_METRICS(0i32);
@@ -14787,7 +14787,7 @@ pub const MICROSOFT_TIP_OPENING_MSG: &str = "TabletInputPanelOpening";
 pub const MICROSOFT_URL_EXPERIENCE_PROPERTY: &str = "Microsoft TIP URL Experience";
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MICUIELEMENT(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const MICUIELEMENT_BUTTON_WRITE: MICUIELEMENT = MICUIELEMENT(1i32);
@@ -14830,7 +14830,7 @@ impl ::core::fmt::Debug for MICUIELEMENT {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MICUIELEMENTSTATE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const MICUIELEMENTSTATE_NORMAL: MICUIELEMENTSTATE = MICUIELEMENTSTATE(1i32);
@@ -14876,7 +14876,7 @@ pub unsafe fn MakeWordList<'a, Param0: ::windows::core::IntoParam<'a, HRECOGNIZE
 pub const MathInputControl: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc561816c_14d8_4090_830c_98d994b21c7b);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MouseButton(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const NO_BUTTON: MouseButton = MouseButton(0i32);
@@ -15007,7 +15007,7 @@ impl ::core::default::Default for PROPERTY_METRICS {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROPERTY_UNITS(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const PROPERTY_UNITS_DEFAULT: PROPERTY_UNITS = PROPERTY_UNITS(0i32);
@@ -15064,7 +15064,7 @@ impl ::core::fmt::Debug for PROPERTY_UNITS {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PanelInputArea(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const PanelInputArea_Auto: PanelInputArea = PanelInputArea(0i32);
@@ -15095,7 +15095,7 @@ impl ::core::fmt::Debug for PanelInputArea {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PanelType(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const PT_Default: PanelType = PanelType(0i32);
@@ -15473,7 +15473,7 @@ pub const RF_STROKEREORDER: i32 = 8192i32;
 pub const RealTimeStylus: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe26b366d_f998_43ce_836f_cb6d904432b0);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RealTimeStylusDataInterest(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RTSDI_AllData: RealTimeStylusDataInterest = RealTimeStylusDataInterest(-1i32);
@@ -15536,7 +15536,7 @@ impl ::core::fmt::Debug for RealTimeStylusDataInterest {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RealTimeStylusLockType(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RTSLT_ObjLock: RealTimeStylusLockType = RealTimeStylusLockType(1i32);
@@ -15573,7 +15573,7 @@ impl ::core::fmt::Debug for RealTimeStylusLockType {
 pub const SAFE_PARTIAL: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SCROLLDIRECTION(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const SCROLLDIRECTION_UP: SCROLLDIRECTION = SCROLLDIRECTION(0i32);
@@ -15708,7 +15708,7 @@ impl ::core::default::Default for SYSTEM_EVENT_DATA {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ScrollBarsConstants(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const rtfNone: ScrollBarsConstants = ScrollBarsConstants(0i32);
@@ -15739,7 +15739,7 @@ impl ::core::fmt::Debug for ScrollBarsConstants {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SelAlignmentConstants(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const rtfLeft: SelAlignmentConstants = SelAlignmentConstants(0i32);
@@ -15768,7 +15768,7 @@ impl ::core::fmt::Debug for SelAlignmentConstants {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SelectionHitResult(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const SHR_None: SelectionHitResult = SelectionHitResult(0i32);
@@ -15937,7 +15937,7 @@ impl ::core::default::Default for StylusInfo {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct StylusQueue(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const SyncStylusQueue: StylusQueue = StylusQueue(1i32);
@@ -15990,7 +15990,7 @@ pub const TABLET_ENABLE_FLICKSONCONTEXT: u32 = 131072u32;
 pub const TABLET_ENABLE_MULTITOUCHDATA: u32 = 16777216u32;
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TabletDeviceKind(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const TDK_Mouse: TabletDeviceKind = TabletDeviceKind(0i32);
@@ -16019,7 +16019,7 @@ impl ::core::fmt::Debug for TabletDeviceKind {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TabletHardwareCapabilities(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const THWC_Integrated: TabletHardwareCapabilities = TabletHardwareCapabilities(1i32);
@@ -16050,7 +16050,7 @@ impl ::core::fmt::Debug for TabletHardwareCapabilities {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TabletPropertyMetricUnit(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const TPMU_Default: TabletPropertyMetricUnit = TabletPropertyMetricUnit(0i32);
@@ -16091,7 +16091,7 @@ pub const TextInputPanel: ::windows::core::GUID = ::windows::core::GUID::from_u1
 pub const TipAutoCompleteClient: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x807c1e6c_1d00_453f_b920_b61bb7cdd997);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VisualState(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const InPlace: VisualState = VisualState(0i32);
@@ -16901,7 +16901,7 @@ pub struct _IPenInputPanelEvents_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct enumGetCandidateFlags(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const TCF_ALLOW_RECOGNITION: enumGetCandidateFlags = enumGetCandidateFlags(1i32);
@@ -16928,7 +16928,7 @@ impl ::core::fmt::Debug for enumGetCandidateFlags {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct enumINKMETRIC_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IMF_FONT_SELECTED_IN_HDC: enumINKMETRIC_FLAGS = enumINKMETRIC_FLAGS(1i32);
@@ -16957,7 +16957,7 @@ impl ::core::fmt::Debug for enumINKMETRIC_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct enumRECO_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RECO_TYPE_WSTRING: enumRECO_TYPE = enumRECO_TYPE(0i32);

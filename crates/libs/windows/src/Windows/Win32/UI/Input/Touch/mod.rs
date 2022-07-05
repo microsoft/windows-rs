@@ -62,7 +62,7 @@ impl ::core::default::Default for GESTURECONFIG {
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GESTURECONFIG_ID(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
 pub const GID_BEGIN: GESTURECONFIG_ID = GESTURECONFIG_ID(1u32);
@@ -276,7 +276,7 @@ pub unsafe fn GetTouchInputInfo<'a, Param0: ::windows::core::IntoParam<'a, HTOUC
     unimplemented!("Unsupported target OS");
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HGESTUREINFO(pub isize);
 impl HGESTUREINFO {
     pub fn is_invalid(&self) -> bool {
@@ -303,7 +303,7 @@ unsafe impl ::windows::core::Abi for HGESTUREINFO {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTOUCHINPUT(pub isize);
 impl HTOUCHINPUT {
     pub fn is_invalid(&self) -> bool {
@@ -838,7 +838,7 @@ pub unsafe fn IsTouchWindow<'a, Param0: ::windows::core::IntoParam<'a, super::su
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MANIPULATION_PROCESSOR_MANIPULATIONS(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
 pub const MANIPULATION_NONE: MANIPULATION_PROCESSOR_MANIPULATIONS = MANIPULATION_PROCESSOR_MANIPULATIONS(0i32);
@@ -874,7 +874,7 @@ impl ::core::fmt::Debug for MANIPULATION_PROCESSOR_MANIPULATIONS {
 pub const ManipulationProcessor: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x597d4fb0_47fd_4aff_89b9_c6cfae8cf08e);
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct REGISTER_TOUCH_WINDOW_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
 pub const TWF_FINETOUCH: REGISTER_TOUCH_WINDOW_FLAGS = REGISTER_TOUCH_WINDOW_FLAGS(1u32);
@@ -931,7 +931,7 @@ pub unsafe fn SetGestureConfig<'a, Param0: ::windows::core::IntoParam<'a, super:
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TOUCHEVENTF_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
 pub const TOUCHEVENTF_MOVE: TOUCHEVENTF_FLAGS = TOUCHEVENTF_FLAGS(1u32);
@@ -1045,7 +1045,7 @@ impl ::core::default::Default for TOUCHINPUT {
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TOUCHINPUTMASKF_MASK(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
 pub const TOUCHINPUTMASKF_TIMEFROMSYSTEM: TOUCHINPUTMASKF_MASK = TOUCHINPUTMASKF_MASK(1u32);

@@ -279,7 +279,7 @@ unsafe impl ::core::marker::Send for CastingConnectionErrorOccurredEventArgs {}
 unsafe impl ::core::marker::Sync for CastingConnectionErrorOccurredEventArgs {}
 #[doc = "*Required features: `\"Media_Casting\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CastingConnectionErrorStatus(pub i32);
 impl CastingConnectionErrorStatus {
     pub const Succeeded: Self = Self(0i32);
@@ -318,7 +318,7 @@ unsafe impl ::windows::core::RuntimeType for CastingConnectionErrorStatus {
 }
 #[doc = "*Required features: `\"Media_Casting\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CastingConnectionState(pub i32);
 impl CastingConnectionState {
     pub const Disconnected: Self = Self(0i32);
@@ -868,7 +868,7 @@ unsafe impl ::core::marker::Send for CastingDeviceSelectedEventArgs {}
 unsafe impl ::core::marker::Sync for CastingDeviceSelectedEventArgs {}
 #[doc = "*Required features: `\"Media_Casting\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CastingPlaybackTypes(pub u32);
 impl CastingPlaybackTypes {
     pub const None: Self = Self(0u32);

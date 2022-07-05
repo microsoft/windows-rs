@@ -30,7 +30,7 @@ impl ::core::default::Default for ACT_AUTHORIZATION_STATE {
 }
 #[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ACT_AUTHORIZATION_STATE_VALUE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
 pub const ACT_UNAUTHORIZED: ACT_AUTHORIZATION_STATE_VALUE = ACT_AUTHORIZATION_STATE_VALUE(0i32);

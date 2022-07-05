@@ -488,7 +488,7 @@ impl ::core::default::Default for DEVPROPKEY {
 }
 #[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DEVPROPSTORE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
 pub const DEVPROP_STORE_SYSTEM: DEVPROPSTORE = DEVPROPSTORE(0i32);

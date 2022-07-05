@@ -30,7 +30,7 @@ pub unsafe fn BindIFilterFromStream<'a, Param0: ::windows::core::IntoParam<'a, s
 }
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CHUNKSTATE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
 pub const CHUNK_TEXT: CHUNKSTATE = CHUNKSTATE(1i32);
@@ -59,7 +59,7 @@ impl ::core::fmt::Debug for CHUNKSTATE {
 }
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CHUNK_BREAKTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
 pub const CHUNK_NO_BREAK: CHUNK_BREAKTYPE = CHUNK_BREAKTYPE(0i32);
@@ -418,7 +418,7 @@ impl ::core::default::Default for DBID_1 {
 }
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DBKINDENUM(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
 pub const DBKIND_GUID_NAME: DBKINDENUM = DBKINDENUM(0i32);
@@ -610,7 +610,7 @@ pub const GENERATE_METHOD_INFLECT: u32 = 2u32;
 pub const GENERATE_METHOD_PREFIX: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IFILTER_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
 pub const IFILTER_FLAGS_OLE_PROPERTIES: IFILTER_FLAGS = IFILTER_FLAGS(1i32);
@@ -635,7 +635,7 @@ impl ::core::fmt::Debug for IFILTER_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IFILTER_INIT(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
 pub const IFILTER_INIT_CANON_PARAGRAPHS: IFILTER_INIT = IFILTER_INIT(1i32);
@@ -1020,7 +1020,7 @@ pub const VECTOR_RANK_MAX: u32 = 1u32;
 pub const VECTOR_RANK_MIN: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WORDREP_BREAK_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
 pub const WORDREP_BREAK_EOW: WORDREP_BREAK_TYPE = WORDREP_BREAK_TYPE(0i32);

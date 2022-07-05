@@ -429,7 +429,7 @@ unsafe impl ::core::marker::Send for PwmPin {}
 unsafe impl ::core::marker::Sync for PwmPin {}
 #[doc = "*Required features: `\"Devices_Pwm\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PwmPulsePolarity(pub i32);
 impl PwmPulsePolarity {
     pub const ActiveHigh: Self = Self(0i32);

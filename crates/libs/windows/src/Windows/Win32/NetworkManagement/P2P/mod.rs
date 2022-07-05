@@ -41,7 +41,7 @@ impl ::core::default::Default for DRT_ADDRESS {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DRT_ADDRESS_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 pub const DRT_ADDRESS_FLAG_ACCEPTED: DRT_ADDRESS_FLAGS = DRT_ADDRESS_FLAGS(1i32);
@@ -416,7 +416,7 @@ impl ::core::default::Default for DRT_EVENT_DATA_0_2_0 {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DRT_EVENT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 pub const DRT_EVENT_STATUS_CHANGED: DRT_EVENT_TYPE = DRT_EVENT_TYPE(0i32);
@@ -527,7 +527,7 @@ pub const DRT_E_TRANSPORT_STILL_BOUND: ::windows::core::HRESULT = ::windows::cor
 pub const DRT_E_TRANSPORT_UNEXPECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141052669i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DRT_LEAFSET_KEY_CHANGE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 pub const DRT_LEAFSET_KEY_ADDED: DRT_LEAFSET_KEY_CHANGE_TYPE = DRT_LEAFSET_KEY_CHANGE_TYPE(0i32);
@@ -556,7 +556,7 @@ impl ::core::fmt::Debug for DRT_LEAFSET_KEY_CHANGE_TYPE {
 pub const DRT_LINK_LOCAL_ISATAP_SCOPEID: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DRT_MATCH_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 pub const DRT_MATCH_EXACT: DRT_MATCH_TYPE = DRT_MATCH_TYPE(0i32);
@@ -626,7 +626,7 @@ impl ::core::default::Default for DRT_REGISTRATION {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DRT_REGISTRATION_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 pub const DRT_REGISTRATION_STATE_UNRESOLVEABLE: DRT_REGISTRATION_STATE = DRT_REGISTRATION_STATE(1i32);
@@ -651,7 +651,7 @@ impl ::core::fmt::Debug for DRT_REGISTRATION_STATE {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DRT_SCOPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 pub const DRT_GLOBAL_SCOPE: DRT_SCOPE = DRT_SCOPE(1i32);
@@ -757,7 +757,7 @@ impl ::core::default::Default for DRT_SEARCH_RESULT {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DRT_SECURITY_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 pub const DRT_SECURE_RESOLVE: DRT_SECURITY_MODE = DRT_SECURITY_MODE(0i32);
@@ -894,7 +894,7 @@ impl ::core::default::Default for DRT_SETTINGS {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DRT_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 pub const DRT_ACTIVE: DRT_STATUS = DRT_STATUS(0i32);
@@ -1370,7 +1370,7 @@ impl ::core::default::Default for PEERDIST_CLIENT_BASIC_INFO {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 pub const PeerDistClientBasicInfo: PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS = PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS(0i32);
@@ -1501,7 +1501,7 @@ impl ::core::default::Default for PEERDIST_RETRIEVAL_OPTIONS {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE(pub u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 pub const PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_1: PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE = PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE(1u32);
@@ -1530,7 +1530,7 @@ impl ::core::fmt::Debug for PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PEERDIST_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 pub const PEERDIST_STATUS_DISABLED: PEERDIST_STATUS = PEERDIST_STATUS(0i32);
@@ -1690,7 +1690,7 @@ impl ::core::default::Default for PEER_APPLICATION_REGISTRATION_INFO {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PEER_APPLICATION_REGISTRATION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 pub const PEER_APPLICATION_CURRENT_USER: PEER_APPLICATION_REGISTRATION_TYPE = PEER_APPLICATION_REGISTRATION_TYPE(0i32);
@@ -1757,7 +1757,7 @@ impl ::core::default::Default for PEER_APP_LAUNCH_INFO {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PEER_CHANGE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 pub const PEER_CHANGE_ADDED: PEER_CHANGE_TYPE = PEER_CHANGE_TYPE(0i32);
@@ -1888,7 +1888,7 @@ impl ::core::default::Default for PEER_COLLAB_EVENT_REGISTRATION {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PEER_COLLAB_EVENT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 pub const PEER_EVENT_WATCHLIST_CHANGED: PEER_COLLAB_EVENT_TYPE = PEER_COLLAB_EVENT_TYPE(1i32);
@@ -1934,7 +1934,7 @@ impl ::core::fmt::Debug for PEER_COLLAB_EVENT_TYPE {
 pub const PEER_COLLAB_OBJECTID_USER_PICTURE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd15f41f_fc4e_4922_b035_4c06a754d01d);
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PEER_CONNECTION_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 pub const PEER_CONNECTION_NEIGHBOR: PEER_CONNECTION_FLAGS = PEER_CONNECTION_FLAGS(1i32);
@@ -1998,7 +1998,7 @@ impl ::core::default::Default for PEER_CONNECTION_INFO {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PEER_CONNECTION_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 pub const PEER_CONNECTED: PEER_CONNECTION_STATUS = PEER_CONNECTION_STATUS(1i32);
@@ -2767,7 +2767,7 @@ impl ::core::default::Default for PEER_GRAPH_EVENT_REGISTRATION {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PEER_GRAPH_EVENT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 pub const PEER_GRAPH_EVENT_STATUS_CHANGED: PEER_GRAPH_EVENT_TYPE = PEER_GRAPH_EVENT_TYPE(1i32);
@@ -2847,7 +2847,7 @@ impl ::core::default::Default for PEER_GRAPH_PROPERTIES {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PEER_GRAPH_PROPERTY_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 pub const PEER_GRAPH_PROPERTY_HEARTBEATS: PEER_GRAPH_PROPERTY_FLAGS = PEER_GRAPH_PROPERTY_FLAGS(1i32);
@@ -2874,7 +2874,7 @@ impl ::core::fmt::Debug for PEER_GRAPH_PROPERTY_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PEER_GRAPH_SCOPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 pub const PEER_GRAPH_SCOPE_ANY: PEER_GRAPH_SCOPE = PEER_GRAPH_SCOPE(0i32);
@@ -2907,7 +2907,7 @@ impl ::core::fmt::Debug for PEER_GRAPH_SCOPE {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PEER_GRAPH_STATUS_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 pub const PEER_GRAPH_STATUS_LISTENING: PEER_GRAPH_STATUS_FLAGS = PEER_GRAPH_STATUS_FLAGS(1i32);
@@ -2936,7 +2936,7 @@ impl ::core::fmt::Debug for PEER_GRAPH_STATUS_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PEER_GROUP_AUTHENTICATION_SCHEME(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 pub const PEER_GROUP_GMC_AUTHENTICATION: PEER_GROUP_AUTHENTICATION_SCHEME = PEER_GROUP_AUTHENTICATION_SCHEME(1i32);
@@ -3050,7 +3050,7 @@ impl ::core::default::Default for PEER_GROUP_EVENT_REGISTRATION {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PEER_GROUP_EVENT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 pub const PEER_GROUP_EVENT_STATUS_CHANGED: PEER_GROUP_EVENT_TYPE = PEER_GROUP_EVENT_TYPE(1i32);
@@ -3091,7 +3091,7 @@ impl ::core::fmt::Debug for PEER_GROUP_EVENT_TYPE {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PEER_GROUP_ISSUE_CREDENTIAL_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 pub const PEER_GROUP_STORE_CREDENTIALS: PEER_GROUP_ISSUE_CREDENTIAL_FLAGS = PEER_GROUP_ISSUE_CREDENTIAL_FLAGS(1i32);
@@ -3172,7 +3172,7 @@ impl ::core::default::Default for PEER_GROUP_PROPERTIES {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PEER_GROUP_PROPERTY_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 pub const PEER_MEMBER_DATA_OPTIONAL: PEER_GROUP_PROPERTY_FLAGS = PEER_GROUP_PROPERTY_FLAGS(1i32);
@@ -3204,7 +3204,7 @@ pub const PEER_GROUP_ROLE_INVITING_MEMBER: ::windows::core::GUID = ::windows::co
 pub const PEER_GROUP_ROLE_MEMBER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf12dc4c7_0857_4ca0_93fc_b1bb19a3d8c2);
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PEER_GROUP_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 pub const PEER_GROUP_STATUS_LISTENING: PEER_GROUP_STATUS = PEER_GROUP_STATUS(1i32);
@@ -3371,7 +3371,7 @@ impl ::core::default::Default for PEER_INVITATION_RESPONSE {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PEER_INVITATION_RESPONSE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 pub const PEER_INVITATION_RESPONSE_DECLINED: PEER_INVITATION_RESPONSE_TYPE = PEER_INVITATION_RESPONSE_TYPE(0i32);
@@ -3447,7 +3447,7 @@ impl ::core::default::Default for PEER_MEMBER {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PEER_MEMBER_CHANGE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 pub const PEER_MEMBER_CONNECTED: PEER_MEMBER_CHANGE_TYPE = PEER_MEMBER_CHANGE_TYPE(1i32);
@@ -3480,7 +3480,7 @@ impl ::core::fmt::Debug for PEER_MEMBER_CHANGE_TYPE {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PEER_MEMBER_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 pub const PEER_MEMBER_PRESENT: PEER_MEMBER_FLAGS = PEER_MEMBER_FLAGS(1i32);
@@ -3537,7 +3537,7 @@ impl ::core::default::Default for PEER_NAME_PAIR {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PEER_NODE_CHANGE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 pub const PEER_NODE_CHANGE_CONNECTED: PEER_NODE_CHANGE_TYPE = PEER_NODE_CHANGE_TYPE(1i32);
@@ -3826,7 +3826,7 @@ impl ::core::default::Default for PEER_PRESENCE_INFO {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PEER_PRESENCE_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 pub const PEER_PRESENCE_OFFLINE: PEER_PRESENCE_STATUS = PEER_PRESENCE_STATUS(0i32);
@@ -3865,7 +3865,7 @@ impl ::core::fmt::Debug for PEER_PRESENCE_STATUS {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PEER_PUBLICATION_SCOPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 pub const PEER_PUBLICATION_SCOPE_NONE: PEER_PUBLICATION_SCOPE = PEER_PUBLICATION_SCOPE(0i32);
@@ -3960,7 +3960,7 @@ impl ::core::default::Default for PEER_RECORD {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PEER_RECORD_CHANGE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 pub const PEER_RECORD_ADDED: PEER_RECORD_CHANGE_TYPE = PEER_RECORD_CHANGE_TYPE(1i32);
@@ -3991,7 +3991,7 @@ impl ::core::fmt::Debug for PEER_RECORD_CHANGE_TYPE {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PEER_RECORD_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 pub const PEER_RECORD_FLAG_AUTOREFRESH: PEER_RECORD_FLAGS = PEER_RECORD_FLAGS(1i32);
@@ -4076,7 +4076,7 @@ impl ::core::default::Default for PEER_SECURITY_INTERFACE {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PEER_SIGNIN_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 pub const PEER_SIGNIN_NONE: PEER_SIGNIN_FLAGS = PEER_SIGNIN_FLAGS(0i32);
@@ -4138,7 +4138,7 @@ impl ::core::default::Default for PEER_VERSION_DATA {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PEER_WATCH_PERMISSION(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 pub const PEER_WATCH_BLOCKED: PEER_WATCH_PERMISSION = PEER_WATCH_PERMISSION(0i32);
@@ -4331,7 +4331,7 @@ impl ::core::default::Default for PNRPINFO_V2_0 {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PNRP_CLOUD_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 pub const PNRP_CLOUD_NO_FLAGS: PNRP_CLOUD_FLAGS = PNRP_CLOUD_FLAGS(0i32);
@@ -4394,7 +4394,7 @@ impl ::core::default::Default for PNRP_CLOUD_ID {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PNRP_CLOUD_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 pub const PNRP_CLOUD_STATE_VIRTUAL: PNRP_CLOUD_STATE = PNRP_CLOUD_STATE(0i32);
@@ -4431,7 +4431,7 @@ impl ::core::fmt::Debug for PNRP_CLOUD_STATE {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PNRP_EXTENDED_PAYLOAD_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 pub const PNRP_EXTENDED_PAYLOAD_TYPE_NONE: PNRP_EXTENDED_PAYLOAD_TYPE = PNRP_EXTENDED_PAYLOAD_TYPE(0i32);
@@ -4464,7 +4464,7 @@ pub const PNRP_MAX_ENDPOINT_ADDRESSES: u32 = 10u32;
 pub const PNRP_MAX_EXTENDED_PAYLOAD_BYTES: u32 = 4096u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PNRP_REGISTERED_ID_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 pub const PNRP_REGISTERED_ID_STATE_OK: PNRP_REGISTERED_ID_STATE = PNRP_REGISTERED_ID_STATE(1i32);
@@ -4491,7 +4491,7 @@ impl ::core::fmt::Debug for PNRP_REGISTERED_ID_STATE {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PNRP_RESOLVE_CRITERIA(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 pub const PNRP_RESOLVE_CRITERIA_DEFAULT: PNRP_RESOLVE_CRITERIA = PNRP_RESOLVE_CRITERIA(0i32);
@@ -4528,7 +4528,7 @@ impl ::core::fmt::Debug for PNRP_RESOLVE_CRITERIA {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PNRP_SCOPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 pub const PNRP_SCOPE_ANY: PNRP_SCOPE = PNRP_SCOPE(0i32);

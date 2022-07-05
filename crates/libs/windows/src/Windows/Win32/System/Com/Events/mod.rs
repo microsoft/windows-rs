@@ -52,7 +52,7 @@ impl ::core::default::Default for COMEVENTSYSCHANGEINFO {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Events\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EOC_ChangeType(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com_Events\"`*"]
 pub const EOC_NewObject: EOC_ChangeType = EOC_ChangeType(0i32);

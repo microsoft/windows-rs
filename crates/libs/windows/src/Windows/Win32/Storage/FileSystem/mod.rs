@@ -308,7 +308,7 @@ pub const CLFS_CONTAINER_RELATIVE_PREFIX: &str = "%BLF%\\";
 pub const CLFS_CONTAINER_STREAM_PREFIX: &str = "%BLF%:";
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLFS_CONTEXT_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClfsContextNone: CLFS_CONTEXT_MODE = CLFS_CONTEXT_MODE(0i32);
@@ -339,7 +339,7 @@ impl ::core::fmt::Debug for CLFS_CONTEXT_MODE {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLFS_FLAG(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const CLFS_FLAG_FORCE_APPEND: CLFS_FLAG = CLFS_FLAG(1u32);
@@ -416,7 +416,7 @@ pub const CLFS_FLAG_REENTRANT_FILE_SYSTEM: u32 = 8u32;
 pub const CLFS_FLAG_REENTRANT_FILTER: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLFS_IOSTATS_CLASS(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClfsIoStatsDefault: CLFS_IOSTATS_CLASS = CLFS_IOSTATS_CLASS(0i32);
@@ -443,7 +443,7 @@ impl ::core::fmt::Debug for CLFS_IOSTATS_CLASS {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLFS_LOG_ARCHIVE_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClfsLogArchiveEnabled: CLFS_LOG_ARCHIVE_MODE = CLFS_LOG_ARCHIVE_MODE(1i32);
@@ -541,7 +541,7 @@ impl ::core::default::Default for CLFS_MGMT_NOTIFICATION {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLFS_MGMT_NOTIFICATION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClfsMgmtAdvanceTailNotification: CLFS_MGMT_NOTIFICATION_TYPE = CLFS_MGMT_NOTIFICATION_TYPE(0i32);
@@ -939,7 +939,7 @@ impl ::core::default::Default for CLFS_MGMT_POLICY_0_9 {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLFS_MGMT_POLICY_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClfsMgmtPolicyMaximumSize: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(0i32);
@@ -1176,7 +1176,7 @@ impl ::core::default::Default for CLS_CONTAINER_INFORMATION {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLS_CONTEXT_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClsContextNone: CLS_CONTEXT_MODE = CLS_CONTEXT_MODE(0i32);
@@ -1271,7 +1271,7 @@ impl ::core::default::Default for CLS_INFORMATION {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLS_IOSTATS_CLASS(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClsIoStatsDefault: CLS_IOSTATS_CLASS = CLS_IOSTATS_CLASS(0i32);
@@ -1366,7 +1366,7 @@ impl ::core::default::Default for CLS_IO_STATISTICS_HEADER {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLS_LOG_INFORMATION_CLASS(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClfsLogBasicInformation: CLS_LOG_INFORMATION_CLASS = CLS_LOG_INFORMATION_CLASS(0i32);
@@ -1572,7 +1572,7 @@ impl ::core::default::Default for CONNECTION_INFO_1 {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COPYFILE2_COPY_PHASE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const COPYFILE2_PHASE_NONE: COPYFILE2_COPY_PHASE = COPYFILE2_COPY_PHASE(0i32);
@@ -2045,7 +2045,7 @@ impl ::core::default::Default for COPYFILE2_MESSAGE_0_5 {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COPYFILE2_MESSAGE_ACTION(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const COPYFILE2_PROGRESS_CONTINUE: COPYFILE2_MESSAGE_ACTION = COPYFILE2_MESSAGE_ACTION(0i32);
@@ -2078,7 +2078,7 @@ impl ::core::fmt::Debug for COPYFILE2_MESSAGE_ACTION {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COPYFILE2_MESSAGE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const COPYFILE2_CALLBACK_NONE: COPYFILE2_MESSAGE_TYPE = COPYFILE2_MESSAGE_TYPE(0i32);
@@ -2160,7 +2160,7 @@ impl ::core::default::Default for CREATEFILE2_EXTENDED_PARAMETERS {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CREATE_TAPE_PARTITION_METHOD(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TAPE_FIXED_PARTITIONS: CREATE_TAPE_PARTITION_METHOD = CREATE_TAPE_PARTITION_METHOD(0i32);
@@ -3000,7 +3000,7 @@ pub unsafe fn CreateTransactionManager<'a, Param1: ::windows::core::IntoParam<'a
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DEFINE_DOS_DEVICE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const DDD_RAW_TARGET_PATH: DEFINE_DOS_DEVICE_FLAGS = DEFINE_DOS_DEVICE_FLAGS(1u32);
@@ -3079,7 +3079,7 @@ pub const DISKQUOTA_STATE_MASK: u32 = 3u32;
 pub const DISKQUOTA_STATE_TRACK: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISKQUOTA_USERNAME_RESOLVE(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const DISKQUOTA_USERNAME_RESOLVE_ASYNC: DISKQUOTA_USERNAME_RESOLVE = DISKQUOTA_USERNAME_RESOLVE(2u32);
@@ -4048,7 +4048,7 @@ pub const ENLISTMENT_OBJECT_PATH: &str = "\\Enlistment\\";
 pub const ENLISTMENT_SUPERIOR: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ERASE_TAPE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TAPE_ERASE_LONG: ERASE_TAPE_TYPE = ERASE_TAPE_TYPE(1i32);
@@ -4188,7 +4188,7 @@ impl ::core::default::Default for FH_OVERLAPPED {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILE_ACCESS_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_READ_DATA: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(1u32);
@@ -4291,7 +4291,7 @@ impl ::core::ops::Not for FILE_ACCESS_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILE_ACTION(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_ACTION_ADDED: FILE_ACTION = FILE_ACTION(1u32);
@@ -4484,7 +4484,7 @@ impl ::core::default::Default for FILE_COMPRESSION_INFO {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILE_CREATION_DISPOSITION(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const CREATE_NEW: FILE_CREATION_DISPOSITION = FILE_CREATION_DISPOSITION(1u32);
@@ -4517,7 +4517,7 @@ impl ::core::fmt::Debug for FILE_CREATION_DISPOSITION {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILE_DEVICE_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_DEVICE_CD_ROM: FILE_DEVICE_TYPE = FILE_DEVICE_TYPE(2u32);
@@ -4647,7 +4647,7 @@ impl ::core::default::Default for FILE_EXTENT {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILE_FLAGS_AND_ATTRIBUTES(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_ATTRIBUTE_READONLY: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(1u32);
@@ -5075,7 +5075,7 @@ impl ::core::default::Default for FILE_ID_INFO {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILE_ID_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FileIdType: FILE_ID_TYPE = FILE_ID_TYPE(0i32);
@@ -5170,7 +5170,7 @@ impl ::core::default::Default for FILE_INFO_3 {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILE_INFO_BY_HANDLE_CLASS(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FileBasicInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(0i32);
@@ -5245,7 +5245,7 @@ impl ::core::fmt::Debug for FILE_INFO_BY_HANDLE_CLASS {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILE_INFO_FLAGS_PERMISSIONS(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const PERM_FILE_READ: FILE_INFO_FLAGS_PERMISSIONS = FILE_INFO_FLAGS_PERMISSIONS(1u32);
@@ -5332,7 +5332,7 @@ impl ::core::default::Default for FILE_IO_PRIORITY_HINT_INFO {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILE_NAME(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_NAME_NORMALIZED: FILE_NAME = FILE_NAME(0u32);
@@ -5390,7 +5390,7 @@ impl ::core::default::Default for FILE_NAME_INFO {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILE_NOTIFY_CHANGE(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_NOTIFY_CHANGE_FILE_NAME: FILE_NOTIFY_CHANGE = FILE_NOTIFY_CHANGE(1u32);
@@ -5832,7 +5832,7 @@ impl ::core::default::Default for FILE_SEGMENT_ELEMENT {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILE_SHARE_MODE(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_SHARE_NONE: FILE_SHARE_MODE = FILE_SHARE_MODE(0u32);
@@ -6011,7 +6011,7 @@ impl ::core::default::Default for FILE_STREAM_INFO {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FINDEX_INFO_LEVELS(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FindExInfoStandard: FINDEX_INFO_LEVELS = FINDEX_INFO_LEVELS(0i32);
@@ -6040,7 +6040,7 @@ impl ::core::fmt::Debug for FINDEX_INFO_LEVELS {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FINDEX_SEARCH_OPS(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FindExSearchNameMatch: FINDEX_SEARCH_OPS = FINDEX_SEARCH_OPS(0i32);
@@ -6071,7 +6071,7 @@ impl ::core::fmt::Debug for FINDEX_SEARCH_OPS {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FIND_FIRST_EX_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FIND_FIRST_EX_CASE_SENSITIVE: FIND_FIRST_EX_FLAGS = FIND_FIRST_EX_FLAGS(1u32);
@@ -6214,7 +6214,7 @@ pub unsafe fn FileTimeToLocalFileTime(lpfiletime: *const super::super::Foundatio
     unimplemented!("Unsupported target OS");
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FindChangeNotificationHandle(pub isize);
 impl FindChangeNotificationHandle {
     pub fn is_invalid(&self) -> bool {
@@ -6271,7 +6271,7 @@ pub unsafe fn FindCloseChangeNotification<'a, Param0: ::windows::core::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FindFileHandle(pub isize);
 impl FindFileHandle {
     pub fn is_invalid(&self) -> bool {
@@ -6298,7 +6298,7 @@ unsafe impl ::windows::core::Abi for FindFileHandle {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FindFileNameHandle(pub isize);
 impl FindFileNameHandle {
     pub fn is_invalid(&self) -> bool {
@@ -6723,7 +6723,7 @@ pub unsafe fn FindNextVolumeW<'a, Param0: ::windows::core::IntoParam<'a, FindVol
     unimplemented!("Unsupported target OS");
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FindStreamHandle(pub isize);
 impl FindStreamHandle {
     pub fn is_invalid(&self) -> bool {
@@ -6765,7 +6765,7 @@ pub unsafe fn FindVolumeClose<'a, Param0: ::windows::core::IntoParam<'a, FindVol
     unimplemented!("Unsupported target OS");
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FindVolumeHandle(pub isize);
 impl FindVolumeHandle {
     pub fn is_invalid(&self) -> bool {
@@ -6792,7 +6792,7 @@ unsafe impl ::windows::core::Abi for FindVolumeHandle {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FindVolumeMointPointHandle(pub isize);
 impl FindVolumeMointPointHandle {
     pub fn is_invalid(&self) -> bool {
@@ -6924,7 +6924,7 @@ pub unsafe fn FreeReservedLog(pvmarshal: *mut ::core::ffi::c_void, creservedreco
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GET_FILEEX_INFO_LEVELS(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const GetFileExInfoStandard: GET_FILEEX_INFO_LEVELS = GET_FILEEX_INFO_LEVELS(0i32);
@@ -6951,7 +6951,7 @@ impl ::core::fmt::Debug for GET_FILEEX_INFO_LEVELS {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GET_FILE_VERSION_INFO_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_VER_GET_LOCALISED: GET_FILE_VERSION_INFO_FLAGS = GET_FILE_VERSION_INFO_FLAGS(1u32);
@@ -7008,7 +7008,7 @@ impl ::core::ops::Not for GET_FILE_VERSION_INFO_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GET_TAPE_DRIVE_PARAMETERS_OPERATION(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const GET_TAPE_DRIVE_INFORMATION: GET_TAPE_DRIVE_PARAMETERS_OPERATION = GET_TAPE_DRIVE_PARAMETERS_OPERATION(1u32);
@@ -9105,7 +9105,7 @@ impl ::core::default::Default for IORING_CQE {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IORING_CREATE_ADVISORY_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IORING_CREATE_ADVISORY_FLAGS_NONE: IORING_CREATE_ADVISORY_FLAGS = IORING_CREATE_ADVISORY_FLAGS(0i32);
@@ -9161,7 +9161,7 @@ impl ::core::default::Default for IORING_CREATE_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IORING_CREATE_REQUIRED_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IORING_CREATE_REQUIRED_FLAGS_NONE: IORING_CREATE_REQUIRED_FLAGS = IORING_CREATE_REQUIRED_FLAGS(0i32);
@@ -9186,7 +9186,7 @@ impl ::core::fmt::Debug for IORING_CREATE_REQUIRED_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IORING_FEATURE_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IORING_FEATURE_FLAGS_NONE: IORING_FEATURE_FLAGS = IORING_FEATURE_FLAGS(0i32);
@@ -9314,7 +9314,7 @@ impl ::core::default::Default for IORING_INFO {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IORING_OP_CODE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IORING_OP_NOP: IORING_OP_CODE = IORING_OP_CODE(0i32);
@@ -9347,7 +9347,7 @@ impl ::core::fmt::Debug for IORING_OP_CODE {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IORING_REF_KIND(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IORING_REF_RAW: IORING_REF_KIND = IORING_REF_KIND(0i32);
@@ -9405,7 +9405,7 @@ impl ::core::default::Default for IORING_REGISTERED_BUFFER {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IORING_SQE_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IOSQE_FLAGS_NONE: IORING_SQE_FLAGS = IORING_SQE_FLAGS(0i32);
@@ -9430,7 +9430,7 @@ impl ::core::fmt::Debug for IORING_SQE_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IORING_VERSION(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IORING_VERSION_INVALID: IORING_VERSION = IORING_VERSION(0i32);
@@ -9593,7 +9593,7 @@ pub const KTM_MARSHAL_BLOB_VERSION_MAJOR: u32 = 1u32;
 pub const KTM_MARSHAL_BLOB_VERSION_MINOR: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LOCK_FILE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const LOCKFILE_EXCLUSIVE_LOCK: LOCK_FILE_FLAGS = LOCK_FILE_FLAGS(2u32);
@@ -9696,7 +9696,7 @@ pub const LOG_POLICY_PERSIST: u32 = 2u32;
 pub type LPPROGRESS_ROUTINE = ::core::option::Option<unsafe extern "system" fn(totalfilesize: i64, totalbytestransferred: i64, streamsize: i64, streambytestransferred: i64, dwstreamnumber: u32, dwcallbackreason: LPPROGRESS_ROUTINE_CALLBACK_REASON, hsourcefile: super::super::Foundation::HANDLE, hdestinationfile: super::super::Foundation::HANDLE, lpdata: *const ::core::ffi::c_void) -> u32>;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LPPROGRESS_ROUTINE_CALLBACK_REASON(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const CALLBACK_CHUNK_FINISHED: LPPROGRESS_ROUTINE_CALLBACK_REASON = LPPROGRESS_ROUTINE_CALLBACK_REASON(0u32);
@@ -9795,7 +9795,7 @@ pub unsafe fn LZInit(hfsource: i32) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LZOPENFILE_STYLE(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const OF_CANCEL: LZOPENFILE_STYLE = LZOPENFILE_STYLE(2048u32);
@@ -10163,7 +10163,7 @@ pub const MAX_SID_SIZE: u32 = 256u32;
 pub const MAX_TRANSACTION_DESCRIPTION_LENGTH: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MOVE_FILE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const MOVEFILE_COPY_ALLOWED: MOVE_FILE_FLAGS = MOVE_FILE_FLAGS(2u32);
@@ -12287,7 +12287,7 @@ pub const NTMS_OMIDLABELINFO_LENGTH: u32 = 256u32;
 pub const NTMS_OMIDLABELTYPE_LENGTH: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NTMS_OMID_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_OMID_TYPE_FILESYSTEM_INFO: NTMS_OMID_TYPE = NTMS_OMID_TYPE(2u32);
@@ -12692,7 +12692,7 @@ pub const NTMS_USERNAME_LENGTH: u32 = 64u32;
 pub const NTMS_VENDORNAME_LENGTH: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NT_CREATE_FILE_DISPOSITION(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_SUPERSEDE: NT_CREATE_FILE_DISPOSITION = NT_CREATE_FILE_DISPOSITION(0u32);
@@ -13022,7 +13022,7 @@ pub unsafe fn NtCreateFile(filehandle: *mut super::super::Foundation::HANDLE, de
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsAccessMask(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_USE_ACCESS: NtmsAccessMask = NtmsAccessMask(1i32);
@@ -13051,7 +13051,7 @@ impl ::core::fmt::Debug for NtmsAccessMask {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsAllocateOptions(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_ALLOCATE_NEW: NtmsAllocateOptions = NtmsAllocateOptions(1i32);
@@ -13080,7 +13080,7 @@ impl ::core::fmt::Debug for NtmsAllocateOptions {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsAllocationPolicy(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_ALLOCATE_FROMSCRATCH: NtmsAllocationPolicy = NtmsAllocationPolicy(1i32);
@@ -13105,7 +13105,7 @@ impl ::core::fmt::Debug for NtmsAllocationPolicy {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsAsyncOperations(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_ASYNCOP_MOUNT: NtmsAsyncOperations = NtmsAsyncOperations(1i32);
@@ -13130,7 +13130,7 @@ impl ::core::fmt::Debug for NtmsAsyncOperations {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsAsyncStatus(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_ASYNCSTATE_QUEUED: NtmsAsyncStatus = NtmsAsyncStatus(0i32);
@@ -13163,7 +13163,7 @@ impl ::core::fmt::Debug for NtmsAsyncStatus {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsBarCodeState(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_BARCODESTATE_OK: NtmsBarCodeState = NtmsBarCodeState(1i32);
@@ -13190,7 +13190,7 @@ impl ::core::fmt::Debug for NtmsBarCodeState {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsCreateNtmsMediaOptions(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_ERROR_ON_DUPLICATE: NtmsCreateNtmsMediaOptions = NtmsCreateNtmsMediaOptions(1i32);
@@ -13215,7 +13215,7 @@ impl ::core::fmt::Debug for NtmsCreateNtmsMediaOptions {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsCreateOptions(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_OPEN_EXISTING: NtmsCreateOptions = NtmsCreateOptions(1i32);
@@ -13244,7 +13244,7 @@ impl ::core::fmt::Debug for NtmsCreateOptions {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsDeallocationPolicy(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_DEALLOCATE_TOSCRATCH: NtmsDeallocationPolicy = NtmsDeallocationPolicy(1i32);
@@ -13269,7 +13269,7 @@ impl ::core::fmt::Debug for NtmsDeallocationPolicy {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsDismountOptions(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_DISMOUNT_DEFERRED: NtmsDismountOptions = NtmsDismountOptions(1i32);
@@ -13296,7 +13296,7 @@ impl ::core::fmt::Debug for NtmsDismountOptions {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsDoorState(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_DOORSTATE_UNKNOWN: NtmsDoorState = NtmsDoorState(0i32);
@@ -13325,7 +13325,7 @@ impl ::core::fmt::Debug for NtmsDoorState {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsDriveState(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_DRIVESTATE_DISMOUNTED: NtmsDriveState = NtmsDriveState(0i32);
@@ -13360,7 +13360,7 @@ impl ::core::fmt::Debug for NtmsDriveState {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsDriveType(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_UNKNOWN_DRIVE: NtmsDriveType = NtmsDriveType(0i32);
@@ -13385,7 +13385,7 @@ impl ::core::fmt::Debug for NtmsDriveType {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsEjectOperation(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_EJECT_START: NtmsEjectOperation = NtmsEjectOperation(0i32);
@@ -13420,7 +13420,7 @@ impl ::core::fmt::Debug for NtmsEjectOperation {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsEnumerateOption(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_ENUM_DEFAULT: NtmsEnumerateOption = NtmsEnumerateOption(0i32);
@@ -13447,7 +13447,7 @@ impl ::core::fmt::Debug for NtmsEnumerateOption {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsInjectOperation(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_INJECT_START: NtmsInjectOperation = NtmsInjectOperation(0i32);
@@ -13478,7 +13478,7 @@ impl ::core::fmt::Debug for NtmsInjectOperation {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsInventoryMethod(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_INVENTORY_NONE: NtmsInventoryMethod = NtmsInventoryMethod(0i32);
@@ -13515,7 +13515,7 @@ impl ::core::fmt::Debug for NtmsInventoryMethod {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsLibRequestFlags(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_LIBREQFLAGS_NOAUTOPURGE: NtmsLibRequestFlags = NtmsLibRequestFlags(1i32);
@@ -13542,7 +13542,7 @@ impl ::core::fmt::Debug for NtmsLibRequestFlags {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsLibraryFlags(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_LIBRARYFLAG_FIXEDOFFLINE: NtmsLibraryFlags = NtmsLibraryFlags(1i32);
@@ -13575,7 +13575,7 @@ impl ::core::fmt::Debug for NtmsLibraryFlags {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsLibraryType(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_LIBRARYTYPE_UNKNOWN: NtmsLibraryType = NtmsLibraryType(0i32);
@@ -13606,7 +13606,7 @@ impl ::core::fmt::Debug for NtmsLibraryType {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsLmOperation(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_LM_REMOVE: NtmsLmOperation = NtmsLmOperation(0i32);
@@ -13679,7 +13679,7 @@ impl ::core::fmt::Debug for NtmsLmOperation {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsLmState(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_LM_QUEUED: NtmsLmState = NtmsLmState(0i32);
@@ -13722,7 +13722,7 @@ impl ::core::fmt::Debug for NtmsLmState {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsMediaPoolPolicy(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_POOLPOLICY_PURGEOFFLINESCRATCH: NtmsMediaPoolPolicy = NtmsMediaPoolPolicy(1i32);
@@ -13749,7 +13749,7 @@ impl ::core::fmt::Debug for NtmsMediaPoolPolicy {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsMediaState(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_MEDIASTATE_IDLE: NtmsMediaState = NtmsMediaState(0i32);
@@ -13786,7 +13786,7 @@ impl ::core::fmt::Debug for NtmsMediaState {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsMountOptions(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_MOUNT_READ: NtmsMountOptions = NtmsMountOptions(1i32);
@@ -13825,7 +13825,7 @@ impl ::core::fmt::Debug for NtmsMountOptions {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsMountPriority(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_PRIORITY_DEFAULT: NtmsMountPriority = NtmsMountPriority(0i32);
@@ -13860,7 +13860,7 @@ impl ::core::fmt::Debug for NtmsMountPriority {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsNotificationOperations(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_OBJ_UPDATE: NtmsNotificationOperations = NtmsNotificationOperations(1i32);
@@ -13893,7 +13893,7 @@ impl ::core::fmt::Debug for NtmsNotificationOperations {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsObjectsTypes(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_UNKNOWN: NtmsObjectsTypes = NtmsObjectsTypes(0i32);
@@ -13956,7 +13956,7 @@ impl ::core::fmt::Debug for NtmsObjectsTypes {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsOpRequestFlags(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_OPREQFLAGS_NOAUTOPURGE: NtmsOpRequestFlags = NtmsOpRequestFlags(1i32);
@@ -13987,7 +13987,7 @@ impl ::core::fmt::Debug for NtmsOpRequestFlags {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsOperationalState(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_READY: NtmsOperationalState = NtmsOperationalState(0i32);
@@ -14018,7 +14018,7 @@ impl ::core::fmt::Debug for NtmsOperationalState {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsOpreqCommand(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_OPREQ_UNKNOWN: NtmsOpreqCommand = NtmsOpreqCommand(0i32);
@@ -14053,7 +14053,7 @@ impl ::core::fmt::Debug for NtmsOpreqCommand {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsOpreqState(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_OPSTATE_UNKNOWN: NtmsOpreqState = NtmsOpreqState(0i32);
@@ -14088,7 +14088,7 @@ impl ::core::fmt::Debug for NtmsOpreqState {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsPartitionState(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_PARTSTATE_UNKNOWN: NtmsPartitionState = NtmsPartitionState(0i32);
@@ -14131,7 +14131,7 @@ impl ::core::fmt::Debug for NtmsPartitionState {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsPoolType(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_POOLTYPE_UNKNOWN: NtmsPoolType = NtmsPoolType(0i32);
@@ -14164,7 +14164,7 @@ impl ::core::fmt::Debug for NtmsPoolType {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsPortContent(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_PORTCONTENT_UNKNOWN: NtmsPortContent = NtmsPortContent(0i32);
@@ -14193,7 +14193,7 @@ impl ::core::fmt::Debug for NtmsPortContent {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsPortPosition(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_PORTPOSITION_UNKNOWN: NtmsPortPosition = NtmsPortPosition(0i32);
@@ -14222,7 +14222,7 @@ impl ::core::fmt::Debug for NtmsPortPosition {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsReadWriteCharacteristics(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_MEDIARW_UNKNOWN: NtmsReadWriteCharacteristics = NtmsReadWriteCharacteristics(0i32);
@@ -14253,7 +14253,7 @@ impl ::core::fmt::Debug for NtmsReadWriteCharacteristics {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsSessionOptions(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_SESSION_QUERYEXPEDITE: NtmsSessionOptions = NtmsSessionOptions(1i32);
@@ -14278,7 +14278,7 @@ impl ::core::fmt::Debug for NtmsSessionOptions {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsSlotState(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_SLOTSTATE_UNKNOWN: NtmsSlotState = NtmsSlotState(0i32);
@@ -14311,7 +14311,7 @@ impl ::core::fmt::Debug for NtmsSlotState {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsUIOperations(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_UIDEST_ADD: NtmsUIOperations = NtmsUIOperations(1i32);
@@ -14342,7 +14342,7 @@ impl ::core::fmt::Debug for NtmsUIOperations {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsUITypes(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_UITYPE_INVALID: NtmsUITypes = NtmsUITypes(0i32);
@@ -14602,7 +14602,7 @@ pub type PLOG_TAIL_ADVANCE_CALLBACK = ::core::option::Option<unsafe extern "syst
 pub type PLOG_UNPINNED_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hlogfile: super::super::Foundation::HANDLE, pvclientcontext: *mut ::core::ffi::c_void)>;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PREPARE_TAPE_OPERATION(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TAPE_FORMAT: PREPARE_TAPE_OPERATION = PREPARE_TAPE_OPERATION(5i32);
@@ -14637,7 +14637,7 @@ impl ::core::fmt::Debug for PREPARE_TAPE_OPERATION {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PRIORITY_HINT(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IoPriorityHintVeryLow: PRIORITY_HINT = PRIORITY_HINT(0i32);
@@ -14874,7 +14874,7 @@ pub unsafe fn QueryUsersOnEncryptedFile<'a, Param0: ::windows::core::IntoParam<'
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct READ_DIRECTORY_NOTIFY_INFORMATION_CLASS(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ReadDirectoryNotifyInformation: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS = READ_DIRECTORY_NOTIFY_INFORMATION_CLASS(1i32);
@@ -14965,7 +14965,7 @@ impl ::core::default::Default for REPARSE_GUID_DATA_BUFFER_0 {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct REPLACE_FILE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const REPLACEFILE_WRITE_THROUGH: REPLACE_FILE_FLAGS = REPLACE_FILE_FLAGS(1u32);
@@ -15710,7 +15710,7 @@ impl ::core::default::Default for SERVER_CERTIFICATE_INFO_0 {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SERVER_CERTIFICATE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const QUIC: SERVER_CERTIFICATE_TYPE = SERVER_CERTIFICATE_TYPE(0i32);
@@ -15910,7 +15910,7 @@ impl ::core::default::Default for SESSION_INFO_502 {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SESSION_INFO_USER_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SESS_GUEST: SESSION_INFO_USER_FLAGS = SESSION_INFO_USER_FLAGS(1u32);
@@ -15937,7 +15937,7 @@ impl ::core::fmt::Debug for SESSION_INFO_USER_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SET_FILE_POINTER_MOVE_METHOD(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_BEGIN: SET_FILE_POINTER_MOVE_METHOD = SET_FILE_POINTER_MOVE_METHOD(0u32);
@@ -16379,7 +16379,7 @@ impl ::core::default::Default for SHARE_INFO_503 {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SHARE_INFO_PERMISSIONS(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ACCESS_READ: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(1u32);
@@ -16432,7 +16432,7 @@ pub const SHARE_REMARK_PARMNUM: u32 = 4u32;
 pub const SHARE_SERVER_PARMNUM: u32 = 503u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SHARE_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const STYPE_DISKTREE: SHARE_TYPE = SHARE_TYPE(0u32);
@@ -16711,7 +16711,7 @@ impl ::core::default::Default for STAT_WORKSTATION_0 {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STORAGE_BUS_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const BusTypeUnknown: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(0i32);
@@ -16778,7 +16778,7 @@ impl ::core::fmt::Debug for STORAGE_BUS_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STREAM_INFO_LEVELS(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FindStreamInfoStandard: STREAM_INFO_LEVELS = STREAM_INFO_LEVELS(0i32);
@@ -16817,7 +16817,7 @@ pub const STYPE_RESERVED5: u32 = 1048576u32;
 pub const STYPE_RESERVED_ALL: u32 = 1073741568u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SYMBOLIC_LINK_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SYMBOLIC_LINK_FLAG_DIRECTORY: SYMBOLIC_LINK_FLAGS = SYMBOLIC_LINK_FLAGS(1u32);
@@ -17483,7 +17483,7 @@ pub unsafe fn SubmitIoRing(ioring: *const HIORING__, waitoperations: u32, millis
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TAPEMARK_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TAPE_FILEMARKS: TAPEMARK_TYPE = TAPEMARK_TYPE(1i32);
@@ -17585,7 +17585,7 @@ impl ::core::default::Default for TAPE_GET_POSITION {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TAPE_INFORMATION_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SET_TAPE_DRIVE_INFORMATION: TAPE_INFORMATION_TYPE = TAPE_INFORMATION_TYPE(1u32);
@@ -17612,7 +17612,7 @@ impl ::core::fmt::Debug for TAPE_INFORMATION_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TAPE_POSITION_METHOD(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TAPE_ABSOLUTE_BLOCK: TAPE_POSITION_METHOD = TAPE_POSITION_METHOD(1i32);
@@ -17653,7 +17653,7 @@ impl ::core::fmt::Debug for TAPE_POSITION_METHOD {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TAPE_POSITION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TAPE_ABSOLUTE_POSITION: TAPE_POSITION_TYPE = TAPE_POSITION_TYPE(0i32);
@@ -18069,7 +18069,7 @@ pub const TRANSACTION_NOTIFY_TM_ONLINE: u32 = 33554432u32;
 pub const TRANSACTION_OBJECT_PATH: &str = "\\Transaction\\";
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TRANSACTION_OUTCOME(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TransactionOutcomeUndetermined: TRANSACTION_OUTCOME = TRANSACTION_OUTCOME(1i32);
@@ -18098,7 +18098,7 @@ impl ::core::fmt::Debug for TRANSACTION_OUTCOME {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TXFS_MINIVERSION(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TXFS_MINIVERSION_COMMITTED_VIEW: TXFS_MINIVERSION = TXFS_MINIVERSION(0u32);
@@ -18282,7 +18282,7 @@ impl ::core::default::Default for TXF_LOG_RECORD_TRUNCATE {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TXF_LOG_RECORD_TYPE(pub u16);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TXF_LOG_RECORD_TYPE_AFFECTED_FILE: TXF_LOG_RECORD_TYPE = TXF_LOG_RECORD_TYPE(4u16);
@@ -18554,7 +18554,7 @@ pub unsafe fn UnlockFileEx<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VER_FIND_FILE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VFFF_ISSHAREDFILE: VER_FIND_FILE_FLAGS = VER_FIND_FILE_FLAGS(1u32);
@@ -18579,7 +18579,7 @@ impl ::core::fmt::Debug for VER_FIND_FILE_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VER_FIND_FILE_STATUS(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VFF_CURNEDEST: VER_FIND_FILE_STATUS = VER_FIND_FILE_STATUS(1u32);
@@ -18636,7 +18636,7 @@ impl ::core::ops::Not for VER_FIND_FILE_STATUS {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VER_INSTALL_FILE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VIFF_FORCEINSTALL: VER_INSTALL_FILE_FLAGS = VER_INSTALL_FILE_FLAGS(1u32);
@@ -18663,7 +18663,7 @@ impl ::core::fmt::Debug for VER_INSTALL_FILE_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VER_INSTALL_FILE_STATUS(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VIF_TEMPFILE: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(1u32);
@@ -19318,7 +19318,7 @@ impl ::core::default::Default for VS_FIXEDFILEINFO {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VS_FIXEDFILEINFO_FILE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VS_FF_DEBUG: VS_FIXEDFILEINFO_FILE_FLAGS = VS_FIXEDFILEINFO_FILE_FLAGS(1u32);
@@ -19381,7 +19381,7 @@ impl ::core::ops::Not for VS_FIXEDFILEINFO_FILE_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VS_FIXEDFILEINFO_FILE_OS(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VOS_UNKNOWN: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(0i32);
@@ -19436,7 +19436,7 @@ impl ::core::fmt::Debug for VS_FIXEDFILEINFO_FILE_OS {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VS_FIXEDFILEINFO_FILE_SUBTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VFT2_UNKNOWN: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(0i32);
@@ -19491,7 +19491,7 @@ impl ::core::fmt::Debug for VS_FIXEDFILEINFO_FILE_SUBTYPE {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VS_FIXEDFILEINFO_FILE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VFT_UNKNOWN: VS_FIXEDFILEINFO_FILE_TYPE = VS_FIXEDFILEINFO_FILE_TYPE(0i32);
@@ -19969,7 +19969,7 @@ impl ::core::default::Default for WIN32_STREAM_ID {
 pub const WINEFS_SETUSERKEY_SET_CAPABILITIES: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WIN_STREAM_ID(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const BACKUP_ALTERNATE_DATA: WIN_STREAM_ID = WIN_STREAM_ID(4u32);

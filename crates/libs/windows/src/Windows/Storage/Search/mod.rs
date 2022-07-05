@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Storage_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CommonFileQuery(pub i32);
 impl CommonFileQuery {
     pub const DefaultQuery: Self = Self(0i32);
@@ -38,7 +38,7 @@ unsafe impl ::windows::core::RuntimeType for CommonFileQuery {
 }
 #[doc = "*Required features: `\"Storage_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CommonFolderQuery(pub i32);
 impl CommonFolderQuery {
     pub const DefaultQuery: Self = Self(0i32);
@@ -398,7 +398,7 @@ unsafe impl ::core::marker::Send for ContentIndexerQuery {}
 unsafe impl ::core::marker::Sync for ContentIndexerQuery {}
 #[doc = "*Required features: `\"Storage_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DateStackOption(pub i32);
 impl DateStackOption {
     pub const None: Self = Self(0i32);
@@ -433,7 +433,7 @@ unsafe impl ::windows::core::RuntimeType for DateStackOption {
 }
 #[doc = "*Required features: `\"Storage_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FolderDepth(pub i32);
 impl FolderDepth {
     pub const Shallow: Self = Self(0i32);
@@ -1499,7 +1499,7 @@ unsafe impl ::core::marker::Send for IndexableContent {}
 unsafe impl ::core::marker::Sync for IndexableContent {}
 #[doc = "*Required features: `\"Storage_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IndexedState(pub i32);
 impl IndexedState {
     pub const Unknown: Self = Self(0i32);
@@ -1535,7 +1535,7 @@ unsafe impl ::windows::core::RuntimeType for IndexedState {
 }
 #[doc = "*Required features: `\"Storage_Search\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IndexerOption(pub i32);
 impl IndexerOption {
     pub const UseIndexerWhenAvailable: Self = Self(0i32);

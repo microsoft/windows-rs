@@ -84,7 +84,7 @@ impl ::core::default::Default for CONNECTDLGSTRUCTW {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CONNECTDLGSTRUCT_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 pub const CONNDLG_RO_PATH: CONNECTDLGSTRUCT_FLAGS = CONNECTDLGSTRUCT_FLAGS(1u32);
@@ -251,7 +251,7 @@ impl ::core::default::Default for DISCDLGSTRUCTW {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISCDLGSTRUCT_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 pub const DISC_UPDATE_PROFILE: DISCDLGSTRUCT_FLAGS = DISCDLGSTRUCT_FLAGS(1u32);
@@ -413,7 +413,7 @@ impl ::core::default::Default for NETINFOSTRUCT {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NETINFOSTRUCT_CHARACTERISTICS(pub u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 pub const NETINFO_DLL16: NETINFOSTRUCT_CHARACTERISTICS = NETINFOSTRUCT_CHARACTERISTICS(1u32);
@@ -546,7 +546,7 @@ impl ::core::default::Default for NETRESOURCEW {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NETWORK_NAME_FORMAT_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 pub const WNFMT_MULTILINE: NETWORK_NAME_FORMAT_FLAGS = NETWORK_NAME_FORMAT_FLAGS(1u32);
@@ -573,7 +573,7 @@ impl ::core::fmt::Debug for NETWORK_NAME_FORMAT_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NET_RESOURCE_SCOPE(pub u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 pub const RESOURCE_CONNECTED: NET_RESOURCE_SCOPE = NET_RESOURCE_SCOPE(1u32);
@@ -604,7 +604,7 @@ impl ::core::fmt::Debug for NET_RESOURCE_SCOPE {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NET_RESOURCE_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 pub const RESOURCETYPE_ANY: NET_RESOURCE_TYPE = NET_RESOURCE_TYPE(0u32);
@@ -661,7 +661,7 @@ impl ::core::ops::Not for NET_RESOURCE_TYPE {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NET_USE_CONNECT_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 pub const CONNECT_INTERACTIVE: NET_USE_CONNECT_FLAGS = NET_USE_CONNECT_FLAGS(8u32);
@@ -936,7 +936,7 @@ pub unsafe fn NPCloseEnum<'a, Param0: ::windows::core::IntoParam<'a, super::supe
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NPDIRECTORY_NOTIFY_OPERATION(pub u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 pub const WNDN_MKDIR: NPDIRECTORY_NOTIFY_OPERATION = NPDIRECTORY_NOTIFY_OPERATION(1u32);
@@ -1135,7 +1135,7 @@ pub unsafe fn NPOpenEnum(dwscope: u32, dwtype: u32, dwusage: u32, lpnetresource:
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NP_PROPERTY_DIALOG_SELECTION(pub u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 pub const WNPS_FILE: NP_PROPERTY_DIALOG_SELECTION = NP_PROPERTY_DIALOG_SELECTION(0u32);
@@ -1163,7 +1163,7 @@ impl ::core::fmt::Debug for NP_PROPERTY_DIALOG_SELECTION {
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NetEnumHandle(pub isize);
 impl NetEnumHandle {
     pub fn is_invalid(&self) -> bool {
@@ -1356,7 +1356,7 @@ pub const RESOURCEUSAGE_SIBLING: u32 = 8u32;
 pub const RESOURCE_RECENT: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UNC_INFO_LEVEL(pub u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 pub const UNIVERSAL_NAME_INFO_LEVEL: UNC_INFO_LEVEL = UNC_INFO_LEVEL(1u32);
@@ -1455,7 +1455,7 @@ pub const WNDT_NETWORK: u32 = 1u32;
 pub const WNDT_NORMAL: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WNET_OPEN_ENUM_USAGE(pub u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 pub const RESOURCEUSAGE_NONE: WNET_OPEN_ENUM_USAGE = WNET_OPEN_ENUM_USAGE(0u32);
@@ -1600,7 +1600,7 @@ pub const WNPERMC_OWNER: u32 = 4u32;
 pub const WNPERMC_PERM: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WNPERM_DLG(pub u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 pub const WNPERM_DLG_PERM: WNPERM_DLG = WNPERM_DLG(0u32);

@@ -132,7 +132,7 @@ unsafe impl ::core::marker::Send for AnimationDescription {}
 unsafe impl ::core::marker::Sync for AnimationDescription {}
 #[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AnimationEffect(pub i32);
 impl AnimationEffect {
     pub const Expand: Self = Self(0i32);
@@ -200,7 +200,7 @@ unsafe impl ::windows::core::RuntimeType for AnimationEffect {
 }
 #[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AnimationEffectTarget(pub i32);
 impl AnimationEffectTarget {
     pub const Primary: Self = Self(0i32);
@@ -775,7 +775,7 @@ unsafe impl ::core::marker::Send for PropertyAnimation {}
 unsafe impl ::core::marker::Sync for PropertyAnimation {}
 #[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PropertyAnimationType(pub i32);
 impl PropertyAnimationType {
     pub const Scale: Self = Self(0i32);

@@ -8,7 +8,7 @@ pub const EC_OPEN_EXISTING: u32 = 2u32;
 pub const EC_READ_ACCESS: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_EventCollector\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EC_SUBSCRIPTION_CONFIGURATION_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_System_EventCollector\"`*"]
 pub const EcConfigurationModeNormal: EC_SUBSCRIPTION_CONFIGURATION_MODE = EC_SUBSCRIPTION_CONFIGURATION_MODE(0i32);
@@ -39,7 +39,7 @@ impl ::core::fmt::Debug for EC_SUBSCRIPTION_CONFIGURATION_MODE {
 }
 #[doc = "*Required features: `\"Win32_System_EventCollector\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EC_SUBSCRIPTION_CONTENT_FORMAT(pub i32);
 #[doc = "*Required features: `\"Win32_System_EventCollector\"`*"]
 pub const EcContentFormatEvents: EC_SUBSCRIPTION_CONTENT_FORMAT = EC_SUBSCRIPTION_CONTENT_FORMAT(1i32);
@@ -66,7 +66,7 @@ impl ::core::fmt::Debug for EC_SUBSCRIPTION_CONTENT_FORMAT {
 }
 #[doc = "*Required features: `\"Win32_System_EventCollector\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EC_SUBSCRIPTION_CREDENTIALS_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_EventCollector\"`*"]
 pub const EcSubscriptionCredDefault: EC_SUBSCRIPTION_CREDENTIALS_TYPE = EC_SUBSCRIPTION_CREDENTIALS_TYPE(0i32);
@@ -99,7 +99,7 @@ impl ::core::fmt::Debug for EC_SUBSCRIPTION_CREDENTIALS_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_EventCollector\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EC_SUBSCRIPTION_DELIVERY_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_System_EventCollector\"`*"]
 pub const EcDeliveryModePull: EC_SUBSCRIPTION_DELIVERY_MODE = EC_SUBSCRIPTION_DELIVERY_MODE(1i32);
@@ -126,7 +126,7 @@ impl ::core::fmt::Debug for EC_SUBSCRIPTION_DELIVERY_MODE {
 }
 #[doc = "*Required features: `\"Win32_System_EventCollector\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EC_SUBSCRIPTION_PROPERTY_ID(pub i32);
 #[doc = "*Required features: `\"Win32_System_EventCollector\"`*"]
 pub const EcSubscriptionEnabled: EC_SUBSCRIPTION_PROPERTY_ID = EC_SUBSCRIPTION_PROPERTY_ID(0i32);
@@ -215,7 +215,7 @@ impl ::core::fmt::Debug for EC_SUBSCRIPTION_PROPERTY_ID {
 }
 #[doc = "*Required features: `\"Win32_System_EventCollector\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EC_SUBSCRIPTION_RUNTIME_STATUS_ACTIVE_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_System_EventCollector\"`*"]
 pub const EcRuntimeStatusActiveStatusDisabled: EC_SUBSCRIPTION_RUNTIME_STATUS_ACTIVE_STATUS = EC_SUBSCRIPTION_RUNTIME_STATUS_ACTIVE_STATUS(1i32);
@@ -246,7 +246,7 @@ impl ::core::fmt::Debug for EC_SUBSCRIPTION_RUNTIME_STATUS_ACTIVE_STATUS {
 }
 #[doc = "*Required features: `\"Win32_System_EventCollector\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID(pub i32);
 #[doc = "*Required features: `\"Win32_System_EventCollector\"`*"]
 pub const EcSubscriptionRunTimeStatusActive: EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID = EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID(0i32);
@@ -285,7 +285,7 @@ impl ::core::fmt::Debug for EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID {
 }
 #[doc = "*Required features: `\"Win32_System_EventCollector\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EC_SUBSCRIPTION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_EventCollector\"`*"]
 pub const EcSubscriptionTypeSourceInitiated: EC_SUBSCRIPTION_TYPE = EC_SUBSCRIPTION_TYPE(0i32);
@@ -386,7 +386,7 @@ impl ::core::default::Default for EC_VARIANT_0 {
 }
 #[doc = "*Required features: `\"Win32_System_EventCollector\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EC_VARIANT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_EventCollector\"`*"]
 pub const EcVarTypeNull: EC_VARIANT_TYPE = EC_VARIANT_TYPE(0i32);

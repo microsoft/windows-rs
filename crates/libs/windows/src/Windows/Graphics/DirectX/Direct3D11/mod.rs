@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct Direct3DBindings(pub u32);
 impl Direct3DBindings {
     pub const VertexBuffer: Self = Self(1u32);
@@ -148,7 +148,7 @@ impl ::core::default::Default for Direct3DSurfaceDescription {
 }
 #[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct Direct3DUsage(pub i32);
 impl Direct3DUsage {
     pub const Default: Self = Self(0i32);

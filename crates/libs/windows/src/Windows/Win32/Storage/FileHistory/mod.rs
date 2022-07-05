@@ -46,7 +46,7 @@ pub const FHSVC_E_FATAL_CONFIG_ERROR: ::windows::core::HRESULT = ::windows::core
 pub const FHSVC_E_NOT_CONFIGURED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147219967i32);
 #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FH_BACKUP_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FH_STATUS_DISABLED: FH_BACKUP_STATUS = FH_BACKUP_STATUS(0i32);
@@ -79,7 +79,7 @@ impl ::core::fmt::Debug for FH_BACKUP_STATUS {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FH_DEVICE_VALIDATION_RESULT(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FH_ACCESS_DENIED: FH_DEVICE_VALIDATION_RESULT = FH_DEVICE_VALIDATION_RESULT(0i32);
@@ -118,7 +118,7 @@ impl ::core::fmt::Debug for FH_DEVICE_VALIDATION_RESULT {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FH_LOCAL_POLICY_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FH_FREQUENCY: FH_LOCAL_POLICY_TYPE = FH_LOCAL_POLICY_TYPE(0i32);
@@ -149,7 +149,7 @@ impl ::core::fmt::Debug for FH_LOCAL_POLICY_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FH_PROTECTED_ITEM_CATEGORY(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FH_FOLDER: FH_PROTECTED_ITEM_CATEGORY = FH_PROTECTED_ITEM_CATEGORY(0i32);
@@ -178,7 +178,7 @@ impl ::core::fmt::Debug for FH_PROTECTED_ITEM_CATEGORY {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FH_RETENTION_TYPES(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FH_RETENTION_DISABLED: FH_RETENTION_TYPES = FH_RETENTION_TYPES(0i32);
@@ -247,7 +247,7 @@ pub const FH_STATE_TARGET_VOLUME_DIRTY: u32 = 15u32;
 pub const FH_STATE_TOO_MUCH_BEHIND: u32 = 240u32;
 #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FH_TARGET_DRIVE_TYPES(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FH_DRIVE_UNKNOWN: FH_TARGET_DRIVE_TYPES = FH_TARGET_DRIVE_TYPES(0i32);
@@ -278,7 +278,7 @@ impl ::core::fmt::Debug for FH_TARGET_DRIVE_TYPES {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FH_TARGET_PROPERTY_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const FH_TARGET_NAME: FH_TARGET_PROPERTY_TYPE = FH_TARGET_PROPERTY_TYPE(0i32);
@@ -309,7 +309,7 @@ impl ::core::fmt::Debug for FH_TARGET_PROPERTY_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FhBackupStopReason(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 pub const BackupInvalidStopReason: FhBackupStopReason = FhBackupStopReason(0i32);

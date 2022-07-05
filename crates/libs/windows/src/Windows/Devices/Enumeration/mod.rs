@@ -221,7 +221,7 @@ unsafe impl ::core::marker::Send for DeviceAccessInformation {}
 unsafe impl ::core::marker::Sync for DeviceAccessInformation {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DeviceAccessStatus(pub i32);
 impl DeviceAccessStatus {
     pub const Unspecified: Self = Self(0i32);
@@ -257,7 +257,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceAccessStatus {
 }
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DeviceClass(pub i32);
 impl DeviceClass {
     pub const All: Self = Self(0i32);
@@ -1077,7 +1077,7 @@ unsafe impl ::core::marker::Send for DeviceInformationCustomPairing {}
 unsafe impl ::core::marker::Sync for DeviceInformationCustomPairing {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DeviceInformationKind(pub i32);
 impl DeviceInformationKind {
     pub const Unknown: Self = Self(0i32);
@@ -1389,7 +1389,7 @@ unsafe impl ::core::marker::Send for DeviceInformationUpdate {}
 unsafe impl ::core::marker::Sync for DeviceInformationUpdate {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DevicePairingKinds(pub u32);
 impl DevicePairingKinds {
     pub const None: Self = Self(0u32);
@@ -1455,7 +1455,7 @@ unsafe impl ::windows::core::RuntimeType for DevicePairingKinds {
 }
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DevicePairingProtectionLevel(pub i32);
 impl DevicePairingProtectionLevel {
     pub const Default: Self = Self(0i32);
@@ -1710,7 +1710,7 @@ unsafe impl ::core::marker::Send for DevicePairingResult {}
 unsafe impl ::core::marker::Sync for DevicePairingResult {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DevicePairingResultStatus(pub i32);
 impl DevicePairingResultStatus {
     pub const Paired: Self = Self(0i32);
@@ -2136,7 +2136,7 @@ unsafe impl ::core::marker::Send for DevicePickerAppearance {}
 unsafe impl ::core::marker::Sync for DevicePickerAppearance {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DevicePickerDisplayStatusOptions(pub u32);
 impl DevicePickerDisplayStatusOptions {
     pub const None: Self = Self(0u32);
@@ -2834,7 +2834,7 @@ unsafe impl ::core::marker::Send for DeviceUnpairingResult {}
 unsafe impl ::core::marker::Sync for DeviceUnpairingResult {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DeviceUnpairingResultStatus(pub i32);
 impl DeviceUnpairingResultStatus {
     pub const Unpaired: Self = Self(0i32);
@@ -3151,7 +3151,7 @@ unsafe impl ::core::marker::Send for DeviceWatcherEvent {}
 unsafe impl ::core::marker::Sync for DeviceWatcherEvent {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DeviceWatcherEventKind(pub i32);
 impl DeviceWatcherEventKind {
     pub const Add: Self = Self(0i32);
@@ -3186,7 +3186,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceWatcherEventKind {
 }
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DeviceWatcherStatus(pub i32);
 impl DeviceWatcherStatus {
     pub const Created: Self = Self(0i32);
@@ -4176,7 +4176,7 @@ pub struct IEnclosureLocation2_Vtbl {
 }
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct Panel(pub i32);
 impl Panel {
     pub const Unknown: Self = Self(0i32);

@@ -133,7 +133,7 @@ unsafe impl ::core::marker::Send for CustomDevice {}
 unsafe impl ::core::marker::Sync for CustomDevice {}
 #[doc = "*Required features: `\"Devices_Custom\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DeviceAccessMode(pub i32);
 impl DeviceAccessMode {
     pub const Read: Self = Self(0i32);
@@ -168,7 +168,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceAccessMode {
 }
 #[doc = "*Required features: `\"Devices_Custom\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DeviceSharingMode(pub i32);
 impl DeviceSharingMode {
     pub const Shared: Self = Self(0i32);
@@ -395,7 +395,7 @@ pub struct IKnownDeviceTypesStatics_Vtbl {
 }
 #[doc = "*Required features: `\"Devices_Custom\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IOControlAccessMode(pub i32);
 impl IOControlAccessMode {
     pub const Any: Self = Self(0i32);
@@ -431,7 +431,7 @@ unsafe impl ::windows::core::RuntimeType for IOControlAccessMode {
 }
 #[doc = "*Required features: `\"Devices_Custom\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IOControlBufferingMethod(pub i32);
 impl IOControlBufferingMethod {
     pub const Buffered: Self = Self(0i32);

@@ -2,7 +2,7 @@
 pub mod Core;
 #[doc = "*Required features: `\"ApplicationModel_DataTransfer_DragDrop\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DragDropModifiers(pub u32);
 impl DragDropModifiers {
     pub const None: Self = Self(0u32);

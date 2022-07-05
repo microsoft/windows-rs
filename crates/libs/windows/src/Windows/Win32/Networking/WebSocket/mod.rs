@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WEB_SOCKET_ACTION(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 pub const WEB_SOCKET_NO_ACTION: WEB_SOCKET_ACTION = WEB_SOCKET_ACTION(0i32);
@@ -33,7 +33,7 @@ impl ::core::fmt::Debug for WEB_SOCKET_ACTION {
 }
 #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WEB_SOCKET_ACTION_QUEUE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 pub const WEB_SOCKET_SEND_ACTION_QUEUE: WEB_SOCKET_ACTION_QUEUE = WEB_SOCKET_ACTION_QUEUE(1i32);
@@ -151,7 +151,7 @@ impl ::core::default::Default for WEB_SOCKET_BUFFER_1 {
 }
 #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WEB_SOCKET_BUFFER_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 pub const WEB_SOCKET_UTF8_MESSAGE_BUFFER_TYPE: WEB_SOCKET_BUFFER_TYPE = WEB_SOCKET_BUFFER_TYPE(-2147483648i32);
@@ -188,7 +188,7 @@ impl ::core::fmt::Debug for WEB_SOCKET_BUFFER_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WEB_SOCKET_CLOSE_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 pub const WEB_SOCKET_SUCCESS_CLOSE_STATUS: WEB_SOCKET_CLOSE_STATUS = WEB_SOCKET_CLOSE_STATUS(1000i32);
@@ -234,7 +234,7 @@ impl ::core::fmt::Debug for WEB_SOCKET_CLOSE_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WEB_SOCKET_HANDLE(pub isize);
 impl WEB_SOCKET_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -329,7 +329,7 @@ impl ::core::default::Default for WEB_SOCKET_PROPERTY {
 }
 #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WEB_SOCKET_PROPERTY_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 pub const WEB_SOCKET_RECEIVE_BUFFER_SIZE_PROPERTY_TYPE: WEB_SOCKET_PROPERTY_TYPE = WEB_SOCKET_PROPERTY_TYPE(0i32);

@@ -2412,7 +2412,7 @@ unsafe impl ::core::marker::Send for LearningModelDevice {}
 unsafe impl ::core::marker::Sync for LearningModelDevice {}
 #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LearningModelDeviceKind(pub i32);
 impl LearningModelDeviceKind {
     pub const Default: Self = Self(0i32);
@@ -2559,7 +2559,7 @@ unsafe impl ::core::marker::Send for LearningModelEvaluationResult {}
 unsafe impl ::core::marker::Sync for LearningModelEvaluationResult {}
 #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LearningModelFeatureKind(pub i32);
 impl LearningModelFeatureKind {
     pub const Tensor: Self = Self(0i32);
@@ -2595,7 +2595,7 @@ unsafe impl ::windows::core::RuntimeType for LearningModelFeatureKind {
 }
 #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LearningModelPixelRange(pub i32);
 impl LearningModelPixelRange {
     pub const ZeroTo255: Self = Self(0i32);
@@ -5603,7 +5603,7 @@ unsafe impl ::core::marker::Send for TensorInt8Bit {}
 unsafe impl ::core::marker::Sync for TensorInt8Bit {}
 #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TensorKind(pub i32);
 impl TensorKind {
     pub const Undefined: Self = Self(0i32);

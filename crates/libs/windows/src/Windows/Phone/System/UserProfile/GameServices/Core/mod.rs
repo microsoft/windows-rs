@@ -82,7 +82,7 @@ impl ::windows::core::RuntimeName for GameService {
 }
 #[doc = "*Required features: `\"Phone_System_UserProfile_GameServices_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GameServiceGameOutcome(pub i32);
 impl GameServiceGameOutcome {
     pub const None: Self = Self(0i32);
@@ -204,7 +204,7 @@ unsafe impl ::core::marker::Send for GameServicePropertyCollection {}
 unsafe impl ::core::marker::Sync for GameServicePropertyCollection {}
 #[doc = "*Required features: `\"Phone_System_UserProfile_GameServices_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GameServiceScoreKind(pub i32);
 impl GameServiceScoreKind {
     pub const Number: Self = Self(0i32);

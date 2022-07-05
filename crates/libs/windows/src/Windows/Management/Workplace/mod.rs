@@ -94,7 +94,7 @@ impl ::windows::core::RuntimeName for MdmPolicy {
 }
 #[doc = "*Required features: `\"Management_Workplace\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MessagingSyncPolicy(pub i32);
 impl MessagingSyncPolicy {
     pub const Disallowed: Self = Self(0i32);

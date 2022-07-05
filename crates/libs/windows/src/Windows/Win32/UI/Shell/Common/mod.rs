@@ -31,7 +31,7 @@ impl ::core::default::Default for COMDLG_FILTERSPEC {
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DEVICE_SCALE_FACTOR(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const DEVICE_SCALE_FACTOR_INVALID: DEVICE_SCALE_FACTOR = DEVICE_SCALE_FACTOR(0i32);
@@ -275,7 +275,7 @@ impl ::core::default::Default for ITEMIDLIST {
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PERCEIVED(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const PERCEIVED_TYPE_FIRST: PERCEIVED = PERCEIVED(-3i32);
@@ -344,7 +344,7 @@ pub const PERCEIVEDFLAG_WMSDK: u32 = 32u32;
 pub const PERCEIVEDFLAG_ZIPFOLDER: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SHCOLSTATE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const SHCOLSTATE_DEFAULT: SHCOLSTATE = SHCOLSTATE(0i32);
@@ -513,7 +513,7 @@ impl ::core::default::Default for STRRET_0 {
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STRRET_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
 pub const STRRET_WSTR: STRRET_TYPE = STRRET_TYPE(0i32);

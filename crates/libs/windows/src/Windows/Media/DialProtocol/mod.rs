@@ -112,7 +112,7 @@ unsafe impl ::core::marker::Send for DialApp {}
 unsafe impl ::core::marker::Sync for DialApp {}
 #[doc = "*Required features: `\"Media_DialProtocol\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DialAppLaunchResult(pub i32);
 impl DialAppLaunchResult {
     pub const Launched: Self = Self(0i32);
@@ -148,7 +148,7 @@ unsafe impl ::windows::core::RuntimeType for DialAppLaunchResult {
 }
 #[doc = "*Required features: `\"Media_DialProtocol\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DialAppState(pub i32);
 impl DialAppState {
     pub const Unknown: Self = Self(0i32);
@@ -277,7 +277,7 @@ unsafe impl ::core::marker::Send for DialAppStateDetails {}
 unsafe impl ::core::marker::Sync for DialAppStateDetails {}
 #[doc = "*Required features: `\"Media_DialProtocol\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DialAppStopResult(pub i32);
 impl DialAppStopResult {
     pub const Stopped: Self = Self(0i32);
@@ -451,7 +451,7 @@ unsafe impl ::core::marker::Send for DialDevice {}
 unsafe impl ::core::marker::Sync for DialDevice {}
 #[doc = "*Required features: `\"Media_DialProtocol\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DialDeviceDisplayStatus(pub i32);
 impl DialDeviceDisplayStatus {
     pub const None: Self = Self(0i32);

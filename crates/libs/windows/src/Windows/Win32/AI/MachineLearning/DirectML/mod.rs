@@ -912,7 +912,7 @@ impl ::core::default::Default for DML_AVERAGE_POOLING_OPERATOR_DESC {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DML_AXIS_DIRECTION(pub i32);
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 pub const DML_AXIS_DIRECTION_INCREASING: DML_AXIS_DIRECTION = DML_AXIS_DIRECTION(0i32);
@@ -1140,7 +1140,7 @@ impl ::core::default::Default for DML_BINDING_TABLE_DESC {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DML_BINDING_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 pub const DML_BINDING_TYPE_NONE: DML_BINDING_TYPE = DML_BINDING_TYPE(0i32);
@@ -1313,7 +1313,7 @@ impl ::core::default::Default for DML_CAST_OPERATOR_DESC {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DML_CONVOLUTION_DIRECTION(pub i32);
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 pub const DML_CONVOLUTION_DIRECTION_FORWARD: DML_CONVOLUTION_DIRECTION = DML_CONVOLUTION_DIRECTION(0i32);
@@ -1392,7 +1392,7 @@ impl ::core::default::Default for DML_CONVOLUTION_INTEGER_OPERATOR_DESC {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DML_CONVOLUTION_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 pub const DML_CONVOLUTION_MODE_CONVOLUTION: DML_CONVOLUTION_MODE = DML_CONVOLUTION_MODE(0i32);
@@ -1477,7 +1477,7 @@ impl ::core::default::Default for DML_CONVOLUTION_OPERATOR_DESC {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DML_CREATE_DEVICE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 pub const DML_CREATE_DEVICE_FLAG_NONE: DML_CREATE_DEVICE_FLAGS = DML_CREATE_DEVICE_FLAGS(0u32);
@@ -1616,7 +1616,7 @@ impl ::core::default::Default for DML_CUMULATIVE_SUMMATION_OPERATOR_DESC {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DML_DEPTH_SPACE_ORDER(pub i32);
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 pub const DML_DEPTH_SPACE_ORDER_DEPTH_COLUMN_ROW: DML_DEPTH_SPACE_ORDER = DML_DEPTH_SPACE_ORDER(0i32);
@@ -3769,7 +3769,7 @@ impl ::core::default::Default for DML_ELEMENT_WISE_THRESHOLD_OPERATOR_DESC {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DML_EXECUTION_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 pub const DML_EXECUTION_FLAG_NONE: DML_EXECUTION_FLAGS = DML_EXECUTION_FLAGS(0u32);
@@ -3828,7 +3828,7 @@ impl ::core::ops::Not for DML_EXECUTION_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DML_FEATURE(pub i32);
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 pub const DML_FEATURE_TENSOR_DATA_TYPE_SUPPORT: DML_FEATURE = DML_FEATURE(0i32);
@@ -3923,7 +3923,7 @@ impl ::core::default::Default for DML_FEATURE_DATA_TENSOR_DATA_TYPE_SUPPORT {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DML_FEATURE_LEVEL(pub i32);
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 pub const DML_FEATURE_LEVEL_1_0: DML_FEATURE_LEVEL = DML_FEATURE_LEVEL(4096i32);
@@ -4318,7 +4318,7 @@ impl ::core::default::Default for DML_GRAPH_EDGE_DESC {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DML_GRAPH_EDGE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 pub const DML_GRAPH_EDGE_TYPE_INVALID: DML_GRAPH_EDGE_TYPE = DML_GRAPH_EDGE_TYPE(0i32);
@@ -4380,7 +4380,7 @@ impl ::core::default::Default for DML_GRAPH_NODE_DESC {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DML_GRAPH_NODE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 pub const DML_GRAPH_NODE_TYPE_INVALID: DML_GRAPH_NODE_TYPE = DML_GRAPH_NODE_TYPE(0i32);
@@ -4536,7 +4536,7 @@ impl ::core::default::Default for DML_INTERMEDIATE_GRAPH_EDGE_DESC {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DML_INTERPOLATION_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 pub const DML_INTERPOLATION_MODE_NEAREST_NEIGHBOR: DML_INTERPOLATION_MODE = DML_INTERPOLATION_MODE(0i32);
@@ -4563,7 +4563,7 @@ impl ::core::fmt::Debug for DML_INTERPOLATION_MODE {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DML_IS_INFINITY_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 pub const DML_IS_INFINITY_MODE_EITHER: DML_IS_INFINITY_MODE = DML_IS_INFINITY_MODE(0i32);
@@ -4891,7 +4891,7 @@ impl ::core::default::Default for DML_MATRIX_MULTIPLY_INTEGER_OPERATOR_DESC {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DML_MATRIX_TRANSFORM(pub i32);
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 pub const DML_MATRIX_TRANSFORM_NONE: DML_MATRIX_TRANSFORM = DML_MATRIX_TRANSFORM(0i32);
@@ -5318,7 +5318,7 @@ impl ::core::default::Default for DML_OPERATOR_GRAPH_NODE_DESC {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DML_OPERATOR_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 pub const DML_OPERATOR_INVALID: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(0i32);
@@ -5676,7 +5676,7 @@ impl ::core::default::Default for DML_OUTPUT_GRAPH_EDGE_DESC {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DML_PADDING_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 pub const DML_PADDING_MODE_CONSTANT: DML_PADDING_MODE = DML_PADDING_MODE(0i32);
@@ -5878,7 +5878,7 @@ impl ::core::default::Default for DML_RANDOM_GENERATOR_OPERATOR_DESC {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DML_RANDOM_GENERATOR_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 pub const DML_RANDOM_GENERATOR_TYPE_PHILOX_4X32_10: DML_RANDOM_GENERATOR_TYPE = DML_RANDOM_GENERATOR_TYPE(0i32);
@@ -5903,7 +5903,7 @@ impl ::core::fmt::Debug for DML_RANDOM_GENERATOR_TYPE {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DML_RECURRENT_NETWORK_DIRECTION(pub i32);
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 pub const DML_RECURRENT_NETWORK_DIRECTION_FORWARD: DML_RECURRENT_NETWORK_DIRECTION = DML_RECURRENT_NETWORK_DIRECTION(0i32);
@@ -5932,7 +5932,7 @@ impl ::core::fmt::Debug for DML_RECURRENT_NETWORK_DIRECTION {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DML_REDUCE_FUNCTION(pub i32);
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 pub const DML_REDUCE_FUNCTION_ARGMAX: DML_REDUCE_FUNCTION = DML_REDUCE_FUNCTION(0i32);
@@ -6356,7 +6356,7 @@ impl ::core::default::Default for DML_ROI_POOLING_OPERATOR_DESC {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DML_ROUNDING_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 pub const DML_ROUNDING_MODE_HALVES_TO_NEAREST_EVEN: DML_ROUNDING_MODE = DML_ROUNDING_MODE(0i32);
@@ -6758,7 +6758,7 @@ pub const DML_TARGET_VERSION: u32 = 16384u32;
 pub const DML_TEMPORARY_BUFFER_ALIGNMENT: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DML_TENSOR_DATA_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 pub const DML_TENSOR_DATA_TYPE_UNKNOWN: DML_TENSOR_DATA_TYPE = DML_TENSOR_DATA_TYPE(0i32);
@@ -6840,7 +6840,7 @@ pub const DML_TENSOR_DIMENSION_COUNT_MAX: u32 = 5u32;
 pub const DML_TENSOR_DIMENSION_COUNT_MAX1: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DML_TENSOR_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 pub const DML_TENSOR_FLAG_NONE: DML_TENSOR_FLAGS = DML_TENSOR_FLAGS(0u32);
@@ -6895,7 +6895,7 @@ impl ::core::ops::Not for DML_TENSOR_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DML_TENSOR_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 pub const DML_TENSOR_TYPE_INVALID: DML_TENSOR_TYPE = DML_TENSOR_TYPE(0i32);

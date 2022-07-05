@@ -533,7 +533,7 @@ pub unsafe fn IsMouseInPointerEnabled() -> super::super::super::Foundation::BOOL
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POINTER_BUTTON_CHANGE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
 pub const POINTER_CHANGE_NONE: POINTER_BUTTON_CHANGE_TYPE = POINTER_BUTTON_CHANGE_TYPE(0i32);
@@ -578,7 +578,7 @@ impl ::core::fmt::Debug for POINTER_BUTTON_CHANGE_TYPE {
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POINTER_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
 pub const POINTER_FLAG_NONE: POINTER_FLAGS = POINTER_FLAGS(0u32);
@@ -840,7 +840,7 @@ pub unsafe fn SkipPointerFrameMessages(pointerid: u32) -> super::super::super::F
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TOUCH_FEEDBACK_MODE(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
 pub const TOUCH_FEEDBACK_DEFAULT: TOUCH_FEEDBACK_MODE = TOUCH_FEEDBACK_MODE(1u32);

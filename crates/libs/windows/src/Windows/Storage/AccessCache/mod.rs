@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Storage_AccessCache\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AccessCacheOptions(pub u32);
 impl AccessCacheOptions {
     pub const None: Self = Self(0u32);
@@ -708,7 +708,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a I
 }
 #[doc = "*Required features: `\"Storage_AccessCache\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RecentStorageItemVisibility(pub i32);
 impl RecentStorageItemVisibility {
     pub const AppOnly: Self = Self(0i32);

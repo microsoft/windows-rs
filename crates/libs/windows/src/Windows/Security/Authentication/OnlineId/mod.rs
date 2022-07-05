@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Security_Authentication_OnlineId\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CredentialPromptType(pub i32);
 impl CredentialPromptType {
     pub const PromptIfNeeded: Self = Self(0i32);
@@ -879,7 +879,7 @@ unsafe impl ::core::marker::Send for OnlineIdSystemTicketResult {}
 unsafe impl ::core::marker::Sync for OnlineIdSystemTicketResult {}
 #[doc = "*Required features: `\"Security_Authentication_OnlineId\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OnlineIdSystemTicketStatus(pub i32);
 impl OnlineIdSystemTicketStatus {
     pub const Success: Self = Self(0i32);

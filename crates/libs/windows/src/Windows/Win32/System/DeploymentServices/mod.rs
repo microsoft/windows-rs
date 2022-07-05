@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CPU_ARCHITECTURE(pub u32);
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const CPU_ARCHITECTURE_AMD64: CPU_ARCHITECTURE = CPU_ARCHITECTURE(9u32);
@@ -4152,7 +4152,7 @@ pub struct IWdsTransportTftpManager_Vtbl {
 pub const MC_SERVER_CURRENT_VERSION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PFN_WDS_CLI_CALLBACK_MESSAGE_ID(pub u32);
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_CLI_MSG_START: PFN_WDS_CLI_CALLBACK_MESSAGE_ID = PFN_WDS_CLI_CALLBACK_MESSAGE_ID(0u32);
@@ -5074,7 +5074,7 @@ pub unsafe fn PxeTraceV<'a, Param0: ::windows::core::IntoParam<'a, super::super:
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TRANSPORTCLIENT_CALLBACK_ID(pub i32);
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_TRANSPORTCLIENT_SESSION_START: TRANSPORTCLIENT_CALLBACK_ID = TRANSPORTCLIENT_CALLBACK_ID(0i32);
@@ -5143,7 +5143,7 @@ impl ::core::default::Default for TRANSPORTCLIENT_SESSION_INFO {
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TRANSPORTPROVIDER_CALLBACK_ID(pub i32);
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_TRANSPORTPROVIDER_CREATE_INSTANCE: TRANSPORTPROVIDER_CALLBACK_ID = TRANSPORTPROVIDER_CALLBACK_ID(0i32);
@@ -5374,7 +5374,7 @@ pub const WDSTPTMGMT_E_TRANSPORT_SERVER_UNAVAILABLE: ::windows::core::HRESULT = 
 pub const WDSTPTMGMT_E_UDP_PORT_POLICY_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1055915744i32);
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTptDiagnosticsComponentPxe: WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS = WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS(1i32);
@@ -5405,7 +5405,7 @@ impl ::core::fmt::Debug for WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WDSTRANSPORT_DISCONNECT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTptDisconnectUnknown: WDSTRANSPORT_DISCONNECT_TYPE = WDSTRANSPORT_DISCONNECT_TYPE(0i32);
@@ -5434,7 +5434,7 @@ impl ::core::fmt::Debug for WDSTRANSPORT_DISCONNECT_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WDSTRANSPORT_FEATURE_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTptFeatureAdminPack: WDSTRANSPORT_FEATURE_FLAGS = WDSTRANSPORT_FEATURE_FLAGS(1i32);
@@ -5463,7 +5463,7 @@ impl ::core::fmt::Debug for WDSTRANSPORT_FEATURE_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTptIpAddressSourceUnknown: WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE = WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE(0i32);
@@ -5492,7 +5492,7 @@ impl ::core::fmt::Debug for WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WDSTRANSPORT_IP_ADDRESS_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTptIpAddressUnknown: WDSTRANSPORT_IP_ADDRESS_TYPE = WDSTRANSPORT_IP_ADDRESS_TYPE(0i32);
@@ -5521,7 +5521,7 @@ impl ::core::fmt::Debug for WDSTRANSPORT_IP_ADDRESS_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WDSTRANSPORT_NAMESPACE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTptNamespaceTypeUnknown: WDSTRANSPORT_NAMESPACE_TYPE = WDSTRANSPORT_NAMESPACE_TYPE(0i32);
@@ -5552,7 +5552,7 @@ impl ::core::fmt::Debug for WDSTRANSPORT_NAMESPACE_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WDSTRANSPORT_NETWORK_PROFILE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTptNetworkProfileUnknown: WDSTRANSPORT_NETWORK_PROFILE_TYPE = WDSTRANSPORT_NETWORK_PROFILE_TYPE(0i32);
@@ -5585,7 +5585,7 @@ impl ::core::fmt::Debug for WDSTRANSPORT_NETWORK_PROFILE_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WDSTRANSPORT_PROTOCOL_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTptProtocolUnicast: WDSTRANSPORT_PROTOCOL_FLAGS = WDSTRANSPORT_PROTOCOL_FLAGS(1i32);
@@ -5614,7 +5614,7 @@ impl ::core::fmt::Debug for WDSTRANSPORT_PROTOCOL_FLAGS {
 pub const WDSTRANSPORT_RESOURCE_UTILIZATION_UNKNOWN: u32 = 255u32;
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WDSTRANSPORT_SERVICE_NOTIFICATION(pub i32);
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTptServiceNotifyUnknown: WDSTRANSPORT_SERVICE_NOTIFICATION = WDSTRANSPORT_SERVICE_NOTIFICATION(0i32);
@@ -5641,7 +5641,7 @@ impl ::core::fmt::Debug for WDSTRANSPORT_SERVICE_NOTIFICATION {
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTptSlowClientHandlingUnknown: WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE = WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE(0i32);
@@ -5672,7 +5672,7 @@ impl ::core::fmt::Debug for WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WDSTRANSPORT_TFTP_CAPABILITY(pub i32);
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTptTftpCapMaximumBlockSize: WDSTRANSPORT_TFTP_CAPABILITY = WDSTRANSPORT_TFTP_CAPABILITY(1i32);
@@ -5699,7 +5699,7 @@ impl ::core::fmt::Debug for WDSTRANSPORT_TFTP_CAPABILITY {
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WDSTRANSPORT_UDP_PORT_POLICY(pub i32);
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsTptUdpPortPolicyDynamic: WDSTRANSPORT_UDP_PORT_POLICY = WDSTRANSPORT_UDP_PORT_POLICY(0i32);
@@ -5758,7 +5758,7 @@ impl ::core::default::Default for WDS_CLI_CRED {
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WDS_CLI_FIRMWARE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_CLI_FIRMWARE_UNKNOWN: WDS_CLI_FIRMWARE_TYPE = WDS_CLI_FIRMWARE_TYPE(0i32);
@@ -5787,7 +5787,7 @@ impl ::core::fmt::Debug for WDS_CLI_FIRMWARE_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WDS_CLI_IMAGE_PARAM_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_CLI_IMAGE_PARAM_UNKNOWN: WDS_CLI_IMAGE_PARAM_TYPE = WDS_CLI_IMAGE_PARAM_TYPE(0i32);
@@ -5816,7 +5816,7 @@ impl ::core::fmt::Debug for WDS_CLI_IMAGE_PARAM_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WDS_CLI_IMAGE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_CLI_IMAGE_TYPE_UNKNOWN: WDS_CLI_IMAGE_TYPE = WDS_CLI_IMAGE_TYPE(0i32);
@@ -6005,7 +6005,7 @@ impl ::core::default::Default for WDS_TRANSPORTCLIENT_REQUEST {
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL(pub u32);
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WDS_TRANSPORTCLIENT_AUTH: WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL = WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL(1u32);

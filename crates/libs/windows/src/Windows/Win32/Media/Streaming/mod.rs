@@ -373,7 +373,7 @@ impl ::core::default::Default for HistogramHeader {
 }
 #[doc = "*Required features: `\"Win32_Media_Streaming\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_MEDIASOURCE_STATUS_INFO(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Streaming\"`*"]
 pub const MF_MEDIASOURCE_STATUS_INFO_FULLYSUPPORTED: MF_MEDIASOURCE_STATUS_INFO = MF_MEDIASOURCE_STATUS_INFO(0i32);
@@ -400,7 +400,7 @@ impl ::core::fmt::Debug for MF_MEDIASOURCE_STATUS_INFO {
 }
 #[doc = "*Required features: `\"Win32_Media_Streaming\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_TRANSFER_VIDEO_FRAME_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Media_Streaming\"`*"]
 pub const MF_TRANSFER_VIDEO_FRAME_DEFAULT: MF_TRANSFER_VIDEO_FRAME_FLAGS = MF_TRANSFER_VIDEO_FRAME_FLAGS(0i32);

@@ -643,7 +643,7 @@ unsafe impl ::core::marker::Send for AnimationController {}
 unsafe impl ::core::marker::Sync for AnimationController {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AnimationControllerProgressBehavior(pub i32);
 impl AnimationControllerProgressBehavior {
     pub const Default: Self = Self(0i32);
@@ -677,7 +677,7 @@ unsafe impl ::windows::core::RuntimeType for AnimationControllerProgressBehavior
 }
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AnimationDelayBehavior(pub i32);
 impl AnimationDelayBehavior {
     pub const SetInitialValueAfterDelay: Self = Self(0i32);
@@ -711,7 +711,7 @@ unsafe impl ::windows::core::RuntimeType for AnimationDelayBehavior {
 }
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AnimationDirection(pub i32);
 impl AnimationDirection {
     pub const Normal: Self = Self(0i32);
@@ -747,7 +747,7 @@ unsafe impl ::windows::core::RuntimeType for AnimationDirection {
 }
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AnimationIterationBehavior(pub i32);
 impl AnimationIterationBehavior {
     pub const Count: Self = Self(0i32);
@@ -781,7 +781,7 @@ unsafe impl ::windows::core::RuntimeType for AnimationIterationBehavior {
 }
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AnimationPropertyAccessMode(pub i32);
 impl AnimationPropertyAccessMode {
     pub const None: Self = Self(0i32);
@@ -1090,7 +1090,7 @@ unsafe impl ::core::marker::Send for AnimationPropertyInfo {}
 unsafe impl ::core::marker::Sync for AnimationPropertyInfo {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AnimationStopBehavior(pub i32);
 impl AnimationStopBehavior {
     pub const LeaveCurrentValue: Self = Self(0i32);
@@ -5571,7 +5571,7 @@ unsafe impl ::core::marker::Send for CompositionBackdropBrush {}
 unsafe impl ::core::marker::Sync for CompositionBackdropBrush {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CompositionBackfaceVisibility(pub i32);
 impl CompositionBackfaceVisibility {
     pub const Inherit: Self = Self(0i32);
@@ -5850,7 +5850,7 @@ unsafe impl ::core::marker::Send for CompositionBatchCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for CompositionBatchCompletedEventArgs {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CompositionBatchTypes(pub u32);
 impl CompositionBatchTypes {
     pub const None: Self = Self(0u32);
@@ -5915,7 +5915,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionBatchTypes {
 }
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CompositionBitmapInterpolationMode(pub i32);
 impl CompositionBitmapInterpolationMode {
     pub const NearestNeighbor: Self = Self(0i32);
@@ -5957,7 +5957,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionBitmapInterpolationMode 
 }
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CompositionBorderMode(pub i32);
 impl CompositionBorderMode {
     pub const Inherit: Self = Self(0i32);
@@ -7489,7 +7489,7 @@ unsafe impl ::core::marker::Send for CompositionColorGradientStopCollection {}
 unsafe impl ::core::marker::Sync for CompositionColorGradientStopCollection {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CompositionColorSpace(pub i32);
 impl CompositionColorSpace {
     pub const Auto: Self = Self(0i32);
@@ -7801,7 +7801,7 @@ unsafe impl ::core::marker::Send for CompositionCommitBatch {}
 unsafe impl ::core::marker::Sync for CompositionCommitBatch {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CompositionCompositeMode(pub i32);
 impl CompositionCompositeMode {
     pub const Inherit: Self = Self(0i32);
@@ -8528,7 +8528,7 @@ unsafe impl ::core::marker::Send for CompositionDrawingSurface {}
 unsafe impl ::core::marker::Sync for CompositionDrawingSurface {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CompositionDropShadowSourcePolicy(pub i32);
 impl CompositionDropShadowSourcePolicy {
     pub const Default: Self = Self(0i32);
@@ -8889,7 +8889,7 @@ unsafe impl ::core::marker::Send for CompositionEasingFunction {}
 unsafe impl ::core::marker::Sync for CompositionEasingFunction {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CompositionEasingFunctionMode(pub i32);
 impl CompositionEasingFunctionMode {
     pub const In: Self = Self(0i32);
@@ -9469,7 +9469,7 @@ unsafe impl ::core::marker::Send for CompositionEffectFactory {}
 unsafe impl ::core::marker::Sync for CompositionEffectFactory {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CompositionEffectFactoryLoadStatus(pub i32);
 impl CompositionEffectFactoryLoadStatus {
     pub const Success: Self = Self(0i32);
@@ -10635,7 +10635,7 @@ unsafe impl ::core::marker::Send for CompositionGeometry {}
 unsafe impl ::core::marker::Sync for CompositionGeometry {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CompositionGetValueStatus(pub i32);
 impl CompositionGetValueStatus {
     pub const Succeeded: Self = Self(0i32);
@@ -11082,7 +11082,7 @@ unsafe impl ::core::marker::Send for CompositionGradientBrush {}
 unsafe impl ::core::marker::Sync for CompositionGradientBrush {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CompositionGradientExtendMode(pub i32);
 impl CompositionGradientExtendMode {
     pub const Clamp: Self = Self(0i32);
@@ -12494,7 +12494,7 @@ unsafe impl ::core::marker::Send for CompositionLinearGradientBrush {}
 unsafe impl ::core::marker::Sync for CompositionLinearGradientBrush {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CompositionMappingMode(pub i32);
 impl CompositionMappingMode {
     pub const Absolute: Self = Self(0i32);
@@ -19044,7 +19044,7 @@ unsafe impl ::core::marker::Send for CompositionSpriteShape {}
 unsafe impl ::core::marker::Sync for CompositionSpriteShape {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CompositionStretch(pub i32);
 impl CompositionStretch {
     pub const None: Self = Self(0i32);
@@ -19080,7 +19080,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionStretch {
 }
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CompositionStrokeCap(pub i32);
 impl CompositionStrokeCap {
     pub const Flat: Self = Self(0i32);
@@ -19551,7 +19551,7 @@ unsafe impl ::core::marker::Send for CompositionStrokeDashArray {}
 unsafe impl ::core::marker::Sync for CompositionStrokeDashArray {}
 #[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CompositionStrokeLineJoin(pub i32);
 impl CompositionStrokeLineJoin {
     pub const Miter: Self = Self(0i32);

@@ -298,7 +298,7 @@ pub const GUID_RECEIVE_FILTER_CURRENT_CAPABILITIES: ::windows::core::GUID = ::wi
 pub const GUID_STATUS_MEDIA_SPECIFIC_INDICATION_EX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaaacfca7_954a_4632_a16e_a8a63793a9e5);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IF_ADMINISTRATIVE_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const IF_ADMINISTRATIVE_DISABLED: IF_ADMINISTRATIVE_STATE = IF_ADMINISTRATIVE_STATE(0i32);
@@ -362,7 +362,7 @@ pub const IF_MAX_PHYS_ADDRESS_LENGTH: u32 = 32u32;
 pub const IF_MAX_STRING_SIZE: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IF_OPER_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const IfOperStatusUp: IF_OPER_STATUS = IF_OPER_STATUS(1i32);
@@ -656,7 +656,7 @@ impl ::core::default::Default for NDIS_802_11_AUTHENTICATION_EVENT {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NDIS_802_11_AUTHENTICATION_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const Ndis802_11AuthModeOpen: NDIS_802_11_AUTHENTICATION_MODE = NDIS_802_11_AUTHENTICATION_MODE(0i32);
@@ -983,7 +983,7 @@ pub const NDIS_802_11_LENGTH_RATES_EX: u32 = 16u32;
 pub const NDIS_802_11_LENGTH_SSID: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NDIS_802_11_MEDIA_STREAM_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const Ndis802_11MediaStreamOff: NDIS_802_11_MEDIA_STREAM_MODE = NDIS_802_11_MEDIA_STREAM_MODE(0i32);
@@ -1010,7 +1010,7 @@ impl ::core::fmt::Debug for NDIS_802_11_MEDIA_STREAM_MODE {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NDIS_802_11_NETWORK_INFRASTRUCTURE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const Ndis802_11IBSS: NDIS_802_11_NETWORK_INFRASTRUCTURE = NDIS_802_11_NETWORK_INFRASTRUCTURE(0i32);
@@ -1041,7 +1041,7 @@ impl ::core::fmt::Debug for NDIS_802_11_NETWORK_INFRASTRUCTURE {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NDIS_802_11_NETWORK_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const Ndis802_11FH: NDIS_802_11_NETWORK_TYPE = NDIS_802_11_NETWORK_TYPE(0i32);
@@ -1204,7 +1204,7 @@ impl ::core::default::Default for NDIS_802_11_PMKID_CANDIDATE_LIST {
 pub const NDIS_802_11_PMKID_CANDIDATE_PREAUTH_ENABLED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NDIS_802_11_POWER_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const Ndis802_11PowerModeCAM: NDIS_802_11_POWER_MODE = NDIS_802_11_POWER_MODE(0i32);
@@ -1235,7 +1235,7 @@ impl ::core::fmt::Debug for NDIS_802_11_POWER_MODE {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NDIS_802_11_PRIVACY_FILTER(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const Ndis802_11PrivFilterAcceptAll: NDIS_802_11_PRIVACY_FILTER = NDIS_802_11_PRIVACY_FILTER(0i32);
@@ -1262,7 +1262,7 @@ impl ::core::fmt::Debug for NDIS_802_11_PRIVACY_FILTER {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NDIS_802_11_RADIO_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const Ndis802_11RadioStatusOn: NDIS_802_11_RADIO_STATUS = NDIS_802_11_RADIO_STATUS(0i32);
@@ -1295,7 +1295,7 @@ impl ::core::fmt::Debug for NDIS_802_11_RADIO_STATUS {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NDIS_802_11_RELOAD_DEFAULTS(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const Ndis802_11ReloadWEPKeys: NDIS_802_11_RELOAD_DEFAULTS = NDIS_802_11_RELOAD_DEFAULTS(0i32);
@@ -1493,7 +1493,7 @@ impl ::core::default::Default for NDIS_802_11_STATUS_INDICATION {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NDIS_802_11_STATUS_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const Ndis802_11StatusType_Authentication: NDIS_802_11_STATUS_TYPE = NDIS_802_11_STATUS_TYPE(0i32);
@@ -1642,7 +1642,7 @@ impl ::core::default::Default for NDIS_802_11_WEP {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NDIS_802_11_WEP_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const Ndis802_11WEPEnabled: NDIS_802_11_WEP_STATUS = NDIS_802_11_WEP_STATUS(0i32);
@@ -1691,7 +1691,7 @@ impl ::core::fmt::Debug for NDIS_802_11_WEP_STATUS {
 pub const NDIS_802_3_MAC_OPTION_PRIORITY: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NDIS_802_5_RING_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NdisRingStateOpened: NDIS_802_5_RING_STATE = NDIS_802_5_RING_STATE(1i32);
@@ -1855,7 +1855,7 @@ pub const NDIS_DEFAULT_SWITCH_ID: u32 = 0u32;
 pub const NDIS_DEFAULT_VPORT_ID: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NDIS_DEVICE_POWER_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NdisDeviceStateUnspecified: NDIS_DEVICE_POWER_STATE = NDIS_DEVICE_POWER_STATE(0i32);
@@ -1936,7 +1936,7 @@ pub const NDIS_ETH_TYPE_IPV6: u32 = 34525u32;
 pub const NDIS_ETH_TYPE_SLOW_PROTOCOL: u32 = 34825u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NDIS_FDDI_ATTACHMENT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NdisFddiTypeIsolated: NDIS_FDDI_ATTACHMENT_TYPE = NDIS_FDDI_ATTACHMENT_TYPE(1i32);
@@ -1985,7 +1985,7 @@ impl ::core::fmt::Debug for NDIS_FDDI_ATTACHMENT_TYPE {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NDIS_FDDI_LCONNECTION_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NdisFddiStateOff: NDIS_FDDI_LCONNECTION_STATE = NDIS_FDDI_LCONNECTION_STATE(1i32);
@@ -2028,7 +2028,7 @@ impl ::core::fmt::Debug for NDIS_FDDI_LCONNECTION_STATE {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NDIS_FDDI_RING_MGT_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NdisFddiRingIsolated: NDIS_FDDI_RING_MGT_STATE = NDIS_FDDI_RING_MGT_STATE(1i32);
@@ -2505,7 +2505,7 @@ impl ::core::default::Default for NDIS_HARDWARE_CROSSTIMESTAMP {
 pub const NDIS_HARDWARE_CROSSTIMESTAMP_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NDIS_HARDWARE_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NdisHardwareStatusReady: NDIS_HARDWARE_STATUS = NDIS_HARDWARE_STATUS(0i32);
@@ -2682,7 +2682,7 @@ impl ::core::default::Default for NDIS_INTERFACE_INFORMATION {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NDIS_INTERRUPT_MODERATION(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NdisInterruptModerationUnknown: NDIS_INTERRUPT_MODERATION = NDIS_INTERRUPT_MODERATION(0i32);
@@ -3155,7 +3155,7 @@ pub const NDIS_MEDIA_CAP_RECEIVE: u32 = 2u32;
 pub const NDIS_MEDIA_CAP_TRANSMIT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NDIS_MEDIA_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NdisMediaStateConnected: NDIS_MEDIA_STATE = NDIS_MEDIA_STATE(0i32);
@@ -3182,7 +3182,7 @@ impl ::core::fmt::Debug for NDIS_MEDIA_STATE {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NDIS_MEDIUM(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NdisMedium802_3: NDIS_MEDIUM = NDIS_MEDIUM(0i32);
@@ -3255,7 +3255,7 @@ pub const NDIS_NDK_LOCAL_ENDPOINTS_REVISION_1: u32 = 1u32;
 pub const NDIS_NDK_STATISTICS_INFO_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NDIS_NETWORK_CHANGE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NdisPossibleNetworkChange: NDIS_NETWORK_CHANGE_TYPE = NDIS_NETWORK_CHANGE_TYPE(1i32);
@@ -3855,7 +3855,7 @@ pub const NDIS_PD_CAPS_RECEIVE_FILTER_COUNTERS_SUPPORTED: u32 = 1u32;
 pub const NDIS_PD_CONFIG_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NDIS_PHYSICAL_MEDIUM(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NdisPhysicalMediumUnspecified: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(0i32);
@@ -4224,7 +4224,7 @@ impl ::core::default::Default for NDIS_PORT_AUTHENTICATION_PARAMETERS {
 pub const NDIS_PORT_AUTHENTICATION_PARAMETERS_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NDIS_PORT_AUTHORIZATION_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NdisPortAuthorizationUnknown: NDIS_PORT_AUTHORIZATION_STATE = NDIS_PORT_AUTHORIZATION_STATE(0i32);
@@ -4313,7 +4313,7 @@ pub const NDIS_PORT_CHARACTERISTICS_REVISION_1: u32 = 1u32;
 pub const NDIS_PORT_CHAR_USE_DEFAULT_AUTH_SETTINGS: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NDIS_PORT_CONTROL_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NdisPortControlStateUnknown: NDIS_PORT_CONTROL_STATE = NDIS_PORT_CONTROL_STATE(0i32);
@@ -4394,7 +4394,7 @@ impl ::core::default::Default for NDIS_PORT_STATE {
 pub const NDIS_PORT_STATE_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NDIS_PORT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NdisPortTypeUndefined: NDIS_PORT_TYPE = NDIS_PORT_TYPE(0i32);
@@ -4427,7 +4427,7 @@ impl ::core::fmt::Debug for NDIS_PORT_TYPE {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NDIS_PROCESSOR_VENDOR(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NdisProcessorVendorUnknown: NDIS_PROCESSOR_VENDOR = NDIS_PROCESSOR_VENDOR(0i32);
@@ -4844,7 +4844,7 @@ pub const NDIS_RECEIVE_SCALE_PARAM_NUMBER_OF_ENTRIES_CHANGED: u32 = 16u32;
 pub const NDIS_RECEIVE_SCALE_PARAM_NUMBER_OF_QUEUES_CHANGED: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NDIS_REQUEST_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NdisRequestQueryInformation: NDIS_REQUEST_TYPE = NDIS_REQUEST_TYPE(0i32);
@@ -5188,7 +5188,7 @@ impl ::core::default::Default for NDIS_STATISTICS_VALUE_EX {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NDIS_SUPPORTED_PAUSE_FUNCTIONS(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NdisPauseFunctionsUnsupported: NDIS_SUPPORTED_PAUSE_FUNCTIONS = NDIS_SUPPORTED_PAUSE_FUNCTIONS(0i32);
@@ -5861,7 +5861,7 @@ impl ::core::default::Default for NDIS_VAR_DATA_DESC {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NDIS_WAN_HEADER_FORMAT(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NdisWanHeaderNative: NDIS_WAN_HEADER_FORMAT = NDIS_WAN_HEADER_FORMAT(0i32);
@@ -5888,7 +5888,7 @@ impl ::core::fmt::Debug for NDIS_WAN_HEADER_FORMAT {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NDIS_WAN_MEDIUM_SUBTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NdisWanMediumHub: NDIS_WAN_MEDIUM_SUBTYPE = NDIS_WAN_MEDIUM_SUBTYPE(0i32);
@@ -5976,7 +5976,7 @@ impl ::core::default::Default for NDIS_WAN_PROTOCOL_CAPS {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NDIS_WAN_QUALITY(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NdisWanRaw: NDIS_WAN_QUALITY = NDIS_WAN_QUALITY(0i32);
@@ -6953,7 +6953,7 @@ impl ::core::default::Default for NDK_ADAPTER_INFO {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NDK_RDMA_TECHNOLOGY(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NdkUndefined: NDK_RDMA_TECHNOLOGY = NDK_RDMA_TECHNOLOGY(0i32);
@@ -7182,7 +7182,7 @@ impl ::core::default::Default for NETWORK_ADDRESS_LIST {
 pub const NET_IFLUID_UNSPECIFIED: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NET_IF_ACCESS_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NET_IF_ACCESS_LOOPBACK: NET_IF_ACCESS_TYPE = NET_IF_ACCESS_TYPE(1i32);
@@ -7215,7 +7215,7 @@ impl ::core::fmt::Debug for NET_IF_ACCESS_TYPE {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NET_IF_ADMIN_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NET_IF_ADMIN_STATUS_UP: NET_IF_ADMIN_STATUS = NET_IF_ADMIN_STATUS(1i32);
@@ -7275,7 +7275,7 @@ impl ::core::default::Default for NET_IF_ALIAS_LH {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NET_IF_CONNECTION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NET_IF_CONNECTION_DEDICATED: NET_IF_CONNECTION_TYPE = NET_IF_CONNECTION_TYPE(1i32);
@@ -7306,7 +7306,7 @@ impl ::core::fmt::Debug for NET_IF_CONNECTION_TYPE {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NET_IF_DIRECTION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NET_IF_DIRECTION_SENDRECEIVE: NET_IF_DIRECTION_TYPE = NET_IF_DIRECTION_TYPE(0i32);
@@ -7337,7 +7337,7 @@ impl ::core::fmt::Debug for NET_IF_DIRECTION_TYPE {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NET_IF_MEDIA_CONNECT_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const MediaConnectStateUnknown: NET_IF_MEDIA_CONNECT_STATE = NET_IF_MEDIA_CONNECT_STATE(0i32);
@@ -7366,7 +7366,7 @@ impl ::core::fmt::Debug for NET_IF_MEDIA_CONNECT_STATE {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NET_IF_MEDIA_DUPLEX_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const MediaDuplexStateUnknown: NET_IF_MEDIA_DUPLEX_STATE = NET_IF_MEDIA_DUPLEX_STATE(0i32);
@@ -7403,7 +7403,7 @@ pub const NET_IF_OID_IF_ENTRY: u32 = 4u32;
 pub const NET_IF_OID_NETWORK_GUID: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NET_IF_OPER_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NET_IF_OPER_STATUS_UP: NET_IF_OPER_STATUS = NET_IF_OPER_STATUS(1i32);
@@ -7480,7 +7480,7 @@ impl ::core::default::Default for NET_IF_RCV_ADDRESS_LH {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NET_IF_RCV_ADDRESS_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NET_IF_RCV_ADDRESS_TYPE_OTHER: NET_IF_RCV_ADDRESS_TYPE = NET_IF_RCV_ADDRESS_TYPE(1i32);
@@ -7661,7 +7661,7 @@ impl ::core::default::Default for OFFLOAD_ALGO_INFO {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OFFLOAD_CONF_ALGO(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const OFFLOAD_IPSEC_CONF_NONE: OFFLOAD_CONF_ALGO = OFFLOAD_CONF_ALGO(0i32);
@@ -7696,7 +7696,7 @@ impl ::core::fmt::Debug for OFFLOAD_CONF_ALGO {
 pub const OFFLOAD_INBOUND_SA: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OFFLOAD_INTEGRITY_ALGO(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const OFFLOAD_IPSEC_INTEGRITY_NONE: OFFLOAD_INTEGRITY_ALGO = OFFLOAD_INTEGRITY_ALGO(0i32);
@@ -7977,7 +7977,7 @@ impl ::core::default::Default for OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {
 pub const OFFLOAD_MAX_SAS: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OFFLOAD_OPERATION_E(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const AUTHENTICATE: OFFLOAD_OPERATION_E = OFFLOAD_OPERATION_E(1i32);
@@ -9650,7 +9650,7 @@ impl ::core::default::Default for TRANSPORT_HEADER_OFFSET {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TUNNEL_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const TUNNEL_TYPE_NONE: TUNNEL_TYPE = TUNNEL_TYPE(0i32);
@@ -9687,7 +9687,7 @@ impl ::core::fmt::Debug for TUNNEL_TYPE {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UDP_ENCAP_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_IKE: UDP_ENCAP_TYPE = UDP_ENCAP_TYPE(0i32);

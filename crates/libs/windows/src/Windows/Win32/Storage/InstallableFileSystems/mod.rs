@@ -276,7 +276,7 @@ impl ::core::default::Default for FILTER_FULL_INFORMATION {
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILTER_INFORMATION_CLASS(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"]
 pub const FilterFullInformation: FILTER_INFORMATION_CLASS = FILTER_INFORMATION_CLASS(0i32);
@@ -408,7 +408,7 @@ impl ::core::default::Default for FILTER_VOLUME_BASIC_INFORMATION {
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILTER_VOLUME_INFORMATION_CLASS(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"]
 pub const FilterVolumeBasicInformation: FILTER_VOLUME_INFORMATION_CLASS = FILTER_VOLUME_INFORMATION_CLASS(0i32);
@@ -488,7 +488,7 @@ pub const FLTFL_IASI_IS_MINIFILTER: u32 = 1u32;
 pub const FLTFL_VSI_DETACHED_VOLUME: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FLT_FILESYSTEM_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"]
 pub const FLT_FSTYPE_UNKNOWN: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(0i32);
@@ -690,7 +690,7 @@ pub unsafe fn FilterFindFirst(dwinformationclass: FILTER_INFORMATION_CLASS, lpbu
     unimplemented!("Unsupported target OS");
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FilterFindHandle(pub isize);
 impl FilterFindHandle {
     pub fn is_invalid(&self) -> bool {
@@ -833,7 +833,7 @@ pub unsafe fn FilterInstanceFindFirst<'a, Param0: ::windows::core::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FilterInstanceFindHandle(pub isize);
 impl FilterInstanceFindHandle {
     pub fn is_invalid(&self) -> bool {
@@ -976,7 +976,7 @@ pub unsafe fn FilterVolumeFindFirst(dwinformationclass: FILTER_VOLUME_INFORMATIO
     unimplemented!("Unsupported target OS");
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FilterVolumeFindHandle(pub isize);
 impl FilterVolumeFindHandle {
     pub fn is_invalid(&self) -> bool {
@@ -1047,7 +1047,7 @@ pub unsafe fn FilterVolumeInstanceFindFirst<'a, Param0: ::windows::core::IntoPar
     unimplemented!("Unsupported target OS");
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FilterVolumeInstanceFindHandle(pub isize);
 impl FilterVolumeInstanceFindHandle {
     pub fn is_invalid(&self) -> bool {
@@ -1089,7 +1089,7 @@ pub unsafe fn FilterVolumeInstanceFindNext<'a, Param0: ::windows::core::IntoPara
     unimplemented!("Unsupported target OS");
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HFILTER(pub isize);
 impl HFILTER {
     pub fn is_invalid(&self) -> bool {
@@ -1116,7 +1116,7 @@ unsafe impl ::windows::core::Abi for HFILTER {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HFILTER_INSTANCE(pub isize);
 impl HFILTER_INSTANCE {
     pub fn is_invalid(&self) -> bool {
@@ -1368,7 +1368,7 @@ impl ::core::default::Default for INSTANCE_FULL_INFORMATION {
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct INSTANCE_INFORMATION_CLASS(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"]
 pub const InstanceBasicInformation: INSTANCE_INFORMATION_CLASS = INSTANCE_INFORMATION_CLASS(0i32);

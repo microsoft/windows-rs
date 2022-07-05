@@ -172,7 +172,7 @@ pub unsafe fn GetRegistryValueWithFallbackW<'a, Param0: ::windows::core::IntoPar
     unimplemented!("Unsupported target OS");
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HKEY(pub isize);
 impl HKEY {
     pub fn is_invalid(&self) -> bool {
@@ -1858,7 +1858,7 @@ pub const REGSTR_VAL_WRKGRP_FORCEMAPPING: &str = "WrkgrpForceMapping";
 pub const REGSTR_VAL_WRKGRP_REQUIRED: &str = "WrkgrpRequired";
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct REG_CREATE_KEY_DISPOSITION(pub u32);
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
 pub const REG_CREATED_NEW_KEY: REG_CREATE_KEY_DISPOSITION = REG_CREATE_KEY_DISPOSITION(1u32);
@@ -1889,7 +1889,7 @@ pub const REG_KEY_INSTDEV: &str = "Installed";
 pub const REG_MUI_STRING_TRUNCATE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct REG_NOTIFY_FILTER(pub u32);
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
 pub const REG_NOTIFY_CHANGE_NAME: REG_NOTIFY_FILTER = REG_NOTIFY_FILTER(1u32);
@@ -1950,7 +1950,7 @@ impl ::core::ops::Not for REG_NOTIFY_FILTER {
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct REG_OPEN_CREATE_OPTIONS(pub u32);
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
 pub const REG_OPTION_RESERVED: REG_OPEN_CREATE_OPTIONS = REG_OPEN_CREATE_OPTIONS(0u32);
@@ -2017,7 +2017,7 @@ impl ::core::ops::Not for REG_OPEN_CREATE_OPTIONS {
 pub const REG_PROCESS_APPKEY: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct REG_RESTORE_KEY_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
 pub const REG_FORCE_RESTORE: REG_RESTORE_KEY_FLAGS = REG_RESTORE_KEY_FLAGS(8i32);
@@ -2044,7 +2044,7 @@ impl ::core::fmt::Debug for REG_RESTORE_KEY_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct REG_SAM_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
 pub const KEY_QUERY_VALUE: REG_SAM_FLAGS = REG_SAM_FLAGS(1u32);
@@ -2121,7 +2121,7 @@ impl ::core::ops::Not for REG_SAM_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct REG_SAVE_FORMAT(pub u32);
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
 pub const REG_STANDARD_FORMAT: REG_SAVE_FORMAT = REG_SAVE_FORMAT(1u32);
@@ -2154,7 +2154,7 @@ pub const REG_SECURE_CONNECTION: u32 = 1u32;
 pub const REG_USE_CURRENT_SECURITY_CONTEXT: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct REG_VALUE_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
 pub const REG_NONE: REG_VALUE_TYPE = REG_VALUE_TYPE(0u32);
@@ -2207,7 +2207,7 @@ impl ::core::fmt::Debug for REG_VALUE_TYPE {
 pub const RRF_NOEXPAND: u32 = 268435456u32;
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RRF_RT(pub u32);
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
 pub const RRF_RT_ANY: RRF_RT = RRF_RT(65535u32);

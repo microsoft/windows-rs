@@ -1212,7 +1212,7 @@ unsafe impl ::core::marker::Send for ApplicationDataContainerSettings {}
 unsafe impl ::core::marker::Sync for ApplicationDataContainerSettings {}
 #[doc = "*Required features: `\"Storage\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ApplicationDataCreateDisposition(pub i32);
 impl ApplicationDataCreateDisposition {
     pub const Always: Self = Self(0i32);
@@ -1246,7 +1246,7 @@ unsafe impl ::windows::core::RuntimeType for ApplicationDataCreateDisposition {
 }
 #[doc = "*Required features: `\"Storage\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ApplicationDataLocality(pub i32);
 impl ApplicationDataLocality {
     pub const Local: Self = Self(0i32);
@@ -1392,7 +1392,7 @@ impl ::windows::core::RuntimeName for CachedFileManager {
 }
 #[doc = "*Required features: `\"Storage\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CreationCollisionOption(pub i32);
 impl CreationCollisionOption {
     pub const GenerateUniqueName: Self = Self(0i32);
@@ -1509,7 +1509,7 @@ impl ::windows::core::RuntimeName for DownloadsFolder {
 }
 #[doc = "*Required features: `\"Storage\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FileAccessMode(pub i32);
 impl FileAccessMode {
     pub const Read: Self = Self(0i32);
@@ -1543,7 +1543,7 @@ unsafe impl ::windows::core::RuntimeType for FileAccessMode {
 }
 #[doc = "*Required features: `\"Storage\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FileAttributes(pub u32);
 impl FileAttributes {
     pub const Normal: Self = Self(0u32);
@@ -4850,7 +4850,7 @@ pub struct IUserDataPathsStatics_Vtbl {
 }
 #[doc = "*Required features: `\"Storage\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KnownFolderId(pub i32);
 impl KnownFolderId {
     pub const AppCaptures: Self = Self(0i32);
@@ -5064,7 +5064,7 @@ impl ::windows::core::RuntimeName for KnownFolders {
 }
 #[doc = "*Required features: `\"Storage\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KnownFoldersAccessStatus(pub i32);
 impl KnownFoldersAccessStatus {
     pub const DeniedBySystem: Self = Self(0i32);
@@ -5102,7 +5102,7 @@ unsafe impl ::windows::core::RuntimeType for KnownFoldersAccessStatus {
 }
 #[doc = "*Required features: `\"Storage\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KnownLibraryId(pub i32);
 impl KnownLibraryId {
     pub const Music: Self = Self(0i32);
@@ -5138,7 +5138,7 @@ unsafe impl ::windows::core::RuntimeType for KnownLibraryId {
 }
 #[doc = "*Required features: `\"Storage\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NameCollisionOption(pub i32);
 impl NameCollisionOption {
     pub const GenerateUniqueName: Self = Self(0i32);
@@ -5488,7 +5488,7 @@ unsafe impl ::core::marker::Send for SetVersionRequest {}
 unsafe impl ::core::marker::Sync for SetVersionRequest {}
 #[doc = "*Required features: `\"Storage\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct StorageDeleteOption(pub i32);
 impl StorageDeleteOption {
     pub const Default: Self = Self(0i32);
@@ -6978,7 +6978,7 @@ impl<'a> ::windows::core::IntoParam<'a, IStorageItemPropertiesWithProvider> for 
 }
 #[doc = "*Required features: `\"Storage\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct StorageItemTypes(pub u32);
 impl StorageItemTypes {
     pub const None: Self = Self(0u32);
@@ -7632,7 +7632,7 @@ unsafe impl ::core::marker::Send for StorageLibraryChangeTrackerOptions {}
 unsafe impl ::core::marker::Sync for StorageLibraryChangeTrackerOptions {}
 #[doc = "*Required features: `\"Storage\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct StorageLibraryChangeType(pub i32);
 impl StorageLibraryChangeType {
     pub const Created: Self = Self(0i32);
@@ -7763,7 +7763,7 @@ unsafe impl ::core::marker::Send for StorageLibraryLastChangeId {}
 unsafe impl ::core::marker::Sync for StorageLibraryLastChangeId {}
 #[doc = "*Required features: `\"Storage\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct StorageOpenOptions(pub u32);
 impl StorageOpenOptions {
     pub const None: Self = Self(0u32);
@@ -8350,7 +8350,7 @@ pub struct StreamedFileDataRequestedHandler_Vtbl {
 }
 #[doc = "*Required features: `\"Storage\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct StreamedFileFailureMode(pub i32);
 impl StreamedFileFailureMode {
     pub const Failed: Self = Self(0i32);

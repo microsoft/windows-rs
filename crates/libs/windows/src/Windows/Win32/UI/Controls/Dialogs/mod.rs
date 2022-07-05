@@ -430,7 +430,7 @@ impl ::core::default::Default for CHOOSEFONTW {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CHOOSEFONT_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
 pub const CF_APPLY: CHOOSEFONT_FLAGS = CHOOSEFONT_FLAGS(512u32);
@@ -539,7 +539,7 @@ impl ::core::ops::Not for CHOOSEFONT_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CHOOSEFONT_FONT_TYPE(pub u16);
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
 pub const BOLD_FONTTYPE: CHOOSEFONT_FONT_TYPE = CHOOSEFONT_FONT_TYPE(256u16);
@@ -668,7 +668,7 @@ pub const COLOR_SOLID_RIGHT: u32 = 731u32;
 pub const COLOR_TUNE: u32 = 714u32;
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMMON_DLG_ERRORS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
 pub const CDERR_DIALOGFAILURE: COMMON_DLG_ERRORS = COMMON_DLG_ERRORS(65535u32);
@@ -1121,7 +1121,7 @@ impl ::core::default::Default for FINDREPLACEW {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FINDREPLACE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
 pub const FR_DIALOGTERM: FINDREPLACE_FLAGS = FINDREPLACE_FLAGS(64u32);
@@ -2332,7 +2332,7 @@ impl ::core::default::Default for OPENFILENAME_NT4W {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OPEN_FILENAME_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
 pub const OFN_READONLY: OPEN_FILENAME_FLAGS = OPEN_FILENAME_FLAGS(1u32);
@@ -2435,7 +2435,7 @@ impl ::core::ops::Not for OPEN_FILENAME_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OPEN_FILENAME_FLAGS_EX(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
 pub const OFN_EX_NONE: OPEN_FILENAME_FLAGS_EX = OPEN_FILENAME_FLAGS_EX(0u32);
@@ -2698,7 +2698,7 @@ impl ::core::default::Default for PAGESETUPDLGW {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PAGESETUPDLG_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
 pub const PSD_DEFAULTMINMARGINS: PAGESETUPDLG_FLAGS = PAGESETUPDLG_FLAGS(0u32);
@@ -3201,7 +3201,7 @@ impl ::core::default::Default for PRINTDLGEXW {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PRINTDLGEX_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
 pub const PD_ALLPAGES: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(0u32);

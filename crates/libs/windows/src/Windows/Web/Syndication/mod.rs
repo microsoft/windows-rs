@@ -2068,7 +2068,7 @@ impl ::windows::core::RuntimeName for SyndicationError {
 }
 #[doc = "*Required features: `\"Web_Syndication\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SyndicationErrorStatus(pub i32);
 impl SyndicationErrorStatus {
     pub const Unknown: Self = Self(0i32);
@@ -2529,7 +2529,7 @@ unsafe impl ::core::marker::Send for SyndicationFeed {}
 unsafe impl ::core::marker::Sync for SyndicationFeed {}
 #[doc = "*Required features: `\"Web_Syndication\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SyndicationFormat(pub i32);
 impl SyndicationFormat {
     pub const Atom10: Self = Self(0i32);
@@ -4294,7 +4294,7 @@ unsafe impl ::core::marker::Send for SyndicationText {}
 unsafe impl ::core::marker::Sync for SyndicationText {}
 #[doc = "*Required features: `\"Web_Syndication\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SyndicationTextType(pub i32);
 impl SyndicationTextType {
     pub const Text: Self = Self(0i32);

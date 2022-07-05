@@ -147,7 +147,7 @@ pub unsafe fn GetRegisteredRawInputDevices(prawinputdevices: *mut RAWINPUTDEVICE
     unimplemented!("Unsupported target OS");
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HRAWINPUT(pub isize);
 impl HRAWINPUT {
     pub fn is_invalid(&self) -> bool {
@@ -175,7 +175,7 @@ unsafe impl ::windows::core::Abi for HRAWINPUT {
 }
 #[doc = "*Required features: `\"Win32_UI_Input\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct INPUT_MESSAGE_DEVICE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Input\"`*"]
 pub const IMDT_UNAVAILABLE: INPUT_MESSAGE_DEVICE_TYPE = INPUT_MESSAGE_DEVICE_TYPE(0i32);
@@ -210,7 +210,7 @@ impl ::core::fmt::Debug for INPUT_MESSAGE_DEVICE_TYPE {
 }
 #[doc = "*Required features: `\"Win32_UI_Input\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct INPUT_MESSAGE_ORIGIN_ID(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Input\"`*"]
 pub const IMO_UNAVAILABLE: INPUT_MESSAGE_ORIGIN_ID = INPUT_MESSAGE_ORIGIN_ID(0i32);
@@ -451,7 +451,7 @@ impl ::core::default::Default for RAWINPUTDEVICELIST {
 }
 #[doc = "*Required features: `\"Win32_UI_Input\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RAWINPUTDEVICE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Input\"`*"]
 pub const RIDEV_REMOVE: RAWINPUTDEVICE_FLAGS = RAWINPUTDEVICE_FLAGS(1u32);
@@ -685,7 +685,7 @@ impl ::core::default::Default for RAWMOUSE_0_0 {
 }
 #[doc = "*Required features: `\"Win32_UI_Input\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RAW_INPUT_DATA_COMMAND_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Input\"`*"]
 pub const RID_HEADER: RAW_INPUT_DATA_COMMAND_FLAGS = RAW_INPUT_DATA_COMMAND_FLAGS(268435461u32);
@@ -712,7 +712,7 @@ impl ::core::fmt::Debug for RAW_INPUT_DATA_COMMAND_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_UI_Input\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RAW_INPUT_DEVICE_INFO_COMMAND(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Input\"`*"]
 pub const RIDI_PREPARSEDDATA: RAW_INPUT_DEVICE_INFO_COMMAND = RAW_INPUT_DEVICE_INFO_COMMAND(536870917u32);
@@ -919,7 +919,7 @@ impl ::core::default::Default for RID_DEVICE_INFO_MOUSE {
 }
 #[doc = "*Required features: `\"Win32_UI_Input\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RID_DEVICE_INFO_TYPE(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Input\"`*"]
 pub const RIM_TYPEMOUSE: RID_DEVICE_INFO_TYPE = RID_DEVICE_INFO_TYPE(0u32);

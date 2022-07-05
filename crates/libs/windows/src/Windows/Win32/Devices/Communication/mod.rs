@@ -60,7 +60,7 @@ pub unsafe fn BuildCommDCBW<'a, Param0: ::windows::core::IntoParam<'a, ::windows
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLEAR_COMM_ERROR_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`*"]
 pub const CE_BREAK: CLEAR_COMM_ERROR_FLAGS = CLEAR_COMM_ERROR_FLAGS(16u32);
@@ -232,7 +232,7 @@ impl ::core::default::Default for COMMPROP {
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMMPROP_STOP_PARITY(pub u16);
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`*"]
 pub const STOPBITS_10: COMMPROP_STOP_PARITY = COMMPROP_STOP_PARITY(1u16);
@@ -333,7 +333,7 @@ impl ::core::default::Default for COMMTIMEOUTS {
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMM_EVENT_MASK(pub u32);
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`*"]
 pub const EV_BREAK: COMM_EVENT_MASK = COMM_EVENT_MASK(64u32);
@@ -570,7 +570,7 @@ impl ::core::default::Default for DCB {
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DCB_PARITY(pub u8);
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`*"]
 pub const EVENPARITY: DCB_PARITY = DCB_PARITY(2u8);
@@ -603,7 +603,7 @@ impl ::core::fmt::Debug for DCB_PARITY {
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DCB_STOP_BITS(pub u8);
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`*"]
 pub const ONESTOPBIT: DCB_STOP_BITS = DCB_STOP_BITS(0u8);
@@ -632,7 +632,7 @@ impl ::core::fmt::Debug for DCB_STOP_BITS {
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ESCAPE_COMM_FUNCTION(pub u32);
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`*"]
 pub const CLRBREAK: ESCAPE_COMM_FUNCTION = ESCAPE_COMM_FUNCTION(9u32);
@@ -1072,7 +1072,7 @@ impl ::core::default::Default for MODEMDEVCAPS {
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MODEMDEVCAPS_DIAL_OPTIONS(pub u32);
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`*"]
 pub const DIALOPTION_BILLING: MODEMDEVCAPS_DIAL_OPTIONS = MODEMDEVCAPS_DIAL_OPTIONS(64u32);
@@ -1129,7 +1129,7 @@ impl ::core::ops::Not for MODEMDEVCAPS_DIAL_OPTIONS {
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MODEMDEVCAPS_SPEAKER_MODE(pub u32);
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`*"]
 pub const MDMSPKRFLAG_CALLSETUP: MODEMDEVCAPS_SPEAKER_MODE = MODEMDEVCAPS_SPEAKER_MODE(8u32);
@@ -1188,7 +1188,7 @@ impl ::core::ops::Not for MODEMDEVCAPS_SPEAKER_MODE {
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MODEMDEVCAPS_SPEAKER_VOLUME(pub u32);
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`*"]
 pub const MDMVOLFLAG_HIGH: MODEMDEVCAPS_SPEAKER_VOLUME = MODEMDEVCAPS_SPEAKER_VOLUME(4u32);
@@ -1299,7 +1299,7 @@ impl ::core::default::Default for MODEMSETTINGS {
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MODEMSETTINGS_SPEAKER_MODE(pub u32);
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`*"]
 pub const MDMSPKR_CALLSETUP: MODEMSETTINGS_SPEAKER_MODE = MODEMSETTINGS_SPEAKER_MODE(8u32);
@@ -1330,7 +1330,7 @@ impl ::core::fmt::Debug for MODEMSETTINGS_SPEAKER_MODE {
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MODEM_SPEAKER_VOLUME(pub u32);
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`*"]
 pub const MDMVOL_HIGH: MODEM_SPEAKER_VOLUME = MODEM_SPEAKER_VOLUME(2u32);
@@ -1359,7 +1359,7 @@ impl ::core::fmt::Debug for MODEM_SPEAKER_VOLUME {
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MODEM_STATUS_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`*"]
 pub const MS_CTS_ON: MODEM_STATUS_FLAGS = MODEM_STATUS_FLAGS(16u32);
@@ -1433,7 +1433,7 @@ pub unsafe fn OpenCommPort(uportnumber: u32, dwdesiredaccess: u32, dwflagsandatt
 }
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PURGE_COMM_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`*"]
 pub const PURGE_RXABORT: PURGE_COMM_FLAGS = PURGE_COMM_FLAGS(2u32);

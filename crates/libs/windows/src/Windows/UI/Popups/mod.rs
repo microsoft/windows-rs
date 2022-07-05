@@ -386,7 +386,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a M
 }
 #[doc = "*Required features: `\"UI_Popups\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MessageDialogOptions(pub u32);
 impl MessageDialogOptions {
     pub const None: Self = Self(0u32);
@@ -448,7 +448,7 @@ unsafe impl ::windows::core::RuntimeType for MessageDialogOptions {
 }
 #[doc = "*Required features: `\"UI_Popups\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct Placement(pub i32);
 impl Placement {
     pub const Default: Self = Self(0i32);

@@ -86,7 +86,7 @@ pub const BOM_PLAINTEXT: u32 = 2u32;
 pub const BOM_UNICODEBIDI: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CARET_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CARET_NONE: CARET_FLAGS = CARET_FLAGS(0i32);
@@ -158,7 +158,7 @@ pub const CERICHEDIT_CLASSA: &str = "RichEditCEA";
 pub const CERICHEDIT_CLASSW: &str = "RichEditCEW";
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CFE_EFFECTS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFE_ALLCAPS: CFE_EFFECTS = CFE_EFFECTS(128u32);
@@ -259,7 +259,7 @@ impl ::core::ops::Not for CFE_EFFECTS {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CFM_MASK(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFM_SUBSCRIPT: CFM_MASK = CFM_MASK(196608u32);
@@ -433,7 +433,7 @@ impl ::core::default::Default for CHANGENOTIFY {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CHANGETYPE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CN_GENERIC: CHANGETYPE = CHANGETYPE(0i32);
@@ -1176,7 +1176,7 @@ impl ::core::default::Default for ENDCOMPOSITIONNOTIFY {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ENDCOMPOSITIONNOTIFY_CODE(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ECN_ENDCOMPOSITION: ENDCOMPOSITIONNOTIFY_CODE = ENDCOMPOSITIONNOTIFY_CODE(1u32);
@@ -1756,7 +1756,7 @@ impl ::core::default::Default for GETTEXTEX {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GETTEXTEX_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const GT_DEFAULT: GETTEXTEX_FLAGS = GETTEXTEX_FLAGS(0u32);
@@ -1820,7 +1820,7 @@ impl ::core::default::Default for GETTEXTLENGTHEX {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GETTEXTLENGTHEX_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const GTL_DEFAULT: GETTEXTLENGTHEX_FLAGS = GETTEXTLENGTHEX_FLAGS(0u32);
@@ -1953,7 +1953,7 @@ impl ::core::default::Default for IMECOMPTEXT {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMECOMPTEXT_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ICT_RESULTREADSTR: IMECOMPTEXT_FLAGS = IMECOMPTEXT_FLAGS(1u32);
@@ -9608,7 +9608,7 @@ pub struct ITextStrings_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KHYPH(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const khyphNil: KHYPH = KHYPH(0i32);
@@ -9645,7 +9645,7 @@ impl ::core::fmt::Debug for KHYPH {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MANCODE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const MBOLD: MANCODE = MANCODE(16i32);
@@ -9775,7 +9775,7 @@ impl ::core::default::Default for OBJECTPOSITIONS {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OBJECTTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomSimpleText: OBJECTTYPE = OBJECTTYPE(0i32);
@@ -9961,7 +9961,7 @@ impl ::core::default::Default for PARAFORMAT2 {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PARAFORMAT_ALIGNMENT(pub u16);
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PFA_CENTER: PARAFORMAT_ALIGNMENT = PARAFORMAT_ALIGNMENT(3u16);
@@ -9990,7 +9990,7 @@ impl ::core::fmt::Debug for PARAFORMAT_ALIGNMENT {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PARAFORMAT_BORDERS(pub u16);
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PARAFORMAT_BORDERS_LEFT: PARAFORMAT_BORDERS = PARAFORMAT_BORDERS(1u16);
@@ -10055,7 +10055,7 @@ impl ::core::ops::Not for PARAFORMAT_BORDERS {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PARAFORMAT_MASK(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PFM_ALIGNMENT: PARAFORMAT_MASK = PARAFORMAT_MASK(8u32);
@@ -10122,7 +10122,7 @@ impl ::core::ops::Not for PARAFORMAT_MASK {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PARAFORMAT_NUMBERING_STYLE(pub u16);
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PFNS_PAREN: PARAFORMAT_NUMBERING_STYLE = PARAFORMAT_NUMBERING_STYLE(0u16);
@@ -10157,7 +10157,7 @@ impl ::core::fmt::Debug for PARAFORMAT_NUMBERING_STYLE {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PARAFORMAT_SHADING_STYLE(pub u16);
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PARAFORMAT_SHADING_STYLE_NONE: PARAFORMAT_SHADING_STYLE = PARAFORMAT_SHADING_STYLE(0u16);
@@ -10380,7 +10380,7 @@ impl ::core::default::Default for REOBJECT {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct REOBJECT_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const REO_ALIGNTORIGHT: REOBJECT_FLAGS = REOBJECT_FLAGS(256u32);
@@ -10578,7 +10578,7 @@ impl ::core::default::Default for RICHEDIT_IMAGE_PARAMETERS {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE(pub u16);
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SEL_EMPTY: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE = RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE(0u16);
@@ -10641,7 +10641,7 @@ impl ::core::ops::Not for RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RICH_EDIT_GET_OBJECT_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const REO_GETOBJ_POLEOBJ: RICH_EDIT_GET_OBJECT_FLAGS = RICH_EDIT_GET_OBJECT_FLAGS(1u32);
@@ -11019,7 +11019,7 @@ impl ::core::default::Default for TABLEROWPARMS {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TEXTMODE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TM_PLAINTEXT: TEXTMODE = TEXTMODE(1i32);
@@ -11116,7 +11116,7 @@ pub const TO_SIMPLELINEBREAK: u32 = 2u32;
 pub const TXES_ISDIALOG: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TXTBACKSTYLE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TXTBACK_TRANSPARENT: TXTBACKSTYLE = TXTBACKSTYLE(0i32);
@@ -11203,7 +11203,7 @@ pub const TXTBIT_VIEWINSETCHANGE: u32 = 8192u32;
 pub const TXTBIT_WORDWRAP: u32 = 1024u32;
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TXTHITRESULT(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TXTHITRESULT_NOHIT: TXTHITRESULT = TXTHITRESULT(0i32);
@@ -11234,7 +11234,7 @@ impl ::core::fmt::Debug for TXTHITRESULT {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TXTNATURALSIZE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TXTNS_FITTOCONTENT2: TXTNATURALSIZE = TXTNATURALSIZE(0i32);
@@ -11271,7 +11271,7 @@ impl ::core::fmt::Debug for TXTNATURALSIZE {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TXTVIEW(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TXTVIEW_ACTIVE: TXTVIEW = TXTVIEW(0i32);
@@ -11298,7 +11298,7 @@ impl ::core::fmt::Debug for TXTVIEW {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UNDONAMEID(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const UID_UNKNOWN: UNDONAMEID = UNDONAMEID(0i32);
@@ -11430,7 +11430,7 @@ impl ::core::default::Default for hyphresult {
 pub const lDefaultTab: u32 = 720u32;
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct tomConstants(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomFalse: tomConstants = tomConstants(0i32);

@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ATTENDEE_DISCONNECT_REASON(pub i32);
 #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
 pub const ATTENDEE_DISCONNECT_REASON_MIN: ATTENDEE_DISCONNECT_REASON = ATTENDEE_DISCONNECT_REASON(0i32);
@@ -33,7 +33,7 @@ impl ::core::fmt::Debug for ATTENDEE_DISCONNECT_REASON {
 }
 #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CHANNEL_ACCESS_ENUM(pub i32);
 #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
 pub const CHANNEL_ACCESS_ENUM_NONE: CHANNEL_ACCESS_ENUM = CHANNEL_ACCESS_ENUM(0i32);
@@ -60,7 +60,7 @@ impl ::core::fmt::Debug for CHANNEL_ACCESS_ENUM {
 }
 #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CHANNEL_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
 pub const CHANNEL_FLAGS_LEGACY: CHANNEL_FLAGS = CHANNEL_FLAGS(1i32);
@@ -89,7 +89,7 @@ impl ::core::fmt::Debug for CHANNEL_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CHANNEL_PRIORITY(pub i32);
 #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
 pub const CHANNEL_PRIORITY_LO: CHANNEL_PRIORITY = CHANNEL_PRIORITY(0i32);
@@ -118,7 +118,7 @@ impl ::core::fmt::Debug for CHANNEL_PRIORITY {
 }
 #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CTRL_LEVEL(pub i32);
 #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
 pub const CTRL_LEVEL_MIN: CTRL_LEVEL = CTRL_LEVEL(0i32);
@@ -3426,7 +3426,7 @@ pub struct IRDPViewerInputSink_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RDPENCOMAPI_ATTENDEE_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
 pub const ATTENDEE_FLAGS_LOCAL: RDPENCOMAPI_ATTENDEE_FLAGS = RDPENCOMAPI_ATTENDEE_FLAGS(1i32);
@@ -3464,7 +3464,7 @@ pub const RDPSRAPIWindow: ::windows::core::GUID = ::windows::core::GUID::from_u1
 pub const RDPSRAPIWindowList: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c21e2b8_5dd4_42cc_81ba_1c099852e6fa);
 #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RDPSRAPI_APP_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
 pub const APP_FLAG_PRIVILEGED: RDPSRAPI_APP_FLAGS = RDPSRAPI_APP_FLAGS(1i32);
@@ -3489,7 +3489,7 @@ impl ::core::fmt::Debug for RDPSRAPI_APP_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RDPSRAPI_KBD_CODE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
 pub const RDPSRAPI_KBD_CODE_SCANCODE: RDPSRAPI_KBD_CODE_TYPE = RDPSRAPI_KBD_CODE_TYPE(0i32);
@@ -3516,7 +3516,7 @@ impl ::core::fmt::Debug for RDPSRAPI_KBD_CODE_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RDPSRAPI_KBD_SYNC_FLAG(pub i32);
 #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
 pub const RDPSRAPI_KBD_SYNC_FLAG_SCROLL_LOCK: RDPSRAPI_KBD_SYNC_FLAG = RDPSRAPI_KBD_SYNC_FLAG(1i32);
@@ -3547,7 +3547,7 @@ impl ::core::fmt::Debug for RDPSRAPI_KBD_SYNC_FLAG {
 }
 #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RDPSRAPI_MOUSE_BUTTON_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
 pub const RDPSRAPI_MOUSE_BUTTON_BUTTON1: RDPSRAPI_MOUSE_BUTTON_TYPE = RDPSRAPI_MOUSE_BUTTON_TYPE(0i32);
@@ -3582,7 +3582,7 @@ impl ::core::fmt::Debug for RDPSRAPI_MOUSE_BUTTON_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RDPSRAPI_WND_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
 pub const WND_FLAG_PRIVILEGED: RDPSRAPI_WND_FLAGS = RDPSRAPI_WND_FLAGS(1i32);
@@ -3696,7 +3696,7 @@ pub struct _IRDPSessionEvents_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001(pub i32);
 #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
 pub const CONST_MAX_CHANNEL_MESSAGE_SIZE: __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 = __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001(1024i32);

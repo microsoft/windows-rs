@@ -625,7 +625,7 @@ unsafe impl ::core::marker::Send for KeyCredentialAttestationResult {}
 unsafe impl ::core::marker::Sync for KeyCredentialAttestationResult {}
 #[doc = "*Required features: `\"Security_Credentials\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KeyCredentialAttestationStatus(pub i32);
 impl KeyCredentialAttestationStatus {
     pub const Success: Self = Self(0i32);
@@ -661,7 +661,7 @@ unsafe impl ::windows::core::RuntimeType for KeyCredentialAttestationStatus {
 }
 #[doc = "*Required features: `\"Security_Credentials\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KeyCredentialCreationOption(pub i32);
 impl KeyCredentialCreationOption {
     pub const ReplaceExisting: Self = Self(0i32);
@@ -934,7 +934,7 @@ unsafe impl ::core::marker::Send for KeyCredentialRetrievalResult {}
 unsafe impl ::core::marker::Sync for KeyCredentialRetrievalResult {}
 #[doc = "*Required features: `\"Security_Credentials\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KeyCredentialStatus(pub i32);
 impl KeyCredentialStatus {
     pub const Success: Self = Self(0i32);
@@ -1734,7 +1734,7 @@ unsafe impl ::core::marker::Send for WebAccount {}
 unsafe impl ::core::marker::Sync for WebAccount {}
 #[doc = "*Required features: `\"Security_Credentials\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WebAccountPictureSize(pub i32);
 impl WebAccountPictureSize {
     pub const Size64x64: Self = Self(64i32);
@@ -1918,7 +1918,7 @@ unsafe impl ::core::marker::Send for WebAccountProvider {}
 unsafe impl ::core::marker::Sync for WebAccountProvider {}
 #[doc = "*Required features: `\"Security_Credentials\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WebAccountState(pub i32);
 impl WebAccountState {
     pub const None: Self = Self(0i32);

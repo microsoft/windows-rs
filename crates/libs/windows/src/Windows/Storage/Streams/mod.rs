@@ -153,7 +153,7 @@ unsafe impl ::core::marker::Send for Buffer {}
 unsafe impl ::core::marker::Sync for Buffer {}
 #[doc = "*Required features: `\"Storage_Streams\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ByteOrder(pub i32);
 impl ByteOrder {
     pub const LittleEndian: Self = Self(0i32);
@@ -1481,7 +1481,7 @@ unsafe impl ::core::marker::Send for FileInputStream {}
 unsafe impl ::core::marker::Sync for FileInputStream {}
 #[doc = "*Required features: `\"Storage_Streams\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FileOpenDisposition(pub i32);
 impl FileOpenDisposition {
     pub const OpenExisting: Self = Self(0i32);
@@ -4307,7 +4307,7 @@ unsafe impl ::core::marker::Send for InMemoryRandomAccessStream {}
 unsafe impl ::core::marker::Sync for InMemoryRandomAccessStream {}
 #[doc = "*Required features: `\"Storage_Streams\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InputStreamOptions(pub u32);
 impl InputStreamOptions {
     pub const None: Self = Self(0u32);
@@ -5098,7 +5098,7 @@ unsafe impl ::core::marker::Send for RandomAccessStreamReference {}
 unsafe impl ::core::marker::Sync for RandomAccessStreamReference {}
 #[doc = "*Required features: `\"Storage_Streams\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UnicodeEncoding(pub i32);
 impl UnicodeEncoding {
     pub const Utf8: Self = Self(0i32);

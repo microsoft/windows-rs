@@ -2559,7 +2559,7 @@ pub struct IXmlText_Vtbl {
 }
 #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NodeType(pub i32);
 impl NodeType {
     pub const Invalid: Self = Self(0i32);

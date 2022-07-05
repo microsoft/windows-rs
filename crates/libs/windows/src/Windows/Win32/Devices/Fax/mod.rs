@@ -36,7 +36,7 @@ pub const FAXDEVRECEIVE_SIZE: u32 = 4096u32;
 pub const FAXDEVREPORTSTATUS_SIZE: u32 = 4096u32;
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FAXROUTE_ENABLE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 pub const QUERY_STATUS: FAXROUTE_ENABLE = FAXROUTE_ENABLE(-1i32);
@@ -65,7 +65,7 @@ impl ::core::fmt::Debug for FAXROUTE_ENABLE {
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FAX_ACCESS_RIGHTS_ENUM(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 pub const farSUBMIT_LOW: FAX_ACCESS_RIGHTS_ENUM = FAX_ACCESS_RIGHTS_ENUM(1i32);
@@ -110,7 +110,7 @@ impl ::core::fmt::Debug for FAX_ACCESS_RIGHTS_ENUM {
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FAX_ACCESS_RIGHTS_ENUM_2(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 pub const far2SUBMIT_LOW: FAX_ACCESS_RIGHTS_ENUM_2 = FAX_ACCESS_RIGHTS_ENUM_2(1i32);
@@ -153,7 +153,7 @@ impl ::core::fmt::Debug for FAX_ACCESS_RIGHTS_ENUM_2 {
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FAX_ACCOUNT_EVENTS_TYPE_ENUM(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 pub const faetNONE: FAX_ACCOUNT_EVENTS_TYPE_ENUM = FAX_ACCOUNT_EVENTS_TYPE_ENUM(0i32);
@@ -592,7 +592,7 @@ impl ::core::default::Default for FAX_COVERPAGE_INFOW {
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FAX_COVERPAGE_TYPE_ENUM(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 pub const fcptNONE: FAX_COVERPAGE_TYPE_ENUM = FAX_COVERPAGE_TYPE_ENUM(0i32);
@@ -621,7 +621,7 @@ impl ::core::fmt::Debug for FAX_COVERPAGE_TYPE_ENUM {
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FAX_DEVICE_RECEIVE_MODE_ENUM(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 pub const fdrmNO_ANSWER: FAX_DEVICE_RECEIVE_MODE_ENUM = FAX_DEVICE_RECEIVE_MODE_ENUM(0i32);
@@ -844,7 +844,7 @@ impl ::core::default::Default for FAX_DEV_STATUS {
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FAX_ENUM_DELIVERY_REPORT_TYPES(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 pub const DRT_NONE: FAX_ENUM_DELIVERY_REPORT_TYPES = FAX_ENUM_DELIVERY_REPORT_TYPES(0i32);
@@ -873,7 +873,7 @@ impl ::core::fmt::Debug for FAX_ENUM_DELIVERY_REPORT_TYPES {
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FAX_ENUM_DEVICE_ID_SOURCE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 pub const DEV_ID_SRC_FAX: FAX_ENUM_DEVICE_ID_SOURCE = FAX_ENUM_DEVICE_ID_SOURCE(0i32);
@@ -900,7 +900,7 @@ impl ::core::fmt::Debug for FAX_ENUM_DEVICE_ID_SOURCE {
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FAX_ENUM_JOB_COMMANDS(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 pub const JC_UNKNOWN: FAX_ENUM_JOB_COMMANDS = FAX_ENUM_JOB_COMMANDS(0i32);
@@ -931,7 +931,7 @@ impl ::core::fmt::Debug for FAX_ENUM_JOB_COMMANDS {
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FAX_ENUM_JOB_SEND_ATTRIBUTES(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 pub const JSA_NOW: FAX_ENUM_JOB_SEND_ATTRIBUTES = FAX_ENUM_JOB_SEND_ATTRIBUTES(0i32);
@@ -960,7 +960,7 @@ impl ::core::fmt::Debug for FAX_ENUM_JOB_SEND_ATTRIBUTES {
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FAX_ENUM_LOG_CATEGORIES(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 pub const FAXLOG_CATEGORY_INIT: FAX_ENUM_LOG_CATEGORIES = FAX_ENUM_LOG_CATEGORIES(1i32);
@@ -991,7 +991,7 @@ impl ::core::fmt::Debug for FAX_ENUM_LOG_CATEGORIES {
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FAX_ENUM_LOG_LEVELS(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 pub const FAXLOG_LEVEL_NONE: FAX_ENUM_LOG_LEVELS = FAX_ENUM_LOG_LEVELS(0i32);
@@ -1022,7 +1022,7 @@ impl ::core::fmt::Debug for FAX_ENUM_LOG_LEVELS {
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FAX_ENUM_PORT_OPEN_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 pub const PORT_OPEN_QUERY: FAX_ENUM_PORT_OPEN_TYPE = FAX_ENUM_PORT_OPEN_TYPE(1i32);
@@ -1261,7 +1261,7 @@ impl ::core::default::Default for FAX_GLOBAL_ROUTING_INFOW {
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FAX_GROUP_STATUS_ENUM(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 pub const fgsALL_DEV_VALID: FAX_GROUP_STATUS_ENUM = FAX_GROUP_STATUS_ENUM(0i32);
@@ -1448,7 +1448,7 @@ impl ::core::default::Default for FAX_JOB_ENTRYW {
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FAX_JOB_EXTENDED_STATUS_ENUM(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 pub const fjesNONE: FAX_JOB_EXTENDED_STATUS_ENUM = FAX_JOB_EXTENDED_STATUS_ENUM(0i32);
@@ -1515,7 +1515,7 @@ impl ::core::fmt::Debug for FAX_JOB_EXTENDED_STATUS_ENUM {
 pub const FAX_JOB_MANAGE: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FAX_JOB_OPERATIONS_ENUM(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 pub const fjoVIEW: FAX_JOB_OPERATIONS_ENUM = FAX_JOB_OPERATIONS_ENUM(1i32);
@@ -1690,7 +1690,7 @@ impl ::core::default::Default for FAX_JOB_PARAMW {
 pub const FAX_JOB_QUERY: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FAX_JOB_STATUS_ENUM(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 pub const fjsPENDING: FAX_JOB_STATUS_ENUM = FAX_JOB_STATUS_ENUM(1i32);
@@ -1737,7 +1737,7 @@ impl ::core::fmt::Debug for FAX_JOB_STATUS_ENUM {
 pub const FAX_JOB_SUBMIT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FAX_JOB_TYPE_ENUM(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 pub const fjtSEND: FAX_JOB_TYPE_ENUM = FAX_JOB_TYPE_ENUM(0i32);
@@ -1830,7 +1830,7 @@ impl ::core::default::Default for FAX_LOG_CATEGORYW {
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FAX_LOG_LEVEL_ENUM(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 pub const fllNONE: FAX_LOG_LEVEL_ENUM = FAX_LOG_LEVEL_ENUM(0i32);
@@ -2045,7 +2045,7 @@ impl ::core::default::Default for FAX_PRINT_INFOW {
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FAX_PRIORITY_TYPE_ENUM(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 pub const fptLOW: FAX_PRIORITY_TYPE_ENUM = FAX_PRIORITY_TYPE_ENUM(0i32);
@@ -2074,7 +2074,7 @@ impl ::core::fmt::Debug for FAX_PRIORITY_TYPE_ENUM {
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FAX_PROVIDER_STATUS_ENUM(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 pub const fpsSUCCESS: FAX_PROVIDER_STATUS_ENUM = FAX_PROVIDER_STATUS_ENUM(0i32);
@@ -2111,7 +2111,7 @@ impl ::core::fmt::Debug for FAX_PROVIDER_STATUS_ENUM {
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FAX_RECEIPT_TYPE_ENUM(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 pub const frtNONE: FAX_RECEIPT_TYPE_ENUM = FAX_RECEIPT_TYPE_ENUM(0i32);
@@ -2369,7 +2369,7 @@ impl ::core::default::Default for FAX_ROUTING_METHODW {
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FAX_ROUTING_RULE_CODE_ENUM(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 pub const frrcANY_CODE: FAX_ROUTING_RULE_CODE_ENUM = FAX_ROUTING_RULE_CODE_ENUM(0i32);
@@ -2394,7 +2394,7 @@ impl ::core::fmt::Debug for FAX_ROUTING_RULE_CODE_ENUM {
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FAX_RULE_STATUS_ENUM(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 pub const frsVALID: FAX_RULE_STATUS_ENUM = FAX_RULE_STATUS_ENUM(0i32);
@@ -2427,7 +2427,7 @@ impl ::core::fmt::Debug for FAX_RULE_STATUS_ENUM {
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FAX_SCHEDULE_TYPE_ENUM(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 pub const fstNOW: FAX_SCHEDULE_TYPE_ENUM = FAX_SCHEDULE_TYPE_ENUM(0i32);
@@ -2502,7 +2502,7 @@ impl ::core::default::Default for FAX_SEND {
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FAX_SERVER_APIVERSION_ENUM(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 pub const fsAPI_VERSION_0: FAX_SERVER_APIVERSION_ENUM = FAX_SERVER_APIVERSION_ENUM(0i32);
@@ -2533,7 +2533,7 @@ impl ::core::fmt::Debug for FAX_SERVER_APIVERSION_ENUM {
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FAX_SERVER_EVENTS_TYPE_ENUM(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 pub const fsetNONE: FAX_SERVER_EVENTS_TYPE_ENUM = FAX_SERVER_EVENTS_TYPE_ENUM(0i32);
@@ -2578,7 +2578,7 @@ impl ::core::fmt::Debug for FAX_SERVER_EVENTS_TYPE_ENUM {
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FAX_SMTP_AUTHENTICATION_TYPE_ENUM(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 pub const fsatANONYMOUS: FAX_SMTP_AUTHENTICATION_TYPE_ENUM = FAX_SMTP_AUTHENTICATION_TYPE_ENUM(0i32);
@@ -14650,7 +14650,7 @@ impl ::core::default::Default for STI_DEVICE_INFORMATIONW {
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STI_DEVICE_MJ_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 pub const StiDeviceTypeDefault: STI_DEVICE_MJ_TYPE = STI_DEVICE_MJ_TYPE(0i32);
@@ -15007,7 +15007,7 @@ pub unsafe fn SendToFaxRecipient<'a, Param1: ::windows::core::IntoParam<'a, ::wi
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SendToMode(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 pub const SEND_TO_FAX_RECIPIENT_ATTACHMENT: SendToMode = SendToMode(0i32);

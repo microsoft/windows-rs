@@ -107,7 +107,7 @@ pub unsafe fn CveEventWrite<'a, Param0: ::windows::core::IntoParam<'a, ::windows
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DECODING_SOURCE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 pub const DecodingSourceXMLFile: DECODING_SOURCE = DECODING_SOURCE(0i32);
@@ -145,7 +145,7 @@ pub const DIAG_LOGGER_NAMEW: &str = "DiagLog";
 pub const DefaultTraceSecurityGuid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0811c1af_7a07_4a06_82ed_869455cdf713);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ENABLECALLBACK_ENABLED_STATE(pub u32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 pub const EVENT_CONTROL_CODE_DISABLE_PROVIDER: ENABLECALLBACK_ENABLED_STATE = ENABLECALLBACK_ENABLED_STATE(0u32);
@@ -342,7 +342,7 @@ pub const ETW_BYTE_TYPE_VALUE: u32 = 4u32;
 pub const ETW_CHAR_TYPE_VALUE: u32 = 11u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ETW_COMPRESSION_RESUMPTION_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 pub const EtwCompressionModeRestart: ETW_COMPRESSION_RESUMPTION_MODE = ETW_COMPRESSION_RESUMPTION_MODE(0i32);
@@ -461,7 +461,7 @@ impl ::core::default::Default for ETW_PMC_COUNTER_OWNERSHIP_STATUS {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ETW_PMC_COUNTER_OWNER_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 pub const EtwPmcOwnerFree: ETW_PMC_COUNTER_OWNER_TYPE = ETW_PMC_COUNTER_OWNER_TYPE(0i32);
@@ -494,7 +494,7 @@ impl ::core::fmt::Debug for ETW_PMC_COUNTER_OWNER_TYPE {
 pub const ETW_POINTER_TYPE_VALUE: u32 = 105u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ETW_PROCESS_HANDLE_INFO_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 pub const EtwQueryPartitionInformation: ETW_PROCESS_HANDLE_INFO_TYPE = ETW_PROCESS_HANDLE_INFO_TYPE(1i32);
@@ -525,7 +525,7 @@ impl ::core::fmt::Debug for ETW_PROCESS_HANDLE_INFO_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ETW_PROVIDER_TRAIT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 pub const EtwProviderTraitTypeGroup: ETW_PROVIDER_TRAIT_TYPE = ETW_PROVIDER_TRAIT_TYPE(1i32);
@@ -652,7 +652,7 @@ pub const ETW_VARIANT_TYPE_VALUE: u32 = 116u32;
 pub const ETW_WMITIME_TYPE_VALUE: u32 = 118u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EVENTSECURITYOPERATION(pub i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 pub const EventSecuritySetDACL: EVENTSECURITYOPERATION = EVENTSECURITYOPERATION(0i32);
@@ -1185,7 +1185,7 @@ impl ::core::default::Default for EVENT_EXTENDED_ITEM_TS_ID {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EVENT_FIELD_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 pub const EventKeywordInformation: EVENT_FIELD_TYPE = EVENT_FIELD_TYPE(0i32);
@@ -1664,7 +1664,7 @@ pub const EVENT_HEADER_PROPERTY_RELOGGABLE: u32 = 8u32;
 pub const EVENT_HEADER_PROPERTY_XML: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EVENT_INFO_CLASS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 pub const EventProviderBinaryTrackInfo: EVENT_INFO_CLASS = EVENT_INFO_CLASS(0i32);
@@ -2449,7 +2449,7 @@ pub const EVENT_TRACE_BUFFERING_MODE: u32 = 1024u32;
 pub const EVENT_TRACE_COMPRESSED_MODE: u32 = 67108864u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EVENT_TRACE_CONTROL(pub u32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 pub const EVENT_TRACE_CONTROL_FLUSH: EVENT_TRACE_CONTROL = EVENT_TRACE_CONTROL(3u32);
@@ -2498,7 +2498,7 @@ pub const EVENT_TRACE_FILE_MODE_PREALLOCATE: u32 = 32u32;
 pub const EVENT_TRACE_FILE_MODE_SEQUENTIAL: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EVENT_TRACE_FLAG(pub u32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 pub const EVENT_TRACE_FLAG_ALPC: EVENT_TRACE_FLAG = EVENT_TRACE_FLAG(1048576u32);
@@ -4298,7 +4298,7 @@ pub const KERNEL_LOGGER_NAMEA: &str = "NT Kernel Logger";
 pub const KERNEL_LOGGER_NAMEW: &str = "NT Kernel Logger";
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MAP_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 pub const EVENTMAP_INFO_FLAG_MANIFEST_VALUEMAP: MAP_FLAGS = MAP_FLAGS(1i32);
@@ -4335,7 +4335,7 @@ impl ::core::fmt::Debug for MAP_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MAP_VALUETYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 pub const EVENTMAP_ENTRY_VALUETYPE_ULONG: MAP_VALUETYPE = MAP_VALUETYPE(0i32);
@@ -4505,7 +4505,7 @@ impl ::core::default::Default for PAYLOAD_FILTER_PREDICATE {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PAYLOAD_OPERATOR(pub i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 pub const PAYLOADFIELD_EQ: PAYLOAD_OPERATOR = PAYLOAD_OPERATOR(0i32);
@@ -4641,7 +4641,7 @@ impl ::core::default::Default for PROPERTY_DATA_DESCRIPTOR {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROPERTY_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 pub const PropertyStruct: PROPERTY_FLAGS = PROPERTY_FLAGS(1i32);
@@ -5286,7 +5286,7 @@ impl ::core::default::Default for TDH_CONTEXT {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TDH_CONTEXT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 pub const TDH_CONTEXT_WPP_TMFFILE: TDH_CONTEXT_TYPE = TDH_CONTEXT_TYPE(0i32);
@@ -5320,7 +5320,7 @@ impl ::core::fmt::Debug for TDH_CONTEXT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TDH_HANDLE(pub isize);
 impl TDH_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -5348,7 +5348,7 @@ unsafe impl ::windows::core::Abi for TDH_HANDLE {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TEMPLATE_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 pub const TEMPLATE_EVENT_DATA: TEMPLATE_FLAGS = TEMPLATE_FLAGS(1i32);
@@ -6320,7 +6320,7 @@ impl ::core::default::Default for TRACE_LOGFILE_HEADER64_1_0 {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TRACE_MESSAGE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 pub const TRACE_MESSAGE_COMPONENTID: TRACE_MESSAGE_FLAGS = TRACE_MESSAGE_FLAGS(4u32);
@@ -6521,7 +6521,7 @@ impl ::core::default::Default for TRACE_PROVIDER_INSTANCE_INFO {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TRACE_QUERY_INFO_CLASS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 pub const TraceGuidQueryList: TRACE_QUERY_INFO_CLASS = TRACE_QUERY_INFO_CLASS(0i32);
@@ -7182,7 +7182,7 @@ pub unsafe fn UpdateTraceW<'a, Param1: ::windows::core::IntoParam<'a, ::windows:
 pub type WMIDPREQUEST = ::core::option::Option<unsafe extern "system" fn(requestcode: WMIDPREQUESTCODE, requestcontext: *const ::core::ffi::c_void, buffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32>;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMIDPREQUESTCODE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 pub const WMI_GET_ALL_DATA: WMIDPREQUESTCODE = WMIDPREQUESTCODE(0i32);
@@ -7858,7 +7858,7 @@ impl ::core::default::Default for WNODE_TOO_SMALL {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _TDH_IN_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 pub const TDH_INTYPE_NULL: _TDH_IN_TYPE = _TDH_IN_TYPE(0i32);
@@ -7955,7 +7955,7 @@ impl ::core::fmt::Debug for _TDH_IN_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _TDH_OUT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 pub const TDH_OUTTYPE_NULL: _TDH_OUT_TYPE = _TDH_OUT_TYPE(0i32);

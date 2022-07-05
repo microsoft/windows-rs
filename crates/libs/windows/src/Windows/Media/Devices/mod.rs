@@ -206,7 +206,7 @@ unsafe impl ::core::marker::Send for AdvancedPhotoControl {}
 unsafe impl ::core::marker::Sync for AdvancedPhotoControl {}
 #[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AdvancedPhotoMode(pub i32);
 impl AdvancedPhotoMode {
     pub const Auto: Self = Self(0i32);
@@ -732,7 +732,7 @@ unsafe impl ::core::marker::Send for AudioDeviceModulesManager {}
 unsafe impl ::core::marker::Sync for AudioDeviceModulesManager {}
 #[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AudioDeviceRole(pub i32);
 impl AudioDeviceRole {
     pub const Default: Self = Self(0i32);
@@ -766,7 +766,7 @@ unsafe impl ::windows::core::RuntimeType for AudioDeviceRole {
 }
 #[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AutoFocusRange(pub i32);
 impl AutoFocusRange {
     pub const FullRange: Self = Self(0i32);
@@ -1214,7 +1214,7 @@ unsafe impl ::core::marker::Send for CameraOcclusionInfo {}
 unsafe impl ::core::marker::Sync for CameraOcclusionInfo {}
 #[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CameraOcclusionKind(pub i32);
 impl CameraOcclusionKind {
     pub const Lid: Self = Self(0i32);
@@ -1426,7 +1426,7 @@ unsafe impl ::core::marker::Send for CameraOcclusionStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for CameraOcclusionStateChangedEventArgs {}
 #[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CameraStreamState(pub i32);
 impl CameraStreamState {
     pub const NotStreaming: Self = Self(0i32);
@@ -1462,7 +1462,7 @@ unsafe impl ::windows::core::RuntimeType for CameraStreamState {
 }
 #[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CaptureSceneMode(pub i32);
 impl CaptureSceneMode {
     pub const Auto: Self = Self(0i32);
@@ -1507,7 +1507,7 @@ unsafe impl ::windows::core::RuntimeType for CaptureSceneMode {
 }
 #[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CaptureUse(pub i32);
 impl CaptureUse {
     pub const None: Self = Self(0i32);
@@ -1542,7 +1542,7 @@ unsafe impl ::windows::core::RuntimeType for CaptureUse {
 }
 #[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ColorTemperaturePreset(pub i32);
 impl ColorTemperaturePreset {
     pub const Auto: Self = Self(0i32);
@@ -2372,7 +2372,7 @@ unsafe impl ::core::marker::Send for DigitalWindowControl {}
 unsafe impl ::core::marker::Sync for DigitalWindowControl {}
 #[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DigitalWindowMode(pub i32);
 impl DigitalWindowMode {
     pub const Off: Self = Self(0i32);
@@ -3196,7 +3196,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a F
 }
 #[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FocusMode(pub i32);
 impl FocusMode {
     pub const Auto: Self = Self(0i32);
@@ -3232,7 +3232,7 @@ unsafe impl ::windows::core::RuntimeType for FocusMode {
 }
 #[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FocusPreset(pub i32);
 impl FocusPreset {
     pub const Auto: Self = Self(0i32);
@@ -3543,7 +3543,7 @@ unsafe impl ::core::marker::Send for HdrVideoControl {}
 unsafe impl ::core::marker::Sync for HdrVideoControl {}
 #[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HdrVideoMode(pub i32);
 impl HdrVideoMode {
     pub const Off: Self = Self(0i32);
@@ -5244,7 +5244,7 @@ unsafe impl ::core::marker::Send for InfraredTorchControl {}
 unsafe impl ::core::marker::Sync for InfraredTorchControl {}
 #[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InfraredTorchMode(pub i32);
 impl InfraredTorchMode {
     pub const Off: Self = Self(0i32);
@@ -5448,7 +5448,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a I
 #[doc = "*Required features: `\"Media_Devices\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IsoSpeedPreset(pub i32);
 #[cfg(feature = "deprecated")]
 impl IsoSpeedPreset {
@@ -6003,7 +6003,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a L
 }
 #[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ManualFocusDistance(pub i32);
 impl ManualFocusDistance {
     pub const Infinity: Self = Self(0i32);
@@ -6038,7 +6038,7 @@ unsafe impl ::windows::core::RuntimeType for ManualFocusDistance {
 }
 #[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MediaCaptureFocusState(pub i32);
 impl MediaCaptureFocusState {
     pub const Uninitialized: Self = Self(0i32);
@@ -6075,7 +6075,7 @@ unsafe impl ::windows::core::RuntimeType for MediaCaptureFocusState {
 }
 #[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MediaCaptureOptimization(pub i32);
 impl MediaCaptureOptimization {
     pub const Default: Self = Self(0i32);
@@ -6114,7 +6114,7 @@ unsafe impl ::windows::core::RuntimeType for MediaCaptureOptimization {
 }
 #[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MediaCapturePauseBehavior(pub i32);
 impl MediaCapturePauseBehavior {
     pub const RetainHardwareResources: Self = Self(0i32);
@@ -6658,7 +6658,7 @@ unsafe impl ::core::marker::Send for OpticalImageStabilizationControl {}
 unsafe impl ::core::marker::Sync for OpticalImageStabilizationControl {}
 #[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OpticalImageStabilizationMode(pub i32);
 impl OpticalImageStabilizationMode {
     pub const Off: Self = Self(0i32);
@@ -7248,7 +7248,7 @@ unsafe impl ::core::marker::Send for RegionOfInterest {}
 unsafe impl ::core::marker::Sync for RegionOfInterest {}
 #[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RegionOfInterestType(pub i32);
 impl RegionOfInterestType {
     pub const Unknown: Self = Self(0i32);
@@ -7517,7 +7517,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
 }
 #[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SendCommandStatus(pub i32);
 impl SendCommandStatus {
     pub const Success: Self = Self(0i32);
@@ -7551,7 +7551,7 @@ unsafe impl ::windows::core::RuntimeType for SendCommandStatus {
 }
 #[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TelephonyKey(pub i32);
 impl TelephonyKey {
     pub const D0: Self = Self(0i32);
@@ -8305,7 +8305,7 @@ unsafe impl ::core::marker::Send for VideoDeviceControllerGetDevicePropertyResul
 unsafe impl ::core::marker::Sync for VideoDeviceControllerGetDevicePropertyResult {}
 #[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VideoDeviceControllerGetDevicePropertyStatus(pub i32);
 impl VideoDeviceControllerGetDevicePropertyStatus {
     pub const Success: Self = Self(0i32);
@@ -8344,7 +8344,7 @@ unsafe impl ::windows::core::RuntimeType for VideoDeviceControllerGetDevicePrope
 }
 #[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VideoDeviceControllerSetDevicePropertyStatus(pub i32);
 impl VideoDeviceControllerSetDevicePropertyStatus {
     pub const Success: Self = Self(0i32);
@@ -8489,7 +8489,7 @@ unsafe impl ::core::marker::Send for VideoTemporalDenoisingControl {}
 unsafe impl ::core::marker::Sync for VideoTemporalDenoisingControl {}
 #[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VideoTemporalDenoisingMode(pub i32);
 impl VideoTemporalDenoisingMode {
     pub const Off: Self = Self(0i32);
@@ -8917,7 +8917,7 @@ unsafe impl ::core::marker::Send for ZoomSettings {}
 unsafe impl ::core::marker::Sync for ZoomSettings {}
 #[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ZoomTransitionMode(pub i32);
 impl ZoomTransitionMode {
     pub const Auto: Self = Self(0i32);

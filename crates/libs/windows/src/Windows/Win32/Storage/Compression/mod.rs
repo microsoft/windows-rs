@@ -1,5 +1,5 @@
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMPRESSOR_HANDLE(pub isize);
 impl COMPRESSOR_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -27,7 +27,7 @@ unsafe impl ::windows::core::Abi for COMPRESSOR_HANDLE {
 }
 #[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMPRESS_ALGORITHM(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
 pub const COMPRESS_ALGORITHM_MSZIP: COMPRESS_ALGORITHM = COMPRESS_ALGORITHM(2u32);
@@ -96,7 +96,7 @@ impl ::core::default::Default for COMPRESS_ALLOCATION_ROUTINES {
 }
 #[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMPRESS_INFORMATION_CLASS(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
 pub const COMPRESS_INFORMATION_CLASS_INVALID: COMPRESS_INFORMATION_CLASS = COMPRESS_INFORMATION_CLASS(0i32);

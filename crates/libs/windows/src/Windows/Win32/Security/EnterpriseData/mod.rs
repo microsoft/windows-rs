@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ENTERPRISE_DATA_POLICIES(pub u32);
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
 pub const ENTERPRISE_POLICY_NONE: ENTERPRISE_DATA_POLICIES = ENTERPRISE_DATA_POLICIES(0u32);
@@ -482,7 +482,7 @@ pub unsafe fn ProtectFileToEnterpriseIdentity<'a, Param0: ::windows::core::IntoP
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SRPHOSTING_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
 pub const SRPHOSTING_TYPE_NONE: SRPHOSTING_TYPE = SRPHOSTING_TYPE(0i32);
@@ -511,7 +511,7 @@ impl ::core::fmt::Debug for SRPHOSTING_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SRPHOSTING_VERSION(pub i32);
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
 pub const SRPHOSTING_VERSION1: SRPHOSTING_VERSION = SRPHOSTING_VERSION(1i32);

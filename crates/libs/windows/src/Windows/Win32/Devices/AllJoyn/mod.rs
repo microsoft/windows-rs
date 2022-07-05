@@ -211,7 +211,7 @@ pub unsafe fn QCC_StatusText(status: QStatus) -> ::windows::core::PSTR {
 pub const QCC_TRUE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct QStatus(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 pub const ER_OK: QStatus = QStatus(0i32);
@@ -1032,7 +1032,7 @@ pub struct _alljoyn_abouticonproxy_handle(pub u8);
 pub type alljoyn_about_announced_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, busname: ::windows::core::PCSTR, version: u16, port: u16, objectdescriptionarg: alljoyn_msgarg, aboutdataarg: alljoyn_msgarg)>;
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct alljoyn_about_announceflag(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 pub const UNANNOUNCED: alljoyn_about_announceflag = alljoyn_about_announceflag(0i32);
@@ -1058,7 +1058,7 @@ impl ::core::fmt::Debug for alljoyn_about_announceflag {
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct alljoyn_aboutdata(pub isize);
 impl ::core::default::Default for alljoyn_aboutdata {
     fn default() -> Self {
@@ -1696,7 +1696,7 @@ pub unsafe fn alljoyn_aboutdata_setsupporturl<'a, Param0: ::windows::core::IntoP
     unimplemented!("Unsupported target OS");
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct alljoyn_aboutdatalistener(pub isize);
 impl ::core::default::Default for alljoyn_aboutdatalistener {
     fn default() -> Self {
@@ -1977,7 +1977,7 @@ pub unsafe fn alljoyn_abouticonproxy_getversion(proxy: *mut _alljoyn_abouticonpr
     unimplemented!("Unsupported target OS");
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct alljoyn_aboutlistener(pub isize);
 impl ::core::default::Default for alljoyn_aboutlistener {
     fn default() -> Self {
@@ -2057,7 +2057,7 @@ pub unsafe fn alljoyn_aboutlistener_destroy<'a, Param0: ::windows::core::IntoPar
     unimplemented!("Unsupported target OS");
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct alljoyn_aboutobj(pub isize);
 impl ::core::default::Default for alljoyn_aboutobj {
     fn default() -> Self {
@@ -2149,7 +2149,7 @@ pub unsafe fn alljoyn_aboutobj_unannounce<'a, Param0: ::windows::core::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct alljoyn_aboutobjectdescription(pub isize);
 impl ::core::default::Default for alljoyn_aboutobjectdescription {
     fn default() -> Self {
@@ -2339,7 +2339,7 @@ pub unsafe fn alljoyn_aboutobjectdescription_haspath<'a, Param0: ::windows::core
     unimplemented!("Unsupported target OS");
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct alljoyn_aboutproxy(pub isize);
 impl ::core::default::Default for alljoyn_aboutproxy {
     fn default() -> Self {
@@ -2432,7 +2432,7 @@ pub unsafe fn alljoyn_aboutproxy_getversion<'a, Param0: ::windows::core::IntoPar
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct alljoyn_applicationstate(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 pub const NOT_CLAIMABLE: alljoyn_applicationstate = alljoyn_applicationstate(0i32);
@@ -2462,7 +2462,7 @@ impl ::core::fmt::Debug for alljoyn_applicationstate {
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct alljoyn_applicationstatelistener(pub isize);
 impl ::core::default::Default for alljoyn_applicationstatelistener {
     fn default() -> Self {
@@ -2544,7 +2544,7 @@ pub unsafe fn alljoyn_applicationstatelistener_destroy<'a, Param0: ::windows::co
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 pub type alljoyn_applicationstatelistener_state_ptr = ::core::option::Option<unsafe extern "system" fn(busname: *mut i8, publickey: *mut i8, applicationstate: alljoyn_applicationstate, context: *mut ::core::ffi::c_void)>;
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct alljoyn_authlistener(pub isize);
 impl ::core::default::Default for alljoyn_authlistener {
     fn default() -> Self {
@@ -2742,7 +2742,7 @@ pub unsafe fn alljoyn_authlistenerasync_destroy<'a, Param0: ::windows::core::Int
     unimplemented!("Unsupported target OS");
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct alljoyn_autopinger(pub isize);
 impl ::core::default::Default for alljoyn_autopinger {
     fn default() -> Self {
@@ -2894,7 +2894,7 @@ pub unsafe fn alljoyn_autopinger_setpinginterval<'a, Param0: ::windows::core::In
     unimplemented!("Unsupported target OS");
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct alljoyn_busattachment(pub isize);
 impl ::core::default::Default for alljoyn_busattachment {
     fn default() -> Self {
@@ -4068,7 +4068,7 @@ pub unsafe fn alljoyn_busattachment_whoimplements_interfaces<'a, Param0: ::windo
     unimplemented!("Unsupported target OS");
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct alljoyn_buslistener(pub isize);
 impl ::core::default::Default for alljoyn_buslistener {
     fn default() -> Self {
@@ -4180,7 +4180,7 @@ pub type alljoyn_buslistener_lost_advertised_name_ptr = ::core::option::Option<u
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 pub type alljoyn_buslistener_name_owner_changed_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, busname: ::windows::core::PCSTR, previousowner: ::windows::core::PCSTR, newowner: ::windows::core::PCSTR)>;
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct alljoyn_busobject(pub isize);
 impl ::core::default::Default for alljoyn_busobject {
     fn default() -> Self {
@@ -4618,7 +4618,7 @@ impl ::core::default::Default for alljoyn_certificateidarray {
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct alljoyn_claimcapability_masks(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 pub const CAPABLE_ECDHE_NULL: alljoyn_claimcapability_masks = alljoyn_claimcapability_masks(1i32);
@@ -4647,7 +4647,7 @@ impl ::core::fmt::Debug for alljoyn_claimcapability_masks {
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct alljoyn_claimcapabilityadditionalinfo_masks(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 pub const PASSWORD_GENERATED_BY_SECURITY_MANAGER: alljoyn_claimcapabilityadditionalinfo_masks = alljoyn_claimcapabilityadditionalinfo_masks(1i32);
@@ -4673,7 +4673,7 @@ impl ::core::fmt::Debug for alljoyn_claimcapabilityadditionalinfo_masks {
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct alljoyn_credentials(pub isize);
 impl ::core::default::Default for alljoyn_credentials {
     fn default() -> Self {
@@ -4975,7 +4975,7 @@ pub unsafe fn alljoyn_init() -> QStatus {
     unimplemented!("Unsupported target OS");
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct alljoyn_interfacedescription(pub isize);
 impl ::core::default::Default for alljoyn_interfacedescription {
     fn default() -> Self {
@@ -5739,7 +5739,7 @@ pub unsafe fn alljoyn_interfacedescription_property_getannotationscount<'a, Para
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct alljoyn_interfacedescription_securitypolicy(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 pub const AJ_IFC_SECURITY_INHERIT: alljoyn_interfacedescription_securitypolicy = alljoyn_interfacedescription_securitypolicy(0i32);
@@ -5909,7 +5909,7 @@ pub unsafe fn alljoyn_interfacedescription_setpropertydescriptionforlanguage<'a,
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 pub type alljoyn_interfacedescription_translation_callback_ptr = ::core::option::Option<unsafe extern "system" fn(sourcelanguage: ::windows::core::PCSTR, targetlanguage: ::windows::core::PCSTR, sourcetext: ::windows::core::PCSTR) -> ::windows::core::PSTR>;
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct alljoyn_keystore(pub isize);
 impl ::core::default::Default for alljoyn_keystore {
     fn default() -> Self {
@@ -5931,7 +5931,7 @@ unsafe impl ::windows::core::Abi for alljoyn_keystore {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct alljoyn_keystorelistener(pub isize);
 impl ::core::default::Default for alljoyn_keystorelistener {
     fn default() -> Self {
@@ -6126,7 +6126,7 @@ impl ::core::default::Default for alljoyn_manifestarray {
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct alljoyn_message(pub isize);
 impl ::core::default::Default for alljoyn_message {
     fn default() -> Self {
@@ -6589,7 +6589,7 @@ pub type alljoyn_messagereceiver_replyhandler_ptr = ::core::option::Option<unsaf
 pub type alljoyn_messagereceiver_signalhandler_ptr = ::core::option::Option<unsafe extern "system" fn(member: *const alljoyn_interfacedescription_member, srcpath: ::windows::core::PCSTR, message: alljoyn_message)>;
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct alljoyn_messagetype(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 pub const ALLJOYN_MESSAGE_INVALID: alljoyn_messagetype = alljoyn_messagetype(0i32);
@@ -6621,7 +6621,7 @@ impl ::core::fmt::Debug for alljoyn_messagetype {
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct alljoyn_msgarg(pub isize);
 impl ::core::default::Default for alljoyn_msgarg {
     fn default() -> Self {
@@ -7749,7 +7749,7 @@ pub unsafe fn alljoyn_msgarg_tostring<'a, Param0: ::windows::core::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct alljoyn_observer(pub isize);
 impl ::core::default::Default for alljoyn_observer {
     fn default() -> Self {
@@ -7887,7 +7887,7 @@ pub unsafe fn alljoyn_observer_unregisterlistener<'a, Param0: ::windows::core::I
     unimplemented!("Unsupported target OS");
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct alljoyn_observerlistener(pub isize);
 impl ::core::default::Default for alljoyn_observerlistener {
     fn default() -> Self {
@@ -7982,7 +7982,7 @@ pub unsafe fn alljoyn_passwordmanager_setcredentials<'a, Param0: ::windows::core
     unimplemented!("Unsupported target OS");
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct alljoyn_permissionconfigurationlistener(pub isize);
 impl ::core::default::Default for alljoyn_permissionconfigurationlistener {
     fn default() -> Self {
@@ -8073,7 +8073,7 @@ pub type alljoyn_permissionconfigurationlistener_policychanged_ptr = ::core::opt
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 pub type alljoyn_permissionconfigurationlistener_startmanagement_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void)>;
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct alljoyn_permissionconfigurator(pub isize);
 impl ::core::default::Default for alljoyn_permissionconfigurator {
     fn default() -> Self {
@@ -8557,7 +8557,7 @@ pub unsafe fn alljoyn_permissionconfigurator_updatepolicy<'a, Param0: ::windows:
     unimplemented!("Unsupported target OS");
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct alljoyn_pinglistener(pub isize);
 impl ::core::default::Default for alljoyn_pinglistener {
     fn default() -> Self {
@@ -8638,7 +8638,7 @@ pub unsafe fn alljoyn_pinglistener_destroy<'a, Param0: ::windows::core::IntoPara
     unimplemented!("Unsupported target OS");
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct alljoyn_proxybusobject(pub isize);
 impl ::core::default::Default for alljoyn_proxybusobject {
     fn default() -> Self {
@@ -9118,7 +9118,7 @@ pub unsafe fn alljoyn_proxybusobject_parsexml<'a, Param0: ::windows::core::IntoP
     unimplemented!("Unsupported target OS");
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct alljoyn_proxybusobject_ref(pub isize);
 impl ::core::default::Default for alljoyn_proxybusobject_ref {
     fn default() -> Self {
@@ -9336,7 +9336,7 @@ pub unsafe fn alljoyn_routershutdown() -> QStatus {
     unimplemented!("Unsupported target OS");
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct alljoyn_securityapplicationproxy(pub isize);
 impl ::core::default::Default for alljoyn_securityapplicationproxy {
     fn default() -> Self {
@@ -9722,7 +9722,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_updatepolicy<'a, Param0: ::window
     unimplemented!("Unsupported target OS");
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct alljoyn_sessionlistener(pub isize);
 impl ::core::default::Default for alljoyn_sessionlistener {
     fn default() -> Self {
@@ -9811,7 +9811,7 @@ pub type alljoyn_sessionlistener_sessionmemberadded_ptr = ::core::option::Option
 pub type alljoyn_sessionlistener_sessionmemberremoved_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, sessionid: u32, uniquename: ::windows::core::PCSTR)>;
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct alljoyn_sessionlostreason(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 pub const ALLJOYN_SESSIONLOST_INVALID: alljoyn_sessionlostreason = alljoyn_sessionlostreason(0i32);
@@ -9845,7 +9845,7 @@ impl ::core::fmt::Debug for alljoyn_sessionlostreason {
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct alljoyn_sessionopts(pub isize);
 impl ::core::default::Default for alljoyn_sessionopts {
     fn default() -> Self {
@@ -10035,7 +10035,7 @@ pub unsafe fn alljoyn_sessionopts_set_transports<'a, Param0: ::windows::core::In
     unimplemented!("Unsupported target OS");
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct alljoyn_sessionportlistener(pub isize);
 impl ::core::default::Default for alljoyn_sessionportlistener {
     fn default() -> Self {
@@ -10135,7 +10135,7 @@ pub unsafe fn alljoyn_shutdown() -> QStatus {
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct alljoyn_typeid(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 pub const ALLJOYN_INVALID: alljoyn_typeid = alljoyn_typeid(0i32);

@@ -52,7 +52,7 @@ impl ::windows::core::RuntimeName for GameBar {
 }
 #[doc = "*Required features: `\"Gaming_UI\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GameChatMessageOrigin(pub i32);
 impl GameChatMessageOrigin {
     pub const Voice: Self = Self(0i32);
@@ -415,7 +415,7 @@ unsafe impl ::core::marker::Send for GameChatOverlayMessageSource {}
 unsafe impl ::core::marker::Sync for GameChatOverlayMessageSource {}
 #[doc = "*Required features: `\"Gaming_UI\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GameChatOverlayPosition(pub i32);
 impl GameChatOverlayPosition {
     pub const BottomCenter: Self = Self(0i32);

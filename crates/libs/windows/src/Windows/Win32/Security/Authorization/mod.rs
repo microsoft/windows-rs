@@ -8,7 +8,7 @@ pub const ACCCTRL_DEFAULT_PROVIDERA: &str = "Windows NT Access Provider";
 pub const ACCCTRL_DEFAULT_PROVIDERW: &str = "Windows NT Access Provider";
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ACCESS_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const NOT_USED_ACCESS: ACCESS_MODE = ACCESS_MODE(0i32);
@@ -177,7 +177,7 @@ impl ::core::default::Default for ACTRL_ACCESS_ENTRYW {
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ACTRL_ACCESS_ENTRY_ACCESS_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const ACTRL_ACCESS_ALLOWED: ACTRL_ACCESS_ENTRY_ACCESS_FLAGS = ACTRL_ACCESS_ENTRY_ACCESS_FLAGS(1u32);
@@ -930,7 +930,7 @@ impl ::core::default::Default for AUDIT_PARAMS {
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AUDIT_PARAM_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const APT_None: AUDIT_PARAM_TYPE = AUDIT_PARAM_TYPE(1i32);
@@ -985,7 +985,7 @@ pub const AUDIT_TYPE_WMI: u32 = 2u32;
 pub const AUTHZP_WPD_EVENT: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AUTHZ_ACCESS_CHECK_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const AUTHZ_ACCESS_CHECK_NO_DEEP_COPY_SD: AUTHZ_ACCESS_CHECK_FLAGS = AUTHZ_ACCESS_CHECK_FLAGS(1u32);
@@ -1009,7 +1009,7 @@ impl ::core::fmt::Debug for AUTHZ_ACCESS_CHECK_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AUTHZ_ACCESS_CHECK_RESULTS_HANDLE(pub isize);
 impl AUTHZ_ACCESS_CHECK_RESULTS_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -1113,7 +1113,7 @@ impl ::core::default::Default for AUTHZ_ACCESS_REQUEST {
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const AUTHZ_ALLOW_MULTIPLE_SOURCE_INSTANCES: u32 = 1u32;
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AUTHZ_AUDIT_EVENT_HANDLE(pub isize);
 impl AUTHZ_AUDIT_EVENT_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -1141,7 +1141,7 @@ unsafe impl ::windows::core::Abi for AUTHZ_AUDIT_EVENT_HANDLE {
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AUTHZ_AUDIT_EVENT_INFORMATION_CLASS(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const AuthzAuditEventInfoFlags: AUTHZ_AUDIT_EVENT_INFORMATION_CLASS = AUTHZ_AUDIT_EVENT_INFORMATION_CLASS(1i32);
@@ -1173,7 +1173,7 @@ impl ::core::fmt::Debug for AUTHZ_AUDIT_EVENT_INFORMATION_CLASS {
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AUTHZ_AUDIT_EVENT_TYPE_HANDLE(pub isize);
 impl AUTHZ_AUDIT_EVENT_TYPE_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -1326,7 +1326,7 @@ impl ::core::default::Default for AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__ {
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AUTHZ_CLIENT_CONTEXT_HANDLE(pub isize);
 impl AUTHZ_CLIENT_CONTEXT_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -1356,7 +1356,7 @@ unsafe impl ::windows::core::Abi for AUTHZ_CLIENT_CONTEXT_HANDLE {
 pub const AUTHZ_COMPUTE_PRIVILEGES: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AUTHZ_CONTEXT_INFORMATION_CLASS(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const AuthzContextInfoUserSid: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(1i32);
@@ -1413,7 +1413,7 @@ impl ::core::fmt::Debug for AUTHZ_CONTEXT_INFORMATION_CLASS {
 pub const AUTHZ_FLAG_ALLOW_MULTIPLE_SOURCE_INSTANCES: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AUTHZ_GENERATE_RESULTS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const AUTHZ_GENERATE_SUCCESS_AUDIT: AUTHZ_GENERATE_RESULTS = AUTHZ_GENERATE_RESULTS(1u32);
@@ -1440,7 +1440,7 @@ impl ::core::fmt::Debug for AUTHZ_GENERATE_RESULTS {
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const AUTHZ_NO_SUCCESS_AUDIT: AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS = AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS(1u32);
@@ -1558,7 +1558,7 @@ impl ::core::default::Default for AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET {
 pub const AUTHZ_REQUIRE_S4U_LOGON: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AUTHZ_RESOURCE_MANAGER_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const AUTHZ_RM_FLAG_NO_AUDIT: AUTHZ_RESOURCE_MANAGER_FLAGS = AUTHZ_RESOURCE_MANAGER_FLAGS(1u32);
@@ -1614,7 +1614,7 @@ impl ::core::ops::Not for AUTHZ_RESOURCE_MANAGER_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AUTHZ_RESOURCE_MANAGER_HANDLE(pub isize);
 impl AUTHZ_RESOURCE_MANAGER_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -1737,7 +1737,7 @@ pub const AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_VERSION: u32 = 1u32;
 pub const AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_VERSION_V1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AUTHZ_SECURITY_ATTRIBUTE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const AUTHZ_SECURITY_ATTRIBUTE_NON_INHERITABLE: AUTHZ_SECURITY_ATTRIBUTE_FLAGS = AUTHZ_SECURITY_ATTRIBUTE_FLAGS(1u32);
@@ -1854,7 +1854,7 @@ impl ::core::default::Default for AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AUTHZ_SECURITY_ATTRIBUTE_OPERATION(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const AUTHZ_SECURITY_ATTRIBUTE_OPERATION_NONE: AUTHZ_SECURITY_ATTRIBUTE_OPERATION = AUTHZ_SECURITY_ATTRIBUTE_OPERATION(0i32);
@@ -1961,7 +1961,7 @@ impl ::core::default::Default for AUTHZ_SECURITY_ATTRIBUTE_V1_0 {
     }
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE(pub isize);
 impl AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE {
     pub fn is_invalid(&self) -> bool {
@@ -1989,7 +1989,7 @@ unsafe impl ::windows::core::Abi for AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE {
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AUTHZ_SID_OPERATION(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const AUTHZ_SID_OPERATION_NONE: AUTHZ_SID_OPERATION = AUTHZ_SID_OPERATION(0i32);
@@ -2085,7 +2085,7 @@ impl ::core::default::Default for AUTHZ_SOURCE_SCHEMA_REGISTRATION_0 {
 pub const AUTHZ_WPD_CATEGORY_FLAG: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AZ_PROP_CONSTANTS(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const AZ_PROP_NAME: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(1i32);
@@ -12634,7 +12634,7 @@ pub unsafe fn LookupSecurityDescriptorPartsW<'a, Param6: ::windows::core::IntoPa
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MULTIPLE_TRUSTEE_OPERATION(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const NO_MULTIPLE_TRUSTEE: MULTIPLE_TRUSTEE_OPERATION = MULTIPLE_TRUSTEE_OPERATION(0i32);
@@ -12778,7 +12778,7 @@ pub type PFN_AUTHZ_FREE_DYNAMIC_GROUPS = ::core::option::Option<unsafe extern "s
 pub type PFN_AUTHZ_GET_CENTRAL_ACCESS_POLICY = ::core::option::Option<unsafe extern "system" fn(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, capid: super::super::Foundation::PSID, pargs: *const ::core::ffi::c_void, pcentralaccesspolicyapplicable: *mut super::super::Foundation::BOOL, ppcentralaccesspolicy: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROG_INVOKE_SETTING(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const ProgressInvokeNever: PROG_INVOKE_SETTING = PROG_INVOKE_SETTING(1i32);
@@ -13115,7 +13115,7 @@ pub const SDDL_WRITE_RESTRICTED_CODE: &str = "WR";
 pub const SDDL_WSTRING: &str = "TS";
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SE_OBJECT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const SE_UNKNOWN_OBJECT_TYPE: SE_OBJECT_TYPE = SE_OBJECT_TYPE(0i32);
@@ -13239,7 +13239,7 @@ pub unsafe fn SetSecurityInfo<'a, Param0: ::windows::core::IntoParam<'a, super::
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TREE_SEC_INFO(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const TREE_SEC_INFO_SET: TREE_SEC_INFO = TREE_SEC_INFO(1u32);
@@ -13378,7 +13378,7 @@ pub const TRUSTEE_ACCESS_READ: i32 = 2i32;
 pub const TRUSTEE_ACCESS_WRITE: i32 = 4i32;
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TRUSTEE_FORM(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const TRUSTEE_IS_SID: TRUSTEE_FORM = TRUSTEE_FORM(0i32);
@@ -13411,7 +13411,7 @@ impl ::core::fmt::Debug for TRUSTEE_FORM {
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TRUSTEE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const TRUSTEE_IS_UNKNOWN: TRUSTEE_TYPE = TRUSTEE_TYPE(0i32);

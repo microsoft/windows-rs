@@ -694,7 +694,7 @@ unsafe impl ::core::marker::Send for LampArray {}
 unsafe impl ::core::marker::Sync for LampArray {}
 #[doc = "*Required features: `\"Devices_Lights\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LampArrayKind(pub i32);
 impl LampArrayKind {
     pub const Undefined: Self = Self(0i32);
@@ -983,7 +983,7 @@ unsafe impl ::core::marker::Send for LampInfo {}
 unsafe impl ::core::marker::Sync for LampInfo {}
 #[doc = "*Required features: `\"Devices_Lights\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LampPurposes(pub u32);
 impl LampPurposes {
     pub const Undefined: Self = Self(0u32);

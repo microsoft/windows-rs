@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AUTHENTICATEF(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 pub const AUTHENTICATEF_PROXY: AUTHENTICATEF = AUTHENTICATEF(1i32);
@@ -29,7 +29,7 @@ impl ::core::fmt::Debug for AUTHENTICATEF {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BINDF(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 pub const BINDF_ASYNCHRONOUS: BINDF = BINDF(1i32);
@@ -114,7 +114,7 @@ impl ::core::fmt::Debug for BINDF {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BINDF2(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 pub const BINDF2_DISABLEBASICOVERHTTP: BINDF2 = BINDF2(1i32);
@@ -199,7 +199,7 @@ impl ::core::fmt::Debug for BINDF2 {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BINDHANDLETYPES(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 pub const BINDHANDLETYPES_APPCACHE: BINDHANDLETYPES = BINDHANDLETYPES(0i32);
@@ -228,7 +228,7 @@ impl ::core::fmt::Debug for BINDHANDLETYPES {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BINDINFO_OPTIONS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 pub const BINDINFO_OPTIONS_WININETFLAG: BINDINFO_OPTIONS = BINDINFO_OPTIONS(65536i32);
@@ -281,7 +281,7 @@ impl ::core::fmt::Debug for BINDINFO_OPTIONS {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BINDSTATUS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 pub const BINDSTATUS_FINDINGRESOURCE: BINDSTATUS = BINDSTATUS(1i32);
@@ -462,7 +462,7 @@ impl ::core::fmt::Debug for BINDSTATUS {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BINDSTRING(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 pub const BINDSTRING_HEADERS: BINDSTRING = BINDSTRING(1i32);
@@ -537,7 +537,7 @@ impl ::core::fmt::Debug for BINDSTRING {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BINDVERB(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 pub const BINDVERB_GET: BINDVERB = BINDVERB(0i32);
@@ -570,7 +570,7 @@ impl ::core::fmt::Debug for BINDVERB {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BSCF(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 pub const BSCF_FIRSTDATANOTIFICATION: BSCF = BSCF(1i32);
@@ -609,7 +609,7 @@ impl ::core::fmt::Debug for BSCF {
 pub const CF_NULL: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CIP_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 pub const CIP_DISK_FULL: CIP_STATUS = CIP_STATUS(0i32);
@@ -1859,7 +1859,7 @@ pub unsafe fn IEInstallScope() -> ::windows::core::Result<u32> {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IEObjectType(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 pub const IE_EPM_OBJECT_EVENT: IEObjectType = IEObjectType(0i32);
@@ -4366,7 +4366,7 @@ pub const INET_E_USE_EXTEND_BINDING: ::windows::core::HRESULT = ::windows::core:
 pub const INET_E_VTAB_SWITCH_FORCE_ENGINE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146697187i32);
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct INET_ZONE_MANAGER_CONSTANTS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 pub const MAX_ZONE_PATH: INET_ZONE_MANAGER_CONSTANTS = INET_ZONE_MANAGER_CONSTANTS(260i32);
@@ -4393,7 +4393,7 @@ impl ::core::fmt::Debug for INET_ZONE_MANAGER_CONSTANTS {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct INTERNETFEATURELIST(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 pub const FEATURE_OBJECT_CACHING: INTERNETFEATURELIST = INTERNETFEATURELIST(0i32);
@@ -5499,7 +5499,7 @@ pub const MKSYS_URLMONIKER: u32 = 6u32;
 pub const MK_S_ASYNCHRONOUS: ::windows::core::HRESULT = ::windows::core::HRESULT(262632i32);
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MONIKERPROPERTY(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 pub const MIMETYPEPROP: MONIKERPROPERTY = MONIKERPROPERTY(0i32);
@@ -5566,7 +5566,7 @@ pub unsafe fn MkParseDisplayNameEx<'a, Param0: ::windows::core::IntoParam<'a, su
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OIBDG_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 pub const OIBDG_APARTMENTTHREADED: OIBDG_FLAGS = OIBDG_FLAGS(256i32);
@@ -5607,7 +5607,7 @@ pub unsafe fn ObtainUserAgentString(dwoption: u32, pszuaout: ::windows::core::PS
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PARSEACTION(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 pub const PARSE_CANONICALIZE: PARSEACTION = PARSEACTION(1i32);
@@ -5668,7 +5668,7 @@ impl ::core::fmt::Debug for PARSEACTION {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PI_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 pub const PI_PARSE_URL: PI_FLAGS = PI_FLAGS(1i32);
@@ -5826,7 +5826,7 @@ impl ::core::default::Default for PROTOCOL_ARGUMENT {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PSUACTION(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 pub const PSU_DEFAULT: PSUACTION = PSUACTION(1i32);
@@ -5853,7 +5853,7 @@ impl ::core::fmt::Debug for PSUACTION {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PUAF(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 pub const PUAF_DEFAULT: PUAF = PUAF(0i32);
@@ -5918,7 +5918,7 @@ impl ::core::fmt::Debug for PUAF {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PUAFOUT(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 pub const PUAFOUT_DEFAULT: PUAFOUT = PUAFOUT(0i32);
@@ -5945,7 +5945,7 @@ impl ::core::fmt::Debug for PUAFOUT {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct QUERYOPTION(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 pub const QUERY_EXPIRATION_DATE: QUERYOPTION = QUERYOPTION(1i32);
@@ -6341,7 +6341,7 @@ pub const SOFTDIST_FLAG_USAGE_EMAIL: u32 = 1u32;
 pub const SOFTDIST_FLAG_USAGE_PRECACHE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SZM_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 pub const SZM_CREATE: SZM_FLAGS = SZM_FLAGS(0i32);
@@ -6924,7 +6924,7 @@ pub const URLPOLICY_NOTIFY_ON_DISALLOW: u32 = 32u32;
 pub const URLPOLICY_QUERY: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct URLTEMPLATE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 pub const URLTEMPLATE_CUSTOM: URLTEMPLATE = URLTEMPLATE(0i32);
@@ -6963,7 +6963,7 @@ impl ::core::fmt::Debug for URLTEMPLATE {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct URLZONE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 pub const URLZONE_INVALID: URLZONE = URLZONE(-1i32);
@@ -7006,7 +7006,7 @@ impl ::core::fmt::Debug for URLZONE {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct URLZONEREG(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 pub const URLZONEREG_DEFAULT: URLZONEREG = URLZONEREG(0i32);
@@ -7037,7 +7037,7 @@ impl ::core::fmt::Debug for URLZONEREG {
 pub const URLZONE_ESC_FLAG: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct URL_ENCODING(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 pub const URL_ENCODING_NONE: URL_ENCODING = URL_ENCODING(0i32);
@@ -7094,7 +7094,7 @@ pub const Uri_ENCODING_USER_INFO_AND_PATH_IS_CP: u32 = 2u32;
 pub const Uri_ENCODING_USER_INFO_AND_PATH_IS_PERCENT_ENCODED_UTF8: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct Uri_HOST_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 pub const Uri_HOST_UNKNOWN: Uri_HOST_TYPE = Uri_HOST_TYPE(0i32);
@@ -7174,7 +7174,7 @@ pub unsafe fn WriteHitLogging(lplogginginfo: *const HIT_LOGGING_INFO) -> super::
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ZAFLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 pub const ZAFLAGS_CUSTOM_EDIT: ZAFLAGS = ZAFLAGS(1i32);

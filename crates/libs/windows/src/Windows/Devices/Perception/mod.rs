@@ -4692,7 +4692,7 @@ unsafe impl ::core::marker::Sync for PerceptionDepthFrameSourceWatcher {}
 #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PerceptionFrameSourceAccessStatus(pub i32);
 #[cfg(feature = "deprecated")]
 impl PerceptionFrameSourceAccessStatus {
@@ -4964,7 +4964,7 @@ unsafe impl ::core::marker::Sync for PerceptionFrameSourcePropertyChangeResult {
 #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PerceptionFrameSourcePropertyChangeStatus(pub i32);
 #[cfg(feature = "deprecated")]
 impl PerceptionFrameSourcePropertyChangeStatus {

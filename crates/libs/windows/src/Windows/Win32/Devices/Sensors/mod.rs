@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ACTIVITY_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 pub const ActivityState_Unknown: ACTIVITY_STATE = ACTIVITY_STATE(1i32);
@@ -43,7 +43,7 @@ impl ::core::fmt::Debug for ACTIVITY_STATE {
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ACTIVITY_STATE_COUNT(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 pub const ActivityStateCount: ACTIVITY_STATE_COUNT = ACTIVITY_STATE_COUNT(8i32);
@@ -68,7 +68,7 @@ impl ::core::fmt::Debug for ACTIVITY_STATE_COUNT {
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AXIS(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 pub const AXIS_X: AXIS = AXIS(0i32);
@@ -263,7 +263,7 @@ pub unsafe fn CollectionsListUpdateMarshalledPointer(collection: *mut SENSOR_COL
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ELEVATION_CHANGE_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 pub const ElevationChangeMode_Unknown: ELEVATION_CHANGE_MODE = ELEVATION_CHANGE_MODE(0i32);
@@ -361,7 +361,7 @@ pub unsafe fn GetPerformanceTime(timems: *mut u32) -> ::windows::core::Result<()
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HUMAN_PRESENCE_DETECTION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 pub const HumanPresenceDetectionType_VendorDefinedNonBiometric: HUMAN_PRESENCE_DETECTION_TYPE = HUMAN_PRESENCE_DETECTION_TYPE(1i32);
@@ -394,7 +394,7 @@ impl ::core::fmt::Debug for HUMAN_PRESENCE_DETECTION_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HUMAN_PRESENCE_DETECTION_TYPE_COUNT(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 pub const HumanPresenceDetectionTypeCount: HUMAN_PRESENCE_DETECTION_TYPE_COUNT = HUMAN_PRESENCE_DETECTION_TYPE_COUNT(4i32);
@@ -1125,7 +1125,7 @@ pub unsafe fn IsSensorSubscribed<'a, Param1: ::windows::core::IntoParam<'a, ::wi
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LOCATION_DESIRED_ACCURACY(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 pub const LOCATION_DESIRED_ACCURACY_DEFAULT: LOCATION_DESIRED_ACCURACY = LOCATION_DESIRED_ACCURACY(0i32);
@@ -1152,7 +1152,7 @@ impl ::core::fmt::Debug for LOCATION_DESIRED_ACCURACY {
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LOCATION_POSITION_SOURCE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 pub const LOCATION_POSITION_SOURCE_CELLULAR: LOCATION_POSITION_SOURCE = LOCATION_POSITION_SOURCE(0i32);
@@ -1185,7 +1185,7 @@ impl ::core::fmt::Debug for LOCATION_POSITION_SOURCE {
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MAGNETOMETER_ACCURACY(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 pub const MagnetometerAccuracy_Unknown: MAGNETOMETER_ACCURACY = MAGNETOMETER_ACCURACY(0i32);
@@ -1338,7 +1338,7 @@ impl ::core::default::Default for MATRIX3X3_0_1 {
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MagnetometerAccuracy(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 pub const MAGNETOMETER_ACCURACY_UNKNOWN: MagnetometerAccuracy = MagnetometerAccuracy(0i32);
@@ -1369,7 +1369,7 @@ impl ::core::fmt::Debug for MagnetometerAccuracy {
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PEDOMETER_STEP_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 pub const PedometerStepType_Unknown: PEDOMETER_STEP_TYPE = PEDOMETER_STEP_TYPE(1i32);
@@ -1402,7 +1402,7 @@ impl ::core::fmt::Debug for PEDOMETER_STEP_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PEDOMETER_STEP_TYPE_COUNT(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 pub const PedometerStepTypeCount: PEDOMETER_STEP_TYPE_COUNT = PEDOMETER_STEP_TYPE_COUNT(3i32);
@@ -1427,7 +1427,7 @@ impl ::core::fmt::Debug for PEDOMETER_STEP_TYPE_COUNT {
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROXIMITY_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 pub const ProximityType_ObjectProximity: PROXIMITY_TYPE = PROXIMITY_TYPE(0i32);
@@ -1787,7 +1787,7 @@ impl ::core::default::Default for SENSOR_COLLECTION_LIST {
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SENSOR_CONNECTION_TYPES(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 pub const SensorConnectionType_Integrated: SENSOR_CONNECTION_TYPES = SENSOR_CONNECTION_TYPES(0i32);
@@ -2348,7 +2348,7 @@ pub const SENSOR_PROPERTY_TURN_ON_OFF_NMEA: super::super::UI::Shell::PropertiesS
 pub const SENSOR_PROPERTY_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x7f8383ec_d3ec_495c_a8cf_b8bbe85c2920), pid: 2u32 };
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SENSOR_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 pub const SensorState_Initializing: SENSOR_STATE = SENSOR_STATE(0i32);
@@ -2465,7 +2465,7 @@ impl ::core::default::Default for SENSOR_VALUE_PAIR {
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SIMPLE_DEVICE_ORIENTATION(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 pub const SimpleDeviceOrientation_NotRotated: SIMPLE_DEVICE_ORIENTATION = SIMPLE_DEVICE_ORIENTATION(0i32);
@@ -2517,7 +2517,7 @@ pub unsafe fn SensorCollectionGetAt(index: u32, psensorslist: *const SENSOR_COLL
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SensorConnectionType(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 pub const SENSOR_CONNECTION_TYPE_PC_INTEGRATED: SensorConnectionType = SensorConnectionType(0i32);
@@ -2548,7 +2548,7 @@ pub const SensorDataReport: ::windows::core::GUID = ::windows::core::GUID::from_
 pub const SensorManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77a1c827_fcd2_4689_8915_9d613cc5fa3e);
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SensorState(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 pub const SENSOR_STATE_MIN: SensorState = SensorState(0i32);
@@ -2616,7 +2616,7 @@ pub unsafe fn SerializationBufferFree(buffer: *const u8) {
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SimpleDeviceOrientation(pub i32);
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 pub const SIMPLE_DEVICE_ORIENTATION_NOT_ROTATED: SimpleDeviceOrientation = SimpleDeviceOrientation(0i32);

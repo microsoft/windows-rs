@@ -19,7 +19,7 @@ impl ::windows::core::RuntimeName for ApplicationProfile {
 }
 #[doc = "*Required features: `\"Phone_ApplicationModel\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ApplicationProfileModes(pub u32);
 impl ApplicationProfileModes {
     pub const Default: Self = Self(0u32);

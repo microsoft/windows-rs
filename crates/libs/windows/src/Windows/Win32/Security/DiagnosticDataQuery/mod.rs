@@ -468,7 +468,7 @@ impl ::core::default::Default for DIAGNOSTIC_REPORT_SIGNATURE {
 }
 #[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DdqAccessLevel(pub i32);
 #[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
 pub const NoData: DdqAccessLevel = DdqAccessLevel(0i32);

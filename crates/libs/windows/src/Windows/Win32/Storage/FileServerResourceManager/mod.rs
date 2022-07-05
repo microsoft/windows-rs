@@ -1,7 +1,7 @@
 pub const AdSyncTask: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ae64751_b728_4d6b_97a0_b2da2e7d2a3b);
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AdrClientDisplayFlags(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const AdrClientDisplayFlags_AllowEmailRequests: AdrClientDisplayFlags = AdrClientDisplayFlags(1i32);
@@ -28,7 +28,7 @@ impl ::core::fmt::Debug for AdrClientDisplayFlags {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AdrClientErrorType(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const AdrClientErrorType_Unknown: AdrClientErrorType = AdrClientErrorType(0i32);
@@ -57,7 +57,7 @@ impl ::core::fmt::Debug for AdrClientErrorType {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AdrClientFlags(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const AdrClientFlags_None: AdrClientFlags = AdrClientFlags(0i32);
@@ -88,7 +88,7 @@ impl ::core::fmt::Debug for AdrClientFlags {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AdrEmailFlags(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const AdrEmailFlags_PutDataOwnerOnToLine: AdrEmailFlags = AdrEmailFlags(1i32);
@@ -493,7 +493,7 @@ pub const FSRM_S_PARTIAL_CLASSIFICATION: ::windows::core::HRESULT = ::windows::c
 pub const FsrmAccessDeniedRemediationClient: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x100b4fc8_74c1_470f_b1b7_dd7b6bae79bd);
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmAccountType(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmAccountType_Unknown: FsrmAccountType = FsrmAccountType(0i32);
@@ -530,7 +530,7 @@ impl ::core::fmt::Debug for FsrmAccountType {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmActionType(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmActionType_Unknown: FsrmActionType = FsrmActionType(0i32);
@@ -563,7 +563,7 @@ impl ::core::fmt::Debug for FsrmActionType {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmClassificationLoggingFlags(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmClassificationLoggingFlags_None: FsrmClassificationLoggingFlags = FsrmClassificationLoggingFlags(0i32);
@@ -597,7 +597,7 @@ impl ::core::fmt::Debug for FsrmClassificationLoggingFlags {
 pub const FsrmClassificationManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb15c0e47_c391_45b9_95c8_eb596c853f3a);
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmCollectionState(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmCollectionState_Fetching: FsrmCollectionState = FsrmCollectionState(1i32);
@@ -628,7 +628,7 @@ impl ::core::fmt::Debug for FsrmCollectionState {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmCommitOptions(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmCommitOptions_None: FsrmCommitOptions = FsrmCommitOptions(0i32);
@@ -657,7 +657,7 @@ impl ::core::fmt::Debug for FsrmCommitOptions {
 pub const FsrmDaysNotSpecified: i32 = -1i32;
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmEnumOptions(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmEnumOptions_None: FsrmEnumOptions = FsrmEnumOptions(0i32);
@@ -690,7 +690,7 @@ impl ::core::fmt::Debug for FsrmEnumOptions {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmEventType(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmEventType_Unknown: FsrmEventType = FsrmEventType(0i32);
@@ -721,7 +721,7 @@ impl ::core::fmt::Debug for FsrmEventType {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmExecutionOption(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmExecutionOption_Unknown: FsrmExecutionOption = FsrmExecutionOption(0i32);
@@ -753,7 +753,7 @@ impl ::core::fmt::Debug for FsrmExecutionOption {
 pub const FsrmExportImport: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1482dc37_fae9_4787_9025_8ce4e024ab56);
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmFileConditionType(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmFileConditionType_Unknown: FsrmFileConditionType = FsrmFileConditionType(0i32);
@@ -782,7 +782,7 @@ pub const FsrmFileGroupManager: ::windows::core::GUID = ::windows::core::GUID::f
 pub const FsrmFileManagementJobManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb18f9b2_4c3a_4321_b203_205120cff614);
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmFileManagementLoggingFlags(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmFileManagementLoggingFlags_None: FsrmFileManagementLoggingFlags = FsrmFileManagementLoggingFlags(0i32);
@@ -813,7 +813,7 @@ impl ::core::fmt::Debug for FsrmFileManagementLoggingFlags {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmFileManagementType(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmFileManagementType_Unknown: FsrmFileManagementType = FsrmFileManagementType(0i32);
@@ -844,7 +844,7 @@ impl ::core::fmt::Debug for FsrmFileManagementType {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmFileScreenFlags(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmFileScreenFlags_Enforce: FsrmFileScreenFlags = FsrmFileScreenFlags(1i32);
@@ -871,7 +871,7 @@ pub const FsrmFileScreenManager: ::windows::core::GUID = ::windows::core::GUID::
 pub const FsrmFileScreenTemplateManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x243111df_e474_46aa_a054_eaa33edc292a);
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmFileStreamingInterfaceType(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmFileStreamingInterfaceType_Unknown: FsrmFileStreamingInterfaceType = FsrmFileStreamingInterfaceType(0i32);
@@ -900,7 +900,7 @@ impl ::core::fmt::Debug for FsrmFileStreamingInterfaceType {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmFileStreamingMode(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmFileStreamingMode_Unknown: FsrmFileStreamingMode = FsrmFileStreamingMode(0i32);
@@ -929,7 +929,7 @@ impl ::core::fmt::Debug for FsrmFileStreamingMode {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmFileSystemPropertyId(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmFileSystemPropertyId_Undefined: FsrmFileSystemPropertyId = FsrmFileSystemPropertyId(0i32);
@@ -964,7 +964,7 @@ impl ::core::fmt::Debug for FsrmFileSystemPropertyId {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmGetFilePropertyOptions(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmGetFilePropertyOptions_None: FsrmGetFilePropertyOptions = FsrmGetFilePropertyOptions(0i32);
@@ -1011,7 +1011,7 @@ pub const FsrmPathMapper: ::windows::core::GUID = ::windows::core::GUID::from_u1
 pub const FsrmPipelineModuleConnector: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc7643375_1eb5_44de_a062_623547d933bc);
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmPipelineModuleType(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPipelineModuleType_Unknown: FsrmPipelineModuleType = FsrmPipelineModuleType(0i32);
@@ -1040,7 +1040,7 @@ impl ::core::fmt::Debug for FsrmPipelineModuleType {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmPropertyBagField(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyBagField_AccessVolume: FsrmPropertyBagField = FsrmPropertyBagField(0i32);
@@ -1067,7 +1067,7 @@ impl ::core::fmt::Debug for FsrmPropertyBagField {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmPropertyBagFlags(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyBagFlags_UpdatedByClassifier: FsrmPropertyBagFlags = FsrmPropertyBagFlags(1i32);
@@ -1098,7 +1098,7 @@ impl ::core::fmt::Debug for FsrmPropertyBagFlags {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmPropertyConditionType(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyConditionType_Unknown: FsrmPropertyConditionType = FsrmPropertyConditionType(0i32);
@@ -1149,7 +1149,7 @@ impl ::core::fmt::Debug for FsrmPropertyConditionType {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmPropertyDefinitionAppliesTo(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyDefinitionAppliesTo_Files: FsrmPropertyDefinitionAppliesTo = FsrmPropertyDefinitionAppliesTo(1i32);
@@ -1176,7 +1176,7 @@ impl ::core::fmt::Debug for FsrmPropertyDefinitionAppliesTo {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmPropertyDefinitionFlags(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyDefinitionFlags_Global: FsrmPropertyDefinitionFlags = FsrmPropertyDefinitionFlags(1i32);
@@ -1205,7 +1205,7 @@ impl ::core::fmt::Debug for FsrmPropertyDefinitionFlags {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmPropertyDefinitionType(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyDefinitionType_Unknown: FsrmPropertyDefinitionType = FsrmPropertyDefinitionType(0i32);
@@ -1246,7 +1246,7 @@ impl ::core::fmt::Debug for FsrmPropertyDefinitionType {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmPropertyFlags(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyFlags_None: FsrmPropertyFlags = FsrmPropertyFlags(0i32);
@@ -1309,7 +1309,7 @@ impl ::core::fmt::Debug for FsrmPropertyFlags {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmPropertyValueType(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyValueType_Undefined: FsrmPropertyValueType = FsrmPropertyValueType(0i32);
@@ -1338,7 +1338,7 @@ impl ::core::fmt::Debug for FsrmPropertyValueType {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmQuotaFlags(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmQuotaFlags_Enforce: FsrmQuotaFlags = FsrmQuotaFlags(256i32);
@@ -1371,7 +1371,7 @@ pub const FsrmQuotaManager: ::windows::core::GUID = ::windows::core::GUID::from_
 pub const FsrmQuotaTemplateManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97d3d443_251c_4337_81e7_b32e8f4ee65e);
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmReportFilter(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmReportFilter_MinSize: FsrmReportFilter = FsrmReportFilter(1i32);
@@ -1410,7 +1410,7 @@ impl ::core::fmt::Debug for FsrmReportFilter {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmReportFormat(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmReportFormat_Unknown: FsrmReportFormat = FsrmReportFormat(0i32);
@@ -1445,7 +1445,7 @@ impl ::core::fmt::Debug for FsrmReportFormat {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmReportGenerationContext(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmReportGenerationContext_Undefined: FsrmReportGenerationContext = FsrmReportGenerationContext(1i32);
@@ -1476,7 +1476,7 @@ impl ::core::fmt::Debug for FsrmReportGenerationContext {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmReportLimit(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmReportLimit_MaxFiles: FsrmReportLimit = FsrmReportLimit(1i32);
@@ -1524,7 +1524,7 @@ impl ::core::fmt::Debug for FsrmReportLimit {
 pub const FsrmReportManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0058ef37_aa66_4c48_bd5b_2fce432ab0c8);
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmReportRunningStatus(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmReportRunningStatus_Unknown: FsrmReportRunningStatus = FsrmReportRunningStatus(0i32);
@@ -1556,7 +1556,7 @@ impl ::core::fmt::Debug for FsrmReportRunningStatus {
 pub const FsrmReportScheduler: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea25f1b8_1b8d_4290_8ee8_e17c12c2fe20);
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmReportType(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmReportType_Unknown: FsrmReportType = FsrmReportType(0i32);
@@ -1607,7 +1607,7 @@ impl ::core::fmt::Debug for FsrmReportType {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmRuleFlags(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmRuleFlags_Disabled: FsrmRuleFlags = FsrmRuleFlags(256i32);
@@ -1638,7 +1638,7 @@ impl ::core::fmt::Debug for FsrmRuleFlags {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmRuleType(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmRuleType_Unknown: FsrmRuleType = FsrmRuleType(0i32);
@@ -1668,7 +1668,7 @@ impl ::core::fmt::Debug for FsrmRuleType {
 pub const FsrmSetting: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf556d708_6d4d_4594_9c61_7dbb0dae2a46);
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmStorageModuleCaps(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmStorageModuleCaps_Unknown: FsrmStorageModuleCaps = FsrmStorageModuleCaps(0i32);
@@ -1701,7 +1701,7 @@ impl ::core::fmt::Debug for FsrmStorageModuleCaps {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmStorageModuleType(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmStorageModuleType_Unknown: FsrmStorageModuleType = FsrmStorageModuleType(0i32);
@@ -1734,7 +1734,7 @@ impl ::core::fmt::Debug for FsrmStorageModuleType {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmTemplateApplyOptions(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmTemplateApplyOptions_ApplyToDerivedMatching: FsrmTemplateApplyOptions = FsrmTemplateApplyOptions(1i32);

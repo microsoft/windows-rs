@@ -45,7 +45,7 @@ impl ::core::default::Default for CompositionFrameDisplayInstance {
 }
 #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CompositionFrameInstanceKind(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
 pub const CompositionFrameInstanceKind_ComposedOnScreen: CompositionFrameInstanceKind = CompositionFrameInstanceKind(0i32);
@@ -892,7 +892,7 @@ pub struct IPresentationSurface_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PresentStatisticsKind(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
 pub const PresentStatisticsKind_PresentStatus: PresentStatisticsKind = PresentStatisticsKind(1i32);
@@ -921,7 +921,7 @@ impl ::core::fmt::Debug for PresentStatisticsKind {
 }
 #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PresentStatus(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
 pub const PresentStatus_Queued: PresentStatus = PresentStatus(0i32);

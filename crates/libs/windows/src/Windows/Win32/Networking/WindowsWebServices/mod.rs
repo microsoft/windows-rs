@@ -1039,7 +1039,7 @@ pub type WS_ABORT_LISTENER_CALLBACK = ::core::option::Option<unsafe extern "syst
 pub type WS_ACCEPT_CHANNEL_CALLBACK = ::core::option::Option<unsafe extern "system" fn(listenerinstance: *const ::core::ffi::c_void, channelinstance: *const ::core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_ADDRESSING_VERSION(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_ADDRESSING_VERSION_0_9: WS_ADDRESSING_VERSION = WS_ADDRESSING_VERSION(1i32);
@@ -1287,7 +1287,7 @@ impl ::core::default::Default for WS_ATTRIBUTE_DESCRIPTION {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_BINDING_TEMPLATE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_HTTP_BINDING_TEMPLATE_TYPE: WS_BINDING_TEMPLATE_TYPE = WS_BINDING_TEMPLATE_TYPE(0i32);
@@ -1500,7 +1500,7 @@ impl ::core::default::Default for WS_BYTE_ARRAY_DESCRIPTION {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_CALLBACK_MODEL(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_SHORT_CALLBACK: WS_CALLBACK_MODEL = WS_CALLBACK_MODEL(0i32);
@@ -1559,7 +1559,7 @@ impl ::core::default::Default for WS_CALL_PROPERTY {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_CALL_PROPERTY_ID(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_CALL_PROPERTY_CHECK_MUST_UNDERSTAND: WS_CALL_PROPERTY_ID = WS_CALL_PROPERTY_ID(0i32);
@@ -1694,7 +1694,7 @@ impl ::core::default::Default for WS_CERT_CREDENTIAL {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_CERT_CREDENTIAL_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_SUBJECT_NAME_CERT_CREDENTIAL_TYPE: WS_CERT_CREDENTIAL_TYPE = WS_CERT_CREDENTIAL_TYPE(1i32);
@@ -1843,7 +1843,7 @@ impl ::core::default::Default for WS_CERT_SIGNED_SAML_AUTHENTICATOR {
 pub struct WS_CHANNEL(pub u8);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_CHANNEL_BINDING(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_HTTP_CHANNEL_BINDING: WS_CHANNEL_BINDING = WS_CHANNEL_BINDING(0i32);
@@ -2090,7 +2090,7 @@ impl ::core::default::Default for WS_CHANNEL_PROPERTY_CONSTRAINT_0 {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_CHANNEL_PROPERTY_ID(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_CHANNEL_PROPERTY_MAX_BUFFERED_MESSAGE_SIZE: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(0i32);
@@ -2213,7 +2213,7 @@ impl ::core::fmt::Debug for WS_CHANNEL_PROPERTY_ID {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_CHANNEL_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_CHANNEL_STATE_CREATED: WS_CHANNEL_STATE = WS_CHANNEL_STATE(0i32);
@@ -2250,7 +2250,7 @@ impl ::core::fmt::Debug for WS_CHANNEL_STATE {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_CHANNEL_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_CHANNEL_TYPE_INPUT: WS_CHANNEL_TYPE = WS_CHANNEL_TYPE(1i32);
@@ -2291,7 +2291,7 @@ impl ::core::fmt::Debug for WS_CHANNEL_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_CHARSET(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_CHARSET_AUTO: WS_CHARSET = WS_CHARSET(0i32);
@@ -2396,7 +2396,7 @@ impl ::core::default::Default for WS_CONTRACT_DESCRIPTION {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_COOKIE_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_MANUAL_COOKIE_MODE: WS_COOKIE_MODE = WS_COOKIE_MODE(1i32);
@@ -2719,7 +2719,7 @@ impl ::core::default::Default for WS_DATETIME_DESCRIPTION {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_DATETIME_FORMAT(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_DATETIME_FORMAT_UTC: WS_DATETIME_FORMAT = WS_DATETIME_FORMAT(0i32);
@@ -3084,7 +3084,7 @@ pub type WS_ENCODER_GET_CONTENT_TYPE_CALLBACK = ::core::option::Option<unsafe ex
 pub type WS_ENCODER_START_CALLBACK = ::core::option::Option<unsafe extern "system" fn(encodercontext: *const ::core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_ENCODING(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_ENCODING_XML_BINARY_1: WS_ENCODING = WS_ENCODING(0i32);
@@ -3188,7 +3188,7 @@ impl ::core::default::Default for WS_ENDPOINT_ADDRESS_DESCRIPTION {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_ENDPOINT_ADDRESS_EXTENSION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_ENDPOINT_ADDRESS_EXTENSION_METADATA_ADDRESS: WS_ENDPOINT_ADDRESS_EXTENSION_TYPE = WS_ENDPOINT_ADDRESS_EXTENSION_TYPE(1i32);
@@ -3243,7 +3243,7 @@ impl ::core::default::Default for WS_ENDPOINT_IDENTITY {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_ENDPOINT_IDENTITY_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_DNS_ENDPOINT_IDENTITY_TYPE: WS_ENDPOINT_IDENTITY_TYPE = WS_ENDPOINT_IDENTITY_TYPE(1i32);
@@ -3437,7 +3437,7 @@ impl ::core::default::Default for WS_ENUM_VALUE {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_ENVELOPE_VERSION(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_ENVELOPE_VERSION_SOAP_1_1: WS_ENVELOPE_VERSION = WS_ENVELOPE_VERSION(1i32);
@@ -3500,7 +3500,7 @@ impl ::core::default::Default for WS_ERROR_PROPERTY {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_ERROR_PROPERTY_ID(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_ERROR_PROPERTY_STRING_COUNT: WS_ERROR_PROPERTY_ID = WS_ERROR_PROPERTY_ID(0i32);
@@ -3529,7 +3529,7 @@ impl ::core::fmt::Debug for WS_ERROR_PROPERTY_ID {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_EXCEPTION_CODE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_EXCEPTION_CODE_USAGE_FAILURE: WS_EXCEPTION_CODE = WS_EXCEPTION_CODE(-1069744128i32);
@@ -3556,7 +3556,7 @@ impl ::core::fmt::Debug for WS_EXCEPTION_CODE {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_EXTENDED_PROTECTION_POLICY(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_EXTENDED_PROTECTION_POLICY_NEVER: WS_EXTENDED_PROTECTION_POLICY = WS_EXTENDED_PROTECTION_POLICY(1i32);
@@ -3585,7 +3585,7 @@ impl ::core::fmt::Debug for WS_EXTENDED_PROTECTION_POLICY {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_EXTENDED_PROTECTION_SCENARIO(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_EXTENDED_PROTECTION_SCENARIO_BOUND_SERVER: WS_EXTENDED_PROTECTION_SCENARIO = WS_EXTENDED_PROTECTION_SCENARIO(1i32);
@@ -3763,7 +3763,7 @@ impl ::core::default::Default for WS_FAULT_DETAIL_DESCRIPTION {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_FAULT_DISCLOSURE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_MINIMAL_FAULT_DISCLOSURE: WS_FAULT_DISCLOSURE = WS_FAULT_DISCLOSURE(0i32);
@@ -3790,7 +3790,7 @@ impl ::core::fmt::Debug for WS_FAULT_DISCLOSURE {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_FAULT_ERROR_PROPERTY_ID(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_FAULT_ERROR_PROPERTY_FAULT: WS_FAULT_ERROR_PROPERTY_ID = WS_FAULT_ERROR_PROPERTY_ID(0i32);
@@ -3899,7 +3899,7 @@ impl ::core::default::Default for WS_FIELD_DESCRIPTION {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_FIELD_MAPPING(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_TYPE_ATTRIBUTE_FIELD_MAPPING: WS_FIELD_MAPPING = WS_FIELD_MAPPING(0i32);
@@ -4034,7 +4034,7 @@ impl ::core::default::Default for WS_GUID_DESCRIPTION {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_HEADER_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_ACTION_HEADER: WS_HEADER_TYPE = WS_HEADER_TYPE(1i32);
@@ -4136,7 +4136,7 @@ impl ::core::default::Default for WS_HEAP_PROPERTY {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_HEAP_PROPERTY_ID(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_HEAP_PROPERTY_MAX_SIZE: WS_HEAP_PROPERTY_ID = WS_HEAP_PROPERTY_ID(0i32);
@@ -4462,7 +4462,7 @@ impl ::core::default::Default for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_TEMPLATE 
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_HTTP_HEADER_AUTH_TARGET(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_HTTP_HEADER_AUTH_TARGET_SERVICE: WS_HTTP_HEADER_AUTH_TARGET = WS_HTTP_HEADER_AUTH_TARGET(1i32);
@@ -4607,7 +4607,7 @@ impl ::core::default::Default for WS_HTTP_POLICY_DESCRIPTION {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_HTTP_PROXY_SETTING_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_HTTP_PROXY_SETTING_MODE_AUTO: WS_HTTP_PROXY_SETTING_MODE = WS_HTTP_PROXY_SETTING_MODE(1i32);
@@ -5241,7 +5241,7 @@ impl ::core::default::Default for WS_INT8_DESCRIPTION {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_IP_VERSION(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_IP_VERSION_4: WS_IP_VERSION = WS_IP_VERSION(1i32);
@@ -5585,7 +5585,7 @@ impl ::core::default::Default for WS_LISTENER_PROPERTY {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_LISTENER_PROPERTY_ID(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_LISTENER_PROPERTY_LISTEN_BACKLOG: WS_LISTENER_PROPERTY_ID = WS_LISTENER_PROPERTY_ID(0i32);
@@ -5642,7 +5642,7 @@ impl ::core::fmt::Debug for WS_LISTENER_PROPERTY_ID {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_LISTENER_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_LISTENER_STATE_CREATED: WS_LISTENER_STATE = WS_LISTENER_STATE(0i32);
@@ -5740,7 +5740,7 @@ impl ::core::default::Default for WS_MESSAGE_DESCRIPTION {
 pub type WS_MESSAGE_DONE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(donecallbackstate: *const ::core::ffi::c_void)>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_MESSAGE_INITIALIZATION(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_BLANK_MESSAGE: WS_MESSAGE_INITIALIZATION = WS_MESSAGE_INITIALIZATION(0i32);
@@ -5836,7 +5836,7 @@ impl ::core::default::Default for WS_MESSAGE_PROPERTY {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_MESSAGE_PROPERTY_ID(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_MESSAGE_PROPERTY_STATE: WS_MESSAGE_PROPERTY_ID = WS_MESSAGE_PROPERTY_ID(0i32);
@@ -5903,7 +5903,7 @@ impl ::core::fmt::Debug for WS_MESSAGE_PROPERTY_ID {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_MESSAGE_SECURITY_USAGE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_SUPPORTING_MESSAGE_SECURITY_USAGE: WS_MESSAGE_SECURITY_USAGE = WS_MESSAGE_SECURITY_USAGE(1i32);
@@ -5928,7 +5928,7 @@ impl ::core::fmt::Debug for WS_MESSAGE_SECURITY_USAGE {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_MESSAGE_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_MESSAGE_STATE_EMPTY: WS_MESSAGE_STATE = WS_MESSAGE_STATE(1i32);
@@ -6048,7 +6048,7 @@ impl ::core::default::Default for WS_METADATA_ENDPOINTS {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_METADATA_EXCHANGE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_METADATA_EXCHANGE_TYPE_NONE: WS_METADATA_EXCHANGE_TYPE = WS_METADATA_EXCHANGE_TYPE(0i32);
@@ -6109,7 +6109,7 @@ impl ::core::default::Default for WS_METADATA_PROPERTY {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_METADATA_PROPERTY_ID(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_METADATA_PROPERTY_STATE: WS_METADATA_PROPERTY_ID = WS_METADATA_PROPERTY_ID(1i32);
@@ -6146,7 +6146,7 @@ impl ::core::fmt::Debug for WS_METADATA_PROPERTY_ID {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_METADATA_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_METADATA_STATE_CREATED: WS_METADATA_STATE = WS_METADATA_STATE(1i32);
@@ -6175,7 +6175,7 @@ impl ::core::fmt::Debug for WS_METADATA_STATE {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_MOVE_TO(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_MOVE_TO_ROOT_ELEMENT: WS_MOVE_TO = WS_MOVE_TO(0i32);
@@ -6405,7 +6405,7 @@ pub type WS_OPERATION_CANCEL_CALLBACK = ::core::option::Option<unsafe extern "sy
 pub struct WS_OPERATION_CONTEXT(pub u8);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_OPERATION_CONTEXT_PROPERTY_ID(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_OPERATION_CONTEXT_PROPERTY_CHANNEL: WS_OPERATION_CONTEXT_PROPERTY_ID = WS_OPERATION_CONTEXT_PROPERTY_ID(0i32);
@@ -6504,7 +6504,7 @@ impl ::core::default::Default for WS_OPERATION_DESCRIPTION {
 pub type WS_OPERATION_FREE_STATE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(state: *const ::core::ffi::c_void)>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_OPERATION_STYLE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_NON_RPC_LITERAL_OPERATION: WS_OPERATION_STYLE = WS_OPERATION_STYLE(0i32);
@@ -6563,7 +6563,7 @@ impl ::core::default::Default for WS_PARAMETER_DESCRIPTION {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_PARAMETER_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_PARAMETER_TYPE_NORMAL: WS_PARAMETER_TYPE = WS_PARAMETER_TYPE(0i32);
@@ -6661,7 +6661,7 @@ impl ::core::default::Default for WS_POLICY_EXTENSION {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_POLICY_EXTENSION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_ENDPOINT_POLICY_EXTENSION_TYPE: WS_POLICY_EXTENSION_TYPE = WS_POLICY_EXTENSION_TYPE(1i32);
@@ -6749,7 +6749,7 @@ impl ::core::default::Default for WS_POLICY_PROPERTY {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_POLICY_PROPERTY_ID(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_POLICY_PROPERTY_STATE: WS_POLICY_PROPERTY_ID = WS_POLICY_PROPERTY_ID(1i32);
@@ -6780,7 +6780,7 @@ impl ::core::fmt::Debug for WS_POLICY_PROPERTY_ID {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_POLICY_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_POLICY_STATE_CREATED: WS_POLICY_STATE = WS_POLICY_STATE(1i32);
@@ -6807,7 +6807,7 @@ impl ::core::fmt::Debug for WS_POLICY_STATE {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_PROTECTION_LEVEL(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_PROTECTION_LEVEL_NONE: WS_PROTECTION_LEVEL = WS_PROTECTION_LEVEL(1i32);
@@ -6901,7 +6901,7 @@ impl ::core::default::Default for WS_PROXY_PROPERTY {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_PROXY_PROPERTY_ID(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_PROXY_PROPERTY_CALL_TIMEOUT: WS_PROXY_PROPERTY_ID = WS_PROXY_PROPERTY_ID(0i32);
@@ -6979,7 +6979,7 @@ pub type WS_READ_MESSAGE_END_CALLBACK = ::core::option::Option<unsafe extern "sy
 pub type WS_READ_MESSAGE_START_CALLBACK = ::core::option::Option<unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, message: *const WS_MESSAGE, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_READ_OPTION(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_READ_REQUIRED_VALUE: WS_READ_OPTION = WS_READ_OPTION(1i32);
@@ -7014,7 +7014,7 @@ impl ::core::fmt::Debug for WS_READ_OPTION {
 pub type WS_READ_TYPE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(reader: *const WS_XML_READER, typemapping: WS_TYPE_MAPPING, descriptiondata: *const ::core::ffi::c_void, heap: *const WS_HEAP, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_RECEIVE_OPTION(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_RECEIVE_REQUIRED_MESSAGE: WS_RECEIVE_OPTION = WS_RECEIVE_OPTION(1i32);
@@ -7043,7 +7043,7 @@ impl ::core::fmt::Debug for WS_RECEIVE_OPTION {
 pub const WS_RELAY_HEADER_ATTRIBUTE: i32 = 2i32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_REPEATING_HEADER_OPTION(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_REPEATING_HEADER: WS_REPEATING_HEADER_OPTION = WS_REPEATING_HEADER_OPTION(1i32);
@@ -7070,7 +7070,7 @@ impl ::core::fmt::Debug for WS_REPEATING_HEADER_OPTION {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_REQUEST_SECURITY_TOKEN_ACTION(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_REQUEST_SECURITY_TOKEN_ACTION_ISSUE: WS_REQUEST_SECURITY_TOKEN_ACTION = WS_REQUEST_SECURITY_TOKEN_ACTION(1i32);
@@ -7194,7 +7194,7 @@ impl ::core::default::Default for WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT_
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_REQUEST_SECURITY_TOKEN_PROPERTY_APPLIES_TO: WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID = WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID(1i32);
@@ -7309,7 +7309,7 @@ impl ::core::default::Default for WS_SAML_AUTHENTICATOR {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_SAML_AUTHENTICATOR_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_CERT_SIGNED_SAML_AUTHENTICATOR_TYPE: WS_SAML_AUTHENTICATOR_TYPE = WS_SAML_AUTHENTICATOR_TYPE(1i32);
@@ -7366,7 +7366,7 @@ impl ::core::default::Default for WS_SAML_MESSAGE_SECURITY_BINDING {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_SECURE_CONVERSATION_VERSION(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_SECURE_CONVERSATION_VERSION_FEBRUARY_2005: WS_SECURE_CONVERSATION_VERSION = WS_SECURE_CONVERSATION_VERSION(1i32);
@@ -7393,7 +7393,7 @@ impl ::core::fmt::Debug for WS_SECURE_CONVERSATION_VERSION {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_SECURE_PROTOCOL(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_SECURE_PROTOCOL_SSL2: WS_SECURE_PROTOCOL = WS_SECURE_PROTOCOL(1i32);
@@ -7426,7 +7426,7 @@ impl ::core::fmt::Debug for WS_SECURE_PROTOCOL {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_SECURITY_ALGORITHM_ID(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_SECURITY_ALGORITHM_DEFAULT: WS_SECURITY_ALGORITHM_ID = WS_SECURITY_ALGORITHM_ID(0i32);
@@ -7519,7 +7519,7 @@ impl ::core::default::Default for WS_SECURITY_ALGORITHM_PROPERTY {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_SECURITY_ALGORITHM_PROPERTY_ID(pub i32);
 impl ::core::marker::Copy for WS_SECURITY_ALGORITHM_PROPERTY_ID {}
 impl ::core::clone::Clone for WS_SECURITY_ALGORITHM_PROPERTY_ID {
@@ -7600,7 +7600,7 @@ impl ::core::default::Default for WS_SECURITY_ALGORITHM_SUITE {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_SECURITY_ALGORITHM_SUITE_NAME(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_SECURITY_ALGORITHM_SUITE_NAME_BASIC256: WS_SECURITY_ALGORITHM_SUITE_NAME = WS_SECURITY_ALGORITHM_SUITE_NAME(1i32);
@@ -7647,7 +7647,7 @@ impl ::core::fmt::Debug for WS_SECURITY_ALGORITHM_SUITE_NAME {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_SECURITY_BEARER_KEY_TYPE_VERSION(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_SECURITY_BEARER_KEY_TYPE_VERSION_1_3_ORIGINAL_SPECIFICATION: WS_SECURITY_BEARER_KEY_TYPE_VERSION = WS_SECURITY_BEARER_KEY_TYPE_VERSION(1i32);
@@ -7740,7 +7740,7 @@ impl ::core::default::Default for WS_SECURITY_BINDING_CONSTRAINT {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_SECURITY_BINDING_CONSTRAINT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT_TYPE: WS_SECURITY_BINDING_CONSTRAINT_TYPE = WS_SECURITY_BINDING_CONSTRAINT_TYPE(1i32);
@@ -7905,7 +7905,7 @@ impl ::core::default::Default for WS_SECURITY_BINDING_PROPERTY_CONSTRAINT_0 {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_SECURITY_BINDING_PROPERTY_ID(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_SECURITY_BINDING_PROPERTY_REQUIRE_SSL_CLIENT_CERT: WS_SECURITY_BINDING_PROPERTY_ID = WS_SECURITY_BINDING_PROPERTY_ID(1i32);
@@ -7974,7 +7974,7 @@ impl ::core::fmt::Debug for WS_SECURITY_BINDING_PROPERTY_ID {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_SECURITY_BINDING_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_SSL_TRANSPORT_SECURITY_BINDING_TYPE: WS_SECURITY_BINDING_TYPE = WS_SECURITY_BINDING_TYPE(1i32);
@@ -8207,7 +8207,7 @@ impl ::core::default::Default for WS_SECURITY_CONTEXT_PROPERTY {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_SECURITY_CONTEXT_PROPERTY_ID(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_SECURITY_CONTEXT_PROPERTY_IDENTIFIER: WS_SECURITY_CONTEXT_PROPERTY_ID = WS_SECURITY_CONTEXT_PROPERTY_ID(1i32);
@@ -8333,7 +8333,7 @@ impl ::core::default::Default for WS_SECURITY_DESCRIPTION {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_SECURITY_HEADER_LAYOUT(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_SECURITY_HEADER_LAYOUT_STRICT: WS_SECURITY_HEADER_LAYOUT = WS_SECURITY_HEADER_LAYOUT(1i32);
@@ -8364,7 +8364,7 @@ impl ::core::fmt::Debug for WS_SECURITY_HEADER_LAYOUT {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_SECURITY_HEADER_VERSION(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_SECURITY_HEADER_VERSION_1_0: WS_SECURITY_HEADER_VERSION = WS_SECURITY_HEADER_VERSION(1i32);
@@ -8391,7 +8391,7 @@ impl ::core::fmt::Debug for WS_SECURITY_HEADER_VERSION {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_SECURITY_KEY_ENTROPY_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_SECURITY_KEY_ENTROPY_MODE_CLIENT_ONLY: WS_SECURITY_KEY_ENTROPY_MODE = WS_SECURITY_KEY_ENTROPY_MODE(1i32);
@@ -8450,7 +8450,7 @@ impl ::core::default::Default for WS_SECURITY_KEY_HANDLE {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_SECURITY_KEY_HANDLE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_RAW_SYMMETRIC_SECURITY_KEY_HANDLE_TYPE: WS_SECURITY_KEY_HANDLE_TYPE = WS_SECURITY_KEY_HANDLE_TYPE(1i32);
@@ -8479,7 +8479,7 @@ impl ::core::fmt::Debug for WS_SECURITY_KEY_HANDLE_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_SECURITY_KEY_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_SECURITY_KEY_TYPE_NONE: WS_SECURITY_KEY_TYPE = WS_SECURITY_KEY_TYPE(1i32);
@@ -8634,7 +8634,7 @@ impl ::core::default::Default for WS_SECURITY_PROPERTY_CONSTRAINT_0 {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_SECURITY_PROPERTY_ID(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_SECURITY_PROPERTY_TRANSPORT_PROTECTION_LEVEL: WS_SECURITY_PROPERTY_ID = WS_SECURITY_PROPERTY_ID(1i32);
@@ -8681,7 +8681,7 @@ impl ::core::fmt::Debug for WS_SECURITY_PROPERTY_ID {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_SECURITY_TIMESTAMP_USAGE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_SECURITY_TIMESTAMP_USAGE_ALWAYS: WS_SECURITY_TIMESTAMP_USAGE = WS_SECURITY_TIMESTAMP_USAGE(1i32);
@@ -8712,7 +8712,7 @@ impl ::core::fmt::Debug for WS_SECURITY_TIMESTAMP_USAGE {
 pub struct WS_SECURITY_TOKEN(pub u8);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_SECURITY_TOKEN_PROPERTY_ID(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_SECURITY_TOKEN_PROPERTY_KEY_TYPE: WS_SECURITY_TOKEN_PROPERTY_ID = WS_SECURITY_TOKEN_PROPERTY_ID(1i32);
@@ -8749,7 +8749,7 @@ impl ::core::fmt::Debug for WS_SECURITY_TOKEN_PROPERTY_ID {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_SECURITY_TOKEN_REFERENCE_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_SECURITY_TOKEN_REFERENCE_MODE_LOCAL_ID: WS_SECURITY_TOKEN_REFERENCE_MODE = WS_SECURITY_TOKEN_REFERENCE_MODE(1i32);
@@ -8784,7 +8784,7 @@ impl ::core::fmt::Debug for WS_SECURITY_TOKEN_REFERENCE_MODE {
 pub type WS_SERVICE_ACCEPT_CHANNEL_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const WS_OPERATION_CONTEXT, channelstate: *mut *mut ::core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_SERVICE_CANCEL_REASON(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_SERVICE_HOST_ABORT: WS_SERVICE_CANCEL_REASON = WS_SERVICE_CANCEL_REASON(0i32);
@@ -8971,7 +8971,7 @@ impl ::core::default::Default for WS_SERVICE_ENDPOINT_PROPERTY {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_SERVICE_ENDPOINT_PROPERTY_ID(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_SERVICE_ENDPOINT_PROPERTY_ACCEPT_CHANNEL_CALLBACK: WS_SERVICE_ENDPOINT_PROPERTY_ID = WS_SERVICE_ENDPOINT_PROPERTY_ID(0i32);
@@ -9026,7 +9026,7 @@ impl ::core::fmt::Debug for WS_SERVICE_ENDPOINT_PROPERTY_ID {
 pub struct WS_SERVICE_HOST(pub u8);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_SERVICE_HOST_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_SERVICE_HOST_STATE_CREATED: WS_SERVICE_HOST_STATE = WS_SERVICE_HOST_STATE(0i32);
@@ -9237,7 +9237,7 @@ impl ::core::default::Default for WS_SERVICE_PROPERTY_CLOSE_CALLBACK {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_SERVICE_PROPERTY_ID(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_SERVICE_PROPERTY_HOST_USER_STATE: WS_SERVICE_PROPERTY_ID = WS_SERVICE_PROPERTY_ID(0i32);
@@ -9274,7 +9274,7 @@ impl ::core::fmt::Debug for WS_SERVICE_PROPERTY_ID {
 pub struct WS_SERVICE_PROXY(pub u8);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_SERVICE_PROXY_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_SERVICE_PROXY_STATE_CREATED: WS_SERVICE_PROXY_STATE = WS_SERVICE_PROXY_STATE(0i32);
@@ -10408,7 +10408,7 @@ impl ::core::default::Default for WS_TIMESPAN_DESCRIPTION {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_TRACE_API(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_TRACE_API_NONE: WS_TRACE_API = WS_TRACE_API(-1i32);
@@ -10823,7 +10823,7 @@ impl ::core::fmt::Debug for WS_TRACE_API {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_TRANSFER_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_STREAMED_INPUT_TRANSFER_MODE: WS_TRANSFER_MODE = WS_TRANSFER_MODE(1i32);
@@ -10854,7 +10854,7 @@ impl ::core::fmt::Debug for WS_TRANSFER_MODE {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_TRUST_VERSION(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_TRUST_VERSION_FEBRUARY_2005: WS_TRUST_VERSION = WS_TRUST_VERSION(1i32);
@@ -10881,7 +10881,7 @@ impl ::core::fmt::Debug for WS_TRUST_VERSION {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_BOOL_TYPE: WS_TYPE = WS_TYPE(0i32);
@@ -10974,7 +10974,7 @@ impl ::core::fmt::Debug for WS_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_TYPE_MAPPING(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_ELEMENT_TYPE_MAPPING: WS_TYPE_MAPPING = WS_TYPE_MAPPING(1i32);
@@ -11372,7 +11372,7 @@ pub const WS_URL_FLAGS_NO_PATH_COLLAPSE: i32 = 2i32;
 pub const WS_URL_FLAGS_ZERO_TERMINATE: i32 = 4i32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_URL_SCHEME_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_URL_HTTP_SCHEME_TYPE: WS_URL_SCHEME_TYPE = WS_URL_SCHEME_TYPE(0i32);
@@ -11435,7 +11435,7 @@ impl ::core::default::Default for WS_USERNAME_CREDENTIAL {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_USERNAME_CREDENTIAL_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_STRING_USERNAME_CREDENTIAL_TYPE: WS_USERNAME_CREDENTIAL_TYPE = WS_USERNAME_CREDENTIAL_TYPE(1i32);
@@ -11624,7 +11624,7 @@ pub type WS_VALIDATE_PASSWORD_CALLBACK = ::core::option::Option<unsafe extern "s
 pub type WS_VALIDATE_SAML_CALLBACK = ::core::option::Option<unsafe extern "system" fn(samlvalidatorcallbackstate: *const ::core::ffi::c_void, samlassertion: *const WS_XML_BUFFER, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_VALUE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_BOOL_VALUE_TYPE: WS_VALUE_TYPE = WS_VALUE_TYPE(0i32);
@@ -11739,7 +11739,7 @@ impl ::core::default::Default for WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_STRING_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE: WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE = WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE(1i32);
@@ -11768,7 +11768,7 @@ impl ::core::fmt::Debug for WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_WINDOWS_INTEGRATED_AUTH_PACKAGE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_WINDOWS_INTEGRATED_AUTH_PACKAGE_KERBEROS: WS_WINDOWS_INTEGRATED_AUTH_PACKAGE = WS_WINDOWS_INTEGRATED_AUTH_PACKAGE(1i32);
@@ -11803,7 +11803,7 @@ pub type WS_WRITE_MESSAGE_END_CALLBACK = ::core::option::Option<unsafe extern "s
 pub type WS_WRITE_MESSAGE_START_CALLBACK = ::core::option::Option<unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, message: *const WS_MESSAGE, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_WRITE_OPTION(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_WRITE_REQUIRED_VALUE: WS_WRITE_OPTION = WS_WRITE_OPTION(1i32);
@@ -12015,7 +12015,7 @@ impl ::core::default::Default for WS_XML_BUFFER_PROPERTY {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_XML_BUFFER_PROPERTY_ID(pub i32);
 impl ::core::marker::Copy for WS_XML_BUFFER_PROPERTY_ID {}
 impl ::core::clone::Clone for WS_XML_BUFFER_PROPERTY_ID {
@@ -12038,7 +12038,7 @@ impl ::core::fmt::Debug for WS_XML_BUFFER_PROPERTY_ID {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_XML_CANONICALIZATION_ALGORITHM(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_EXCLUSIVE_XML_CANONICALIZATION_ALGORITHM: WS_XML_CANONICALIZATION_ALGORITHM = WS_XML_CANONICALIZATION_ALGORITHM(0i32);
@@ -12140,7 +12140,7 @@ impl ::core::default::Default for WS_XML_CANONICALIZATION_PROPERTY {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_XML_CANONICALIZATION_PROPERTY_ID(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_XML_CANONICALIZATION_PROPERTY_ALGORITHM: WS_XML_CANONICALIZATION_PROPERTY_ID = WS_XML_CANONICALIZATION_PROPERTY_ID(0i32);
@@ -12607,7 +12607,7 @@ impl ::core::default::Default for WS_XML_NODE_POSITION {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_XML_NODE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_XML_NODE_TYPE_ELEMENT: WS_XML_NODE_TYPE = WS_XML_NODE_TYPE(1i32);
@@ -12863,7 +12863,7 @@ impl ::core::default::Default for WS_XML_READER_ENCODING {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_XML_READER_ENCODING_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_XML_READER_ENCODING_TYPE_TEXT: WS_XML_READER_ENCODING_TYPE = WS_XML_READER_ENCODING_TYPE(1i32);
@@ -12924,7 +12924,7 @@ impl ::core::default::Default for WS_XML_READER_INPUT {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_XML_READER_INPUT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_XML_READER_INPUT_TYPE_BUFFER: WS_XML_READER_INPUT_TYPE = WS_XML_READER_INPUT_TYPE(1i32);
@@ -13057,7 +13057,7 @@ impl ::core::default::Default for WS_XML_READER_PROPERTY {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_XML_READER_PROPERTY_ID(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_XML_READER_PROPERTY_MAX_DEPTH: WS_XML_READER_PROPERTY_ID = WS_XML_READER_PROPERTY_ID(0i32);
@@ -13235,7 +13235,7 @@ impl ::core::default::Default for WS_XML_SECURITY_TOKEN_PROPERTY {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_XML_SECURITY_TOKEN_PROPERTY_ID(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_XML_SECURITY_TOKEN_PROPERTY_ATTACHED_REFERENCE: WS_XML_SECURITY_TOKEN_PROPERTY_ID = WS_XML_SECURITY_TOKEN_PROPERTY_ID(1i32);
@@ -13399,7 +13399,7 @@ impl ::core::default::Default for WS_XML_TEXT_NODE {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_XML_TEXT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_XML_TEXT_TYPE_UTF8: WS_XML_TEXT_TYPE = WS_XML_TEXT_TYPE(1i32);
@@ -13753,7 +13753,7 @@ impl ::core::default::Default for WS_XML_WRITER_ENCODING {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_XML_WRITER_ENCODING_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_XML_WRITER_ENCODING_TYPE_TEXT: WS_XML_WRITER_ENCODING_TYPE = WS_XML_WRITER_ENCODING_TYPE(1i32);
@@ -13858,7 +13858,7 @@ impl ::core::default::Default for WS_XML_WRITER_OUTPUT {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_XML_WRITER_OUTPUT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_XML_WRITER_OUTPUT_TYPE_BUFFER: WS_XML_WRITER_OUTPUT_TYPE = WS_XML_WRITER_OUTPUT_TYPE(1i32);
@@ -13948,7 +13948,7 @@ impl ::core::default::Default for WS_XML_WRITER_PROPERTY {
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_XML_WRITER_PROPERTY_ID(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_XML_WRITER_PROPERTY_MAX_DEPTH: WS_XML_WRITER_PROPERTY_ID = WS_XML_WRITER_PROPERTY_ID(0i32);

@@ -412,7 +412,7 @@ pub struct IWalletVerbFactory_Vtbl {
 }
 #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WalletActionKind(pub i32);
 impl WalletActionKind {
     pub const OpenItem: Self = Self(0i32);
@@ -571,7 +571,7 @@ unsafe impl ::core::marker::Send for WalletBarcode {}
 unsafe impl ::core::marker::Sync for WalletBarcode {}
 #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WalletBarcodeSymbology(pub i32);
 impl WalletBarcodeSymbology {
     pub const Invalid: Self = Self(0i32);
@@ -615,7 +615,7 @@ unsafe impl ::windows::core::RuntimeType for WalletBarcodeSymbology {
 }
 #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WalletDetailViewPosition(pub i32);
 impl WalletDetailViewPosition {
     pub const Hidden: Self = Self(0i32);
@@ -1284,7 +1284,7 @@ unsafe impl ::core::marker::Send for WalletItemCustomProperty {}
 unsafe impl ::core::marker::Sync for WalletItemCustomProperty {}
 #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WalletItemKind(pub i32);
 impl WalletItemKind {
     pub const Invalid: Self = Self(0i32);
@@ -1622,7 +1622,7 @@ unsafe impl ::core::marker::Send for WalletRelevantLocation {}
 unsafe impl ::core::marker::Sync for WalletRelevantLocation {}
 #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WalletSummaryViewPosition(pub i32);
 impl WalletSummaryViewPosition {
     pub const Hidden: Self = Self(0i32);

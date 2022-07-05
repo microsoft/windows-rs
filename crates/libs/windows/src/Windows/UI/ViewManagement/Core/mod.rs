@@ -788,7 +788,7 @@ unsafe impl ::core::marker::Send for CoreInputViewHidingEventArgs {}
 unsafe impl ::core::marker::Sync for CoreInputViewHidingEventArgs {}
 #[doc = "*Required features: `\"UI_ViewManagement_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CoreInputViewKind(pub i32);
 impl CoreInputViewKind {
     pub const Default: Self = Self(0i32);
@@ -921,7 +921,7 @@ unsafe impl ::core::marker::Send for CoreInputViewOcclusion {}
 unsafe impl ::core::marker::Sync for CoreInputViewOcclusion {}
 #[doc = "*Required features: `\"UI_ViewManagement_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CoreInputViewOcclusionKind(pub i32);
 impl CoreInputViewOcclusionKind {
     pub const Docked: Self = Self(0i32);
@@ -1260,7 +1260,7 @@ unsafe impl ::core::marker::Send for CoreInputViewTransferringXYFocusEventArgs {
 unsafe impl ::core::marker::Sync for CoreInputViewTransferringXYFocusEventArgs {}
 #[doc = "*Required features: `\"UI_ViewManagement_Core\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CoreInputViewXYFocusTransferDirection(pub i32);
 impl CoreInputViewXYFocusTransferDirection {
     pub const Up: Self = Self(0i32);

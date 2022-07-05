@@ -188,7 +188,7 @@ impl ::core::default::Default for BATTERY_CHARGING_SOURCE_INFORMATION {
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BATTERY_CHARGING_SOURCE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const BatteryChargingSourceType_AC: BATTERY_CHARGING_SOURCE_TYPE = BATTERY_CHARGING_SOURCE_TYPE(1i32);
@@ -342,7 +342,7 @@ impl ::core::default::Default for BATTERY_QUERY_INFORMATION {
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BATTERY_QUERY_INFORMATION_LEVEL(pub i32);
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const BatteryInformation: BATTERY_QUERY_INFORMATION_LEVEL = BATTERY_QUERY_INFORMATION_LEVEL(0i32);
@@ -457,7 +457,7 @@ impl ::core::default::Default for BATTERY_SET_INFORMATION {
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BATTERY_SET_INFORMATION_LEVEL(pub i32);
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const BatteryCriticalBias: BATTERY_SET_INFORMATION_LEVEL = BATTERY_SET_INFORMATION_LEVEL(0i32);
@@ -735,7 +735,7 @@ impl ::core::default::Default for DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DEVICE_POWER_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const PowerDeviceUnspecified: DEVICE_POWER_STATE = DEVICE_POWER_STATE(0i32);
@@ -844,7 +844,7 @@ pub unsafe fn DevicePowerSetDeviceState<'a, Param0: ::windows::core::IntoParam<'
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EFFECTIVE_POWER_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const EffectivePowerModeBatterySaver: EFFECTIVE_POWER_MODE = EFFECTIVE_POWER_MODE(0i32);
@@ -980,7 +980,7 @@ impl ::core::default::Default for EMI_MEASUREMENT_DATA_V2 {
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EMI_MEASUREMENT_UNIT(pub i32);
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const EmiMeasurementUnitPicowattHours: EMI_MEASUREMENT_UNIT = EMI_MEASUREMENT_UNIT(0i32);
@@ -1140,7 +1140,7 @@ pub const EMI_VERSION_V1: u32 = 1u32;
 pub const EMI_VERSION_V2: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EXECUTION_STATE(pub u32);
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const ES_AWAYMODE_REQUIRED: EXECUTION_STATE = EXECUTION_STATE(64u32);
@@ -1447,7 +1447,7 @@ pub unsafe fn GetSystemPowerStatus(lpsystempowerstatus: *mut SYSTEM_POWER_STATUS
     unimplemented!("Unsupported target OS");
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HPOWERNOTIFY(pub isize);
 impl HPOWERNOTIFY {
     pub fn is_invalid(&self) -> bool {
@@ -1606,7 +1606,7 @@ pub unsafe fn IsSystemResumeAutomatic() -> super::super::Foundation::BOOL {
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LATENCY_TIME(pub i32);
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const LT_DONT_CARE: LATENCY_TIME = LATENCY_TIME(0i32);
@@ -1783,7 +1783,7 @@ impl ::core::default::Default for POWERBROADCAST_SETTING {
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POWER_ACTION(pub i32);
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const PowerActionNone: POWER_ACTION = POWER_ACTION(0i32);
@@ -1856,7 +1856,7 @@ impl ::core::default::Default for POWER_ACTION_POLICY {
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POWER_ACTION_POLICY_EVENT_CODE(pub u32);
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const POWER_FORCE_TRIGGER_RESET: POWER_ACTION_POLICY_EVENT_CODE = POWER_ACTION_POLICY_EVENT_CODE(2147483648u32);
@@ -1923,7 +1923,7 @@ pub const POWER_ATTRIBUTE_HIDE: u32 = 1u32;
 pub const POWER_ATTRIBUTE_SHOW_AOAC: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POWER_DATA_ACCESSOR(pub i32);
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const ACCESS_AC_POWER_SETTING_INDEX: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(0i32);
@@ -2002,7 +2002,7 @@ impl ::core::fmt::Debug for POWER_DATA_ACCESSOR {
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POWER_INFORMATION_LEVEL(pub i32);
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const SystemPowerPolicyAc: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(0i32);
@@ -2221,7 +2221,7 @@ impl ::core::fmt::Debug for POWER_INFORMATION_LEVEL {
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POWER_PLATFORM_ROLE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const PlatformRoleUnspecified: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(0i32);
@@ -2264,7 +2264,7 @@ impl ::core::fmt::Debug for POWER_PLATFORM_ROLE {
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POWER_PLATFORM_ROLE_VERSION(pub u32);
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const POWER_PLATFORM_ROLE_V1: POWER_PLATFORM_ROLE_VERSION = POWER_PLATFORM_ROLE_VERSION(1u32);
@@ -2330,7 +2330,7 @@ impl ::core::default::Default for POWER_POLICY {
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POWER_REQUEST_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const PowerRequestDisplayRequired: POWER_REQUEST_TYPE = POWER_REQUEST_TYPE(0i32);
@@ -2361,7 +2361,7 @@ impl ::core::fmt::Debug for POWER_REQUEST_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POWER_SETTING_REGISTER_NOTIFICATION_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const DEVICE_NOTIFY_SERVICE_HANDLE: POWER_SETTING_REGISTER_NOTIFICATION_FLAGS = POWER_SETTING_REGISTER_NOTIFICATION_FLAGS(1u32);
@@ -3743,7 +3743,7 @@ impl ::core::default::Default for SYSTEM_POWER_CAPABILITIES {
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SYSTEM_POWER_CONDITION(pub i32);
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const PoAc: SYSTEM_POWER_CONDITION = SYSTEM_POWER_CONDITION(0i32);
@@ -3910,7 +3910,7 @@ impl ::core::default::Default for SYSTEM_POWER_POLICY {
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SYSTEM_POWER_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const PowerSystemUnspecified: SYSTEM_POWER_STATE = SYSTEM_POWER_STATE(0i32);
@@ -4246,7 +4246,7 @@ pub const UNKNOWN_RATE: u32 = 2147483648u32;
 pub const UNKNOWN_VOLTAGE: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct USB_CHARGER_PORT(pub i32);
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const UsbChargerPort_Legacy: USB_CHARGER_PORT = USB_CHARGER_PORT(0i32);

@@ -217,7 +217,7 @@ impl ::core::default::Default for EVENTSFORLOGFILE {
 pub const EVT_ALL_ACCESS: u32 = 7u32;
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EVT_CHANNEL_CLOCK_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtChannelClockTypeSystemTime: EVT_CHANNEL_CLOCK_TYPE = EVT_CHANNEL_CLOCK_TYPE(0i32);
@@ -244,7 +244,7 @@ impl ::core::fmt::Debug for EVT_CHANNEL_CLOCK_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EVT_CHANNEL_CONFIG_PROPERTY_ID(pub i32);
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtChannelConfigEnabled: EVT_CHANNEL_CONFIG_PROPERTY_ID = EVT_CHANNEL_CONFIG_PROPERTY_ID(0i32);
@@ -311,7 +311,7 @@ impl ::core::fmt::Debug for EVT_CHANNEL_CONFIG_PROPERTY_ID {
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EVT_CHANNEL_ISOLATION_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtChannelIsolationTypeApplication: EVT_CHANNEL_ISOLATION_TYPE = EVT_CHANNEL_ISOLATION_TYPE(0i32);
@@ -340,7 +340,7 @@ impl ::core::fmt::Debug for EVT_CHANNEL_ISOLATION_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EVT_CHANNEL_REFERENCE_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtChannelReferenceImported: EVT_CHANNEL_REFERENCE_FLAGS = EVT_CHANNEL_REFERENCE_FLAGS(1i32);
@@ -365,7 +365,7 @@ impl ::core::fmt::Debug for EVT_CHANNEL_REFERENCE_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EVT_CHANNEL_SID_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtChannelSidTypeNone: EVT_CHANNEL_SID_TYPE = EVT_CHANNEL_SID_TYPE(0i32);
@@ -392,7 +392,7 @@ impl ::core::fmt::Debug for EVT_CHANNEL_SID_TYPE {
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EVT_CHANNEL_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtChannelTypeAdmin: EVT_CHANNEL_TYPE = EVT_CHANNEL_TYPE(0i32);
@@ -425,7 +425,7 @@ impl ::core::fmt::Debug for EVT_CHANNEL_TYPE {
 pub const EVT_CLEAR_ACCESS: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EVT_EVENT_METADATA_PROPERTY_ID(pub i32);
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EventMetadataEventID: EVT_EVENT_METADATA_PROPERTY_ID = EVT_EVENT_METADATA_PROPERTY_ID(0i32);
@@ -468,7 +468,7 @@ impl ::core::fmt::Debug for EVT_EVENT_METADATA_PROPERTY_ID {
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EVT_EVENT_PROPERTY_ID(pub i32);
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtEventQueryIDs: EVT_EVENT_PROPERTY_ID = EVT_EVENT_PROPERTY_ID(0i32);
@@ -497,7 +497,7 @@ impl ::core::fmt::Debug for EVT_EVENT_PROPERTY_ID {
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EVT_EXPORTLOG_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtExportLogChannelPath: EVT_EXPORTLOG_FLAGS = EVT_EXPORTLOG_FLAGS(1i32);
@@ -528,7 +528,7 @@ impl ::core::fmt::Debug for EVT_EXPORTLOG_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EVT_FORMAT_MESSAGE_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtFormatMessageEvent: EVT_FORMAT_MESSAGE_FLAGS = EVT_FORMAT_MESSAGE_FLAGS(1i32);
@@ -569,7 +569,7 @@ impl ::core::fmt::Debug for EVT_FORMAT_MESSAGE_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EVT_LOGIN_CLASS(pub i32);
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtRpcLogin: EVT_LOGIN_CLASS = EVT_LOGIN_CLASS(1i32);
@@ -594,7 +594,7 @@ impl ::core::fmt::Debug for EVT_LOGIN_CLASS {
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EVT_LOG_PROPERTY_ID(pub i32);
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtLogCreationTime: EVT_LOG_PROPERTY_ID = EVT_LOG_PROPERTY_ID(0i32);
@@ -633,7 +633,7 @@ impl ::core::fmt::Debug for EVT_LOG_PROPERTY_ID {
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EVT_OPEN_LOG_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtOpenChannelPath: EVT_OPEN_LOG_FLAGS = EVT_OPEN_LOG_FLAGS(1i32);
@@ -660,7 +660,7 @@ impl ::core::fmt::Debug for EVT_OPEN_LOG_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EVT_PUBLISHER_METADATA_PROPERTY_ID(pub i32);
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtPublisherMetadataPublisherGuid: EVT_PUBLISHER_METADATA_PROPERTY_ID = EVT_PUBLISHER_METADATA_PROPERTY_ID(0i32);
@@ -743,7 +743,7 @@ impl ::core::fmt::Debug for EVT_PUBLISHER_METADATA_PROPERTY_ID {
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EVT_QUERY_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtQueryChannelPath: EVT_QUERY_FLAGS = EVT_QUERY_FLAGS(1i32);
@@ -776,7 +776,7 @@ impl ::core::fmt::Debug for EVT_QUERY_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EVT_QUERY_PROPERTY_ID(pub i32);
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtQueryNames: EVT_QUERY_PROPERTY_ID = EVT_QUERY_PROPERTY_ID(0i32);
@@ -807,7 +807,7 @@ impl ::core::fmt::Debug for EVT_QUERY_PROPERTY_ID {
 pub const EVT_READ_ACCESS: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EVT_RENDER_CONTEXT_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtRenderContextValues: EVT_RENDER_CONTEXT_FLAGS = EVT_RENDER_CONTEXT_FLAGS(0i32);
@@ -836,7 +836,7 @@ impl ::core::fmt::Debug for EVT_RENDER_CONTEXT_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EVT_RENDER_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtRenderEventValues: EVT_RENDER_FLAGS = EVT_RENDER_FLAGS(0i32);
@@ -899,7 +899,7 @@ impl ::core::default::Default for EVT_RPC_LOGIN {
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EVT_RPC_LOGIN_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtRpcLoginAuthDefault: EVT_RPC_LOGIN_FLAGS = EVT_RPC_LOGIN_FLAGS(0i32);
@@ -930,7 +930,7 @@ impl ::core::fmt::Debug for EVT_RPC_LOGIN_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EVT_SEEK_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtSeekRelativeToFirst: EVT_SEEK_FLAGS = EVT_SEEK_FLAGS(1i32);
@@ -967,7 +967,7 @@ impl ::core::fmt::Debug for EVT_SEEK_FLAGS {
 pub type EVT_SUBSCRIBE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(action: EVT_SUBSCRIBE_NOTIFY_ACTION, usercontext: *const ::core::ffi::c_void, event: isize) -> u32>;
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EVT_SUBSCRIBE_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtSubscribeToFutureEvents: EVT_SUBSCRIBE_FLAGS = EVT_SUBSCRIBE_FLAGS(1i32);
@@ -1002,7 +1002,7 @@ impl ::core::fmt::Debug for EVT_SUBSCRIBE_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EVT_SUBSCRIBE_NOTIFY_ACTION(pub i32);
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtSubscribeActionError: EVT_SUBSCRIBE_NOTIFY_ACTION = EVT_SUBSCRIBE_NOTIFY_ACTION(0i32);
@@ -1029,7 +1029,7 @@ impl ::core::fmt::Debug for EVT_SUBSCRIBE_NOTIFY_ACTION {
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EVT_SYSTEM_PROPERTY_ID(pub i32);
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtSystemProviderName: EVT_SYSTEM_PROPERTY_ID = EVT_SYSTEM_PROPERTY_ID(0i32);
@@ -1195,7 +1195,7 @@ impl ::core::default::Default for EVT_VARIANT_0 {
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EVT_VARIANT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtVarTypeNull: EVT_VARIANT_TYPE = EVT_VARIANT_TYPE(0i32);
@@ -1271,7 +1271,7 @@ pub const EVT_VARIANT_TYPE_MASK: u32 = 127u32;
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EVT_WRITE_ACCESS: u32 = 2u32;
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EventLogHandle(pub isize);
 impl EventLogHandle {
     pub fn is_invalid(&self) -> bool {
@@ -1298,7 +1298,7 @@ unsafe impl ::windows::core::Abi for EventLogHandle {
     type Abi = Self;
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EventSourceHandle(pub isize);
 impl EventSourceHandle {
     pub fn is_invalid(&self) -> bool {
@@ -1959,7 +1959,7 @@ pub unsafe fn OpenEventLogW<'a, Param0: ::windows::core::IntoParam<'a, ::windows
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct READ_EVENT_LOG_READ_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EVENTLOG_SEEK_READ: READ_EVENT_LOG_READ_FLAGS = READ_EVENT_LOG_READ_FLAGS(2u32);
@@ -1986,7 +1986,7 @@ impl ::core::fmt::Debug for READ_EVENT_LOG_READ_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct REPORT_EVENT_TYPE(pub u16);
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EVENTLOG_SUCCESS: REPORT_EVENT_TYPE = REPORT_EVENT_TYPE(0u16);

@@ -254,7 +254,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a M
 }
 #[doc = "*Required features: `\"Management\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MdmAlertDataType(pub i32);
 impl MdmAlertDataType {
     pub const String: Self = Self(0i32);
@@ -290,7 +290,7 @@ unsafe impl ::windows::core::RuntimeType for MdmAlertDataType {
 }
 #[doc = "*Required features: `\"Management\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MdmAlertMark(pub i32);
 impl MdmAlertMark {
     pub const None: Self = Self(0i32);
@@ -505,7 +505,7 @@ impl ::windows::core::RuntimeName for MdmSessionManager {
 }
 #[doc = "*Required features: `\"Management\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MdmSessionState(pub i32);
 impl MdmSessionState {
     pub const NotStarted: Self = Self(0i32);

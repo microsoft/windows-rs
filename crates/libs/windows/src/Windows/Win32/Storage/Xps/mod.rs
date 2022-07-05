@@ -20,7 +20,7 @@ pub unsafe fn AbortDoc<'a, Param0: ::windows::core::IntoParam<'a, super::super::
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DEVICE_CAPABILITIES(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const DC_BINNAMES: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(12u32);
@@ -301,7 +301,7 @@ pub unsafe fn ExtEscape<'a, Param0: ::windows::core::IntoParam<'a, super::super:
     unimplemented!("Unsupported target OS");
 }
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HPTPROVIDER(pub isize);
 impl HPTPROVIDER {
     pub fn is_invalid(&self) -> bool {
@@ -9843,7 +9843,7 @@ pub struct IXpsSigningOptions_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PRINT_WINDOW_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const PW_CLIENTONLY: PRINT_WINDOW_FLAGS = PRINT_WINDOW_FLAGS(1u32);
@@ -9973,7 +9973,7 @@ impl ::core::default::Default for PSINJECTDATA {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PSINJECT_POINT(pub u16);
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const PSINJECT_BEGINSTREAM: PSINJECT_POINT = PSINJECT_POINT(1u16);
@@ -10311,7 +10311,7 @@ impl ::core::default::Default for XPS_COLOR_0_2 {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XPS_COLOR_INTERPOLATION(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_COLOR_INTERPOLATION_SCRGBLINEAR: XPS_COLOR_INTERPOLATION = XPS_COLOR_INTERPOLATION(1i32);
@@ -10338,7 +10338,7 @@ impl ::core::fmt::Debug for XPS_COLOR_INTERPOLATION {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XPS_COLOR_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_COLOR_TYPE_SRGB: XPS_COLOR_TYPE = XPS_COLOR_TYPE(1i32);
@@ -10398,7 +10398,7 @@ impl ::core::default::Default for XPS_DASH {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XPS_DASH_CAP(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_DASH_CAP_FLAT: XPS_DASH_CAP = XPS_DASH_CAP(1i32);
@@ -10429,7 +10429,7 @@ impl ::core::fmt::Debug for XPS_DASH_CAP {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XPS_DOCUMENT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_DOCUMENT_TYPE_UNSPECIFIED: XPS_DOCUMENT_TYPE = XPS_DOCUMENT_TYPE(1i32);
@@ -10628,7 +10628,7 @@ pub const XPS_E_VISUAL_CIRCULAR_REF: ::windows::core::HRESULT = ::windows::core:
 pub const XPS_E_XKEY_ATTR_PRESENT_OUTSIDE_RES_DICT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108672i32);
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XPS_FILL_RULE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_FILL_RULE_EVENODD: XPS_FILL_RULE = XPS_FILL_RULE(1i32);
@@ -10655,7 +10655,7 @@ impl ::core::fmt::Debug for XPS_FILL_RULE {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XPS_FONT_EMBEDDING(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_FONT_EMBEDDING_NORMAL: XPS_FONT_EMBEDDING = XPS_FONT_EMBEDDING(1i32);
@@ -10752,7 +10752,7 @@ impl ::core::default::Default for XPS_GLYPH_MAPPING {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XPS_IMAGE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_IMAGE_TYPE_JPEG: XPS_IMAGE_TYPE = XPS_IMAGE_TYPE(1i32);
@@ -10785,7 +10785,7 @@ impl ::core::fmt::Debug for XPS_IMAGE_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XPS_INTERLEAVING(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_INTERLEAVING_OFF: XPS_INTERLEAVING = XPS_INTERLEAVING(1i32);
@@ -10812,7 +10812,7 @@ impl ::core::fmt::Debug for XPS_INTERLEAVING {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XPS_LINE_CAP(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_LINE_CAP_FLAT: XPS_LINE_CAP = XPS_LINE_CAP(1i32);
@@ -10843,7 +10843,7 @@ impl ::core::fmt::Debug for XPS_LINE_CAP {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XPS_LINE_JOIN(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_LINE_JOIN_MITER: XPS_LINE_JOIN = XPS_LINE_JOIN(1i32);
@@ -10907,7 +10907,7 @@ impl ::core::default::Default for XPS_MATRIX {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XPS_OBJECT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_OBJECT_TYPE_CANVAS: XPS_OBJECT_TYPE = XPS_OBJECT_TYPE(1i32);
@@ -11014,7 +11014,7 @@ impl ::core::default::Default for XPS_RECT {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XPS_SEGMENT_STROKE_PATTERN(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_SEGMENT_STROKE_PATTERN_ALL: XPS_SEGMENT_STROKE_PATTERN = XPS_SEGMENT_STROKE_PATTERN(1i32);
@@ -11043,7 +11043,7 @@ impl ::core::fmt::Debug for XPS_SEGMENT_STROKE_PATTERN {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XPS_SEGMENT_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_SEGMENT_TYPE_ARC_LARGE_CLOCKWISE: XPS_SEGMENT_TYPE = XPS_SEGMENT_TYPE(1i32);
@@ -11080,7 +11080,7 @@ impl ::core::fmt::Debug for XPS_SEGMENT_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XPS_SIGNATURE_STATUS(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_SIGNATURE_STATUS_INCOMPLIANT: XPS_SIGNATURE_STATUS = XPS_SIGNATURE_STATUS(1i32);
@@ -11113,7 +11113,7 @@ impl ::core::fmt::Debug for XPS_SIGNATURE_STATUS {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XPS_SIGN_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_SIGN_FLAGS_NONE: XPS_SIGN_FLAGS = XPS_SIGN_FLAGS(0i32);
@@ -11140,7 +11140,7 @@ impl ::core::fmt::Debug for XPS_SIGN_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XPS_SIGN_POLICY(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_SIGN_POLICY_NONE: XPS_SIGN_POLICY = XPS_SIGN_POLICY(0i32);
@@ -11206,7 +11206,7 @@ impl ::core::default::Default for XPS_SIZE {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XPS_SPREAD_METHOD(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_SPREAD_METHOD_PAD: XPS_SPREAD_METHOD = XPS_SPREAD_METHOD(1i32);
@@ -11235,7 +11235,7 @@ impl ::core::fmt::Debug for XPS_SPREAD_METHOD {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XPS_STYLE_SIMULATION(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_STYLE_SIMULATION_NONE: XPS_STYLE_SIMULATION = XPS_STYLE_SIMULATION(1i32);
@@ -11266,7 +11266,7 @@ impl ::core::fmt::Debug for XPS_STYLE_SIMULATION {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XPS_THUMBNAIL_SIZE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_THUMBNAIL_SIZE_VERYSMALL: XPS_THUMBNAIL_SIZE = XPS_THUMBNAIL_SIZE(1i32);
@@ -11297,7 +11297,7 @@ impl ::core::fmt::Debug for XPS_THUMBNAIL_SIZE {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XPS_TILE_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_TILE_MODE_NONE: XPS_TILE_MODE = XPS_TILE_MODE(1i32);

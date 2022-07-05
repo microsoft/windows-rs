@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Phone_Speech_Recognition\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpeechRecognitionUIStatus(pub i32);
 impl SpeechRecognitionUIStatus {
     pub const Succeeded: Self = Self(0i32);

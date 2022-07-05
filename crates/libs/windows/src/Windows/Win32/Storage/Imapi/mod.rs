@@ -711,7 +711,7 @@ pub struct DFileSystemImageImportEvents_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISC_RECORDER_STATE_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const RECORDER_BURNING: DISC_RECORDER_STATE_FLAGS = DISC_RECORDER_STATE_FLAGS(2u32);
@@ -1179,7 +1179,7 @@ pub struct DWriteEngine2Events_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EmulationType(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const EmulationNone: EmulationType = EmulationType(0i32);
@@ -1217,7 +1217,7 @@ pub const FsiDirectoryItem: ::windows::core::GUID = ::windows::core::GUID::from_
 pub const FsiFileItem: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c941fc7_975b_59be_a960_9a2a262853a5);
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsiFileSystems(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const FsiFileSystemNone: FsiFileSystems = FsiFileSystems(0i32);
@@ -1250,7 +1250,7 @@ impl ::core::fmt::Debug for FsiFileSystems {
 }
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsiItemType(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const FsiItemNotFound: FsiItemType = FsiItemType(0i32);
@@ -7739,7 +7739,7 @@ pub const IMAPILib2_MajorVersion: u32 = 1u32;
 pub const IMAPILib2_MinorVersion: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMAPI_BURN_VERIFICATION_LEVEL(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_BURN_VERIFICATION_NONE: IMAPI_BURN_VERIFICATION_LEVEL = IMAPI_BURN_VERIFICATION_LEVEL(0i32);
@@ -7768,7 +7768,7 @@ impl ::core::fmt::Debug for IMAPI_BURN_VERIFICATION_LEVEL {
 }
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMAPI_CD_SECTOR_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_CD_SECTOR_AUDIO: IMAPI_CD_SECTOR_TYPE = IMAPI_CD_SECTOR_TYPE(0i32);
@@ -7811,7 +7811,7 @@ impl ::core::fmt::Debug for IMAPI_CD_SECTOR_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMAPI_CD_TRACK_DIGITAL_COPY_SETTING(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_CD_TRACK_DIGITAL_COPY_PERMITTED: IMAPI_CD_TRACK_DIGITAL_COPY_SETTING = IMAPI_CD_TRACK_DIGITAL_COPY_SETTING(0i32);
@@ -7912,7 +7912,7 @@ pub const IMAPI_E_WRONGDISC: ::windows::core::HRESULT = ::windows::core::HRESULT
 pub const IMAPI_E_WRONGFORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220959i32);
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMAPI_FEATURE_PAGE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FEATURE_PAGE_TYPE_PROFILE_LIST: IMAPI_FEATURE_PAGE_TYPE = IMAPI_FEATURE_PAGE_TYPE(0i32);
@@ -8037,7 +8037,7 @@ impl ::core::fmt::Debug for IMAPI_FEATURE_PAGE_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMAPI_FORMAT2_DATA_MEDIA_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FORMAT2_DATA_MEDIA_STATE_UNKNOWN: IMAPI_FORMAT2_DATA_MEDIA_STATE = IMAPI_FORMAT2_DATA_MEDIA_STATE(0i32);
@@ -8088,7 +8088,7 @@ impl ::core::fmt::Debug for IMAPI_FORMAT2_DATA_MEDIA_STATE {
 }
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMAPI_FORMAT2_DATA_WRITE_ACTION(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FORMAT2_DATA_WRITE_ACTION_VALIDATING_MEDIA: IMAPI_FORMAT2_DATA_WRITE_ACTION = IMAPI_FORMAT2_DATA_WRITE_ACTION(0i32);
@@ -8127,7 +8127,7 @@ impl ::core::fmt::Debug for IMAPI_FORMAT2_DATA_WRITE_ACTION {
 }
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FORMAT2_RAW_CD_SUBCODE_PQ_ONLY: IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE = IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE(1i32);
@@ -8156,7 +8156,7 @@ impl ::core::fmt::Debug for IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMAPI_FORMAT2_RAW_CD_WRITE_ACTION(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FORMAT2_RAW_CD_WRITE_ACTION_UNKNOWN: IMAPI_FORMAT2_RAW_CD_WRITE_ACTION = IMAPI_FORMAT2_RAW_CD_WRITE_ACTION(0i32);
@@ -8187,7 +8187,7 @@ impl ::core::fmt::Debug for IMAPI_FORMAT2_RAW_CD_WRITE_ACTION {
 }
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMAPI_FORMAT2_TAO_WRITE_ACTION(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FORMAT2_TAO_WRITE_ACTION_UNKNOWN: IMAPI_FORMAT2_TAO_WRITE_ACTION = IMAPI_FORMAT2_TAO_WRITE_ACTION(0i32);
@@ -8220,7 +8220,7 @@ impl ::core::fmt::Debug for IMAPI_FORMAT2_TAO_WRITE_ACTION {
 }
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMAPI_MEDIA_PHYSICAL_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_MEDIA_TYPE_UNKNOWN: IMAPI_MEDIA_PHYSICAL_TYPE = IMAPI_MEDIA_PHYSICAL_TYPE(0i32);
@@ -8285,7 +8285,7 @@ impl ::core::fmt::Debug for IMAPI_MEDIA_PHYSICAL_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMAPI_MEDIA_WRITE_PROTECT_STATE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_WRITEPROTECTED_UNTIL_POWERDOWN: IMAPI_MEDIA_WRITE_PROTECT_STATE = IMAPI_MEDIA_WRITE_PROTECT_STATE(1i32);
@@ -8320,7 +8320,7 @@ impl ::core::fmt::Debug for IMAPI_MEDIA_WRITE_PROTECT_STATE {
 }
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMAPI_MODE_PAGE_REQUEST_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_MODE_PAGE_REQUEST_TYPE_CURRENT_VALUES: IMAPI_MODE_PAGE_REQUEST_TYPE = IMAPI_MODE_PAGE_REQUEST_TYPE(0i32);
@@ -8351,7 +8351,7 @@ impl ::core::fmt::Debug for IMAPI_MODE_PAGE_REQUEST_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMAPI_MODE_PAGE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_MODE_PAGE_TYPE_READ_WRITE_ERROR_RECOVERY: IMAPI_MODE_PAGE_TYPE = IMAPI_MODE_PAGE_TYPE(1i32);
@@ -8390,7 +8390,7 @@ impl ::core::fmt::Debug for IMAPI_MODE_PAGE_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMAPI_PROFILE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_PROFILE_TYPE_INVALID: IMAPI_PROFILE_TYPE = IMAPI_PROFILE_TYPE(0i32);
@@ -8475,7 +8475,7 @@ impl ::core::fmt::Debug for IMAPI_PROFILE_TYPE {
 }
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMAPI_READ_TRACK_ADDRESS_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_READ_TRACK_ADDRESS_TYPE_LBA: IMAPI_READ_TRACK_ADDRESS_TYPE = IMAPI_READ_TRACK_ADDRESS_TYPE(0i32);
@@ -8518,7 +8518,7 @@ pub const IMAPI_S_BUFFER_TO_SMALL: ::windows::core::HRESULT = ::windows::core::H
 pub const IMAPI_S_PROPERTIESIGNORED: ::windows::core::HRESULT = ::windows::core::HRESULT(262656i32);
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMMPID_CPV_ENUM(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_CPV_BEFORE__: IMMPID_CPV_ENUM = IMMPID_CPV_ENUM(32767i32);
@@ -8547,7 +8547,7 @@ impl ::core::fmt::Debug for IMMPID_CPV_ENUM {
 }
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMMPID_MPV_ENUM(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MPV_BEFORE__: IMMPID_MPV_ENUM = IMMPID_MPV_ENUM(12287i32);
@@ -8586,7 +8586,7 @@ impl ::core::fmt::Debug for IMMPID_MPV_ENUM {
 }
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMMPID_MP_ENUM(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_BEFORE__: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4095i32);
@@ -8727,7 +8727,7 @@ impl ::core::fmt::Debug for IMMPID_MP_ENUM {
 }
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMMPID_NMP_ENUM(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_NMP_BEFORE__: IMMPID_NMP_ENUM = IMMPID_NMP_ENUM(24575i32);
@@ -8772,7 +8772,7 @@ impl ::core::fmt::Debug for IMMPID_NMP_ENUM {
 }
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMMPID_RPV_ENUM(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_RPV_BEFORE__: IMMPID_RPV_ENUM = IMMPID_RPV_ENUM(16383i32);
@@ -8803,7 +8803,7 @@ impl ::core::fmt::Debug for IMMPID_RPV_ENUM {
 }
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMMPID_RP_ENUM(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_RP_BEFORE__: IMMPID_RP_ENUM = IMMPID_RP_ENUM(8191i32);
@@ -11211,7 +11211,7 @@ pub struct IWriteSpeedDescriptor_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MEDIA_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const MEDIA_BLANK: MEDIA_FLAGS = MEDIA_FLAGS(1i32);
@@ -11242,7 +11242,7 @@ impl ::core::fmt::Debug for MEDIA_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MEDIA_TYPES(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const MEDIA_CDDA_CDROM: MEDIA_TYPES = MEDIA_TYPES(1i32);
@@ -11376,7 +11376,7 @@ pub unsafe fn OpenIMsgSession<'a, Param0: ::windows::core::IntoParam<'a, super::
 }
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PlatformId(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const PlatformX86: PlatformId = PlatformId(0i32);
@@ -11409,7 +11409,7 @@ pub const ProgressItem: ::windows::core::GUID = ::windows::core::GUID::from_u128
 pub const ProgressItems: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c941fc9_975b_59be_a960_9a2a262853a5);
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RECORDER_TYPES(pub i32);
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const RECORDER_CDR: RECORDER_TYPES = RECORDER_TYPES(1i32);

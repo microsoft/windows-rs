@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"UI_StartScreen\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ForegroundText(pub i32);
 impl ForegroundText {
     pub const Dark: Self = Self(0i32);
@@ -895,7 +895,7 @@ unsafe impl ::core::marker::Send for JumpListItem {}
 unsafe impl ::core::marker::Sync for JumpListItem {}
 #[doc = "*Required features: `\"UI_StartScreen\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct JumpListItemKind(pub i32);
 impl JumpListItemKind {
     pub const Arguments: Self = Self(0i32);
@@ -929,7 +929,7 @@ unsafe impl ::windows::core::RuntimeType for JumpListItemKind {
 }
 #[doc = "*Required features: `\"UI_StartScreen\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct JumpListSystemGroupKind(pub i32);
 impl JumpListSystemGroupKind {
     pub const None: Self = Self(0i32);
@@ -1953,7 +1953,7 @@ unsafe impl ::core::marker::Send for TileMixedRealityModel {}
 unsafe impl ::core::marker::Sync for TileMixedRealityModel {}
 #[doc = "*Required features: `\"UI_StartScreen\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TileMixedRealityModelActivationBehavior(pub i32);
 impl TileMixedRealityModelActivationBehavior {
     pub const Default: Self = Self(0i32);
@@ -1987,7 +1987,7 @@ unsafe impl ::windows::core::RuntimeType for TileMixedRealityModelActivationBeha
 }
 #[doc = "*Required features: `\"UI_StartScreen\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TileOptions(pub u32);
 impl TileOptions {
     pub const None: Self = Self(0u32);
@@ -2051,7 +2051,7 @@ unsafe impl ::windows::core::RuntimeType for TileOptions {
 }
 #[doc = "*Required features: `\"UI_StartScreen\"`*"]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TileSize(pub i32);
 impl TileSize {
     pub const Default: Self = Self(0i32);
