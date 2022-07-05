@@ -17,179 +17,178 @@ jobs:
     strategy:
       matrix:
         include:
-        - version: stable
-          target: x86_64-pc-windows-msvc
-        - version: nightly
-          target: i686-pc-windows-msvc
-        - version: nightly
-          target: x86_64-pc-windows-gnu
-        - version: stable
-          target: i686-pc-windows-gnu
+          - version: stable
+            target: x86_64-pc-windows-msvc
+          - version: nightly
+            target: i686-pc-windows-msvc
+          - version: nightly
+            target: x86_64-pc-windows-gnu
+          - version: stable
+            target: i686-pc-windows-gnu
 
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-    - name: Update toolchain
-      run: rustup update --no-self-update ${{ matrix.version }} && rustup default ${{ matrix.version }}-${{ matrix.target }}
-    - name: Add toolchain target
-      run: rustup target add ${{ matrix.target }}
-    - name: Install clippy
-      run: rustup component add clippy      
-    - name: Configure Cargo for GNU toolchain
-      shell: pwsh
-      run: |
-        Add-Content $env:USERPROFILE\.cargo\config @"
-            [target.x86_64-pc-windows-gnu]
-            linker = `"C:\\msys64\\mingw64\\bin\\x86_64-w64-mingw32-gcc.exe`"
-            ar = `"C:\\msys64\\mingw64\\bin\\ar.exe`"
-            [target.i686-pc-windows-gnu]
-            linker = `"C:\\msys64\\mingw32\\bin\\i686-w64-mingw32-gcc.exe`"
-            ar = `"C:\\msys64\\mingw32\\bin\\ar.exe`"
-        "@
-      if: contains(matrix.target, 'windows-gnu')
-    - name: Configure environment
-      shell: pwsh
-      run: |
-        switch -Wildcard ("${{ matrix.target }}")
-        {
-          "i686-pc-windows-gnu"
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Update toolchain
+        run: rustup update --no-self-update ${{ matrix.version }} && rustup default ${{ matrix.version }}-${{ matrix.target }}
+      - name: Add toolchain target
+        run: rustup target add ${{ matrix.target }}
+      - name: Install clippy
+        run: rustup component add clippy
+      - name: Configure Cargo for GNU toolchain
+        shell: pwsh
+        run: |
+          Add-Content $env:USERPROFILE\.cargo\config @"
+              [target.x86_64-pc-windows-gnu]
+              linker = `"C:\\msys64\\mingw64\\bin\\x86_64-w64-mingw32-gcc.exe`"
+              ar = `"C:\\msys64\\mingw64\\bin\\ar.exe`"
+              [target.i686-pc-windows-gnu]
+              linker = `"C:\\msys64\\mingw32\\bin\\i686-w64-mingw32-gcc.exe`"
+              ar = `"C:\\msys64\\mingw32\\bin\\ar.exe`"
+          "@
+        if: contains(matrix.target, 'windows-gnu')
+      - name: Configure environment
+        shell: pwsh
+        run: |
+          switch -Wildcard ("${{ matrix.target }}")
           {
-            "C:\msys64\mingw32\bin" >> $env:GITHUB_PATH
+            "i686-pc-windows-gnu"
+            {
+              "C:\msys64\mingw32\bin" >> $env:GITHUB_PATH
+            }
+            "x86_64-pc-windows-gnu"
+            {
+              "C:\msys64\mingw64\bin" >> $env:GITHUB_PATH
+            }
+            "i686*"
+            {
+              "C:\Program Files (x86)\Windows Kits\10\bin\10.0.22000.0\x86" >> $env:GITHUB_PATH
+              ((Resolve-Path "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\*\bin\Hostx86\x86")
+                | Sort-Object -Descending | Select -First 1).ToString() >> $env:GITHUB_PATH
+            }
+            "x86_64*"
+            {
+              "C:\Program Files (x86)\Windows Kits\10\bin\10.0.22000.0\x64" >> $env:GITHUB_PATH
+              ((Resolve-Path "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\*\bin\Hostx64\x64")
+                | Sort-Object -Descending | Select -First 1).ToString() >> $env:GITHUB_PATH
+            }
+            "*"
+            {
+              (Join-Path $env:GITHUB_WORKSPACE "target\debug\deps").ToString() >> $env:GITHUB_PATH
+              (Join-Path $env:GITHUB_WORKSPACE "target\test\debug\deps").ToString() >> $env:GITHUB_PATH
+              "INCLUDE=C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\winrt;C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\cppwinrt" `
+                >> $env:GITHUB_ENV
+            }
           }
-          "x86_64-pc-windows-gnu"
-          {
-            "C:\msys64\mingw64\bin" >> $env:GITHUB_PATH
-          }
-          "i686*"
-          {
-            "C:\Program Files (x86)\Windows Kits\10\bin\10.0.22000.0\x86" >> $env:GITHUB_PATH
-            ((Resolve-Path "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\*\bin\Hostx86\x86")
-              | Sort-Object -Descending | Select -First 1).ToString() >> $env:GITHUB_PATH
-          }
-          "x86_64*"
-          {
-            "C:\Program Files (x86)\Windows Kits\10\bin\10.0.22000.0\x64" >> $env:GITHUB_PATH
-            ((Resolve-Path "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\*\bin\Hostx64\x64")
-              | Sort-Object -Descending | Select -First 1).ToString() >> $env:GITHUB_PATH
-          }
-          "*"
-          {
-            (Join-Path $env:GITHUB_WORKSPACE "target\debug\deps").ToString() >> $env:GITHUB_PATH
-            (Join-Path $env:GITHUB_WORKSPACE "target\test\debug\deps").ToString() >> $env:GITHUB_PATH
-            "INCLUDE=C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\winrt;C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\cppwinrt" `
-              >> $env:GITHUB_ENV
-          }
-        }
-    - name: Test
-      run: >
-        cargo test --target ${{ matrix.target }} -p windows-bindgen &&
-        cargo test --target ${{ matrix.target }} -p windows-implement &&
-        cargo test --target ${{ matrix.target }} -p windows-interface &&
-        cargo test --target ${{ matrix.target }} -p windows-metadata &&
-        cargo test --target ${{ matrix.target }} -p windows-sys &&
-        cargo test --target ${{ matrix.target }} -p windows-tokens &&
-        cargo test --target ${{ matrix.target }} -p windows &&
-        cargo test --target ${{ matrix.target }} -p sample_com_uri &&
-        cargo test --target ${{ matrix.target }} -p sample_consent &&
-        cargo test --target ${{ matrix.target }} -p sample_core_app &&
-        cargo test --target ${{ matrix.target }} -p sample_create_window &&
-        cargo test --target ${{ matrix.target }} -p sample_create_window_sys &&
-        cargo test --target ${{ matrix.target }} -p sample_data_protection &&
-        cargo test --target ${{ matrix.target }} -p sample_direct2d &&
-        cargo test --target ${{ matrix.target }} -p sample_direct3d12 &&
-        cargo test --target ${{ matrix.target }} -p sample_enum_windows &&
-        cargo test --target ${{ matrix.target }} -p sample_enum_windows_sys &&
-        cargo test --target ${{ matrix.target }} -p sample_kernel_event &&
-        cargo test --target ${{ matrix.target }} -p sample_memory_buffer &&
-        cargo test --target ${{ matrix.target }} -p sample_message_box &&
-        cargo test --target ${{ matrix.target }} -p sample_ocr &&
-        cargo test --target ${{ matrix.target }} -p sample_overlapped &&
-        cargo test --target ${{ matrix.target }} -p sample_rss &&
-        cargo test --target ${{ matrix.target }} -p sample_simple &&
-        cargo test --target ${{ matrix.target }} -p sample_spellchecker &&
-        cargo test --target ${{ matrix.target }} -p sample_uiautomation &&
-        cargo test --target ${{ matrix.target }} -p sample_xml &&
-        cargo test --target ${{ matrix.target }} -p windows_aarch64_msvc &&
-        cargo test --target ${{ matrix.target }} -p windows_i686_gnu &&
-        cargo test --target ${{ matrix.target }} -p windows_i686_msvc &&
-        cargo test --target ${{ matrix.target }} -p windows_x86_64_gnu &&
-        cargo test --target ${{ matrix.target }} -p windows_x86_64_msvc &&
-        cargo test --target ${{ matrix.target }} -p test_agile &&
-        cargo test --target ${{ matrix.target }} -p test_agile_reference &&
-        cargo test --target ${{ matrix.target }} -p test_alternate_success_code &&
-        cargo test --target ${{ matrix.target }} -p test_arch &&
-        cargo test --target ${{ matrix.target }} -p test_arch_feature &&
-        cargo test --target ${{ matrix.target }} -p test_bstr &&
-        cargo test --target ${{ matrix.target }} -p test_cfg_generic &&
-        cargo test --target ${{ matrix.target }} -p test_class_factory &&
-        cargo test --target ${{ matrix.target }} -p test_component &&
-        cargo test --target ${{ matrix.target }} -p test_component_client &&
-        cargo test --target ${{ matrix.target }} -p test_const_fields &&
-        cargo clean &&
-        cargo test --target ${{ matrix.target }} -p test_core &&
-        cargo test --target ${{ matrix.target }} -p test_data_object &&
-        cargo test --target ${{ matrix.target }} -p test_debug &&
-        cargo test --target ${{ matrix.target }} -p test_deprecated &&
-        cargo test --target ${{ matrix.target }} -p test_dispatch &&
-        cargo test --target ${{ matrix.target }} -p test_does_not_return &&
-        cargo test --target ${{ matrix.target }} -p test_drop_target &&
-        cargo test --target ${{ matrix.target }} -p test_enums &&
-        cargo test --target ${{ matrix.target }} -p test_error &&
-        cargo test --target ${{ matrix.target }} -p test_event &&
-        cargo test --target ${{ matrix.target }} -p test_handles &&
-        cargo test --target ${{ matrix.target }} -p test_helpers &&
-        cargo test --target ${{ matrix.target }} -p test_identity &&
-        cargo test --target ${{ matrix.target }} -p test_implement &&
-        cargo test --target ${{ matrix.target }} -p test_interface &&
-        cargo test --target ${{ matrix.target }} -p test_interop &&
-        cargo test --target ${{ matrix.target }} -p test_lib &&
-        cargo test --target ${{ matrix.target }} -p test_map &&
-        cargo test --target ${{ matrix.target }} -p test_matrix3x2 &&
-        cargo test --target ${{ matrix.target }} -p test_metadata &&
-        cargo test --target ${{ matrix.target }} -p test_mshtml &&
-        cargo test --target ${{ matrix.target }} -p test_not_dll &&
-        cargo test --target ${{ matrix.target }} -p test_no_use &&
-        cargo test --target ${{ matrix.target }} -p test_ntstatus &&
-        cargo test --target ${{ matrix.target }} -p test_properties &&
-        cargo test --target ${{ matrix.target }} -p test_query_signature &&
-        cargo test --target ${{ matrix.target }} -p test_return_struct &&
-        cargo test --target ${{ matrix.target }} -p test_string_param &&
-        cargo test --target ${{ matrix.target }} -p test_structs &&
-        cargo test --target ${{ matrix.target }} -p test_sys &&
-        cargo test --target ${{ matrix.target }} -p test_unions &&
-        cargo test --target ${{ matrix.target }} -p test_vector &&
-        cargo test --target ${{ matrix.target }} -p test_weak &&
-        cargo test --target ${{ matrix.target }} -p test_weak_ref &&
-        cargo test --target ${{ matrix.target }} -p test_win32 &&
-        cargo test --target ${{ matrix.target }} -p test_win32_arrays &&
-        cargo test --target ${{ matrix.target }} -p test_winrt &&
-        cargo test --target ${{ matrix.target }} -p tool_bindings &&
-        cargo test --target ${{ matrix.target }} -p tool_gnu &&
-        cargo test --target ${{ matrix.target }} -p tool_ilrs &&
-        cargo test --target ${{ matrix.target }} -p tool_msvc &&
-        cargo test --target ${{ matrix.target }} -p tool_sys &&
-        cargo test --target ${{ matrix.target }} -p tool_windows &&
-        cargo test --target ${{ matrix.target }} -p tool_yml 
+      - name: Test
+        run: >
+          cargo test --target ${{ matrix.target }} -p windows-bindgen &&
+          cargo test --target ${{ matrix.target }} -p windows-implement &&
+          cargo test --target ${{ matrix.target }} -p windows-interface &&
+          cargo test --target ${{ matrix.target }} -p windows-metadata &&
+          cargo test --target ${{ matrix.target }} -p windows-sys &&
+          cargo test --target ${{ matrix.target }} -p windows-tokens &&
+          cargo test --target ${{ matrix.target }} -p windows &&
+          cargo test --target ${{ matrix.target }} -p sample_com_uri &&
+          cargo test --target ${{ matrix.target }} -p sample_consent &&
+          cargo test --target ${{ matrix.target }} -p sample_core_app &&
+          cargo test --target ${{ matrix.target }} -p sample_create_window &&
+          cargo test --target ${{ matrix.target }} -p sample_create_window_sys &&
+          cargo test --target ${{ matrix.target }} -p sample_data_protection &&
+          cargo test --target ${{ matrix.target }} -p sample_direct2d &&
+          cargo test --target ${{ matrix.target }} -p sample_direct3d12 &&
+          cargo test --target ${{ matrix.target }} -p sample_enum_windows &&
+          cargo test --target ${{ matrix.target }} -p sample_enum_windows_sys &&
+          cargo test --target ${{ matrix.target }} -p sample_kernel_event &&
+          cargo test --target ${{ matrix.target }} -p sample_memory_buffer &&
+          cargo test --target ${{ matrix.target }} -p sample_message_box &&
+          cargo test --target ${{ matrix.target }} -p sample_ocr &&
+          cargo test --target ${{ matrix.target }} -p sample_overlapped &&
+          cargo test --target ${{ matrix.target }} -p sample_rss &&
+          cargo test --target ${{ matrix.target }} -p sample_simple &&
+          cargo test --target ${{ matrix.target }} -p sample_spellchecker &&
+          cargo test --target ${{ matrix.target }} -p sample_uiautomation &&
+          cargo test --target ${{ matrix.target }} -p sample_xml &&
+          cargo test --target ${{ matrix.target }} -p windows_aarch64_msvc &&
+          cargo test --target ${{ matrix.target }} -p windows_i686_gnu &&
+          cargo test --target ${{ matrix.target }} -p windows_i686_msvc &&
+          cargo test --target ${{ matrix.target }} -p windows_x86_64_gnu &&
+          cargo test --target ${{ matrix.target }} -p windows_x86_64_msvc &&
+          cargo test --target ${{ matrix.target }} -p test_agile &&
+          cargo test --target ${{ matrix.target }} -p test_agile_reference &&
+          cargo test --target ${{ matrix.target }} -p test_alternate_success_code &&
+          cargo test --target ${{ matrix.target }} -p test_arch &&
+          cargo test --target ${{ matrix.target }} -p test_arch_feature &&
+          cargo test --target ${{ matrix.target }} -p test_bstr &&
+          cargo test --target ${{ matrix.target }} -p test_cfg_generic &&
+          cargo test --target ${{ matrix.target }} -p test_class_factory &&
+          cargo test --target ${{ matrix.target }} -p test_component &&
+          cargo test --target ${{ matrix.target }} -p test_component_client &&
+          cargo test --target ${{ matrix.target }} -p test_const_fields &&
+          cargo clean &&
+          cargo test --target ${{ matrix.target }} -p test_core &&
+          cargo test --target ${{ matrix.target }} -p test_data_object &&
+          cargo test --target ${{ matrix.target }} -p test_debug &&
+          cargo test --target ${{ matrix.target }} -p test_deprecated &&
+          cargo test --target ${{ matrix.target }} -p test_dispatch &&
+          cargo test --target ${{ matrix.target }} -p test_does_not_return &&
+          cargo test --target ${{ matrix.target }} -p test_drop_target &&
+          cargo test --target ${{ matrix.target }} -p test_enums &&
+          cargo test --target ${{ matrix.target }} -p test_error &&
+          cargo test --target ${{ matrix.target }} -p test_event &&
+          cargo test --target ${{ matrix.target }} -p test_handles &&
+          cargo test --target ${{ matrix.target }} -p test_helpers &&
+          cargo test --target ${{ matrix.target }} -p test_identity &&
+          cargo test --target ${{ matrix.target }} -p test_implement &&
+          cargo test --target ${{ matrix.target }} -p test_interface &&
+          cargo test --target ${{ matrix.target }} -p test_interop &&
+          cargo test --target ${{ matrix.target }} -p test_lib &&
+          cargo test --target ${{ matrix.target }} -p test_map &&
+          cargo test --target ${{ matrix.target }} -p test_matrix3x2 &&
+          cargo test --target ${{ matrix.target }} -p test_metadata &&
+          cargo test --target ${{ matrix.target }} -p test_mshtml &&
+          cargo test --target ${{ matrix.target }} -p test_not_dll &&
+          cargo test --target ${{ matrix.target }} -p test_no_use &&
+          cargo test --target ${{ matrix.target }} -p test_ntstatus &&
+          cargo test --target ${{ matrix.target }} -p test_properties &&
+          cargo test --target ${{ matrix.target }} -p test_query_signature &&
+          cargo test --target ${{ matrix.target }} -p test_return_struct &&
+          cargo test --target ${{ matrix.target }} -p test_string_param &&
+          cargo test --target ${{ matrix.target }} -p test_structs &&
+          cargo test --target ${{ matrix.target }} -p test_sys &&
+          cargo test --target ${{ matrix.target }} -p test_unions &&
+          cargo test --target ${{ matrix.target }} -p test_vector &&
+          cargo test --target ${{ matrix.target }} -p test_weak &&
+          cargo test --target ${{ matrix.target }} -p test_weak_ref &&
+          cargo test --target ${{ matrix.target }} -p test_win32 &&
+          cargo test --target ${{ matrix.target }} -p test_win32_arrays &&
+          cargo test --target ${{ matrix.target }} -p test_winrt &&
+          cargo test --target ${{ matrix.target }} -p tool_bindings &&
+          cargo test --target ${{ matrix.target }} -p tool_gnu &&
+          cargo test --target ${{ matrix.target }} -p tool_ilrs &&
+          cargo test --target ${{ matrix.target }} -p tool_msvc &&
+          cargo test --target ${{ matrix.target }} -p tool_sys &&
+          cargo test --target ${{ matrix.target }} -p tool_windows &&
+          cargo test --target ${{ matrix.target }} -p tool_yml
 
-    - name: Check import libs
-      shell: pwsh
-      run: |
-        $VisualStudioRoot = & vswhere -latest -property installationPath -format value
-        $DumpbinPath = Resolve-Path "$VisualStudioRoot\VC\Tools\MSVC\*\bin\*\x86\dumpbin.exe" |
-          Select -ExpandProperty Path -First 1
-        $Tests = @(
-          [Tuple]::Create("aarch64_msvc","AA64"),
-          [Tuple]::Create("x86_64_msvc","8664"),
-          [Tuple]::Create("i686_msvc","14C")
-        )
-        foreach($Test in $Tests) {
-          $Target = $Test.Item1
-          $Magic = $Test.Item2
-          $Output = [string](& $DumpbinPath /headers crates/targets/$Target/lib/windows.lib)
-          if($Output -match "Machine\s*: $Magic" -ne $True) {
-            Write-Error "Import lib check failed for $Target ($Magic)."
-            Exit 1
+      - name: Check import libs
+        shell: pwsh
+        run: |
+          $VisualStudioRoot = & vswhere -latest -property installationPath -format value
+          $DumpbinPath = Resolve-Path "$VisualStudioRoot\VC\Tools\MSVC\*\bin\*\x86\dumpbin.exe" |
+            Select -ExpandProperty Path -First 1
+          $Tests = @(
+            [Tuple]::Create("aarch64_msvc","AA64"),
+            [Tuple]::Create("x86_64_msvc","8664"),
+            [Tuple]::Create("i686_msvc","14C")
+          )
+          foreach($Test in $Tests) {
+            $Target = $Test.Item1
+            $Magic = $Test.Item2
+            $Output = [string](& $DumpbinPath /headers crates/targets/$Target/lib/windows.lib)
+            if($Output -match "Machine\s*: $Magic" -ne $True) {
+              Write-Error "Import lib check failed for $Target ($Magic)."
+              Exit 1
+            }
           }
-        }
-      if: matrix.version == 'stable' && matrix.target == 'x86_64-pc-windows-msvc'
-    
+        if: matrix.version == 'stable' && matrix.target == 'x86_64-pc-windows-msvc'

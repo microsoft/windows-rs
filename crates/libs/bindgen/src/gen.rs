@@ -303,7 +303,7 @@ impl<'a> Gen<'a> {
 
             let mut features = cfg_features(cfg, self.namespace);
             if self.windows_extern {
-                features = features.into_iter().filter(|f| !f.starts_with("Windows.")).collect();
+                features.retain(|f| !f.starts_with("Windows."));
             }
             for features in features {
                 write!(tokens, r#", `\"{}\"`"#, to_feature(features)).unwrap();
@@ -330,7 +330,7 @@ impl<'a> Gen<'a> {
 
             let mut features = cfg_features(cfg, self.namespace);
             if self.windows_extern {
-                features = features.into_iter().filter(|f| !f.starts_with("Windows.")).collect();
+                features.retain(|f| !f.starts_with("Windows."));
             }
 
             let features = match features.len() {
@@ -355,7 +355,7 @@ impl<'a> Gen<'a> {
             quote! {}
         } else {
             if self.windows_extern {
-                features = features.into_iter().filter(|f| !f.starts_with("Windows.")).collect();
+                features.retain(|f| !f.starts_with("Windows."));
             }
             match features.len() {
                 0 => quote! {},

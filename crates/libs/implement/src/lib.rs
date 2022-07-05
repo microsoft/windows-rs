@@ -278,7 +278,7 @@ impl ImplementAttributes {
                 }
 
                 namespace.push_str(&input.ident.to_string());
-                self.walk_implement(&*input.tree, namespace)?;
+                self.walk_implement(&input.tree, namespace)?;
             }
             UseTree2::Name(_) => {
                 self.implement.push(tree.to_element_type(namespace)?);
