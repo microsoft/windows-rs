@@ -1,7 +1,10 @@
+use super::*;
+
 #[derive(Default)]
 pub struct Field {
     pub name: String,
-    pub signature: Vec<u8>,
+    pub ty: Type,
+    pub constant: Option<Value>,
 }
 
 impl Field {

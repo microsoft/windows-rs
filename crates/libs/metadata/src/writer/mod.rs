@@ -1,17 +1,21 @@
 mod blobs;
 mod codes;
+pub mod file;
 mod gen;
 mod helpers;
-pub mod pe;
 mod strings;
 mod tables;
+mod r#type;
 mod type_name;
+mod value;
 
 use super::*;
 use blobs::*;
 use codes::*;
 pub use gen::*;
 pub use helpers::*;
+pub use r#type::*;
 use strings::*;
 pub use tables::*;
 pub use type_name::*;
+pub use value::*;

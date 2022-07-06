@@ -223,7 +223,7 @@ impl<'a> Reader<'a> {
     fn row_str(&self, key: Row, column: usize) -> &str {
         self.files[key.file as usize].str(key.row as _, key.table as _, column)
     }
-    fn row_blob(&self, key: Row, column: usize) -> Blob {
+    pub fn row_blob(&self, key: Row, column: usize) -> Blob {
         let file = key.file as usize;
         Blob::new(file, self.files[file].blob(key.row as _, key.table as _, column))
     }

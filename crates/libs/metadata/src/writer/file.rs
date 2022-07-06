@@ -1,5 +1,4 @@
 use super::*;
-use windows_sys::{Win32::System::Diagnostics::Debug::*, Win32::System::SystemServices::*};
 
 pub fn write(filename: &str, tables: Tables) {
     let mut dos: IMAGE_DOS_HEADER = unsafe { zeroed() };
